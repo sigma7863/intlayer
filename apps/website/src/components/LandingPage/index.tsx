@@ -101,6 +101,19 @@ export const LandingPage: FC = () => (
         <div className="pointer-events-none absolute inset-x-0 top-0 h-4 bg-background [clip-path:polygon(0_0,100%_0,0_100%)]" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-4 bg-background [clip-path:polygon(100%_0,100%_100%,0_100%)]" />
       </div>
+      <a
+        href="https://showmebest.ai"
+        className="scale-10 opacity-10"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          src="https://showmebest.ai/badge/feature-badge-white.webp"
+          alt="Featured on ShowMeBestAI"
+          width="220"
+          height="60"
+        />
+      </a>
 
       <DynamicFeatureFlagsSection />
       <DynamicAvailableTechnoSection />
