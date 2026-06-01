@@ -1,6 +1,1 @@
-<!-- Favicon for Storybook preview iframe (standalone docs/previews) -->
-<link rel="icon" href="https://github.com/aymericzip/intlayer/raw/refs/heads/main/packages/@intlayer/design-system/src/components/Logo/logo.svg" type="image/svg+xml" />
-<link rel="shortcut icon" href="https://github.com/aymericzip/intlayer/raw/refs/heads/main/packages/@intlayer/design-system/src/components/Logo/logo.svg" />
-<meta name="theme-color" content="#ffffff" />
-
-
+<link href="https://github.com/aymericzip/intlayer/raw/refs/heads/main/packages/@intlayer/design-system/src/components/Logo/logo.svg" rel="icon" type="image/svg+xml"/><link href="https://github.com/aymericzip/intlayer/raw/refs/heads/main/packages/@intlayer/design-system/src/components/Logo/logo.svg" rel="shortcut icon"/><meta content="#ffffff" name="theme-color"/>
