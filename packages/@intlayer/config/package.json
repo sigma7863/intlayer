@@ -163,7 +163,7 @@
     "@intlayer/types": "workspace:*",
     "defu": "6.1.7",
     "dotenv": "17.4.2",
-    "esbuild": "0.28.0",
+    "esbuild": "0.28.1",
     "json5": "2.2.3",
     "zod": "4.4.3"
   },
