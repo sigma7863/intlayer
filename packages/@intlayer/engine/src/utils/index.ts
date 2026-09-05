@@ -10,6 +10,7 @@ export * from './getPathHash';
 export * from './mergeChunks';
 export * from './parallelize';
 export * from './parallelizeGlobal';
+export * from './parseContentDeclarationFileName';
 export * from './pLimit';
 export * from './reduceObjectFormat';
 export * from './resolveObjectPromises';

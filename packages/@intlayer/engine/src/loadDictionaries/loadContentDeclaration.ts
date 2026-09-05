@@ -104,7 +104,7 @@ export const loadContentDeclaration = async (
   options?: LoadContentDeclarationOptions
 ): Promise<Dictionary | undefined> => {
   if (extname(path) === '.md' || extname(path) === '.mdx') {
-    return loadMarkdownContentDeclaration(path);
+    return loadMarkdownContentDeclaration(path, configuration);
   }
 
   if (extname(path) === '.yaml' || extname(path) === '.yml') {

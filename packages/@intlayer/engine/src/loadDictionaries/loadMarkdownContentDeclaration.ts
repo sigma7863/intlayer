@@ -1,8 +1,9 @@
 import { readFile } from 'node:fs/promises';
-import { basename } from 'node:path';
 import { getMarkdownMetadata } from '@intlayer/core/markdown';
+import type { IntlayerConfig } from '@intlayer/types/config';
 import type { Dictionary } from '@intlayer/types/dictionary';
 import { MARKDOWN } from '@intlayer/types/nodeType';
+import { parseContentDeclarationFileName } from '../utils/parseContentDeclarationFileName';
 
 type MarkdownFrontmatter = {
   key?: string;
@@ -19,15 +20,20 @@ type MarkdownFrontmatter = {
 };
 
 export const loadMarkdownContentDeclaration = async (
-  path: string
+  path: string,
+  configuration: IntlayerConfig
 ): Promise<Dictionary | undefined> => {
   try {
     const fileContent = await readFile(path, 'utf-8');
     const frontmatter = getMarkdownMetadata<MarkdownFrontmatter>(fileContent);
 
-    // Derive key from filename (e.g. "my-doc.content.md" → "my-doc") if not in frontmatter
-    const fileName = basename(path).replace(/\.content\.md$/, '');
-    const key = frontmatter.key ?? fileName;
+    // Derive key and locale from the file name (e.g. "my-doc.fr.content.md" →
+    // key "my-doc", locale "fr") for whatever the frontmatter does not declare
+    const fileNameDeclaration = parseContentDeclarationFileName(
+      path,
+      configuration
+    );
+    const key = frontmatter.key ?? fileNameDeclaration.key;
 
     if (!key) {
       console.error(
@@ -38,7 +44,7 @@ export const loadMarkdownContentDeclaration = async (
 
     const {
       key: _key,
-      locale,
+      locale: frontmatterLocale,
       title,
       description,
       tags,
@@ -48,6 +54,8 @@ export const loadMarkdownContentDeclaration = async (
       priority,
       version,
     } = frontmatter;
+
+    const locale = frontmatterLocale ?? fileNameDeclaration.locale;
 
     return {
       key,

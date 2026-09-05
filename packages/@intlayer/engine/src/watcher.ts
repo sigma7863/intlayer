@@ -1,6 +1,6 @@
 import { existsSync, watch as fsWatch } from 'node:fs';
 import { readFile } from 'node:fs/promises';
-import { basename, dirname, resolve } from 'node:path';
+import { basename, dirname, extname, resolve } from 'node:path';
 import * as ANSIColor from '@intlayer/config/colors';
 import { transpileTSToCJS } from '@intlayer/config/file';
 import { colorize, getAppLogger } from '@intlayer/config/logger';
@@ -21,7 +21,11 @@ import { handleContentDeclarationFileChange } from './handleContentDeclarationFi
 import { handleContentDeclarationFileMoved } from './handleContentDeclarationFileMoved';
 import { handleUnlinkedContentDeclarationFile } from './handleUnlinkedContentDeclarationFile';
 import { prepareIntlayer } from './prepareIntlayer';
-import { formatPath } from './utils';
+import {
+  formatPath,
+  getFormatFromExtension,
+  parseContentDeclarationFileName,
+} from './utils';
 import { writeContentDeclaration } from './writeContentDeclaration';
 
 // Map to track files that were recently unlinked: oldPath -> { timer, timestamp }
@@ -312,16 +316,28 @@ export const watch = async (options?: WatchOptions) => {
               const isEmpty = fileContent === '';
 
               if (isEmpty) {
-                const extensionPattern = fileExtensions
-                  .map((ext) => ext.replace(/\./g, '\\.'))
-                  .join('|');
-                const name = fileName.replace(
-                  new RegExp(`(${extensionPattern})$`),
-                  ''
+                const { key, locale } = parseContentDeclarationFileName(
+                  filePath,
+                  configuration
                 );
 
+                // A markdown declaration carries a single locale body, so it
+                // must always state which locale it holds.
+                const isMarkdown =
+                  getFormatFromExtension(extname(filePath)) === 'md';
+                const declaredLocale =
+                  locale ??
+                  (isMarkdown
+                    ? configuration.internationalization.defaultLocale
+                    : undefined);
+
                 await writeContentDeclaration(
-                  { key: name, content: {}, filePath },
+                  {
+                    key,
+                    ...(declaredLocale && { locale: declaredLocale }),
+                    content: {},
+                    filePath,
+                  },
                   configuration
                 );
               }
