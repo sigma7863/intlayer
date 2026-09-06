@@ -67,7 +67,13 @@ const resolveEsmPath = (specifier: string): string => {
   const packageJson = compatRequire(`${packageName}/package.json`) as {
     exports?: Record<
       string,
-      string | { import?: string; require?: string; default?: string }
+      | string
+      | {
+          'react-server'?: string;
+          import?: string;
+          require?: string;
+          default?: string;
+        }
     >;
   };
   const packageDir = dirname(
@@ -84,6 +90,32 @@ const resolveEsmPath = (specifier: string): string => {
   if (!relativeFile) return compatRequire.resolve(specifier);
 
   return resolve(packageDir, relativeFile);
+};
+
+/**
+ * Absolute path of a specifier's `react-server` export condition, when the
+ * package declares one.
+ *
+ * Aliasing to a file bypasses the package's `exports` map, so the condition
+ * would never be consulted — the alias itself has to carry it. Without this,
+ * every Server Component resolves the client build of `useTranslations`, gets
+ * pulled across the client boundary, and drags its dictionary into a chunk
+ * Next shares across every locale.
+ */
+const resolveReactServerPath = (specifier: string): string | undefined => {
+  const { packageName, exportKey } = splitSpecifier(specifier);
+  const packageJson = compatRequire(`${packageName}/package.json`) as {
+    exports?: Record<string, string | { 'react-server'?: string }>;
+  };
+  const packageDir = dirname(
+    compatRequire.resolve(`${packageName}/package.json`)
+  );
+
+  const exportEntry = packageJson.exports?.[exportKey];
+  const relativeFile =
+    typeof exportEntry === 'string' ? undefined : exportEntry?.['react-server'];
+
+  return relativeFile ? resolve(packageDir, relativeFile) : undefined;
 };
 
 /**
@@ -144,23 +176,41 @@ export const createNextIntlPlugin = (_i18nPath?: string) => {
 
     const resolvedTargets = ALIAS_ENTRIES.map(({ request, replacement }) => ({
       request,
-      absolutePath: resolveEsmPath(replacement),
+      replacement,
+      hasReactServerBuild: Boolean(resolveReactServerPath(replacement)),
     }));
 
-    // Webpack resolves aliases from absolute paths.
+    /**
+     * Aliasing to a resolved *file* pins one build of the target and bypasses
+     * its `exports` map — so the `react-server` condition is never consulted
+     * and a Server Component silently gets the client build of
+     * `useTranslations`. That drags every component calling it across the
+     * client boundary, and with it the multi-locale dictionary, into a chunk
+     * Next serves to every locale.
+     *
+     * Aliasing to the package specifier instead lets the bundler resolve
+     * normally, so each layer picks its own condition.
+     */
+    const aliasTarget = ({
+      replacement,
+      hasReactServerBuild,
+    }: {
+      replacement: string;
+      hasReactServerBuild: boolean;
+    }) =>
+      hasReactServerBuild
+        ? replacement
+        : toTurbopackAlias(resolveEsmPath(replacement));
+
     const webpackAlias = Object.fromEntries(
-      resolvedTargets.map(({ request, absolutePath }) => [
+      resolvedTargets.map(({ request, replacement, hasReactServerBuild }) => [
         request,
-        absolutePath,
+        hasReactServerBuild ? replacement : resolveEsmPath(replacement),
       ])
     );
 
-    // Turbopack only honours project-root-relative `./` paths.
     const turboAlias = Object.fromEntries(
-      resolvedTargets.map(({ request, absolutePath }) => [
-        request,
-        toTurbopackAlias(absolutePath),
-      ])
+      resolvedTargets.map((target) => [target.request, aliasTarget(target)])
     );
 
     const aliasConfig = {
