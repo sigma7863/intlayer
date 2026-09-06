@@ -1,10 +1,12 @@
 import {
   ATTRIBUTES_TO_SANITIZE,
   CAPTURE_LETTER_AFTER_HYPHEN,
+  CR_NEWLINE_R,
   FENCE_DELIMITER_R,
+  FORMFEED_R,
   HTML_CUSTOM_ATTR_R,
   INTERPOLATION_R,
-  NORMALIZE_WHITESPACE_R,
+  TAB_R,
   TABLE_CENTER_ALIGN,
   TABLE_LEFT_ALIGN,
   TABLE_RIGHT_ALIGN,
@@ -177,22 +179,22 @@ export const sanitizer = (input: string): string | null => {
 export const normalizeWhitespace = (source: string): string => {
   // Three `indexOf` probes beat one character-class regex here by a wide margin:
   // each is a native memchr over the source, and none of them normally match.
-  if (
-    source.indexOf('\r') === -1 &&
-    source.indexOf('\t') === -1 &&
-    source.indexOf('\f') === -1
-  ) {
-    return source;
+  // Each probe guards its own replacement too, so a source carrying only tabs —
+  // the usual case — never rewrites for the other two, and every replacement is
+  // a constant string instead of a callback the engine has to re-enter.
+  let normalized = source;
+
+  if (normalized.indexOf('\t') !== -1) {
+    normalized = normalized.replace(TAB_R, '    ');
+  }
+  if (normalized.indexOf('\r') !== -1) {
+    normalized = normalized.replace(CR_NEWLINE_R, '\n');
+  }
+  if (normalized.indexOf('\f') !== -1) {
+    normalized = normalized.replace(FORMFEED_R, '');
   }
 
-  // `\r`, `\f` and `\t` are disjoint, so one pass over the source replaces
-  // what used to take three full scans.
-  return source.replace(NORMALIZE_WHITESPACE_R, (match) => {
-    if (match === '\t') return '    ';
-    if (match === '\f') return '';
-
-    return '\n';
-  });
+  return normalized;
 };
 
 /**
@@ -453,6 +455,21 @@ export const parseTableRow = (
   let cellStart = rStart;
   let i = rStart;
 
+  /**
+   * Parse one cell, dropping the padding an aligned table pads it with.
+   *
+   * GFM strips a cell's surrounding whitespace, so trimming is both the correct
+   * output and the cheap one: the padding of a column-aligned table is a large
+   * share of its bytes, and every space handed to `parse` costs a rule dispatch,
+   * a capture and a lookbehind update. `trim` is a native scan, and walking the
+   * padding back from the delimiter in JavaScript instead costs half as much
+   * again as the whole row scan.
+   */
+  const parseCell = (from: number, to: number): ParserResult[] => {
+    const cell = source.slice(from, to).trim();
+    return cell === '' ? [] : parse(cell, state);
+  };
+
   // Cursors on the only three characters that can end a run of ordinary cell
   // text. Each moves forward only, so the row is swept three times in total by
   // `indexOf` — cheaper than re-entering the regex engine once per character
@@ -506,12 +523,12 @@ export const parseTableRow = (
       continue;
     }
     // Cell delimiter: |
-    cells.push(parse(source.slice(cellStart, i), state));
+    cells.push(parseCell(cellStart, i));
     i++;
     cellStart = i;
   }
 
-  cells.push(parse(source.slice(cellStart, rEnd), state));
+  cells.push(parseCell(cellStart, rEnd));
 
   state.inTable = prevInTable;
   return cells;

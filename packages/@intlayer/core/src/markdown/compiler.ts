@@ -552,9 +552,11 @@ const createRules = (
             space <= 8
               ? STRIP_INDENT_REGEXES[space]!
               : new RegExp(`^ {1,${space}}`, 'gm');
-          const content = item
-            .replace(spaceRegex, '')
-            .replace(LIST_ITEM_PREFIX_R, '');
+          // Slicing the prefix off is the same as stripping the item's own
+          // indentation and then its bullet, because the bullet run is greedy:
+          // the first line never keeps a leading space either way. It saves a
+          // second pass of the prefix pattern over every item.
+          const content = item.slice(space).replace(spaceRegex, '');
           const isLastItem = i === items.length - 1;
           const containsBlocks = content.indexOf('\n\n') !== -1;
           const thisItemIsAParagraph =

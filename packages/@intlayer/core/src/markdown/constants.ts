@@ -216,8 +216,12 @@ export const BREAK_LINE_R = /^(?=( {2,}))\1\n/;
 export const BREAK_THEMATIC_R = /^(?:([-*_])( *\1){2,}) *(?:\n *)+\n/;
 
 /** Code block patterns */
+// The body is consumed a whole line at a time rather than character by
+// character: a closing fence only ever starts a line, so the backreference is
+// tested once per line instead of once per character. The trailing `$` branch
+// inside the loop keeps an unterminated fence that ends without a newline.
 export const CODE_BLOCK_FENCED_R =
-  /^(?: {1,3})?(`{3,}|~{3,}) *(\S+)? *([^\n]*?)?\n([\s\S]*?)(?:\1\n?|$)/;
+  /^(?: {1,3})?(`{3,}|~{3,}) *(\S+)? *([^\n]*?)?\n((?:[^\n]*(?:\n|$))*?)(?:\1\n?|$)/;
 export const CODE_BLOCK_R = /^(?: {4}[^\n]+\n*)+(?:\n *)+\n?/;
 /** A single line opening or closing a fenced code block, with its indentation. */
 export const FENCE_DELIMITER_R = /^([ \t]*)(`{3,}|~{3,})/;
@@ -288,8 +292,8 @@ export const REFERENCE_LINK_R = /^\[([^\]]*)\] ?\[([^\]]*)\]/;
 /** Block detection */
 export const SHOULD_RENDER_AS_BLOCK_R = /(\n|^[-*]\s|^#|^ {2,}|^-{2,}|^>\s)/;
 
-/** Every character `normalizeWhitespace` rewrites, so it needs a single pass. */
-export const NORMALIZE_WHITESPACE_R = /\r\n?|\f|\t/g;
+/** Tabs, which `normalizeWhitespace` widens to four spaces. */
+export const TAB_R = /\t/g;
 export const TRIM_STARTING_NEWLINES = /^\n+/;
 export const HTML_LEFT_TRIM_AMOUNT_R = /^\n*([ \t]*)/;
 
@@ -400,7 +404,15 @@ export const generateListRegex = (type: ListType): RegExp => {
     '^( *)(' +
       bullet +
       ') ' +
-      '[\\s\\S]+?(?:\\n{2,}(?! )' +
+      // The body advances a line at a time rather than a character at a time: a
+      // list can only end at a line boundary, so the terminator — the expensive
+      // half, with its two nested lookaheads — is tried once per line instead of
+      // once per character. The step swallows the newline that used to open the
+      // terminator, which is why it now reads `\n+` and not `\n{2,}`, and the
+      // leading lookahead keeps a source with nothing left after the bullet from
+      // matching through a zero-width step.
+      '(?=[\\s\\S])(?:[^\\n]*(?:\\n|$))+?' +
+      '(?:\\n+(?! )' +
       '(?!\\1' +
       bullet +
       ' (?!' +

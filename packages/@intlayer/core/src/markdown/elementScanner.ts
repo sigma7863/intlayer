@@ -25,20 +25,55 @@ const findTagEnd = (source: string, from: number): number => {
   return -1;
 };
 
+/** Fold an ASCII upper-case letter to lower case, leaving anything else alone. */
+const foldAscii = (code: number): number =>
+  code >= 65 && code <= 90 ? code + 32 : code;
+
+/**
+ * Compare `needle` against `source` at `at`, ignoring ASCII case.
+ *
+ * HTML tag names are case-insensitive, and the scanner asks this question once
+ * per `<` it walks past — so it must not allocate. Slicing the candidate out and
+ * lower-casing it built two strings per question, which is what made the tag
+ * walk the most expensive frame in an element-heavy document.
+ */
+const matchesFolded = (source: string, needle: string, at: number): boolean => {
+  for (let index = 0; index < needle.length; index++) {
+    if (
+      foldAscii(source.charCodeAt(at + index)) !==
+      foldAscii(needle.charCodeAt(index))
+    ) {
+      return false;
+    }
+  }
+  return true;
+};
+
+/**
+ * Index of the next `needle` tag at or after `from`, or -1 when there is none
+ * starting before `limit`.
+ *
+ * `limit` is what keeps the nesting walk linear: an opening tag only matters
+ * when it precedes the closing one, so searching past the closing tag walks the
+ * rest of the document — once per element — for an answer that is thrown away.
+ */
 const findTag = (
   source: string,
   needle: string,
   from: number,
-  caseInsensitive: boolean
+  caseInsensitive: boolean,
+  limit: number
 ): number => {
-  if (!caseInsensitive) return source.indexOf(needle, from);
-  const nLen = needle.length;
-  const max = source.length - nLen;
+  if (!caseInsensitive) {
+    const idx = source.indexOf(needle, from);
+    return idx === -1 || idx >= limit ? -1 : idx;
+  }
+  const max = Math.min(limit, source.length - needle.length + 1);
   let pos = from;
-  while (pos <= max) {
+  while (pos < max) {
     const idx = source.indexOf('<', pos);
-    if (idx === -1 || idx > max) return -1;
-    if (source.slice(idx, idx + nLen).toLowerCase() === needle) return idx;
+    if (idx === -1 || idx >= max) return -1;
+    if (matchesFolded(source, needle, idx)) return idx;
     pos = idx + 1;
   }
   return -1;
@@ -110,8 +145,6 @@ export const matchElement = (
 
   const openTag = `<${tagName}`;
   const closeTag = `</${tagName}`;
-  const openTagLower = openTag.toLowerCase();
-  const closeTagLower = closeTag.toLowerCase();
 
   let depth = 1;
   let cursor = contentStart;
@@ -120,22 +153,19 @@ export const matchElement = (
   let end = -1;
 
   while (cursor < len) {
-    const openIdx = findTag(
-      source,
-      customComponent ? openTag : openTagLower,
-      cursor,
-      !customComponent
-    );
-    const closeIdx = findTag(
-      source,
-      customComponent ? closeTag : closeTagLower,
-      cursor,
-      !customComponent
-    );
+    const closeIdx = findTag(source, closeTag, cursor, !customComponent, len);
 
     if (closeIdx === -1) return null;
 
-    if (openIdx !== -1 && openIdx < closeIdx) {
+    const openIdx = findTag(
+      source,
+      openTag,
+      cursor,
+      !customComponent,
+      closeIdx
+    );
+
+    if (openIdx !== -1) {
       const next = source.charCodeAt(openIdx + openTag.length);
       if (
         next === 32 ||
@@ -170,12 +200,8 @@ export const matchElement = (
 
     // (?!</\1>)
     if (
-      findTag(
-        source,
-        customComponent ? closeTag : closeTagLower,
-        closeTagEnd,
-        !customComponent
-      ) === closeTagEnd &&
+      findTag(source, closeTag, closeTagEnd, !customComponent, len) ===
+        closeTagEnd &&
       source.charCodeAt(closeTagEnd + closeTag.length) === 62
     ) {
       depth = 1;
@@ -232,12 +258,14 @@ export const matchSelfClosingElement = (
   }
 
   const tagName = source.slice(nameStart, nameEnd);
-  const closeTag = `</${tagName.toLowerCase()}>`;
   const tailStart = tagEnd + 1;
 
+  // `<tag/></tag>` is a paired element written oddly, not a self-closing one.
   if (
-    source.slice(tailStart, tailStart + closeTag.length).toLowerCase() ===
-    closeTag
+    source.charCodeAt(tailStart) === 60 /* < */ &&
+    source.charCodeAt(tailStart + 1) === 47 /* / */ &&
+    matchesFolded(source, tagName, tailStart + 2) &&
+    source.charCodeAt(tailStart + 2 + tagName.length) === 62 /* > */
   ) {
     return null;
   }

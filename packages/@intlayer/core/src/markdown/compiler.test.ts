@@ -163,6 +163,67 @@ describe('Markdown Core Compiler', () => {
     expect(html).toContain('recent');
   });
 
+  it('should drop the padding an aligned table pads its cells with', () => {
+    const markdown = '| A   | B      |\n| --- | ------ |\n| `x` |  **y** |\n';
+    const html = (compile(markdown, ctx) as any).toString();
+
+    expect(html).toContain('<th key="0" style="[object Object]">A</th>');
+    expect(html).toContain('<code key="0">x</code></td>');
+    expect(html).not.toContain('> A ');
+  });
+
+  it('should only close a fenced code block at a fence starting a line', () => {
+    const html = (
+      compile('```js\nline```\nrest\n```\n', ctx) as any
+    ).toString();
+
+    expect(html).toContain('line```\nrest\n');
+  });
+
+  it('should close a fenced code block left unterminated at the end of the source', () => {
+    const html = (compile('```js\nconst a = 1;', ctx) as any).toString();
+
+    expect(html).toContain('<pre');
+    expect(html).toContain('lang-js');
+    expect(html).toContain('const a = 1;');
+  });
+
+  it('should keep a loose list separated by blank lines as one list', () => {
+    const html = (compile('- one\n\n- two\n', ctx) as any).toString();
+
+    expect(html).toBe(
+      '<ul key="0"><li key="0"><p key="0">one</p>\n</li><li key="1"><p key="0">two</p>\n</li></ul>'
+    );
+  });
+
+  it('should not read a bullet with nothing after it as a list', () => {
+    const html = (compile('- ', ctx) as any).toString();
+
+    expect(html).toBe('<p key="0">-</p>');
+  });
+
+  it('should close an HTML block whose tags disagree in case', () => {
+    const html = (compile('<DIV>\n\nhello\n\n</div>\n', ctx) as any).toString();
+
+    expect(html).toContain('<DIV key="0">');
+    expect(html).toContain('<p key="1">hello</p>');
+  });
+
+  it('should pair each HTML block with its own closing tag when they nest', () => {
+    const markdown = '<div>\n\na\n\n<div>\n\nb\n\n</div>\n\n</div>\n';
+    const html = (compile(markdown, ctx) as any).toString();
+
+    expect(html).toContain('<p key="1">a</p>');
+    expect(html).toContain('<p key="1">b</p>');
+    expect(html.match(/<div /g)).toHaveLength(2);
+  });
+
+  it('should not read a self-closing tag followed by its own closing tag as self-closing', () => {
+    const html = (compile('<span/></span>\n', ctx) as any).toString();
+
+    expect(html).toContain('<span/></span>');
+  });
+
   it('should not backtrack exponentially through nested tags carrying long attribute lists', () => {
     // Every character of an inner opening tag must have a single way to be
     // read; two readings of the same character turn this into 2^n paths.
