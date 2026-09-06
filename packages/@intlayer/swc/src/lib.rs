@@ -253,6 +253,7 @@ pub fn process_transform(
         &pre_pass.packages_with_dynamic_call,
         &pre_pass.packages_with_fetch_call,
         extra_use_dynamic_helpers,
+        &pre_pass.root_scope,
     );
     program.visit_mut_with(&mut visitor);
 

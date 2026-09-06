@@ -5,17 +5,20 @@
 use crate::{
     ast::{
         callee_ident_name, imported_specifier_name, make_hashed_ident, make_ident, make_ident_arg,
-        make_string_arg, read_static_string, split_namespace,
+        make_str, make_string_arg, read_static_string, split_namespace,
     },
     config::ExtraCallerConfig,
     extra_caller::{resolve_extra_namespace, rewrite_namespace_option, ExtraNamespaceMatch},
     packages::{GET_INTLAYER_ASYNC, PACKAGE_LIST, PACKAGE_LIST_DYNAMIC},
-    pre_pass::CallerMap,
+    pre_pass::{CallerMap, RootScopeMap},
 };
 use std::collections::{BTreeMap, HashSet};
-use swc_core::ecma::{
-    ast::*,
-    visit::{VisitMut, VisitMutWith},
+use swc_core::{
+    common::DUMMY_SP,
+    ecma::{
+        ast::*,
+        visit::{VisitMut, VisitMutWith},
+    },
 };
 
 /// Per-call import mode. Dynamic and fetch resolve to the same helper but to
@@ -82,6 +85,8 @@ pub struct TransformVisitor<'a> {
     /// per-dictionary override flips all rewritten compat calls to the
     /// dynamic helper.
     extra_use_dynamic_helpers: bool,
+    /// Resolvable `const t = useTranslations()` bindings from the pre-pass.
+    root_scope: &'a RootScopeMap,
     /// Imports collected during the traversal, injected afterwards.
     pub injected_imports: InjectedImports,
 }
@@ -95,6 +100,7 @@ impl<'a> TransformVisitor<'a> {
         packages_with_dynamic_call: &'a HashSet<String>,
         packages_with_fetch_call: &'a HashSet<String>,
         extra_use_dynamic_helpers: bool,
+        root_scope: &'a RootScopeMap,
     ) -> Self {
         Self {
             import_mode,
@@ -104,8 +110,40 @@ impl<'a> TransformVisitor<'a> {
             packages_with_dynamic_call,
             packages_with_fetch_call,
             extra_use_dynamic_helpers,
+            root_scope,
             injected_imports: InjectedImports::default(),
         }
+    }
+
+    /// Import kind a compat call site resolves to for `dictionary_key`.
+    fn extra_import_kind(&self, dictionary_key: &str) -> ImportKind {
+        if self.extra_use_dynamic_helpers {
+            self.dictionary_override(dictionary_key)
+                .filter(|kind| kind.is_dynamic_helper())
+                .unwrap_or(match self.import_mode {
+                    ImportKind::Fetch => ImportKind::Fetch,
+                    _ => ImportKind::Dynamic,
+                })
+        } else {
+            ImportKind::Static
+        }
+    }
+
+    /// Deterministic sibling name for the 2nd..nth dictionary of a root scope.
+    fn root_scope_alias(translate_local: &str, dictionary_key: &str) -> Ident {
+        make_hashed_ident(&format!("{translate_local}#{dictionary_key}"), "_ns")
+    }
+
+    /// Turns a namespace-less `useTranslations()` into the dictionary-accepting
+    /// helper for `dictionary_key`, matching the shape the scoped path emits.
+    fn bind_root_scope_call(&mut self, call: &mut CallExpr, dictionary_key: &str) {
+        let import_kind = self.extra_import_kind(dictionary_key);
+        let ident = self.import_ident(dictionary_key, import_kind);
+
+        if import_kind.is_dynamic_helper() {
+            call.args.insert(0, make_string_arg(dictionary_key));
+        }
+        call.args.insert(0, make_ident_arg(ident));
     }
 
     /// Helper family every native call importing from `package` resolves to.
@@ -293,6 +331,61 @@ impl<'a> TransformVisitor<'a> {
 }
 
 impl VisitMut for TransformVisitor<'_> {
+    /// Binds each root-scope declarator to its dictionary, adding a sibling
+    /// declarator for every dictionary beyond the first:
+    ///
+    /// ```js
+    /// const t = useTranslations();            // t("header.home"), t("footer.contact")
+    /// // becomes
+    /// const t = useDictionary(_header), _tFooter = useDictionary(_footer);
+    /// ```
+    fn visit_mut_var_decl(&mut self, var_decl: &mut VarDecl) {
+        var_decl.visit_mut_children_with(self);
+
+        let mut siblings: Vec<VarDeclarator> = Vec::new();
+
+        for declarator in &mut var_decl.decls {
+            let Pat::Ident(binding_ident) = &declarator.name else {
+                continue;
+            };
+            let translate_local = binding_ident.id.sym.to_string();
+            let Some(binding) = self.root_scope.get(&translate_local).cloned() else {
+                continue;
+            };
+            let Some(init) = declarator.init.as_deref_mut() else {
+                continue;
+            };
+            let Expr::Call(call) = init else {
+                continue;
+            };
+
+            // Snapshot before rewriting so each sibling starts from the
+            // original argument list.
+            let original_call = call.clone();
+
+            let Some((first_namespace, rest_namespaces)) = binding.namespaces.split_first() else {
+                continue;
+            };
+            self.bind_root_scope_call(call, first_namespace);
+
+            for dictionary_key in rest_namespaces {
+                let mut sibling_call = original_call.clone();
+                self.bind_root_scope_call(&mut sibling_call, dictionary_key);
+                siblings.push(VarDeclarator {
+                    span: DUMMY_SP,
+                    name: Pat::Ident(BindingIdent {
+                        id: Self::root_scope_alias(&translate_local, dictionary_key),
+                        type_ann: None,
+                    }),
+                    init: Some(Box::new(Expr::Call(sibling_call))),
+                    definite: false,
+                });
+            }
+        }
+
+        var_decl.decls.extend(siblings);
+    }
+
     fn visit_mut_expr(&mut self, expr: &mut Expr) {
         expr.visit_mut_children_with(self);
 
@@ -303,6 +396,28 @@ impl VisitMut for TransformVisitor<'_> {
         let Some(callee_name) = callee_ident_name(&call.callee) else {
             return;
         };
+
+        // `t("footer.github")` -> `t("github")`, re-pointed at the sibling
+        // binding when the dictionary is not the declarator's first one.
+        if let Some(binding) = self.root_scope.get(callee_name).cloned() {
+            let translate_local = callee_name.to_string();
+            if let Some(message_id) = call.args.first().and_then(|arg| read_static_string(&arg.expr))
+            {
+                let (dictionary_key, key) = split_namespace(&message_id);
+                if binding.namespaces.iter().any(|ns| ns == dictionary_key) {
+                    if let Some(first_arg) = call.args.first_mut() {
+                        first_arg.expr = Box::new(Expr::Lit(Lit::Str(make_str(key))));
+                    }
+                    if binding.namespaces.first().map(String::as_str) != Some(dictionary_key) {
+                        call.callee = Callee::Expr(Box::new(Expr::Ident(Self::root_scope_alias(
+                            &translate_local,
+                            dictionary_key,
+                        ))));
+                    }
+                }
+            }
+            return;
+        }
 
         let Some(meta) = self.caller_map.get(callee_name) else {
             return;

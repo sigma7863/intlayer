@@ -31,6 +31,13 @@ export type SwcExtraCallerConfig = {
   staticReplacement: string;
   /** Replacement function name for dynamic/fetch mode, e.g. `"useDictionaryDynamic"`. */
   dynamicReplacement: string;
+  /**
+   * When `true`, a namespace-less call (`useTranslations()`) is still
+   * rewritable: the plugin derives the dictionary from the first segment of
+   * each message id passed to the returned translate function
+   * (`t("footer.github")` → dictionary `footer`, key `github`).
+   */
+  allowRootScope?: boolean;
 };
 
 /**
@@ -64,9 +71,9 @@ const findSource = <F extends CallerValueSource['from']>(
  * Serialises the rewritable callers of a registry slice into the
  * `@intlayer/swc` plugin wire format (`extraCallers` option).
  *
- * Callers whose namespace can only be derived per-message id
- * (`path-first-segment`) are skipped: the transform cannot bind a single
- * dictionary to the call site.
+ * Callers whose namespace can only be derived per-message id are forwarded with
+ * `allowRootScope`, letting the plugin bind the dictionary from the message ids
+ * at the call site instead of skipping the rewrite.
  *
  * @param descriptors - Registry slice, e.g. `REACT_I18NEXT_CALLERS`.
  * @returns Configs ready to pass as `swcExtraCallers` / `extraCallers`.
@@ -79,7 +86,13 @@ export const toSwcExtraCallers = (
     const optionSource = findSource(descriptor.namespaceSources, 'option');
     const fixedSource = findSource(descriptor.namespaceSources, 'fixed');
 
-    if (!argumentSource && !optionSource && !fixedSource) return [];
+    if (
+      !argumentSource &&
+      !optionSource &&
+      !fixedSource &&
+      !descriptor.allowRootScope
+    )
+      return [];
 
     return [
       {
@@ -97,6 +110,7 @@ export const toSwcExtraCallers = (
           : {}),
         staticReplacement: descriptor.staticReplacement!,
         dynamicReplacement: descriptor.dynamicReplacement!,
+        ...(descriptor.allowRootScope ? { allowRootScope: true } : {}),
       },
     ];
   });
