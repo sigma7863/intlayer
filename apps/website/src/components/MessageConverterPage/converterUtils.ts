@@ -12,6 +12,7 @@ import {
   vueI18nToIntlayerFormatter,
 } from '@intlayer/core/messageFormat';
 import type { LocalesValues } from '@intlayer/types/module_augmentation';
+import { parseIntlayerHelperExpression } from './intlayerHelperParser';
 import type { ConversionResult, MessageDialect } from './types';
 
 /**
@@ -34,32 +35,18 @@ export const parseInputContent = (rawInput: string): unknown => {
 };
 
 /**
- * Safely evaluates Intlayer helper function syntax into Intlayer AST nodes.
+ * Parses Intlayer helper function syntax into Intlayer AST nodes.
+ *
+ * The input is user-supplied and is therefore parsed, never executed: only the
+ * literal + helper-call grammar of {@link parseIntlayerHelperExpression} is
+ * accepted. Anything else falls back to being treated as raw content.
  */
 export const parseIntlayerHelperCode = (code: string): unknown => {
   const trimmed = code.trim();
   if (!trimmed) return code;
 
-  const context = {
-    t: (translation: unknown) => ({ nodeType: 'translation', translation }),
-    plural: (plural: unknown) => ({ nodeType: 'plural', plural }),
-    enu: (enumeration: unknown) => ({ nodeType: 'enumeration', enumeration }),
-    cond: (condition: unknown) => ({ nodeType: 'condition', condition }),
-    gender: (gender: unknown) => ({ nodeType: 'gender', gender }),
-    select: (select: unknown, variable?: string) => ({
-      nodeType: 'select',
-      select,
-      ...(variable ? { variable } : {}),
-    }),
-    md: (markdown: unknown) => ({ nodeType: 'markdown', markdown }),
-    html: (html: unknown) => ({ nodeType: 'html', html }),
-  };
-
   try {
-    const keys = Object.keys(context);
-    const values = Object.values(context);
-    const evaluator = new Function(...keys, `return (${trimmed});`);
-    return evaluator(...values);
+    return parseIntlayerHelperExpression(trimmed);
   } catch {
     return parseInputContent(code);
   }
