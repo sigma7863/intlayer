@@ -4,6 +4,7 @@ import {
   LINGUI_CALLERS,
   NEXT_INTL_CALLERS,
   REACT_I18NEXT_CALLERS,
+  REACT_INTL_CALLERS,
   VUE_I18N_CALLERS,
 } from '@intlayer/config/callers';
 import { describe, expect, it, vi } from 'vitest';
@@ -287,6 +288,159 @@ describe('babel-plugin-intlayer-optimize — compat callers', () => {
       );
       expect(output).toContain('useIntlayer(_dicHash_home);');
       expect(output).toContain('useTranslation(_dicHash_about);');
+    });
+  });
+
+  describe('root-scope callers', () => {
+    it('binds single namespace for namespace-less useTranslations()', () => {
+      const code = `
+        import { useTranslations } from "next-intl";
+        const Footer = () => {
+          const t = useTranslations();
+          return t("footer.github") + t("footer.contact");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: NEXT_INTL_CALLERS,
+      });
+
+      expect(output).toContain(
+        'import _dicHash_footer from "../.intlayer/dictionaries/footer.json" with { type: "json" };'
+      );
+      expect(output).toContain(
+        'import { useDictionary as useTranslations } from "next-intl";'
+      );
+      expect(output).toContain('const t = useTranslations(_dicHash_footer);');
+      expect(output).toContain('return t("github") + t("contact");');
+    });
+
+    it('splits multiple namespaces into sibling bindings for useTranslations()', () => {
+      const code = `
+        import { useTranslations } from "next-intl";
+        const Header = () => {
+          const t = useTranslations();
+          return t("header.home") + t("footer.contact");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: NEXT_INTL_CALLERS,
+      });
+
+      expect(output).toContain(
+        'import _dicHash_header from "../.intlayer/dictionaries/header.json" with { type: "json" };'
+      );
+      expect(output).toContain(
+        'import _dicHash_footer from "../.intlayer/dictionaries/footer.json" with { type: "json" };'
+      );
+      expect(output).toContain('useTranslations(_dicHash_header)');
+      expect(output).toContain('_footer = useTranslations(_dicHash_footer)');
+      expect(output).toContain('return t("home") + _footer("contact");');
+    });
+
+    it('binds dot-less id to dictionary root for useTranslations()', () => {
+      const code = `
+        import { useTranslations } from "next-intl";
+        const Banner = () => {
+          const t = useTranslations();
+          return t("mockBanner");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: NEXT_INTL_CALLERS,
+      });
+
+      expect(output).toContain(
+        'import _dicHash_mockBanner from "../.intlayer/dictionaries/mockBanner.json" with { type: "json" };'
+      );
+      expect(output).toContain('useTranslations(_dicHash_mockBanner);');
+      expect(output).toContain('return t("");');
+    });
+
+    it('binds destructured useTranslation() from react-i18next', () => {
+      const code = `
+        import { useTranslation } from "react-i18next";
+        const Header = () => {
+          const { t } = useTranslation();
+          return t("home.title");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: REACT_I18NEXT_CALLERS,
+      });
+
+      expect(output).toContain(
+        'import _dicHash_home from "../.intlayer/dictionaries/home.json" with { type: "json" };'
+      );
+      expect(output).toContain(
+        'import { useDictionary as useTranslation } from "react-i18next";'
+      );
+      expect(output).toContain(
+        'const {\n    t\n  } = useTranslation(_dicHash_home);'
+      );
+      expect(output).toContain('return t("title");');
+    });
+
+    it('leaves useTranslation() untouched when a key is dynamic', () => {
+      const code = `
+        import { useTranslation } from "react-i18next";
+        const C = ({ k }) => {
+          const { t } = useTranslation();
+          return t(k);
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: REACT_I18NEXT_CALLERS,
+      });
+
+      expect(output).toContain(
+        'import { useTranslation } from "react-i18next";'
+      );
+      expect(output).toContain('const {\n    t\n  } = useTranslation();');
+      expect(output).toContain('return t(k);');
+    });
+
+    it('binds useIntl() identifier call formatMessage from react-intl', () => {
+      const code = `
+        import { useIntl } from "react-intl";
+        const Header = () => {
+          const intl = useIntl();
+          return intl.formatMessage({ id: "home.title" });
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: REACT_INTL_CALLERS,
+      });
+
+      expect(output).toContain(
+        'import _dicHash_home from "../.intlayer/dictionaries/home.json" with { type: "json" };'
+      );
+      expect(output).toContain(
+        'import { useDictionary as useIntl } from "react-intl";'
+      );
+      expect(output).toContain('const intl = useIntl(_dicHash_home);');
+      expect(output).toContain('id: "title"');
+    });
+
+    it('binds destructured formatMessage from useIntl()', () => {
+      const code = `
+        import { useIntl } from "react-intl";
+        const Header = () => {
+          const { formatMessage } = useIntl();
+          return formatMessage({ id: "home.title" });
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: REACT_INTL_CALLERS,
+      });
+
+      expect(output).toContain(
+        'import _dicHash_home from "../.intlayer/dictionaries/home.json" with { type: "json" };'
+      );
+      expect(output).toContain(
+        'import { useDictionary as useIntl } from "react-intl";'
+      );
+      expect(output).toContain('formatMessage\n  } = useIntl(_dicHash_home);');
+      expect(output).toContain('id: "title"');
     });
   });
 });

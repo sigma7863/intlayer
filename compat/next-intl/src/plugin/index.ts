@@ -1,6 +1,6 @@
 import { createRequire } from 'node:module';
 import { dirname, join, relative, resolve, sep } from 'node:path';
-import { NEXT_INTL_CALLERS, toSwcExtraCallers } from '@intlayer/config/callers';
+import { NEXT_INTL_CALLERS } from '@intlayer/config/callers';
 import * as ANSIColors from '@intlayer/config/colors';
 import { colorize, getAppLogger } from '@intlayer/config/logger';
 import { getConfiguration } from '@intlayer/config/node';
@@ -132,13 +132,6 @@ const toTurbopackAlias = (absolutePath: string): string =>
   `./${relative(process.cwd(), absolutePath).split(sep).join('/')}`;
 
 /**
- * SWC extra-caller configs derived from the shared caller registry
- * (`@intlayer/config/callers`) — the single source of truth also consumed by
- * the babel analyzer/optimizer and the LSP.
- */
-const NEXT_INTL_SWC_CALLERS = toSwcExtraCallers(NEXT_INTL_CALLERS);
-
-/**
  * A Next.js plugin for next-intl compat that wraps next-intlayer's plugin
  * and configures resolve aliases so `next-intl` imports are served by
  * `@intlayer/next-intl`.
@@ -255,7 +248,7 @@ export const createNextIntlPlugin = (_i18nPath?: string) => {
     }
 
     const configOptions = hasUserDefinedStorage
-      ? { swcExtraCallers: NEXT_INTL_SWC_CALLERS }
+      ? { compatCallers: NEXT_INTL_CALLERS }
       : {
           override: {
             routing: {
@@ -265,7 +258,7 @@ export const createNextIntlPlugin = (_i18nPath?: string) => {
               ],
             },
           },
-          swcExtraCallers: NEXT_INTL_SWC_CALLERS,
+          compatCallers: NEXT_INTL_CALLERS,
         };
 
     return withIntlayer(mergedConfig, configOptions);

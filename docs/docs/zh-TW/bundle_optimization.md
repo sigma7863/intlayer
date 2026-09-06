@@ -133,8 +133,6 @@ export default config;
 
 > 清除與壓縮僅在 `next build` 時執行 —— 最佳化流水線在 `next dev` 期間是關閉的。
 
-> 當設定了相容轉接器呼叫方時它們也會被停用（`swcExtraCallers`，由 `@intlayer/next-intl`、`@intlayer/react-i18next` 等相容套件設定）：這些呼叫點對使用分析器不可見，因此清除會移除程式碼仍在讀取的欄位。匯入重寫仍保持啟用。
-
 **更早的版本（9.2.1 之前）** 需要 `@intlayer/babel` 以及一個宣告 `intlayerPurgeBabelPlugin` 與 `intlayerMinifyBabelPlugin` 的 `babel.config.js`。該檔案不再需要，可以刪除。
 
  </Tab>

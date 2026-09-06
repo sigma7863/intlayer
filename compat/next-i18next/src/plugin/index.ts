@@ -1,9 +1,6 @@
 import { createRequire } from 'node:module';
 import { dirname, join, relative, resolve, sep } from 'node:path';
-import {
-  REACT_I18NEXT_CALLERS,
-  toSwcExtraCallers,
-} from '@intlayer/config/callers';
+import { REACT_I18NEXT_CALLERS } from '@intlayer/config/callers';
 import * as ANSIColors from '@intlayer/config/colors';
 import { colorize, getAppLogger } from '@intlayer/config/logger';
 import { getConfiguration } from '@intlayer/config/node';
@@ -95,41 +92,6 @@ const toTurbopackAlias = (absolutePath: string): string =>
   `./${relative(process.cwd(), absolutePath).split(sep).join('/')}`;
 
 /**
- * SWC extra-caller configs derived from the shared caller registry
- * (`@intlayer/config/callers`) — the single source of truth also consumed by
- * the babel analyzer/optimizer and the LSP.
- */
-const NEXT_I18NEXT_SWC_CALLERS = toSwcExtraCallers(REACT_I18NEXT_CALLERS);
-
-/**
- * Disables the SWC `replaceDictionaryEntry` optimization on the resolved Next.js
- * config so the runtime dictionary registry stays populated. Mutates the
- * `@intlayer/swc` plugin options in place (both webpack and Turbopack read the
- * same `experimental.swcPlugins` entry).
- *
- * @param config - The Next.js config returned by `withIntlayer`.
- */
-const keepDictionaryRegistry = (config: NextConfig): void => {
-  const swcPlugins = (
-    config.experimental as { swcPlugins?: unknown[] } | undefined
-  )?.swcPlugins;
-  if (!Array.isArray(swcPlugins)) return;
-
-  for (const plugin of swcPlugins) {
-    if (!Array.isArray(plugin)) continue;
-    const [pluginPath, pluginOptions] = plugin as [unknown, unknown];
-    if (
-      typeof pluginPath === 'string' &&
-      pluginPath.includes('@intlayer/swc') &&
-      pluginOptions !== null &&
-      typeof pluginOptions === 'object'
-    ) {
-      (pluginOptions as Record<string, unknown>).replaceDictionaryEntry = false;
-    }
-  }
-};
-
-/**
  * A Next.js plugin for next-i18next compat that wraps next-intlayer's plugin
  * and configures resolve aliases so `next-i18next` imports are served by
  * `@intlayer/next-i18next`.
@@ -212,21 +174,9 @@ export const createNextI18nPlugin = (_i18nPath?: string) => {
       },
     };
 
-    const finalConfig = await withIntlayer(mergedConfig, {
-      swcExtraCallers: NEXT_I18NEXT_SWC_CALLERS,
+    return await withIntlayer(mergedConfig, {
+      compatCallers: REACT_I18NEXT_CALLERS,
     });
-
-    // i18next exposes runtime namespace APIs (`i18n.getFixedT(locale, ns)`,
-    // `t('ns:key')`) that resolve dictionaries at runtime through `getIntlayer`.
-    // Unlike `useTranslation('ns')`, these are not statically analyzable, so the
-    // SWC cannot rewrite them to direct dictionary imports. The build optimization
-    // normally empties the runtime dictionary registry (`replaceDictionaryEntry`),
-    // which would make those APIs fall back to raw keys on the server. Keeping the
-    // registry populated restores them; statically analyzable call sites are still
-    // rewritten to direct imports, so client bundles stay tree-shaken.
-    keepDictionaryRegistry(finalConfig);
-
-    return finalConfig;
   };
 };
 

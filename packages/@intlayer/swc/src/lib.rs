@@ -41,6 +41,22 @@
 //! 3. [`optimize`] – rewrite the call sites and import specifiers.
 //! 4. [`imports`] – inject the dictionary imports the rewrite created.
 //!
+//! ## Compat adapters
+//!
+//! Steps 2 and 3 recognise the base intlayer getters only. The compat adapters
+//! (`@intlayer/react-i18next`, `@intlayer/next-intl`, …) reach the plugin as
+//! `extraCallers` descriptors injected by their own bundler plugin, and every
+//! adapter-specific decision lives behind them:
+//!
+//! - [`extra_caller`] – matching a compat caller, resolving its namespace, and
+//!   rewriting its call sites and import specifiers.
+//! - [`root_scope`] – the namespace-less `const t = useTranslations()` form,
+//!   whose dictionaries are named by the message ids passed to `t`.
+//!
+//! With no `extraCallers` configured, [`optimize`] holds no
+//! [`extra_caller::ExtraCallerContext`] at all, so none of that code runs and
+//! the base rewrite behaves exactly as if the adapters did not exist.
+//!
 //! ## Division of labour with the JavaScript side
 //!
 //! Purging unused fields and assigning short aliases require reading every
@@ -100,6 +116,7 @@
 pub mod ast;
 pub mod config;
 pub mod dictionary_entry;
+pub mod dictionary_imports;
 pub mod extra_caller;
 pub mod field_rename;
 pub mod imports;
@@ -108,6 +125,7 @@ pub mod optimize;
 pub mod packages;
 pub mod paths;
 pub mod pre_pass;
+pub mod root_scope;
 
 #[cfg(test)]
 mod tests;
@@ -120,9 +138,11 @@ pub use paths::normalize_path;
 
 use crate::{
     dictionary_entry::build_empty_dictionaries_entry,
+    dictionary_imports::ImportKind,
+    extra_caller::ExtraCallerContext,
     imports::{inject_dictionary_imports, DictionaryDirs},
     logger::{Logger, TransformSummary},
-    optimize::{ImportKind, TransformVisitor},
+    optimize::TransformVisitor,
     pre_pass::run_pre_pass,
 };
 use std::collections::HashSet;
@@ -159,12 +179,15 @@ fn resolve_working_filename(
         return Some(normalized_filename);
     }
 
-    let Some(matched) = files_list.iter().map(|target| normalize_path(target)).find(
-        |normalized_target| {
-            normalized_filename.ends_with(normalized_target)
-                || normalized_target.ends_with(&normalized_filename)
-        },
-    ) else {
+    let Some(matched) =
+        files_list
+            .iter()
+            .map(|target| normalize_path(target))
+            .find(|normalized_target| {
+                normalized_filename.ends_with(normalized_target)
+                    || normalized_target.ends_with(&normalized_filename)
+            })
+    else {
         logger.debug(format!("skipping {} (not in filesList)", filename_raw));
         return None;
     };
@@ -241,18 +264,24 @@ pub fn process_transform(
     // Step 2 — discover callers and the file-level dynamic decision.
     let pre_pass = run_pre_pass(&program, &dictionary_mode_map, &cfg.extra_callers);
 
-    let extra_use_dynamic_helpers =
-        import_mode != ImportKind::Static || pre_pass.extra_has_dynamic_call;
+    // Compat adapters plug in here and nowhere else: with no `extraCallers`
+    // configured the context stays `None` and the optimize transform runs the
+    // base intlayer rewrite untouched.
+    let extra_caller_context = (!cfg.extra_callers.is_empty()).then(|| ExtraCallerContext {
+        extra_callers: &cfg.extra_callers,
+        dictionary_mode_map: &dictionary_mode_map,
+        import_mode,
+        use_dynamic_helpers: import_mode != ImportKind::Static || pre_pass.extra_has_dynamic_call,
+    });
 
     // Step 3 — rewrite the call sites and import specifiers.
     let mut visitor = TransformVisitor::new(
         import_mode,
         &dictionary_mode_map,
-        &cfg.extra_callers,
         &pre_pass.caller_map,
         &pre_pass.packages_with_dynamic_call,
         &pre_pass.packages_with_fetch_call,
-        extra_use_dynamic_helpers,
+        extra_caller_context,
         &pre_pass.root_scope,
     );
     program.visit_mut_with(&mut visitor);

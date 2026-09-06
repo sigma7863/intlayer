@@ -41,22 +41,26 @@ export type SwcExtraCallerConfig = {
 };
 
 /**
- * Returns the callers of a registry slice that the optimize pass can rewrite
- * at build time: plain imported functions carrying both replacement names.
+ * Whether the optimize pass can rewrite this caller's call sites at build time.
  *
- * Method-matched callers (`i18n.getFixedT`) and JSX components are excluded —
- * their call sites cannot be re-pointed through an import specifier rename.
+ * Requires both replacement names and a call shape reachable through an import
+ * specifier rename. Method-matched callers (`i18n.getFixedT`, `intl.formatMessage`)
+ * and JSX components (`<Trans>`, `<FormattedMessage>`) are excluded — their call
+ * sites keep resolving through the runtime dictionary registry.
+ */
+export const isRewritableCaller = (descriptor: CallerDescriptor): boolean =>
+  descriptor.staticReplacement !== undefined &&
+  descriptor.dynamicReplacement !== undefined &&
+  descriptor.matchAsMethod !== true &&
+  descriptor.jsxIdAttribute === undefined;
+
+/**
+ * Returns the callers of a registry slice that the optimize pass can rewrite
+ * at build time. See {@link isRewritableCaller}.
  */
 export const getRewritableCallers = (
   descriptors: CallerDescriptor[]
-): CallerDescriptor[] =>
-  descriptors.filter(
-    (descriptor) =>
-      descriptor.staticReplacement !== undefined &&
-      descriptor.dynamicReplacement !== undefined &&
-      descriptor.matchAsMethod !== true &&
-      descriptor.jsxIdAttribute === undefined
-  );
+): CallerDescriptor[] => descriptors.filter(isRewritableCaller);
 
 const findSource = <F extends CallerValueSource['from']>(
   sources: CallerValueSource[],
@@ -76,7 +80,7 @@ const findSource = <F extends CallerValueSource['from']>(
  * at the call site instead of skipping the rewrite.
  *
  * @param descriptors - Registry slice, e.g. `REACT_I18NEXT_CALLERS`.
- * @returns Configs ready to pass as `swcExtraCallers` / `extraCallers`.
+ * @returns Configs ready to pass as the plugin's `extraCallers` option.
  */
 export const toSwcExtraCallers = (
   descriptors: CallerDescriptor[]

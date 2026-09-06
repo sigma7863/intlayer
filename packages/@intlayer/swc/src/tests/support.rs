@@ -186,3 +186,20 @@ pub fn use_translations_root_scope_caller() -> ExtraCallerConfig {
         allow_root_scope: true,
     }
 }
+
+/// react-i18next-style extra caller: destructured `const { t } = useTranslation()`.
+pub fn use_translation_root_scope_caller() -> ExtraCallerConfig {
+    ExtraCallerConfig {
+        caller_name: "useTranslation".to_string(),
+        import_sources: vec![
+            "react-i18next".to_string(),
+            "@intlayer/react-i18next".to_string(),
+        ],
+        namespace_arg_index: Some(0),
+        fixed_namespace: None,
+        namespace_option: None,
+        static_replacement: "useDictionary".to_string(),
+        dynamic_replacement: "useDictionaryDynamic".to_string(),
+        allow_root_scope: true,
+    }
+}

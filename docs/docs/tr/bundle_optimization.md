@@ -133,8 +133,6 @@ export default config;
 
 > Purge ve minify yalnızca `next build` sırasında çalışır — optimize pipeline'ı `next dev` sırasında kapalıdır.
 
-> Uyumluluk adaptörü çağıranları yapılandırıldığında da devre dışı kalırlar (`swcExtraCallers`; `@intlayer/next-intl` veya `@intlayer/react-i18next` gibi uyumluluk paketleri tarafından ayarlanır): bu çağrı noktaları kullanım analizörüne görünmez, dolayısıyla purge kodun hâlâ okuduğu alanları kaldırırdı. Import yeniden yazımı etkin kalır.
-
 **Daha eski sürümler (9.2.1 öncesi)** `@intlayer/babel` paketini ve `intlayerPurgeBabelPlugin` ile `intlayerMinifyBabelPlugin` tanımlayan bir `babel.config.js` dosyasını gerektiriyordu. Bu dosya artık gerekli değildir ve silinebilir.
 
  </Tab>

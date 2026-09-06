@@ -133,8 +133,6 @@ export default config;
 
 > Purge और minify केवल `next build` पर चलते हैं — ऑप्टिमाइज़ पाइपलाइन `next dev` के दौरान बंद रहती है।
 
-> जब कम्पैट-अडैप्टर कॉलर्स कॉन्फ़िगर किए जाते हैं तब भी ये अक्षम हो जाते हैं (`swcExtraCallers`, जिन्हें `@intlayer/next-intl` या `@intlayer/react-i18next` जैसे कम्पैट पैकेज सेट करते हैं): वे कॉल साइट्स उपयोग विश्लेषक को दिखाई नहीं देतीं, इसलिए purge उन फ़ील्ड्स को हटा देगा जिन्हें कोड अब भी पढ़ता है। Import पुनर्लेखन सक्रिय रहता है।
-
 **पुराने संस्करणों (9.2.1 से पहले)** में `@intlayer/babel` और एक `babel.config.js` की आवश्यकता होती थी जो `intlayerPurgeBabelPlugin` और `intlayerMinifyBabelPlugin` घोषित करे। अब उस फ़ाइल की आवश्यकता नहीं है और उसे हटाया जा सकता है।
 
  </Tab>

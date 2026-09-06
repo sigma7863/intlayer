@@ -18,6 +18,7 @@ export { USE_INTL_CALLERS } from './compat/useIntl';
 export { VUE_I18N_CALLERS } from './compat/vueI18n';
 export {
   getRewritableCallers,
+  isRewritableCaller,
   type SwcExtraCallerConfig,
   toSwcExtraCallers,
 } from './transform';

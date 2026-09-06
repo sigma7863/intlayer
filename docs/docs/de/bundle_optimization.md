@@ -133,8 +133,6 @@ Während `next build` analysiert `withIntlayer` Ihre Quellen, schreibt die kompi
 
 > Purge und Minify laufen nur bei `next build` — die Optimierungs-Pipeline ist während `next dev` deaktiviert.
 
-> Sie sind außerdem deaktiviert, wenn Kompatibilitäts-Adapter-Aufrufer konfiguriert sind (`swcExtraCallers`, gesetzt von den Kompatibilitätspaketen wie `@intlayer/next-intl` oder `@intlayer/react-i18next`): Diese Aufrufstellen sind für den Nutzungsanalysator unsichtbar, sodass Purge Felder entfernen würde, die der Code noch liest. Die Import-Umschreibung bleibt aktiv.
-
 **Frühere Versionen (vor 9.2.1)** benötigten `@intlayer/babel` und eine `babel.config.js`, die `intlayerPurgeBabelPlugin` und `intlayerMinifyBabelPlugin` deklariert. Diese Datei wird nicht mehr benötigt und kann gelöscht werden.
 
  </Tab>

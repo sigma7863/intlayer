@@ -1,7 +1,12 @@
 import { transformSync } from '@babel/core';
+import {
+  NEXT_INTL_CALLERS as REAL_NEXT_INTL_CALLERS,
+  REACT_I18NEXT_CALLERS as REAL_REACT_I18NEXT_CALLERS,
+  REACT_INTL_CALLERS as REAL_REACT_INTL_CALLERS,
+} from '@intlayer/config/callers';
 import { describe, expect, it } from 'vitest';
 import {
-  type CompatCallerConfig,
+  type CallerDescriptor,
   createPruneContext,
   makeUsageAnalyzerBabelPlugin,
   type PruneContext,
@@ -12,7 +17,7 @@ import { BABEL_PARSER_OPTIONS } from './transformers';
 const analyze = (
   code: string,
   filePath = '/app/src/Component.tsx',
-  compatCallers?: CompatCallerConfig[]
+  compatCallers?: CallerDescriptor[]
 ): PruneContext => {
   const pruneContext = createPruneContext();
 
@@ -29,7 +34,7 @@ const analyze = (
 };
 
 /** Caller configs matching what `@intlayer/react-i18next/plugin` injects. */
-const REACT_I18NEXT_CALLERS: CompatCallerConfig[] = [
+const REACT_I18NEXT_CALLERS: CallerDescriptor[] = [
   {
     callerName: 'useTranslation',
     library: 'react-i18next',
@@ -48,7 +53,7 @@ const REACT_I18NEXT_CALLERS: CompatCallerConfig[] = [
 ];
 
 /** Caller configs matching what `@intlayer/next-intl/plugin` would inject. */
-const NEXT_INTL_CALLERS: CompatCallerConfig[] = [
+const NEXT_INTL_CALLERS: CallerDescriptor[] = [
   {
     callerName: 'useTranslations',
     library: 'next-intl',
@@ -71,7 +76,7 @@ const NEXT_INTL_CALLERS: CompatCallerConfig[] = [
 ];
 
 /** Caller configs matching what `@intlayer/i18next/plugin` injects. */
-const I18NEXT_CALLERS: CompatCallerConfig[] = [
+const I18NEXT_CALLERS: CallerDescriptor[] = [
   {
     callerName: 'getFixedT',
     library: 'i18next',
@@ -84,7 +89,7 @@ const I18NEXT_CALLERS: CompatCallerConfig[] = [
 ];
 
 /** Caller configs matching what `@intlayer/vue-i18n/plugin` injects. */
-const VUE_I18N_CALLERS: CompatCallerConfig[] = [
+const VUE_I18N_CALLERS: CallerDescriptor[] = [
   {
     callerName: 'useI18n',
     library: 'vue-i18n',
@@ -1132,7 +1137,7 @@ describe('makeUsageAnalyzerBabelPlugin', () => {
     describe('lingui — i18n._ / i18n.t (translationFunction: self)', () => {
       // Mirrors compat/lingui/src/plugin: lingui catalogs are flat, so the whole
       // dotted id is the consumed field (`flatKey: true`).
-      const LINGUI_CALLERS: CompatCallerConfig[] = [
+      const LINGUI_CALLERS: CallerDescriptor[] = [
         {
           callerName: '_',
           library: 'lingui',
@@ -1327,7 +1332,7 @@ describe('makeUsageAnalyzerBabelPlugin', () => {
     });
 
     describe('react-intl — formatMessage (namespace: path-first-segment)', () => {
-      const REACT_INTL_CALLERS: CompatCallerConfig[] = [
+      const REACT_INTL_CALLERS: CallerDescriptor[] = [
         {
           callerName: 'formatMessage',
           library: 'react-intl',
@@ -1471,7 +1476,7 @@ describe('makeUsageAnalyzerBabelPlugin', () => {
     });
 
     describe('react-intl — <FormattedMessage id> (jsxIdAttribute)', () => {
-      const REACT_INTL_JSX_CALLERS: CompatCallerConfig[] = [
+      const REACT_INTL_JSX_CALLERS: CallerDescriptor[] = [
         {
           callerName: 'formatMessage',
           library: 'react-intl',
@@ -1682,5 +1687,50 @@ describe('preserveNestedDictionaryFields', () => {
     expect(pruneContext.dictionariesSkippingFieldRename.has('common')).toBe(
       true
     );
+  });
+});
+
+describe('path-first-segment namespaces from template literals', () => {
+  it('attributes a template-literal id to its leading segment', () => {
+    const pruneContext = analyze(
+      `
+        import { useIntl } from "react-intl";
+        const intl = useIntl();
+        const label = intl.formatMessage({ id: \`home.\${key}\` });
+      `,
+      '/app/src/Component.tsx',
+      REAL_REACT_INTL_CALLERS
+    );
+
+    // The full id is dynamic, but the dictionary it lives in is not.
+    expect(pruneContext.dictionaryKeyToFieldUsageMap.has('home')).toBe(true);
+  });
+
+  it('attributes a bare template-literal argument to its leading segment', () => {
+    const pruneContext = analyze(
+      `
+        import { useIntl } from "react-intl";
+        const intl = useIntl();
+        const label = intl.formatMessage(\`pricing.\${key}\`);
+      `,
+      '/app/src/Component.tsx',
+      REAL_REACT_INTL_CALLERS
+    );
+
+    expect(pruneContext.dictionaryKeyToFieldUsageMap.has('pricing')).toBe(true);
+  });
+
+  it('still refuses an id whose first segment is dynamic', () => {
+    const pruneContext = analyze(
+      `
+        import { useIntl } from "react-intl";
+        const intl = useIntl();
+        const label = intl.formatMessage({ id: \`\${scope}.title\` });
+      `,
+      '/app/src/Component.tsx',
+      REAL_REACT_INTL_CALLERS
+    );
+
+    expect([...pruneContext.dictionaryKeyToFieldUsageMap.keys()]).toEqual([]);
   });
 });

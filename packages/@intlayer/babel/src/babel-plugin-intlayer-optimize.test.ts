@@ -370,7 +370,7 @@ describe('babel-plugin-intlayer-optimize', () => {
       export default dictionaries;
     `;
 
-    it('should empty the dictionary entry', () => {
+    it('should replace the dictionary entry with clean empty module', () => {
       const output = transform(
         dictionaryEntryCode,
         { replaceDictionaryEntry: true },
@@ -378,7 +378,20 @@ describe('babel-plugin-intlayer-optimize', () => {
       );
 
       expect(output).not.toContain('common.json');
-      expect(output).toContain('const dictionaries = {}');
+      expect(output).not.toContain('dashboard.json');
+      expect(output).toContain('export default {};');
+      expect(output).toContain('export const getDictionaries = () => ({});');
+    });
+
+    it('leaves the entry untouched when replacement is disabled', () => {
+      const output = transform(
+        dictionaryEntryCode,
+        { replaceDictionaryEntry: false },
+        '/app/.intlayer/dictionaries.mjs'
+      );
+
+      expect(output).toContain('common.json');
+      expect(output).toContain('dashboard.json');
     });
   });
 

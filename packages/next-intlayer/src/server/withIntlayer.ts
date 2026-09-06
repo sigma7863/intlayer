@@ -1,5 +1,8 @@
 import { join, relative, resolve } from 'node:path';
-import type { SwcExtraCallerConfig } from '@intlayer/config/callers';
+import {
+  type CallerDescriptor,
+  toSwcExtraCallers,
+} from '@intlayer/config/callers';
 import * as ANSIColors from '@intlayer/config/colors';
 import { IMPORT_MODE } from '@intlayer/config/defaultValues';
 import {
@@ -130,7 +133,7 @@ type GetPruneConfigParams = {
   isSwcPluginSupported: boolean;
   /** Resolved Next.js version, reported when the plugin has to stand down. */
   nextVersion: string;
-  swcExtraCallers?: SwcExtraCallerConfig[];
+  compatCallers?: CallerDescriptor[];
   fieldRenameMap?: FieldRenameMapByDictionaryKey;
 };
 
@@ -142,7 +145,7 @@ const getPruneConfig = ({
   isGteNext13,
   isSwcPluginSupported,
   nextVersion,
-  swcExtraCallers,
+  compatCallers,
   fieldRenameMap,
 }: GetPruneConfigParams): Partial<NextConfig> => {
   const { optimize, minify, purge } = intlayerConfig.build;
@@ -199,11 +202,9 @@ const getPruneConfig = ({
         ]);
 
         // The purge / minify pipeline stands down — with its own explanation —
-        // when compat-adapter callers hide call sites from the usage analyser,
-        // or when `@intlayer/babel` (which runs it) is not resolvable. The
-        // editor only stands the field-rename step down, not the pipeline.
+        // when `@intlayer/babel` (which runs it) is not resolvable. The editor
+        // only stands the field-rename step down, not the pipeline.
         const isPurgePipelineEnabled =
-          !swcExtraCallers?.length &&
           getIsPurgePipelineAvailable(intlayerConfig);
 
         // The purge pipeline reports the field-rename step standing down when
@@ -338,7 +339,10 @@ const getPruneConfig = ({
             replaceDictionaryEntry: true,
             nestingDictionaryKeys,
             dictionaryModeMap,
-            extraCallers: swcExtraCallers ?? [],
+            // Compat adapters reach the Wasm plugin as descriptors serialised
+            // to its wire format; with none injected the option is empty and
+            // the plugin runs the base intlayer rewrite alone.
+            extraCallers: toSwcExtraCallers(compatCallers ?? []),
             // Rewrites `content.title` → `content.a` to match the compiled
             // dictionaries the `build.minify` pass already renamed.
             fieldRenameMap: fieldRenameMap ?? {},
@@ -380,7 +384,13 @@ type WebpackParams = Parameters<NextJsWebpackConfig>;
 
 type WithIntlayerOptions = GetConfigurationOptions & {
   enableTurbopack?: boolean;
-  swcExtraCallers?: SwcExtraCallerConfig[];
+  /**
+   * Compat-adapter caller descriptors injected by a compat package's bundler
+   * plugin (e.g. `@intlayer/next-intl/plugin`). They drive both the SWC
+   * optimize rewrite and the Node-side usage analysis, so one registry slice
+   * is all a compat plugin has to pass.
+   */
+  compatCallers?: CallerDescriptor[];
 
   /**
    * Field-rename tables produced by the purge / minify pipeline, forwarded to
@@ -686,7 +696,7 @@ export const withIntlayerSync = <T extends Partial<NextConfig>>(
     isGteNext13,
     isSwcPluginSupported,
     nextVersion,
-    swcExtraCallers: configOptions?.swcExtraCallers,
+    compatCallers: configOptions?.compatCallers,
     fieldRenameMap: configOptions?.fieldRenameMap,
   });
 
@@ -757,7 +767,7 @@ export const withIntlayer = async <T extends NextConfig | Partial<NextConfig>>(
   const fieldRenameMap = isBuildCommand
     ? await prepareSwcOptimization(intlayerConfig, {
         configOptions: resolvedConfigOptions,
-        swcExtraCallers: configOptions?.swcExtraCallers,
+        compatCallers: configOptions?.compatCallers,
         isSwcPluginUsable:
           isSwcPluginSupported && getIsSwcPluginAvailable(intlayerConfig),
       })

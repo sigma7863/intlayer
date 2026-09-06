@@ -24,6 +24,8 @@
 //!    it reaches a fixed point so chains of re-bindings resolve;
 //! 2. a mutating pass rewrites member chains and destructuring patterns.
 
+#[cfg(swc_ast_unknown)]
+use crate::ast::unsupported_ast_node;
 use crate::{
     ast::{
         imported_specifier_name, is_numeric_index_prop, make_ident, make_str,
@@ -32,8 +34,6 @@ use crate::{
     config::FieldRenameMap,
     packages::NATIVE_CALLER_NAMES,
 };
-#[cfg(swc_ast_unknown)]
-use crate::ast::unsupported_ast_node;
 use std::collections::{BTreeMap, HashMap, HashSet};
 use swc_core::ecma::{
     ast::*,

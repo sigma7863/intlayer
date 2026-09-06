@@ -23,6 +23,7 @@ export const REACT_I18NEXT_CALLERS: CallerDescriptor[] = [
       { from: 'option', argumentIndex: 1, property: 'keyPrefix' },
     ],
     translationFunction: 'destructured-t',
+    allowRootScope: true,
     staticReplacement: 'useDictionary',
     dynamicReplacement: 'useDictionaryDynamic',
   },

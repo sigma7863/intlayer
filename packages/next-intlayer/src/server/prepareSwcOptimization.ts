@@ -7,7 +7,7 @@ import type {
   SerializedFieldRenameMap,
   serializeFieldRenameMap as SerializeFieldRenameMap,
 } from '@intlayer/babel';
-import type { SwcExtraCallerConfig } from '@intlayer/config/callers';
+import type { CallerDescriptor } from '@intlayer/config/callers';
 import * as ANSIColors from '@intlayer/config/colors';
 import { colorize, getAppLogger } from '@intlayer/config/logger';
 import type { GetConfigurationOptions } from '@intlayer/config/node';
@@ -93,14 +93,13 @@ export const resolveSwcLogLevel = (
 /**
  * Whether the purge / minify pipeline should run for this build.
  *
- * Compat-adapter callers disable it: their descriptors reach `withIntlayer`
- * only in the SWC plugin's lossy wire format, so the usage analyser would not
- * recognise `useTranslation(...)` & co. and would purge fields those call sites
- * still read.
+ * Compat-adapter callers do not disable it: their descriptors reach the usage
+ * analyser intact (`compatCallers`), which records the dictionaries they read
+ * and marks those as unrenamable — so purging stays field-accurate and the
+ * minify step leaves them alone.
  */
 const getIsPurgePipelineEnabled = (
   intlayerConfig: IntlayerConfig,
-  swcExtraCallers: SwcExtraCallerConfig[] | undefined,
   isSwcPluginUsable: boolean
 ): boolean => {
   const { purge, minify, optimize } = intlayerConfig.build;
@@ -118,19 +117,6 @@ const getIsPurgePipelineEnabled = (
   // field-rename step down — inside the pipeline, and with its own explanation
   // — the same way the Vite build does. Purging still runs, and the rename map
   // the SWC plugin receives comes back empty, so source and JSON stay in sync.
-
-  if (swcExtraCallers && swcExtraCallers.length > 0) {
-    getAppLogger(intlayerConfig)(
-      [
-        'Dictionary purge and minification are',
-        colorize('disabled', ANSIColors.GREY_DARK),
-        'because compat-adapter callers are configured — their call sites are',
-        'not visible to the usage analyser.',
-      ],
-      { level: 'warn' }
-    );
-    return false;
-  }
 
   return true;
 };
@@ -193,6 +179,7 @@ const runPurgePipelineOnce = async (
   intlayerConfig: IntlayerConfig,
   configOptions: GetConfigurationOptions | undefined,
   dictionaries: Dictionary[] | undefined,
+  compatCallers: CallerDescriptor[] | undefined,
   fieldRenameMapFilePath: string
 ): Promise<void> => {
   const appLogger = getAppLogger(intlayerConfig);
@@ -231,7 +218,13 @@ const runPurgePipelineOnce = async (
     // The pipeline reports what it purged and minified through the intlayer
     // logger, matching the Vite build output.
     const pruneContext = runIntlayerPurgePipeline(
-      getPurgePluginOptions({ configOptions, dictionaries })
+      getPurgePluginOptions({
+        configOptions,
+        dictionaries,
+        // Without them the analyser would not recognise `useTranslation(...)`
+        // & co. and would purge the fields those call sites read.
+        overrides: compatCallers?.length ? { compatCallers } : undefined,
+      })
     );
 
     fieldRenameMap = serializeFieldRenameMap(pruneContext);
@@ -286,7 +279,7 @@ type PrepareSwcOptimizationParams = {
   /** Pre-loaded dictionaries, to avoid a second `getDictionaries` call. */
   dictionaries?: Dictionary[];
   /** Compat-adapter callers declared by the consuming plugin, if any. */
-  swcExtraCallers?: SwcExtraCallerConfig[];
+  compatCallers?: CallerDescriptor[];
   /**
    * Whether the `@intlayer/swc` plugin is installed *and* the resolved Next.js
    * version can load it. False leaves the compiled dictionaries untouched.
@@ -318,7 +311,7 @@ export const prepareSwcOptimization = async (
   intlayerConfig: IntlayerConfig,
   params: PrepareSwcOptimizationParams
 ): Promise<FieldRenameMapByDictionaryKey> => {
-  const { configOptions, dictionaries, swcExtraCallers, isSwcPluginUsable } =
+  const { configOptions, dictionaries, compatCallers, isSwcPluginUsable } =
     params;
 
   const fieldRenameMapFilePath = getCacheFilePath(
@@ -328,13 +321,7 @@ export const prepareSwcOptimization = async (
 
   // A stale file from an earlier build would rename source accesses that the
   // dictionaries no longer match.
-  if (
-    !getIsPurgePipelineEnabled(
-      intlayerConfig,
-      swcExtraCallers,
-      isSwcPluginUsable
-    )
-  ) {
+  if (!getIsPurgePipelineEnabled(intlayerConfig, isSwcPluginUsable)) {
     removeFieldRenameMapFile(fieldRenameMapFilePath);
     return {};
   }
@@ -346,6 +333,7 @@ export const prepareSwcOptimization = async (
         intlayerConfig,
         configOptions,
         dictionaries,
+        compatCallers,
         fieldRenameMapFilePath
       ),
     { cacheTimeoutMs: PURGE_CACHE_TIMEOUT_MS }

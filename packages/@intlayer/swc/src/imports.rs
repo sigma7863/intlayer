@@ -3,7 +3,7 @@
 
 use crate::{
     ast::{make_ident, make_str},
-    optimize::InjectedImports,
+    dictionary_imports::InjectedImports,
     packages::NESTED_DICTIONARIES_SUBDIR,
     paths::relative_import_path,
 };

@@ -11,6 +11,16 @@ import type { CallerDescriptor } from '../types';
  */
 export const REACT_INTL_CALLERS: CallerDescriptor[] = [
   {
+    callerName: 'useIntl',
+    library: 'react-intl',
+    importSources: ['react-intl', '@intlayer/react-intl'],
+    namespaceSources: [],
+    allowRootScope: true,
+    translationFunction: 'destructured-t',
+    staticReplacement: 'useDictionary',
+    dynamicReplacement: 'useDictionaryDynamic',
+  },
+  {
     callerName: 'formatMessage',
     library: 'react-intl',
     importSources: ['react-intl', '@intlayer/react-intl'],

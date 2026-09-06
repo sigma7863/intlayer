@@ -133,8 +133,6 @@ export default config;
 
 > パージとミニファイは `next build` 時にのみ実行されます — 最適化パイプラインは `next dev` 中は無効です。
 
-> 互換アダプターの呼び出し元が設定されている場合（`swcExtraCallers`。`@intlayer/next-intl` や `@intlayer/react-i18next` などの互換パッケージが設定します）も無効になります。これらの呼び出し箇所は使用状況アナライザーから見えないため、パージするとコードがまだ読んでいるフィールドを削除してしまいます。インポートの書き換えは有効なままです。
-
 **それ以前のバージョン（9.2.1 より前）** では `@intlayer/babel` と、`intlayerPurgeBabelPlugin` および `intlayerMinifyBabelPlugin` を宣言する `babel.config.js` が必要でした。このファイルはもう不要で、削除できます。
 
  </Tab>

@@ -3,7 +3,7 @@
 
 use crate::tests::support::{
     get_config_with_extra_callers, use_i18n_caller, use_lingui_caller, use_translation_caller,
-    use_translations_root_scope_caller, TestFolder,
+    use_translation_root_scope_caller, use_translations_root_scope_caller, TestFolder,
 };
 use swc_core::ecma::{parser::Syntax, transforms::testing::test_transform};
 
@@ -294,6 +294,33 @@ fn root_scope_dot_less_id_binds_the_dictionary_root() {
         const Banner = () => {
             const t = useTranslations(_EZuxxcYz3WW);
             return t("");
+        };
+        "#,
+    );
+}
+
+#[test]
+fn root_scope_destructured_use_translation() {
+    test_transform(
+        Syntax::default(),
+        None,
+        |_| TestFolder {
+            cfg: get_config_with_extra_callers("static", vec![use_translation_root_scope_caller()]),
+            filename: "/app/src/page.tsx".to_string(),
+        },
+        r#"
+        import { useTranslation } from "react-i18next";
+        const Header = () => {
+            const { t } = useTranslation();
+            return t("home.title");
+        };
+        "#,
+        r#"
+        import _9Wz1N8dLIVz from "../.intlayer/dictionaries/home.json" with { type: "json" };
+        import { useDictionary as useTranslation } from "react-i18next";
+        const Header = () => {
+            const { t } = useTranslation(_9Wz1N8dLIVz);
+            return t("title");
         };
         "#,
     );

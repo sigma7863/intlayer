@@ -133,8 +133,6 @@ export default config;
 
 > 퍼지와 압축은 `next build`에서만 실행됩니다 — 최적화 파이프라인은 `next dev` 중에는 꺼져 있습니다.
 
-> 호환 어댑터 호출자가 설정된 경우에도 비활성화됩니다(`swcExtraCallers`, `@intlayer/next-intl`이나 `@intlayer/react-i18next` 같은 호환 패키지가 설정합니다). 이러한 호출 지점은 사용 분석기에 보이지 않으므로 퍼지하면 코드가 여전히 읽는 필드를 제거하게 됩니다. 임포트 재작성은 계속 활성 상태로 유지됩니다.
-
 **이전 버전(9.2.1 이전)** 에서는 `@intlayer/babel`과 `intlayerPurgeBabelPlugin` 및 `intlayerMinifyBabelPlugin`을 선언하는 `babel.config.js`가 필요했습니다. 이 파일은 더 이상 필요하지 않으며 삭제할 수 있습니다.
 
  </Tab>

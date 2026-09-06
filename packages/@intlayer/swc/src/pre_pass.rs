@@ -5,13 +5,18 @@
 //! The optimize transform needs every answer *before* it starts rewriting,
 //! because a single import specifier serves every call site in the file — and
 //! an import declaration may appear after the calls it governs.
+//!
+//! Adapter-specific reasoning is delegated: namespace resolution lives in
+//! [`crate::extra_caller`] and root-scope bindings in [`crate::root_scope`], so
+//! a build with no `extraCallers` runs the native half of this pass alone.
 
 use crate::{
     ast::{callee_ident_name, imported_specifier_name, read_static_string, split_namespace},
     config::ExtraCallerConfig,
+    dictionary_imports::ImportKind,
     extra_caller::resolve_extra_namespace,
-    optimize::ImportKind,
     packages::{NATIVE_CALLER_NAMES, PACKAGE_LIST},
+    root_scope::{RootScopeCollector, RootScopeMap},
 };
 use std::collections::{BTreeMap, HashSet};
 use swc_core::ecma::{
@@ -37,21 +42,6 @@ pub struct CallerMeta {
 
 /// Maps a local identifier name to the caller it was imported as.
 pub type CallerMap = BTreeMap<String, CallerMeta>;
-
-/// A `const t = useTranslations()` binding whose dictionaries are derived from
-/// the message ids passed to `t` rather than from a namespace argument.
-#[derive(Clone, Debug, Default)]
-pub struct RootScopeBinding {
-    /// Local name of the caller that produced the binding (`useTranslations`),
-    /// used to look the extra-caller config back up at rewrite time.
-    pub caller_local: String,
-    /// Dictionary keys used through this binding, in first-use order. The first
-    /// one keeps the original local name; the rest get a generated sibling.
-    pub namespaces: Vec<String>,
-}
-
-/// Maps the local name of a translate function to its root-scope binding.
-pub type RootScopeMap = BTreeMap<String, RootScopeBinding>;
 
 /// Outcome of the pre-pass.
 pub struct PrePassResult {
@@ -81,14 +71,7 @@ struct PrePassVisitor<'a> {
     /// hand a raw namespace string to the dictionary-accepting helper.
     unresolvable_extra_locals: HashSet<String>,
     caller_map: CallerMap,
-    /// Candidate root-scope bindings discovered on `const t = useTranslations()`.
-    root_scope: RootScopeMap,
-    /// Translate locals that can never be rewritten: bound more than once, or
-    /// reached through a message id that is dynamic or has no `namespace.` part.
-    poisoned_translate_locals: HashSet<String>,
-    /// Namespace-less call sites per caller local, to check at the end that
-    /// every one of them became a resolvable binding.
-    bare_calls_per_caller: BTreeMap<String, usize>,
+    root_scope: RootScopeCollector,
 }
 
 impl PrePassVisitor<'_> {
@@ -105,6 +88,57 @@ impl PrePassVisitor<'_> {
     fn is_dynamic_dictionary(&self, dictionary_key: &str) -> bool {
         self.dictionary_override(dictionary_key)
             .is_some_and(|kind| kind.is_dynamic_helper())
+    }
+
+    /// Inspects an extra (compat) caller call site: resolve its namespace, note
+    /// a dynamic dictionary, or mark the local name unrewritable.
+    fn visit_extra_caller_call(&mut self, callee_name: &str, call: &CallExpr, extra_index: usize) {
+        let extra_caller = &self.extra_callers[extra_index];
+
+        match resolve_extra_namespace(extra_caller, &call.args) {
+            Some(namespace_match) => {
+                let (dictionary_key, _prefix) = split_namespace(namespace_match.full_namespace());
+                if self.is_dynamic_dictionary(dictionary_key) {
+                    self.extra_has_dynamic_call = true;
+                }
+            }
+            None if extra_caller.allow_root_scope && call.args.is_empty() => {
+                // Possibly a root scope. The binding is recorded once the
+                // enclosing declarator is visited (children come first), so
+                // the verdict is deferred to the end of the pass.
+                self.root_scope.note_bare_call(callee_name);
+            }
+            None => {
+                self.unresolvable_extra_locals
+                    .insert(callee_name.to_string());
+            }
+        }
+    }
+
+    /// Inspects a native `useIntlayer` call site, noting whether its package
+    /// must switch to a per-locale loader.
+    ///
+    /// The dictionary key is the whole first argument: native callers look the
+    /// dictionary up in the registry by that exact key, with no
+    /// `dictionary.field` namespace convention to split on.
+    fn visit_native_call(&mut self, call: &CallExpr, package: &str) {
+        let Some(dictionary_key) = call
+            .args
+            .first()
+            .and_then(|arg| read_static_string(&arg.expr))
+        else {
+            return;
+        };
+
+        match self.dictionary_override(&dictionary_key) {
+            Some(ImportKind::Dynamic) => {
+                self.packages_with_dynamic_call.insert(package.to_string());
+            }
+            Some(ImportKind::Fetch) => {
+                self.packages_with_fetch_call.insert(package.to_string());
+            }
+            _ => {}
+        }
     }
 }
 
@@ -180,92 +214,11 @@ fn collect_caller_map(program: &Program, extra_callers: &[ExtraCallerConfig]) ->
     caller_map
 }
 
-impl PrePassVisitor<'_> {
-    /// Records `const t = useTranslations()` as a root-scope candidate.
-    ///
-    /// Only a plain identifier binding is accepted: a destructured or reassigned
-    /// translate function cannot be tracked back to its call sites safely.
-    fn note_root_scope_binding(&mut self, declarator: &VarDeclarator) {
-        let Some(init) = declarator.init.as_deref() else {
-            return;
-        };
-        let Expr::Call(call) = init else {
-            return;
-        };
-        let Some(caller_local) = callee_ident_name(&call.callee) else {
-            return;
-        };
-        let Some(meta) = self.caller_map.get(caller_local) else {
-            return;
-        };
-        let Some(extra_index) = meta.extra_index else {
-            return;
-        };
-        let extra_caller = &self.extra_callers[extra_index];
-        if !extra_caller.allow_root_scope {
-            return;
-        }
-        // Only a namespace-less call is a root scope; anything the normal
-        // resolver can read is handled by the existing path.
-        if resolve_extra_namespace(extra_caller, &call.args).is_some() {
-            return;
-        }
-        let Pat::Ident(binding) = &declarator.name else {
-            return;
-        };
-        let translate_local = binding.id.sym.to_string();
-
-        // A name bound twice in one module cannot be resolved without scope
-        // tracking, so give up on it rather than guess.
-        if self.root_scope.contains_key(&translate_local) {
-            self.poisoned_translate_locals.insert(translate_local);
-            return;
-        }
-        self.root_scope.insert(
-            translate_local,
-            RootScopeBinding {
-                caller_local: caller_local.to_string(),
-                namespaces: Vec::new(),
-            },
-        );
-    }
-
-    /// Records the dictionary a `t("namespace.key")` call site reaches.
-    fn note_root_scope_usage(&mut self, callee_name: &str, call: &CallExpr) {
-        if !self.root_scope.contains_key(callee_name) {
-            return;
-        }
-        let Some(arg) = call.args.first() else {
-            self.poisoned_translate_locals
-                .insert(callee_name.to_string());
-            return;
-        };
-        let Some(message_id) = read_static_string(&arg.expr) else {
-            self.poisoned_translate_locals
-                .insert(callee_name.to_string());
-            return;
-        };
-        // A dot-less id addresses the dictionary root (`t("mockBanner")` reads
-        // the whole `mockBanner` dictionary); `navigatePath` returns the root
-        // for an empty path, so it binds like any other id.
-        let (dictionary_key, _key) = split_namespace(&message_id);
-        if dictionary_key.is_empty() {
-            self.poisoned_translate_locals
-                .insert(callee_name.to_string());
-            return;
-        }
-        if let Some(binding) = self.root_scope.get_mut(callee_name) {
-            if !binding.namespaces.iter().any(|ns| ns == dictionary_key) {
-                binding.namespaces.push(dictionary_key.to_string());
-            }
-        }
-    }
-}
-
 impl Visit for PrePassVisitor<'_> {
     fn visit_var_declarator(&mut self, declarator: &VarDeclarator) {
         declarator.visit_children_with(self);
-        self.note_root_scope_binding(declarator);
+        self.root_scope
+            .note_declarator(declarator, &self.caller_map, self.extra_callers);
     }
 
     fn visit_call_expr(&mut self, call: &CallExpr) {
@@ -275,57 +228,20 @@ impl Visit for PrePassVisitor<'_> {
             return;
         };
 
-        self.note_root_scope_usage(callee_name, call);
+        self.root_scope.note_usage(callee_name, call);
 
         let Some(meta) = self.caller_map.get(callee_name).cloned() else {
             return;
         };
 
-        if let Some(extra_index) = meta.extra_index {
-            // Extra (compat) caller: resolve the namespace through its
-            // config; unresolvable call sites disable the rewrite for the
-            // whole local name (the import specifier is shared).
-            let extra_caller = &self.extra_callers[extra_index];
-
-            match resolve_extra_namespace(extra_caller, &call.args) {
-                Some(namespace_match) => {
-                    let (dictionary_key, _prefix) =
-                        split_namespace(namespace_match.full_namespace());
-                    if self.is_dynamic_dictionary(dictionary_key) {
-                        self.extra_has_dynamic_call = true;
-                    }
-                }
-                None if extra_caller.allow_root_scope && call.args.is_empty() => {
-                    // Possibly a root scope. The binding is recorded once the
-                    // enclosing declarator is visited (children come first), so
-                    // the verdict is deferred to the end of the pass.
-                    *self
-                        .bare_calls_per_caller
-                        .entry(callee_name.to_string())
-                        .or_insert(0) += 1;
-                }
-                None => {
-                    self.unresolvable_extra_locals
-                        .insert(callee_name.to_string());
+        match meta.extra_index {
+            Some(extra_index) => self.visit_extra_caller_call(callee_name, call, extra_index),
+            None if meta.original_name == "useIntlayer" => {
+                if let Some(package) = meta.package.as_deref() {
+                    self.visit_native_call(call, package);
                 }
             }
-        } else if meta.original_name == "useIntlayer" {
-            // The dictionary key is the whole first argument: native callers
-            // look the dictionary up in the registry by that exact key, with no
-            // `dictionary.field` namespace convention to split on.
-            if let (Some(package), Some(arg)) = (meta.package.as_ref(), call.args.first()) {
-                if let Some(dictionary_key) = read_static_string(&arg.expr) {
-                    match self.dictionary_override(&dictionary_key) {
-                        Some(ImportKind::Dynamic) => {
-                            self.packages_with_dynamic_call.insert(package.clone());
-                        }
-                        Some(ImportKind::Fetch) => {
-                            self.packages_with_fetch_call.insert(package.clone());
-                        }
-                        _ => {}
-                    }
-                }
-            }
+            None => {}
         }
     }
 }
@@ -344,59 +260,21 @@ pub fn run_pre_pass(
         extra_has_dynamic_call: false,
         unresolvable_extra_locals: HashSet::new(),
         caller_map: collect_caller_map(program, extra_callers),
-        root_scope: RootScopeMap::new(),
-        poisoned_translate_locals: HashSet::new(),
-        bare_calls_per_caller: BTreeMap::new(),
+        root_scope: RootScopeCollector::default(),
     };
     program.visit_with(&mut visitor);
 
-    // Keep only the bindings that reached exactly the dictionaries we can bind.
-    let poisoned = visitor.poisoned_translate_locals;
-    let mut root_scope = visitor.root_scope;
-    root_scope.retain(|translate_local, binding| {
-        !poisoned.contains(translate_local) && !binding.namespaces.is_empty()
-    });
-
-    // A caller local is only safe to rewrite when *every* one of its
-    // namespace-less call sites became a resolvable binding — otherwise the
-    // shared import would be re-pointed while some call still passes nothing.
-    for (caller_local, bare_call_count) in &visitor.bare_calls_per_caller {
-        let resolved = root_scope
-            .values()
-            .filter(|binding| &binding.caller_local == caller_local)
-            .count();
-        if resolved != *bare_call_count {
-            visitor.unresolvable_extra_locals.insert(caller_local.clone());
-        }
-    }
-    // Drop bindings whose caller ended up unrewritable for another reason.
-    root_scope.retain(|_, binding| {
-        !visitor
-            .unresolvable_extra_locals
-            .contains(&binding.caller_local)
-    });
-
-    let mut root_scope_dynamic = false;
-    for binding in root_scope.values() {
-        for namespace in &binding.namespaces {
-            if visitor
-                .dictionary_mode_map
-                .get(namespace)
-                .map(|mode| ImportKind::from_option(Some(mode.as_str())))
-                .flatten()
-                .is_some_and(|kind| kind.is_dynamic_helper())
-            {
-                root_scope_dynamic = true;
-            }
-        }
-    }
+    let mut unresolvable_extra_locals = visitor.unresolvable_extra_locals;
+    let (root_scope, root_scope_dynamic) = visitor
+        .root_scope
+        .finish(&mut unresolvable_extra_locals, dictionary_mode_map);
 
     // Extra callers with an unresolvable call site keep their original
     // implementation: rewriting the shared import while leaving those calls
     // untouched would hand a raw namespace string to the dictionary helper.
     let mut caller_map = visitor.caller_map;
     caller_map.retain(|local_name, meta| {
-        meta.extra_index.is_none() || !visitor.unresolvable_extra_locals.contains(local_name)
+        meta.extra_index.is_none() || !unresolvable_extra_locals.contains(local_name)
     });
 
     PrePassResult {

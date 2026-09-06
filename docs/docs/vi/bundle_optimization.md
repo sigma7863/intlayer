@@ -133,8 +133,6 @@ Trong quá trình `next build`, `withIntlayer` phân tích mã nguồn, viết l
 
 > Purge và minify chỉ chạy khi `next build` — pipeline tối ưu hóa tắt trong lúc `next dev`.
 
-> Chúng cũng bị tắt khi có cấu hình các lời gọi từ bộ chuyển đổi tương thích (`swcExtraCallers`, do các gói tương thích như `@intlayer/next-intl` hay `@intlayer/react-i18next` thiết lập): những điểm gọi đó vô hình với bộ phân tích sử dụng, nên purge sẽ xóa mất các trường mà mã vẫn đang đọc. Việc viết lại import vẫn hoạt động.
-
 **Các phiên bản trước (trước 9.2.1)** yêu cầu `@intlayer/babel` và một tệp `babel.config.js` khai báo `intlayerPurgeBabelPlugin` và `intlayerMinifyBabelPlugin`. Tệp đó không còn cần thiết và có thể xóa.
 
  </Tab>

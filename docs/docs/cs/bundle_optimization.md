@@ -133,8 +133,6 @@ Během `next build` `withIntlayer` analyzuje vaše zdroje, přepíše zkompilova
 
 > Purge a minifikace běží pouze při `next build` — optimalizační pipeline je během `next dev` vypnutá.
 
-> Jsou také vypnuty, pokud jsou nakonfigurovaní volající kompatibilních adaptérů (`swcExtraCallers`, nastavované kompatibilními balíčky jako `@intlayer/next-intl` nebo `@intlayer/react-i18next`): tato místa volání jsou pro analyzátor použití neviditelná, takže purge by odstranil pole, která kód stále čte. Přepis importů zůstává aktivní.
-
 **Starší verze (před 9.2.1)** vyžadovaly `@intlayer/babel` a soubor `babel.config.js` deklarující `intlayerPurgeBabelPlugin` a `intlayerMinifyBabelPlugin`. Tento soubor již není potřeba a lze jej smazat.
 
  </Tab>

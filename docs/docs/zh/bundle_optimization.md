@@ -133,8 +133,6 @@ export default config;
 
 > 清除和压缩仅在 `next build` 时运行 —— 优化流水线在 `next dev` 期间是关闭的。
 
-> 当配置了兼容适配器调用方时它们也会被禁用（`swcExtraCallers`，由 `@intlayer/next-intl`、`@intlayer/react-i18next` 等兼容包设置）：这些调用点对使用分析器不可见，因此清除会移除代码仍在读取的字段。导入重写仍保持启用。
-
 **更早的版本（9.2.1 之前）** 需要 `@intlayer/babel` 以及一个声明 `intlayerPurgeBabelPlugin` 和 `intlayerMinifyBabelPlugin` 的 `babel.config.js`。该文件不再需要，可以删除。
 
  </Tab>

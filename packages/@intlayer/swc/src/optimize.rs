@@ -1,78 +1,32 @@
 //! The optimize transform: replaces the dictionary-key argument of every
 //! recognised caller with a pre-imported dictionary object and re-points the
 //! import specifier at the matching `*Dictionary` helper.
+//!
+//! Only the native `useIntlayer` / `getIntlayer` / `getIntlayerAsync` rewrite
+//! lives here. Compat adapters plug in through [`ExtraCallerContext`], held as
+//! an `Option`: with no `extraCallers` configured it is `None`, every branch
+//! guarded by it is skipped, and the native rewrite runs exactly as if the
+//! adapters did not exist.
 
 use crate::{
     ast::{
-        callee_ident_name, imported_specifier_name, make_hashed_ident, make_ident, make_ident_arg,
-        make_str, make_string_arg, read_static_string, split_namespace,
+        callee_ident_name, imported_specifier_name, make_ident, make_ident_arg, read_static_string,
     },
-    config::ExtraCallerConfig,
-    extra_caller::{resolve_extra_namespace, rewrite_namespace_option, ExtraNamespaceMatch},
+    dictionary_imports::{ImportKind, InjectedImports},
+    extra_caller::ExtraCallerContext,
     packages::{GET_INTLAYER_ASYNC, PACKAGE_LIST, PACKAGE_LIST_DYNAMIC},
-    pre_pass::{CallerMap, RootScopeMap},
+    pre_pass::CallerMap,
+    root_scope::{rewrite_root_scope_declarators, rewrite_root_scope_message_call, RootScopeMap},
 };
 use std::collections::{BTreeMap, HashSet};
-use swc_core::{
-    common::DUMMY_SP,
-    ecma::{
-        ast::*,
-        visit::{VisitMut, VisitMutWith},
-    },
+use swc_core::ecma::{
+    ast::*,
+    visit::{VisitMut, VisitMutWith},
 };
-
-/// Per-call import mode. Dynamic and fetch resolve to the same helper but to
-/// different generated loader directories.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ImportKind {
-    Static,
-    Dynamic,
-    Fetch,
-}
-
-impl ImportKind {
-    /// Parses the wire value of `importMode` / `dictionaryModeMap`.
-    /// Unrecognised values are treated as `"static"` so a typo never silently
-    /// promotes a dictionary to a dynamic loader.
-    pub fn from_option(raw: Option<&str>) -> Option<Self> {
-        match raw {
-            Some("dynamic") => Some(ImportKind::Dynamic),
-            Some("fetch") => Some(ImportKind::Fetch),
-            Some(_) => Some(ImportKind::Static),
-            None => None,
-        }
-    }
-
-    /// Suffix appended to the generated import identifier, which also tells the
-    /// import-injection step which directory the loader lives in.
-    fn ident_suffix(self) -> &'static str {
-        match self {
-            ImportKind::Static => "",
-            ImportKind::Dynamic => "_dyn",
-            ImportKind::Fetch => "_fetch",
-        }
-    }
-
-    /// Whether the call site receives a loader plus its dictionary key rather
-    /// than a plain dictionary object.
-    pub fn is_dynamic_helper(self) -> bool {
-        !matches!(self, ImportKind::Static)
-    }
-}
-
-/// Dictionary imports the transform decided to inject, in insertion order.
-#[derive(Default)]
-pub struct InjectedImports {
-    /// Dictionary key → identifier of the static JSON (or nested companion) import.
-    pub static_imports: BTreeMap<String, Ident>,
-    /// Dictionary key → identifier of the dynamic / fetch loader import.
-    pub dynamic_imports: BTreeMap<String, Ident>,
-}
 
 pub struct TransformVisitor<'a> {
     import_mode: ImportKind,
     dictionary_mode_map: &'a BTreeMap<String, String>,
-    extra_callers: &'a [ExtraCallerConfig],
     caller_map: &'a CallerMap,
     /// Packages with at least one native call resolving a dictionary overridden
     /// to the `dynamic` import mode.
@@ -80,11 +34,8 @@ pub struct TransformVisitor<'a> {
     /// Packages with at least one native call resolving a dictionary overridden
     /// to the `fetch` import mode.
     packages_with_fetch_call: &'a HashSet<String>,
-    /// File-level dynamic decision for extra (compat) callers: one import
-    /// specifier serves every call, so a global dynamic/fetch mode or any
-    /// per-dictionary override flips all rewritten compat calls to the
-    /// dynamic helper.
-    extra_use_dynamic_helpers: bool,
+    /// Compat adapters, when any were configured for this build.
+    extra: Option<ExtraCallerContext<'a>>,
     /// Resolvable `const t = useTranslations()` bindings from the pre-pass.
     root_scope: &'a RootScopeMap,
     /// Imports collected during the traversal, injected afterwards.
@@ -95,55 +46,22 @@ impl<'a> TransformVisitor<'a> {
     pub fn new(
         import_mode: ImportKind,
         dictionary_mode_map: &'a BTreeMap<String, String>,
-        extra_callers: &'a [ExtraCallerConfig],
         caller_map: &'a CallerMap,
         packages_with_dynamic_call: &'a HashSet<String>,
         packages_with_fetch_call: &'a HashSet<String>,
-        extra_use_dynamic_helpers: bool,
+        extra: Option<ExtraCallerContext<'a>>,
         root_scope: &'a RootScopeMap,
     ) -> Self {
         Self {
             import_mode,
             dictionary_mode_map,
-            extra_callers,
             caller_map,
             packages_with_dynamic_call,
             packages_with_fetch_call,
-            extra_use_dynamic_helpers,
+            extra,
             root_scope,
             injected_imports: InjectedImports::default(),
         }
-    }
-
-    /// Import kind a compat call site resolves to for `dictionary_key`.
-    fn extra_import_kind(&self, dictionary_key: &str) -> ImportKind {
-        if self.extra_use_dynamic_helpers {
-            self.dictionary_override(dictionary_key)
-                .filter(|kind| kind.is_dynamic_helper())
-                .unwrap_or(match self.import_mode {
-                    ImportKind::Fetch => ImportKind::Fetch,
-                    _ => ImportKind::Dynamic,
-                })
-        } else {
-            ImportKind::Static
-        }
-    }
-
-    /// Deterministic sibling name for the 2nd..nth dictionary of a root scope.
-    fn root_scope_alias(translate_local: &str, dictionary_key: &str) -> Ident {
-        make_hashed_ident(&format!("{translate_local}#{dictionary_key}"), "_ns")
-    }
-
-    /// Turns a namespace-less `useTranslations()` into the dictionary-accepting
-    /// helper for `dictionary_key`, matching the shape the scoped path emits.
-    fn bind_root_scope_call(&mut self, call: &mut CallExpr, dictionary_key: &str) {
-        let import_kind = self.extra_import_kind(dictionary_key);
-        let ident = self.import_ident(dictionary_key, import_kind);
-
-        if import_kind.is_dynamic_helper() {
-            call.args.insert(0, make_string_arg(dictionary_key));
-        }
-        call.args.insert(0, make_ident_arg(ident));
     }
 
     /// Helper family every native call importing from `package` resolves to.
@@ -163,24 +81,6 @@ impl<'a> TransformVisitor<'a> {
             || self.packages_with_fetch_call.contains(package_specifier)
     }
 
-    /// Returns the cached identifier for `key` in the map matching
-    /// `import_kind`, creating and registering it on first use. Dynamic and
-    /// fetch identifiers share one map because they resolve to the same import
-    /// slot, distinguished only by their `_dyn` / `_fetch` suffix.
-    fn import_ident(&mut self, key: &str, import_kind: ImportKind) -> Ident {
-        let map = match import_kind {
-            ImportKind::Static => &mut self.injected_imports.static_imports,
-            ImportKind::Dynamic | ImportKind::Fetch => &mut self.injected_imports.dynamic_imports,
-        };
-
-        if let Some(ident) = map.get(key) {
-            return ident.clone();
-        }
-        let ident = make_hashed_ident(key, import_kind.ident_suffix());
-        map.insert(key.to_string(), ident.clone());
-        ident
-    }
-
     /// Per-dictionary import mode override, when one is configured.
     fn dictionary_override(&self, dictionary_key: &str) -> Option<ImportKind> {
         ImportKind::from_option(
@@ -188,81 +88,6 @@ impl<'a> TransformVisitor<'a> {
                 .get(dictionary_key)
                 .map(String::as_str),
         )
-    }
-
-    /// Rewrites a compat-adapter call site: the namespace is replaced by (or
-    /// prefixed with) a pre-imported dictionary, plus the dictionary key and
-    /// nested key prefix the helper needs.
-    fn rewrite_extra_caller_call(&mut self, call: &mut CallExpr, extra_index: usize) {
-        let extra_caller = &self.extra_callers[extra_index];
-
-        let Some(namespace_match) = resolve_extra_namespace(extra_caller, &call.args) else {
-            return; // filtered by the pre-pass — stay safe
-        };
-
-        let (dictionary_key, key_prefix) = {
-            let (dictionary_key, key_prefix) = split_namespace(namespace_match.full_namespace());
-            (dictionary_key.to_string(), key_prefix.to_string())
-        };
-
-        // Extracted before `import_ident` takes `&mut self`, ending the
-        // `extra_caller` borrow.
-        let namespace_option_property: Option<String> = extra_caller
-            .namespace_option
-            .as_ref()
-            .map(|option| option.property.clone());
-
-        // The import specifier serves every call in the file, so a dynamic
-        // file receives a dynamic loader for every call.
-        let import_kind = if self.extra_use_dynamic_helpers {
-            self.dictionary_override(&dictionary_key)
-                .filter(|kind| kind.is_dynamic_helper())
-                .unwrap_or(match self.import_mode {
-                    ImportKind::Fetch => ImportKind::Fetch,
-                    _ => ImportKind::Dynamic,
-                })
-        } else {
-            ImportKind::Static
-        };
-
-        let ident = self.import_ident(&dictionary_key, import_kind);
-        let is_dynamic_helper = import_kind.is_dynamic_helper();
-
-        match &namespace_match {
-            ExtraNamespaceMatch::Argument { index, .. } => {
-                // Positional namespace: replace the string with the dictionary,
-                // then (dynamic) key and (nested) prefix.
-                call.args[*index].expr = Box::new(Expr::Ident(ident));
-                let mut insert_at = index + 1;
-                if is_dynamic_helper {
-                    call.args
-                        .insert(insert_at, make_string_arg(&dictionary_key));
-                    insert_at += 1;
-                }
-                if !key_prefix.is_empty() {
-                    call.args.insert(insert_at, make_string_arg(&key_prefix));
-                }
-            }
-            ExtraNamespaceMatch::Fixed { .. } | ExtraNamespaceMatch::Option { .. } => {
-                // Fixed / option namespace: prepend the dictionary (and the key
-                // for the dynamic helper).
-                if is_dynamic_helper {
-                    call.args.insert(0, make_string_arg(&dictionary_key));
-                }
-                call.args.insert(0, make_ident_arg(ident));
-            }
-        }
-
-        if let ExtraNamespaceMatch::Option { argument_index, .. } = &namespace_match {
-            // The options object shifted right by the prepended args.
-            let shifted_index = argument_index + if is_dynamic_helper { 2 } else { 1 };
-            rewrite_namespace_option(
-                &mut call.args,
-                shifted_index,
-                namespace_option_property.as_deref().unwrap_or_default(),
-                &key_prefix,
-            );
-        }
     }
 
     /// Rewrites a native `useIntlayer` / `getIntlayer` / `getIntlayerAsync`
@@ -314,7 +139,9 @@ impl<'a> TransformVisitor<'a> {
                 .unwrap_or(ImportKind::Static)
         };
 
-        let ident = self.import_ident(&dictionary_key, import_kind);
+        let ident = self
+            .injected_imports
+            .ident_for(&dictionary_key, import_kind);
 
         if import_kind.is_dynamic_helper() {
             // Dynamic helper: first argument is the loader, second the key.
@@ -328,62 +155,41 @@ impl<'a> TransformVisitor<'a> {
             first_arg.expr = Box::new(Expr::Ident(ident));
         }
     }
+
+    /// Re-points the native caller specifiers of one import declaration at
+    /// their `*Dictionary` helper, keeping the local alias intact.
+    fn rewrite_native_import_specifier(
+        &self,
+        named: &mut ImportNamedSpecifier,
+        should_use_dynamic_helpers: bool,
+    ) {
+        let imported_name = imported_specifier_name(named);
+
+        let replacement = match imported_name.as_str() {
+            "useIntlayer" if should_use_dynamic_helpers => "useDictionaryDynamic",
+            "useIntlayer" => "useDictionary",
+            "getIntlayer" => "getDictionary",
+            GET_INTLAYER_ASYNC => "getDictionaryAsync",
+            _ => return,
+        };
+
+        named.imported = Some(ModuleExportName::Ident(make_ident(replacement)));
+    }
 }
 
 impl VisitMut for TransformVisitor<'_> {
-    /// Binds each root-scope declarator to its dictionary, adding a sibling
-    /// declarator for every dictionary beyond the first:
-    ///
-    /// ```js
-    /// const t = useTranslations();            // t("header.home"), t("footer.contact")
-    /// // becomes
-    /// const t = useDictionary(_header), _tFooter = useDictionary(_footer);
-    /// ```
     fn visit_mut_var_decl(&mut self, var_decl: &mut VarDecl) {
         var_decl.visit_mut_children_with(self);
 
-        let mut siblings: Vec<VarDeclarator> = Vec::new();
-
-        for declarator in &mut var_decl.decls {
-            let Pat::Ident(binding_ident) = &declarator.name else {
-                continue;
-            };
-            let translate_local = binding_ident.id.sym.to_string();
-            let Some(binding) = self.root_scope.get(&translate_local).cloned() else {
-                continue;
-            };
-            let Some(init) = declarator.init.as_deref_mut() else {
-                continue;
-            };
-            let Expr::Call(call) = init else {
-                continue;
-            };
-
-            // Snapshot before rewriting so each sibling starts from the
-            // original argument list.
-            let original_call = call.clone();
-
-            let Some((first_namespace, rest_namespaces)) = binding.namespaces.split_first() else {
-                continue;
-            };
-            self.bind_root_scope_call(call, first_namespace);
-
-            for dictionary_key in rest_namespaces {
-                let mut sibling_call = original_call.clone();
-                self.bind_root_scope_call(&mut sibling_call, dictionary_key);
-                siblings.push(VarDeclarator {
-                    span: DUMMY_SP,
-                    name: Pat::Ident(BindingIdent {
-                        id: Self::root_scope_alias(&translate_local, dictionary_key),
-                        type_ann: None,
-                    }),
-                    init: Some(Box::new(Expr::Call(sibling_call))),
-                    definite: false,
-                });
-            }
+        // Root scopes only exist for compat adapters declaring `allowRootScope`.
+        if let Some(extra) = self.extra.as_ref() {
+            rewrite_root_scope_declarators(
+                var_decl,
+                self.root_scope,
+                extra,
+                &mut self.injected_imports,
+            );
         }
-
-        var_decl.decls.extend(siblings);
     }
 
     fn visit_mut_expr(&mut self, expr: &mut Expr) {
@@ -393,33 +199,19 @@ impl VisitMut for TransformVisitor<'_> {
             return;
         };
 
-        let Some(callee_name) = callee_ident_name(&call.callee) else {
+        // Owned so the immutable borrow of `call.callee` ends before the
+        // rewrites below take it mutably.
+        let Some(callee_name) = callee_ident_name(&call.callee).map(str::to_string) else {
             return;
         };
 
         // `t("footer.github")` -> `t("github")`, re-pointed at the sibling
         // binding when the dictionary is not the declarator's first one.
-        if let Some(binding) = self.root_scope.get(callee_name).cloned() {
-            let translate_local = callee_name.to_string();
-            if let Some(message_id) = call.args.first().and_then(|arg| read_static_string(&arg.expr))
-            {
-                let (dictionary_key, key) = split_namespace(&message_id);
-                if binding.namespaces.iter().any(|ns| ns == dictionary_key) {
-                    if let Some(first_arg) = call.args.first_mut() {
-                        first_arg.expr = Box::new(Expr::Lit(Lit::Str(make_str(key))));
-                    }
-                    if binding.namespaces.first().map(String::as_str) != Some(dictionary_key) {
-                        call.callee = Callee::Expr(Box::new(Expr::Ident(Self::root_scope_alias(
-                            &translate_local,
-                            dictionary_key,
-                        ))));
-                    }
-                }
-            }
+        if rewrite_root_scope_message_call(call, &callee_name, self.root_scope) {
             return;
         }
 
-        let Some(meta) = self.caller_map.get(callee_name) else {
+        let Some(meta) = self.caller_map.get(&callee_name) else {
             return;
         };
         let extra_index = meta.extra_index;
@@ -427,7 +219,11 @@ impl VisitMut for TransformVisitor<'_> {
         let caller_package = meta.package.clone();
 
         match extra_index {
-            Some(extra_index) => self.rewrite_extra_caller_call(call, extra_index),
+            Some(extra_index) => {
+                if let Some(extra) = self.extra.as_ref() {
+                    extra.rewrite_call(call, extra_index, &mut self.injected_imports);
+                }
+            }
             None => self.rewrite_native_call(call, &caller_name, caller_package.as_deref()),
         }
     }
@@ -435,77 +231,32 @@ impl VisitMut for TransformVisitor<'_> {
     fn visit_mut_import_decl(&mut self, import: &mut ImportDecl) {
         import.visit_mut_children_with(self);
 
-        let package_specifier = import.src.value.as_str().unwrap_or_default();
+        let package_specifier = import.src.value.as_str().unwrap_or_default().to_string();
 
-        let is_native_package = PACKAGE_LIST.contains(&package_specifier);
-        let has_extra_caller_for_package = self.extra_callers.iter().any(|extra_caller| {
-            extra_caller
-                .import_sources
-                .iter()
-                .any(|source| source == package_specifier)
-        });
+        let is_native_package = PACKAGE_LIST.contains(&package_specifier.as_str());
+        let is_extra_package = self
+            .extra
+            .as_ref()
+            .is_some_and(|extra| extra.owns_import_source(&package_specifier));
 
-        if !is_native_package && !has_extra_caller_for_package {
+        if !is_native_package && !is_extra_package {
             return;
         }
 
         let should_use_dynamic_helpers =
-            is_native_package && self.package_uses_dynamic_helpers(package_specifier);
+            is_native_package && self.package_uses_dynamic_helpers(&package_specifier);
 
         for specifier in &mut import.specifiers {
             let ImportSpecifier::Named(named) = specifier else {
                 continue;
             };
-            let imported_name = imported_specifier_name(named);
 
             if is_native_package {
-                match imported_name.as_str() {
-                    "useIntlayer" => {
-                        let replacement = if should_use_dynamic_helpers {
-                            "useDictionaryDynamic"
-                        } else {
-                            "useDictionary"
-                        };
-                        named.imported = Some(ModuleExportName::Ident(make_ident(replacement)));
-                    }
-                    "getIntlayer" => {
-                        named.imported = Some(ModuleExportName::Ident(make_ident("getDictionary")));
-                    }
-                    GET_INTLAYER_ASYNC => {
-                        named.imported =
-                            Some(ModuleExportName::Ident(make_ident("getDictionaryAsync")));
-                    }
-                    _ => {}
-                }
+                self.rewrite_native_import_specifier(named, should_use_dynamic_helpers);
             }
 
-            // Rewrite extra caller imports to their *Dictionary replacement.
-            // Locals with unresolvable call sites were dropped from the caller
-            // map and keep the original import.
-            let local_name = named.local.sym.to_string();
-            let is_registered_extra = self
-                .caller_map
-                .get(&local_name)
-                .is_some_and(|meta| meta.extra_index.is_some());
-
-            if !is_registered_extra {
-                continue;
-            }
-
-            if let Some(extra_caller) = self.extra_callers.iter().find(|extra_caller| {
-                extra_caller
-                    .import_sources
-                    .iter()
-                    .any(|source| source == package_specifier)
-                    && extra_caller.caller_name == imported_name
-            }) {
-                let replacement_name = if self.extra_use_dynamic_helpers {
-                    &extra_caller.dynamic_replacement
-                } else {
-                    &extra_caller.static_replacement
-                };
-
-                named.imported = Some(ModuleExportName::Ident(make_ident(replacement_name)));
+            if let Some(extra) = self.extra.as_ref() {
+                extra.rewrite_import_specifier(named, &package_specifier, self.caller_map);
             }
         }
     }

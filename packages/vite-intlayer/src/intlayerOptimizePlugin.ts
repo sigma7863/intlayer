@@ -703,10 +703,9 @@ export const intlayerOptimize = async (
               ),
               importMode,
               filesList: transformableFilesList,
-              // When compat callers are configured, they call `getIntlayer` at
-              // runtime which reads from `dictionaries.mjs`. Emptying that module
-              // would break all compat runtime lookups, so we preserve it.
-              replaceDictionaryEntry: !compatCallers?.length,
+              replaceDictionaryEntry: isBuildOptimizeEnabled(null, {
+                command: 'build',
+              }),
               nestingDictionaryKeys,
               dictionaryModeMap: dictionaryKeyToImportModeMap,
               isServer: options?.ssr === true,
