@@ -51,37 +51,31 @@ author: aymericzip
 Intlayer는 **구성 요소 수준 콘텐츠 범위 지정**, **TypeScript 지원** 및 국제화 확장(i18n)에 필요한 모든 기능을 제공하여 Lynx 및 React와 완벽하게 작동하도록 최적화되었습니다.
 
 </Accordion>
-
 <Accordion header="번들 크기">
 
 대용량 JSON 파일을 페이지에 로드하는 대신 필요한 콘텐츠만 로드하세요. Intlayer는 **번들 및 페이지 크기를 최대 50%** 줄이는 데 도움이 됩니다.
 
 </Accordion>
-
 <Accordion header="유지관리성">
 
 애플리케이션 콘텐츠의 범위를 지정하면 대규모 애플리케이션의 **유지 관리가 용이해집니다**. 전체 콘텐츠 코드베이스를 검토해야 하는 정신적 부담 없이 단일 기능 폴더를 복제하거나 삭제할 수 있습니다. 또한 Intlayer는 **완전히 유형**되어 콘텐츠의 정확성을 보장합니다.
 
 </Accordion>
-
 <Accordion header="AI 에이전트">
 
 콘텐츠를 같은 위치에 배치하면 LLM(대형 언어 모델)에 **필요한 컨텍스트가 줄어듭니다**. Intlayer에는 누락된 번역을 테스트하기 위한 **CLI**, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 및 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/agent_skills.md)**, AI 에이전트를 위한 개발자 경험(DX)을 더욱 원활하게 만듭니다.
 
 </Accordion>
-
 <Accordion header="오토메이션">
 
 AI 공급자의 비용으로 선택한 LLM을 사용하여 CI/CD 파이프라인을 번역하려면 자동화를 사용하세요. Intlayer는 또한 콘텐츠 추출을 자동화하는 **컴파일러**와 **백그라운드에서 번역**을 돕는 [웹 플랫폼](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)을 제공합니다.
 
 </Accordion>
-
 <Accordion header="성능">
 
 대규모 JSON 파일을 구성 요소에 연결하면 성능 및 반응성 문제가 발생할 수 있습니다. Intlayer는 빌드 시 콘텐츠 로딩을 최적화합니다.
 
 </Accordion>
-
 <Accordion header="개발자가 없는 경우 확장">
 
 Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는 **자체 호스팅 [비주얼 편집기](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** 및 **[전체 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**를 제공합니다. 다국어 콘텐츠를 **실시간**으로 제공하여 번역가, 카피라이터, 기타 팀원과 원활하게 협업할 수 있습니다. 콘텐츠는 로컬 및/또는 원격으로 저장될 수 있습니다.
@@ -90,7 +84,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="의존성 설치">
 
 Lynx 프로젝트에서 다음 패키지를 설치하세요:
@@ -143,7 +136,6 @@ bun add intlayer react-intlayer lynx-intlayer
   Intlayer를 Lynx bundler와 통합하기 위한 플러그인을 제공하는 Lynx 통합입니다.
 
 </Step>
-
 <Step number={2} title="Intlayer 설정 파일 생성">
 
 프로젝트 루트(또는 편한 위치)에 **Intlayer 설정** 파일을 생성합니다. 다음과 같이 보일 수 있습니다:
@@ -174,7 +166,6 @@ export default config;
 - [Intlayer 설정 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md)를 참조하세요.
 
 </Step>
-
 <Step number={3} title="Intlayer 플러그인을 Lynx bundler에 추가">
 
 Intlayer를 Lynx와 함께 사용하려면 `lynx.config.ts` 파일에 플러그인을 추가해야 합니다:
@@ -192,7 +183,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Intlayer 제공자 추가">
 
 애플리케이션 전체에서 사용자 언어를 동기화된 상태로 유지하려면 `react-intlayer`의 `IntlayerProvider` 컴포넌트로 루트 컴포넌트를 감싸야 합니다.
@@ -220,7 +210,6 @@ if (import.meta.webpackHot) {
 ```
 
 </Step>
-
 <Step number={5} title="콘텐츠 선언">
 
 프로젝트의 어느 곳이든(일반적으로 `src/` 내) Intlayer가 지원하는 모든 확장명 형식을 사용하여 **콘텐츠 선언** 파일을 생성합니다:
@@ -335,7 +324,6 @@ export default appContent;
 > 콘텐츠 선언에 대한 자세한 내용은 [Intlayer 콘텐츠 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dictionary/content_file.md)를 참조하세요.
 
 </Step>
-
 <Step number={6} title="컴포넌트에서 Intlayer 사용">
 
 자식 컴포넌트에서 `useIntlayer` 훅을 사용하여 지역화된 콘텐츠를 얻습니다.
@@ -394,7 +382,6 @@ export const App = () => {
 > 문자열 기반 props(예: 버튼의 `title` 또는 `Text` 컴포넌트의 `children`)에서 `content.someKey`를 사용할 때는 **실제 문자열을 얻기 위해 `content.someKey.value`를 호출합니다**.
 
 </Step>
-
 <Step number={7} title="앱 로케일 변경" isOptional={true}>
 
 컴포넌트 내에서 로케일을 전환하려면 `useLocale` 훅의 `setLocale` 메서드를 사용할 수 있습니다:

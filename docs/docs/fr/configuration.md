@@ -1110,25 +1110,21 @@ Paramètres qui contrôlent le compilateur Intlayer, qui extrait les dictionnair
 À la racine de votre projet, à côté de `package.json`. Intlayer accepte aussi `intlayer.config.js`, `intlayer.config.mjs`, `intlayer.config.cjs` et le JSON, afin que le fichier corresponde au système de modules utilisé par votre projet.
 
 </Question>
-
 <Question title="Quel poids l'i18n ajoute-t-elle à la taille de mon bundle ?">
 
 Bien moins qu'une configuration basée sur des espaces de noms, car une page ne télécharge jamais un catalogue qu'elle n'affiche pas. Le balisage rendu côté serveur résout son contenu sur le serveur, et le compilateur au moment du build remplace les appels `useIntlayer` par les entrées de dictionnaire exactes qu'un composant utilise, si bien que les clés inutilisées et les langues inutilisées sont éliminées. Les [dictionnaires dynamiques](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dynamic_dictionaries/index.md) répartissent le reste par locale. Mesuré face aux alternatives habituelles, Intlayer réduit la taille du bundle et des pages jusqu'à 50 %. Voir l'[optimisation du bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/bundle_optimization.md) et le [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/benchmark/index.md).
 
 </Question>
-
 <Question title="Puis-je migrer depuis `i18next`, `next-intl` ou `react-i18next` sans réécrire mes composants ?">
 
 Oui, et il existe deux voies. Vous pouvez migrer le contenu progressivement avec le [guide de migration i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/migration_from_i18next_to_intlayer.md) ou le [guide de migration next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/migration_from_next-intl_to_intlayer.md). Ou vous pouvez conserver entièrement votre API actuelle : les [adaptateurs de compatibilité](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/compat/index.md) exposent exactement la même API que `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` et `Lingui`, mais servie par des dictionnaires Intlayer : seuls les imports changent, pas le code des composants.
 
 </Question>
-
 <Question title="Puis-je conserver mes fichiers de traduction JSON existants ?">
 
 Oui. Le [plugin de synchronisation JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-json.md) conserve vos fichiers `/messages/{locale}/{namespace}.json` comme source de vérité et génère les dictionnaires Intlayer à partir d'eux, dans les deux sens. Un [plugin de synchronisation PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-po.md) fait de même pour les catalogues gettext, et les [fichiers par locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/per_locale_file.md) permettent de séparer le contenu par langue au lieu de regrouper les locales dans un seul fichier.
 
 </Question>
-
 <Question title="Dois-je déplacer mon contenu clé par clé ?">
 
 Non. Lancez `npx intlayer extract` et Intlayer lit vos fichiers source, en extrait les chaînes destinées aux utilisateurs et écrit un fichier `.content` à côté de chacun, de sorte que vous relisez un diff plutôt que de copier des chaînes dans un catalogue une par une. Voir la [commande extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/extract.md).
@@ -1136,7 +1132,6 @@ Non. Lancez `npx intlayer extract` et Intlayer lit vos fichiers source, en extra
 Pour un pipeline entièrement automatisé, le [compilateur Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/compiler.md) fait la même chose au moment du build sur du code source JSX, TSX, Vue et Svelte, en générant les dictionnaires à chaque changement, de sorte qu'il n'y a aucune clé à maintenir à la main. Il fonctionne par analyse statique : les chaînes qui n'existent qu'à l'exécution restent hors de portée, et il a besoin de quelques annotations pour distinguer le texte destiné aux utilisateurs de la logique applicative.
 
 </Question>
-
 <Question title="Quels outils d'éditeur et d'agent IA sont disponibles ?">
 
 Cinq éléments, tous optionnels :
@@ -1148,49 +1143,41 @@ Cinq éléments, tous optionnels :
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/eslint.md)** : `no-raw-text` signale les chaînes codées en dur, avec d'autres règles pour les clés de dictionnaire statiques et le contenu inutilisé.
 
 </Question>
-
 <Question title="Comment ajouter une nouvelle langue à mon application ?">
 
 Ajoutez la locale à `internationalization.locales`, puis lancez `npx intlayer fill` pour traduire le contenu existant vers celle-ci. Les types générés se mettent à jour en même temps, si bien que tout fichier de contenu auquel il manque la nouvelle locale devient une erreur de type plutôt qu'un repli silencieux.
 
 </Question>
-
 <Question title="Comment retirer le préfixe de locale de mes URL ?">
 
 Définissez `routing.mode`. La valeur par défaut `"prefix-no-default"` donne `/about` pour la locale par défaut et `/fr/about` pour les autres. `"prefix-all"` préfixe toutes les locales. `"no-prefix"` maintient la locale entièrement hors du chemin et la résout à partir d'un cookie, d'un en-tête ou d'un domaine. `"search-params"` la place dans la chaîne de requête sous la forme `/about?locale=fr`.
 
 </Question>
-
 <Question title="Puis-je servir chaque langue depuis son propre domaine ?">
 
 Oui. `routing.domains` associe une locale à un nom d'hôte, par exemple `{ fr: 'example.fr', en: 'example.com' }`. Le domaine identifie la locale, donc aucun préfixe n'est ajouté au chemin, et `getLocalizedUrl` renvoie une URL absolue sur le bon domaine.
 
 </Question>
-
 <Question title="Comment la langue de l'utilisateur est-elle détectée ?">
 
 Via `routing.storage`, qui liste les sources à lire dans l'ordre, généralement l'URL, puis un cookie, puis l'en-tête `Accept-Language`. Un choix explicite de l'utilisateur est persisté afin qu'il l'emporte à la visite suivante.
 
 </Question>
-
 <Question title="Que fait routing.enableProxy ?">
 
 Il contrôle le proxy de routage de locale, le middleware qui résout les préfixes et effectue les redirections. Laissé non défini, le proxy s'exécute mais les serveurs de développement et de prévisualisation ignorent la locale stockée comme source de redirection, ce qui évite d'être renvoyé vers une langue que vous ne testez pas ; la production se comporte comme si sa valeur était `true`. Réglez-le sur `false` pour gérer vous-même le routage de locale.
 
 </Question>
-
 <Question title="Quelle est la différence entre importMode static, dynamic et fetch ?">
 
 `"static"`, la valeur par défaut, importe les dictionnaires de manière statique afin qu'ils soient inclus dans le bundle et lus de manière synchrone. `"dynamic"` les importe via Suspense, si bien qu'une locale n'est téléchargée que lorsqu'un composant l'affiche, ce qui est ce que vous voulez pour de grands ensembles de contenu. `"fetch"` les récupère depuis l'API de synchronisation en direct et se replie sur `"dynamic"` en cas d'échec. Voir l'[optimisation du bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/bundle_optimization.md) et les [dictionnaires dynamiques](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dynamic_dictionaries/index.md).
 
 </Question>
-
 <Question title="Où définir le fournisseur d'IA et la clé d'API pour la traduction automatique ?">
 
 Soit dans le fichier de configuration, soit en ligne de commande avec `--provider`, `--model` et `--api-key`. La clé reste la vôtre : les appels de traduction partent de votre machine ou de votre runner CI vers le fournisseur que vous avez choisi, si bien que rien ne transite par un tiers. Voir la [commande fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/fill.md).
 
 </Question>
-
 <Question title="Dois-je redémarrer le serveur de développement après avoir changé la configuration ?">
 
 En général non. Le watcher d'Intlayer surveille `intlayer.config.ts` lui-même : à l'enregistrement, il recharge la configuration et prépare de nouveau les dictionnaires, si bien qu'ajouter une locale ou changer un mode de routage est pris en compte comme un changement de contenu. Cependant, la configuration peut être mise en cache par les systèmes. Redémarrer votre application peut être une bonne solution.

@@ -56,7 +56,6 @@ Ce guide vous montre comment tirer parti du système supérieur de déclaration 
 ## Guide étape par étape pour configurer Intlayer avec vue-i18n
 
 <Steps>
-
 <Step number={1} title="Installer les dépendances">
 
 Installez les paquets nécessaires en utilisant votre gestionnaire de paquets préféré :
@@ -103,7 +102,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin** : Plugin pour synchroniser les déclarations de contenu Intlayer au format JSON de vue-i18n
 
 </Step>
-
 <Step number={2} title="Implémenter le plugin Intlayer pour envelopper le JSON">
 
 Créez un fichier de configuration Intlayer pour définir vos locales supportées :

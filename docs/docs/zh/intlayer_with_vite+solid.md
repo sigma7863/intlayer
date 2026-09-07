@@ -74,37 +74,31 @@ author: aymericzip
 Intlayer 针对 Solid 进行了优化，提供 **组件级内容作用域**、**响应式翻译** 以及国际化 (i18n) 扩展所需的所有功能。
 
 </Accordion>
-
 <Accordion header="Bundle 大小">
 
 不再将庞大的 JSON 文件加载到页面中，只加载必要的内容。Intlayer 帮助 **将 bundle 和页面大小减少高达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 对应用程序的内容进行作用域划分 **便于维护** 大型应用程序。您可以复制或删除单个功能文件夹，而无需费力审查整个内容代码库。此外，Intlayer **完全类型化**，确保内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 将内容共置 **减少了** 大型语言模型 (LLMs) **所需的上下文**。Intlayer 还提供一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI agents 的开发者体验 (DX) 更加顺畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 在 CI/CD 管道中使用自动化翻译，选择您的 LLM，按照 AI 提供商的成本计费。Intlayer 还提供 **编译器** 来自动提取内容，以及一个 [web 平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 来帮助 **后台翻译**。
 
 </Accordion>
-
 <Accordion header="性能">
 
 将庞大的 JSON 文件连接到组件可能导致性能和反应性问题。Intlayer 在构建时优化了内容加载。
 
 </Accordion>
-
 <Accordion header="与非开发人员协作扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，它还提供 **自托管 [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)** 和 **[完整 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)** 来帮助您 **实时** 管理多语言内容，使与翻译人员、文案撰写人和其他团队成员的协作无缝进行。内容可以本地存储和/或远程存储。
@@ -119,7 +113,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，它还提供 **自托管 [visual
 <TOC/>
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 使用 npm 安装必要的包：
@@ -175,7 +168,6 @@ bun add vite-intlayer --dev
   包括用于将 Intlayer 与 [Vite bundler](https://vite.dev/guide/why.html#why-bundle-for-production) 集成的 Vite 插件，以及用于检测用户首选语言、管理 cookie 和处理 URL 重定向的中间件。
 
 </Step>
-
 <Step number={2} title="配置您的项目">
 
 创建一个配置文件来配置您的应用程序的语言：
@@ -201,7 +193,6 @@ export default config;
 > 通过此配置文件，您可以设置本地化 URL、中间件重定向、cookie 名称、内容声明的位置和扩展名、禁用控制台中的 Intlayer 日志等。有关可用参数的完整列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="在您的 Vite 配置中集成 Intlayer">
 
 将 intlayer 插件添加到您的配置中。
@@ -220,7 +211,6 @@ export default defineConfig({
 > `intlayer()` Vite 插件用于将 Intlayer 与 Vite 集成。它确保内容声明文件的构建，并在开发模式下监视它们。它在 Vite 应用程序中定义 Intlayer 环境变量。此外，它提供别名以优化性能。
 
 </Step>
-
 <Step number={4} title="声明您的内容">
 
 创建和管理您的内容声明来存储翻译：
@@ -336,7 +326,6 @@ export default appContent;
 > 有关更多详细信息，请参阅[内容声明文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={5} title="在您的代码中使用 Intlayer">
 
 在整个应用程序中访问您的内容字典：
@@ -398,7 +387,6 @@ export default App;
 > ```
 
 </Step>
-
 <Step number={6} title="更改内容的语言" isOptional={true}>
 
 要更改内容的语言，您可以使用 `useLocale` hook 提供的 `setLocale` 函数。此函数允许您设置应用程序的语言环境并相应地更新内容。
@@ -429,7 +417,6 @@ const LocaleSwitcher: Component = () => {
 ```
 
 </Step>
-
 <Step number={7} title="为您的应用程序添加本地化路由" isOptional={true}>
 
 此步骤的目的是为每种语言创建独特的路由。这对 SEO 和 SEO 友好的 URL 很有用。
@@ -496,7 +483,6 @@ export default App;
 ```
 
 </Step>
-
 <Step number={8} title="当语言环境更改时更改 URL" isOptional={true}>
 
 要在语言环境更改时更改 URL，您可以使用 `useLocale` hook 提供的 `onLocaleChange` 属性。您可以使用 `@solidjs/router` 中的 `useNavigate` 和 `useLocation` hooks 来更新 URL 路径。
@@ -535,7 +521,6 @@ const LocaleSwitcher: Component = () => {
 ```
 
 </Step>
-
 <Step number={9} title="切换 HTML 语言和方向属性" isOptional={true}>
 
 更新 `<html>` 标签的 `lang` 和 `dir` 属性以匹配当前的语言环境，以提高可访问性和 SEO。
@@ -560,7 +545,6 @@ const AppContent: Component = () => {
 ```
 
 </Step>
-
 <Step number={10} title="创建本地化链接组件" isOptional={true}>
 
 创建一个自定义 `Link` 组件，该组件自动为内部 URL 添加当前语言的前缀。
@@ -607,7 +591,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={11} title="提取您的组件的内容" isOptional={true}>
 
 如果您有现有的 codebase，转换数千个文件可能很耗时。
@@ -839,25 +822,21 @@ Vite 本身对 i18n 没有特定偏好，因此选择主要来自 Solid 生态�
 对 Vite 而言，最大优势在于翻译在编译时解析并执行 tree-shaking，而不是在运行时以 JSON 形式获取，因此页面仅输出其渲染所需的条目。请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/index.md)。
 
 </Question>
-
 <Question title="i18n 会给我的 Solid bundle 体积增加多少？">
 
 远少于基于命名空间的方案，因为页面永远不会下载它不渲染的语言目录。构建时编译器将 `useIntlayer` 调用替换为组件使用的确切字典条目，因此未使用的键和未使用的语言都会被自动丢弃，并且 [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 会按语言环境拆分剩余内容。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/solid.md)。
 
 </Question>
-
 <Question title="我可以从 @solid-primitives/i18n 或 i18next 迁移而无需重写组件吗？">
 
 基本可以。请按照 [i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_i18next_to_intlayer.md) 迁移内容。您也可以逐步迁移：[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将现有的 JSON 目录作为单一真实来源（source of truth），并生成 Intlayer 字典，使两个层在逐个组件迁移时保持同步。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的组件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。本指南的第 11 步详细介绍了此过程。
@@ -867,7 +846,6 @@ Vite 本身对 i18n 没有特定偏好，因此选择主要来自 Solid 生态�
 开启编译器前有两个限制值得了解：它通过静态分析工作，因此仅在运行时存在的字符串（如 API 错误代码或 CMS 字段）无法被捕获；此外它需要区分用户文本和应用程序逻辑（如 `className="active"` 或状态代码），在大型代码库中需要少量注解。而 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md) 则通过让您参与审查避免了这两个问题。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -879,55 +857,46 @@ Vite 本身对 i18n 没有特定偏好，因此选择主要来自 Solid 生态�
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="如何在 Solid 组件中使用翻译内容？">
 
 在组件中调用 `useIntlayer` 并直接访问属性值。内容由 Solid Signal 提供支持，因此更改语言环境仅会更新读取该内容的 DOM 节点，而不会造成组件重新渲染。第 5 步展示了具体用法。
 
 </Question>
-
 <Question title="Intlayer 是否支持 Vite 开发服务器和热重载？">
 
 是的。`intlayer()` Vite 插件会监听您的 `.content.ts` 文件，并在保存时重新构建受影响的字典，因此修改会立即生效，无需重启开发服务器。类型定义也会同步重新生成，保持自动补全随时最新。
 
 </Question>
-
 <Question title="如何设置支持语言环境的路由？">
 
 第 7 步和第 8 步介绍了本地化路由以及在语言环境变更时重写 URL，第 10 步添加了本地化的链接组件。`routing.mode` 决定 URL 方案：`"prefix-no-default"`（默认，`/about` 与 `/fr/about`）、`"prefix-all"`、`"no-prefix"`（从 Cookie、Header 或域名解析）或 `"search-params"`（`/about?locale=fr`）。请参阅 [配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Question>
-
 <Question title="如何支持阿拉伯语或希伯来语等从右到左 (RTL) 的语言？">
 
 第 9 步对此进行了介绍。`getHTMLTextDir` 会为特定语言环境返回 `ltr`、`rtl` 或 `auto`，因此您可以根据当前活动的语言环境在根元素上绑定 `lang` 和 `dir`，让 CSS 逻辑属性处理布局反转。
 
 </Question>
-
 <Question title="如何在客户端渲染的 Vite 应用中处理 SEO 元数据？">
 
 根据当前活动的语言环境在 `html` 元素上设置 `lang` 和 `dir` 属性，并使用 `getMultilingualUrls` 为每个声明的语言环境输出 `hreflang` 备用链接（包括 `x-default`）。对于需要可靠抓取的页面，建议采用预渲染或服务端渲染方案。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译应用？">
 
 运行 `npx intlayer fill`。它会使用您选择的 LLM、您自己的提供商和 API 密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、用于长文本的 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

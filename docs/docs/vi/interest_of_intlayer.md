@@ -44,43 +44,36 @@ So với các giải pháp chính như `next-intl` hay `i18next`, Intlayer là g
 Thay vì tải các tệp JSON lớn vào trang của bạn, hãy chỉ tải nội dung cần thiết. Intlayer giúp **giảm tới 50% kích thước bundle và kích thước trang**.
 
 </Accordion>
-
 <Accordion header="Khả năng bảo trì">
 
 Xác định phạm vi nội dung ứng dụng của bạn **tạo điều kiện bảo trì** cho các ứng dụng quy mô lớn. Bạn có thể sao chép hoặc xóa một thư mục tính năng mà không phải lo lắng về việc xem lại toàn bộ cơ sở mã nội dung của mình. Ngoài ra, Intlayer **được nhập đầy đủ** để đảm bảo tính chính xác cho nội dung của bạn.
 
 </Accordion>
-
 <Accordion header="Đại lý AI">
 
 Nội dung cùng định vị **giảm ngữ cảnh cần thiết** của Mô hình ngôn ngữ lớn (LLM). Intlayer cũng đi kèm một bộ công cụ, chẳng hạn như **CLI** để kiểm tra các bản dịch bị thiếu,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** và **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/agent_skills.md)**, để giúp trải nghiệm của nhà phát triển (DX) trở nên mượt mà hơn nữa đối với các tác nhân AI.
 
 </Accordion>
-
 <Accordion header="Tính năng">
 
 Intlayer cung cấp nhiều tính năng bổ sung mà các giải pháp i18n khác không có, chẳng hạn như [Hỗ trợ Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/markdown.md), [tìm nạp nội dung bên ngoài](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/function_fetching.md), [nội dung tệp loading](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/file.md), [cập nhật nội dung trực tiếp](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/live.md), [trình soạn thảo trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md), v.v.
 
 </Accordion>
-
 <Accordion header="Tự động hóa">
 
 Sử dụng tính năng tự động hóa để dịch trong quy trình CI/CD của bạn bằng cách sử dụng LLM mà bạn chọn với chi phí do nhà cung cấp AI của bạn chi trả. Intlayer cũng cung cấp **trình biên dịch** để tự động trích xuất nội dung cũng như [nền tảng web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) để giúp **dịch ở chế độ nền**.
 
 </Accordion>
-
 <Accordion header="Hiệu suất">
 
 Việc kết nối các tệp JSON lớn với các thành phần có thể dẫn đến các vấn đề về hiệu suất và khả năng phản hồi. Intlayer tối ưu hóa việc tải nội dung của bạn tại thời điểm build.
 
 </Accordion>
-
 <Accordion header="Mở rộng quy mô không có nhà phát triển">
 
 Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh sửa trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** và **[CMS đầy đủ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** để giúp bạn quản lý nội dung đa ngôn ngữ của mình trong **thời gian thực**, giúp việc cộng tác với người dịch, người viết quảng cáo và các thành viên khác trong nhóm trở nên liền mạch. Nội dung có thể được lưu trữ cục bộ và/hoặc từ xa.
 
 </Accordion>
-
 <Accordion header="Thiết kế khung chéo">
 
 Nếu bạn sử dụng các khung khác nhau cho các phần khác nhau của ứng dụng (ví dụ: React, React-native, Vue, Angular, Svelte, v.v.), Intlayer sẽ cung cấp cách **sử dụng một synatax chung và cách triển khai trên tất cả các khung giao diện người dùng chính**. Bạn cũng sẽ có thể chia sẻ khai báo nội dung của mình trên hệ thống thiết kế, ứng dụng, chương trình phụ trợ, v.v.
@@ -304,25 +297,21 @@ Ba thế hệ cùng tồn tại:
 - **Thư viện lớp nội dung (Content layer)**: `Intlayer`. Khai báo cạnh component, tree-shaking, kiểu TypeScript, dịch thuật AI và visual editor.
 
 </Question>
-
 <Question title="i18n làm tăng kích thước bundle của tôi bao nhiêu?">
 
 Ít hơn nhiều so with các cấu hình dựa trên namespace, vì trang không bao giờ tải catalog mà nó không hiển thị. Mã hiển thị trên server phân giải nội dung ngay trên server, và compiler tại thời điểm build thay thế các lệnh gọi `useIntlayer` bằng chính xác các mục từ điển mà component sử dụng, do đó các khóa và ngôn ngữ không sử dụng sẽ bị loại bỏ. [Từ điển động](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dynamic_dictionaries/index.md) chia phần còn lại theo từng locale. So với các giải pháp thông thường, Intlayer giảm kích thước bundle và trang tới 50%. Xem [tối ưu hóa bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/bundle_optimization.md) và [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/benchmark/index.md).
 
 </Question>
-
 <Question title="Tôi có thể di chuyển từ i18next, next-intl hoặc react-i18next mà không cần viết lại component không?">
 
 Có, theo hai cách. Bạn có thể di chuyển nội dung dần dần bằng [hướng dẫn di chuyển từ i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/migration_from_i18next_to_intlayer.md) hoặc [hướng dẫn di chuyển từ next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/migration_from_next-intl_to_intlayer.md). Hoặc bạn có thể giữ nguyên API hiện tại: [adapter tương thích](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/compat/index.md) cung cấp chính xác các API tương tự như `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` và `Lingui`, nhưng chạy trên các từ điển Intlayer, nhờ đó chỉ có các lệnh import thay đổi còn mã component vẫn giữ nguyên.
 
 </Question>
-
 <Question title="Tôi có thể giữ các tệp dịch JSON hiện có của mình không?">
 
 Có. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-json.md) giữ cho các tệp `/messages/{locale}/{namespace}.json` của bạn là nguồn sự thật duy nhất và tạo các từ điển Intlayer từ chúng theo cả hai hướng. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-po.md) làm điều tương tự cho các catalog gettext, và [các tệp theo locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/per_locale_file.md) cho phép bạn chia nội dung theo ngôn ngữ thay vì nhóm các locale trong một tệp.
 
 </Question>
-
 <Question title="Tôi có phải di chuyển nội dung từng khóa một không?">
 
 Không. Chạy `npx intlayer extract` và Intlayer sẽ đọc các tệp nguồn của bạn, trích xuất các chuỗi dành cho người dùng và tạo tệp `.content` bên cạnh mỗi tệp, nhờ đó bạn xem lại diff thay vì sao chép chuỗi vào catalog thủ công. Xem [lệnh extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/extract.md).
@@ -330,7 +319,6 @@ Không. Chạy `npx intlayer extract` và Intlayer sẽ đọc các tệp nguồ
 Đối với quy trình làm việc hoàn toàn tự động, [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/compiler.md) thực hiện việc tương tự trong quá trình build trên mã JSX, TSX, Vue và Svelte, tạo từ điển trên mỗi thay đổi mà không cần quản lý khóa thủ công.
 
 </Question>
-
 <Question title="Có những công cụ editor và AI agent nào có sẵn?">
 
 Năm công cụ, tất cả đều là tùy chọn:
@@ -342,43 +330,36 @@ Năm công cụ, tất cả đều là tùy chọn:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/eslint.md)**: quy tắc `no-raw-text` phát hiện các chuỗi chưa được bản địa hóa.
 
 </Question>
-
 <Question title="Intlayer khác biệt như thế nào so với next-intl?">
 
 `next-intl` là lớp thông điệp cho Next.js dựa trên các tệp JSON theo từng ngôn ngữ. Intlayer khai báo nội dung ngay bên cạnh component, loại bỏ các mục không dùng tại build time, tạo kiểu dữ liệu TypeScript nghiêm ngặt cho từng từ điển, và cung cấp tính năng dịch AI cùng visual editor tích hợp sẵn.
 
 </Question>
-
 <Question title="Intlayer khác biệt như thế nào so với i18next và react-i18next?">
 
 `i18next` giải quyết các khóa chuỗi ở runtime, nghĩa là lỗi chính tả ở tên khóa sẽ thất bại trong im lặng và hiển thị văn bản trống. Intlayer kiểm tra khóa tĩnh trong quá trình biên dịch, loại bỏ ngôn ngữ không dùng khỏi bundle, và tự động hóa quy trình dịch thuật.
 
 </Question>
-
 <Question title="Intlayer có nhanh hơn hoặc nhẹ hơn các giải pháp thay thế không?">
 
 Về kích thước bundle và trang, có: việc không tải các catalog mà trang không render giúp giảm kích thước bundle tới 50%. Về hiệu năng runtime, việc biên dịch trước loại bỏ chi phí phân tích chuỗi tại thời điểm chạy. Xem [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/benchmark/index.md).
 
 </Question>
-
 <Question title="Có đáng để di chuyển một ứng dụng hiện có không?">
 
 Tùy thuộc vào các hạn chế bạn gặp phải. Nếu vấn đề của bạn là kích thước bundle lớn, thiếu bản dịch mà không có cảnh báo, hoặc người không chuyên gặp khó khăn khi chỉnh sửa văn bản, Intlayer giải quyết triệt để; các adapter tương thích cho phép di chuyển từng bước mà không cần viết lại mã.
 
 </Question>
-
 <Question title="Intlayer cung cấp những gì mà các thư viện i18n khác không có?">
 
 Hỗ trợ [nội dung Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/markdown.md), lấy nội dung từ CMS, visual editor tích hợp, dịch tự động bằng AI với flag `--git-diff`, và tự động hoàn thành TypeScript dựa trên phân tích component.
 
 </Question>
-
 <Question title="Tôi có thể chỉ dùng Intlayer làm trình quản lý bản dịch và giữ nguyên thư viện hiện tại không?">
 
 Có. Intlayer có thể tạo các namespace theo định dạng và vị trí mà thư viện hiện tại của bạn mong đợi (ví dụ `/messages/{locale}/{namespace}.json`), cho phép bạn tận hưởng CLI và editor của Intlayer mà không thay đổi mã ứng dụng.
 
 </Question>
-
 <Question title="Intlayer có phải là mã nguồn mở và miễn phí không?">
 
 Có, theo giấy phép Apache 2.0, bao gồm cả mục đích thương mại. CMS trên đám mây là dịch vụ trả phí tùy chọn và cũng có thể [tự lưu trữ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/self_hosting.md).

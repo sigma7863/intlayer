@@ -69,37 +69,31 @@ Dibandingkan dengan solusi utama seperti `astro-i18n` atau `i18next`, Intlayer a
 Intlayer dioptimalkan untuk bekerja sempurna dengan Astro dengan menawarkan **perutean multibahasa**, **peta situs**, dan semua fitur yang diperlukan untuk penskalaan internasionalisasi (i18n).
 
 </Accordion>
-
 <Accordion header="Ukuran bundle">
 
 Daripada memuat file JSON berukuran besar ke halaman Anda, muat saja konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Kemampuan Pemeliharaan">
 
 Mencakup konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi berskala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **diketik sepenuhnya** untuk memastikan keakuratan konten Anda.
 
 </Accordion>
-
 <Accordion header="Agen AI">
 
 Menempatkan konten bersama **mengurangi konteks yang diperlukan** dengan Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk menjadikan pengalaman pengembang (DX) lebih lancar bagi agen AI.
 
 </Accordion>
-
 <Accordion header="Otomatisasi">
 
 Gunakan otomatisasi untuk menerjemahkan dalam saluran CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Pertunjukan">
 
 Menghubungkan file JSON berukuran besar ke komponen dapat menyebabkan masalah kinerja dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada waktu pembuatan.
 
 </Accordion>
-
 <Accordion header="Menskalakan tanpa pengembang">
 
 Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** yang dihosting sendiri dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi lancar. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -112,7 +106,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 Lihat [templat aplikasi](https://github.com/aymericzip/intlayer-astro-template) di GitHub.
 
 <Steps>
-
 <Step number={1} title="Instal Dependensi">
 
 Instal paket yang diperlukan menggunakan manajer paket pilihan Anda:
@@ -163,7 +156,6 @@ bun add intlayer astro-intlayer vanilla-intlayer
   Paket untuk mengintegrasikan Intlayer ke dalam aplikasi Vanilla JavaScript / TypeScript. Paket ini menyediakan singleton Pub/Sub (`IntlayerClient`) dan pembantu berbasis callback (`useIntlayer`, `useLocale`, dll.) agar bagian mana pun dari Astro `<script>` Anda dapat bereaksi terhadap perubahan bahasa tanpa memerlukan framework UI.
 
 </Step>
-
 <Step number={2} title="Konfigurasikan Proyek Anda">
 
 Buat file konfigurasi untuk menentukan bahasa aplikasi Anda:
@@ -190,7 +182,6 @@ export default config;
 > Melalui file konfigurasi ini, Anda dapat mengatur URL yang dilokalkan, pengalihan middleware, nama cookie, lokasi dan ekstensi deklarasi konten, menonaktifkan log Intlayer di konsole, dan banyak lagi. Untuk daftar lengkap parameter yang tersedia, lihat [dokumentasi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrasikan Intlayer ke dalam konfigurasi Astro Anda">
 
 Tambahkan plugin `intlayer` ke konfigurasi Astro Anda. Tidak diperlukan integrasi framework UI tambahan untuk Vanilla JS.
@@ -210,7 +201,6 @@ export default defineConfig({
 > Plugin integrasi `intlayer()` digunakan untuk mengintegrasikan Intlayer dengan Astro. Plugin ini memastikan pembuatan file deklarasi konten dan memantaunya dalam mode pengembangan. Plugin ini mendefinisikan variabel lingkungan Intlayer di dalam aplikasi Astro dan menyediakan alias untuk mengoptimalkan kinerja.
 
 </Step>
-
 <Step number={4} title="Deklarasikan Konten Anda">
 
 Buat dan kelola deklarasi konten Anda untuk menyimpan terjemahan:
@@ -250,7 +240,6 @@ export default appContent;
 > Untuk informasi selengkapnya, lihat [dokumentasi deklarasi konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Menggunakan Konten di Astro">
 
 Dengan Vanilla JS, semua server-side rendering (SSR) terjadi langsung di file `.astro` menggunakan `getIntlayer`. Kemudian, di sisi klien, blok `<script>` menginisialisasi pustaka `vanilla-intlayer` untuk mengaktifkan peralihan bahasa.
@@ -361,7 +350,6 @@ const { greeting, description, switchLocale } = getIntlayer("app", locale);
 > - **`search-param` atau `no-prefix`:** Direktori bahasa tidak diperlukan. Bahasa dikelola melalui parameter kueri atau cookie.
 
 </Step>
-
 <Step number={6} title="Menambahkan Pengalih Bahasa">
 
 Di Astro dengan Vanilla JS, pengalih bahasa dihasilkan di server sebagai tautan biasa dan diaktifkan di sisi klien melalui blok `<script>`. Saat pengguna mengklik tautan bahasa, `vanilla-intlayer` menyetel cookie bahasa melalui `setLocale` sebelum menavigasi ke URL yang dilokalkan.
@@ -404,7 +392,6 @@ Di Astro dengan Vanilla JS, pengalih bahasa dihasilkan di server sebagai tautan 
 > Tautan di dalam pengalih bahasa akan berfungsi sebagai tag `<a>` standar bahkan tanpa JavaScript. Saat JavaScript tersedia, panggilan `setLocale` memperbarui cookie sebelum mengarahkan ulang, memastikan middleware menangani pilihan bahasa dengan benar.
 
 </Step>
-
 <Step number={7} title="Sitemap dan Robots.txt">
 
 Intlayer menawarkan utilitas untuk secara dinamis membuat peta situs yang dilokalkan dan file robots.txt Anda.
@@ -466,7 +453,6 @@ export const GET: APIRoute = ({ site }) => {
 ```
 
 </Step>
-
 <Step number={1} title="Ekstrak konten komponen Anda" isOptional={true}>
 
 Jika Anda memiliki basis kode yang ada, mengubah ribuan file bisa memakan waktu lama.
@@ -633,25 +619,21 @@ Opsi `i18n` bawaan Astro mengelola prefix alamat, tetapi menyerahkan pengelolaan
 Tanpa framework UI, Anda ingin menghindari ukuran library i18n runtime, dan Intlayer menyelesaikan konten saat build time sehingga halaman statis Astro berisi HTML jadi tanpa kamus tambahan. Lihat [mengapa Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle Astro saya?">
 
 Jauh lebih sedikit daripada solusi berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Halaman Astro di-render saat build time, jadi hanya HTML terjemahan yang dikirim tanpa kamus tambahan; hanya komponen pulau (island) interaktif yang menerima kamus. [Kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi konten per locale, mengurangi bundle hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari i18next atau kamus manual tanpa menulis ulang komponen?">
 
 Sebagian besar ya. Ikuti [panduan migrasi i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_i18next_to_intlayer.md).
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu. Langkah 15 panduan ini menjelaskannya.
@@ -661,7 +643,6 @@ Untuk proses otomatis penuh, [Intlayer Compiler](https://github.com/aymericzip/i
 Dua batasan perlu diketahui sebelum Anda mengaktifkan compiler. Ini bekerja dengan analisis statis, jadi string yang hanya ada saat runtime, seperti kode kesalahan API atau field CMS, tetap berada di luar jangkauan. Dan ini harus membedakan teks yang dilihat pengguna dari logika aplikasi seperti `className="active"` atau kode status, yang memerlukan beberapa anotasi di basis kode yang besar. [Perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) menghindari keduanya dengan menjaga Anda tetap memegang kendali.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -673,49 +654,41 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Apakah saya memerlukan JavaScript di halaman agar terjemahan berfungsi?">
 
 Tidak. Halaman Astro di-render saat build time, dan Intlayer menyelesaikan konten selama render tersebut, jadi HTML yang dihasilkan sudah berisi teks terjemahan. Paket `vanilla-intlayer` hanya diperlukan untuk bagian yang Anda buat interaktif di browser.
 
 </Question>
-
 <Question title="Bisakah saya menambahkan pulau interaktif nanti tanpa mengubah konten saya?">
 
 Ya, itu adalah tujuan utama dari satu lapisan konten. Deklarasi yang sama dibaca oleh `astro-intlayer` di halaman dan oleh binding framework pulau yang Anda tambahkan, baik itu [React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_astro_react.md), [Vue](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_astro_vue.md), [Svelte](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_astro_svelte.md), [Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_astro_solid.md), [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_astro_preact.md), atau [Lit](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_astro_lit.md).
 
 </Question>
-
 <Question title="Bagaimana cara mengatur routing terlokalisasi dan pengalih bahasa?">
 
 Langkah 6 dan 7 dari panduan ini membahas hal ini. `routing.mode` menentukan apakah bahasa default mendapatkan prefix (`"prefix-no-default"`), semua bahasa mendapatkannya (`"prefix-all"`), atau bahasa terlepas dari path (`"no-prefix"`). `getLocalizedUrl` mengubah path saat ini ke bahasa target, menjaga pengunjung tetap di halaman yang sama.
 
 </Question>
-
 <Question title="Bagaimana cara membuat sitemap terlokalisasi dan tag hreflang?">
 
 Langkah 8 membahas konfigurasi `sitemap.xml` dan `robots.txt`. Fungsi `getMultilingualUrls` menghasilkan alternatif untuk setiap locale yang dideklarasikan, termasuk `x-default`, agar mesin pencari mengindeks dengan benar.
 
 </Question>
-
 <Question title="Bagaimana cara menerjemahkan situs secara otomatis dengan AI?">
 
 Jalankan `npx intlayer fill`. Perintah ini mengisi terjemahan yang hilang menggunakan LLM pilihan Anda dengan provider dan API key Anda sendiri, dan `--git-diff` membatasi proses ke file yang diubah. Lihat [perintah fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/fill.md) dan [integrasi CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/CI_CD.md).
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung bentuk jamak, gender dan rich text?">
 
 Ya: [bentuk jamak (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/plurial.md), [konten berbasis gender](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/gender.md), kondisi, [penyisipan (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/insertion.md), dan [formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/formatters.md) untuk angka, tanggal, dan mata uang.
 
 </Question>
-
 <Question title="Bagaimana penerjemah dapat mengedit konten tanpa menyentuh kode?">
 
 Melalui [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md), yang memungkinkan siapa saja mengedit teks langsung di aplikasi yang berjalan, atau melalui [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md), yang memisahkan konten sehingga dapat diubah tanpa perlu redeploy kode.
 
 </Question>
-
 <Question title="Apakah Intlayer gratis dan open source?">
 
 Ya, di bawah lisensi Apache 2.0, termasuk penggunaan komersial. CMS yang di-host adalah layanan berbayar opsional yang juga dapat [di-host sendiri (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).

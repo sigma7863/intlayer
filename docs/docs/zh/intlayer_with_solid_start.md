@@ -74,37 +74,31 @@ author: aymericzip
 Intlayer 经过优化，可与 Solid 完美配合，提供**组件级内容划分**、**响应式翻译**以及扩展国际化 (i18n) 所需的所有功能。
 
 </Accordion>
-
 <Accordion header="打包体积">
 
 无需将庞大的 JSON 文件加载到页面中，只需加载必要的内容。Intlayer 有助于**将打包文件和页面体积减少高达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 对应用程序的内容进行局部作用域划分**有助于大型应用程序的维护**。你可以复制或删除单个功能文件夹，而无需心理负担去审查整个内容代码库。此外，Intlayer 是**完全类型化**的，以确保内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI 代理">
 
 将内容协同定位**减少了大语言模型 (LLM) 所需的上下文**。Intlayer 还附带了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 代理的开发人员体验 (DX) 更加顺畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 在 CI/CD 流水线中使用你选择的 LLM 按照 AI 提供商的成本自动进行翻译。Intlayer 还提供了一个**编译器**来自动提取内容，以及一个 [Web 平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) 来帮助**在后台进行翻译**。
 
 </Accordion>
-
 <Accordion header="性能">
 
 将庞大的 JSON 文件连接到组件可能会导致性能和响应性问题。Intlayer 在构建时优化了内容加载。
 
 </Accordion>
-
 <Accordion header="与非开发人员协同扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** 和一个 **[完整 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**，帮助你**实时**管理多语言内容，使与翻译人员、文案人员和其他团队成员的协作更加无缝。内容可以存储在本地和/或远程。
@@ -115,7 +109,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 ## 在 SolidStart 应用程序中设置 Intlayer 的分步指南
 
 <Steps>
-
 <Step number={1} title="安装依赖项">
 
 使用 npm 安装必要的软件包：
@@ -171,7 +164,6 @@ bun add intlayer solid-intlayer vite-intlayer
 > 这里 `vite-intlayer` 是一个服务端关注点，不仅是构建时的关注点：它提供了 SolidStart 的 Nitro 服务器运行的请求句柄。将其保留在 `dependencies` 中是安全的默认设置 —— 仅当你要部署包含 Nitro 内联句柄的构建后的 `.output` 目录时，才可以将其移动到 `devDependencies`。
 
 </Step>
-
 <Step number={2} title="配置你的项目">
 
 创建一个配置文件来配置应用程序的语言：
@@ -208,7 +200,6 @@ export default config;
 > 通过此配置文件，你可以设置本地化 URL、中间件重定向、cookie 名称、内容声明的位置和扩展名、禁用控制台中的 Intlayer 日志等。有关可用参数的完整列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md)。
 
 </Step>
-
 <Step number={3} title="在 Vite 配置中集成 Intlayer">
 
 将 Intlayer 插件添加到你的配置中：
@@ -236,7 +227,6 @@ SolidStart 运行在 [Nitro](https://nitro.build) 上，并且 `intlayer()` 将�
 - 语言 cookie 会在响应中写回。
 
 </Step>
-
 <Step number={4} title="声明你的内容">
 
 创建并管理你的内容声明以存储翻译：
@@ -310,7 +300,6 @@ export default homeContent;
 > 有关更多详细信息，请参阅[内容声明文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={5} title="添加本地化路由">
 
 本步骤的目标是赋予每种语言自己的 URL，这也是搜索引擎进行索引的内容。
@@ -354,7 +343,6 @@ export default function LocaleLayout(props: RouteSectionProps) {
 > 如果你使用 `'prefix-all'` 路由模式，请首选 `[locale]`（必需），如果是 `'no-prefix'` 或 `'search-params'`，则完全放弃该段。
 
 </Step>
-
 <Step number={6} title="为你的应用程序提供语言 locale">
 
 URL 是语言 locale 的唯一真理来源：中间件已经将请求重定向到其本地化路径，因此在根布局中读取路径可使服务端渲染与客户端水化（hydration）保持一致，并使每次客户端导航都自动更新语言 locale。
@@ -405,7 +393,6 @@ export default function App() {
 > `IntlayerProvider` 会对其 `locale` prop 作出响应，因此在 JSX 中传递访问器调用 `locale()` 就足够了 —— Solid 会将其编译为一个 getter，当 URL 改变时整个树都会以新语言重新渲染。
 
 </Step>
-
 <Step number={7} title="在服务端设置 HTML 的 lang 和 dir 属性">
 
 `<html>` 元素由 `entry-server.tsx` 在 `Router` 之外渲染。改为从请求 URL 读取语言 locale：
@@ -451,7 +438,6 @@ export default createHandler(() => (
 ```
 
 </Step>
-
 <Step number={8} title="在页面中使用 Intlayer">
 
 在整个应用程序中访问你的内容字典：
@@ -533,7 +519,6 @@ export default function Counter() {
 `plural()` 通过针对当前语言的 `Intl.PluralRules` 选择类别，因此拥有两种以上复数形式的语言无需任何额外代码即可工作。
 
 </Step>
-
 <Step number={9} title="创建本地化链接组件">
 
 创建自定义 `Link` 组件，它会自动向内部 URL 添加当前语言的前缀：
@@ -578,7 +563,6 @@ export const Nav: Component = () => {
 现在只需编写一次 `href="/about"`，即可根据活动语言生成 `/about`、`/fr/about` 或 `/es/about` —— 页面中的任何位置都无需手动添加前缀。
 
 </Step>
-
 <Step number={10} title="创建语言切换器组件">
 
 将切换器渲染为**真实的 `<a>` 锚点**而非 `<select>`：当前页面的每种语言都会变为可爬取的链接，并且可以在新标签页中打开，这是仅依靠 JavaScript 的控件无法提供的。
@@ -649,7 +633,6 @@ export const LocaleSwitcher: Component = () => {
 > 要了解有关 `useLocale` 钩子的更多信息，请参阅[文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/solid-intlayer/useLocale.md)。
 
 </Step>
-
 <Step number={11} title="生成规范 canonical 和 hreflang 链接" isOptional={true}>
 
 `hreflang` 注释告知搜索引擎 `/about`、`/fr/about` 和 `/es/about` 是不同语言下的同一个页面。`getMultilingualUrls` 根据你的路由模式从规范（无语言段）路径中导出它们，因此无需硬编码任何内容：
@@ -721,7 +704,6 @@ import { AlternateLinks } from "~/components/AlternateLinks";
 > **关于 `@solidjs/meta` 的注意事项**：在撰写本文时，`@solidjs/meta` 中的 `<Title>` 和 `<Meta>` 在客户端水化后应用，但**不会**发散到 SolidStart v2 的服务端渲染 `<head>` 中。在 upstream 修复此问题之前，请直接在 `entry-server.tsx` 中渲染爬虫无需 JavaScript 即可看到的标签 —— `canonical`、`hreflang` 以及需要的 `title` / `description`，如上所示。
 
 </Step>
-
 <Step number={12} title="处理未找到 (404) 页面" isOptional={true}>
 
 处于 `src/routes` 根目录的通配符路由（splat route）可以捕获语言段未匹配到的所有路径 —— 包括被 `matchFilters` 拒绝的无效语言前缀。由于语言仍通过根布局来自 URL，因此 404 页面将以访问者的语言显示：
@@ -753,7 +735,6 @@ export default function NotFound() {
 | `/fr/nonexistent` | 法语下的 `404` (`Page introuvable`) |
 
 </Step>
-
 <Step number={13} title="生成多语言 sitemap 站点地图" isOptional={true}>
 
 Intlayer 的 sitemap 生成器将每个路径扩展为每个语言对应一个条目，并在它们之间连接 `xhtml:link` 备用链接，因此路由只需列出规范的、无语言前缀的路径。
@@ -828,7 +809,6 @@ export const GET = () =>
 ```
 
 </Step>
-
 <Step number={14} title="在服务端函数中检索语言 locale" isOptional={true}>
 
 你可能希望在服务端函数或 API 路由内部访问当前语言 locale。
@@ -872,7 +852,6 @@ export default function Page() {
 > 此处不要仅依赖 `getLocale`：仅当访问者主动切换语言时才会写入语言 cookie，因此首次访问 `/fr/...` 将会被解析为默认语言。
 
 </Step>
-
 <Step number={15} title="提取组件的内容" isOptional={true}>
 
 如果你有一个现有的代码库，转换数千个文件可能会非常耗时。
@@ -982,7 +961,6 @@ bun run build # 或 bun run dev
 </Tabs>
 
 </Step>
-
 <Step number={16} title="配置 TypeScript">
 
 Intlayer 使用模块增强 (module augmentation) 来获得 TypeScript 的优势并增强你的代码库。
@@ -1088,25 +1066,21 @@ node .output/server/index.mjs
 在 Solid Start 上，差异主要体现在服务端能力上，本指南将其作为专门的步骤进行了讲解，而无需开发者从零摸索。请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md) 和 [Solid i18n 性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/solid.md)。
 
 </Question>
-
 <Question title="i18n 会给我的 Solid Start bundle 体积增加多少？">
 
 远少于基于命名空间的方案，因为页面永远不会下载它不渲染的语言目录。服务端渲染的标记在服务端直接解析内容，构建时编译器将 `useIntlayer` 调用替换为组件使用的确切字典条目，因此未使用的键和未使用的语言都会被自动丢弃，并且 [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 会按语言环境拆分剩余内容。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/solid.md)。
 
 </Question>
-
 <Question title="我可以从 @solid-primitives/i18n 或 i18next 迁移而无需重写组件吗？">
 
 基本可以。请按照 [i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_i18next_to_intlayer.md) 迁移内容。您也可以逐步迁移：[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将现有的 JSON 目录作为单一真实来源（source of truth），并生成 Intlayer 字典，使两个层在逐个组件迁移时保持同步。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的组件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。本指南的第 15 步详细介绍了此过程。
@@ -1116,7 +1090,6 @@ node .output/server/index.mjs
 开启编译器前有两个限制值得了解：它通过静态分析工作，因此仅在运行时存在的字符串（如 API 错误代码或 CMS 字段）无法被捕获；此外它需要区分用户文本和应用程序逻辑（如 `className="active"` 或状态代码），在大型代码库中需要少量注解。而 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md) 则通过让您参与审查避免了这两个问题。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -1128,61 +1101,51 @@ node .output/server/index.mjs
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="Intlayer 是否支持 Solid Start 服务端渲染 (SSR)？">
 
 是的。第 6 步在服务端为应用提供语言环境，第 7 步在服务端设置 `lang` 和 `dir` 属性，因此首次 HTML 响应就已经包含正确的语言，这正是爬虫与社交预览机器人读取的内容。
 
 </Question>
-
 <Question title="更改语言环境是否会重新渲染整个应用？">
 
 不会。内容由 Solid signals 驱动，因此切换语言仅会更新读取已更改值的 DOM 节点，而无需重新运行外层的组件代码。
 
 </Question>
-
 <Question title="如何添加规范链接 (canonical) 和 hreflang 链接？">
 
 第 11 步对此进行了介绍。`getMultilingualUrls` 会为每个声明的语言环境构建备用链接（包括 `x-default`），第 13 步将相同的数据提供给多语言站点地图，使页面的每个语言版本都能相互链接。
 
 </Question>
-
 <Question title="如何在本地化路由上处理 404 页面？">
 
 第 12 步对此进行了介绍。`validatePrefix` 可以指示 URL 中的语言环境段是否为已声明的语言环境，从而让 `/xx/about` 返回真正的 404，而不是被当作路径处理并被搜索引擎索引为重复页面。
 
 </Question>
-
 <Question title="我必须在 URL 中包含语言环境吗？">
 
 不需要。`routing.mode` 支持 `"prefix-no-default"`（默认）、`"prefix-all"`、`"no-prefix"` 和 `"search-params"`，而 `routing.domains` 可将每个语言环境映射到独立域名。请参阅 [配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Question>
-
 <Question title="如何在服务端函数 (server function) 中获取语言环境？">
 
 第 14 步对此进行了介绍。为请求解析出的语言环境可在服务端函数内部直接获取，因此在服务端获取的数据可以直接在同一步骤中进行本地化，无需在客户端二次翻译。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译应用？">
 
 运行 `npx intlayer fill`。它会使用您选择的 LLM、您自己的提供商和 API 密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、用于长文本的 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

@@ -339,19 +339,16 @@ Jika Anda siap mengonfigurasi setiap bagian aplikasi secara mendalam, termasuk k
 Ya. Anda dapat menggunakan `npx intlayer extract` untuk secara otomatis mendeteksi dan mengekstrak string hardcode ke dalam file deklarasi konten lokal, atau menggunakan kompilator Intlayer untuk mengubah komponen pada waktu build sembari tetap menulis JSX standar.
 
 </Question>
-
 <Question title="Bagaimana Intlayer mengurangi ukuran bundle Vite dibandingkan dengan react-i18next atau react-intl?">
 
 Intlayer menggunakan definisi kamus per komponen dan optimalisasi makro pada waktu build. Bundle Anda hanya menerima teks yang benar-benar dibutuhkan oleh komponen yang ditampilkan di layar, alih-alih mengimpor seluruh file JSON namespace. Kamus dinamis juga memungkinkan pemuatan bahasa secara bertahap saat dibutuhkan.
 
 </Question>
-
 <Question title="Bisakah saya menggunakan AI untuk menerjemahkan komponen yang ada ke dalam banyak bahasa?">
 
 Ya. CLI Intlayer menyertakan perintah `npx intlayer fill` yang terhubung ke penyedia AI pilihan Anda (OpenAI, Anthropic, Mistral, DeepSeek) untuk menghasilkan terjemahan kontekstual di seluruh proyek.
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari react-i18next atau react-intl tanpa menulis ulang komponen?">
 
 Ya. Intlayer menyediakan adaptor kompatibilitas untuk `react-i18next` dan `react-intl`, serta plugin untuk menyinkronkan file terjemahan JSON yang sudah ada secara dua arah (`sync-json`).

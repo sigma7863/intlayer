@@ -51,37 +51,31 @@ author: aymericzip
 Intlayer оптимизирован для идеальной работы с Lynx и React, предлагая **охват контента на уровне компонентов**, **поддержку TypeScript** и все функции, необходимые для масштабирования интернационализации (i18n).
 
 </Accordion>
-
 <Accordion header="Размер бандла">
 
 Вместо загрузки огромных файлов JSON на свои страницы загружайте только необходимый контент. Intlayer помогает **уменьшить размер бандла и страниц до 50 %**.
 
 </Accordion>
-
 <Accordion header="Удобство обслуживания">
 
 Определение области содержимого вашего приложения **облегчает обслуживание** крупномасштабных приложений. Вы можете дублировать или удалить отдельную папку функций, не утруждав себя мысленным бременем проверки всей кодовой базы контента. Кроме того, Intlayer **полностью типизирован**, что обеспечивает точность вашего контента.
 
 </Accordion>
-
 <Accordion header="Агент ИИ">
 
 Совместное размещение контента **уменьшает контекст, необходимый** для моделей большого языка (LLM). Intlayer также поставляется с набором инструментов, таких как **CLI** для проверки отсутствия переводов,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, и **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/agent_skills.md)**, чтобы сделать работу разработчика (DX) еще более удобной для агентов ИИ.
 
 </Accordion>
-
 <Accordion header="Автоматизация">
 
 Используйте автоматизацию для перевода в своем конвейере CI/CD, используя LLM по вашему выбору за счет вашего поставщика ИИ. Intlayer также предлагает **компилятор** для автоматизации извлечения контента, а также [веб-платформу](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), которая помогает **переводить в фоновом режиме**.
 
 </Accordion>
-
 <Accordion header="Производительность">
 
 Подключение больших файлов JSON к компонентам может привести к проблемам с производительностью и реактивностью. Intlayer оптимизирует загрузку контента во время сборки (build time).
 
 </Accordion>
-
 <Accordion header="Масштабирование с помощью не-разработчиками">
 
 Intlayer — это больше, чем просто решение i18n. Он предоставляет **автономный [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** и **[полный CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, чтобы помочь вам управлять многоязычным контентом в **реальном времени**, упрощая сотрудничество с переводчиками, копирайтерами и другими членами команды. Контент может храниться локально и/или удаленно.
@@ -90,7 +84,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="Установите зависимости">
 
 Из вашего проекта Lynx установите следующие пакеты:
@@ -143,7 +136,6 @@ bun add intlayer react-intlayer lynx-intlayer
   Интеграция с Lynx, предоставляющая плагин для интеграции Intlayer с бандлером Lynx.
 
 </Step>
-
 <Step number={2} title="Создайте конфигурацию Intlayer">
 
 В корне вашего проекта (или в любом удобном месте) создайте файл **конфигурации Intlayer**. Он может выглядеть так:
@@ -174,7 +166,6 @@ export default config;
 - См. [документацию по конфигурации Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/configuration.md) для получения дополнительной информации.
 
 </Step>
-
 <Step number={3} title="Добавьте плагин Intlayer в бандлер Lynx">
 
 Чтобы использовать Intlayer с Lynx, вам нужно добавить плагин в файл `lynx.config.ts`:
@@ -192,7 +183,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Добавьте провайдер Intlayer">
 
 Чтобы синхронизировать язык пользователя по всему приложению, вам нужно обернуть ваш корневой компонент в компонент `IntlayerProvider` из `react-intlayer`.
@@ -220,7 +210,6 @@ if (import.meta.webpackHot) {
 ```
 
 </Step>
-
 <Step number={5} title="Объявите ваш контент">
 
 Создайте файлы **объявления контента** в любом месте вашего проекта (обычно в `src/`), используя любой из форматов расширений, поддерживаемых Intlayer:
@@ -337,7 +326,6 @@ export default appContent;
 > Для получения подробной информации о декларациях контента, см. [документацию по контенту Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Используйте Intlayer в ваших компонентах">
 
 Используйте хук `useIntlayer` в дочерних компонентах для получения локализованного контента.
@@ -395,7 +383,6 @@ export const App = () => {
 > При использовании `content.someKey` в строковых свойствах (например, `title` кнопки или `children` компонента `Text`), **вызывайте `content.someKey.value`**, чтобы получить строку.
 
 </Step>
-
 <Step number={7} title="Измените локаль приложения">
 
 Для переключения локалей из ваших компонентов вы можете использовать метод `setLocale` из хука `useLocale`:

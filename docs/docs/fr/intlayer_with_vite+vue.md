@@ -46,37 +46,31 @@ Par rapport aux solutions principales telles que `vue-i18n` ou `i18next`, Intlay
 Intlayer est optimisé pour fonctionner parfaitement avec Vue en offrant une **portée du contenu au niveau des composants**, des **traductions réactives** et toutes les fonctionnalités nécessaires pour mettre à l'échelle votre internationalisation (i18n).
 
 </Accordion>
-
 <Accordion header="Taille du bundle">
 
 Au lieu de charger de lourds fichiers JSON dans vos pages, ne chargez que le contenu strictement nécessaire. Intlayer vous aide à **réduire la taille de votre bundle et de vos pages jusqu'à 50 %**.
 
 </Accordion>
-
 <Accordion header="Maintenabilité">
 
 Déclarer le contenu directement au plus près de vos composants **facilite la maintenance** des applications de grande envergure. Vous pouvez dupliquer ou supprimer le dossier d'une fonctionnalité sans le fardeau mental de devoir passer en revue toute votre base de code de contenu. De plus, Intlayer est **entièrement typé** pour garantir l'exactitude de vos traductions.
 
 </Accordion>
-
 <Accordion header="Prêt pour les agents IA">
 
 La colocalisation du contenu **réduit le contexte nécessaire** aux grands modèles de langage (LLM). Intlayer est également livré avec une suite d'outils, tels qu'une **CLI** pour vérifier les traductions manquantes, un **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/lsp.md)**, un **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/mcp_server.md)** et des **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/agent_skills.md)**, afin de rendre l'expérience développeur (DX) encore plus fluide pour les agents IA.
 
 </Accordion>
-
 <Accordion header="Automatisation">
 
 Automatisez les traductions dans votre pipeline CI/CD en utilisant le LLM de votre choix au coût de votre propre fournisseur d'IA. Intlayer propose également un **compilateur** pour automatiser l'extraction de contenu, ainsi qu'une [plateforme web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md) pour vous aider à **traduire en arrière-plan**.
 
 </Accordion>
-
 <Accordion header="Performances">
 
 Associer de gros fichiers JSON à vos composants peut ralentir les performances et impacter la réactivité. Intlayer optimise le chargement du contenu directement au moment du **build**.
 
 </Accordion>
-
 <Accordion header="Collaboration avec les non-développeurs">
 
 Bien plus qu'une simple solution i18n, Intlayer propose un **[éditeur visuel](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_visual_editor.md)** auto-hébergé et un **[CMS complet](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md)** pour gérer votre contenu multilingue en **temps réel**. Cela rend la collaboration avec les traducteurs, concepteurs-rédacteurs et autres membres de l'équipe extrêmement simple. Le contenu peut être stocké localement et/ou à distance.
@@ -119,7 +113,6 @@ Bien plus qu'une simple solution i18n, Intlayer propose un **[éditeur visuel](h
 Voir le [Modèle d'application](https://github.com/aymericzip/intlayer-vite-vue-template) sur GitHub.
 
 <Steps>
-
 <Step number={1} title="Installer les dépendances">
 
 Installez les paquets nécessaires avec npm :
@@ -175,7 +168,6 @@ bun add vite-intlayer --dev
   Inclut le plugin Vite pour intégrer Intlayer avec le [bundler Vite](https://vite.dev/guide/why.html#why-bundle-for-production), ainsi que le middleware pour détecter la locale préférée de l'utilisateur, gérer les cookies et gérer la redirection des URL.
 
 </Step>
-
 <Step number={2} title="Configuration de votre projet">
 
 Créez un fichier de configuration pour configurer les langues de votre application :
@@ -201,7 +193,6 @@ export default config;
 > Grâce à ce fichier de configuration, vous pouvez configurer des URL localisées, la redirection via middleware, les noms des cookies, l'emplacement et l'extension de vos déclarations de contenu, désactiver les logs Intlayer dans la console, et bien plus encore. Pour une liste complète des paramètres disponibles, consultez la [documentation de configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/configuration.md).
 
 </Step>
-
 <Step number={3} title="Intégrer Intlayer dans votre configuration Vite">
 
 Ajoutez le plugin intlayer dans votre configuration.
@@ -220,7 +211,6 @@ export default defineConfig({
 > Le plugin Vite `intlayer()` est utilisé pour intégrer Intlayer avec Vite. Il assure la génération des fichiers de déclaration de contenu et les surveille en mode développement. Il définit les variables d'environnement Intlayer dans l'application Vite. De plus, il fournit des alias pour optimiser les performances.
 
 </Step>
-
 <Step number={4} title="Déclarez Votre Contenu">
 
 Créez et gérez vos déclarations de contenu pour stocker les traductions :
@@ -334,7 +324,6 @@ export default helloWorldContent;
 > Pour plus de détails, référez-vous à la [documentation sur la déclaration de contenu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Utiliser Intlayer dans votre code">
 
 Pour utiliser les fonctionnalités d'internationalisation d'Intlayer dans toute votre application Vue, vous devez d'abord enregistrer l'instance singleton d'Intlayer dans votre fichier principal. Cette étape est cruciale car elle fournit le contexte d'internationalisation à tous les composants de votre application, rendant les traductions accessibles partout dans votre arbre de composants.
@@ -435,7 +424,6 @@ Intlayer propose différentes API pour accéder à votre contenu :
   - Ou utilisez `const { myContent } = useIntlayer(\"myContent\");` et `{{ myContent }}` / `<myContent/>` pour déstructurer le contenu.
 
 </Step>
-
 <Step number={6} title="Changer la langue de votre contenu" isOptional={true}>
 
 Pour changer la langue de votre contenu, vous pouvez utiliser la fonction `setLocale` fournie par le composable `useLocale`. Cette fonction vous permet de définir la locale de l'application et de mettre à jour le contenu en conséquence.
@@ -504,7 +492,6 @@ const content = useIntlayer("app"); // Créez le fichier de déclaration intlaye
 ```
 
 </Step>
-
 <Step number={7} title="Ajouter un routage localisé à votre application" isOptional={true}>
 
 Ajouter un routage localisé dans une application Vue implique généralement d'utiliser Vue Router avec des préfixes de locale. Cela crée des routes uniques pour chaque langue, ce qui est utile pour le SEO et des URLs optimisées pour le référencement.
@@ -644,7 +631,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={8} title="Modifier l'URL lors du changement de langue" isOptional={true}>
 
 Pour mettre à jour automatiquement l'URL lorsque l'utilisateur change de langue, vous pouvez modifier le composant `LocaleSwitcher` pour utiliser Vue Router :
@@ -736,7 +722,6 @@ Astuce : Pour un meilleur SEO et une meilleure accessibilité, utilisez des bali
 ```
 
 </Step>
-
 <Step number={9} title="Modifier les attributs Lang et Dir du HTML" isOptional={true}>
 
 Lorsque votre application prend en charge plusieurs langues, il est crucial de mettre à jour les attributs `lang` et `dir` de la balise `<html>` pour qu'ils correspondent à la locale actuelle. Cela garantit :
@@ -798,7 +783,6 @@ useI18nHTMLAttributes();
 ```
 
 </Step>
-
 <Step number={10} title="Création d’un composant de lien localisé" isOptional={true}>
 
 Pour garantir que la navigation de votre application respecte la locale actuelle, vous pouvez créer un composant personnalisé `Link`. Ce composant préfixe automatiquement les URL internes avec la langue courante. Par exemple, lorsqu'un utilisateur francophone clique sur un lien vers la page "À propos", il est redirigé vers `/fr/about` au lieu de `/about`.
@@ -899,7 +883,6 @@ import RouterLink from "@components/RouterLink.vue";
 ```
 
 </Step>
-
 <Step number={11} title="Extraire le contenu de vos composants" isOptional={true}>
 
 Si vous avez une base de code existante, transformer des milliers de fichiers peut prendre beaucoup de temps.
@@ -1137,25 +1120,21 @@ Pour aller plus loin, vous pouvez implémenter l’[éditeur visuel](https://git
 La différence pratique est la portée et le typage. `vue-i18n` résout les clés en tant que chaînes à l'exécution, si bien qu'une clé renommée échoue silencieusement, tandis qu'Intlayer génère des types à partir de vos déclarations et élimine le contenu qu'aucun composant n'utilise. Voir [pourquoi Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/interest_of_intlayer.md) et le [benchmark Vue i18n](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/benchmark/vue.md).
 
 </Question>
-
 <Question title="Quel poids l'i18n ajoute-t-elle à la taille de mon bundle Vue ?">
 
 Bien moins qu'une configuration basée sur des espaces de noms, car une page ne télécharge jamais un catalogue qu'elle n'affiche pas. Le compilateur au moment du build remplace les appels `useIntlayer` par les entrées de dictionnaire exactes qu'un composant utilise, si bien que les clés inutilisées et les langues inutilisées sont éliminées, et les [dictionnaires dynamiques](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dynamic_dictionaries/index.md) répartissent le reste par locale. Mesuré face aux alternatives habituelles, Intlayer réduit la taille du bundle et des pages jusqu'à 50 %. Voir l'[optimisation du bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/bundle_optimization.md) et le [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/benchmark/vue.md).
 
 </Question>
-
 <Question title="Puis-je migrer depuis `vue-i18n` sans réécrire mes composants ?">
 
 Oui, et il existe deux voies. Vous pouvez migrer le contenu progressivement avec le [guide de migration vue-i18n](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/migration_from_vue-i18n_to_intlayer.md). Ou vous pouvez conserver entièrement votre API actuelle : les [adaptateurs de compatibilité](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/compat/index.md) exposent exactement la même API que `vue-i18n`, mais servie par des dictionnaires Intlayer : seuls les imports changent, pas le code des composants.
 
 </Question>
-
 <Question title="Puis-je conserver mes fichiers de traduction JSON existants ?">
 
 Oui. Le [plugin de synchronisation JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-json.md) conserve vos fichiers `/messages/{locale}/{namespace}.json` comme source de vérité et génère les dictionnaires Intlayer à partir d'eux, dans les deux sens. Un [plugin de synchronisation PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-po.md) fait de même pour les catalogues gettext, et les [fichiers par locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/per_locale_file.md) permettent de séparer le contenu par langue au lieu de regrouper les locales dans un seul fichier.
 
 </Question>
-
 <Question title="Dois-je déplacer mon contenu clé par clé ?">
 
 Non. Lancez `npx intlayer extract` et Intlayer lit vos composants, en extrait les chaînes destinées aux utilisateurs et écrit un fichier `.content` à côté de chacun, de sorte que vous relisez un diff plutôt que de copier des chaînes dans un catalogue une par une. L'étape 11 de ce guide le détaille.
@@ -1165,7 +1144,6 @@ Pour un pipeline entièrement automatisé, le [compilateur Intlayer](https://git
 Deux limites méritent d'être connues avant d'activer le compilateur. Il fonctionne par analyse statique : les chaînes qui n'existent qu'à l'exécution, comme les codes d'erreur d'API ou les champs de CMS, restent hors de portée. Et il doit distinguer le texte destiné aux utilisateurs de la logique applicative comme `className="active"` ou un code de statut, ce qui nécessite quelques annotations dans une grande base de code. La [commande extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/extract.md) évite les deux en vous gardant dans la boucle.
 
 </Question>
-
 <Question title="Quels outils d'éditeur et d'agent IA sont disponibles ?">
 
 Cinq éléments, tous optionnels :
@@ -1177,43 +1155,36 @@ Cinq éléments, tous optionnels :
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/eslint.md)** : `no-raw-text` signale les chaînes codées en dur, avec d'autres règles pour les clés de dictionnaire statiques et le contenu inutilisé.
 
 </Question>
-
 <Question title="Intlayer fonctionne-t-il avec l'API de composition de Vue et script setup ?">
 
 Oui. `useIntlayer` est un composable utilisé à l'intérieur de `<script setup>` comme n'importe quel autre, et le contenu renvoyé est réactif, si bien que changer la locale réaffiche les composants qui le lisent sans rechargement de page.
 
 </Question>
-
 <Question title="Comment mettre en place un routage localisé dans une SPA Vue ?">
 
 Les étapes 7 et 8 de ce guide couvrent l'intégration de Vue Router : un segment de locale sur l'arbre de routes, et un watcher qui réécrit l'URL lorsque la locale change. Si vous ne voulez pas la locale dans le chemin, réglez `routing.mode` sur `"no-prefix"` ou `"search-params"` et elle est résolue à partir d'un cookie ou d'un paramètre de requête à la place. Voir la [référence de configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/configuration.md).
 
 </Question>
-
 <Question title="Comment définir les attributs html lang et dir pour les langues de droite à gauche ?">
 
 L'étape 9 le couvre. `getHTMLTextDir` renvoie `rtl` pour les langues telles que l'arabe, l'hébreu, le persan et l'ourdou, vous pouvez donc lier `lang` et `dir` sur l'élément racine à partir de la locale active et laisser vos propriétés logiques CSS faire le reste.
 
 </Question>
-
 <Question title="Comment traduire une application Vue automatiquement avec l'IA ?">
 
 Lancez `npx intlayer fill`, qui remplit les traductions manquantes avec le LLM de votre choix en utilisant votre propre fournisseur et votre clé d'API. `--git-diff` limite l'exécution au contenu modifié sur la branche. Voir la [commande fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/fill.md) et l'[intégration CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer prend-il en charge les pluriels, le genre et le texte enrichi ?">
 
 Oui : les [formes plurielles](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/plurial.md), le [contenu basé sur le genre](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/gender.md), les conditions, les [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/insertion.md), le [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/markdown.md) et les [formateurs](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/formatters.md) pour les nombres, les dates et les devises.
 
 </Question>
-
 <Question title="Comment les traducteurs peuvent-ils modifier le contenu sans toucher au code ?">
 
 Via l'[éditeur visuel](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_visual_editor.md), qui tourne sur votre propre infrastructure et permet à quiconque de modifier le texte sur place sur l'application en cours d'exécution, ou le [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md), qui externalise le contenu afin qu'il puisse changer sans déploiement.
 
 </Question>
-
 <Question title="Intlayer est-il gratuit et open source ?">
 
 Oui, sous licence Apache 2.0, usage commercial inclus. Le CMS hébergé est un service payant optionnel qui peut aussi être [auto-hébergé](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/self_hosting.md).

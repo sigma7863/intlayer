@@ -46,37 +46,31 @@ Dibandingkan dengan solusi utama seperti `vue-i18n` atau `i18next`, Intlayer ada
 Intlayer dioptimalkan agar berfungsi sempurna dengan Vue dengan menawarkan **pelingkupan konten tingkat komponen**, **terjemahan reaktif**, dan semua fitur yang diperlukan untuk meningkatkan internasionalisasi (i18n).
 
 </Accordion>
-
 <Accordion header="Ukuran bundle">
 
 Daripada memuat file JSON berukuran besar ke halaman Anda, muat saja konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Kemampuan Pemeliharaan">
 
 Mencakup konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi berskala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **diketik sepenuhnya** untuk memastikan keakuratan konten Anda.
 
 </Accordion>
-
 <Accordion header="Agen AI">
 
 Menempatkan konten bersama **mengurangi konteks yang diperlukan** dengan Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk menjadikan pengalaman pengembang (DX) lebih lancar bagi agen AI.
 
 </Accordion>
-
 <Accordion header="Otomatisasi">
 
 Gunakan otomatisasi untuk menerjemahkan dalam saluran CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Pertunjukan">
 
 Menghubungkan file JSON berukuran besar ke komponen dapat menyebabkan masalah kinerja dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada waktu pembuatan.
 
 </Accordion>
-
 <Accordion header="Menskalakan tanpa pengembang">
 
 Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** yang dihosting sendiri dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi lancar. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -119,7 +113,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 Lihat [Template Aplikasi](https://github.com/aymericzip/intlayer-vite-vue-template) di GitHub.
 
 <Steps>
-
 <Step number={1} title="Instalasi Dependensi">
 
 Instal paket yang diperlukan menggunakan npm:
@@ -175,7 +168,6 @@ bun add vite-intlayer --dev
   Termasuk plugin Vite untuk mengintegrasikan Intlayer dengan [Vite bundler](https://vite.dev/guide/why.html#why-bundle-for-production), serta middleware untuk mendeteksi locale yang dipilih pengguna, mengelola cookie, dan menangani pengalihan URL.
 
 </Step>
-
 <Step number={2} title="Konfigurasi proyek Anda">
 
 Buat file konfigurasi untuk mengatur bahasa aplikasi Anda:
@@ -201,7 +193,6 @@ export default config;
 > Melalui file konfigurasi ini, Anda dapat mengatur URL yang dilokalkan, pengalihan middleware, nama cookie, lokasi dan ekstensi deklarasi konten Anda, menonaktifkan log Intlayer di konsol, dan lainnya. Untuk daftar lengkap parameter yang tersedia, lihat [dokumentasi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrasikan Intlayer dalam Konfigurasi Vite Anda">
 
 Tambahkan plugin intlayer ke dalam konfigurasi Anda.
@@ -220,7 +211,6 @@ export default defineConfig({
 > Plugin Vite `intlayer()` digunakan untuk mengintegrasikan Intlayer dengan Vite. Plugin ini memastikan pembuatan file deklarasi konten dan memantau file tersebut dalam mode pengembangan. Plugin ini juga mendefinisikan variabel lingkungan Intlayer dalam aplikasi Vite. Selain itu, plugin ini menyediakan alias untuk mengoptimalkan performa.
 
 </Step>
-
 <Step number={4} title="Deklarasikan Konten Anda">
 
 Buat dan kelola deklarasi konten Anda untuk menyimpan terjemahan:
@@ -350,7 +340,6 @@ export default helloWorldContent;
 > Untuk detail lebih lanjut, lihat [dokumentasi deklarasi konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Gunakan Intlayer dalam Kode Anda">
 
 Untuk memanfaatkan fitur internasionalisasi Intlayer di seluruh aplikasi Vue Anda, pertama-tama Anda perlu mendaftarkan instance singleton Intlayer di file utama Anda. Langkah ini sangat penting karena menyediakan konteks internasionalisasi ke semua komponen dalam aplikasi Anda, sehingga terjemahan dapat diakses di mana saja dalam pohon komponen Anda.
@@ -451,7 +440,6 @@ Intlayer menawarkan berbagai API untuk mengakses konten Anda:
   - Atau gunakan `const { myContent } = useIntlayer("myContent");` dan `{{ myContent }}` / `<myContent/>` untuk mendestrukturisasi konten.
 
 </Step>
-
 <Step number={6} title="Ubah bahasa konten Anda" isOptional={true}>
 
 Untuk mengubah bahasa konten Anda, Anda dapat menggunakan fungsi `setLocale` yang disediakan oleh composable `useLocale`. Fungsi ini memungkinkan Anda untuk mengatur locale aplikasi dan memperbarui konten sesuai dengan locale tersebut.
@@ -520,7 +508,6 @@ const content = useIntlayer("app"); // Buat file deklarasi intlayer terkait
 ```
 
 </Step>
-
 <Step number={7} title="Tambahkan Routing yang Dilokalkan ke aplikasi Anda" isOptional={true}>
 
 Menambahkan routing yang dilokalkan dalam aplikasi Vue biasanya melibatkan penggunaan Vue Router dengan prefix locale. Ini membuat rute unik untuk setiap bahasa, yang berguna untuk SEO dan URL yang ramah SEO.
@@ -660,7 +647,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={8} title="Ubah URL saat locale berubah" isOptional={true}>
 
 Untuk secara otomatis memperbarui URL ketika pengguna mengganti bahasa, Anda dapat memodifikasi komponen `LocaleSwitcher` untuk menggunakan Vue Router:
@@ -752,7 +738,6 @@ Tip: Untuk SEO dan aksesibilitas yang lebih baik, gunakan tag seperti `<a href="
 ```
 
 </Step>
-
 <Step number={9} title="Ganti Atribut Bahasa dan Arah pada Tag HTML" isOptional={true}>
 
 Ketika aplikasi Anda mendukung beberapa bahasa, sangat penting untuk memperbarui atribut `lang` dan `dir` pada tag `<html>` agar sesuai dengan locale saat ini. Melakukan hal ini memastikan:
@@ -814,7 +799,6 @@ useI18nHTMLAttributes();
 ```
 
 </Step>
-
 <Step number={10} title="Membuat Komponen Link yang Dilokalkan" isOptional={true}>
 
 Untuk memastikan navigasi aplikasi Anda menghormati locale saat ini, Anda dapat membuat komponen `Link` kustom. Komponen ini secara otomatis menambahkan prefix bahasa saat ini pada URL internal, sehingga. Misalnya, ketika pengguna berbahasa Prancis mengklik tautan ke halaman "About", mereka akan diarahkan ke `/fr/about` alih-alih `/about`.
@@ -915,7 +899,6 @@ import RouterLink from "@components/RouterLink.vue";
 ```
 
 </Step>
-
 <Step number={1} title="Ekstrak konten komponen Anda" isOptional={true}>
 
 Jika Anda memiliki basis kode yang ada, mengubah ribuan file bisa memakan waktu lama.
@@ -1153,25 +1136,21 @@ Untuk melangkah lebih jauh, Anda dapat mengimplementasikan [editor visual](https
 Lihat [mengapa Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/interest_of_intlayer.md) dan [benchmark untuk Vue](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/vue.md).
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle Vue saya?">
 
 Jauh lebih sedikit daripada solusi berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen, dan [kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale, mengurangi bundle hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari vue-i18n tanpa menulis ulang komponen?">
 
 Ya. Gunakan [panduan migrasi vue-i18n](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_vue-i18n_to_intlayer.md) atau adapter kompatibilitas.
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu.
@@ -1181,7 +1160,6 @@ Untuk proses otomatis penuh, [Intlayer Compiler](https://github.com/aymericzip/i
 Dua batasan perlu diketahui sebelum Anda mengaktifkan compiler. Ini bekerja dengan analisis statis, jadi string yang hanya ada saat runtime, seperti kode kesalahan API atau field CMS, tetap berada di luar jangkauan. Dan ini harus membedakan teks yang dilihat pengguna dari logika aplikasi seperti `className="active"` atau kode status, yang memerlukan beberapa anotasi di basis kode yang besar. [Perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) menghindari keduanya dengan menjaga Anda tetap memegang kendali.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -1193,43 +1171,36 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Apakah Intlayer bekerja dengan Vue Composition API dan script setup?">
 
 Ya. `useIntlayer` adalah composable standar untuk `<script setup>`, dan nilai yang dikembalikan adalah reaktif, sehingga peralihan bahasa memperbarui UI tanpa me-reload halaman.
 
 </Question>
-
 <Question title="Bagaimana cara mengatur routing terlokalisasi di Vue SPA?">
 
 Konfigurasikan parameter locale di rute Vue Router Anda atau gunakan parameter pencarian; Intlayer menyinkronkan bahasa aktif dengan URL. Lihat [referensi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
 </Question>
-
 <Question title="Bagaimana cara mengatur atribut html lang dan dir untuk bahasa kanan-ke-kiri?">
 
 Langkah 9 membahas hal ini. Fungsi `getHTMLTextDir` mengembalikan `rtl` untuk bahasa Arab atau Ibrani, memungkinkan Anda mengikat `lang` dan `dir` pada elemen root.
 
 </Question>
-
 <Question title="Bagaimana cara menerjemahkan aplikasi Vue secara otomatis dengan AI?">
 
 Jalankan `npx intlayer fill`. Alat ini mendeteksi terjemahan yang hilang dan mengisinya menggunakan LLM pilihan Anda. Lihat [perintah fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/fill.md).
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung bentuk jamak, gender dan rich text?">
 
 Ya: [bentuk jamak (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/plurial.md), [konten berbasis gender](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/gender.md), kondisi, [penyisipan (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/markdown.md), dan [formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/formatters.md).
 
 </Question>
-
 <Question title="Bagaimana penerjemah dapat mengedit konten tanpa menyentuh kode?">
 
 Melalui [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md), yang memungkinkan siapa saja mengedit teks langsung di aplikasi yang berjalan, atau melalui [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md), yang memisahkan konten sehingga dapat diubah tanpa perlu redeploy kode.
 
 </Question>
-
 <Question title="Apakah Intlayer gratis dan open source?">
 
 Ya, di bawah lisensi Apache 2.0, termasuk penggunaan komersial. CMS yang di-host adalah layanan berbayar opsional yang juga dapat [di-host sendiri (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).

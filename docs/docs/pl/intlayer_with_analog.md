@@ -67,37 +67,31 @@ W porównaniu do głównych rozwiązań, takich jak `ngx-translate` czy `angular
 Intlayer jest zoptymalizowany do doskonałej współpracy z Analogiem, oferując **wielojęzyczny routing**, **obsługę SSR** i wszystkie funkcje potrzebne do skalowania internacjonalizacji (i18n).
 
 </Accordion>
-
 <Accordion header="Rozmiar bundle'a">
 
 Zamiast ładować ogromne pliki JSON na swoje strony, ładuj tylko niezbędną treść. Intlayer pomaga **zmniejszyć rozmiary bundle'a i stron nawet o 50%**.
 
 </Accordion>
-
 <Accordion header="Łatwość konserwacji">
 
 Określanie zakresu zawartości aplikacji **ułatwia konserwację** aplikacji na dużą skalę. Możesz powielić lub usunąć pojedynczy folder funkcji bez obciążania psychicznego koniecznością przeglądania całej bazy kodu zawartości. Dodatkowo Inlayer jest **w pełni napisany**, aby zapewnić dokładność treści.
 
 </Accordion>
-
 <Accordion header="Agent AI">
 
 Wspólna lokalizacja treści **zmniejsza potrzebny kontekst** dzięki modelom dużego języka (LLM). Intlayer zawiera także zestaw narzędzi, taki jak **CLI** do sprawdzania brakujących tłumaczeń**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** i **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/agent_skills.md)**, aby praca programisty (DX) była jeszcze płynniejsza dla agentów AI.
 
 </Accordion>
-
 <Accordion header="Automatyzacja">
 
 Korzystaj z automatyzacji, aby tłumaczyć w swoim potoku CI/CD przy użyciu wybranego LLM na koszt dostawcy sztucznej inteligencji. Intlayer oferuje także **kompilator** do automatyzacji ekstrakcji treści, a także [platformę internetową] (https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), która pomaga **tłumaczyć w tle**.
 
 </Accordion>
-
 <Accordion header="Wydajność">
 
 Łączenie ogromnych plików JSON z komponentami może prowadzić do problemów z wydajnością i reaktywnością. Inlayer optymalizuje ładowanie treści w czasie kompilacji.
 
 </Accordion>
-
 <Accordion header="Skalowanie bez użycia dewelopera">
 
 Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wizualny](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** i **[pełny CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, który pomoże Ci zarządzać wielojęzyczną treścią w **w czasie rzeczywistym**, dzięki czemu współpraca z tłumaczami, copywriterami i innymi członkami zespołu będzie płynna. Treść może być przechowywana lokalnie i/lub zdalnie.
@@ -110,7 +104,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 Zobacz [Szablon aplikacji](https://github.com/aymericzip/intlayer-analog-template) na GitHubie.
 
 <Steps>
-
 <Step number={1} title="Instalacja zależności">
 
 Zainstaluj niezbędne pakiety za pomocą npm:
@@ -162,7 +155,6 @@ bun add intlayer angular-intlayer vite-intlayer
   Pakiet integrujący Intlayer z Vite. Dostarcza wtyczkę (plugin) do obsługi plików deklaracji treści i ustawia aliasy dla optymalnej wydajności.
 
 </Step>
-
 <Step number={2} title="Konfiguracja projektu">
 
 Utwórz plik konfiguracyjny, aby skonfigurować języki swojej aplikacji:
@@ -188,7 +180,6 @@ export default config;
 > Za pomocą tego pliku konfiguracyjnego możesz ustawić zlokalizowane adresy URL, przekierowania middleware, nazwy ciasteczek, lokalizację i rozszerzenie deklaracji treści, wyłączyć logi Intlayer w konsoli i wiele więcej. Pełną listę dostępnych parametrów znajdziesz w [dokumentacji konfiguracji](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/configuration.md).
 
 </Step>
-
 <Step number={3} title="Zintegruj Intlayer w konfiguracji Vite">
 
 Aby zintegrować Intlayer z Analog, musisz użyć wtyczki `vite-intlayer`.
@@ -216,7 +207,6 @@ export default defineConfig(() => ({
 > Wtyczka `intlayer()` konfiguruje Vite do pracy z Intlayer. Obsługuje pliki deklaracji treści i ustawia aliasy dla optymalnej wydajności.
 
 </Step>
-
 <Step number={4} title="Zadeklaruj swoją treść">
 
 Twórz i zarządzaj deklaracjami treści, aby przechowywać tłumaczenia:
@@ -250,7 +240,6 @@ export default appContent;
 > Więcej szczegółów znajdziesz w [dokumentacji deklaracji treści](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Użyj Intlayer w kodzie">
 
 Aby korzystać z funkcji internacjonalizacji Intlayer w całej aplikacji Analog, musisz dodać Intlayer do konfiguracji aplikacji.
@@ -290,7 +279,6 @@ export default class HomeComponent {
 Treść Intlayer jest zwracana jako `Signal`, więc dostęp do wartości uzyskujesz wywołując sygnał: `content().title`.
 
 </Step>
-
 <Step number={6} title="Zmiana języka treści" isOptional={true}>
 
 Aby zmienić język treści, możesz użyć funkcji `setLocale` dostarczonej przez funkcję `useLocale`. Pozwala to ustawić język aplikacji i odpowiednio zaktualizować treść.
@@ -420,25 +408,21 @@ Analog to meta-framework dla Angulara zbudowany na bazie Vite, więc dziedziczy 
 W Analog Intlayer łączy architekturę Vite, SSR i routing oparty na systemie plików w spójną całość. Zobacz [dlaczego Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="O ile i18n zwiększa rozmiar mojego bundle'a w Analog?">
 
 Znacznie mniej niż rozwiązania oparte na przestrzeniach nazw, ponieważ strona nigdy nie pobiera katalogu, którego nie renderuje. Kompilator czasu budowy zastępuje odwołania do treści dokładnymi wpisami, których używa komponent, a [słowniki dynamiczne](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dynamic_dictionaries/index.md) dzielą resztę na poszczególne języki. W porównaniu z typowymi alternatywami, Intlayer zmniejsza rozmiar bundle'a i strony nawet o 50%. Zobacz [optymalizację bundle'a](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/bundle_optimization.md) oraz [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/benchmark/index.md).
 
 </Question>
-
 <Question title="Czy mogę zmigrować z ngx-translate, Transloco lub @angular/localize bez przepisywania moich szablonów?">
 
 W znacznej mierze tak. Postępuj zgodnie z [przeglądem adapterów kompatybilności](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/compat/index.md). Możesz także migrować stopniowo: [wtyczka synchronizacji JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/plugins/sync-json.md) utrzymuje Twoje pliki JSON jako źródło prawdy i generuje z nich słowniki Intlayer.
 
 </Question>
-
 <Question title="Czy mogę zachować moje istniejące pliki tłumaczeń JSON?">
 
 Tak. Wtyczka [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/plugins/sync-json.md) utrzymuje Twoje pliki `/messages/{locale}/{namespace}.json` jako źródło prawdy i generuje z nich słowniki Intlayer w obu kierunkach. Wtyczka [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/plugins/sync-po.md) robi to samo dla katalogów gettext, a [pliki per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/per_locale_file.md) pozwalają rozdzielić zawartość według języka zamiast grupować lokalizacje w jednym pliku.
 
 </Question>
-
 <Question title="Czy muszę przenosić moją zawartość klucz po kluczu?">
 
 Nie. Uruchom `npx intlayer extract`, a Intlayer odczyta Twoje pliki źródłowe, wyodrębni ciągi widoczne dla użytkownika i utworzy plik `.content` obok każdego z nich, dzięki czemu przeglądasz diff zamiast ręcznie kopiować ciągi do katalogu pojedynczo.
@@ -446,7 +430,6 @@ Nie. Uruchom `npx intlayer extract`, a Intlayer odczyta Twoje pliki źródłowe,
 W przypadku w pełni zautomatyzowanego procesu [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/compiler.md) robi to samo w czasie budowania: generuje słowniki przy każdej zmianie, eliminując konieczność ręcznego utrzymywania kluczy.
 
 </Question>
-
 <Question title="Jakie narzędzia dla edytora i agentów AI są dostępne?">
 
 Pięć narzędzi, wszystkie opcjonalne:
@@ -458,55 +441,46 @@ Pięć narzędzi, wszystkie opcjonalne:
 - **[Wtyczka ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/eslint.md)**: reguła `no-raw-text` oznacza zakodowane na stałe ciągi tekstowe, z dodatkowymi regułami dla statycznych kluczy słownika i nieużywanej zawartości.
 
 </Question>
-
 <Question title="Czy Intlayer działa z renderowaniem po stronie serwera (SSR) i SSG w Analog?">
 
 Tak. Treść jest rozwiązywana w trakcie SSR i podczas generowania statycznego (SSG), dzięki czemu pierwszy wyrenderowany HTML zawiera już poprawnie przetłumaczony tekst.
 
 </Question>
-
 <Question title="Czy zmiana języka wymaga ponownego przeładowania strony?">
 
 Nie. Sygnał `useIntlayer` jest reaktywny, więc zmiana języka aktualizuje komponenty w locie bez konieczności odświeżania okna przeglądarki.
 
 </Question>
-
 <Question title="Jak skonfigurować routing uwzględniający lokalizację w routingu plikowym Analog?">
 
 Utwórz folder `[locale]` w katalogu `src/app/pages`. Segment ten staje się aktywną lokalizacją, a pomocnik `getLocalizedUrl` przepisuje linki na właściwy język. Zobacz [dokumentację konfiguracji](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/configuration.md).
 
 </Question>
-
 <Question title="Jak obsługiwać języki od prawej do lewej w Analog?">
 
 Użyj `getHTMLTextDir`, aby ustawić właściwości `lang` i `dir` w dokumencie głównym w zależności od wybranego języka.
 
 </Question>
-
 <Question title="Jak zarządzać metadanymi SEO i tagami hreflang?">
 
 Skorzystaj z funkcji `getMultilingualUrls`, aby emitować tagi alternatywne `hreflang` dla wszystkich zadeklarowanych lokalizacji, informując roboty wyszukiwarek o dostępnych wersjach językowych.
 
 </Question>
-
 <Question title="Jak automatycznie przetłumaczyć aplikację za pomocą AI?">
 
 Uruchom `npx intlayer fill`. Narzędzie CLI wykrywa brakujące tłumaczenia i uzupełnia je za pomocą wybranego modelu LLM, korzystając z Twojego dostawcy i klucza API. Flaga `--git-diff` ogranicza operację do treści zmienionych na bieżącej gałęzi. Zobacz [polecenie fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/cli/fill.md) oraz [integrację CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/CI_CD.md).
 
 </Question>
-
 <Question title="Czy Intlayer obsługuje formy mnogie, płeć i sformatowany tekst (rich text)?">
 
 Tak: [formy mnogie](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/plurial.md), [treści zależne od płci](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/gender.md), warunki, [wstawki (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/markdown.md) dla dłuższych tekstów oraz [formatowania](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/formatters.md) dla liczb, dat i walut.
 
 </Question>
-
 <Question title="Jak tłumacze mogą edytować treść bez dotykania kodu?">
 
 Za pośrednictwem [edytora wizualnego](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_visual_editor.md), który pozwala każdemu edytować tekst bezpośrednio w działającej aplikacji, lub systemu [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_CMS.md), który wyodrębnia treść, dzięki czemu może być zmieniana bez konieczności ponownego wdrażania.
 
 </Question>
-
 <Question title="Czy Intlayer jest darmowy i open source?">
 
 Tak, na licencji Apache 2.0, włączając zastosowania komercyjne. Hostowany CMS to opcjonalna płatna usługa, którą można również [hostować samodzielnie (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/self_hosting.md).

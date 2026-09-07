@@ -44,43 +44,36 @@ author: aymericzip
 无需在页面中加载庞大的 JSON 文件，只需加载必要的特定内容。Intlayer 可以帮助你**将打包体积和页面大小减少多达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 对应用程序的内容进行组件级的范围限制，**大大简化了大型应用程序的维护工作**。你可以复制或删除单个功能文件夹，而无需承担审查整个内容代码库的精神负担。此外，Intlayer 是**完全类型化**的，以确保你内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI 智能体支持">
 
 将内容与组件共同放置（Co-location）**减少了大型语言模型（LLMs）所需的上下文**。Intlayer 还提供了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/mcp_server.md)** 以及 **[Agent Skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 智能体的开发体验（DX）更加流畅。
 
 </Accordion>
-
 <Accordion header="功能丰富">
 
 Intlayer 提供了其他 i18n 解决方案所没有的一系列附加功能，例如 [Markdown 支持](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)、[外部内容获取](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/function_fetching.md)、[文件内容加载](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/file.md)、[实时内容更新](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/live.md)、[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)等。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用自动化在你的 CI/CD 流程中翻译，可以使用你选择的任何 LLM，成本完全取决于你的 AI 提供商。Intlayer 还提供了一个**编译器**来自动提取内容，以及一个 [网页平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 来帮助你**在后台进行翻译工作**。
 
 </Accordion>
-
 <Accordion header="性能">
 
 将庞大的 JSON 文件连接到组件上可能会导致性能和响应性问题。Intlayer 在构建时优化了你的内容加载方式。
 
 </Accordion>
-
 <Accordion header="扩展至非开发团队">
 
 不仅仅是一个 i18n 解决方案，Intlayer 还提供了一个**自主托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)**和一个**[功能完备的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)**，帮助你**实时**管理多语言内容，使与翻译人员、文案人员和其他团队成员的协作变得无缝衔接。内容可以存储在本地和/或远程。
 
 </Accordion>
-
 <Accordion header="跨框架设计">
 
 如果你在应用程序的不同部分使用不同的框架（例如 React、React-native、Vue、Angular、Svelte 等），Intlayer 提供了一种**在所有主流前端框架中使用通用语法和实现**的方法。你还可以跨设计系统、应用、后端等共享你的内容声明。
@@ -303,25 +296,21 @@ GitHub Star 数是衡量项目受欢迎程度、社区信任度以及长期相�
 - **内容层库**：`Intlayer`。内容按组件声明并按组件编译，因此类型安全、代码摇树优化 (tree-shaking)、编辑工具和 AI 翻译均源自同一套声明。
 
 </Question>
-
 <Question title="i18n 会给我的 bundle 体积增加多少？">
 
 远少于基于命名空间的方案，因为页面永远不会下载它不渲染的语言目录。服务端渲染的标记在服务端直接解析内容，而构建时编译器将 `useIntlayer` 调用替换为组件使用的确切字典条目，因此未使用的键和未使用的语言都会被自动丢弃。[动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 会按语言环境拆分剩余内容。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/index.md)。
 
 </Question>
-
 <Question title="我可以从 i18next、next-intl 或 react-i18next 迁移而无需重写组件吗？">
 
 可以，有两条迁移路径。您可以使用 [i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_i18next_to_intlayer.md) 或 [next-intl 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_next-intl_to_intlayer.md) 逐步迁移内容。或者，您可以完全保留当前的 API：[兼容性适配器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/index.md) 公开与 `i18next`、`react-i18next`、`next-intl`、`next-i18next`、`react-intl`、`use-intl`、`vue-i18n` 和 `Lingui` 完全相同的 API，但底层由 Intlayer 字典驱动，因此只需更改导入语句，组件代码无需修改。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的源码文件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。请参阅 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md)。
@@ -329,7 +318,6 @@ GitHub Star 数是衡量项目受欢迎程度、社区信任度以及长期相�
 如需全自动流程，[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compiler.md) 可以在构建时对 JSX、TSX、Vue 和 Svelte 源码执行相同操作，在每次更改时自动生成字典，完全无需手动维护键名。它通过静态分析工作，因此仅在运行时存在的字符串无法被捕获，并且需要少量注解以区分用户文本和应用程序逻辑。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -341,43 +329,36 @@ GitHub Star 数是衡量项目受欢迎程度、社区信任度以及长期相�
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="Intlayer 与 next-intl 有什么区别？">
 
 `next-intl` 是面向 Next.js 的消息层：您为每个语言环境维护一个 JSON 消息文件，并通过 `useTranslations` 读取它们。Intlayer 是内容层：内容声明与组件紧密相邻，类型直接由声明本身推导，并且按组件编译，因此页面仅打包其渲染的内容。Intlayer 还涵盖了 `next-intl` 留给您自行解决的功能，即 AI 翻译、可视化编辑器、CMS 以及在 CI 中的缺失翻译检查。如果您想保留 `next-intl` 的 API，可以通过 [兼容性适配器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/index.md) 直接由 Intlayer 字典提供支持。
 
 </Question>
-
 <Question title="Intlayer 与 i18next 和 react-i18next 有什么区别？">
 
 `i18next` 在运行时根据命名空间解析字符串键，这意味着重命名或拼写错误的键会静默失败，并且页面涉及的每个命名空间都会被全量下载。Intlayer 在构建时根据生成的类型解析内容，因此错误的键会直接产生编译报错，且仅组件渲染的条目才会进入 bundle。`i18next` 拥有更庞大的插件生态和更久远的历史沉淀；而 Intlayer 则具有强类型安全、显著优化的 bundle 体积，以及完善的内容编辑与自动化工具链。请参阅 [i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_i18next_to_intlayer.md) 或 [兼容性适配器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/index.md)。
 
 </Question>
-
 <Question title="Intlayer 是否比替代方案更快或更轻量？">
 
 在 bundle 和页面体积方面，确实如此：避免加载页面未渲染的语言目录相比基于命名空间的方案可将 bundle 和页面体积减少高达 50%。[性能基准测试](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/index.md) 公布了测试方法以及各框架的具体数据，包括 [Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/nextjs.md)、[TanStack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/tanstack.md)、[Vue](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/vue.md) 和 [Svelte](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/svelte.md)，以便您可以自行复现验证，而无需盲从宣传。
 
 </Question>
-
 <Question title="迁移现有应用值得吗？">
 
 这取决于您当前的痛点是什么。如果您的痛点在于 bundle 体积过大、缺失翻译静默失效，或者翻译人员无法独立开展工作而必须依赖开发者，那么迁移的回报非常显著。如果您的目录较小且内容稳定，收益相对较小。无论哪种情况，迁移都不需要重写整个应用：[兼容性适配器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/index.md) 能保留您当前的 API，而 [JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 可以在两层共存期间将现有的 JSON 文件继续作为单一真实来源（source of truth）。
 
 </Question>
-
 <Question title="Intlayer 提供了哪些其他 i18n 库所没有的功能？">
 
 [Markdown 内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)、[从外部源获取内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)、文件内容加载、[实时内容更新 (live sync)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/live.md)、[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)、[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)、从现有组件自动提取内容的 [编译器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compiler.md)、用于 A/B 测试的 [内容变体 (variants)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/variants.md)、关于内容曝光率的 [数据分析 (analytics)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/analytics.md)、[MCP 服务器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/mcp_server.md)、[LSP 服务器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/lsp.md) 以及 [Agent Skills 代理技能](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)。
 
 </Question>
-
 <Question title="我可以仅将 Intlayer 用作翻译管理器并保留当前的 i18n 库吗？">
 
 可以。Intlayer 可以按照您当前库所期望的格式和路径生成命名空间（例如 `/messages/{locale}/{namespace}.json`），这样您可以在应用代码继续使用现有 i18n 库的同时，享受到 AI 翻译、可视化编辑器和 CI 检查带来的便利。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

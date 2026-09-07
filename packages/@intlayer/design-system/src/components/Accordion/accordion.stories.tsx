@@ -55,7 +55,6 @@ The Accordion component provides expandable/collapsible content sections. It sup
 <Accordion header="Section Title" defaultIsOpen={false}>
   <p>Content goes here</p>
 </Accordion>
-
 <Accordion 
   header="Controlled Section"
   isOpen={isOpen}

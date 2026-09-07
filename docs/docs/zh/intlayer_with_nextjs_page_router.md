@@ -66,8 +66,6 @@ author: aymericzip
 
 与 `next-intl` 或 `i18next` 等主要解决方案相比，Intlayer 是一个具有集成优化的解决方案，例如：
 
-与“next-intl”或“i18next”等主要解决方案相比，Intlayer是一个具有集成优化的解决方案，例如：
-
 <AccordionGroup>
 <Accordion header="完整的 Next.js 覆盖">
 
@@ -78,37 +76,31 @@ Intlayer 经过优化，可以与 **服务器组件** 配合使用，以实现�
 > 对于带有 App Router 的 Next.js 12、13、14 和 15，请参阅此[指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md)。
 
 </Accordion>
-
 <Accordion header="捆绑尺寸">
 
 不要将大量 JSON 文件加载到页面中，而只需加载必要的内容。 Intlayer 有助于**将捆绑包和页面大小减少多达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 确定应用程序内容的范围**有利于大型应用程序的维护**。您可以复制或删除单个功能文件夹，而无需承担检查整个内容代码库的精神负担。此外，Intlayer 具有**完全类型化 (fully typed)**，以确保您的内容的准确性。
 
 </Accordion>
-
 <Accordion header="人工智能代理">
 
 共置内容**减少大型语言模型 (LLM) 所需的上下文**。 Intlayer 还附带了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 代理的开发者体验 (DX) 更加流畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用您选择的法学硕士，通过自动化在 CI/CD 管道中进行翻译，而费用由您的 AI 提供商承担。 Intlayer 还提供了一个**编译器**来自动提取内容，以及一个[网络平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)来帮助**在后台翻译**。
 
 </Accordion>
-
 <Accordion header="表现">
 
 将大量 JSON 文件连接到组件可能会导致性能和反应性问题。 Intlayer 可在构建时 (build time)优化您的内容加载。
 
 </Accordion>
-
 <Accordion header="无需开发即可扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)**和一个**[完整的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** 来帮助您管理多语言内容**实时**，与译员、文案人员和其他团队成员无缝协作。内容可以本地和/或远程存储。
@@ -119,7 +111,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 ## 使用 Page Router 在 Next.js 应用中设置 Intlayer 的分步指南
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 使用您喜欢的包管理器安装必要的包：
@@ -169,7 +160,6 @@ bun add intlayer next-intlayer
   将 Intlayer 与 Next.js 集成的包。它提供了 Next.js 国际化的上下文提供者和钩子。此外，还包含用于将 Intlayer 集成到 [Webpack](https://webpack.js.org/) 或 [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack) 的 Next.js 插件，以及用于检测用户首选语言环境、管理 Cookie 和处理 URL 重定向的中间件。
 
 </Step>
-
 <Step number={2} title="配置您的项目">
 
 创建一个配置文件以定义您的应用程序支持的语言：
@@ -195,7 +185,6 @@ export default config;
 > 通过此配置文件，您可以设置本地化的 URL、中间件重定向、Cookie 名称、内容声明的位置和扩展名、禁用控制台中的 Intlayer 日志等。有关可用参数的完整列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="将 Intlayer 集成到 Next.js 配置中">
 
 修改您的 Next.js 配置以集成 Intlayer：
@@ -223,7 +212,6 @@ export default withIntlayer(nextConfig);
 > ```
 
 </Step>
-
 <Step number={4} title="配置中间件以检测语言环境">
 
 设置中间件以自动检测并处理用户首选的语言环境：
@@ -242,7 +230,6 @@ export const config = {
 > 调整 `matcher` 参数以匹配您的应用程序路由。更多详情，请参阅 [Next.js 关于配置 matcher 的文档](https://nextjs.org/docs/app/building-your-application/routing/middleware)。
 
 </Step>
-
 <Step number={5} title="定义动态本地化路由">
 
 实现动态路由，根据用户的语言环境提供本地化内容。
@@ -377,7 +364,6 @@ export const getStaticPaths: GetStaticPaths = () => {
 > `getStaticPaths` 和 `getStaticProps` 确保您的应用程序在 Next.js 页面路由中预构建所有本地化所需的页面。此方法减少了运行时计算，从而提升用户体验。更多详情，请参阅 Next.js 文档中的 [`getStaticPaths`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-paths) 和 [`getStaticProps`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props)。
 
 </Step>
-
 <Step number={6} title="声明您的内容">
 
 创建并管理您的内容声明以存储翻译。
@@ -431,7 +417,6 @@ export default homeContent;
 有关声明内容的更多信息，请参阅[内容声明指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={7} title="在代码中使用内容">
 
 在整个应用程序中访问您的内容字典以显示翻译内容。
@@ -500,7 +485,6 @@ const ComponentExample = () => {
 > 要了解有关 `useIntlayer` 钩子的更多信息，请参阅[文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/next-intlayer/useIntlayer.md)。
 
 </Step>
-
 <Step number={8} title="元数据的国际化">
 
 如果您想要国际化您的元数据，例如页面标题，可以使用 Next.js 页面路由器提供的 `getStaticProps` 函数。在该函数内部，您可以通过 `getIntlayer` 函数获取内容以翻译您的元数据。
@@ -638,7 +622,6 @@ export default HomePage;
 > 了解有关元数据优化的更多信息，请参阅[官方 Next.js 文档](https://nextjs.org/docs/pages/building-your-application/optimizing/metadata)。
 
 </Step>
-
 <Step number={9} title="更改内容语言">
 
 在 Next.js 中更改内容语言，推荐的方式是使用 `Link` 组件将用户重定向到相应的本地化页面。`Link` 组件支持页面预加载，有助于避免完整页面刷新。
@@ -723,7 +706,6 @@ return <button onClick={() => setLocale(Locales.FRENCH)}>切换到法语</button
 > - [`aria-current` 属性](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={10} title="创建本地化链接组件">
 
 为了确保您的应用导航遵循当前的语言环境，您可以创建一个自定义的 `Link` 组件。该组件会自动在内部 URL 前添加当前语言的前缀。例如，当讲法语的用户点击“关于”页面的链接时，他们会被重定向到 `/fr/about`，而不是 `/about`。
@@ -794,7 +776,6 @@ Link.displayName = "Link";
 通过在整个应用中集成此 `Link` 组件，您可以保持一致且具备语言感知的用户体验，同时提升 SEO 和可用性。
 
 </Step>
-
 <Step number={11} title="优化您的Bundle 大小">
 
 使用 `next-intlayer` 时，字典默认会包含在每个页面的打包文件中。为了优化打包体积，Intlayer 提供了一个可选的 SWC 插件，该插件通过宏智能替换 `useIntlayer` 调用。这确保字典只会包含在实际使用它们的页面的打包文件中。
@@ -898,25 +879,21 @@ Pages Router 仍支持 `next.config.js` 中的内置 `i18n` 字段，但它仅�
 请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md) 和 [Next.js i18n 性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/nextjs.md)。
 
 </Question>
-
 <Question title="i18n 会给我的 Next.js bundle 体积增加多少？">
 
 远少于基于命名空间的方案，因为页面永远不会下载它不渲染的语言目录。内容在 `getStaticProps` 和 `getServerSideProps` 执行期间即完成解析，而不是以整个目录形式发送到客户端；构建时编译器将 `useIntlayer` 调用替换为组件使用的确切字典条目，因此未使用的键和未使用的语言都会被自动丢弃，并且 [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 会按语言环境拆分剩余内容。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/nextjs.md)。
 
 </Question>
-
 <Question title="我可以从 next-intl、next-i18next 或 i18next 迁移而无需重写组件吗？">
 
 可以，有两条迁移路径。您可以使用 [next-intl 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_next-intl_to_intlayer.md) 或 [i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_i18next_to_intlayer.md) 逐步迁移内容。或者，您可以完全保留当前的 API：[兼容性适配器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/index.md) 公开与 `next-intl`、`react-i18next` 和 `react-intl` 完全相同的 API，但底层由 Intlayer 字典驱动，因此只需更改导入语句，组件代码完全无需修改。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的组件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。
@@ -926,7 +903,6 @@ Pages Router 仍支持 `next.config.js` 中的内置 `i18n` 字段，但它仅�
 开启编译器前有两个限制值得了解：它通过静态分析工作，因此仅在运行时存在的字符串（如 API 错误代码或 CMS 字段）无法被捕获；此外它需要区分用户文本和应用程序逻辑（如 `className="active"` 或状态代码），在大型代码库中需要少量注解。而 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md) 则通过让您参与审查避免了这两个问题。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -938,49 +914,41 @@ Pages Router 仍支持 `next.config.js` 中的内置 `i18n` 字段，但它仅�
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="我应该留在 Pages Router 还是迁移到 App Router？">
 
 没有任何因素强制您迁移。Intlayer 对两者均提供支持，且内容声明完全相同，因此即便后续迁移路由，也无需重写 i18n 逻辑。如果您已经计划迁移，建议直接参考 [Next.js 16 指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_nextjs_16.md)，获得 Server Component 渲染能力，完全避免将字典发送到客户端。
 
 </Question>
-
 <Question title="内置的 Next.js i18n 选项在 Pages Router 中仍然有效吗？">
 
 是的，这也是它与 App Router 的主要区别（App Router 不支持该配置）。它为您提供语言前缀和 `Accept-Language` 检测，但完全不包含消息管理层，因此它只解决路由问题，把翻译留给第三方库。您可以保留它，也可以通过 `routing.mode` 和第 4 步中的中间件完全交由 Intlayer 接管路由。
 
 </Question>
-
 <Question title="如何添加 hreflang 标签和本地化 SEO 元数据？">
 
 第 8 步介绍了具体方法。使用 `getMultilingualUrls` 构建备用链接映射（包含 `x-default` 项），并在每个页面的 `next/head` 中输出，确保搜索引擎提供正确的语言版本。
 
 </Question>
-
 <Question title="如何构建本地化的 Link 组件？">
 
 第 10 步展示了具体实现。该组件封装了 Next.js 的 `Link`，并通过 `getLocalizedUrl` 处理 href，因此写为 `/about` 的内部链接会自动为法语访问者变为 `/fr/about`，无需在每次调用时重复传入语言环境。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译应用？">
 
 运行 `npx intlayer fill`。它会使用您选择的 LLM、您自己的提供商和 API 密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、用于长文本的 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

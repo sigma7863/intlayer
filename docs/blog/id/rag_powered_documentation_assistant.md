@@ -71,7 +71,6 @@ Secara garis besar, berikut resep yang saya gunakan:
 6.  **Mencatat query untuk umpan balik** Setiap query pengguna disimpan. Ini sangat berharga untuk memahami titik masalah, dokumen yang hilang, atau peluang baru.
 
 <Steps>
-
 <Step number={1} title="Membaca Dokumen">
 
 Langkah pertama sangat sederhana: saya membutuhkan cara untuk memindai folder docs/ untuk semua file .md. Menggunakan Node.js dan glob, saya mengambil konten dari setiap file Markdown ke dalam memori.
@@ -79,7 +78,6 @@ Langkah pertama sangat sederhana: saya membutuhkan cara untuk memindai folder do
 Ini menjaga pipeline tetap fleksibel: alih-alih Markdown, Anda bisa mengambil dokumen dari database, CMS, atau bahkan API.
 
 </Step>
-
 <Step number={2} title="Memecah Dokumentasi menjadi Potongan">
 
 Mengapa memecah? Karena model bahasa memiliki **batas konteks**. Memberi mereka seluruh buku dokumen tidak akan berhasil.
@@ -103,7 +101,6 @@ Pertukaran ini (ukuran chunk vs tumpang tindih) adalah kunci untuk efisiensi RAG
 - Terlalu besar → Anda membengkakkan ukuran konteks.
 
 </Step>
-
 <Step number={3} title="Menghasilkan Embeddings">
 
 Setelah dokumen dipecah menjadi chunk, kita menghasilkan **embeddings**, vektor berdimensi tinggi yang mewakili setiap chunk.
@@ -123,7 +120,6 @@ Saya menggunakan model OpenAI text-embedding-3-large, tetapi Anda bisa menggunak
 Setiap vektor adalah sidik jari matematis dari teks, memungkinkan pencarian kemiripan.
 
 </Step>
-
 <Step number={4} title="Pengindeksan & Penyimpanan Embedding">
 
 Untuk menghindari pembuatan ulang embedding berkali-kali, saya menyimpannya di embeddings.json.
@@ -138,7 +134,6 @@ Dalam produksi, Anda kemungkinan ingin menggunakan basis data vektor seperti:
 Basis data vektor menangani pengindeksan, skalabilitas, dan pencarian cepat. Namun untuk prototipe saya, JSON lokal sudah cukup.
 
 </Step>
-
 <Step number={5} title="Pengambilan dengan Cosine Similarity">
 
 Ketika pengguna mengajukan pertanyaan:
@@ -152,7 +147,6 @@ Cosine similarity mengukur sudut antara dua vektor. Kecocokan sempurna mendapatk
 Dengan cara ini, sistem menemukan bagian dokumen yang paling dekat dengan kueri.
 
 </Step>
-
 <Step number={6} title="Augmentasi + Generasi">
 
 Sekarang saatnya keajaiban. Kita mengambil potongan-potongan teratas dan menyuntikkannya ke dalam **system prompt** untuk ChatGPT.
@@ -162,7 +156,6 @@ Itu berarti model menjawab seolah-olah potongan-potongan tersebut adalah bagian 
 Hasilnya: jawaban yang akurat dan **berdasarkan dokumen**.
 
 </Step>
-
 <Step number={7} title="Mencatat Kueri Pengguna">
 
 Ini adalah kekuatan tersembunyi.
@@ -177,7 +170,6 @@ Setiap pertanyaan yang diajukan disimpan. Seiring waktu, Anda membangun dataset 
 Ini mengubah asisten RAG Anda menjadi **alat riset pengguna berkelanjutan**.
 
 </Step>
-
 <Step number={8} title="Berapa Biayanya?">
 
 Salah satu keberatan umum terhadap RAG adalah biaya. Dalam praktiknya, biayanya cukup murah:
@@ -189,7 +181,6 @@ Salah satu keberatan umum terhadap RAG adalah biaya. Dalam praktiknya, biayanya 
 Di atas itu, Anda dapat memasukkan biaya hosting.
 
 </Step>
-
 <Step number={9} title="Detail Implementasi">
 
 Stack:
@@ -255,7 +246,6 @@ Kami bereksperimen dengan gpt-5, tetapi latensinya terlalu tinggi (kadang hingga
 👉 [Coba demo di sini](https://intlayer.org/doc/why) 👉 [Periksa template kode di GitHub](https://github.com/aymericzip/smart_doc_RAG)
 
 </Step>
-
 <Step number={10} title="Melangkah Lebih Jauh">
 
 Proyek ini adalah implementasi minimal. Namun, Anda dapat memperluasnya dengan berbagai cara:
@@ -269,7 +259,6 @@ Proyek ini adalah implementasi minimal. Namun, Anda dapat memperluasnya dengan b
 - Peningkatan prompting → peringkat ulang, penyaringan, dan pencarian hibrida (kata kunci + semantik)
 
 </Step>
-
 <Step number={11} title="Batasan yang Kami Temui">
 
 - Pemecahan chunk dan tumpang tindih bersifat empiris. Keseimbangan yang tepat (ukuran chunk, persentase tumpang tindih, jumlah chunk yang diambil) memerlukan iterasi dan pengujian.
@@ -277,7 +266,6 @@ Proyek ini adalah implementasi minimal. Namun, Anda dapat memperluasnya dengan b
 - Dalam prototipe ini, embedding disimpan dalam format JSON. Ini bekerja untuk demo tetapi mencemari Git. Dalam produksi, database atau penyimpanan vektor khusus lebih baik.
 
 </Step>
-
 <Step number={12} title="Mengapa Ini Penting Selain Dokumen">
 
 Bagian menariknya bukan hanya chatbot. Ini adalah **loop umpan balik**.
@@ -299,7 +287,6 @@ Bayangkan meluncurkan fitur baru dan langsung melihat:
 Itu adalah **intelijen produk** langsung dari pengguna Anda.
 
 </Step>
-
 <Step number={13} title="Kesimpulan">
 
 RAG adalah salah satu cara paling sederhana dan paling kuat untuk membuat LLM menjadi praktis. Dengan menggabungkan **retrieval + generation**, Anda dapat mengubah dokumen statis menjadi **asisten pintar** dan, pada saat yang sama, mendapatkan aliran wawasan produk yang berkelanjutan.

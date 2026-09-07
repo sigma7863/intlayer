@@ -35,7 +35,6 @@ author: aymericzip
 Zamiast ładować ogromne pliki JSON do stron, ładuj tylko niezbędną zawartość. Intlayer pomaga **zmniejszyć bundle i rozmiary stron nawet o 50%**.
 
 </Accordion>
-
 <Accordion header="Łatwość utrzymania">
 
 Ograniczanie zawartości aplikacji **ułatwia utrzymanie** dużych aplikacji. Możesz zduplikować lub usunąć jeden folder funkcji bez konieczności przeglądania całej bazy kodu zawartości. Ponadto Intlayer jest **w pełni wpisany** aby zapewnić dokładność zawartości.
@@ -43,25 +42,21 @@ Ograniczanie zawartości aplikacji **ułatwia utrzymanie** dużych aplikacji. Mo
 Intlayer jest również rozwiązaniem z **najaktywniejszym rozwojem** w ekosystemie i18n — problemy są naprawiane szybko, nowe adaptery frameworku pojawiają się regularnie, a podstawowy API jest stale ulepsszany na podstawie opinii z produkcji.
 
 </Accordion>
-
 <Accordion header="Agent AI">
 
 Umieszczanie zawartości razem **zmniejsza kontekst potrzebny** przez Duże Modele Języka (LLM). Intlayer zawiera również pakiet narzędzi, takich jak **CLI** do testowania brakujących tłumaczeń, **LSP**, **MCP** i **agent skills**, aby jeszcze bardziej gładka była doświadczenie dla programistów (DX) dla agentów AI.
 
 </Accordion>
-
 <Accordion header="Automatyzacja">
 
 Użyj automatyzacji do tłumaczenia w pipeline CI/CD korzystając z wybranego LLM za koszt dostawcy AI. Intlayer oferuje również **kompilator** do automatycznego wyodrębniania zawartości, a także **platforma internetowa** aby pomóc **tłumaczyć w tle**.
 
 </Accordion>
-
 <Accordion header="Wydajność">
 
 Łączenie dużych plików JSON z komponentami może prowadzić do problemów z wydajnością i reaktywnością. Intlayer optymalizuje ładowanie zawartości w czasie budowania.
 
 </Accordion>
-
 <Accordion header="Skalowanie wraz z non-dev">
 
 Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia samodzielnie hostowany **edytor wizualny** i **pełny CMS** aby pomóc ci zarządzać multilingual zawartością w **rzeczywistym czasie**, czyniąc współpracę z tłumaczami, copywriterami i innymi członkami zespołu bezproblemową. Zawartość może być przechowywana lokalnie i/lub zdalnie.
@@ -88,7 +83,6 @@ Ten przewodnik obejmuje **Strategię 1** najpierw (adapter compat drop-in), a na
 Poniższe kroki są minimalne wymagane, aby uruchomić istniejącą aplikację Next.js Pages Router w Intlayer bez zmian kodu w stronach i komponentach.
 
 <Steps>
-
 <Step number={1} title="Zainstaluj zależności">
 
 Zainstaluj pakiety rdzenia Intlayer i adaptery kompatybilności:
@@ -132,7 +126,6 @@ bun add intlayer next-intlayer react-intlayer @intlayer/next-i18next @intlayer/r
 > Możesz bezpiecznie pozostawić `next-i18next`, `react-i18next` i `i18next` zainstalowane podczas migracji, chociaż usuniesz je po zastosowaniu aliasów.
 
 </Step>
-
 <Step number={2} title="Skonfiguruj Intlayer">
 
 Komenda `intlayer init` tworzy starter `intlayer.config.ts`. Zaktualizuj go, aby pasował do twoich istniejących lokalizacji i skieruj plugin `syncJSON` do twoich plików wiadomości `next-i18next` (zwykle wewnątrz `public/locales`):
@@ -167,7 +160,6 @@ export default config;
 > **`source`** mapuje lokalizację i namespace (`key`) do ścieżki pliku JSON. **`location`** mówi obserwatorowi Intlayer, który folder monitorować pod kątem zmian. Opcja `format: 'i18next'` zapewnia, że placeholdery są poprawnie parsowane dla `next-i18next`.
 
 </Step>
-
 <Step number={3} title="Zaktualizuj konfigurację Next.js">
 
 Opatrz istniejący `next.config.ts` (lub `.js`) funkcją `createNextI18nPlugin` z `@intlayer/next-i18next/plugin`. Ten wrapper komponuje `withIntlayer` **i** wstrzykuje aliasy `next-i18next` / `react-i18next` / `i18next` → `@intlayer/*`, dzięki czemu istniejące wywołania `import { useTranslation } from 'next-i18next'` są transparentnie przekierowane podczas budowania. Nie są wymagane żadne zmiany w plikach źródłowych.
@@ -216,7 +208,6 @@ To wszystko dla szybkiej migracji. Twoja aplikacja Next.js teraz działa na Intl
 Poniższe kroki są opcjonalne i można je wykonywać przyrostowo. Odblokowują one pełny zestaw funkcji Intlayer: edytor wizualny, CMS, typed content files, tłumaczenie zasilane sztuczną inteligencją i wiele więcej.
 
 <Steps>
-
 <Step number={4} title="Explicit import renaming (opcjonalnie)" isOptional={true}>
 
 Plugin Intlayer już obsługuje aliasing na poziomie bundlera. Jeśli wolisz uczynić zależność jawną w swoich plikach źródłowych, możesz ręcznie zmienić nazwy importów:
@@ -231,7 +222,6 @@ Plugin Intlayer już obsługuje aliasing na poziomie bundlera. Jeśli wolisz ucz
 Są to **drop-in replacements** — nie są wymagane żadne zmiany w sygnaturach funkcji, argumentach ani zwracanych typach.
 
 </Step>
-
 <Step number={5} title="Enable AI-Powered Translation Automation" isOptional={true}>
 
 Po podłączeniu Intlayer, użyj jego CLI, aby automatycznie uzupełnić brakujące tłumaczenia:

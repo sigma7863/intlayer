@@ -351,25 +351,21 @@ The reason to internationalize the backend at all is that a large part of the te
 See [why Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="How much does i18n add to my Elysia server bundle size?">
 
 Very little. Dictionaries are compiled ahead of time and only the locales you declare are included, so there is no catalog loading at boot and no file reads on the request path. That matters most on serverless and edge deployments, where the bundle size drives cold start time. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/bundle_optimization.md).
 
 </Question>
-
 <Question title="Can I migrate from `i18next` without rewriting my handlers?">
 
 Yes, and there are two paths. You can migrate the content progressively with the [i18next migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/migration_from_i18next_to_intlayer.md). Or you can keep your current API entirely: the [compat adapters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/compat/index.md) expose the exact same API as `i18next`, but served by Intlayer dictionaries, so imports change and handler code does not.
 
 </Question>
-
 <Question title="Can I keep my existing JSON translation files?">
 
 Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-po.md) does the same for gettext catalogs, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/per_locale_file.md) let you split content by language instead of grouping locales in one file.
 
 </Question>
-
 <Question title="Do I have to move my content key by key?">
 
 No. Run `npx intlayer extract` and Intlayer reads your source files, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalog one at a time. See the [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/extract.md).
@@ -377,7 +373,6 @@ No. Run `npx intlayer extract` and Intlayer reads your source files, pulls the u
 On the frontend side of the same project, the [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/compiler.md) goes further and generates the dictionaries at build time from your JSX, TSX, Vue or Svelte source, so the two halves of the app share one content layer with no keys maintained by hand.
 
 </Question>
-
 <Question title="What editor and AI agent tooling is available?">
 
 Five pieces, all optional:
@@ -389,67 +384,56 @@ Five pieces, all optional:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/eslint.md)**: `no-raw-text` flags hardcoded strings, with further rules for static dictionary keys and unused content.
 
 </Question>
-
 <Question title="How does Intlayer know which language to answer in?">
 
 By default `elysia-intlayer` reads the `Accept-Language` header of the incoming request and picks the closest declared locale, falling back to your default locale. You can change the source with `routing.storage`, for example a custom header or a cookie set by your frontend, so the API answers in the language the user actually selected rather than the one their browser advertises. See the [configuration reference](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Question>
-
 <Question title="Is the locale isolated per request?">
 
 Yes. The plugin scopes the active locale to the request, so two concurrent requests in different languages never read each other's locale. That is what makes `t()` and `getIntlayer()` safe to call from a service without threading a locale argument through every function.
 
 </Question>
-
 <Question title="How do I send transactional emails in the recipient's language?">
 
 Declare the email content in a content file like any other content, then resolve it with `getIntlayer` for the recipient's stored locale instead of the request locale. This matters for jobs and queues, where the language belongs to the user record and there is no incoming request to read a header from.
 
 </Question>
-
 <Question title="How do I localize API error messages?">
 
 Wrap the message in `t()` at the point where the error is built. The active request locale resolves it, so the client receives a message it can display directly, and your frontend does not need a parallel catalog of error codes.
 
 </Question>
-
 <Question title="Does it work on Bun and on edge runtimes?">
 
 Elysia targets Bun first, and Intlayer resolves content from dictionaries compiled at build time rather than reading catalog files from disk at runtime, which is what usually breaks on edge runtimes. Keep `dictionary.importMode` at its default `"static"` so the content is bundled with the server.
 
 </Question>
-
 <Question title="Does the plugin keep Elysia's end to end type inference?">
 
 Yes. The plugin is registered with `.use()` like any other Elysia plugin, so the chained types keep flowing, and your dictionary keys are typed separately from the generated `types/intlayer.d.ts`.
 
 </Question>
-
 <Question title="How do I translate the backend content automatically with AI?">
 
 Run `npx intlayer fill`, which fills missing translations with the LLM of your choice using your own provider and API key. Add `--git-diff` to translate only the content changed on the branch. See the [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/fill.md) and [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/CI_CD.md).
 
 </Question>
-
 <Question title="Does Intlayer support plurals, gender and interpolated values on the server?">
 
 Yes: [plural forms](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/plurial.md), [gender based content](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/gender.md), conditions, [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/insertion.md) for interpolated values, [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/markdown.md) for email bodies, and [formatters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/formatters.md) for numbers, dates and currencies.
 
 </Question>
-
 <Question title="Do I get TypeScript autocompletion on the server?">
 
 Yes. Intlayer generates the types of your dictionaries into `./types/intlayer.d.ts`, so a key that does not exist is a compile error rather than an empty string at runtime. Run `npx intlayer test` in CI to fail the build when a declared locale is missing content.
 
 </Question>
-
 <Question title="Can the frontend and the backend share the same content?">
 
 Yes, and that is the usual setup. `elysia-intlayer` works alongside `react-intlayer`, `next-intlayer` and `vite-intlayer` on the same declared content, so a label used both in an API response and in a page is declared once. See [how Intlayer works](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/how_works_intlayer.md).
 
 </Question>
-
 <Question title="Is Intlayer free and open source?">
 
 Yes, under the Apache 2.0 license, commercial use included. The hosted [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) is an optional paid service that can also be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/self_hosting.md).

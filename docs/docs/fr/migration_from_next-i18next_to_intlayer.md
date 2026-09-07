@@ -35,7 +35,6 @@ author: aymericzip
 Au lieu de charger des fichiers JSON massifs dans vos pages, ne chargez que le contenu nécessaire. Intlayer aide à **réduire la taille de votre bundle et de vos pages jusqu'à 50 %**.
 
 </Accordion>
-
 <Accordion header="Maintenabilité">
 
 Scoper le contenu de votre application **facilite la maintenance** pour les applications à grande échelle. Vous pouvez dupliquer ou supprimer un dossier de fonctionnalité entier sans avoir la charge mentale de revoir toute votre base de code de contenu. De plus, Intlayer est **entièrement typé** pour garantir l'exactitude de votre contenu.
@@ -43,25 +42,21 @@ Scoper le contenu de votre application **facilite la maintenance** pour les appl
 Intlayer est également la solution avec le **développement le plus actif** dans l'écosystème i18n — les problèmes sont résolus rapidement, de nouveaux adaptateurs de framework arrivent régulièrement, et l'API principale est continuellement affinée en fonction des retours de production réels.
 
 </Accordion>
-
 <Accordion header="Agent IA">
 
 Colocaliser le contenu **réduit le contexte nécessaire** pour les Grands Modèles de Langage (LLM). Intlayer est également livré avec une suite d'outils, tels qu'une **CLI** pour tester les traductions manquantes, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/mcp_server.md)**, et des **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/agent_skills.md)**, pour rendre l'expérience développeur (DX) encore plus fluide pour les agents IA.
 
 </Accordion>
-
 <Accordion header="Automatisation">
 
 Utilisez l'automatisation pour traduire dans votre pipeline CI/CD en utilisant le LLM de votre choix au coût de votre fournisseur d'IA. Intlayer propose également un **compilateur** pour automatiser l'extraction de contenu, ainsi qu'une [plateforme web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md) pour aider à **traduire en arrière-plan**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
 Connecter des fichiers JSON massifs aux composants peut entraîner des problèmes de performance et de réactivité. Intlayer optimise le chargement de votre contenu au moment de la construction.
 
 </Accordion>
-
 <Accordion header="Évolutivité avec des non-développeurs">
 
 Plus qu'une simple solution i18n, Intlayer fournit un **[éditeur visuel](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_visual_editor.md)** auto-hébergé et un **[CMS complet](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md)** pour vous aider à gérer votre contenu multilingue en **temps réel**, rendant la collaboration avec les traducteurs, les rédacteurs et les autres membres de l'équipe transparente. Le contenu peut être stocké localement et/ou à distance.
@@ -88,7 +83,6 @@ Ce guide couvre d'abord la **Stratégie 1** (adaptateur de compatibilité prêt 
 Les étapes suivantes sont le minimum requis pour faire fonctionner votre application Next.js Pages Router existante sur Intlayer avec zéro changement de code dans vos pages et composants.
 
 <Steps>
-
 <Step number={1} title="Installer les Dépendances">
 
 Installez les packages principaux d'Intlayer et les adaptateurs de compatibilité :
@@ -132,7 +126,6 @@ bun add intlayer next-intlayer react-intlayer @intlayer/next-i18next @intlayer/r
 > Vous pouvez garder `next-i18next`, `react-i18next`, et `i18next` installés en toute sécurité pendant la migration, bien que vous les supprimiez une fois les alias configurés.
 
 </Step>
-
 <Step number={2} title="Configurer Intlayer">
 
 La commande `intlayer init` crée un fichier `intlayer.config.ts` de démarrage. Mettez-le à jour pour qu'il corresponde à vos paramètres régionaux existants et pointez le plugin `syncJSON` sur vos fichiers de messages `next-i18next` (généralement dans `public/locales`) :
@@ -167,7 +160,6 @@ export default config;
 > **`source`** mappe un paramètre régional et un espace de noms (`key`) à son chemin de fichier JSON. **`location`** indique à l'observateur Intlayer quel dossier surveiller pour les modifications. L'option `format: 'i18next'` garantit que les espaces réservés sont analysés correctement pour `next-i18next`.
 
 </Step>
-
 <Step number={3} title="Mettre à jour la Configuration Next.js">
 
 Enveloppez votre `next.config.ts` (ou `.js`) existant avec `createNextI18nPlugin` depuis `@intlayer/next-i18next/plugin`. Cette enveloppe compose `withIntlayer` **et** injecte les alias `next-i18next` / `react-i18next` / `i18next` → `@intlayer/*`, de sorte que vos appels existants `import { useTranslation } from 'next-i18next'` soient redirigés de manière transparente lors de la construction. Aucun changement de fichier source n'est nécessaire.
@@ -216,7 +208,6 @@ C'est tout pour la migration rapide. Votre application Next.js fonctionne désor
 Les étapes ci-dessous sont facultatives et peuvent être effectuées de manière incrémentielle. Elles débloquent l'ensemble des fonctionnalités d'Intlayer : éditeur visuel, CMS, fichiers de contenu typés, traduction alimentée par l'IA, et plus encore.
 
 <Steps>
-
 <Step number={4} title="Renommage explicite des imports (optionnel)" isOptional={true}>
 
 Le plugin Intlayer gère déjà l'aliassage au niveau du bundler. Si vous préférez rendre la dépendance explicite dans vos fichiers sources, vous pouvez renommer les imports manuellement :
@@ -231,7 +222,6 @@ Le plugin Intlayer gère déjà l'aliassage au niveau du bundler. Si vous préf�
 Ce sont des **remplacements directs** — aucun changement de signatures d'appel, d'arguments ou de types de retour n'est requis.
 
 </Step>
-
 <Step number={5} title="Activer l'automatisation de la traduction alimentée par l'IA" isOptional={true}>
 
 Une fois Intlayer configuré, utilisez sa CLI pour remplir automatiquement les traductions manquantes :

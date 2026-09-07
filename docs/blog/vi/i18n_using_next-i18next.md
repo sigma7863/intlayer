@@ -117,7 +117,6 @@ Cấu trúc dự án mà chúng ta sẽ tạo:
 ```
 
 <Steps>
-
 <Step number={1} title="Cài Đặt Các Phụ Thuộc">
 
 Cài đặt các gói cần thiết bằng npm:
@@ -139,7 +138,6 @@ yarn add i18next react-i18next i18next-resources-to-backend
 - **i18next-resources-to-backend**: Plugin cho phép tải động các file bản dịch, giúp bạn chỉ tải những namespace cần thiết.
 
 </Step>
-
 <Step number={2} title="Cấu Hình Dự Án Của Bạn">
 
 Tạo một file cấu hình để định nghĩa các locale được hỗ trợ, locale mặc định, và các hàm trợ giúp cho việc địa phương hóa URL. File này đóng vai trò là nguồn dữ liệu duy nhất cho thiết lập i18n của bạn và đảm bảo an toàn kiểu trong toàn bộ ứng dụng.
@@ -194,7 +192,6 @@ export function getCookie(locale: Locale) {
 ```
 
 </Step>
-
 <Step number={3} title="Tập trung các namespace dịch thuật">
 
 Tạo một nguồn dữ liệu duy nhất cho mọi namespace mà ứng dụng của bạn cung cấp. Tái sử dụng danh sách này giúp đồng bộ mã phía server, client và công cụ, đồng thời mở khóa kiểu dữ liệu mạnh cho các hàm hỗ trợ dịch thuật.
@@ -206,7 +203,6 @@ export type Namespace = (typeof namespaces)[number];
 ```
 
 </Step>
-
 <Step number={4} title="Định kiểu mạnh cho các khóa dịch với TypeScript">
 
 Mở rộng `i18next` để trỏ tới các file ngôn ngữ chuẩn của bạn (thường là tiếng Anh). TypeScript sẽ suy luận các khóa hợp lệ theo từng namespace, do đó các lời gọi tới `t()` được kiểm tra toàn diện.
@@ -246,7 +242,6 @@ export type AboutTranslator = TFunction<"about">;
 ```
 
 </Step>
-
 <Step number={5} title="Thiết lập khởi tạo i18n phía server">
 
 Tạo một hàm khởi tạo phía máy chủ để tải các bản dịch cho các thành phần server. Hàm này tạo một instance i18next riêng biệt cho việc render phía server, đảm bảo rằng các bản dịch được tải trước khi render.
@@ -303,7 +298,6 @@ export async function initI18next(
 ```
 
 </Step>
-
 <Step number={6} title="Tạo Provider i18n phía Client">
 
 Tạo một component provider phía client bao bọc ứng dụng của bạn với context i18next. Provider này nhận các bản dịch đã được tải sẵn từ server để ngăn chặn hiện tượng flash nội dung chưa dịch (FOUC) và tránh việc tải lặp lại.
@@ -388,7 +382,6 @@ export default function I18nProvider({
 ```
 
 </Step>
-
 <Step number={7} title="Định nghĩa các tuyến đường động theo locale">
 
 Thiết lập routing động cho các locale bằng cách tạo thư mục `[locale]` trong thư mục app của bạn. Điều này cho phép Next.js xử lý routing dựa trên locale, trong đó mỗi locale trở thành một phân đoạn URL (ví dụ: `/en/about`, `/fr/about`).
@@ -442,7 +435,6 @@ export default function LocaleLayout({
 ```
 
 </Step>
-
 <Step number={8} title="Tạo các tệp dịch của bạn">
 
 Tạo các tệp JSON cho mỗi locale và namespace. Cấu trúc này cho phép bạn tổ chức các bản dịch một cách hợp lý và chỉ tải những gì bạn cần cho mỗi trang.
@@ -537,7 +529,6 @@ Tổ chức các bản dịch theo namespace (ví dụ: `common.json`, `about.js
 </Tabs>
 
 </Step>
-
 <Step number={9} title="Sử dụng Bản dịch trong Trang của Bạn">
 
 Tạo một component trang khởi tạo i18next trên server và truyền các bản dịch cho cả component server và client. Điều này đảm bảo các bản dịch được tải trước khi render và ngăn chặn hiện tượng nhấp nháy nội dung.
@@ -599,7 +590,6 @@ export default async function AboutPage({
 ```
 
 </Step>
-
 <Step number={10} title="Sử dụng Dịch trong Các Component Client">
 
 Các component client có thể sử dụng hook `useTranslation` để truy cập bản dịch. Hook này cung cấp hàm dịch và instance i18n, cho phép bạn dịch nội dung và truy cập thông tin locale.
@@ -652,7 +642,6 @@ export default ClientComponent;
 ```
 
 </Step>
-
 <Step number={11} title="Sử dụng bản dịch trong các Server Components">
 
 Các server component không thể sử dụng React hooks, vì vậy chúng nhận các bản dịch thông qua props từ các component cha của chúng. Cách tiếp cận này giữ cho server component đồng bộ và cho phép chúng được lồng bên trong các client component.
@@ -700,7 +689,6 @@ export default ServerComponent;
 ```
 
 </Step>
-
 <Step number={12} title="Thay đổi ngôn ngữ nội dung của bạn" isOptional={true}>
 
 Để thay đổi ngôn ngữ nội dung trong Next.js, cách được khuyến nghị là sử dụng URL có tiền tố locale và các liên kết Next.js. Ví dụ dưới đây đọc locale hiện tại từ route, loại bỏ nó khỏi pathname, và hiển thị một liên kết cho mỗi locale có sẵn.
@@ -774,7 +762,6 @@ export default function LocaleSwitcher() {
 ```
 
 </Step>
-
 <Step number={13} title="Xây dựng một component Link có hỗ trợ đa ngôn ngữ" isOptional={true}>
 
 Tái sử dụng các URL đã được địa phương hóa trong toàn bộ ứng dụng giúp điều hướng nhất quán và thân thiện với SEO. Bao bọc `next/link` trong một helper nhỏ để thêm tiền tố locale đang hoạt động vào các route nội bộ trong khi giữ nguyên các URL bên ngoài.
@@ -827,7 +814,6 @@ export default function LocalizedLink({
 > Mẹo: Vì `LocalizedLink` là một thành phần thay thế trực tiếp, hãy di chuyển dần dần bằng cách thay đổi các import và để thành phần xử lý các URL theo locale cụ thể.
 
 </Step>
-
 <Step number={14} title="Truy cập locale đang hoạt động bên trong Server Actions" isOptional={true}>
 
 Server Actions thường cần locale hiện tại để gửi email, ghi log hoặc tích hợp với bên thứ ba. Kết hợp cookie locale được proxy của bạn thiết lập với header `Accept-Language` làm phương án dự phòng.
@@ -867,7 +853,6 @@ export async function stuffFromServer(formData: FormData) {
 > Vì helper dựa vào cookies và headers của Next.js, nó hoạt động trong Route Handlers, Server Actions và các ngữ cảnh chỉ dành cho server khác.
 
 </Step>
-
 <Step number={15} title="Quốc tế hóa Metadata của bạn" isOptional={true}>
 
 Dịch nội dung là quan trọng, nhưng mục tiêu chính của quốc tế hóa là làm cho trang web của bạn trở nên dễ tiếp cận hơn với thế giới. I18n là một đòn bẩy tuyệt vời để cải thiện khả năng hiển thị trang web của bạn thông qua SEO đúng cách.
@@ -936,7 +921,6 @@ export default async function AboutPage() {
 ```
 
 </Step>
-
 <Step number={16} title="Quốc tế hóa Sitemap của bạn" isOptional={true}>
 
 Tạo một sitemap bao gồm tất cả các phiên bản locale của các trang của bạn. Điều này giúp các công cụ tìm kiếm khám phá và lập chỉ mục tất cả các phiên bản ngôn ngữ của nội dung của bạn.
@@ -994,7 +978,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 ```
 
 </Step>
-
 <Step number={17} title="Quốc tế hóa tệp robots.txt của bạn" isOptional={true}>
 
 Tạo một tệp robots.txt xử lý đúng tất cả các phiên bản ngôn ngữ của các tuyến đường được bảo vệ của bạn. Điều này đảm bảo rằng các công cụ tìm kiếm không lập chỉ mục các trang quản trị hoặc bảng điều khiển bằng bất kỳ ngôn ngữ nào.
@@ -1027,7 +1010,6 @@ export default function robots(): MetadataRoute.Robots {
 ```
 
 </Step>
-
 <Step number={18} title="Thiết lập Middleware cho Định tuyến Ngôn ngữ" isOptional={true}>
 
 Tạo một proxy để tự động phát hiện ngôn ngữ ưu tiên của người dùng và chuyển hướng họ đến URL có tiền tố ngôn ngữ phù hợp. Điều này cải thiện trải nghiệm người dùng bằng cách hiển thị nội dung theo ngôn ngữ họ ưu thích.
@@ -1118,7 +1100,6 @@ export const config = {
 ```
 
 </Step>
-
 <Step number={19} title="Tự động hóa bản dịch của bạn bằng Intlayer" isOptional={true}>
 
 Intlayer là một thư viện **miễn phí** và **mã nguồn mở** được thiết kế để hỗ trợ quá trình bản địa hóa trong ứng dụng của bạn. Trong khi i18next xử lý việc tải và quản lý bản dịch, Intlayer giúp tự động hóa quy trình làm việc bản dịch.

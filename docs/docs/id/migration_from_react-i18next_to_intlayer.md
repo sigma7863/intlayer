@@ -34,7 +34,6 @@ author: aymericzip
 Alih-alih memuat file JSON besar ke halaman Anda, muat hanya konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Maintainability">
 
 Scoping konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi skala besar. Anda dapat menduplikasi atau menghapus folder fitur tunggal tanpa beban mental meninjau seluruh codebase konten Anda. Selain itu, Intlayer **fully typed** untuk memastikan akurasi konten Anda.
@@ -42,25 +41,21 @@ Scoping konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi skala
 Intlayer juga merupakan solusi dengan **pengembangan paling aktif** dalam ekosistem i18n — masalah diperbaiki dengan cepat, adapter framework baru tiba secara teratur, dan API inti terus disempurnakan berdasarkan feedback produksi dunia nyata.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Co-locating konten **mengurangi konteks yang diperlukan** oleh Large Language Models (LLMs). Intlayer juga dilengkapi dengan rangkaian tools, seperti **CLI** untuk menguji terjemahan yang hilang, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk membuat developer experience (DX) lebih lancar untuk AI agents.
 
 </Accordion>
-
 <Accordion header="Automation">
 
 Gunakan automation untuk menerjemahkan di pipeline CI/CD Anda menggunakan LLM pilihan Anda dengan biaya dari penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomasi ekstraksi konten, serta [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
 Menghubungkan file JSON besar ke komponen dapat menyebabkan masalah performance dan reactivity. Intlayer mengoptimalkan loading konten Anda pada waktu build.
 
 </Accordion>
-
 <Accordion header="Scaling dengan non-dev">
 
 Lebih dari sekadar solusi i18n, Intlayer menyediakan **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md)** dan **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa Anda dalam **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya seamless. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -87,7 +82,6 @@ Panduan ini mencakup **Strategi 1** terlebih dahulu (drop-in compat adapter), ke
 Langkah-langkah berikut adalah yang minimal diperlukan untuk menjalankan aplikasi `react-i18next` yang ada pada Intlayer tanpa perubahan kode sama sekali.
 
 <Steps>
-
 <Step number={1} title="Install Dependencies">
 
 Pasang paket inti Intlayer dan adapter kompatibilitas:
@@ -131,7 +125,6 @@ bun add intlayer react-intlayer @intlayer/react-i18next @intlayer/i18next @intla
 > Anda dapat membiarkan `react-i18next` dan `i18next` tetap terpasang — adapter kompatibilitas menggunakannya sebagai `devDependencies` / opsional `peerDependencies` untuk tipe TypeScript. Anda tidak perlu mengubah peer apapun di `package.json`.
 
 </Step>
-
 <Step number={2} title="Configure Intlayer">
 
 Perintah `intlayer init` membuat file starter `intlayer.config.ts`. Perbarui file ini agar sesuai dengan lokale yang ada dan tunjukkan plugin `syncJSON` ke file pesan Anda:
@@ -166,7 +159,6 @@ export default config;
 > **`source`** memetakan lokale ke jalur file JSON-nya. **`location`** memberitahu pemantau Intlayer folder mana yang akan dipantau untuk perubahan. Opsi `format: 'i18next'` memastikan bahwa placeholder seperti `{{name}}` diuraikan dengan benar.
 
 </Step>
-
 <Step number={3} title="Add the Intlayer Plugin to your Bundler">
 
 Bungkus konfigurasi bundler yang ada dengan plugin kompatibilitas. Plugin ini menyusun plugin inti Intlayer, menghubungkan pemantauan konten, dan — yang penting — **menyuntikkan alias modul** sehingga pemanggilan `import … from 'react-i18next'` (dan `'i18next'`) yang ada secara transparan dialihkan ke `@intlayer/react-i18next` / `@intlayer/i18next` pada waktu build. Tidak ada perubahan file sumber yang diperlukan.
@@ -232,7 +224,6 @@ Itu saja untuk migrasi cepat. Aplikasi Anda sekarang berjalan di Intlayer sambil
 Langkah-langkah di bawah ini bersifat opsional dan dapat dilakukan secara bertahap. Langkah-langkah ini membuka set fitur Intlayer yang lengkap: editor visual, CMS, file konten yang diketik, terjemahan bertenaga AI, dan lainnya.
 
 <Steps>
-
 <Step number={4} title="Explicit import renaming (optional)" isOptional={true}>
 
 Plugin Intlayer sudah menangani aliasing di tingkat bundler. Jika Anda lebih suka membuat dependensi eksplisit di file sumber Anda, Anda dapat mengganti nama impor secara manual:
@@ -257,7 +248,6 @@ Untuk Next.js (`next-i18next`):
 | `import { useTranslation } from 'next-i18next'`                                | `import { useTranslation } from '@intlayer/next-i18next'`         |
 
 </Step>
-
 <Step number={5} title="Enable AI-Powered Translation Automation" isOptional={true}>
 
 Setelah Intlayer terhubung, gunakan CLI-nya untuk mengisi terjemahan yang hilang secara otomatis:

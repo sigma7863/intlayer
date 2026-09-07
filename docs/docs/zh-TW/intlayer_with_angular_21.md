@@ -78,7 +78,6 @@ author: aymericzip
 在GitHub上查看 [應用程式模板](https://github.com/aymericzip/intlayer-angular-22-template)。
 
 <Steps>
-
 <Step number={1} title="安裝依賴項">
 
 使用npm安裝必要的套件：
@@ -134,7 +133,6 @@ bun add @angular-builders/custom-esbuild --dev
   需要它來自定義Angular CLI的esbuild配置。
 
 </Step>
-
 <Step number={2} title="配置您的專案">
 
 創建一個配置文件以配置您應用程式的語言：
@@ -160,7 +158,6 @@ export default config;
 > 透過此配置文件，您可以設定在地化的URL、中間件重定向、Cookie名稱、內容宣告的位置和副檔名、禁用控制台中的Intlayer日誌等。獲取所有可用參數的完整列表，請參考[配置文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/configuration.md)。
 
 </Step>
-
 <Step number={3} title="在Angular配置中整合Intlayer">
 
 要將Intlayer與Angular CLI整合，您需要使用自定義構建器。本指南假設您使用的是 Vite/esbuild（Angular 21專案的預設設定）。
@@ -224,7 +221,6 @@ export default [intlayerEsbuildPlugin()];
 > 然後在 `angular.json` 中指向 `"./esbuild.plugins.mjs"`，而不是 `"./esbuild.plugins.ts"`。
 
 </Step>
-
 <Step number={4} title="宣告您的內容">
 
 創建並管理您的內容宣告文件以存儲翻譯：
@@ -276,7 +272,6 @@ export default appContent;
 > 詳細資訊請參考 [內容宣告文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={5} title="在程式碼中使用Intlayer">
 
 要在整個Angular應用程式中利用Intlayer的國際化功能，您需要在應用程式配置中提供Intlayer。
@@ -326,7 +321,6 @@ export class AppComponent {
 Intlayer 內容將作為 `Signal` 返回，因此您可以透過呼叫信號來訪問值：`content().title`。
 
 </Step>
-
 <Step number={6} title="更改內容的語言">
 
 要更改內容的語言，您可以使用 `useLocale` 函數提供的 `setLocale` 函數。這允許您設定應用程式的區域設定，並相應更新內容。

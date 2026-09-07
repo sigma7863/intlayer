@@ -69,37 +69,31 @@ author: aymericzip
 Intlayer는 **다국어 라우팅**, **사이트맵** 및 국제화 확장(i18n)에 필요한 모든 기능을 제공하여 Astro와 완벽하게 작동하도록 최적화되어 있습니다.
 
 </Accordion>
-
 <Accordion header="번들 크기">
 
 대용량 JSON 파일을 페이지에 로드하는 대신 필요한 콘텐츠만 로드하세요. Intlayer는 **번들 및 페이지 크기를 최대 50%** 줄이는 데 도움이 됩니다.
 
 </Accordion>
-
 <Accordion header="유지관리성">
 
 애플리케이션 콘텐츠의 범위를 지정하면 대규모 애플리케이션의 **유지 관리가 용이해집니다**. 전체 콘텐츠 코드베이스를 검토해야 하는 정신적 부담 없이 단일 기능 폴더를 복제하거나 삭제할 수 있습니다. 또한 Intlayer는 **완전히 유형**되어 콘텐츠의 정확성을 보장합니다.
 
 </Accordion>
-
 <Accordion header="AI 에이전트">
 
 콘텐츠를 같은 위치에 배치하면 LLM(대형 언어 모델)에 **필요한 컨텍스트가 줄어듭니다**. Intlayer에는 누락된 번역을 테스트하기 위한 **CLI**, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 및 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/agent_skills.md)**, AI 에이전트를 위한 개발자 경험(DX)을 더욱 원활하게 만듭니다.
 
 </Accordion>
-
 <Accordion header="오토메이션">
 
 AI 공급자의 비용으로 선택한 LLM을 사용하여 CI/CD 파이프라인을 번역하려면 자동화를 사용하세요. Intlayer는 또한 콘텐츠 추출을 자동화하는 **컴파일러**와 **백그라운드에서 번역**을 돕는 [웹 플랫폼](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)을 제공합니다.
 
 </Accordion>
-
 <Accordion header="성능">
 
 대규모 JSON 파일을 구성 요소에 연결하면 성능 및 반응성 문제가 발생할 수 있습니다. Intlayer는 빌드 시 콘텐츠 로딩을 최적화합니다.
 
 </Accordion>
-
 <Accordion header="개발자가 없는 경우 확장">
 
 Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는 **자체 호스팅 [비주얼 편집기](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** 및 **[전체 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**를 제공합니다. 다국어 콘텐츠를 **실시간**으로 제공하여 번역가, 카피라이터, 기타 팀원과 원활하게 협업할 수 있습니다. 콘텐츠는 로컬 및/또는 원격으로 저장될 수 있습니다.
@@ -112,7 +106,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 GitHub에서 [애플리케이션 템플릿](https://github.com/aymericzip/intlayer-astro-template) 보기.
 
 <Steps>
-
 <Step number={1} title="종속성 설치">
 
 선호하는 패키지 관리자를 사용하여 필요한 패키지를 설치합니다:
@@ -175,7 +168,6 @@ bun x intlayer init
   Intlayer를 Vanilla JavaScript / TypeScript 애플리케이션과 통합하는 패키지입니다. 프레임워크 없이도 Astro의 `<script>` 태그 내 어디서나 언어 변경에 응답할 수 있도록 pub/sub 싱글톤(`IntlayerClient`)과 콜백 기반 헬퍼(`useIntlayer`, `useLocale` 등)를 제공합니다.
 
 </Step>
-
 <Step number={2} title="프로젝트 설정">
 
 애플리케이션의 언어를 설정하기 위한 설정 파일을 생성합니다:
@@ -201,7 +193,6 @@ export default config;
 > 이 설정 파일을 통해 로컬라이즈된 URL, 미들웨어 리디렉션, 쿠키 이름, 콘텐츠 선언 위치 및 확장자 설정, 콘솔의 Intlayer 로그 비활성화 등을 구성할 수 있습니다. 사용 가능한 파라미터의 전체 목록은 [설정 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md)를 참조하세요.
 
 </Step>
-
 <Step number={3} title="Astro 설정에 Intlayer 통합">
 
 Astro 설정에 intlayer 플러그인을 추가합니다. Vanilla JS의 경우 추가적인 UI 프레임워크 통합은 필요하지 않습니다.
@@ -221,7 +212,6 @@ export default defineConfig({
 > `intlayer()` 통합 플러그인은 Intlayer를 Astro와 통합하는 데 사용됩니다. 콘텐츠 선언 파일의 빌드를 보장하고 개발 모드에서 이를 감시합니다. Astro 애플리케이션 내에서 Intlayer 환경 변수를 정의하며, 성능 최적화를 위한 에일리어스(alias)를 제공합니다.
 
 </Step>
-
 <Step number={4} title="콘텐츠 선언">
 
 번역을 저장하기 위해 콘텐츠 선언을 생성하고 관리합니다:
@@ -261,7 +251,6 @@ export default appContent;
 > 자세한 내용은 [콘텐츠 선언 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dictionary/content_file.md)를 참조하세요.
 
 </Step>
-
 <Step number={5} title="Astro에서 콘텐츠 사용">
 
 Vanilla JS의 경우 모든 서버 사이드 렌더링은 `.astro` 파일 내에서 `getIntlayer`를 직접 사용하여 수행됩니다. 그 후 `<script>` 블록이 클라이언트 사이드에서 `vanilla-intlayer`를 초기화하여 언어 전환을 처리합니다.
@@ -372,7 +361,6 @@ const { greeting, description, switchLocale } = getIntlayer("app", locale);
 > - **`search-param` 또는 `no-prefix`:** 로케일 폴더가 필요 없습니다. 로케일은 검색 파라미터나 쿠키를 통해 처리됩니다.
 
 </Step>
-
 <Step number={6} title="언어 전환 기능 추가">
 
 Vanilla JS가 포함된 Astro에서 언어 전환은 서버에서 일반 링크로 렌더링되며 클라이언트에서 `<script>` 블록을 통해 하이드레이션됩니다. 사용자가 언어 링크를 클릭하면 `vanilla-intlayer`는 로컬라이즈된 URL로 이동하기 전에 `setLocale`을 통해 언어 쿠키를 설정합니다.
@@ -415,7 +403,6 @@ Vanilla JS가 포함된 Astro에서 언어 전환은 서버에서 일반 링크�
 > 언어 전환 링크는 JavaScript가 없어도 표준 `<a>` 태그로 작동합니다. JS를 사용할 수 있는 경우, `setLocale` 호출은 이동 전에 쿠키를 업데이트하여 미들웨어가 올바른 리디렉션을 실행하도록 합니다.
 
 </Step>
-
 <Step number={7} title="Sitemap 및 Robots.txt">
 
 Intlayer는 동적으로 로컬라이즈된 사이트맵과 robots.txt 파일을 생성하기 위한 유틸리티를 제공합니다.
@@ -477,7 +464,6 @@ export const GET: APIRoute = ({ site }) => {
 ```
 
 </Step>
-
 <Step number={15} title="컴포넌트의 콘텐츠 추출" isOptional={true}>
 
 기존 codebase가 있는 경우, 수천 개의 파일을 변환하는 것은 시간이 많이 걸릴 수 있습니다.
@@ -648,25 +634,21 @@ Astro의 내장 `i18n` 옵션은 로케일 접두사와 리디렉션만 처리�
 UI 프레임워크가 없는 환경에서는 i18n 라이브러리의 런타임 오버헤드를 없애는 것이 핵심입니다. Intlayer는 빌드 타임에 콘텐츠를 확인하므로 정적 Astro 페이지는 번역된 HTML만 제공하고 사전은 전혀 제공하지 않습니다. [왜 Intlayer인가](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/interest_of_intlayer.md)를 참조하세요.
 
 </Question>
-
 <Question title="i18n이 Astro 번들 크기에 얼마나 영향을 미치나요?">
 
 네임스페이스 기반 설정보다 훨씬 적습니다. 페이지는 렌더링하지 않는 언어의 카탈로그를 절대 다운로드하지 않기 때문입니다. Astro 페이지는 빌드 타임에 렌더링되므로 번역된 HTML만 전송하고 사전은 전혀 전송하지 않으며, 오직 아일랜드만 사전을 전달받습니다. 빌드 타임 컴파일러는 콘텐츠 호출을 컴포넌트가 사용하는 정확한 항목으로 확인하고, [동적 사전](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dynamic_dictionaries/index.md)을 통해 로케일별로 분할합니다. 일반적인 대안들과 비교했을 때 Intlayer는 번들 및 페이지 크기를 최대 50%까지 줄여줍니다. [번들 최적화](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/bundle_optimization.md)와 [벤치마크](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/benchmark/index.md)를 참조하세요.
 
 </Question>
-
 <Question title="컴포넌트를 다시 작성하지 않고 i18next 또는 직접 작성한 사전에서 마이그레이션할 수 있나요?">
 
 대부분 가능합니다. 콘텐츠를 이전하려면 [i18next 마이그레이션 가이드](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/migration_from_i18next_to_intlayer.md)를 따르세요. 점진적으로 마이그레이션할 수도 있습니다: [sync JSON 플러그인](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/plugins/sync-json.md)은 기존 JSON 카탈로그를 단일 진실 공급원(source of truth)으로 유지하면서 Intlayer 사전을 생성하므로 컴포넌트를 하나씩 이전하는 동안 두 계층의 동기화가 유지됩니다.
 
 </Question>
-
 <Question title="기존 JSON 번역 파일을 유지할 수 있나요?">
 
 네. [sync JSON 플러그인](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/plugins/sync-json.md)은 `/messages/{locale}/{namespace}.json` 파일을 단일 진실 공급원(source of truth)으로 유지하면서 양방향으로 Intlayer 사전을 생성합니다. [sync PO 플러그인](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/plugins/sync-po.md)은 gettext 카탈로그에 대해 동일한 작업을 수행하며, [로케일별 파일](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/per_locale_file.md)을 통해 로케일을 한 파일에 모으는 대신 언어별로 콘텐츠를 분할할 수도 있습니다.
 
 </Question>
-
 <Question title="콘텐츠를 키 단위로 하나씩 옮겨야 하나요?">
 
 아닙니다. `npx intlayer extract`를 실행하면 Intlayer가 컴포넌트를 읽고 사용자 대면 문자열을 추출하여 각 컴포넌트 옆에 `.content` 파일을 생성하므로 카탈로그에 일일이 복사할 필요 없이 diff만 검토하면 됩니다. 이 가이드의 15단계를 확인하세요.
@@ -676,7 +658,6 @@ UI 프레임워크가 없는 환경에서는 i18n 라이브러리의 런타임 �
 컴파일러를 켜기 전에 알아두어야 할 두 가지 제한 사항이 있습니다. 정적 분석으로 작동하므로 API 오류 코드나 CMS 필드와 같이 런타임에만 존재하는 문자열은 처리할 수 없습니다. 또한 큰 코드베이스에서 몇 가지 어노테이션이 필요한 `className="active"` 또는 상태 코드와 같은 애플리케이션 로직과 사용자 대면 텍스트를 구분해야 합니다. [extract 명령](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/cli/extract.md)은 사용자가 직접 제어할 수 있도록 하여 두 가지 문제를 모두 방지합니다.
 
 </Question>
-
 <Question title="사용 가능한 에디터 및 AI 에이전트 도구는 무엇이 있나요?">
 
 5가지 도구가 모두 선택 사항으로 제공됩니다:
@@ -688,49 +669,41 @@ UI 프레임워크가 없는 환경에서는 i18n 라이브러리의 런타임 �
 - **[ESLint 플러그인](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/eslint.md)**: `no-raw-text` 규칙으로 하드코딩된 문자열을 표시하고, 정적 사전 키 및 사용되지 않는 콘텐츠에 대한 추가 규칙을 제공합니다.
 
 </Question>
-
 <Question title="번역이 작동하려면 페이지에 JavaScript가 필요한가요?">
 
 아닙니다. Astro는 빌드 타임에 페이지를 렌더링하고 Intlayer는 해당 렌더링 중에 콘텐츠를 확인하므로 생성된 HTML에는 이미 번역된 텍스트가 포함되어 있습니다. `vanilla-intlayer`는 브라우저에서 인터랙티브하게 만드는 부분에만 필요합니다.
 
 </Question>
-
 <Question title="나중에 콘텐츠를 변경하지 않고 인터랙티브 아일랜드를 추가할 수 있나요?">
 
 네, 바로 그것이 단일 콘텐츠 레이어의 장점입니다. 페이지의 `astro-intlayer`와 추가하는 모든 아일랜드([React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_astro_react.md), [Vue](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_astro_vue.md), [Svelte](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_astro_svelte.md), [Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_astro_solid.md), [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_astro_preact.md), [Lit](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_astro_lit.md))의 프레임워크 바인딩이 동일한 선언을 읽습니다.
 
 </Question>
-
 <Question title="지역화된 라우팅 및 로케일 전환기는 어떻게 설정하나요?">
 
 6단계에서 전환기를 다룹니다. `routing.mode`는 URL 체계를 결정합니다: `"prefix-no-default"`(기본값), `"prefix-all"`, `"no-prefix"` 또는 `"search-params"`이며, `routing.domains`를 통해 로케일을 자체 도메인에 매핑할 수도 있습니다. `getLocalizedUrl`은 언어를 전환할 때 독자가 동일한 페이지에 머무를 수 있도록 현재 경로를 다시 작성합니다. [설정 참조](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md)를 참조하세요.
 
 </Question>
-
 <Question title="지역화된 사이트맵과 hreflang 태그는 어떻게 생성하나요?">
 
 7단계에서 `sitemap.xml`과 `robots.txt`를 다룹니다. `getMultilingualUrls`는 검색 엔진이 올바른 언어 버전의 페이지를 제공할 수 있도록 `x-default`를 포함한 모든 선언 로케일에 대한 대체를 구축합니다.
 
 </Question>
-
 <Question title="AI를 사용하여 사이트를 자동으로 번역하려면 어떻게 하나요?">
 
 `npx intlayer fill`을 실행하세요. 자체 제공업체 및 API 키를 사용하여 원하는 LLM으로 누락된 번역을 채워주며, `--git-diff`를 사용하면 브랜치에서 변경된 콘텐츠로 번역 범위를 제한할 수 있습니다. [fill 명령](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/cli/fill.md) 및 [CI/CD 통합](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/CI_CD.md)을 참조하세요.
 
 </Question>
-
 <Question title="Intlayer는 복수형, 성별 및 서식 있는 텍스트(Rich Text)를 지원하나요?">
 
 네: [복수형(plural forms)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dictionary/plurial.md), [성별 기반 콘텐츠](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dictionary/gender.md), 조건문, [삽입(insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dictionary/insertion.md), 긴 텍스트를 위한 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dictionary/markdown.md) 및 숫자, 날짜, 통화를 위한 [포맷터](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/formatters.md)를 지원합니다.
 
 </Question>
-
 <Question title="번역가가 코드를 건드리지 않고 콘텐츠를 수정할 수 있나요?">
 
 자체 인프라에서 실행되어 실행 중인 앱에서 직접 텍스트를 수정할 수 있는 [비주얼 에디터](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_visual_editor.md) 또는 배포 없이 변경할 수 있도록 콘텐츠를 외부화하는 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_CMS.md)를 통해 가능합니다.
 
 </Question>
-
 <Question title="Intlayer는 무료이며 오픈 소스인가요?">
 
 네, 상업적 사용을 포함하여 Apache 2.0 라이선스에 따라 제공됩니다. 호스팅형 CMS는 선택적 유료 서비스이며 [자체 호스팅](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/self_hosting.md)도 가능합니다.

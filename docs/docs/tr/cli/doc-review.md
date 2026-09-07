@@ -89,11 +89,15 @@ Zaten çevrilmiş dosyaları incelemek ve çevirinin doğru olup olmadığını 
 
 **İnceleme modu seçenekleri:**
 
-- **`--log`**: Yalnızca günlükleme modu. AI ile çeviri yapmaz; bunun yerine başka bir temsilcinin çevirileri oluşturmasına yardımcı olmak için temel ve hedef yerel ayarlar için dikkat gerektiren blokları (satır numaraları ve içerikleriyle birlikte) günlüğe kaydeder.
+- **`--mode [mode]`**: İncelemenin nasıl çalışacağı. Varsayılan olarak `apply`.
 
-> Örnek: `npx intlayer doc review --mode report`
+  - `apply`: farklılaşan blokları yapay zeka ile çevirin ve dosyaları yazın.
+  - `report`: herhangi bir yapay zeka çağırmayın; başka bir temsilcinin çevirileri oluşturmasına yardımcı olmak için temel ve hedef yerel ayarlar için dikkat gerektiren blokları (satır numaraları ve içerikleriyle birlikte) günlüğe kaydedin.
+  - `synthesis`: herhangi bir yapay zeka çağırmayın ve blok başına çıktıyı atlayın; yalnızca güncel olan belgelerin ve düzenlenecek blokları olan belgelerin son özetini günlüğe kaydedin.
 
-> Örnek: `npx intlayer doc review --log`
+  > Örnek: `npx intlayer doc review --mode report`
+
+  > Örnek: `npx intlayer doc review --mode synthesis`
 
 Hangi mod olursa olsun, çalıştırma, temel belgesiyle hizalı olan belgeleri ve düzenlenmesi gereken blokların hala var olan belgelerini listeleyen bir sentez ile sona erer.
 

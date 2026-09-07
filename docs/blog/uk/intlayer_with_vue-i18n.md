@@ -68,7 +68,6 @@ Intlayer пропонує широкий набір **розширених мо�
 ## Покроковий посібник з налаштування Intlayer з vue-i18n
 
 <Steps>
-
 <Step number={1} title="Встановлення залежностей">
 
 Встановіть необхідні пакети, використовуючи бажаний пакетний менеджер:
@@ -115,7 +114,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Плагін для синхронізації декларацій контенту Intlayer у формат JSON для vue-i18n
 
 </Step>
-
 <Step number={2} title="Реалізуйте плагін Intlayer для обгортання JSON">
 
 Створіть файл конфігурації Intlayer, щоб визначити підтримувані локалі:
@@ -156,7 +154,6 @@ export default config;
 Щоб побачити докладніші відомості про плагін `syncJSON`, зверніться до [документації плагіна syncJSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="Налаштування AI-провайдера">
 
 Intlayer відкриває низку просунутих автоматизаційних і зручних для розробника функцій для вашого робочого процесу i18next.

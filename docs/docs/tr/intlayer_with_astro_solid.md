@@ -69,37 +69,31 @@ author: aymericzip
 Intlayer, **çok dilli yönlendirme**, **site haritası** ve uluslararasılaştırmayı (i18n) ölçeklendirmek için gereken tüm özellikleri sunarak Astro ile mükemmel çalışacak şekilde optimize edilmiştir.
 
 </Accordion>
-
 <Accordion header="Bundle boyutu">
 
 Sayfalarınıza çok büyük JSON dosyaları yüklemek yerine yalnızca gerekli içeriği yükleyin. Intlayer **bundle ve sayfa boyutlarınızı %50'ye kadar azaltmanıza** yardımcı olur.
 
 </Accordion>
-
 <Accordion header="Sürdürülebilirlik">
 
 Uygulamanızın içeriğinin kapsamını belirlemek, büyük ölçekli uygulamalar için **bakımı kolaylaştırır**. İçerik kod tabanınızın tamamını gözden geçirmenin zihinsel yükü olmadan, tek bir özellik klasörünü çoğaltabilir veya silebilirsiniz. Ayrıca Intlayer, içeriğinizin doğruluğunu sağlamak için **tamamen tiplendirilmiş (fully typed)tır**.
 
 </Accordion>
-
 <Accordion header="Yapay Zeka Temsilcisi">
 
 İçeriğin bir arada konumlandırılması **Büyük Dil Modellerinin (LLM'ler) ihtiyaç duyduğu bağlamı azaltır**. Intlayer ayrıca eksik çevirileri test etmek için **CLI** gibi bir araç paketiyle birlikte gelir**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** ve **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/agent_skills.md)**, geliştirici deneyimini (DX) yapay zeka için daha da sorunsuz hale getirmek için ajanlar.
 
 </Accordion>
-
 <Accordion header="Otomasyon">
 
 Maliyeti AI sağlayıcınıza ait olmak üzere seçtiğiniz LLM'yi kullanarak CI/CD işlem hattınızda çeviri yapmak için otomasyonu kullanın. Intlayer ayrıca içerik çıkarmayı otomatikleştirmek için bir **derleyici** ve **arka planda çeviri yapmaya** yardımcı olacak bir [web platformu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) sunar.
 
 </Accordion>
-
 <Accordion header="Performans">
 
 Büyük JSON dosyalarını bileşenlere bağlamak performans ve tepkime sorunlarına yol açabilir. Intlayer, içerik yüklemenizi derleme sırasında optimize eder.
 
 </Accordion>
-
 <Accordion header="Non-dev ile ölçeklendirme">
 
 Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barındırılan bir [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** ve **[tam CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** çok dilli içeriğinizi **gerçek zamanlı** olarak yönetmenize yardımcı olarak çevirmenler, metin yazarları ve diğer ekip üyeleriyle işbirliğini kusursuz hale getirir. İçerik yerel olarak ve/veya uzaktan depolanabilir.
@@ -112,7 +106,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 GitHub'daki [uygulama şablonuna](https://github.com/aymericzip/intlayer-astro-template) göz atın.
 
 <Steps>
-
 <Step number={1} title="Bağımlılıkları Yükleyin">
 
 Tercih ettiğiniz paket yöneticisini kullanarak gerekli paketleri yükleyin:
@@ -169,7 +162,6 @@ bun add intlayer astro-intlayer solid-js solid-intlayer @astrojs/solid-js
   Solid bileşen islands kullanımına olanak tanıyan resmi Astro entegrasyonu.
 
 </Step>
-
 <Step number={2} title="Projenizi Yapılandırın">
 
 Uygulamanızın dillerini tanımlamak için bir konfigürasyon dosyası oluşturun:
@@ -196,7 +188,6 @@ export default config;
 > Bu konfigürasyon dosyası aracılığıyla yerelleştirilmiş URL'leri, ara yazılım yönlendirmelerini, çerez adlarını, içerik deklarasyonlarının konumunu ve uzantılarını yapılandırabilir, konsoldaki Intlayer günlüklerini devre dışı bırakabilir ve daha fazlasını yapabilirsiniz. Kullanılabilir parametrelerin tam listesi için [konfigürasyon dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) bakın.
 
 </Step>
-
 <Step number={3} title="Intlayer'ı Astro konfigürasyonunuza entegre edin">
 
 Astro konfigürasyonunuza `intlayer` eklentisini ve Solid entegrasyonunu ekleyin.
@@ -219,7 +210,6 @@ export default defineConfig({
 > `solid()` entegrasyonu, `client:only="solid-js"` aracılığıyla Solid bileşen islands kullanımına olanak tanır.
 
 </Step>
-
 <Step number={4} title="İçeriğinizi Deklare Edin">
 
 Çevirileri saklamak için içerik deklarasyonlarınızı oluşturun ve yönetin:
@@ -247,7 +237,6 @@ export default appContent;
 > Daha fazla bilgi için [içerik deklarasyon dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/content_file.md) bakın.
 
 </Step>
-
 <Step number={5} title="Astro'da İçerik Kullanma">
 
 Sözlükleri doğrudan `.astro` dosyalarınızda, `intlayer`'dan dışa aktarılan temel yardımcıları kullanarak tüketebilirsiniz. Her sayfaya SEO meta verileri (hreflang ve kurallı bağlantılar gibi) eklemeli ve etkileşimli istemci tarafı içeriği için bir Solid island tanıtmalısınız.
@@ -337,7 +326,6 @@ const { title } = getIntlayer("app", locale);
 > - **`search-param` veya `no-prefix`:** Dil dizinlerine gerek yoktur. Dil, sorgu parametreleri veya çerezler aracılığıyla yönetilir.
 
 </Step>
-
 <Step number={6} title="Bir Solid Island Bileşeni Oluşturun">
 
 Solid uygulamanızı sarmalayan ve sunucu tarafından algılanan dili alan bir island bileşeni oluşturun:
@@ -373,7 +361,6 @@ export function SolidIsland({ locale }: { locale: LocalesValues }) {
 > Solid'de, `useIntlayer` bir **accessor** fonksiyonu (örneğin: `content.) döndürür. Reaktif (reactive) içeriğe erişmek için bunu çağırmanız gerekir.
 
 </Step>
-
 <Step number={7} title="Bir Dil Seçici Ekleme">
 
 Kullanılabilir dilleri okuyan ve kullanıcı yeni bir dil seçtiğinde yerelleştirilmiş URL'ye yönlendiren bir Solid `LocaleSwitcher` bileşeni oluşturun:
@@ -426,7 +413,6 @@ export function LocaleSwitcher() {
 > `LocaleSwitcher`, `IntlayerProvider` içinde oluşturulmalıdır - bunu island bileşeninizde kullanın (Adım 6'da gösterildiği gibi).
 
 </Step>
-
 <Step number={8} title="Sitemap ve Robots.txt">
 
 Intlayer, yerelleştirilmiş site haritanızı ve robots.txt dosyalarınızı dinamik olarak oluşturmak için yardımcı programlar sunar.
@@ -488,7 +474,6 @@ export const GET: APIRoute = ({ site }) => {
 ```
 
 </Step>
-
 <Step number={17} title="Bileşenlerinizin içeriğini çıkarın" isOptional={true}>
 
 Mevcut bir kod tabanınız varsa, binlerce dosyayı dönüştürmek zaman alıcı olabilir.
@@ -655,25 +640,21 @@ Astro'nun yerleşik `i18n` seçeneği yerel ön eklerini ve yönlendirmeleri yö
 Bir etiketi bir kez bildirip hem statik sayfada hem de etkileşimli adada kullanabilmek, tek bir içerik katmanı seçmenin temel nedenidir. Bkz. [neden Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="i18n Astro paket boyutuma ne kadar ekler?">
 
 Ad alanı tabanlı bir yapılandırmaya kıyasla çok daha az, çünkü bir sayfa render etmediği bir kataloğu asla indirmez. Astro sayfaları derleme zamanında render edilir, bu nedenle yalnızca çevrilmiş HTML gönderilir ve sayfaya hiçbir sözlük eklenmez; yalnızca ada (island) bileşenleri sözlük alır. [Dinamik sözlükler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dynamic_dictionaries/index.md) geri kalanını yerel başına böler. Intlayer paket ve sayfa boyutunu %50'ye kadar azaltır. Bkz. [paket optimizasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/bundle_optimization.md) ve [kıyaslama](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/benchmark/index.md).
 
 </Question>
-
 <Question title="`@solid-primitives/i18n` veya `i18next`'den bileşenlerimi yeniden yazmadan geçiş yapabilir miyim?">
 
 Büyük ölçüde evet. İçeriği taşımak için [geçiş kılavuzunu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/migration_from_i18next_to_intlayer.md) izleyin. Kademeli olarak da geçiş yapabilirsiniz: [sync JSON eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-json.md) mevcut JSON kataloglarınızı doğruluk kaynağı olarak tutar ve bunlardan Intlayer sözlükleri üretir.
 
 </Question>
-
 <Question title="Mevcut JSON çeviri dosyalarımı koruyabilir miyim?">
 
 Evet. [sync JSON eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-json.md), `/messages/{locale}/{namespace}.json` dosyalarınızı doğruluk kaynağı olarak tutar ve her iki yönde Intlayer sözlükleri üretir. [sync PO eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-po.md) gettext katalogları için aynısını yapar ve [yerel başına dosyalar](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/per_locale_file.md), yerelleri tek bir dosyada gruplamak yerine içeriği dile göre ayırmanıza olanak tanır.
 
 </Question>
-
 <Question title="İçeriğimi anahtar anahtar taşımak zorunda mıyım?">
 
 Hayır. `npx intlayer extract` komutunu çalıştırın; Intlayer bileşenlerinizi okur, kullanıcıya dönük dizeleri çıkarır ve her birinin yanına bir `.content` dosyası yazar, böylece dizeleri tek tek kopyalamak yerine bir diff incelersiniz. Bu kılavuzun 15. adımı bunu açıklar.
@@ -683,7 +664,6 @@ Tam otomatik bir süreç için [Intlayer Compiler](https://github.com/aymericzip
 Derleyiciyi açmadan önce bilmeye değer iki sınır vardır. Statik analiz ile çalışır, bu nedenle API hata kodları veya CMS alanları gibi yalnızca çalışma zamanında var olan dizeler ulaşılamaz kalır. Ayrıca, `className="active"` veya durum kodu gibi uygulama mantığından kullanıcıya yönelik metinleri ayırt etmesi gerekir; bu da büyük bir kod tabanında birkaç ek açıklama gerektirir. [Extract komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/extract.md) sizi döngüde tutarak her ikisinden de kaçınır.
 
 </Question>
-
 <Question title="Hangi editör ve AI aracı araçları mevcuttur?">
 
 Beş araç, hepsi isteğe bağlı:
@@ -695,55 +675,46 @@ Beş araç, hepsi isteğe bağlı:
 - **[ESLint eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/eslint.md)**: `no-raw-text` kuralı doğrudan kodlanmış metinleri işaretler.
 
 </Question>
-
 <Question title="Solid adamın içinde ayrı bir i18n kütüphanesine ihtiyacım var mı?">
 
 Hayır. `solid-intlayer` Astro tarafıyla aynı sözlükleri okur, bu nedenle yanına `@solid-primitives/i18n` kurmazsınız. Adım 6, ada bileşeninin yereli tekrar çözmek yerine sayfadan doğrudan aldığını gösterir.
 
 </Question>
-
 <Question title="Ada, sayfanın hangi dilde render edildiğini nasıl anlar?">
 
 Astro sayfası yereli bir prop olarak iletir ve adadaki Intlayer sağlayıcısı bunu yakalar, böylece ada sunucunun render ettiği aynı dilde hidrate olur. Bu, bir adanın tarayıcıda yereli kendi başına algılaması durumunda oluşan varsayılan dil parlamasını (flash of default language) önler.
 
 </Question>
-
 <Question title="Çevrilmiş içerik statik HTML olarak mı gönderilir?">
 
 Evet. Astro sayfaları varsayılan olarak derleme zamanında render eder ve Intlayer içeriği bu render sırasında çözer, bu nedenle yerelleştirilmiş sayfalar saf statik HTML'dir. Yalnızca çalışma zamanında yerel değiştirmesi gereken adalar sözlük alır ve yalnızca render ettikleri dil için sözlük yüklenir.
 
 </Question>
-
 <Question title="Yerelleştirilmiş yönlendirmeyi ve dil değiştiriciyi nasıl kurarım?">
 
 Bu kılavuzun 6. ve 7. adımları bunu kapsar. `routing.mode`, varsayılan dilin ön ek alıp almayacağını (`"prefix-no-default"`), her dilin alıp almayacağını (`"prefix-all"`) veya dilin yoldan bağımsız olup olmadığını (`"no-prefix"` veya `"search-params"`) belirler. `getLocalizedUrl` geçerli yolu hedef dile dönüştürür, böylece ziyaretçi aynı sayfada kalır.
 
 </Question>
-
 <Question title="Yerelleştirilmiş site haritasını ve hreflang etiketlerini nasıl oluştururum?">
 
 8. adım `sitemap.xml` ve `robots.txt` yapılandırmasını kapsar. `getMultilingualUrls`, `x-default` dahil bildirilen her yerel için alternatifleri oluşturur, böylece arama motorları doğru dil sürümünü sunar.
 
 </Question>
-
 <Question title="Siteyi AI ile otomatik olarak nasıl çeviririm?">
 
 `npx intlayer fill` komutunu çalıştırın. Eksik çevirileri seçtiğiniz LLM ile kendi sağlayıcınız ve API anahtarınızı kullanarak tamamlar ve `--git-diff` işlemi daldaki değişikliklerle sınırlar. Bkz. [fill komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/fill.md) ve [CI/CD entegrasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer çoğulları, cinsiyeti ve zengin metni (rich text) destekliyor mu?">
 
 Evet: [çoğul biçimleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/plurial.md), [cinsiyete dayalı içerik](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/gender.md), koşullar, [eklemeler (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/insertion.md) ve zengin metin. [Biçimlendiriciler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/formatters.md) sayıları, tarihleri ve para birimlerini yönetir.
 
 </Question>
-
 <Question title="Çevirmenler koda dokunmadan içeriği nasıl düzenleyebilir?">
 
 Kendi altyapınızda çalışan ve herkesin metinleri çalışan uygulamada yerinde düzenlemesine olanak tanıyan [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) veya içeriği kod dağıtımı olmadan güncellenebilecek şekilde dışsallaştıran [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) aracılığıyla.
 
 </Question>
-
 <Question title="Intlayer ücretsiz ve açık kaynaklı mı?">
 
 Evet, ticari kullanım dahil Apache 2.0 lisansı altındadır. Barındırılan CMS isteğe bağlı ücretli bir hizmettir ve ayrıca [kendi sunucunuzda barındırılabilir (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/self_hosting.md).

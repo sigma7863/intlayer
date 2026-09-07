@@ -275,19 +275,16 @@ Untuk panduan teknis lengkap termasuk middleware, SSG (`generateStaticParams`), 
 Bisa. Intlayer mendukung `routing.mode: "search-params"` serta deteksi cookie/header tanpa mengubah struktur folder Anda.
 
 </Question>
-
 <Question title="Apakah saya harus mengganti semua teks kode secara manual?">
 
 Tidak. Gunakan `npx intlayer extract` atau kompilator Intlayer untuk mengekstrak konten secara otomatis.
 
 </Question>
-
 <Question title="Bagaimana Intlayer mengurangi ukuran bundle dibandingkan next-intl?">
 
 Dengan pemaketan modular per-komponen dan optimasi makro saat proses build.
 
 </Question>
-
 <Question title="Bisakah saya menggunakan AI untuk menerjemahkan komponen yang ada?">
 
 Bisa. Perintah `npx intlayer fill` terhubung dengan penyedia AI untuk menerjemahkan teks sesuai konteks.

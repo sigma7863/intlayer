@@ -68,37 +68,31 @@ Dibandingkan dengan solusi utama seperti `lit-localize` atau `i18next`, Intlayer
 Intlayer dioptimalkan agar berfungsi sempurna dengan Lit dengan menawarkan **pelingkupan konten tingkat Komponen Web**, **dukungan TypeScript**, dan semua fitur yang diperlukan untuk penskalaan internasionalisasi (i18n).
 
 </Accordion>
-
 <Accordion header="Ukuran bundle">
 
 Daripada memuat file JSON berukuran besar ke halaman Anda, muat saja konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Kemampuan Pemeliharaan">
 
 Mencakup konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi berskala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **diketik sepenuhnya** untuk memastikan keakuratan konten Anda.
 
 </Accordion>
-
 <Accordion header="Agen AI">
 
 Menempatkan konten bersama **mengurangi konteks yang diperlukan** dengan Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk menjadikan pengalaman pengembang (DX) lebih lancar bagi agen AI.
 
 </Accordion>
-
 <Accordion header="Otomatisasi">
 
 Gunakan otomatisasi untuk menerjemahkan dalam saluran CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Pertunjukan">
 
 Menghubungkan file JSON berukuran besar ke komponen dapat menyebabkan masalah kinerja dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada waktu pembuatan.
 
 </Accordion>
-
 <Accordion header="Menskalakan tanpa pengembang">
 
 Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** yang dihosting sendiri dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi lancar. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -111,7 +105,6 @@ Lihat [Application Template](https://github.com/aymericzip/intlayer-vite-lit-tem
 ## Panduan langkah demi langkah untuk menyiapkan Intlayer di aplikasi Vite dan Lit
 
 <Steps>
-
 <Step number={1} title="Instal Dependensi">
 
 Instal paket-paket yang diperlukan menggunakan npm:
@@ -167,7 +160,6 @@ bun add vite-intlayer --dev
   Menyertakan plugin Vite untuk mengintegrasikan Intlayer dengan [Vite bundler](https://vite.dev/guide/why.html#why-bundle-for-production), serta middleware untuk mendeteksi bahasa pilihan pengguna, mengelola cookie, dan menangani pengalihan URL.
 
 </Step>
-
 <Step number={2} title="Konfigurasi Proyek Anda">
 
 Buat file konfigurasi untuk menyiapkan bahasa aplikasi Anda:
@@ -193,7 +185,6 @@ export default config;
 > Melalui file konfigurasi ini, Anda dapat mengatur URL yang dilokalkan, pengalihan middleware, nama cookie, lokasi dan ekstensi deklarasi konten Anda, menonaktifkan log Intlayer di konsol, dan banyak lagi. Untuk daftar lengkap parameter yang tersedia, lihat [dokumentasi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrasikan Intlayer ke dalam Konfigurasi Vite Anda">
 
 Tambahkan plugin intlayer ke konfigurasi Anda.
@@ -217,7 +208,6 @@ export default defineConfig({
 > Plugin Vite `intlayer()` digunakan untuk mengintegrasikan Intlayer dengan Vite. Plugin ini memastikan pembangunan file deklarasi konten dan memantaunya dalam mode pengembangan. Plugin ini mendefinisikan variabel lingkungan Intlayer di dalam aplikasi Vite. Selain itu, plugin ini menyediakan alias untuk mengoptimalkan performa.
 
 </Step>
-
 <Step number={4} title="Bootstrap Intlayer di Entry Point Anda">
 
 Panggil `installIntlayer()` **sebelum** elemen kustom apa pun didaftarkan sehingga singleton lokal global siap saat elemen pertama terhubung.
@@ -244,7 +234,6 @@ import "./my-element.js";
 ```
 
 </Step>
-
 <Step number={5} title="Deklarasikan Konten Anda">
 
 Buat dan kelola deklarasi konten Anda untuk menyimpan terjemahan:
@@ -332,7 +321,6 @@ export default appContent;
 > Untuk detail lebih lanjut, lihat [dokumentasi deklarasi konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Gunakan Intlayer di LitElement Anda">
 
 Gunakan `useIntlayer` di dalam `LitElement`. Ini mengembalikan proxy `ReactiveController` yang secara otomatis memicu perenderan ulang setiap kali bahasa aktif berubah - tidak diperlukan pengaturan tambahan.
@@ -379,7 +367,6 @@ export class MyElement extends LitElement {
 > ```
 
 </Step>
-
 <Step number={7} title="Ubah Bahasa Konten Anda" isOptional={true}>
 
 Untuk mengubah bahasa konten Anda, gunakan metode `setLocale` yang disediakan oleh pengontrol `useLocale`.
@@ -416,7 +403,6 @@ export class LocaleSwitcher extends LitElement {
 ```
 
 </Step>
-
 <Step number={8} title="Render Konten Markdown dan HTML" isOptional={true}>
 
 Intlayer mendukung deklarasi konten `md()` dan `html()`. Di Lit, output terkompilasi disuntikkan sebagai HTML mentah melalui arahan `unsafeHTML`.
@@ -468,7 +454,6 @@ export class MyElement extends LitElement {
 > `String(content.editNote)` memanggil `toString()` pada `IntlayerNode`, yang mengembalikan string Markdown mentah. Berikan ke `compileMarkdown` untuk mendapatkan string HTML, lalu render dengan arahan `unsafeHTML` Lit.
 
 </Step>
-
 <Step number={9} title="Tambahkan Perutean Terlokalisasi ke Aplikasi Anda" isOptional={true}>
 
 Untuk membuat rute unik untuk setiap bahasa (berguna untuk SEO), Anda dapat menggunakan perute sisi klien bersama dengan pembantu `localeMap` / `localeFlatMap` Intlayer, dan plugin Vite `intlayerProxy` untuk deteksi bahasa sisi server.
@@ -489,7 +474,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={10} title="Ubah URL saat Bahasa Berubah" isOptional={true}>
 
 Untuk memperbarui URL browser saat bahasa berubah, gunakan `useRewriteURL` beserta pengalih bahasa:
@@ -529,7 +513,6 @@ export class LocaleSwitcher extends LitElement {
 ```
 
 </Step>
-
 <Step number={11} title="Alihkan Atribut Bahasa dan Arah HTML" isOptional={true}>
 
 Perbarui atribut `lang` dan `dir` dari tag `<html>` agar sesuai dengan bahasa saat ini untuk aksesibilitas dan SEO.
@@ -556,7 +539,6 @@ export class MyElement extends LitElement {
 ```
 
 </Step>
-
 <Step number={12} title="Ekstrak Konten Komponen Anda" isOptional={true}>
 
 Jika Anda memiliki codebase yang ada, mengubah ribuan file bisa memakan waktu lama.
@@ -736,25 +718,21 @@ Vite tidak memiliki preferensi khusus tentang i18n, jadi pilihannya adalah yang 
 Lihat [mengapa Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle Lit saya?">
 
 Jauh lebih sedikit daripada solusi berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen, dan [kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale, mengurangi bundle hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari @lit/localize tanpa menulis ulang komponen?">
 
 Sebagian besar ya. Ikuti [ikhtisar adapter kompatibilitas](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/compat/index.md).
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu.
@@ -764,7 +742,6 @@ Untuk proses otomatis penuh, [Intlayer Compiler](https://github.com/aymericzip/i
 Dua batasan perlu diketahui sebelum Anda mengaktifkan compiler. Ini bekerja dengan analisis statis, jadi string yang hanya ada saat runtime, seperti kode kesalahan API atau field CMS, tetap berada di luar jangkauan. Dan ini harus membedakan teks yang dilihat pengguna dari logika aplikasi seperti `className="active"` atau kode status, yang memerlukan beberapa anotasi di basis kode yang besar. [Perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) menghindari keduanya dengan menjaga Anda tetap memegang kendali.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -776,55 +753,46 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Bagaimana cara menggunakan konten terjemahan di dalam komponen Lit?">
 
 Baca konten melalui binding Intlayer di dalam method `render` dari `LitElement`, seperti yang ditunjukkan pada langkah 6. Mengubah locale memperbarui komponen tanpa me-reload halaman.
 
 </Question>
-
 <Question title="Apakah Intlayer bekerja dengan server pengembangan Vite dan HMR?">
 
 Ya. Plugin Vite memantau file `.content.ts` Anda dan mengompilasi ulang kamus saat Anda menyimpannya, sehingga perubahan muncul tanpa me-restart server pengembangan.
 
 </Question>
-
 <Question title="Bagaimana cara mengatur routing yang terlokalisasi?">
 
 Langkah-langkah dalam panduan ini membahas rute terlokalisasi dan penulisan ulang URL saat bahasa berubah. `routing.mode` mengontrol skema URL: `"prefix-no-default"` (default: `/about` dan `/id/about`), `"prefix-all"`, `"no-prefix"`, atau `"search-params"`. Lihat [referensi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
 </Question>
-
 <Question title="Bagaimana cara mendukung bahasa dari kanan ke kiri seperti Arab atau Ibrani?">
 
 `getHTMLTextDir` mengembalikan `ltr`, `rtl`, atau `auto` untuk locale tertentu, sehingga Anda dapat mengikat `lang` dan `dir` pada elemen root dari locale aktif dan membiarkan properti logis CSS Anda menangani sisanya.
 
 </Question>
-
 <Question title="Bagaimana cara mengelola metadata SEO di aplikasi Vite yang dirender di sisi klien?">
 
 Atur `lang` dan `dir` pada elemen `html` dari locale yang aktif, dan gunakan `getMultilingualUrls` untuk menerbitkan alternatif `hreflang` bagi setiap locale yang dideklarasikan. Untuk halaman yang memerlukan pengindeksan andal, pertimbangkan prerender atau SSR.
 
 </Question>
-
 <Question title="Bagaimana cara menerjemahkan aplikasi secara otomatis dengan AI?">
 
 Jalankan `npx intlayer fill`. Perintah ini mengisi terjemahan yang hilang menggunakan LLM pilihan Anda dengan provider dan API key Anda sendiri, dan `--git-diff` membatasi proses ke file yang diubah. Lihat [perintah fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/fill.md) dan [integrasi CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/CI_CD.md).
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung bentuk jamak, gender dan rich text?">
 
 Ya: [bentuk jamak (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/plurial.md), [konten berbasis gender](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/gender.md), kondisi, [penyisipan (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/markdown.md), dan [formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/formatters.md).
 
 </Question>
-
 <Question title="Bagaimana penerjemah dapat mengedit konten tanpa menyentuh kode?">
 
 Melalui [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md), yang memungkinkan siapa saja mengedit teks langsung di aplikasi yang berjalan, atau melalui [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md), yang memisahkan konten sehingga dapat diubah tanpa perlu redeploy kode.
 
 </Question>
-
 <Question title="Apakah Intlayer gratis dan open source?">
 
 Ya, di bawah lisensi Apache 2.0, termasuk penggunaan komersial. CMS yang di-host adalah layanan berbayar opsional yang juga dapat [di-host sendiri (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).

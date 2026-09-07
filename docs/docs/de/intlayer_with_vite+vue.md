@@ -46,37 +46,31 @@ Im Vergleich zu Hauptlösungen wie „vue-i18n“ oder „i18next“ ist Intlaye
 Intlayer ist für die perfekte Zusammenarbeit mit Vue optimiert, indem es **Content-Scoping auf Komponentenebene**, **reaktive Übersetzungen** und alle Funktionen bietet, die für die Skalierung der Internationalisierung (i18n) erforderlich sind.
 
 </Accordion>
-
 <Accordion header="Bundle-Größe">
 
 Anstatt riesige JSON-Dateien in Ihre Seiten zu laden, laden Sie nur den erforderlichen Inhalt. Intlayer hilft **Ihre Bundle- und Seitengröße um bis zu 50 % zu reduzieren**.
 
 </Accordion>
-
 <Accordion header="Wartbarkeit">
 
 Durch die Festlegung des Inhaltsbereichs Ihrer Anwendung wird die Wartung für umfangreiche Anwendungen erleichtert. Sie können einen einzelnen Feature-Ordner duplizieren oder löschen, ohne die mentale Belastung durch die Überprüfung Ihrer gesamten Inhaltscodebasis auf sich nehmen zu müssen. Darüber hinaus ist Intlayer **vollständig typisiert (fully typed)**, um die Genauigkeit Ihrer Inhalte sicherzustellen.
 
 </Accordion>
-
 <Accordion header="KI-Agent">
 
 Durch die gemeinsame Platzierung von Inhalten **reduziert sich der von Large Language Models (LLMs) benötigte Kontext**. Intlayer verfügt außerdem über eine Reihe von Tools, wie zum Beispiel eine **CLI** zum Testen auf fehlende Übersetzungen,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** und **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/agent_skills.md)**, um die Entwicklererfahrung (DX) für KI-Agenten noch reibungsloser zu gestalten.
 
 </Accordion>
-
 <Accordion header="Automatisierung">
 
 Nutzen Sie die Automatisierung, um Ihre CI/CD-Pipeline mit dem LLM Ihrer Wahl auf Kosten Ihres KI-Anbieters zu übersetzen. Intlayer bietet außerdem einen **Compiler** zur Automatisierung der Inhaltsextraktion sowie eine [Webplattform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) zur Unterstützung der **Übersetzung im Hintergrund**.
 
 </Accordion>
-
 <Accordion header="Leistung">
 
 Das Verbinden großer JSON-Dateien mit Komponenten kann zu Leistungs- und Reaktivitätsproblemen führen. Intlayer optimiert das Laden Ihrer Inhalte zur Erstellungszeit.
 
 </Accordion>
-
 <Accordion header="Skalierung mit Nicht-Entwickler">
 
 Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten [visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** und ein **[vollständiges CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, um Ihnen zu helfen Verwalten Sie Ihre mehrsprachigen Inhalte in **Echtzeit** und gestalten Sie die Zusammenarbeit mit Übersetzern, Textern und anderen Teammitgliedern reibungslos. Inhalte können lokal und/oder remote gespeichert werden.
@@ -119,7 +113,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 Siehe [Application Template](https://github.com/aymericzip/intlayer-vite-vue-template) auf GitHub.
 
 <Steps>
-
 <Step number={1} title="Abhängigkeiten installieren">
 
 Installieren Sie die notwendigen Pakete mit npm:
@@ -175,7 +168,6 @@ bun add vite-intlayer --dev
   Beinhaltet das Vite-Plugin zur Integration von Intlayer mit dem [Vite-Bundler](https://vite.dev/guide/why.html#why-bundle-for-production) sowie Middleware zur Erkennung der bevorzugten Sprache des Benutzers, zur Verwaltung von Cookies und zur Handhabung von URL-Weiterleitungen.
 
 </Step>
-
 <Step number={2} title="Konfiguration Ihres Projekts">
 
 Erstellen Sie eine Konfigurationsdatei, um die Sprachen Ihrer Anwendung zu konfigurieren:
@@ -201,7 +193,6 @@ export default config;
 > Durch diese Konfigurationsdatei können Sie lokalisierte URLs, Middleware-Weiterleitungen, Cookie-Namen, den Speicherort und die Erweiterung Ihrer Inhaltsdeklarationen einrichten, Intlayer-Logs in der Konsole deaktivieren und vieles mehr. Für eine vollständige Liste der verfügbaren Parameter verweisen wir auf die [Konfigurationsdokumentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrieren Sie Intlayer in Ihre Vite-Konfiguration">
 
 Fügen Sie das Intlayer-Plugin in Ihre Konfiguration ein.
@@ -220,7 +211,6 @@ export default defineConfig({
 > Das `intlayer()` Vite-Plugin wird verwendet, um Intlayer mit Vite zu integrieren. Es sorgt für den Aufbau von Inhaltsdeklarationsdateien und überwacht diese im Entwicklungsmodus. Es definiert Intlayer-Umgebungsvariablen innerhalb der Vite-Anwendung. Zusätzlich stellt es Aliase bereit, um die Leistung zu optimieren.
 
 </Step>
-
 <Step number={4} title="Deklarieren Sie Ihren Inhalt">
 
 Erstellen und verwalten Sie Ihre Inhaltsdeklarationen, um Übersetzungen zu speichern:
@@ -350,7 +340,6 @@ export default helloWorldContent;
 > Für weitere Details siehe die [Dokumentation zur Inhaltsdeklaration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Intlayer in Ihrem Code verwenden">
 
 Um die Internationalisierungsfunktionen von Intlayer in Ihrer gesamten Vue-Anwendung zu nutzen, müssen Sie zunächst die Intlayer-Singleton-Instanz in Ihrer Hauptdatei registrieren. Dieser Schritt ist entscheidend, da er den Internationalisierungskontext für alle Komponenten in Ihrer Anwendung bereitstellt und Übersetzungen überall in Ihrem Komponentenbaum zugänglich macht.
@@ -451,7 +440,6 @@ Intlayer bietet verschiedene APIs, um auf Ihre Inhalte zuzugreifen:
   - Oder verwenden Sie `const { myContent } = useIntlayer("myContent");` und `{{ myContent }}` / `<myContent />`, um den Inhalt zu destrukturieren.
 
 </Step>
-
 <Step number={6} title="Ändern Sie die Sprache Ihres Inhalts" isOptional={true}>
 
 Um die Sprache Ihres Inhalts zu ändern, können Sie die Funktion `setLocale` verwenden, die vom `useLocale` Composable bereitgestellt wird. Diese Funktion ermöglicht es Ihnen, die Sprache der Anwendung festzulegen und den Inhalt entsprechend zu aktualisieren.
@@ -520,7 +508,6 @@ const content = useIntlayer("app"); // Erstellen Sie die zugehörige Intlayer-De
 ```
 
 </Step>
-
 <Step number={7} title="Lokalisierte Routen zu Ihrer Anwendung hinzufügen" isOptional={true}>
 
 Das Hinzufügen lokalisierter Routen in einer Vue-Anwendung beinhaltet typischerweise die Verwendung von Vue Router mit Sprachpräfixen. Dies erzeugt eindeutige Routen für jede Sprache, was für SEO und SEO-freundliche URLs nützlich ist.
@@ -660,7 +647,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={8} title="URL ändern, wenn sich die Sprache ändert" isOptional={true}>
 
 Um die URL automatisch zu aktualisieren, wenn der Benutzer die Sprache ändert, können Sie die `LocaleSwitcher`-Komponente so anpassen, dass sie Vue Router verwendet:
@@ -752,7 +738,6 @@ Tipp: Für eine bessere SEO und Barrierefreiheit verwenden Sie Tags wie `<a href
 ```
 
 </Step>
-
 <Step number={9} title="Ändern der HTML-Sprach- und Richtungsattribute" isOptional={true}>
 
 Wenn Ihre Anwendung mehrere Sprachen unterstützt, ist es entscheidend, die `lang`- und `dir`-Attribute des `<html>`-Tags an die aktuelle Locale anzupassen. Dies stellt sicher:
@@ -814,7 +799,6 @@ useI18nHTMLAttributes();
 ```
 
 </Step>
-
 <Step number={10} title="Erstellen einer lokalisierten Link-Komponente" isOptional={true}>
 
 Um sicherzustellen, dass die Navigation Ihrer Anwendung die aktuelle Sprache berücksichtigt, können Sie eine benutzerdefinierte `Link`-Komponente erstellen. Diese Komponente fügt internen URLs automatisch das aktuelle Sprachpräfix hinzu. Zum Beispiel wird ein französischsprachiger Benutzer, der auf einen Link zur „Über uns“-Seite klickt, zu `/fr/about` weitergeleitet anstatt zu `/about`.
@@ -915,7 +899,6 @@ import RouterLink from "@components/RouterLink.vue";
 ```
 
 </Step>
-
 <Step number={11} title="Inhalt Ihrer Komponenten extrahieren" isOptional={true}>
 
 Wenn Sie eine bestehende Codebasis haben, kann die Transformation von Tausenden von Dateien zeitaufwendig sein.
@@ -1141,8 +1124,6 @@ Weitere Details zur Verwendung der Extension finden Sie in der [Intlayer VS Code
 
 Um weiterzugehen, können Sie den [visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_visual_editor.md) implementieren oder Ihre Inhalte mit dem [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_CMS.md) auslagern.
 
-I'm waiting for your content blocks.---
-
 ## Häufig gestellte Fragen
 
 <FAQ>
@@ -1155,25 +1136,21 @@ I'm waiting for your content blocks.---
 Der praktische Unterschied ist Umfang und Typisierung. `vue-i18n` löst Schlüssel zur Laufzeit als Strings auf, sodass ein umbenannter Schlüssel still fehlschlägt, während Intlayer Typen aus Ihren Deklarationen generiert und Inhalte entfernt, die keine Komponente verwendet. Siehe [warum Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/interest_of_intlayer.md) und den [Vue-i18n-Benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/benchmark/vue.md).
 
 </Question>
-
 <Question title="Wie viel trägt i18n zu meiner Vue-Bundle-Größe bei?">
 
 Viel weniger als bei einem Namespace-basierten Setup, denn eine Seite lädt niemals einen Katalog herunter, den sie nicht rendert. Der Build-Zeit-Compiler ersetzt `useIntlayer`-Aufrufe durch genau die Wörterbucheinträge, die eine Komponente verwendet, sodass ungenutzte Schlüssel und ungenutzte Sprachen entfernt werden, und [dynamische Wörterbücher](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dynamic_dictionaries/index.md) teilen den Rest pro Locale auf. Gemessen an den üblichen Alternativen reduziert Intlayer die Bundle- und Seitengröße um bis zu 50 %. Siehe [Bundle-Optimierung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/bundle_optimization.md) und den [Benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/benchmark/vue.md).
 
 </Question>
-
 <Question title="Kann ich von `vue-i18n` migrieren, ohne meine Komponenten neu zu schreiben?">
 
 Ja, und es gibt zwei Wege. Sie können die Inhalte schrittweise migrieren mit dem [vue-i18n-Migrationsleitfaden](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/migration_from_vue-i18n_to_intlayer.md). Oder Sie behalten Ihre aktuelle API vollständig bei: Die [Kompatibilitätsadapter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/compat/index.md) stellen genau dieselbe API wie `vue-i18n` bereit, aber aus Intlayer-Wörterbüchern bedient, sodass sich Importe ändern und der Komponentencode nicht.
 
 </Question>
-
 <Question title="Kann ich meine vorhandenen JSON-Übersetzungsdateien behalten?">
 
 Ja. Das [sync-JSON-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-json.md) behält Ihre `/messages/{locale}/{namespace}.json`-Dateien als Single Source of Truth und generiert daraus Intlayer-Wörterbücher, in beide Richtungen. Ein [sync-PO-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-po.md) macht dasselbe für gettext-Kataloge, und [Dateien pro Locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/per_locale_file.md) lassen Sie Inhalte nach Sprache aufteilen, statt Locales in einer Datei zu gruppieren.
 
 </Question>
-
 <Question title="Muss ich meine Inhalte Schlüssel für Schlüssel umziehen?">
 
 Nein. Führen Sie `npx intlayer extract` aus; Intlayer liest Ihre Komponenten, zieht die für den Nutzer sichtbaren Strings heraus und schreibt neben jede eine `.content`-Datei, sodass Sie ein Diff prüfen, statt Strings einzeln in einen Katalog zu kopieren. Schritt 11 dieses Leitfadens führt Sie hindurch.
@@ -1183,7 +1160,6 @@ Für eine vollständig automatisierte Pipeline macht der [Intlayer-Compiler](htt
 Zwei Einschränkungen sollten Sie kennen, bevor Sie den Compiler aktivieren. Er arbeitet mit statischer Analyse, sodass Strings, die nur zur Laufzeit existieren, etwa API-Fehlercodes oder CMS-Felder, unerreichbar bleiben. Und er muss für den Nutzer sichtbaren Text von Anwendungslogik wie `className="active"` oder einem Statuscode unterscheiden, was in einer großen Codebasis einige Annotationen erfordert. Der [extract-Befehl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/extract.md) vermeidet beides, indem er Sie einbezieht.
 
 </Question>
-
 <Question title="Welches Editor- und KI-Agenten-Tooling ist verfügbar?">
 
 Fünf Bausteine, alle optional:
@@ -1195,43 +1171,36 @@ Fünf Bausteine, alle optional:
 - **[ESLint-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/eslint.md)**: `no-raw-text` markiert fest kodierte Strings, mit weiteren Regeln für statische Wörterbuchschlüssel und ungenutzte Inhalte.
 
 </Question>
-
 <Question title="Funktioniert Intlayer mit der Vue Composition API und script setup?">
 
 Ja. `useIntlayer` ist ein Composable, das wie jedes andere innerhalb von `<script setup>` verwendet wird, und der zurückgegebene Inhalt ist reaktiv, sodass ein Wechsel der Locale die Komponenten, die ihn lesen, ohne Seitenneuladung neu rendert.
 
 </Question>
-
 <Question title="Wie richte ich lokalisiertes Routing in einer Vue-SPA ein?">
 
 Die Schritte 7 und 8 dieses Leitfadens behandeln die Vue-Router-Integration: ein Locale-Segment auf dem Routenbaum und ein Watcher, der die URL umschreibt, wenn sich die Locale ändert. Wenn Sie die Locale nicht im Pfad haben möchten, setzen Sie `routing.mode` auf `"no-prefix"` oder `"search-params"`, und sie wird stattdessen aus einem Cookie oder einem Query-Parameter aufgelöst. Siehe die [Konfigurationsreferenz](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/configuration.md).
 
 </Question>
-
 <Question title="Wie setze ich die Attribute html lang und dir für Rechts-nach-links-Sprachen?">
 
 Schritt 9 behandelt das. `getHTMLTextDir` gibt `rtl` für Sprachen wie Arabisch, Hebräisch, Persisch und Urdu zurück, sodass Sie `lang` und `dir` am Wurzelelement aus der aktiven Locale binden und Ihre logischen CSS-Eigenschaften den Rest erledigen lassen können.
 
 </Question>
-
 <Question title="Wie übersetze ich eine Vue-App automatisch mit KI?">
 
 Führen Sie `npx intlayer fill` aus, das fehlende Übersetzungen mit dem LLM Ihrer Wahl unter Verwendung Ihres eigenen Anbieters und API-Schlüssels füllt. `--git-diff` beschränkt den Lauf auf die im Branch geänderten Inhalte. Siehe den [fill-Befehl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/fill.md) und die [CI/CD-Integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/CI_CD.md).
 
 </Question>
-
 <Question title="Unterstützt Intlayer Pluralformen, Genus und Rich Text?">
 
 Ja: [Pluralformen](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/plurial.md), [genusbasierte Inhalte](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/gender.md), Bedingungen, [Einfügungen](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/markdown.md) und [Formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/formatters.md) für Zahlen, Daten und Währungen.
 
 </Question>
-
 <Question title="Wie können Übersetzer die Inhalte bearbeiten, ohne den Code anzufassen?">
 
 Über den [visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_visual_editor.md), der auf Ihrer eigenen Infrastruktur läuft und es jedem ermöglicht, Text direkt in der laufenden App zu bearbeiten, oder das [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_CMS.md), das Inhalte auslagert, sodass sie sich ohne Deployment ändern können.
 
 </Question>
-
 <Question title="Ist Intlayer kostenlos und Open Source?">
 
 Ja, unter der Apache-2.0-Lizenz, kommerzielle Nutzung eingeschlossen. Das gehostete CMS ist ein optionaler kostenpflichtiger Dienst, der auch [selbst gehostet](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/self_hosting.md) werden kann.

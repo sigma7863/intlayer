@@ -51,37 +51,31 @@ Dibandingkan dengan solusi utama seperti `react-native-localize` atau `i18next`,
 Intlayer dioptimalkan untuk bekerja sempurna dengan Lynx dan React dengan menawarkan **pelingkupan konten tingkat komponen**, **dukungan TypeScript**, dan semua fitur yang diperlukan untuk penskalaan internasionalisasi (i18n).
 
 </Accordion>
-
 <Accordion header="Ukuran bundle">
 
 Daripada memuat file JSON berukuran besar ke halaman Anda, muat saja konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Kemampuan Pemeliharaan">
 
 Mencakup konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi berskala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **diketik sepenuhnya** untuk memastikan keakuratan konten Anda.
 
 </Accordion>
-
 <Accordion header="Agen AI">
 
 Menempatkan konten bersama **mengurangi konteks yang diperlukan** dengan Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk menjadikan pengalaman pengembang (DX) lebih lancar bagi agen AI.
 
 </Accordion>
-
 <Accordion header="Otomatisasi">
 
 Gunakan otomatisasi untuk menerjemahkan dalam saluran CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Pertunjukan">
 
 Menghubungkan file JSON berukuran besar ke komponen dapat menyebabkan masalah kinerja dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada waktu pembuatan.
 
 </Accordion>
-
 <Accordion header="Menskalakan tanpa pengembang">
 
 Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** yang dihosting sendiri dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi lancar. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -90,7 +84,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="Instalasi Dependensi">
 
 Dari proyek Lynx Anda, instal paket-paket berikut:
@@ -144,7 +137,6 @@ bun add intlayer react-intlayer lynx-intlayer
   Integrasi Lynx yang menyediakan plugin untuk mengintegrasikan Intlayer dengan bundler Lynx.
 
 </Step>
-
 <Step number={2} title="Buat Konfigurasi Intlayer">
 
 Di root proyek Anda (atau di mana saja yang nyaman), buat file **konfigurasi Intlayer**. Contohnya bisa seperti ini:
@@ -175,7 +167,6 @@ Dalam konfigurasi ini, Anda dapat:
 - Lihat [dokumentasi konfigurasi Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md) untuk informasi lebih lanjut.
 
 </Step>
-
 <Step number={3} title="Tambahkan plugin Intlayer ke bundler Lynx">
 
 Untuk menggunakan Intlayer dengan Lynx, Anda perlu menambahkan plugin ke file `lynx.config.ts` Anda:
@@ -193,7 +184,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Tambahkan provider Intlayer">
 
 Untuk menjaga sinkronisasi bahasa pengguna di seluruh aplikasi Anda, Anda perlu membungkus komponen root Anda dengan komponen `IntlayerProvider` dari `react-intlayer`.
@@ -221,7 +211,6 @@ if (import.meta.webpackHot) {
 ```
 
 </Step>
-
 <Step number={5} title="Deklarasikan Konten Anda">
 
 Buat file **deklarasi konten** di mana saja dalam proyek Anda (biasanya di dalam `src/`), menggunakan salah satu format ekstensi yang didukung oleh Intlayer:
@@ -328,7 +317,6 @@ export default appContent;
 > Untuk detail tentang deklarasi konten, lihat [dokumentasi konten Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Gunakan Intlayer di Komponen Anda">
 
 Gunakan hook `useIntlayer` di komponen anak untuk mendapatkan konten yang sudah dilokalisasi.
@@ -387,7 +375,6 @@ export const App = () => {
 > Saat menggunakan `content.someKey` dalam props berbasis string (misalnya, `title` pada tombol atau `children` pada komponen `Text`), **panggil `content.someKey.value`** untuk mendapatkan string yang sebenarnya.
 
 </Step>
-
 <Step number={7} title="Ubah Locale Aplikasi">
 
 Untuk mengganti locale dari dalam komponen Anda, Anda dapat menggunakan metode `setLocale` dari hook `useLocale`:

@@ -32,7 +32,6 @@ author: aymericzip
 Thay vì tải các tệp JSON khổng lồ vào các trang của bạn, chỉ tải nội dung cần thiết. Intlayer giúp **giảm kích thước bundle và trang của bạn lên tới 50%**.
 
 </Accordion>
-
 <Accordion header="Khả năng bảo trì">
 
 Phạm vi nội dung ứng dụng của bạn **tạo điều kiện thuận lợi cho việc bảo trì** các ứng dụng quy mô lớn. Bạn có thể sao chép hoặc xóa một thư mục tính năng duy nhất mà không cần lo lắng về việc xem lại toàn bộ codebase nội dung của mình. Ngoài ra, Intlayer **hoàn toàn được gõ kiểu** để đảm bảo độ chính xác của nội dung của bạn.
@@ -40,25 +39,21 @@ Phạm vi nội dung ứng dụng của bạn **tạo điều kiện thuận l�
 Intlayer cũng là giải pháp có **phát triển tích cực nhất** trong hệ sinh thái i18n — các vấn đề được sửa chữa nhanh chóng, các adapter khung mới được phát hành thường xuyên, và API cốt lõi được liên tục cải tiến dựa trên phản hồi sản xuất thực tế.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Đặt nội dung cùng nhau **giảm ngữ cảnh cần thiết** bởi Large Language Models (LLMs). Intlayer cũng đi kèm với một bộ công cụ, chẳng hạn như **CLI** để kiểm tra các bản dịch bị thiếu, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/mcp_server.md)**, và **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/agent_skills.md)**, để làm cho trải nghiệm nhà phát triển (DX) thậm chí còn mịn màng hơn cho các agent AI.
 
 </Accordion>
-
 <Accordion header="Tự động hóa">
 
 Sử dụng tự động hóa để dịch trong pipeline CI/CD của bạn bằng cách sử dụng LLM lựa chọn của bạn với chi phí của nhà cung cấp AI của bạn. Intlayer cũng cung cấp **compiler** để tự động trích xuất nội dung, cũng như [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md) để giúp **dịch ở chế độ nền**.
 
 </Accordion>
-
 <Accordion header="Hiệu suất">
 
 Kết nối các tệp JSON khổng lồ với các component có thể dẫn đến các vấn đề về hiệu suất và phản ứng. Intlayer tối ưu hóa việc tải nội dung của bạn tại thời điểm xây dựng.
 
 </Accordion>
-
 <Accordion header="Mở rộng quy mô với non-dev">
 
 Không chỉ là một giải pháp i18n, Intlayer cung cấp **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md)** và **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md)** để giúp bạn quản lý nội dung đa ngôn ngữ của mình **real-time**, làm cho sự cộng tác với các nhà dịch, biên tập viên và các thành viên nhóm khác diễn ra liền mạch. Nội dung có thể được lưu trữ cục bộ và/hoặc từ xa.
@@ -85,7 +80,6 @@ Hướng dẫn này bao gồm **Chiến lược 1** trước tiên (compat adapt
 Các bước sau đây là những bước tối thiểu cần thiết để chạy ứng dụng `i18next` hiện có của bạn trên Intlayer mà không cần thay đổi mã.
 
 <Steps>
-
 <Step number={1} title="Cài đặt các phụ thuộc">
 
 Cài đặt các gói Intlayer core và bộ adapter tương thích:
@@ -129,7 +123,6 @@ bun add intlayer @intlayer/i18next @intlayer/sync-json-plugin
 > Bạn có thể giữ `i18next` được cài đặt — bộ adapter tương thích sử dụng nó như một `devDependency` / `peerDependency` cho các loại TypeScript.
 
 </Step>
-
 <Step number={2} title="Cấu hình Intlayer">
 
 Lệnh `intlayer init` tạo ra một tệp `intlayer.config.ts` khởi động. Cập nhật nó để phù hợp với các locale hiện có của bạn và chỉ plugin `syncJSON` tới các tệp tin thông báo của bạn:
@@ -164,7 +157,6 @@ export default config;
 > **`source`** ánh xạ một locale tới đường dẫn tệp JSON của nó. **`location`** cho Intlayer watcher biết thư mục nào để giám sát các thay đổi. Tùy chọn `format: 'i18next'` đảm bảo rằng các placeholder như `{{name}}` được phân tích cú pháp chính xác.
 
 </Step>
-
 <Step number={3} title="Cập nhật Alias Bundler (Tùy chọn)">
 
 Nếu bạn đang sử dụng một bundler (Vite, Webpack, esbuild), bạn có thể tiêm một alias module sao cho `import ... from 'i18next'` tự động phân giải thành `@intlayer/i18next`. Điều này loại bỏ nhu cầu thay đổi thủ công bất kỳ import nào trong codebase của bạn.
@@ -196,7 +188,6 @@ export default defineConfig({
 Các bước dưới đây là tùy chọn và có thể được thực hiện dần dần. Chúng mở khóa bộ tính năng đầy đủ của Intlayer: trình chỉnh sửa trực quan, CMS, tệp nội dung được gõ, dịch tự động hóa bằng AI, và hơn thế nữa.
 
 <Steps>
-
 <Step number={4} title="Đổi tên nhập rõ ràng (tùy chọn)" isOptional={true}>
 
 Nếu bạn muốn làm cho dependency rõ ràng trong các tệp nguồn của mình, hoặc nếu bạn không sử dụng plugin bundler để tạo alias cho các import, bạn có thể đổi tên các import theo cách thủ công:
@@ -210,7 +201,6 @@ Nếu bạn muốn làm cho dependency rõ ràng trong các tệp nguồn của 
 Đây là **drop-in replacements** — không cần thay đổi chữ ký hàm, đối số hoặc kiểu trả về.
 
 </Step>
-
 <Step number={5} title="Bật Tự động hóa Dịch được Cấp năng lượng bằng AI" isOptional={true}>
 
 Khi Intlayer đã được thiết lập, hãy sử dụng CLI của nó để điền các bản dịch bị thiếu một cách tự động:

@@ -78,7 +78,6 @@ Pomocí samostatného balíčku (standalone bundle) můžete Intlayer importovat
 ## Průvodce krok za krokem nastavením Intlayeru v aplikaci Vanilla JS
 
 <Steps>
-
 <Step number={1} title="Instalace závislostí">
 
 Nainstalujte potřebné balíčky pomocí npm:
@@ -140,7 +139,6 @@ bun x intlayer build
 > Export bundlingu z CLI `intlayer standalone` vytváří optimalizované sestavení prostřednictvím tree-shakingu pro nepoužité balíčky, lokality a nepodstatnou logiku (jako jsou přesměrování nebo předpony) specifickou pro vaši konfiguraci.
 
 </Step>
-
 <Step number={2} title="Konfigurace vašeho projektu">
 
 Vytvořte konfigurační soubor pro nastavení jazyků vaší aplikace:
@@ -166,7 +164,6 @@ export default config;
 > Prostřednictvím tohoto konfiguračního souboru můžete nastavit lokalizované adresy URL, přesměrování middleware, názvy souborů cookie, umístění a rozšíření vašich deklarací obsahu, zakázat protokoly Intlayer v konzole a další. Kompletní seznam dostupných parametrů naleznete v [dokumentaci ke konfiguraci](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/configuration.md).
 
 </Step>
-
 <Step number={3} title="Import balíčku do HTML">
 
 Jakmile vygenerujete balíček `intlayer.js`, můžete jej importovat do svého souboru HTML:
@@ -192,7 +189,6 @@ Jakmile vygenerujete balíček `intlayer.js`, můžete jej importovat do svého 
 Balíček vystavuje `Intlayer` a `VanillaIntlayer` jako globální objekty na `window`.
 
 </Step>
-
 <Step number={4} title="Inicializace Intlayeru ve vstupním bodě">
 
 Ve svém `src/main.js` zavolejte `installIntlayer()` **před** vykreslením jakéhokoli obsahu, aby byl globální jazykový singleton připraven.
@@ -214,7 +210,6 @@ installIntlayerMarkdown();
 ```
 
 </Step>
-
 <Step number={5} title="Deklarujte svůj obsah">
 
 Vytvářejte a spravujte své deklarace obsahu pro ukládání překladů:
@@ -294,7 +289,6 @@ export default appContent;
 > Další podrobnosti naleznete v [dokumentaci k deklaraci obsahu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Použití Intlayeru ve vašem JavaScriptu">
 
 Objekt `window.VanillaIntlayer` poskytuje pomocné funkce API: `useIntlayer(key, locale?)` vrací přeložený obsah pro daný klíč.
@@ -330,7 +324,6 @@ document.querySelector(".read-the-docs").textContent = String(
 > ```
 
 </Step>
-
 <Step number={7} title="Změna jazyka vašeho obsahu" isOptional={true}>
 
 Chcete-li změnit jazyk svého obsahu, použijte funkci `setLocale` vystavenou funkcí `useLocale`.
@@ -367,7 +360,6 @@ export function setupLocaleSwitcher(container) {
 ```
 
 </Step>
-
 <Step number={8} title="Přepínání atributů jazyka a směru HTML" isOptional={true}>
 
 Aktualizujte atributy `lang` a `dir` tagu `<html>`, aby odpovídaly aktuálnímu národnímu prostředí pro usnadnění přístupu a SEO.
@@ -387,7 +379,6 @@ useLocale({
 ```
 
 </Step>
-
 <Step number={9} title="Líné načítání slovníků podle jazyka" isOptional={true}>
 
 Pokud chcete líně načítat slovníky podle jazyka, můžete použít `useDictionaryDynamic`. To je užitečné, pokud nechcete sbalit všechny překlady do počátečního souboru `intlayer.js`.

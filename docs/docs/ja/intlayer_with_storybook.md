@@ -42,37 +42,31 @@ author: aymericzip
 Intlayer は、**多言語ストーリー デコレーター**、**ロケール切り替え**、およびデザイン システム全体で国際化 (i18n) を拡張するために必要なすべての機能を提供することにより、Storybook と完全に連携するように最適化されています。
 
 </Accordion>
-
 <Accordion header="バンドルサイズ">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
-
 <Accordion header="自動化">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) も提供します。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
 
 </Accordion>
-
 <Accordion header="none-dev でのスケーリング">
 
 Intlayer は単なる i18n ソリューションではなく、**自己ホスト型 [ビジュアル エディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** と **[完全な CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** を提供します。 **リアルタイム**で多言語コンテンツを管理できるようになり、翻訳者、コピーライター、その他のチーム メンバーとのコラボレーションがシームレスになります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -94,7 +88,6 @@ Storybookは、UIコンポーネントを分離して開発およびドキュメ
 <Tab value="Vite Setup">
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 ```bash packageManager="npm"
@@ -124,7 +117,6 @@ bun add vite-intlayer --dev
 | `vite-intlayer`  | Viteプラグイン - コンテンツ宣言ファイルの監視とコンパイル      |
 
 </Step>
-
 <Step number={2} title="Intlayer設定の作成">
 
 プロジェクトのルート（またはデザインシステムパッケージ内）に `intlayer.config.ts` を作成します：
@@ -153,7 +145,6 @@ export default config;
 > オプションの全リストについては、[設定リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Step>
-
 <Step number={3} title="StorybookにViteプラグインを追加する">
 
 Storybookの `viteFinal` フックを使用して、内部のVite設定を拡張できます。そこで `intlayer()` プラグインをインポートして追加します：
@@ -200,7 +191,6 @@ export default config;
 `intlayer()` プラグインは `*.content.ts` ファイルを監視し、Storybookの開発中に変更があれば自動的に辞書を再構築します。
 
 </Step>
-
 <Step number={4} title="`IntlayerProvider` デコレーターとロケールツールバーの追加">
 
 Storybookの `preview` ファイルは、すべてのストーリーを `IntlayerProvider` でラップし、ツールバーにロケールスイッチャーを表示するのに最適な場所です：
@@ -260,7 +250,6 @@ export default preview;
 </Tab>
 <Tab value="Webpack Setup">
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 ```bash packageManager="npm"
@@ -284,7 +273,6 @@ bun add @intlayer/webpack --dev
 ```
 
 </Step>
-
 <Step number={2} title="Intlayer設定の作成">
 
 プロジェクトのルートに `intlayer.config.ts` を作成します：
@@ -306,7 +294,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="StorybookのWebpackを設定する">
 
 WebpackベースのStorybookセットアップ（例: `@storybook/react-webpack5`）の場合、`webpackFinal` を介してwebpack設定を拡張し、Intlayerエイリアスとローダーを追加します：
@@ -333,7 +320,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={4} title="`IntlayerProvider` デコレーターとロケールツールバーの追加">
 
 Viteセットアップと同様に、デコレーターとグローバルロケール型を `.storybook/preview.tsx` に追加します：

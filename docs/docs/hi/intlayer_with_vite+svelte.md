@@ -73,37 +73,31 @@ author: aymericzip
 इंटलेयर को **घटक-स्तरीय सामग्री स्कोपिंग**, **प्रतिक्रियाशील अनुवाद**, और स्केलिंग अंतर्राष्ट्रीयकरण (i18n) के लिए आवश्यक सभी सुविधाओं की पेशकश करके स्वेल्टे के साथ पूरी तरह से काम करने के लिए अनुकूलित किया गया है।
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 अपने पृष्ठों में विशाल JSON फ़ाइलें लोड करने के बजाय, केवल आवश्यक सामग्री लोड करें। इंटलेयर आपके बंडल और पृष्ठ आकार को 50% तक कम करने में मदद करता है।
 
 </Accordion>
-
 <Accordion header="रखरखाव">
 
 आपके एप्लिकेशन की सामग्री का दायरा बड़े पैमाने के अनुप्रयोगों के लिए **रखरखाव की सुविधा प्रदान करता है**। आप अपने संपूर्ण सामग्री कोडबेस की समीक्षा करने के मानसिक बोझ के बिना किसी एक फीचर फ़ोल्डर की नकल कर सकते हैं या उसे हटा सकते हैं। इसके अतिरिक्त, आपकी सामग्री की सटीकता सुनिश्चित करने के लिए Intlayer **पूरी तरह से टाइप किया गया** है।
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 सामग्री का सह-स्थानीकरण **बड़े भाषा मॉडल (एलएलएम) द्वारा आवश्यक संदर्भ को कम करता है**। इंटलेयर टूल के एक सूट के साथ भी आता है, जैसे **CLI** ताकि लापता अनुवादों का परीक्षण किया जा सके,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, और **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/agent_skills.md)**, AI एजेंटों के लिए डेवलपर अनुभव (DX) को और भी आसान बनाने के लिए।
 
 </Accordion>
-
 <Accordion header="स्वचालन">
 
 अपने एआई प्रदाता की कीमत पर अपनी पसंद के एलएलएम का उपयोग करके अपने सीआई/सीडी पाइपलाइन में अनुवाद करने के लिए स्वचालन का उपयोग करें। इंटलेयर सामग्री निष्कर्षण को स्वचालित करने के लिए एक **कंपाइलर** के साथ-साथ **पृष्ठभूमि में अनुवाद** में मदद करने के लिए एक [वेब प्लेटफ़ॉर्म](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) भी प्रदान करता है।
 
 </Accordion>
-
 <Accordion header="प्रदर्शन">
 
 बड़े पैमाने पर JSON फ़ाइलों को घटकों से जोड़ने से प्रदर्शन और प्रतिक्रियाशीलता संबंधी समस्याएं हो सकती हैं। इंटलेयर बिल्ड समय पर आपकी सामग्री लोडिंग को अनुकूलित करता है।
 
 </Accordion>
-
 <Accordion header="किसी भी देव के साथ स्केलिंग">
 
 सिर्फ एक i18n समाधान से अधिक, Intlayer एक **स्व-होस्टेड [विज़ुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** और एक **[पूर्ण] प्रदान करता है सीएमएस](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** आपकी बहुभाषी सामग्री को **वास्तविक समय** में प्रबंधित करने में मदद करता है, जिससे अनुवादकों, कॉपीराइटरों और टीम के अन्य सदस्यों के साथ सहयोग सहज हो जाता है। सामग्री को स्थानीय और/या दूरस्थ रूप से संग्रहीत किया जा सकता है।
@@ -116,7 +110,6 @@ author: aymericzip
 GitHub पर [एप्लिकेशन टेम्पलेट](https://github.com/aymericzip/intlayer-vite-svelte-template) देखें।
 
 <Steps>
-
 <Step number={1} title="Dependencies इंस्टॉल करें">
 
 npm का उपयोग करके आवश्यक पैकेज इंस्टॉल करें:
@@ -173,7 +166,6 @@ bun add vite-intlayer --save-dev
   इसमें Vite प्लगइन शामिल है जो Intlayer को [Vite bundler](https://vite.dev/guide/why.html#why-bundle-for-production) के साथ एकीकृत करता है, साथ ही उपयोगकर्ता की पसंदीदा locale का पता लगाने, कुकीज़ प्रबंधित करने, और URL पुनर्निर्देशन को संभालने के लिए middleware भी शामिल है।
 
 </Step>
-
 <Step number={2} title="अपने प्रोजेक्ट का कॉन्फ़िगरेशन">
 
 अपने एप्लिकेशन की भाषाओं को कॉन्फ़िगर करने के लिए एक config फ़ाइल बनाएं:
@@ -199,7 +191,6 @@ export default config;
 > इस कॉन्फ़िगरेशन फ़ाइल के माध्यम से, आप स्थानीयकृत URL, middleware पुनर्निर्देशन, कुकी नाम, अपनी सामग्री घोषणाओं का स्थान और एक्सटेंशन सेट कर सकते हैं, कंसोल में Intlayer लॉग को अक्षम कर सकते हैं, और भी बहुत कुछ। उपलब्ध सभी पैरामीटर की पूरी सूची के लिए, [कॉन्फ़िगरेशन दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/configuration.md) देखें।
 
 </Step>
-
 <Step number={3} title="अपने Vite कॉन्फ़िगरेशन में Intlayer को एकीकृत करें">
 
 अपने कॉन्फ़िगरेशन में intlayer प्लगइन जोड़ें।
@@ -218,7 +209,6 @@ export default defineConfig({
 > `intlayer()` Vite प्लगइन का उपयोग Intlayer को Vite के साथ एकीकृत करने के लिए किया जाता है। यह कंटेंट घोषणा फ़ाइलों के निर्माण को सुनिश्चित करता है और विकास मोड में उन्हें मॉनिटर करता है। यह Vite एप्लिकेशन के भीतर Intlayer पर्यावरण चर को परिभाषित करता है। इसके अतिरिक्त, यह प्रदर्शन को अनुकूलित करने के लिए उपनाम प्रदान करता है।
 
 </Step>
-
 <Step number={4} title="अपनी सामग्री घोषित करें">
 
 अनुवाद संग्रहीत करने के लिए अपनी सामग्री घोषणाओं को बनाएँ और प्रबंधित करें:
@@ -262,7 +252,6 @@ export default appContent;
 > अधिक विवरण के लिए, [content declaration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/content_file.md) देखें।
 
 </Step>
-
 <Step number={5} title="अपने कोड में Intlayer का उपयोग करें">
 
 ```svelte fileName="src/App.svelte"
@@ -288,7 +277,6 @@ export default appContent;
 > यदि आपका ऐप पहले से मौजूद है, तो आप हजारों घटकों को एक सेकंड में बदलने के लिए [Intlayer कंपाइलर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/compiler.md) को [एक्सट्रैक्ट कमांड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/cli/extract.md) के साथ उपयोग कर सकते हैं।
 
 </Step>
-
 <Step number={6} title="अपनी सामग्री की भाषा बदलें" isOptional={true}>
 
 ```svelte fileName="src/App.svelte"
@@ -319,7 +307,6 @@ const changeLocale = (event: Event) => {
 ```
 
 </Step>
-
 <Step number={7} title="मार्कडाउन रेंडर करें" isOptional={true}>
 
 Intlayer Svelte में Markdown और HTML सामग्री को रेंडर करने का समर्थन करता है।
@@ -359,10 +346,7 @@ Intlayer सीधे आपके Svelte एप्लिकेशन में 
 > [!TIP]
 > आप `$content.markdownContent.metadata.xxx` property का उपयोग करके अपने markdown front-matter डेटा को भी access कर सकते हैं।
 
-> `intlayer` पैकेज का उपयोग क�
-
 </Step>
-
 <Step number={8} title="intlayer संपादक / CMS सेट करें" isOptional={true}>
 
 intlayer संपादक सेट करने के लिए, आपको [intlayer संपादक दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_visual_editor.md) का पालन करना होगा।
@@ -370,7 +354,6 @@ intlayer संपादक सेट करने के लिए, आपक�
 intlayer CMS सेट करने के लिए, आपको [intlayer CMS दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md) का पालन करना होगा।
 
 </Step>
-
 <Step number={7} title="अपनी एप्लिकेशन में स्थानीयकृत रूटिंग जोड़ें" isOptional={true}>
 
 अपनी Svelte एप्लिकेशन में स्थानीयकृत रूटिंग को संभालने के लिए, आप `svelte-spa-router` का उपयोग Intlayer के `localeFlatMap` के साथ कर सकते हैं ताकि प्रत्येक लोकल के लिए रूट्स जनरेट किए जा सकें।
@@ -478,7 +461,6 @@ import { intlayer } from "vite-intlayer";
 ```
 
 </Step>
-
 <Step number={8} title="जब locale बदलता है तो URL बदलें" isOptional={true}>
 
 उपयोगकर्ताओं को भाषाएँ बदलने और URL को उसके अनुसार अपडेट करने की अनुमति देने के लिए, आप एक `LocaleSwitcher` कॉम्पोनेंट बना सकते हैं। यह कॉम्पोनेंट `intlayer` से `getLocalizedUrl` और `svelte-spa-router` से `push` का उपयोग करेगा।
@@ -516,7 +498,6 @@ const changeLocale = (event: Event) => {
 ```
 
 </Step>
-
 <Step number={9} title="अंतर्राष्ट्रीयकृत लिंक" isOptional={true}>
 
 SEO के लिए, यह अनुशंसित है कि आप अपने routes को locale के साथ prefix करें (उदाहरण के लिए, `/about`, `/fr/about`)।
@@ -539,7 +520,6 @@ SEO के लिए, यह अनुशंसित है कि आप अ�
 ```
 
 </Step>
-
 <Step number={1} title="अपने घटकों की सामग्री निकालें" isOptional={true}>
 
 यदि आपके पास मौजूदा कोडबेस है, तो हजारों फ़ाइलों को बदलना समय लेने वाला हो सकता है।
@@ -762,25 +742,21 @@ Vite का i18n पर कोई विशेष दृष्टिकोण �
 [Intlayer क्यों चुनें](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/interest_of_intlayer.md) देखें।
 
 </Question>
-
 <Question title="i18n मेरे Svelte बंडल आकार को कितना बढ़ाता है?">
 
 नेमस्पेस-आधारित समाधानों की तुलना में बहुत कम, क्योंकि एक पृष्ठ कभी भी उस कैटलॉग को डाउनलोड नहीं करता है जिसे वह रेंडर नहीं करता है। बिल्ड-टाइम कंपाइलर `useIntlayer` कॉल को घटक द्वारा उपयोग की जाने वाली सटीक प्रविष्टियों से बदल देता है, और [गतिशील शब्दकोश](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dynamic_dictionaries/index.md) शेष को प्रति लोकेल विभाजित करते हैं, जिससे बंडल 50% तक कम हो जाता है। [बंडल अनुकूलन](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/bundle_optimization.md) और [बेंचमार्क](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/benchmark/index.md) देखें।
 
 </Question>
-
 <Question title="क्या मैं अपने घटकों को फिर से लिखे बिना svelte-i18n या typesafe-i18n से माइग्रेट कर सकता हूँ?">
 
 काफी हद तक हाँ। [Svelte I18n माइग्रेशन गाइड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/compat/svelte-i18n.md) का पालन करें।
 
 </Question>
-
 <Question title="क्या मैं अपनी मौजूदा JSON translation files को रख सकता हूं?">
 
 हाँ। [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/plugins/sync-json.md) आपकी `/messages/{locale}/{namespace}.json` फ़ाइलों को सत्य का स्रोत बनाए रखता है और दोनों दिशाओं में उनसे Intlayer dictionaries बनाता है। [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/plugins/sync-po.md) gettext catalogs के लिए भी ऐसा ही करता है, और [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/per_locale_file.md) आपको locales को एक फ़ाइल में समूहीकृत करने के बजाय भाषा के अनुसार content को विभाजित करने देते हैं।
 
 </Question>
-
 <Question title="क्या मुझे अपनी content को key by key move करना होगा?">
 
 नहीं। `npx intlayer extract` चलाएं और Intlayer आपकी फ़ाइलों को पढ़ता है, उपयोगकर्ता के अनुकूल स्ट्रिंग्स निकालता है, और प्रत्येक के बगल में एक `.content` फ़ाइल लिखता है, जिससे आप कैटलॉग में मैन्युअल रूप से कॉपी करने के बजाय एक diff की समीक्षा करते हैं।
@@ -790,7 +766,6 @@ Vite का i18n पर कोई विशेष दृष्टिकोण �
 कंपाइलर को चालू करने से पहले दो सीमाएं जानने योग्य हैं। यह स्थिर विश्लेषण द्वारा काम करता है, इसलिए जो स्ट्रिंग्स केवल रनटाइम पर मौजूद होती हैं, जैसे कि API त्रुटि कोड या CMS फ़ील्ड, वे पहुंच से बाहर रहती हैं। और इसे `className="active"` या स्थिति कोड जैसे एप्लिकेशन लॉजिक से उपयोगकर्ता के सामने आने वाले टेक्स्ट को अलग करना होगा, जिसके लिए एक बड़े कोडबेस में कुछ एनोटेशन की आवश्यकता होती है। [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/cli/extract.md) आपको लूप में रखकर दोनों से बचाता है।
 
 </Question>
-
 <Question title="कौन से editor और AI agent tooling उपलब्ध हैं?">
 
 पाँच उपकरण, सभी वैकल्पिक:
@@ -802,55 +777,46 @@ Vite का i18n पर कोई विशेष दृष्टिकोण �
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/eslint.md)**: `no-raw-text` नियम हार्डकोडेड स्ट्रिंग्स को चिह्नित करता है।
 
 </Question>
-
 <Question title="Svelte घटक के अंदर अनुवादित सामग्री का उपयोग कैसे करें?">
 
 अपने घटक में `useIntlayer` को कॉल करें। मान प्रतिक्रियाशील है, इसलिए भाषा बदलने पर पृष्ठ को पुनः लोड किए बिना घटक तुरंत अपडेट हो जाता है।
 
 </Question>
-
 <Question title="क्या Intlayer Vite देव सर्वर और HMR के साथ काम करता है?">
 
 हाँ। Vite प्लगइन आपकी `.content.ts` फ़ाइलों की निगरानी करता है और आपके सहेजते ही शब्दकोशों को पुनः संकलित करता है, इसलिए परिवर्तन बिना देव सर्वर को पुनः आरंभ किए तुरंत दिखाई देते हैं।
 
 </Question>
-
 <Question title="स्थानीयकृत रूटिंग कैसे सेट करें?">
 
 इस गाइड के चरण स्थानीयकृत मार्गों और भाषा बदलने पर URL पुनर्लेखन को कवर करते हैं। `routing.mode` URL योजना को नियंत्रित करता है: `"prefix-no-default"` (डिफ़ॉल्ट: `/about` और `/hi/about`), `"prefix-all"`, `"no-prefix"`, या `"search-params"`। [कॉन्फ़िगरेशन संदर्भ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/configuration.md) देखें।
 
 </Question>
-
 <Question title="अरबी या हिब्रू जैसी दाएं से बाएं लिखी जाने वाली भाषाओं का समर्थन कैसे करें?">
 
 `getHTMLTextDir` किसी दिए गए लोकेल के लिए `ltr`, `rtl`, या `auto` लौटाता है, जिससे आप सक्रिय लोकेल से रूट तत्व पर `lang` और `dir` बाइंड कर सकते हैं और अपनी तार्किक CSS विशेषताओं को बाकी संभालने दे सकते हैं।
 
 </Question>
-
 <Question title="क्लाइंट-रेंडर किए गए Vite ऐप में SEO मेटाडेटा कैसे प्रबंधित करें?">
 
 सक्रिय लोकेल से `html` तत्व पर `lang` और `dir` विशेषताएँ सेट करें, और प्रत्येक घोषित लोकेल के लिए `hreflang` विकल्प प्रकाशित करने के लिए `getMultilingualUrls` का उपयोग करें। विश्वसनीय अनुक्रमणिका की आवश्यकता वाले पृष्ठों के लिए, प्रीरेंडर या SSR पर विचार करें।
 
 </Question>
-
 <Question title="मैं ऐप को AI के साथ स्वचालित रूप से कैसे अनुवाद करूँ?">
 
 `npx intlayer fill` चलाएं। यह कमांड आपके चुने हुए LLM का उपयोग करके आपके अपने प्रदाता और API कुंजी के साथ लापता अनुवादों को भरता है, और `--git-diff` बदली गई फ़ाइलों तक संचालन को सीमित करता है। [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/cli/fill.md) और [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/CI_CD.md) देखें।
 
 </Question>
-
 <Question title="क्या Intlayer बहुवचन, लिंग और समृद्ध पाठ (rich text) का समर्थन करता है?">
 
 हाँ: [बहुवचन (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/plurial.md), [लिंग-आधारित सामग्री](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/gender.md), शर्तें, [सम्मिलन (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/markdown.md), और संख्याओं, तिथियों और मुद्राओं के लिए [प्रारूपक (formatters)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/formatters.md)।
 
 </Question>
-
 <Question title="अनुवादक कोड को छुए बिना सामग्री को कैसे संपादित कर सकते हैं?">
 
 [विज़ुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_visual_editor.md) के माध्यम से, जो किसी को भी सीधे चलते हुए ऐप में टेक्स्ट संपादित करने देता है, या [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md) के माध्यम से, जो सामग्री को अलग करता है ताकि कोड को फिर से तैनात किए बिना उसे अपडेट किया जा सके।
 
 </Question>
-
 <Question title="क्या Intlayer मुफ्त और ओपन सोर्स है?">
 
 हाँ, Apache 2.0 लाइसेंस के तहत, व्यावसायिक उपयोग सहित। होस्टेड CMS एक वैकल्पिक सशुल्क सेवा है जिसे [स्वयं होस्ट (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/self_hosting.md) भी किया जा सकता है।

@@ -276,19 +276,16 @@ Esta guía proporciona una visión general de cómo añadir internacionalizació
 Sí. Intlayer admite `routing.mode: "search-params"` y detección por cookies o cabeceras HTTP. Puedes mantener intacta tu estructura de carpetas `app/` sin alterar tus URLs actuales.
 
 </Question>
-
 <Question title="¿Debo reemplazar manualmente todas las cadenas de texto en mi código existente?">
 
 No. Puedes usar `npx intlayer extract` para detectar y extraer automáticamente las cadenas a declaraciones localizadas, o usar el compilador de Intlayer para transformar los componentes en tiempo de compilación.
 
 </Question>
-
 <Question title="¿Cómo reduce Intlayer el tamaño del bundle de Next.js en comparación con next-intl o next-i18next?">
 
 Intlayer utiliza definiciones de diccionario por componente y optimización por macros. El cliente solo recibe los campos necesarios para los componentes renderizados, y los Server Components se ejecutan en el servidor con cero sobrecarga en el cliente.
 
 </Question>
-
 <Question title="¿Puedo usar IA para traducir automáticamente mis componentes a múltiples idiomas?">
 
 Sí. El comando `npx intlayer fill` de Intlayer se conecta a tu proveedor de IA preferido (OpenAI, Anthropic, Mistral, DeepSeek) para generar traducciones contextuales de los idiomas faltantes en todo tu proyecto.

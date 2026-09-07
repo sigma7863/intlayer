@@ -144,7 +144,6 @@ Kaçınılması gereken tek yapı: `Accept-Language` veya IP'ye göre **aynı UR
 Bu etiketleri el ile yazmak ikinci bir locale ile iletişime geçtiğinde başarısız olur. Bunun yerine bunları locale listinizden türetin.
 
 <Steps>
-
 <Step number={1} title="Kümeyi her sayfada yayınla">
 
 Her yerde aynı küme, locale başına canonical, mutlak URL'ler, `x-default` dahil.
@@ -233,7 +232,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="Veya hepsini sitemap'e taşıyın">
 
 Ölçekte, ek açıklamaları sayfalarınızdan tamamen uzak tutun. `generateSitemap` yapılandırmanızdan locales ve routing mode'u okuyarak her giriş için `xhtml:link` alternates yayınlar:
@@ -256,7 +254,6 @@ Bilmeniz gereken iki seçenek:
 - `entryPerLocale` (default `false`) — varsayılan olarak bir `<url>` girişi tüm alternatifleri taşır. Her iki form de geçerlidir, ancak yalnızca `<loc>` olarak listelenen bir URL Search Console'da _gönderilen_ olarak sayılır; yalnızca alternatif olan locales keşfedilebilir ancak hiçbir sitemap'e atfedilmez. Bunu açmak her yerelleştirilmiş URL'ye tam alternatif seti tekrarlanan kendi girişini verir. Bu, giriş sayısını locale sayısı ile çarpar, bu nedenle 50 000 URL / 50 MB limitini izleyin ve bunu aşarsanız bir sitemap indeksine bölün.
 
 </Step>
-
 <Step number={3} title="Crawler'ın neyi aldığını doğrulayın">
 
 `hreflang` sessizce başarısız olur, bu nedenle varsaymak yerine kontrol edin.

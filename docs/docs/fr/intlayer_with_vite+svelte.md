@@ -73,37 +73,31 @@ Par rapport aux solutions principales telles que `svelte-i18n` ou `i18next`, Int
 Intlayer est optimisé pour fonctionner parfaitement avec Svelte en offrant une **portée du contenu au niveau des composants**, des **traductions réactives** et toutes les fonctionnalités nécessaires à la mise à l'échelle de l'internationalisation (i18n).
 
 </Accordion>
-
 <Accordion header="Taille du bundle">
 
 Au lieu de charger de lourds fichiers JSON dans vos pages, ne chargez que le contenu strictement nécessaire. Intlayer vous aide à **réduire la taille de votre bundle et de vos pages jusqu'à 50 %**.
 
 </Accordion>
-
 <Accordion header="Maintenabilité">
 
 Déclarer le contenu directement au plus près de vos composants **facilite la maintenance** des applications de grande envergure. Vous pouvez dupliquer ou supprimer le dossier d'une fonctionnalité sans le fardeau mental de devoir passer en revue toute votre base de code de contenu. De plus, Intlayer est **entièrement typé** pour garantir l'exactitude de vos traductions.
 
 </Accordion>
-
 <Accordion header="Prêt pour les agents IA">
 
 La colocalisation du contenu **réduit le contexte nécessaire** aux grands modèles de langage (LLM). Intlayer est également livré avec une suite d'outils, tels qu'une **CLI** pour vérifier les traductions manquantes, un **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/lsp.md)**, un **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/mcp_server.md)** et des **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/agent_skills.md)**, afin de rendre l'expérience développeur (DX) encore plus fluide pour les agents IA.
 
 </Accordion>
-
 <Accordion header="Automatisation">
 
 Automatisez les traductions dans votre pipeline CI/CD en utilisant le LLM de votre choix au coût de votre propre fournisseur d'IA. Intlayer propose également un **compilateur** pour automatiser l'extraction de contenu, ainsi qu'une [plateforme web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md) pour vous aider à **traduire en arrière-plan**.
 
 </Accordion>
-
 <Accordion header="Performances">
 
 Associer de gros fichiers JSON à vos composants peut ralentir les performances et impacter la réactivité. Intlayer optimise le chargement du contenu directement au moment du **build**.
 
 </Accordion>
-
 <Accordion header="Collaboration avec les non-développeurs">
 
 Bien plus qu'une simple solution i18n, Intlayer propose un **[éditeur visuel](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_visual_editor.md)** auto-hébergé et un **[CMS complet](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md)** pour gérer votre contenu multilingue en **temps réel**. Cela rend la collaboration avec les traducteurs, concepteurs-rédacteurs et autres membres de l'équipe extrêmement simple. Le contenu peut être stocké localement et/ou à distance.
@@ -116,7 +110,6 @@ Bien plus qu'une simple solution i18n, Intlayer propose un **[éditeur visuel](h
 Voir le [Modèle d'application](https://github.com/aymericzip/intlayer-vite-svelte-template) sur GitHub.
 
 <Steps>
-
 <Step number={1} title="Installer les dépendances">
 
 Installez les paquets nécessaires en utilisant npm :
@@ -172,7 +165,6 @@ bun add vite-intlayer --save-dev
   Inclut le plugin Vite pour intégrer Intlayer avec le [bundler Vite](https://vite.dev/guide/why.html#why-bundle-for-production), ainsi qu'un middleware pour détecter la locale préférée de l'utilisateur, gérer les cookies, et gérer la redirection des URL.
 
 </Step>
-
 <Step number={2} title="Configuration de votre projet">
 
 Créez un fichier de configuration pour configurer les langues de votre application :
@@ -198,7 +190,6 @@ export default config;
 > Grâce à ce fichier de configuration, vous pouvez configurer les URL localisées, la redirection via middleware, les noms des cookies, l'emplacement et l'extension de vos déclarations de contenu, désactiver les logs Intlayer dans la console, et plus encore. Pour une liste complète des paramètres disponibles, consultez la [documentation de configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/configuration.md).
 
 </Step>
-
 <Step number={3} title="Intégrer Intlayer dans votre configuration Vite">
 
 Ajoutez le plugin intlayer dans votre configuration.
@@ -217,7 +208,6 @@ export default defineConfig({
 > Le plugin Vite `intlayer()` est utilisé pour intégrer Intlayer avec Vite. Il assure la génération des fichiers de déclaration de contenu et les surveille en mode développement. Il définit les variables d'environnement Intlayer au sein de l'application Vite. De plus, il fournit des alias pour optimiser les performances.
 
 </Step>
-
 <Step number={4} title="Déclarez votre contenu">
 
 Créez et gérez vos déclarations de contenu pour stocker les traductions :
@@ -261,7 +251,6 @@ export default appContent;
 > Pour plus de détails, consultez la [documentation sur la déclaration de contenu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Utiliser Intlayer dans votre code">
 
 ```svelte fileName="src/App.svelte"
@@ -287,7 +276,6 @@ export default appContent;
 > Si votre application existe déjà, vous pouvez utiliser le [Compilateur Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/compiler.md), ainsi que la [commande d'extraction](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/extract.md), pour transformer des milliers de composants en une seconde.
 
 </Step>
-
 <Step number={6} title="Changer la langue de votre contenu" isOptional={true}>
 
 ```svelte fileName="src/App.svelte"
@@ -318,7 +306,6 @@ const changeLocale = (event: Event) => {
 ```
 
 </Step>
-
 <Step number={7} title="Rendre du Markdown" isOptional={true}>
 
 Intlayer prend en charge le rendu du contenu Markdown directement dans votre application Svelte. Par défaut, le Markdown est traité comme du texte brut. Pour convertir le Markdown en HTML enrichi, vous pouvez intégrer `@humanspeak/svelte-markdown` ou un autre parseur Markdown.
@@ -341,7 +328,6 @@ Intlayer prend en charge le rendu du contenu Markdown directement dans votre app
 > Vous pouvez également accéder aux données front-matter de votre markdown en utilisant la propriété `content.markdownContent.metadata.xxx`.
 
 </Step>
-
 <Step number={8} title="Configurer l’éditeur / CMS intlayer" isOptional={true}>
 
 Pour configurer l’éditeur intlayer, vous devez suivre la [documentation de l’éditeur intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_visual_editor.md).
@@ -349,7 +335,6 @@ Pour configurer l’éditeur intlayer, vous devez suivre la [documentation de l�
 Pour configurer le CMS intlayer, vous devez suivre la [documentation du CMS intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md).
 
 </Step>
-
 <Step number={7} title="Ajouter le routage localisé à votre application" isOptional={true}>
 
 Pour gérer le routage localisé dans votre application Svelte, vous pouvez utiliser `svelte-spa-router` avec `localeFlatMap` d'Intlayer pour générer les routes pour chaque locale.
@@ -465,7 +450,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={8} title="Modifier l'URL lorsque la locale change" isOptional={true}>
 
 Pour permettre aux utilisateurs de changer de langue et de mettre à jour l'URL en conséquence, vous pouvez créer un composant `LocaleSwitcher`. Ce composant utilisera `getLocalizedUrl` de `intlayer` et `push` de `svelte-spa-router`.
@@ -489,7 +473,6 @@ const changeLocale = (event: Event) => {
 ```
 
 </Step>
-
 <Step number={8} title="Modifier l’URL lors du changement de langue" isOptional={true}>
 
 Pour permettre aux utilisateurs de changer de langue et de mettre à jour l’URL en conséquence, vous pouvez créer un composant `LocaleSwitcher`. Ce composant utilisera `getLocalizedUrl` de `intlayer` et `push` de `svelte-spa-router`.
@@ -527,7 +510,6 @@ const changeLocale = (event: Event) => {
 ```
 
 </Step>
-
 <Step number={9} title="Extraire le contenu de vos composants" isOptional={true}>
 
 Si vous avez une base de code existante, transformer des milliers de fichiers peut prendre beaucoup de temps.
@@ -748,25 +730,21 @@ Vite n'a pas d'avis sur l'i18n, le choix vient donc de l'écosystème Svelte :
 Le gain propre à Vite est que les traductions sont résolues et tree-shakées au moment de la compilation au lieu d'être récupérées en JSON à l'exécution, si bien qu'une page ne livre que les entrées qu'elle affiche. Voir [pourquoi Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/interest_of_intlayer.md) et le [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/benchmark/index.md).
 
 </Question>
-
 <Question title="Quel poids l'i18n ajoute-t-elle à la taille de mon bundle Svelte ?">
 
 Bien moins qu'une configuration basée sur des espaces de noms, car une page ne télécharge jamais un catalogue qu'elle n'affiche pas. Le compilateur au moment du build remplace les appels `useIntlayer` par les entrées de dictionnaire exactes qu'un composant utilise, si bien que les clés inutilisées et les langues inutilisées sont éliminées, et les [dictionnaires dynamiques](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dynamic_dictionaries/index.md) répartissent le reste par locale. Mesuré face aux alternatives habituelles, Intlayer réduit la taille du bundle et des pages jusqu'à 50 %. Voir l'[optimisation du bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/bundle_optimization.md) et le [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/benchmark/svelte.md).
 
 </Question>
-
 <Question title="Puis-je migrer depuis `svelte-i18n` ou `typesafe-i18n` sans réécrire mes composants ?">
 
 En grande partie. Suivez le [guide de migration Svelte I18n](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/compat/svelte-i18n.md) pour transférer le contenu. Vous pouvez aussi migrer progressivement : le [plugin de synchronisation JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-json.md) conserve vos catalogues JSON existants comme source de vérité et génère les dictionnaires Intlayer à partir d'eux, si bien que les deux couches restent synchronisées pendant que vous déplacez les composants un par un.
 
 </Question>
-
 <Question title="Puis-je conserver mes fichiers de traduction JSON existants ?">
 
 Oui. Le [plugin de synchronisation JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-json.md) conserve vos fichiers `/messages/{locale}/{namespace}.json` comme source de vérité et génère les dictionnaires Intlayer à partir d'eux, dans les deux sens. Un [plugin de synchronisation PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-po.md) fait de même pour les catalogues gettext, et les [fichiers par locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/per_locale_file.md) permettent de séparer le contenu par langue au lieu de regrouper les locales dans un seul fichier.
 
 </Question>
-
 <Question title="Dois-je déplacer mon contenu clé par clé ?">
 
 Non. Lancez `npx intlayer extract` et Intlayer lit vos composants, en extrait les chaînes destinées aux utilisateurs et écrit un fichier `.content` à côté de chacun, de sorte que vous relisez un diff plutôt que de copier des chaînes dans un catalogue une par une. L'étape 10 de ce guide le détaille.
@@ -776,7 +754,6 @@ Pour un pipeline entièrement automatisé, le [compilateur Intlayer](https://git
 Deux limites méritent d'être connues avant d'activer le compilateur. Il fonctionne par analyse statique : les chaînes qui n'existent qu'à l'exécution, comme les codes d'erreur d'API ou les champs de CMS, restent hors de portée. Et il doit distinguer le texte destiné aux utilisateurs de la logique applicative comme `className="active"` ou un code de statut, ce qui nécessite quelques annotations dans une grande base de code. La [commande extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/extract.md) évite les deux en vous gardant dans la boucle.
 
 </Question>
-
 <Question title="Quels outils d'éditeur et d'agent IA sont disponibles ?">
 
 Cinq éléments, tous optionnels :
@@ -788,55 +765,46 @@ Cinq éléments, tous optionnels :
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/eslint.md)** : `no-raw-text` signale les chaînes codées en dur, avec d'autres règles pour les clés de dictionnaire statiques et le contenu inutilisé.
 
 </Question>
-
 <Question title="Comment utiliser du contenu traduit dans un composant Svelte ?">
 
 Appelez `useIntlayer` dans votre composant et lisez le contenu renvoyé. La valeur est réactive, si bien que changer la locale réaffiche les composants qui l'utilisent sans rechargement de page. L'étape 5 montre le composant, et l'étape 7 couvre l'affichage du contenu Markdown et HTML.
 
 </Question>
-
 <Question title="Intlayer fonctionne-t-il avec le serveur de développement Vite et le rechargement à chaud ?">
 
 Oui. Le plugin Vite `intlayer()` surveille vos fichiers `.content.ts` et reconstruit les dictionnaires affectés à l'enregistrement, si bien que les modifications apparaissent sans redémarrer le serveur de développement, et les types générés sont régénérés en même temps afin que l'autocomplétion reste synchronisée.
 
 </Question>
-
 <Question title="Comment mettre en place un routage localisé ?">
 
 Les étapes 7 et 8 couvrent les routes localisées et la réécriture de l'URL lorsque la locale change, et l'étape 9 couvre les liens internationalisés. `routing.mode` décide du schéma d'URL : `"prefix-no-default"` (la valeur par défaut, `/about` et `/fr/about`), `"prefix-all"`, `"no-prefix"` (résolue à partir d'un cookie, d'un en-tête ou d'un domaine) ou `"search-params"` (`/about?locale=fr`). Voir la [référence de configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/configuration.md).
 
 </Question>
-
 <Question title="Comment prendre en charge les langues de droite à gauche telles que l'arabe ou l'hébreu ?">
 
 L'étape 9 le couvre. `getHTMLTextDir` renvoie `ltr`, `rtl` ou `auto` pour une locale, vous liez donc `lang` et `dir` sur l'élément racine à partir de la locale active et laissez vos propriétés logiques CSS gérer le reste.
 
 </Question>
-
 <Question title="Comment gérer les métadonnées SEO dans une application Vite rendue côté client ?">
 
 Réglez `lang` et `dir` sur l'élément `html` à partir de la locale active, et émettez des alternates `hreflang` pour chaque locale déclarée avec `getMultilingualUrls`, y compris `x-default`. Pour les pages qui doivent être explorées de manière fiable, préférez une configuration prérendue ou rendue côté serveur.
 
 </Question>
-
 <Question title="Comment traduire l'application automatiquement avec l'IA ?">
 
 Lancez `npx intlayer fill`. Il remplit les traductions manquantes avec le LLM de votre choix, en utilisant votre propre fournisseur et votre clé d'API, et `--git-diff` limite l'exécution au contenu modifié sur la branche. Voir la [commande fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/fill.md) et l'[intégration CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer prend-il en charge les pluriels, le genre et le texte enrichi ?">
 
 Oui : les [formes plurielles](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/plurial.md), le [contenu basé sur le genre](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/gender.md), les conditions, les [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/insertion.md), le [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dictionary/markdown.md) et les [formateurs](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/formatters.md) pour les nombres, les dates et les devises.
 
 </Question>
-
 <Question title="Comment les traducteurs peuvent-ils modifier le contenu sans toucher au code ?">
 
 Via l'[éditeur visuel](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_visual_editor.md), qui tourne sur votre propre infrastructure et permet à quiconque de modifier le texte sur place sur l'application en cours d'exécution, ou le [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md), qui externalise le contenu afin qu'il puisse changer sans déploiement.
 
 </Question>
-
 <Question title="Intlayer est-il gratuit et open source ?">
 
 Oui, sous licence Apache 2.0, usage commercial inclus. Le CMS hébergé est un service payant optionnel qui peut aussi être [auto-hébergé](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/self_hosting.md).

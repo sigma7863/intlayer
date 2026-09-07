@@ -51,45 +51,34 @@ GitHub'da [Uygulama Şablonu](https://github.com/aymericzip/intlayer-react-cra-t
 **Intlayer**, modern web uygulamalarında çok dilli desteği basitleştirmek için tasarlanmış yenilikçi, açık kaynaklı bir uluslararasılaştırma (i18n) kütüphanesidir.
 
 </Accordion>
-
 <Accordion header="Bundle boyutu">
 
-Sayfalarınıza massive JSON dosyalarını yüklemek yerine, yalnızca gerekli içeriği yükleyin. Intlayer, **bundle ve sayfa boyutlarınızı %50'ye kadar azaltmanıza** yardımcı olur.
+Sayfalarınıza çok büyük JSON dosyaları yüklemek yerine yalnızca gerekli içeriği yükleyin. Intlayer **bundle ve sayfa boyutlarınızı %50'ye kadar azaltmanıza** yardımcı olur.
 
 </Accordion>
+<Accordion header="Sürdürülebilirlik">
 
-<Accordion header="Maintainability">
-
-Intlayer ile şunları yapabilirsiniz:
-
-- **Bileşen düzeyinde bildirimsel sözlükler kullanarak çevirileri kolayca yönetin**.
-- **Meta verileri, rotaları ve içeriği dinamik olarak yerelleştirin**.
-- **Otomatik oluşturulan türlerle TypeScript desteği sağlayın**, otomatik tamamlama ve hata algılamayı iyileştirin.
-- **Dinamik yerel algılama ve değiştirme gibi gelişmiş özelliklerden yararlanın**.
+Uygulamanızın içeriğinin kapsamını belirlemek, büyük ölçekli uygulamalar için **bakımı kolaylaştırır**. İçerik kod tabanınızın tamamını gözden geçirmenin zihinsel yükü olmadan, tek bir özellik klasörünü çoğaltabilir veya silebilirsiniz. Ayrıca Intlayer, içeriğinizin doğruluğunu sağlamak için **tamamen tiplendirilmiş (fully typed)tır**.
 
 </Accordion>
+<Accordion header="Yapay Zeka Temsilcisi">
 
-<Accordion header="AI Agent">
-
-İçeriği birlikte konumlandırmak, Büyük Dil Modelleri (LLM'ler) tarafından ihtiyaç duyulan **bağlamı azaltır**. Intlayer ayrıca, **CLI** (eksik çevirileri test etmek için), **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/mcp_server.md)** ve **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/agent_skills.md)** gibi bir dizi araçla gelir ve bu araçlar, yapay zeka ajanları için geliştirici deneyimini (DX) daha da sorunsuz hale getirir.
+İçeriğin bir arada konumlandırılması **Büyük Dil Modellerinin (LLM'ler) ihtiyaç duyduğu bağlamı azaltır**. Intlayer ayrıca eksik çevirileri test etmek için **CLI** gibi bir araç paketiyle birlikte gelir**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** ve **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/agent_skills.md)**, geliştirici deneyimini (DX) yapay zeka için daha da sorunsuz hale getirmek için ajanlar.
 
 </Accordion>
-
 <Accordion header="Otomasyon">
 
-CI/CD pipeline'inizde seçtiğiniz LLM'yi kullanarak otomasyonla çeviri yapın, AI sağlayıcınızın maliyetiyle. Intlayer ayrıca içerik çıkarmayı otomatikleştirmek için bir **derleyici** ve arka planda **çeviriye** yardımcı olmak için bir [web platformu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) sunmaktadır.
+Maliyeti AI sağlayıcınıza ait olmak üzere seçtiğiniz LLM'yi kullanarak CI/CD işlem hattınızda çeviri yapmak için otomasyonu kullanın. Intlayer ayrıca içerik çıkarmayı otomatikleştirmek için bir **derleyici** ve **arka planda çeviri yapmaya** yardımcı olacak bir [web platformu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) sunar.
 
 </Accordion>
-
 <Accordion header="Performans">
 
-Massive JSON dosyalarını bileşenlere bağlamak performans ve reaktivite sorunlarına yol açabilir. Intlayer, içerik yüklemenizi derleme zamanında optimize eder.
+Büyük JSON dosyalarını bileşenlere bağlamak performans ve tepkime sorunlarına yol açabilir. Intlayer, içerik yüklemenizi derleme sırasında optimize eder.
 
 </Accordion>
+<Accordion header="Non-dev ile ölçeklendirme">
 
-<Accordion header="none-dev ile Ölçeklendirme">
-
-Sadece bir i18n çözümünden fazlası olan Intlayer, **kendi barındırılan [görsel editör](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md)** ve **[tam CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md)** sağlayarak çok dilli içeriğinizi **gerçek zamanlı** olarak yönetmenize ve çevirmenler, metin yazarları ve diğer ekip üyeleriyle sorunsuz işbirliği yapmanıza yardımcı olur. İçerik yerel olarak ve/veya uzaktan saklanabilir.
+Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barındırılan bir [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** ve **[tam CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** çok dilli içeriğinizi **gerçek zamanlı** olarak yönetmenize yardımcı olarak çevirmenler, metin yazarları ve diğer ekip üyeleriyle işbirliğini kusursuz hale getirir. İçerik yerel olarak ve/veya uzaktan depolanabilir.
 
 </Accordion>
 </AccordionGroup>
@@ -97,7 +86,6 @@ Sadece bir i18n çözümünden fazlası olan Intlayer, **kendi barındırılan [
 ## React Uygulamasında Intlayer'ı Kurmak İçin Adım Adım Kılavuz
 
 <Steps>
-
 <Step number={1} title="Bağımlılıkları Yükleyin">
 
 Gerekli paketleri npm kullanarak yükleyin:
@@ -151,7 +139,6 @@ bun add intlayer react-intlayer react-scripts-intlayer
   Create React App tabanlı uygulama ile Intlayer'ı entegre etmek için `react-scripts-intlayer` komutlarını ve eklentileri içerir. Bu eklentiler [craco](https://craco.js.org/) tabanlıdır ve [Webpack](https://webpack.js.org/) paketleyici için ek yapılandırma içerir.
 
 </Step>
-
 <Step number={2} title="Projenizi Yapılandırın">
 
 Uygulamanızın dillerini yapılandırmak için bir yapılandırma dosyası oluşturun:
@@ -177,7 +164,6 @@ export default config;
 > Bu yapılandırma dosyası aracılığıyla, yerelleştirilmiş URL'ler, ara yazılım yönlendirmesi, çerez adları, içerik bildirimlerinizin konumu ve uzantısı ayarlayabilir, Intlayer günlüklerini konsolda devre dışı bırakabilir ve daha fazlasını yapabilirsiniz. Kullanılabilir parametrelerin tam listesi için [yapılandırma dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md) bakın.
 
 </Step>
-
 <Step number={3} title="Intlayer'ı CRA Yapılandırmanızda Entegre Edin">
 
 Betiklerinizi Intlayer kullanacak şekilde değiştirin
@@ -193,7 +179,6 @@ Betiklerinizi Intlayer kullanacak şekilde değiştirin
 > `react-scripts-intlayer` betikleri [CRACO](https://craco.js.org/) tabanlıdır. Kendi kurulumunuzu CRACO'nun intlayer eklentisi temel alarak da uygulayabilirsiniz. [Örneğe buradan bakın](https://github.com/aymericzip/intlayer/blob/main/examples/react-app/craco.config.js).
 
 </Step>
-
 <Step number={4} title="İçeriğinizi Bildirin">
 
 Çevirileri depolamak için içerik bildirimlerinizi oluşturun ve yönetin:
@@ -243,7 +228,6 @@ export default appContent;
 > Eğer içerik dosyanız TSX kodu içeriyorsa, içerik dosyanıza `import React from "react";` içe aktarmayı düşünün.
 
 </Step>
-
 <Step number={5} title="Kodunuzda Intlayer'ı Kullanın">
 
 İçerik sözlüklerinize uygulamanız genelinde erişin:
@@ -294,7 +278,6 @@ export default App;
 > `useIntlayer` hook'u hakkında daha fazla bilgi için [dokümantasyona](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/react-intlayer/useIntlayer.md) bakın.
 
 </Step>
-
 <Step number={6} title="İçeriğinizin Dilini Değiştirin" isOptional={true}>
 
 İçeriğinizin dilini değiştirmek için, `useLocale` hook'u tarafından sağlanan `setLocale` fonksiyonunu kullanabilirsiniz. Bu fonksiyon, uygulamanın yerel ayarını ayarlamanıza ve içeriği buna göre güncellemenize izin verir.
@@ -317,7 +300,6 @@ const LocaleSwitcher = () => {
 > `useLocale` hook'u hakkında daha fazla bilgi için [dokümantasyona](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/react-intlayer/useLocale.md) bakın.
 
 </Step>
-
 <Step number={7} title="Uygulamanıza Yerelleştirilmiş Yönlendirme Ekleyin" isOptional={true}>
 
 Bu adımın amacı, her dil için benzersiz rotalar oluşturmaktır. Bu, SEO ve SEO dostu URL'ler için yararlıdır.
@@ -464,7 +446,6 @@ const App: FC = () => (
 ```
 
 </Step>
-
 <Step number={8} title="Yerel Ayar Değiştiğinde URL'yi Değiştirin" isOptional={true}>
 
 Yerel ayar değiştiğinde URL'yi değiştirmek için, `useLocale` hook'u tarafından sağlanan `onLocaleChange` prop'unu kullanabilirsiniz. Paralel olarak, URL yolunu güncellemek için `react-router-dom`'dan `useLocation` ve `useNavigate` hook'larını kullanabilirsiniz.
@@ -546,7 +527,6 @@ const LocaleSwitcher: FC = () => {
 > - [`aria-current` özniteliği](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={9} title="HTML Dil ve Yön Özniteliklerini Değiştirin" isOptional={true}>
 
 Uygulamanız birden fazla dili desteklediğinde, `<html>` etiketinin `lang` ve `dir` özniteliklerini geçerli yerel ayarla eşleşecek şekilde güncellemek çok önemlidir.
@@ -617,7 +597,7 @@ Bu değişiklikleri uygulayarak, uygulamanız:
 - **Dil** (`lang`) özniteliğinin SEO ve tarayıcı davranışı için doğru geçerli yerel ayarı yansıtmasını sağlar.
 - **Metin yönü** (`dir`) özniteliğini yerel ayara göre ayarlar, Arapça veya İbranice gibi farklı okuma sırasına sahip diller için okunabilirliği geliştirir.
 - Daha **erişilebilir** bir deneyim sağlar, çünkü yardımcı teknolojiler bu özniteliklere optimum şekilde çalışmak için güvenir.
-  </Step>
+</Step>
 
 </Steps>
 
@@ -684,25 +664,21 @@ Daha fazla gitmek için [görsel düzenleyiciyi](https://github.com/aymericzip/i
 Bkz. [neden Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="i18n React paket boyutuma ne kadar ekler?">
 
 Ad alanı tabanlı bir yapılandırmaya kıyasla çok daha az, çünkü bir sayfa render etmediği bir kataloğu asla indirmez. Derleme zamanı derleyicisi `useIntlayer` çağrılarını bileşenin kullandığı kesin sözlük girişleriyle değiştirir ve [dinamik sözlükler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dynamic_dictionaries/index.md) geri kalanını yerel başına böler. Intlayer paket boyutunu %50'ye kadar azaltır. Bkz. [paket optimizasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/bundle_optimization.md) ve [kıyaslama](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/benchmark/index.md).
 
 </Question>
-
 <Question title="react-i18next veya react-intl'den bileşenlerimi yeniden yazmadan geçiş yapabilir miyim?">
 
 Evet. Aşamalı geçiş kılavuzlarını izleyebilir veya uyumluluk adaptörlerini kullanabilirsiniz.
 
 </Question>
-
 <Question title="Mevcut JSON çeviri dosyalarımı koruyabilir miyim?">
 
 Evet. [sync JSON eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-json.md), `/messages/{locale}/{namespace}.json` dosyalarınızı doğruluk kaynağı olarak tutar ve her iki yönde Intlayer sözlükleri üretir. [sync PO eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-po.md) gettext katalogları için aynısını yapar ve [yerel başına dosyalar](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/per_locale_file.md), yerelleri tek bir dosyada gruplamak yerine içeriği dile göre ayırmanıza olanak tanır.
 
 </Question>
-
 <Question title="İçeriğimi anahtar anahtar taşımak zorunda mıyım?">
 
 Hayır. `npx intlayer extract` komutunu çalıştırın; Intlayer bileşenlerinizi okur, kullanıcıya dönük dizeleri çıkarır ve her birinin yanına bir `.content` dosyası yazar, böylece dizeleri tek tek kopyalamak yerine bir diff incelersiniz.
@@ -712,7 +688,6 @@ Tam otomatik bir süreç için [Intlayer Compiler](https://github.com/aymericzip
 Derleyiciyi açmadan önce bilmeye değer iki sınır vardır. Statik analiz ile çalışır, bu nedenle API hata kodları veya CMS alanları gibi yalnızca çalışma zamanında var olan dizeler ulaşılamaz kalır. Ayrıca, `className="active"` veya durum kodu gibi uygulama mantığından kullanıcıya yönelik metinleri ayırt etmesi gerekir; bu da büyük bir kod tabanında birkaç ek açıklama gerektirir. [Extract komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/extract.md) sizi döngüde tutarak her ikisinden de kaçınır.
 
 </Question>
-
 <Question title="Hangi editör ve AI aracı araçları mevcuttur?">
 
 Beş araç, hepsi isteğe bağlı:
@@ -724,49 +699,41 @@ Beş araç, hepsi isteğe bağlı:
 - **[ESLint eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/eslint.md)**: `no-raw-text` kuralı doğrudan kodlanmış metinleri işaretler.
 
 </Question>
-
 <Question title="Create React App artık korunmuyor. Önce Vite'a mı geçmeliyim?">
 
 Zaten geçişi planlıyorsanız, önce bunu yapın ve [Vite ve React kılavuzunu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_vite+react.md) izleyin. Hazır değilseniz bu kılavuz sorunsuz çalışmaya devam eder ve içerik bildirimleri iki kurulum arasında değişmez.
 
 </Question>
-
 <Question title="Create React App projesinde yerelleştirilmiş yönlendirmeyi nasıl kurarım?">
 
 React Router için [React Router v7 kılavuzuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_react_router_v7.md) bakın. Routersız bir uygulamada `routing.mode` ayarını `"no-prefix"` veya `"search-params"` yapabilirsiniz.
 
 </Question>
-
 <Question title="İstemci tarafında render edilen React uygulamasında SEO meta verilerini nasıl yönetirim?">
 
 `html` üzerinde `lang` ve `dir` özelliklerini ayarlayın ve `getMultilingualUrls` ile `hreflang` etiketlerini yayınlayın.
 
 </Question>
-
 <Question title="Arapça veya İbranice gibi sağdan sola dilleri nasıl desteklerim?">
 
 `getHTMLTextDir` bir yerel için `ltr`, `rtl` veya `auto` döndürür; böylece aktif yerelden kök öğede `lang` ve `dir` bağlayabilir ve CSS mantıksal özelliklerinizin gerisini halletmesine izin verebilirsiniz.
 
 </Question>
-
 <Question title="Uygulamayı AI ile otomatik olarak nasıl çevirebilirim?">
 
 `npx intlayer fill` komutunu çalıştırın. Eksik çevirileri seçtiğiniz LLM ile kendi sağlayıcınız ve API anahtarınızı kullanarak tamamlar ve `--git-diff` işlemi daldaki değişikliklerle sınırlar. Bkz. [fill komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/fill.md) ve [CI/CD entegrasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer çoğulları, cinsiyeti ve zengin metni (rich text) destekliyor mu?">
 
 Evet: [çoğul biçimleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/plurial.md), [cinsiyete dayalı içerik](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/gender.md), koşullar, [eklemeler (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/markdown.md) ve [biçimlendiriciler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/formatters.md).
 
 </Question>
-
 <Question title="Çevirmenler koda dokunmadan içeriği nasıl düzenleyebilir?">
 
 Kendi altyapınızda çalışan ve herkesin metinleri çalışan uygulamada yerinde düzenlemesine olanak tanıyan [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) veya içeriği kod dağıtımı olmadan güncellenebilecek şekilde dışsallaştıran [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) aracılığıyla.
 
 </Question>
-
 <Question title="Intlayer ücretsiz ve açık kaynaklı mı?">
 
 Evet, ticari kullanım dahil Apache 2.0 lisansı altındadır. Barındırılan CMS isteğe bağlı ücretli bir hizmettir ve ayrıca [kendi sunucunuzda barındırılabilir (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/self_hosting.md).

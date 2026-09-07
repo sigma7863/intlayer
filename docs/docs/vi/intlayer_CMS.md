@@ -434,25 +434,21 @@ Nếu bạn gặp bất kỳ vấn đề nào với CMS, hãy kiểm tra các đ
 [Visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md) chỉnh sửa các tệp từ điển cục bộ trong codebase của bạn. CMS quản lý nội dung từ xa trên server, cho phép cập nhật văn bản mà không cần triển khai lại mã ứng dụng.
 
 </Question>
-
 <Question title="i18n làm tăng kích thước bundle của tôi bao nhiêu?">
 
 Ít hơn nhiều so with các cấu hình dựa trên namespace, vì trang không bao giờ tải catalog mà nó không hiển thị. Mã hiển thị trên server phân giải nội dung ngay trên server, và compiler tại thời điểm build thay thế các lệnh gọi `useIntlayer` bằng chính xác các mục từ điển mà component sử dụng, do đó các khóa và ngôn ngữ không sử dụng sẽ bị loại bỏ. [Từ điển động](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dynamic_dictionaries/index.md) chia phần còn lại theo từng locale. So với các giải pháp thông thường, Intlayer giảm kích thước bundle và trang tới 50%. Xem [tối ưu hóa bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/bundle_optimization.md) và [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/benchmark/index.md).
 
 </Question>
-
 <Question title="Tôi có thể di chuyển từ i18next, next-intl hoặc react-i18next mà không cần viết lại component không?">
 
 Có, theo hai cách. Bạn có thể di chuyển nội dung dần dần bằng [hướng dẫn di chuyển từ i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/migration_from_i18next_to_intlayer.md) hoặc [hướng dẫn di chuyển từ next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/migration_from_next-intl_to_intlayer.md). Hoặc bạn có thể giữ nguyên API hiện tại: [adapter tương thích](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/compat/index.md) cung cấp chính xác các API tương tự như `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` và `Lingui`, nhưng chạy trên các từ điển Intlayer, nhờ đó chỉ có các lệnh import thay đổi còn mã component vẫn giữ nguyên.
 
 </Question>
-
 <Question title="Tôi có thể giữ các tệp dịch JSON hiện có của mình không?">
 
 Có. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-json.md) giữ cho các tệp `/messages/{locale}/{namespace}.json` của bạn là nguồn sự thật duy nhất và tạo các từ điển Intlayer từ chúng theo cả hai hướng. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-po.md) làm điều tương tự cho các catalog gettext, và [các tệp theo locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/per_locale_file.md) cho phép bạn chia nội dung theo ngôn ngữ thay vì nhóm các locale trong một tệp.
 
 </Question>
-
 <Question title="Tôi có phải di chuyển nội dung từng khóa một không?">
 
 Không. Chạy `npx intlayer extract` và Intlayer sẽ đọc các tệp nguồn của bạn, trích xuất các chuỗi dành cho người dùng và tạo tệp `.content` bên cạnh mỗi tệp, nhờ đó bạn xem lại diff thay vì sao chép chuỗi vào catalog thủ công. Xem [lệnh extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/extract.md).
@@ -460,7 +456,6 @@ Không. Chạy `npx intlayer extract` và Intlayer sẽ đọc các tệp nguồ
 Đối với quy trình làm việc hoàn toàn tự động, [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/compiler.md) thực hiện việc tương tự trong quá trình build trên mã JSX, TSX, Vue và Svelte, tạo từ điển trên mỗi thay đổi mà không cần quản lý khóa thủ công.
 
 </Question>
-
 <Question title="Có những công cụ editor và AI agent nào có sẵn?">
 
 Năm công cụ, tất cả đều là tùy chọn:
@@ -472,43 +467,36 @@ Năm công cụ, tất cả đều là tùy chọn:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/eslint.md)**: quy tắc `no-raw-text` phát hiện các chuỗi chưa được bản địa hóa.
 
 </Question>
-
 <Question title="Những nội dung nào nên đưa lên CMS?">
 
 Nội dung thường xuyên thay đổi và không gắn liền với chu kỳ phát hành mã: văn bản trang đích (landing page), bảng giá, thông báo, banner khuyến mãi và các bài viết blog.
 
 </Question>
-
 <Question title="Điều gì xảy ra nếu không thể kết nối tới CMS?">
 
 Ứng dụng sẽ tự động chuyển về khai báo từ điển cục bộ trong codebase, đảm bảo sự cố mạng không bao giờ hiển thị trang trống cho người dùng.
 
 </Question>
-
 <Question title="Tôi có thể tự lưu trữ (self-host) CMS không?">
 
 Có. CMS có thể chạy trên cơ sở hạ tầng của chính bạn cho các nhu cầu mà nội dung không được phép ra khỏi mạng nội bộ. Xem [hướng dẫn self-hosting](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/self_hosting.md).
 
 </Question>
-
 <Question title="Biên tập viên nội dung có cần nhà phát triển để xuất bản các thay đổi không?">
 
 Không. Đó là mục đích chính của từ điển từ xa: biên tập viên thay đổi văn bản trên CMS và nhờ tính năng đồng bộ trực tiếp (live sync), trang web hiển thị cập nhật ngay tức thì.
 
 </Question>
-
 <Question title="Tôi có thể tự động hóa CMS thay vì dùng giao diện người dùng không?">
 
 Có. SDK `@intlayer/api` cung cấp các endpoint tương tự như giao diện, cho phép bạn đọc project, lấy từ điển và tự động hóa việc xuất bản thông qua script.
 
 </Question>
-
 <Question title="CMS có hỗ trợ thử nghiệm A/B cho các bản dịch không?">
 
 Có. Từ điển từ xa hỗ trợ [biến thể nội dung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dynamic_dictionaries/index.md), cho phép bạn thử nghiệm các phiên bản văn bản khác nhau cho các nhóm người dùng khác nhau.
 
 </Question>
-
 <Question title="CMS có miễn phí không?">
 
 Thư viện Intlayer, CLI, compiler, và visual editor hoàn toàn miễn phí và mã nguồn mở theo giấy phép Apache 2.0. CMS cloud là dịch vụ có phí, nhưng phiên bản self-host có thể chạy miễn phí trên server của chính bạn.

@@ -72,7 +72,6 @@ S Intlayer můžete:
 ## Průvodce krok za krokem k nastavení Intlayer v aplikaci Vite a Lit
 
 <Steps>
-
 <Step number={1} title="Instalace závislostí">
 
 Nainstalujte potřebné balíčky pomocí npm:
@@ -128,7 +127,6 @@ bun add vite-intlayer --dev
   Obsahuje plugin Vite pro integraci Intlayer s [bundlerem Vite](https://vite.dev/guide/why.html#why-bundle-for-production), stejně jako middleware pro detekci preferovaného jazyka uživatele, správu cookies a zpracování přesměrování URL.
 
 </Step>
-
 <Step number={2} title="Konfigurace vašeho projektu">
 
 Vytvořte konfigurační soubor pro nastavení jazyků vaší aplikace:
@@ -154,7 +152,6 @@ export default config;
 > Prostřednictvím tohoto konfiguračního souboru můžete nastavit lokalizované URL, přesměrování middleware, názvy cookies, umístění a příponu vašich deklarací obsahu, zakázat logy Intlayer v konzoli a další. Pro kompletní seznam dostupných parametrů se podívejte do [dokumentace konfigurace](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrujte Intlayer do vaší konfigurace Vite">
 
 Přidejte plugin intlayer do své konfigurace.
@@ -178,7 +175,6 @@ export default defineConfig({
 > Plugin Vite `intlayer()` se používá k integraci Intlayer s Vite. Zajišťuje sestavení souborů s deklarací obsahu a sleduje je ve vývojovém režimu. Definuje proměnné prostředí Intlayer v rámci aplikace Vite. Navíc poskytuje aliasy pro optimalizaci výkonu.
 
 </Step>
-
 <Step number={4} title="Spuštění Intlayer ve vašem vstupním bodě">
 
 Zavolejte `installIntlayer()` **před** registrací jakýchkoli vlastních elementů, aby byl globální singleton jazyka připraven, když se první element připojí.
@@ -205,7 +201,6 @@ import "./my-element.js";
 ```
 
 </Step>
-
 <Step number={5} title="Deklarujte svůj obsah">
 
 Vytvořte a spravujte své deklarace obsahu pro uložení překladů:
@@ -293,7 +288,6 @@ export default appContent;
 > Pro více informací se podívejte do [dokumentace deklarace obsahu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Využijte Intlayer ve vašem LitElementu">
 
 Použijte `useIntlayer` uvnitř `LitElement`. Vrací proxy `ReactiveController`, který automaticky spouští nové vykreslení pokaždé, když se změní aktivní jazyk - není vyžadováno žádné další nastavení.
@@ -340,7 +334,6 @@ export class MyElement extends LitElement {
 > ```
 
 </Step>
-
 <Step number={7} title="Změňte jazyk svého obsahu" isOptional={true}>
 
 Chcete-li změnit jazyk svého obsahu, použijte metodu `setLocale` vystavenou kontrolerem `useLocale`.
@@ -377,7 +370,6 @@ export class LocaleSwitcher extends LitElement {
 ```
 
 </Step>
-
 <Step number={8} title="Renderování Markdownu a HTML obsahu" isOptional={true}>
 
 Intlayer podporuje deklarace obsahu `md()` a `html()`. V Lit je zkompilovaný výstup vložen jako surové HTML prostřednictvím direktivy `unsafeHTML`.
@@ -429,7 +421,6 @@ export class MyElement extends LitElement {
 > `String(content.editNote)` zavolá `toString()` na `IntlayerNode`, což vrátí surový řetězec Markdownu. Předejte ho do `compileMarkdown`, abyste získali HTML řetězec, a poté jej vyrenderujte pomocí direktivy `unsafeHTML` z Lit.
 
 </Step>
-
 <Step number={9} title="Přidejte lokalizované směrování do své aplikace" isOptional={true}>
 
 Chcete-li vytvořit jedinečné trasy pro každý jazyk (užitečné pro SEO), můžete použít router na straně klienta spolu s pomocníky Intlayer `localeMap` / `localeFlatMap` a pluginem Vite `intlayerProxy` pro detekci jazyka na straně serveru.
@@ -448,7 +439,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={10} title="Změňte URL, když se změní jazyk" isOptional={true}>
 
 Chcete-li aktualizovat URL prohlížeče, když se změní jazyk, použijte `useRewriteURL` spolu s přepínačem jazyka:
@@ -488,7 +478,6 @@ export class LocaleSwitcher extends LitElement {
 ```
 
 </Step>
-
 <Step number={11} title="Přepínání atributů jazyka a směru HTML" isOptional={true}>
 
 Aktualizujte atributy `lang` a `dir` tagu `<html>`, aby odpovídaly aktuálnímu jazyku kvůli přístupnosti a SEO.
@@ -515,7 +504,6 @@ export class MyElement extends LitElement {
 ```
 
 </Step>
-
 <Step number={12} title="Extrahuje obsah vašich komponent" isOptional={true}>
 
 Pokud máte existující kódovou základnu, transformace tisíců souborů může být časově náročná.

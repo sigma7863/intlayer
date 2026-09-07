@@ -70,7 +70,6 @@ Intlayer пропонує широкий набір **просунутих фу�
 ## Покроковий посібник із налаштування Intlayer з react-i18next
 
 <Steps>
-
 <Step number={1} title="Встановлення залежностей">
 
 Встановіть необхідні пакети:
@@ -117,7 +116,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Плагін для експорту декларацій контенту Intlayer у JSON-формат, сумісний з react-i18next
 
 </Step>
-
 <Step number={2} title="Реалізуйте плагін Intlayer для обгортання JSON">
 
 Створіть файл конфігурації Intlayer, щоб визначити підтримувані локалі:
@@ -155,7 +153,6 @@ export default config;
 Щоб дізнатися більше про плагін `syncJSON`, будь ласка, див. [документацію плагіна syncJSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="Налаштування AI-провайдера">
 
 Intlayer відкриває набір просунутих автоматизацій і функцій, орієнтованих на розробника, для вашого i18next workflow.

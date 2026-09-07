@@ -55,7 +55,6 @@ Intlayerは優れた単独のi18nソリューションを提供します（[Next
 ## next-i18nextとIntlayerをセットアップするステップバイステップガイド
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 お好みのパッケージマネージャーを使って必要なパッケージをインストールします:
@@ -102,7 +101,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Intlayerのコンテンツ宣言をi18nextのJSON形式に同期するプラグイン
 
 </Step>
-
 <Step number={2} title="JSONをラップするためのIntlayerプラグインを実装する">
 
 サポートするロケールを定義するためのIntlayer設定ファイルを作成します:

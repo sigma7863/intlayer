@@ -275,19 +275,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
 Да. Intlayer поддерживает режим `search-params` и определение языка по cookies/заголовкам без изменения структуры папок.
 
 </Question>
-
 <Question title="Нужно ли вручную заменять все строки в проекте?">
 
 Нет. Утилита `npx intlayer extract` или компилятор Intlayer автоматически извлекают текст.
 
 </Question>
-
 <Question title="Почему бандл Intlayer меньше, чем у next-intl?">
 
 Благодаря модульной декларации по компонентам и макро-оптимизации во время сборки.
 
 </Question>
-
 <Question title="Можно ли использовать ИИ для перевода существующих компонентов?">
 
 Да, команда `npx intlayer fill` использует LLM для контекстного перевода на любые языки.

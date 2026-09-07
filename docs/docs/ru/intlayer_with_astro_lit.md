@@ -70,37 +70,31 @@ author: aymericzip
 Intlayer оптимизирован для идеальной работы с Astro, предлагая **многоязычную маршрутизацию**, **карту сайта** и все функции, необходимые для масштабирования интернационализации (i18n).
 
 </Accordion>
-
 <Accordion header="Размер бандла">
 
 Вместо загрузки огромных файлов JSON на свои страницы загружайте только необходимый контент. Intlayer помогает **уменьшить размер бандла и страниц до 50 %**.
 
 </Accordion>
-
 <Accordion header="Удобство обслуживания">
 
 Определение области содержимого вашего приложения **облегчает обслуживание** крупномасштабных приложений. Вы можете дублировать или удалить отдельную папку функций, не утруждав себя мысленным бременем проверки всей кодовой базы контента. Кроме того, Intlayer **полностью типизирован**, что обеспечивает точность вашего контента.
 
 </Accordion>
-
 <Accordion header="Агент ИИ">
 
 Совместное размещение контента **уменьшает контекст, необходимый** для моделей большого языка (LLM). Intlayer также поставляется с набором инструментов, таких как **CLI** для проверки отсутствия переводов,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, и **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/agent_skills.md)**, чтобы сделать работу разработчика (DX) еще более удобной для агентов ИИ.
 
 </Accordion>
-
 <Accordion header="Автоматизация">
 
 Используйте автоматизацию для перевода в своем конвейере CI/CD, используя LLM по вашему выбору за счет вашего поставщика ИИ. Intlayer также предлагает **компилятор** для автоматизации извлечения контента, а также [веб-платформу](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), которая помогает **переводить в фоновом режиме**.
 
 </Accordion>
-
 <Accordion header="Производительность">
 
 Подключение больших файлов JSON к компонентам может привести к проблемам с производительностью и реактивностью. Intlayer оптимизирует загрузку контента во время сборки (build time).
 
 </Accordion>
-
 <Accordion header="Масштабирование с помощью не-разработчиками">
 
 Intlayer — это больше, чем просто решение i18n. Он предоставляет **автономный [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** и **[полный CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, чтобы помочь вам управлять многоязычным контентом в **реальном времени**, упрощая сотрудничество с переводчиками, копирайтерами и другими членами команды. Контент может храниться локально и/или удаленно.
@@ -113,7 +107,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 Посмотреть [Шаблон приложения](https://github.com/aymericzip/intlayer-astro-template) на GitHub.
 
 <Steps>
-
 <Step number={1} title="Установка зависимостей">
 
 Установите необходимые пакеты с помощью вашего менеджера пакетов:
@@ -182,7 +175,6 @@ bun x intlayer init
   Официальная интеграция Astro, которая позволяет использовать кастомные элементы Lit на страницах Astro.
 
 </Step>
-
 <Step number={2} title="Настройка вашего проекта">
 
 Создайте конфигурационный файл для настройки языков вашего приложения:
@@ -208,7 +200,6 @@ export default config;
 > Через этот конфигурационный файл вы можете настроить локализованные URL, перенаправления middleware, названия куки, расположение и расширение ваших объявлений контента, отключить логи Intlayer в консоли и многое другое. Полный список доступных параметров см. в [документации по конфигурации](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/configuration.md).
 
 </Step>
-
 <Step number={3} title="Интеграция Intlayer в конфигурацию Astro">
 
 Добавьте плагин intlayer и интеграцию Lit в вашу конфигурацию.
@@ -231,7 +222,6 @@ export default defineConfig({
 > Интеграция `lit()` позволяет использовать кастомные элементы Lit на страницах Astro.
 
 </Step>
-
 <Step number={4} title="Объявление контента">
 
 Создавайте и управляйте объявлениями контента для хранения переводов:
@@ -265,7 +255,6 @@ export default litDemoContent;
 > Более подробную информацию см. в [документации по объявлению контента](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Использование контента в Astro">
 
 Вы можете использовать словари напрямую в файлах `.astro`, используя основные хелперы, экспортируемые из `intlayer`. Вам также следует добавить SEO-метаданные, такие как hreflang и канонические ссылки, на каждую страницу. Кастомный элемент Lit импортируется через клиентский `<script>` и размещается в теле страницы.
@@ -357,7 +346,6 @@ const { greeting } = getIntlayer("lit-demo", locale);
 > - **`search-param` или `no-prefix`:** Папка локали не нужна. Локаль обрабатывается через параметры поиска или куки.
 
 </Step>
-
 <Step number={6} title="Создание кастомного элемента Lit">
 
 Создайте кастомный элемент Lit. Вызовите `installIntlayer` в `connectedCallback` со свойством `locale`, определенным сервером, чтобы инициализировать синглтон Intlayer на клиенте.
@@ -438,7 +426,6 @@ customElements.define("lit-demo", LitDemo);
 > `useIntlayer` регистрируется как `ReactiveController`. Элемент автоматически перерисовывается при смене языка - дополнительная настройка не требуется.
 
 </Step>
-
 <Step number={7} title="Добавление переключателя языков">
 
 Переключатель языков встроен непосредственно в метод `render()` кастомного элемента Lit (показано в Шаге 6). Он использует `useLocale` из `lit-intlayer` и переходит по локализованному URL, когда пользователь выбирает новый язык:
@@ -486,7 +473,6 @@ override render() {
 > Использование `onLocaleChange` для перенаправления через `window.location.href` гарантирует посещение нового языкового URL, позволяя middleware Intlayer установить куки языка и запомнить предпочтение пользователя для будущих посещений.
 
 </Step>
-
 <Step number={8} title="Sitemap и Robots.txt">
 
 Intlayer предоставляет утилиты для динамического создания локализованных карт сайта и файлов robots.txt.
@@ -548,7 +534,6 @@ export const GET: APIRoute = ({ site }) => {
 ```
 
 </Step>
-
 <Step number={15} title="Извлечение содержимого ваших компонентов" isOptional={true}>
 
 Если у вас есть существующая кодовая база, преобразование тысяч файлов может занять много времени.
@@ -719,25 +704,21 @@ Intlayer использует расширение модулей, чтобы в
 Объявить надпись один раз и использовать её и на статической странице, и в интерактивном острове - вот причина выбрать здесь единый слой контента. См. [почему Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Насколько i18n увеличивает размер бандла моего Astro?">
 
 Гораздо меньше, чем при подходе на основе пространств имён, потому что страница никогда не загружает каталог, который не отображает. Страницы Astro рендерятся во время сборки, поэтому они поставляют переведённый HTML и вообще никакого словаря; словарь получают только острова. Компилятор во время сборки разрешает вызовы контента в точные записи, которые использует компонент, а [динамические словари](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dynamic_dictionaries/index.md) разделяют остальное по локалям. По сравнению с обычными альтернативами Intlayer сокращает размер бандла и страницы до 50%. См. [оптимизацию бандла](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/bundle_optimization.md) и [бенчмарк](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/benchmark/index.md).
 
 </Question>
-
 <Question title="Могу ли я мигрировать с `@lit/localize`, не переписывая свои компоненты?">
 
 В значительной степени. Следуйте [обзору адаптеров совместимости](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/compat/index.md), чтобы перенести контент. Вы также можете мигрировать постепенно: [плагин синхронизации JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/plugins/sync-json.md) сохраняет ваши существующие каталоги JSON как источник истины и генерирует из них словари Intlayer, поэтому оба слоя остаются синхронизированными, пока вы переносите компоненты по одному.
 
 </Question>
-
 <Question title="Могу ли я сохранить свои существующие файлы переводов JSON?">
 
 Да. [Плагин синхронизации JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/plugins/sync-json.md) сохраняет ваши файлы `/messages/{locale}/{namespace}.json` как источник истины и генерирует из них словари Intlayer, в обоих направлениях. [Плагин синхронизации PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/plugins/sync-po.md) делает то же самое для каталогов gettext, а [файлы по локали](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/per_locale_file.md) позволяют разделить контент по языкам вместо группировки локалей в одном файле.
 
 </Question>
-
 <Question title="Должен ли я переносить свой контент ключ за ключом?">
 
 Нет. Запустите `npx intlayer extract`, и Intlayer прочитает ваши компоненты, извлечёт строки, видимые пользователю, и запишет файл `.content` рядом с каждым из них, так что вы просматриваете diff вместо копирования строк в каталог по одной. Шаг 15 этого руководства проводит вас через это.
@@ -747,7 +728,6 @@ Intlayer использует расширение модулей, чтобы в
 Стоит знать о двух ограничениях, прежде чем включать компилятор. Он работает через статический анализ, поэтому строки, существующие только во время выполнения, такие как коды ошибок API или поля CMS, остаются недоступными. И ему нужно отличать текст, видимый пользователю, от логики приложения вроде `className="active"` или кода статуса, что требует нескольких аннотаций в большой кодовой базе. [Команда extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/cli/extract.md) избегает обоих ограничений, оставляя вас в процессе.
 
 </Question>
-
 <Question title="Какие инструменты для редактора и ИИ-агентов доступны?">
 
 Пять компонентов, все опциональные:
@@ -759,55 +739,46 @@ Intlayer использует расширение модулей, чтобы в
 - **[Плагин ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/eslint.md)**: `no-raw-text` помечает жёстко закодированные строки, с дополнительными правилами для статических ключей словаря и неиспользуемого контента.
 
 </Question>
-
 <Question title="Нужна ли мне отдельная библиотека i18n внутри моего острова Lit?">
 
 Нет. `lit-intlayer` читает те же словари, что и сторона Astro, поэтому вы не устанавливаете `@lit/localize` рядом с ним. Шаг 6 показывает компонент острова, получающий активную локаль от страницы, а не разрешающий её снова.
 
 </Question>
-
 <Question title="Как остров узнаёт, в какой локали отображается страница?">
 
 Страница Astro передаёт её вниз как проп, а провайдер Intlayer в острове её подхватывает, поэтому остров гидратируется на том же языке, что отрендерил сервер. Именно это предотвращает вспышку языка по умолчанию, которую вы получаете, когда остров определяет локаль сам в браузере.
 
 </Question>
-
 <Question title="Поставляется ли переведённый контент как статический HTML?">
 
 Да для частей Astro, которые рендерятся во время сборки, поэтому локализованные страницы - это обычный статический HTML, который краулеры читают без выполнения JavaScript. Только острова получают словарь, и только для той локали, которую они отображают.
 
 </Question>
-
 <Question title="Как настроить локализованную маршрутизацию и переключатель локали?">
 
 Шаг 7 охватывает переключатель. `routing.mode` решает схему URL: `"prefix-no-default"` (по умолчанию, `/about` и `/fr/about`), `"prefix-all"`, `"no-prefix"` или `"search-params"`, а `routing.domains` сопоставляет локаль с её собственным доменом. `getLocalizedUrl` переписывает текущий путь, поэтому переключение языка оставляет читателя на той же странице. См. [справочник по конфигурации](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/configuration.md).
 
 </Question>
-
 <Question title="Как сгенерировать локализованную карту сайта и теги hreflang?">
 
 Шаг 8 охватывает `sitemap.xml` и `robots.txt`. `getMultilingualUrls` строит альтернативы для каждой объявленной локали, включая `x-default`, что и используют поисковые системы для обслуживания правильной языковой версии.
 
 </Question>
-
 <Question title="Как автоматически перевести сайт с помощью ИИ?">
 
 Запустите `npx intlayer fill`. Она заполняет недостающие переводы с помощью выбранной вами LLM, используя ваш собственный провайдер и API-ключ, а `--git-diff` ограничивает запуск контентом, изменённым в ветке. См. [команду fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/cli/fill.md) и [интеграцию CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/CI_CD.md).
 
 </Question>
-
 <Question title="Поддерживает ли Intlayer множественное число, род и форматированный текст?">
 
 Да: [формы множественного числа](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/plurial.md), [контент на основе рода](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/gender.md), условия, [вставки](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/markdown.md) для длинного текста и [форматтеры](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/formatters.md) для чисел, дат и валют.
 
 </Question>
-
 <Question title="Как переводчики могут редактировать контент, не касаясь кода?">
 
 Через [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_visual_editor.md), который работает на вашей собственной инфраструктуре и позволяет любому редактировать текст на месте в работающем приложении, или [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_CMS.md), которая выносит контент вовне, чтобы он мог меняться без развёртывания.
 
 </Question>
-
 <Question title="Является ли Intlayer бесплатным и с открытым исходным кодом?">
 
 Да, по лицензии Apache 2.0, включая коммерческое использование. Размещённая CMS - это необязательный платный сервис, который также можно [разместить самостоятельно](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/self_hosting.md).

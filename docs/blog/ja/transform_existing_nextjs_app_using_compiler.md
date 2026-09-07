@@ -275,19 +275,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
 はい。Intlayerは`routing.mode: "search-params"`やCookie/Header検出に対応しており、既存のフォルダ構造とURLを完全に保てます。
 
 </Question>
-
 <Question title="既存コード内の文字列を手動で置き換える必要がありますか？">
 
 いいえ。`npx intlayer extract`またはIntlayerコンパイラにより、自動的に抽出・管理されます。
 
 </Question>
-
 <Question title="next-intlと比較してIntlayerはどうやってバンドルサイズを削減していますか？">
 
 コンポーネント単位の辞書定義とビルド時マクロにより、画面に必要な翻訳データのみがクライアントに送られます。
 
 </Question>
-
 <Question title="AIを使って既存コンポーネントを複数言語に自動翻訳できますか？">
 
 はい。`npx intlayer fill`コマンドを実行することで、主要なLLMと連携して文脈に合った翻訳を自動生成できます。

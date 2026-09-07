@@ -68,37 +68,31 @@ author: aymericzip
 Intlayer, **Web Bileşeni düzeyinde içerik kapsamı**, **TypeScript desteği** ve ölçeklendirme uluslararasılaştırması (i18n) için gereken tüm özellikleri sunarak Lit ile mükemmel çalışacak şekilde optimize edilmiştir.
 
 </Accordion>
-
 <Accordion header="Bundle boyutu">
 
 Sayfalarınıza çok büyük JSON dosyaları yüklemek yerine yalnızca gerekli içeriği yükleyin. Intlayer **bundle ve sayfa boyutlarınızı %50'ye kadar azaltmanıza** yardımcı olur.
 
 </Accordion>
-
 <Accordion header="Sürdürülebilirlik">
 
 Uygulamanızın içeriğinin kapsamını belirlemek, büyük ölçekli uygulamalar için **bakımı kolaylaştırır**. İçerik kod tabanınızın tamamını gözden geçirmenin zihinsel yükü olmadan, tek bir özellik klasörünü çoğaltabilir veya silebilirsiniz. Ayrıca Intlayer, içeriğinizin doğruluğunu sağlamak için **tamamen tiplendirilmiş (fully typed)tır**.
 
 </Accordion>
-
 <Accordion header="Yapay Zeka Temsilcisi">
 
 İçeriğin bir arada konumlandırılması **Büyük Dil Modellerinin (LLM'ler) ihtiyaç duyduğu bağlamı azaltır**. Intlayer ayrıca eksik çevirileri test etmek için **CLI** gibi bir araç paketiyle birlikte gelir**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** ve **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/agent_skills.md)**, geliştirici deneyimini (DX) yapay zeka için daha da sorunsuz hale getirmek için ajanlar.
 
 </Accordion>
-
 <Accordion header="Otomasyon">
 
 Maliyeti AI sağlayıcınıza ait olmak üzere seçtiğiniz LLM'yi kullanarak CI/CD işlem hattınızda çeviri yapmak için otomasyonu kullanın. Intlayer ayrıca içerik çıkarmayı otomatikleştirmek için bir **derleyici** ve **arka planda çeviri yapmaya** yardımcı olacak bir [web platformu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) sunar.
 
 </Accordion>
-
 <Accordion header="Performans">
 
 Büyük JSON dosyalarını bileşenlere bağlamak performans ve tepkime sorunlarına yol açabilir. Intlayer, içerik yüklemenizi derleme sırasında optimize eder.
 
 </Accordion>
-
 <Accordion header="Non-dev ile ölçeklendirme">
 
 Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barındırılan bir [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** ve **[tam CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** çok dilli içeriğinizi **gerçek zamanlı** olarak yönetmenize yardımcı olarak çevirmenler, metin yazarları ve diğer ekip üyeleriyle işbirliğini kusursuz hale getirir. İçerik yerel olarak ve/veya uzaktan depolanabilir.
@@ -111,7 +105,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 ## Vite ve Lit Uygulamasında Intlayer Kurulumu İçin Adım Adım Kılavuz
 
 <Steps>
-
 <Step number={1} title="Bağımlılıkları Yükleyin">
 
 Gerekli paketleri npm kullanarak yükleyin:
@@ -167,7 +160,6 @@ bun add vite-intlayer --dev
   Intlayer'ı [Vite paketleyici](https://vite.dev/guide/why.html#why-bundle-for-production) ile entegre etmek için Vite eklentisini ve kullanıcının tercih ettiği dili algılamayı, çerezleri yönetmeyi ve URL yönlendirmesini işlemeyi sağlayan ara yazılımı içerir.
 
 </Step>
-
 <Step number={2} title="Projenizin Yapılandırılması">
 
 Uygulamanızın dillerini yapılandırmak için bir yapılandırma dosyası oluşturun:
@@ -193,7 +185,6 @@ export default config;
 > Bu yapılandırma dosyası aracılığıyla, yerelleştirilmiş URL'ler, ara yazılım yönlendirmesi, çerez adları, içerik bildirimlerinizin konumu ve uzantısı, konsoldaki Intlayer günlüklerini devre dışı bırakma ve daha fazlasını ayarlayabilirsiniz. Kullanılabilir parametrelerin tam listesi için [yapılandırma belgelerine](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) bakın.
 
 </Step>
-
 <Step number={3} title="Intlayer'ı Vite Yapılandırmanıza Entegre Edin">
 
 Yapılandırmanıza intlayer eklentisini ekleyin.
@@ -217,7 +208,6 @@ export default defineConfig({
 > `intlayer()` Vite eklentisi, Intlayer'ı Vite ile entegre etmek için kullanılır. İçerik bildirimi dosyalarının oluşturulmasını sağlar ve bunları geliştirme modunda izler. Vite uygulaması içinde Intlayer ortam değişkenlerini tanımlar. Ayrıca performansı optimize etmek için takma adlar (aliases) sağlar.
 
 </Step>
-
 <Step number={4} title="Giriş Noktasında Intlayer'ı Başlatın">
 
 Herhangi bir özel öğe kaydedilmeden **önce** `installIntlayer()` işlevini çağırın, böylece ilk öğe bağlandığında küresel dil tekili hazır olur.
@@ -244,7 +234,6 @@ import "./my-element.js";
 ```
 
 </Step>
-
 <Step number={5} title="İçeriğinizi Bildirin">
 
 Çevirileri saklamak için içerik bildirimlerinizi oluşturun ve yönetin:
@@ -332,7 +321,6 @@ export default appContent;
 > Daha fazla ayrıntı için [içerik bildirimi belgelerine](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/content_file.md) bakın.
 
 </Step>
-
 <Step number={6} title="LitElement'inizde Intlayer'ı Kullanın">
 
 Bir `LitElement` içinde `useIntlayer` kullanın. Aktif dil değiştiğinde otomatik olarak yeniden oluşturma işlemini tetikleyen bir `ReactiveController` proxy'si döndürür - ekstra kurulum gerekmez.
@@ -379,7 +367,6 @@ export class MyElement extends LitElement {
 > ```
 
 </Step>
-
 <Step number={7} title="İçeriğinizin Dilini Değiştirin" isOptional={true}>
 
 İçeriğinizin dilini değiştirmek için `useLocale` denetleyicisi tarafından sunulan `setLocale` yöntemini kullanın.
@@ -416,7 +403,6 @@ export class LocaleSwitcher extends LitElement {
 ```
 
 </Step>
-
 <Step number={8} title="Markdown ve HTML İçeriğini Oluşturun" isOptional={true}>
 
 Intlayer `md()` ve `html()` içerik bildirimlerini destekler. Lit'te, derlenmiş çıktı `unsafeHTML` yönergesi aracılığıyla ham HTML olarak enjekte edilir.
@@ -468,7 +454,6 @@ export class MyElement extends LitElement {
 > `String(content.editNote)`, `IntlayerNode` üzerinde ham Markdown dizesini döndüren `toString()` işlevini çağırır. Bir HTML dizesi almak için bunu `compileMarkdown` işlevine geçirin, ardından Lit'in `unsafeHTML` yönergesiyle oluşturun.
 
 </Step>
-
 <Step number={9} title="Uygulamanıza Yerelleştirilmiş Yönlendirme Ekleyin" isOptional={true}>
 
 Her dil için benzersiz rotalar oluşturmak (SEO için yararlıdır), Intlayer'ın `localeMap` / `localeFlatMap` yardımcılarını ve sunucu tarafı dil algılama için `intlayerProxy` Vite eklentisini içeren bir istemci tarafı yönlendirici kullanabilirsiniz.
@@ -489,7 +474,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={10} title="Dil Değiştiğinde URL'yi Değiştirin" isOptional={true}>
 
 Dil değiştiğinde tarayıcı URL'sini güncellemek için dil değiştiriciyle birlikte `useRewriteURL` kullanın:
@@ -529,7 +513,6 @@ export class LocaleSwitcher extends LitElement {
 ```
 
 </Step>
-
 <Step number={11} title="HTML Dil ve Yön Özniteliklerini Değiştirin" isOptional={true}>
 
 Erişilebilirlik ve SEO için `<html>` etiketinin `lang` ve `dir` özniteliklerini geçerli dille eklenecek şekilde güncelleyin.
@@ -556,7 +539,6 @@ export class MyElement extends LitElement {
 ```
 
 </Step>
-
 <Step number={12} title="Bileşenlerinizin İçeriğini Çıkarın" isOptional={true}>
 
 Mevcut bir kod tabanınız varsa, binlerce dosyayı dönüştürmek zaman alıcı olabilir.
@@ -736,25 +718,21 @@ Vite'ın i18n konusunda özel bir tercihi yoktur, bu nedenle seçenekler Lit eko
 Bkz. [neden Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="i18n Lit paket boyutuma ne kadar ekler?">
 
 Ad alanı tabanlı bir yapılandırmaya kıyasla çok daha az, çünkü bir sayfa render etmediği bir kataloğu asla indirmez. Derleme zamanı derleyicisi `useIntlayer` çağrılarını bileşenin kullandığı kesin sözlük girişleriyle değiştirir ve [dinamik sözlükler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dynamic_dictionaries/index.md) geri kalanını yerel başına böler. Intlayer paket boyutunu %50'ye kadar azaltır. Bkz. [paket optimizasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/bundle_optimization.md) ve [kıyaslama](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/benchmark/index.md).
 
 </Question>
-
 <Question title="@lit/localize'dan öğelerimi yeniden yazmadan geçiş yapabilir miyim?">
 
 Büyük ölçüde evet. İçeriği taşımak için [uyumluluk adaptörleri genel bakışını](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/compat/index.md) izleyin.
 
 </Question>
-
 <Question title="Mevcut JSON çeviri dosyalarımı koruyabilir miyim?">
 
 Evet. [sync JSON eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-json.md), `/messages/{locale}/{namespace}.json` dosyalarınızı doğruluk kaynağı olarak tutar ve her iki yönde Intlayer sözlükleri üretir. [sync PO eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-po.md) gettext katalogları için aynısını yapar ve [yerel başına dosyalar](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/per_locale_file.md), yerelleri tek bir dosyada gruplamak yerine içeriği dile göre ayırmanıza olanak tanır.
 
 </Question>
-
 <Question title="İçeriğimi anahtar anahtar taşımak zorunda mıyım?">
 
 Hayır. `npx intlayer extract` komutunu çalıştırın; Intlayer bileşenlerinizi okur, kullanıcıya dönük dizeleri çıkarır ve her birinin yanına bir `.content` dosyası yazar, böylece dizeleri tek tek kopyalamak yerine bir diff incelersiniz.
@@ -764,7 +742,6 @@ Tam otomatik bir süreç için [Intlayer Compiler](https://github.com/aymericzip
 Derleyiciyi açmadan önce bilmeye değer iki sınır vardır. Statik analiz ile çalışır, bu nedenle API hata kodları veya CMS alanları gibi yalnızca çalışma zamanında var olan dizeler ulaşılamaz kalır. Ayrıca, `className="active"` veya durum kodu gibi uygulama mantığından kullanıcıya yönelik metinleri ayırt etmesi gerekir; bu da büyük bir kod tabanında birkaç ek açıklama gerektirir. [Extract komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/extract.md) sizi döngüde tutarak her ikisinden de kaçınır.
 
 </Question>
-
 <Question title="Hangi editör ve AI aracı araçları mevcuttur?">
 
 Beş araç, hepsi isteğe bağlı:
@@ -776,55 +753,46 @@ Beş araç, hepsi isteğe bağlı:
 - **[ESLint eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/eslint.md)**: `no-raw-text` kuralı doğrudan kodlanmış metinleri işaretler.
 
 </Question>
-
 <Question title="Lit bileşeninde çevrilmiş içeriği nasıl kullanırım?">
 
 Adım 6'nın gösterdiği gibi, `LitElement` render yönteminizin içindeki içeriği Intlayer bağlaması aracılığıyla okuyun. Yereli değiştirmek, onu okuyan öğelerin güncellenmesini tetikler, bu nedenle dil değiştirme sayfanın yeniden yüklenmesini gerektirmez.
 
 </Question>
-
 <Question title="Intlayer, Vite geliştirme sunucusu ve HMR ile çalışır mı?">
 
 Evet. Vite eklentisi `.content.ts` dosyalarınızı izler ve kaydettiğinizde sözlükleri yeniden derler, böylece değişiklikler geliştirme sunucusunu yeniden başlatmadan görünür.
 
 </Question>
-
 <Question title="Yerelleştirilmiş yönlendirmeyi nasıl kurarım?">
 
 Bu kılavuzdaki adımlar yerelleştirilmiş rotaları ve dil değiştiğinde URL'nin yeniden yazılmasını kapsar. `routing.mode` ayarı URL şemasını belirler: `"prefix-no-default"` (varsayılan: `/about` ve `/tr/about`), `"prefix-all"`, `"no-prefix"` veya `"search-params"`. Bkz. [yapılandırma referansı](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md).
 
 </Question>
-
 <Question title="Arapça veya İbranice gibi sağdan sola dilleri nasıl desteklerim?">
 
 `getHTMLTextDir` bir yerel için `ltr`, `rtl` veya `auto` döndürür; böylece aktif yerelden kök öğede `lang` ve `dir` bağlayabilir ve CSS mantıksal özelliklerinizin gerisini halletmesine izin verebilirsiniz.
 
 </Question>
-
 <Question title="İstemci tarafında render edilen Vite uygulamasında SEO meta verilerini nasıl yönetirim?">
 
 Aktif yerelden `html` öğesinde `lang` ve `dir` ayarlayın ve `getMultilingualUrls` ile her bildirilen yerel için `hreflang` alternatifleri yayınlayın. Güvenilir şekilde taranması gereken sayfalar için önceden render edilmiş veya SSR kurulumunu tercih edin.
 
 </Question>
-
 <Question title="Uygulamayı AI ile otomatik olarak nasıl çevirebilirim?">
 
 `npx intlayer fill` komutunu çalıştırın. Eksik çevirileri seçtiğiniz LLM ile kendi sağlayıcınız ve API anahtarınızı kullanarak tamamlar ve `--git-diff` işlemi daldaki değişikliklerle sınırlar. Bkz. [fill komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/fill.md) ve [CI/CD entegrasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer çoğulları, cinsiyeti ve zengin metni (rich text) destekliyor mu?">
 
 Evet: [çoğul biçimleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/plurial.md), [cinsiyete dayalı içerik](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/gender.md), koşullar, [eklemeler (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/markdown.md) ve [biçimlendiriciler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/formatters.md).
 
 </Question>
-
 <Question title="Çevirmenler koda dokunmadan içeriği nasıl düzenleyebilir?">
 
 Kendi altyapınızda çalışan ve herkesin metinleri çalışan uygulamada yerinde düzenlemesine olanak tanıyan [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) veya içeriği kod dağıtımı olmadan güncellenebilecek şekilde dışsallaştıran [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) aracılığıyla.
 
 </Question>
-
 <Question title="Intlayer ücretsiz ve açık kaynaklı mı?">
 
 Evet, ticari kullanım dahil Apache 2.0 lisansı altındadır. Barındırılan CMS isteğe bağlı ücretli bir hizmettir ve ayrıca [kendi sunucunuzda barındırılabilir (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/self_hosting.md).

@@ -339,19 +339,16 @@ console.log("SEO 文件生成完毕。");
 可以。您可以运行 `npx intlayer extract` 自动检测并提取硬编码字符串至本地化内容声明文件中，也可以使用 Intlayer 编译器在构建期间完成组件转换，日常开发依然书写标准 JSX。
 
 </Question>
-
 <Question title="相比 react-i18next 或 react-intl，Intlayer 如何减小 Vite 的打包体积？">
 
 Intlayer 采用单组件字典声明并在构建期进行宏优化。打包产物仅包含页面渲染所必需的文案字段，无需加载巨大的命名空间 JSON 文件。动态字典机制还能按需懒加载语言包。
 
 </Question>
-
 <Question title="我可以使用 AI 自动将现有组件翻译成多种语言吗？">
 
 可以。Intlayer CLI 提供了 `npx intlayer fill` 命令，可连接您偏好的主流 AI 提供商（OpenAI、Anthropic、Mistral、DeepSeek），自动为所有配置的目标语言生成精准且具语境感知能力的翻译。
 
 </Question>
-
 <Question title="是否可以在不重写组件代码的前提下从 react-i18next 或 react-intl 迁移？">
 
 可以。Intlayer 提供了面向 `react-i18next` 和 `react-intl` 的兼容适配器，并提供用于双向同步既有 JSON 翻译文件的插件 (`sync-json`)。

@@ -339,19 +339,16 @@ TypeScriptの厳格な型付け、動的辞書、ビジュアルエディタな�
 はい。`npx intlayer extract`を実行してハードコードされたテキストを自動抽出しローカライズ辞書を生成するか、Intlayerコンパイラを利用して通常のJSXを書きながらビルド時にコンポーネントを変換できます。
 
 </Question>
-
 <Question title="react-i18nextやreact-intlと比較して、IntlayerはどのようにViteのバンドルサイズを削減しますか？">
 
 Intlayerはコンポーネント単位で辞書を定義し、ビルド時のマクロ最適化を行います。巨大なJSONファイルを読み込むのではなく、表示中のコンポーネントに必要なデータのみがバンドルに含まれます。動的辞書機能により言語ごとの遅延読み込みも可能です。
 
 </Question>
-
 <Question title="AIを使って既存のコンポーネントを複数言語に自動翻訳できますか？">
 
 はい。Intlayer CLIの`npx intlayer fill`コマンドを使用すると、設定したAIプロバイダー（OpenAI、Anthropic、Mistral、DeepSeek）を通じて、プロジェクト全体の不足している言語翻訳を文脈に合わせて一括生成できます。
 
 </Question>
-
 <Question title="react-i18nextやreact-intlからコンポーネントを書き直さずに移行できますか？">
 
 はい。Intlayerは`react-i18next`や`react-intl`の互換アダプターを提供しており、既存のJSONファイルをそのまま同期するプラグイン（`sync-json`）も用意されています。

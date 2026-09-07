@@ -51,45 +51,34 @@ Dibandingkan dengan solusi utama seperti `react-i18next` atau `i18next`, Intlaye
 **Intlayer** adalah pustaka internasionalisasi (i18n) open-source yang inovatif, dirancang untuk menyederhanakan dukungan multibahasa dalam aplikasi web modern.
 
 </Accordion>
-
 <Accordion header="Ukuran bundle">
 
-Alih-alih memuat file JSON berukuran besar ke halaman Anda, muat hanya konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
+Daripada memuat file JSON berukuran besar ke halaman Anda, muat saja konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
+<Accordion header="Kemampuan Pemeliharaan">
 
-<Accordion header="Maintainability">
-
-Dengan Intlayer, Anda dapat:
-
-- **Kelola terjemahan dengan mudah** menggunakan kamus deklaratif di tingkat komponen.
-- **Lokalisisasi metadata**, rute, dan konten secara dinamis.
-- **Pastikan dukungan TypeScript** dengan tipe yang dihasilkan secara otomatis, meningkatkan autocompletion dan deteksi kesalahan.
-- **Manfaatkan fitur canggih**, seperti deteksi dan pergantian locale secara dinamis.
+Mencakup konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi berskala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **diketik sepenuhnya** untuk memastikan keakuratan konten Anda.
 
 </Accordion>
+<Accordion header="Agen AI">
 
-<Accordion header="AI Agent">
-
-Co-locating content **reduces the context needed** by Large Language Models (LLMs). Intlayer also comes with a suite of tools, such as a **CLI** to test for missing translations,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/mcp_server.md)**, and **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, to make the developer experience (DX) even smoother for AI agents.
-
-</Accordion>
-
-<Accordion header="Otomasi">
-
-Gunakan otomasi untuk menerjemahkan dalam pipeline CI/CD Anda menggunakan LLM pilihan Anda dengan biaya dari penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatisasi ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
+Menempatkan konten bersama **mengurangi konteks yang diperlukan** dengan Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk menjadikan pengalaman pengembang (DX) lebih lancar bagi agen AI.
 
 </Accordion>
+<Accordion header="Otomatisasi">
 
-<Accordion header="Kinerja">
-
-Menghubungkan file JSON besar ke komponen dapat menyebabkan masalah performa dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada saat build.
+Gunakan otomatisasi untuk menerjemahkan dalam saluran CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
+<Accordion header="Pertunjukan">
 
-<Accordion header="Scaling dengan none-dev">
+Menghubungkan file JSON berukuran besar ke komponen dapat menyebabkan masalah kinerja dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada waktu pembuatan.
 
-Lebih dari sekadar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md) yang self-hosted** dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi mulus. Konten dapat disimpan secara lokal dan/atau jarak jauh.
+</Accordion>
+<Accordion header="Menskalakan tanpa pengembang">
+
+Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** yang dihosting sendiri dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi lancar. Konten dapat disimpan secara lokal dan/atau jarak jauh.
 
 </Accordion>
 </AccordionGroup>
@@ -97,7 +86,6 @@ Lebih dari sekadar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer di Aplikasi React
 
 <Steps>
-
 <Step number={1} title="Instalasi Dependensi">
 
 Instal paket yang diperlukan menggunakan npm:
@@ -151,7 +139,6 @@ bun add intlayer react-intlayer react-scripts-intlayer
   Termasuk perintah `react-scripts-intlayer` dan plugin untuk mengintegrasikan Intlayer dengan aplikasi berbasis Create React App. Plugin ini berbasis pada [craco](https://craco.js.org/) dan mencakup konfigurasi tambahan untuk bundler [Webpack](https://webpack.js.org/).
 
 </Step>
-
 <Step number={2} title="Konfigurasi proyek Anda">
 
 Buat file konfigurasi untuk mengatur bahasa aplikasi Anda:
@@ -177,7 +164,6 @@ export default config;
 > Melalui file konfigurasi ini, Anda dapat mengatur URL yang dilokalkan, pengalihan middleware, nama cookie, lokasi dan ekstensi deklarasi konten Anda, menonaktifkan log Intlayer di konsol, dan lainnya. Untuk daftar lengkap parameter yang tersedia, lihat [dokumentasi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrasikan Intlayer dalam Konfigurasi CRA Anda">
 
 Ubah skrip Anda untuk menggunakan react-intlayer
@@ -193,7 +179,6 @@ Ubah skrip Anda untuk menggunakan react-intlayer
 > Skrip `react-scripts-intlayer` didasarkan pada [CRACO](https://craco.js.org/). Anda juga dapat mengimplementasikan pengaturan Anda sendiri berdasarkan plugin craco intlayer. [Lihat contoh di sini](https://github.com/aymericzip/intlayer/blob/main/examples/react-app/craco.config.js).
 
 </Step>
-
 <Step number={4} title="Deklarasikan Konten Anda">
 
 Buat dan kelola deklarasi konten Anda untuk menyimpan terjemahan:
@@ -243,7 +228,6 @@ export default appContent;
 > Jika file konten Anda menyertakan kode TSX, Anda harus mempertimbangkan untuk mengimpor `import React from "react";` di file konten Anda.
 
 </Step>
-
 <Step number={5} title="Gunakan Intlayer dalam Kode Anda">
 
 Akses kamus konten Anda di seluruh aplikasi Anda:
@@ -294,7 +278,6 @@ export default App;
 > Untuk mempelajari lebih lanjut tentang hook `useIntlayer`, lihat [dokumentasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/react-intlayer/useIntlayer.md).
 
 </Step>
-
 <Step number={6} title="Ubah bahasa konten Anda" isOptional={true}>
 
 Untuk mengubah bahasa konten Anda, Anda dapat menggunakan fungsi `setLocale` yang disediakan oleh hook `useLocale`. Fungsi ini memungkinkan Anda untuk mengatur locale aplikasi dan memperbarui konten sesuai dengan locale tersebut.
@@ -317,7 +300,6 @@ const LocaleSwitcher = () => {
 > Untuk mempelajari lebih lanjut tentang hook `useLocale`, lihat [dokumentasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/react-intlayer/useLocale.md).
 
 </Step>
-
 <Step number={7} title="Tambahkan Routing yang Dilokalkan ke aplikasi Anda" isOptional={true}>
 
 Tujuan dari langkah ini adalah untuk membuat rute unik untuk setiap bahasa. Ini berguna untuk SEO dan URL yang ramah SEO.
@@ -464,7 +446,6 @@ const App: FC = () => (
 ```
 
 </Step>
-
 <Step number={8} title="Ubah URL saat locale berubah" isOptional={true}>
 
 Untuk mengubah URL saat locale berubah, Anda dapat menggunakan properti `onLocaleChange` yang disediakan oleh hook `useLocale`. Secara paralel, Anda dapat menggunakan hook `useLocation` dan `useNavigate` dari `react-router-dom` untuk memperbarui path URL.
@@ -546,7 +527,6 @@ const LocaleSwitcher: FC = () => {
 > - [`atribut aria-current`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={9} title="Mengubah Atribut Bahasa dan Arah pada HTML" isOptional={true}>
 
 Ketika aplikasi Anda mendukung banyak bahasa, sangat penting untuk memperbarui atribut `lang` dan `dir` pada tag `<html>` agar sesuai dengan lokal saat ini. Melakukan hal ini memastikan:
@@ -617,7 +597,7 @@ Dengan menerapkan perubahan ini, aplikasi Anda akan:
 - Memastikan atribut **bahasa** (`lang`) mencerminkan locale saat ini dengan benar, yang penting untuk SEO dan perilaku browser.
 - Menyesuaikan **arah teks** (`dir`) sesuai dengan locale, meningkatkan keterbacaan dan kegunaan untuk bahasa dengan urutan baca yang berbeda.
 - Memberikan pengalaman yang lebih **aksesibel**, karena teknologi bantu bergantung pada atribut ini untuk berfungsi secara optimal.
-  </Step>
+</Step>
 
 </Steps>
 
@@ -684,25 +664,21 @@ Untuk melangkah lebih jauh, Anda dapat mengimplementasikan [editor visual](https
 Lihat [mengapa Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle React saya?">
 
 Jauh lebih sedikit daripada solusi berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen, dan [kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale, mengurangi bundle hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari react-i18next atau react-intl tanpa menulis ulang komponen?">
 
 Ya, ikuti panduan migrasi atau gunakan adapter kompatibilitas.
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu.
@@ -712,7 +688,6 @@ Untuk proses otomatis penuh, [Intlayer Compiler](https://github.com/aymericzip/i
 Dua batasan perlu diketahui sebelum Anda mengaktifkan compiler. Ini bekerja dengan analisis statis, jadi string yang hanya ada saat runtime, seperti kode kesalahan API atau field CMS, tetap berada di luar jangkauan. Dan ini harus membedakan teks yang dilihat pengguna dari logika aplikasi seperti `className="active"` atau kode status, yang memerlukan beberapa anotasi di basis kode yang besar. [Perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) menghindari keduanya dengan menjaga Anda tetap memegang kendali.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -724,49 +699,41 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Create React App sudah tidak dipelihara lagi. Haruskah saya beralih ke Vite terlebih dahulu?">
 
 Jika migrasi sudah direncanakan, lakukan terlebih dahulu dan ikuti [panduan Vite dan React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_vite+react.md). Jika belum, panduan ini tetap berjalan andal dan deklarasi konten tidak akan berubah antar-setup.
 
 </Question>
-
 <Question title="Bagaimana cara mengatur routing terlokalisasi di Create React App?">
 
 Untuk React Router, lihat [panduan React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_react_router_v7.md). Untuk aplikasi tanpa router, atur `routing.mode` ke `"no-prefix"` atau `"search-params"`.
 
 </Question>
-
 <Question title="Bagaimana cara mengelola metadata SEO di aplikasi React sisi klien?">
 
 Atur atribut `lang` dan `dir` pada elemen `html` dan terbitkan tautan `hreflang` menggunakan `getMultilingualUrls`.
 
 </Question>
-
 <Question title="Bagaimana cara mendukung bahasa dari kanan ke kiri seperti Arab atau Ibrani?">
 
 `getHTMLTextDir` mengembalikan `ltr`, `rtl`, atau `auto` untuk locale tertentu, sehingga Anda dapat mengikat `lang` dan `dir` pada elemen root dari locale aktif dan membiarkan properti logis CSS Anda menangani sisanya.
 
 </Question>
-
 <Question title="Bagaimana cara menerjemahkan aplikasi secara otomatis dengan AI?">
 
 Jalankan `npx intlayer fill`. Perintah ini mengisi terjemahan yang hilang menggunakan LLM pilihan Anda dengan provider dan API key Anda sendiri, dan `--git-diff` membatasi proses ke file yang diubah. Lihat [perintah fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/fill.md) dan [integrasi CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/CI_CD.md).
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung bentuk jamak, gender dan rich text?">
 
 Ya: [bentuk jamak (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/plurial.md), [konten berbasis gender](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/gender.md), kondisi, [penyisipan (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/markdown.md), dan [formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/formatters.md).
 
 </Question>
-
 <Question title="Bagaimana penerjemah dapat mengedit konten tanpa menyentuh kode?">
 
 Melalui [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md), yang memungkinkan siapa saja mengedit teks langsung di aplikasi yang berjalan, atau melalui [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md), yang memisahkan konten sehingga dapat diubah tanpa perlu redeploy kode.
 
 </Question>
-
 <Question title="Apakah Intlayer gratis dan open source?">
 
 Ya, di bawah lisensi Apache 2.0, termasuk penggunaan komersial. CMS yang di-host adalah layanan berbayar opsional yang juga dapat [di-host sendiri (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).

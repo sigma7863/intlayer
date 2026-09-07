@@ -32,7 +32,6 @@ author: aymericzip
 बड़ी JSON फाइलों को अपने पेजों में लोड करने के बजाय, केवल आवश्यक सामग्री लोड करें। Intlayer आपके बंडल और पेज आकारों को **50% तक कम करने में मदद करता है**।
 
 </Accordion>
-
 <Accordion header="रखरखाव">
 
 अपने एप्लिकेशन की सामग्री को स्कोप करना **बड़े पैमाने के एप्लिकेशन के लिए रखरखाव को सुविधाजनक बनाता है**। आप अपने पूरे सामग्री कोडबेस की समीक्षा की मानसिक बोझ के बिना एक भी फीचर फोल्डर को डुप्लिकेट या हटा सकते हैं। इसके अलावा, Intlayer **पूरी तरह से टाइप किया गया है** आपकी सामग्री की सटीकता सुनिश्चित करने के लिए।
@@ -40,25 +39,21 @@ author: aymericzip
 Intlayer भी i18n पारिस्थितिकी तंत्र में **सबसे सक्रिय विकास** के साथ समाधान है — समस्याएं तेजी से ठीक की जाती हैं, नई फ्रेमवर्क एडॉप्टर नियमित रूप से आती हैं, और मुख्य API को वास्तविक दुनिया के उत्पादन प्रतिक्रिया के आधार पर निरंतर परिष्कृत किया जाता है।
 
 </Accordion>
-
 <Accordion header="AI एजेंट">
 
 सामग्री को सह-स्थित करना **बड़ी भाषा मॉडल (LLM) द्वारा आवश्यक संदर्भ को कम करता है**। Intlayer साथ ही एक समूह के साथ आता है, जैसे कि **CLI** अनुपलब्ध अनुवादों के लिए परीक्षण करने के लिए, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/mcp_server.md)**, और **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/agent_skills.md)**, डेवलपर अनुभव (DX) को AI एजेंटों के लिए भी मसृण बनाने के लिए।
 
 </Accordion>
-
 <Accordion header="स्वचालन">
 
 अपनी पसंद के LLM का उपयोग करके CI/CD पाइपलाइन में अनुवाद करने के लिए स्वचालन का उपयोग करें आपके AI प्रदाता की लागत पर। Intlayer साथ ही एक **compiler** प्रदान करता है सामग्री निष्कर्षण को स्वचालित करने के लिए, साथ ही एक [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md) **पृष्ठभूमि में अनुवाद करने में मदद करने के लिए**।
 
 </Accordion>
-
 <Accordion header="कार्यक्षमता">
 
 बड़ी JSON फाइलों को घटकों से जोड़ने से कार्यक्षमता और प्रतिक्रिया समस्याएं हो सकती हैं। Intlayer बिल्ड समय पर आपकी सामग्री लोडिंग को अनुकूलित करता है।
 
 </Accordion>
-
 <Accordion header="गैर-dev के साथ स्केलिंग">
 
 केवल एक i18n समाधान से अधिक, Intlayer एक **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_visual_editor.md)** और एक **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md)** आपकी बहुभाषी सामग्री को प्रबंधित करने में मदद करने के लिए **वास्तविक समय में**, अनुवादक, कॉपीराइटर और अन्य टीम सदस्यों के साथ सहयोग को निर्बाध बनाता है। सामग्री स्थानीय रूप से और/या दूरस्थ रूप से संग्रहीत की जा सकती है।
@@ -85,7 +80,6 @@ Intlayer भी i18n पारिस्थितिकी तंत्र मे
 निम्नलिखित चरण अपने मौजूदा `i18next` ऐप को बिना कोड परिवर्तन के Intlayer पर चलाने के लिए आवश्यक न्यूनतम हैं।
 
 <Steps>
-
 <Step number={1} title="डिपेंडेंसी स्थापित करें">
 
 Intlayer मुख्य पैकेज और compat एडॉप्टर स्थापित करें:
@@ -129,7 +123,6 @@ bun add intlayer @intlayer/i18next @intlayer/sync-json-plugin
 > आप `i18next` को स्थापित रख सकते हैं — compat एडॉप्टर इसे `devDependency` / `peerDependency` के रूप में TypeScript प्रकारों के लिए उपयोग करता है।
 
 </Step>
-
 <Step number={2} title="Intlayer को कॉन्फ़िगर करें">
 
 `intlayer init` कमांड एक स्टार्टर `intlayer.config.ts` बनाता है। अपने मौजूदा locales से मेल खाने के लिए इसे अपडेट करें और `syncJSON` प्लग-इन को अपनी संदेश फाइलों पर इंगित करें:
@@ -164,7 +157,6 @@ export default config;
 > **`source`** एक locale को इसकी JSON फाइल पथ पर मैप करता है। **`location`** Intlayer को बताता है कि परिवर्तनों की निगरानी के लिए कौन सा फोल्डर देखना चाहिए। `format: 'i18next'` विकल्प सुनिश्चित करता है कि `{{name}}` जैसे प्लेसहोल्डर को सही ढंग से पार्स किया जाता है।
 
 </Step>
-
 <Step number={3} title="बंडलर एलिएस को अपडेट करें (वैकल्पिक)">
 
 अगर आप एक bundler (Vite, Webpack, esbuild) का उपयोग कर रहे हैं, तो आप एक मॉड्यूल एलिएस को इंजेक्ट कर सकते हैं ताकि `import ... from 'i18next'` स्वचालित रूप से `@intlayer/i18next` को हल करे। यह आपके कोडबेस में आयात को मैन्युअल रूप से बदलने की आवश्यकता को हटा देता है।
@@ -194,7 +186,6 @@ export default defineConfig({
 नीचे दिए गए चरण वैकल्पिक हैं और वृद्धिशील रूप से किए जा सकते हैं। वे पूर्ण Intlayer फीचर सेट को अनलॉक करते हैं: visual editor, CMS, typed content फाइलें, AI-powered अनुवाद, और बहुत कुछ।
 
 <Steps>
-
 <Step number={4} title="स्पष्ट import नाम देना (वैकल्पिक)" isOptional={true}>
 
 अगर आप अपनी स्रोत फाइलों में निर्भरता को स्पष्ट बनाना पसंद करते हैं, या अगर आप import को एलिएस करने के लिए bundler प्लग-इन का उपयोग नहीं कर रहे हैं, तो आप आयात को मैन्युअल रूप से नाम दे सकते हैं:
@@ -208,7 +199,6 @@ export default defineConfig({
 ये **drop-in replacements** हैं — कॉल signature, arguments, या return प्रकार में कोई परिवर्तन आवश्यक नहीं है।
 
 </Step>
-
 <Step number={5} title="AI-Powered अनुवाद ऑटोमेशन को सक्षम करें" isOptional={true}>
 
 एक बार Intlayer वायर्ड होने के बाद, अनुपलब्ध अनुवादों को स्वचालित रूप से भरने के लिए इसके CLI का उपयोग करें:

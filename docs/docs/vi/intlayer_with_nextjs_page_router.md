@@ -79,37 +79,31 @@ Intlayer được tối ưu hóa để hoạt động với **Thành phần máy
 > Đối với Next.js 12, 13, 14 và 15 với Bộ định tuyến ứng dụng, hãy tham khảo [hướng dẫn] này (https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
 </Accordion>
-
 <Accordion header="Kích thước bundle">
 
 Thay vì tải các tệp JSON lớn vào trang của bạn, hãy chỉ tải nội dung cần thiết. Intlayer giúp **giảm tới 50% kích thước bundle và kích thước trang**.
 
 </Accordion>
-
 <Accordion header="Khả năng bảo trì">
 
 Xác định phạm vi nội dung ứng dụng của bạn **tạo điều kiện bảo trì** cho các ứng dụng quy mô lớn. Bạn có thể sao chép hoặc xóa một thư mục tính năng mà không phải lo lắng về việc xem lại toàn bộ cơ sở mã nội dung của mình. Ngoài ra, Intlayer **được nhập đầy đủ** để đảm bảo tính chính xác cho nội dung của bạn.
 
 </Accordion>
-
 <Accordion header="Đại lý AI">
 
 Nội dung cùng định vị **giảm ngữ cảnh cần thiết** của Mô hình ngôn ngữ lớn (LLM). Intlayer cũng đi kèm một bộ công cụ, chẳng hạn như **CLI** để kiểm tra các bản dịch bị thiếu,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** và **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/agent_skills.md)**, để giúp trải nghiệm của nhà phát triển (DX) trở nên mượt mà hơn nữa đối với các tác nhân AI.
 
 </Accordion>
-
 <Accordion header="Tự động hóa">
 
 Sử dụng tính năng tự động hóa để dịch trong quy trình CI/CD của bạn bằng cách sử dụng LLM mà bạn chọn với chi phí do nhà cung cấp AI của bạn chi trả. Intlayer cũng cung cấp **trình biên dịch** để tự động trích xuất nội dung cũng như [nền tảng web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) để giúp **dịch ở chế độ nền**.
 
 </Accordion>
-
 <Accordion header="Hiệu suất">
 
 Việc kết nối các tệp JSON lớn với các thành phần có thể dẫn đến các vấn đề về hiệu suất và khả năng phản hồi. Intlayer tối ưu hóa việc tải nội dung của bạn tại thời điểm build.
 
 </Accordion>
-
 <Accordion header="Mở rộng quy mô không có nhà phát triển">
 
 Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh sửa trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** và **[CMS đầy đủ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** để giúp bạn quản lý nội dung đa ngôn ngữ của mình trong **thời gian thực**, giúp việc cộng tác với người dịch, người viết quảng cáo và các thành viên khác trong nhóm trở nên liền mạch. Nội dung có thể được lưu trữ cục bộ và/hoặc từ xa.
@@ -120,7 +114,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 ## Hướng Dẫn Từng Bước Để Cài Đặt Intlayer Trong Ứng Dụng Next.js Sử Dụng Page Router
 
 <Steps>
-
 <Step number={1} title="Cài Đặt Các Phụ Thuộc">
 
 Cài đặt các gói cần thiết bằng trình quản lý gói bạn ưa thích:
@@ -170,7 +163,6 @@ bun add intlayer next-intlayer
   Gói tích hợp Intlayer với Next.js. Nó cung cấp các context provider và hook cho quốc tế hóa trong Next.js. Ngoài ra, nó bao gồm plugin Next.js để tích hợp Intlayer với [Webpack](https://webpack.js.org/) hoặc [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack), cũng như middleware để phát hiện ngôn ngữ ưu tiên của người dùng, quản lý cookie, và xử lý chuyển hướng URL.
 
 </Step>
-
 <Step number={2} title="Cấu hình Dự án của Bạn">
 
 Tạo một tệp cấu hình để định nghĩa các ngôn ngữ được ứng dụng của bạn hỗ trợ:
@@ -196,7 +188,6 @@ export default config;
 > Thông qua tệp cấu hình này, bạn có thể thiết lập các URL địa phương hóa, chuyển hướng middleware, tên cookie, vị trí và phần mở rộng của các khai báo nội dung của bạn, tắt các bản ghi Intlayer trong bảng điều khiển, và nhiều hơn nữa. Để xem danh sách đầy đủ các tham số có sẵn, hãy tham khảo [tài liệu cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md).
 
 </Step>
-
 <Step number={3} title="Tích hợp Intlayer với cấu hình Next.js">
 
 Chỉnh sửa cấu hình Next.js của bạn để tích hợp Intlayer:
@@ -224,7 +215,6 @@ export default withIntlayer(nextConfig);
 > ```
 
 </Step>
-
 <Step number={4} title="Cấu hình Middleware để Phát hiện Ngôn ngữ">
 
 Thiết lập middleware để tự động phát hiện và xử lý ngôn ngữ ưu tiên của người dùng:
@@ -243,7 +233,6 @@ export const config = {
 > Điều chỉnh tham số `matcher` để phù hợp với các route của ứng dụng bạn. Để biết thêm chi tiết, tham khảo tài liệu [Next.js về cấu hình matcher](https://nextjs.org/docs/app/building-your-application/routing/middleware).
 
 </Step>
-
 <Step number={5} title="Định nghĩa các Route Địa phương Động">
 
 Triển khai routing động để phục vụ nội dung được địa phương hóa dựa trên ngôn ngữ của người dùng.
@@ -377,7 +366,6 @@ module.exports = {
 > `getStaticPaths` và `getStaticProps` đảm bảo rằng ứng dụng của bạn sẽ xây dựng trước các trang cần thiết cho tất cả các locale trong Next.js Page Router. Cách tiếp cận này giảm thiểu tính toán khi chạy và mang lại trải nghiệm người dùng tốt hơn. Để biết thêm chi tiết, hãy tham khảo tài liệu Next.js về [`getStaticPaths`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-paths) và [`getStaticProps`](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props).
 
 </Step>
-
 <Step number={6} title="Khai báo Nội dung của Bạn">
 
 Tạo và quản lý các khai báo nội dung để lưu trữ các bản dịch.
@@ -434,7 +422,6 @@ export default homeContent;
 Để biết thêm thông tin về cách khai báo nội dung, hãy tham khảo [hướng dẫn khai báo nội dung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/content_file.md).
 
 </Step>
-
 <Step number={7} title="Sử dụng Nội dung trong Mã của Bạn">
 
 Truy cập các từ điển nội dung của bạn trong toàn bộ ứng dụng để hiển thị nội dung đã được dịch.
@@ -491,7 +478,6 @@ export const ComponentExample: FC = () => {
 > Để tìm hiểu thêm về hook `useIntlayer`, hãy tham khảo [tài liệu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/next-intlayer/useIntlayer.md).
 
 </Step>
-
 <Step number={8} title="Quốc tế hóa metadata của bạn" isOptional={true}>
 
 Trong trường hợp bạn muốn quốc tế hóa metadata, chẳng hạn như tiêu đề của trang, bạn có thể sử dụng hàm `getStaticProps` do Next.js Page Router cung cấp. Bên trong, bạn có thể lấy nội dung từ hàm `getIntlayer` để dịch metadata của bạn.
@@ -629,7 +615,6 @@ export default HomePage;
 > Tìm hiểu thêm về tối ưu hóa metadata [trong tài liệu chính thức của Next.js](https://nextjs.org/docs/pages/building-your-application/optimizing/metadata).
 
 </Step>
-
 <Step number={9} title="Thay đổi ngôn ngữ nội dung của bạn" isOptional={true}>
 
 Để thay đổi ngôn ngữ nội dung trong Next.js, cách được khuyến nghị là sử dụng component `Link` để chuyển hướng người dùng đến trang được địa phương hóa phù hợp. Component `Link` cho phép tải trước trang, giúp tránh tải lại toàn bộ trang.
@@ -718,7 +703,6 @@ return (
 > - [`thuộc tính aria-current`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={10} title="Tạo một Thành phần Link Đa ngôn ngữ" isOptional={true}>
 
 Để đảm bảo rằng điều hướng trong ứng dụng của bạn tôn trọng locale hiện tại, bạn có thể tạo một thành phần `Link` tùy chỉnh. Thành phần này tự động thêm tiền tố ngôn ngữ hiện tại vào các URL nội bộ, ví dụ, khi một người dùng nói tiếng Pháp nhấp vào liên kết đến trang "About", họ sẽ được chuyển hướng đến `/fr/about` thay vì `/about`.
@@ -789,7 +773,6 @@ Link.displayName = "Link";
 Bằng cách tích hợp component `Link` này trong toàn bộ ứng dụng của bạn, bạn duy trì trải nghiệm người dùng nhất quán và nhận biết ngôn ngữ đồng thời cải thiện SEO và khả năng sử dụng.
 
 </Step>
-
 <Step number={11} title="Tối ưu kích thước bundle của bạn" isOptional={true}>
 
 Khi sử dụng `next-intlayer`, các từ điển được bao gồm trong bundle cho mỗi trang theo mặc định. Để tối ưu kích thước bundle, Intlayer cung cấp một plugin SWC tùy chọn thay thế thông minh các lệnh gọi `useIntlayer` bằng cách sử dụng macro. Điều này đảm bảo các từ điển chỉ được bao gồm trong bundle của những trang thực sự sử dụng chúng.
@@ -893,25 +876,21 @@ Pages Router vẫn hỗ trợ trường `i18n` tích hợp của `next.config.js
 Khai báo theo từng component đảm bảo trang chỉ tải các chuỗi mà nó hiển thị thay vì toàn bộ catalog. Xem [lý do chọn Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/interest_of_intlayer.md) và [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/benchmark/index.md).
 
 </Question>
-
 <Question title="i18n làm tăng kích thước bundle Next.js của tôi bao nhiêu?">
 
 Ít hơn đáng kể so với các giải pháp dựa trên namespace, vì trang không bao giờ tải catalog mà nó không hiển thị. Server Components phân giải nội dung ngay trên server, và compiler tại thời điểm build thay thế các lệnh gọi `useIntlayer` bằng chính xác các mục từ điển mà component sử dụng. [Từ điển động](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dynamic_dictionaries/index.md) chia phần còn lại theo từng locale, giảm kích thước bundle tới 50%. Xem [tối ưu hóa bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/bundle_optimization.md) và [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/benchmark/index.md).
 
 </Question>
-
 <Question title="Tôi có thể di chuyển từ next-intl, next-i18next hoặc i18next mà không cần viết lại các component của mình không?">
 
 Có, theo hai cách. Bạn có thể di chuyển nội dung dần dần bằng [hướng dẫn di chuyển từ i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/migration_from_i18next_to_intlayer.md) hoặc [next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/migration_from_next-intl_to_intlayer.md). Hoặc bạn có thể giữ nguyên API hiện tại: [adapter tương thích](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/compat/index.md) cung cấp chính xác các API tương tự nhưng chạy trên các từ điển Intlayer.
 
 </Question>
-
 <Question title="Tôi có thể giữ các tệp dịch JSON hiện có của mình không?">
 
 Có. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-json.md) giữ cho các tệp `/messages/{locale}/{namespace}.json` của bạn là nguồn sự thật duy nhất và tạo các từ điển Intlayer từ chúng theo cả hai hướng. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-po.md) làm điều tương tự cho các catalog gettext, và [các tệp theo locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/per_locale_file.md) cho phép bạn chia nội dung theo ngôn ngữ thay vì nhóm các locale trong một tệp.
 
 </Question>
-
 <Question title="Tôi có phải di chuyển nội dung từng khóa một không?">
 
 Không. Chạy `npx intlayer extract` và Intlayer sẽ đọc các component của bạn, trích xuất các chuỗi dành cho người dùng và tạo tệp `.content` bên cạnh mỗi component, nhờ đó bạn xem lại diff thay vì sao chép chuỗi vào catalog thủ công.
@@ -921,7 +900,6 @@ Không. Chạy `npx intlayer extract` và Intlayer sẽ đọc các component c�
 Hai giới hạn đáng lưu ý trước khi bạn bật compiler. Nó hoạt động bằng phân tích tĩnh, do đó các chuỗi chỉ tồn tại khi runtime, chẳng hạn như mã lỗi API hoặc các trường CMS, nằm ngoài phạm vi tiếp cận. Và nó phải phân biệt văn bản hiển thị cho người dùng với logic ứng dụng như `className="active"` hoặc mã trạng thái, điều này cần một vài chú thích trong một codebase lớn. [Lệnh extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/extract.md) tránh cả hai điều này bằng cách giữ bạn luôn kiểm soát.
 
 </Question>
-
 <Question title="Có những công cụ editor và AI agent nào có sẵn?">
 
 Năm công cụ, tất cả đều là tùy chọn:
@@ -933,49 +911,41 @@ Năm công cụ, tất cả đều là tùy chọn:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/eslint.md)**: quy tắc `no-raw-text` phát hiện các chuỗi chưa được bản địa hóa.
 
 </Question>
-
 <Question title="Cấu hình i18n tích hợp của Next.js có hoạt động với Pages Router không?">
 
 Có. Cấu hình `i18n` tích hợp của Next.js Pages Router hoàn toàn tương thích với Intlayer: Next.js xử lý định tuyến, và Intlayer quản lý nội dung.
 
 </Question>
-
 <Question title="Tôi nên tiếp tục dùng Pages Router hay chuyển sang App Router?">
 
 Các ứng dụng hiện tại trên Pages Router có thể tiếp tục hoạt động tốt. Đối với các dự án mới hoặc muốn tận dụng React Server Components, nên sử dụng App Router.
 
 </Question>
-
 <Question title="Tôi có bắt buộc phải đưa locale vào URL như /vi/about không?">
 
 Không. `routing.mode` chấp nhận `"prefix-no-default"` (mặc định: `/about` cho ngôn ngữ chính và `/vi/about` cho ngôn ngữ khác), `"prefix-all"`, `"no-prefix"`, và `"search-params"`. Tùy chọn `routing.domains` ánh xạ từng ngôn ngữ tới tên miền riêng. Xem [tài liệu cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md).
 
 </Question>
-
 <Question title="Làm cách nào để thêm thẻ hreflang và metadata được bản địa hóa cho SEO?">
 
 Các bước `generateMetadata` và `sitemap.xml` hướng dẫn việc này. Hàm `getMultilingualUrls` tạo ánh xạ `alternates.languages` cho mỗi locale đã khai báo, bao gồm cả `x-default`, giúp công cụ tìm kiếm lập chỉ mục chính xác.
 
 </Question>
-
 <Question title="Làm cách nào tôi có thể dịch ứng dụng tự động bằng AI?">
 
 Chạy `npx intlayer fill`. CLI phát hiện các bản dịch còn thiếu và điền chúng bằng LLM bạn chọn sử dụng provider và API key của riêng bạn. Flag `--git-diff` giới hạn thao tác ở nội dung đã thay đổi trên branch hiện tại. Xem [lệnh fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/fill.md) và [tích hợp CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer có hỗ trợ dạng số nhiều, giới tính và rich text không?">
 
 Có: [dạng số nhiều (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/plurial.md), [nội dung dựa trên giới tính](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/gender.md), điều kiện, [chèn (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/markdown.md), và [định dạng](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/formatters.md) cho số, ngày tháng và tiền tệ.
 
 </Question>
-
 <Question title="Làm thế nào người dịch có thể chỉnh sửa nội dung mà không cần chạm vào mã nguồn?">
 
 Thông qua [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md), cho phép bất kỳ ai chỉnh sửa văn bản trực tiếp trên ứng dụng đang chạy, hoặc qua [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md), giúp tách biệt nội dung để cập nhật mà không cần triển khai lại mã nguồn.
 
 </Question>
-
 <Question title="Intlayer có phải là mã nguồn mở và miễn phí không?">
 
 Có, theo giấy phép Apache 2.0, bao gồm cả mục đích thương mại. CMS lưu trữ trên đám mây là một dịch vụ trả phí tùy chọn và cũng có thể [tự lưu trữ (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/self_hosting.md).

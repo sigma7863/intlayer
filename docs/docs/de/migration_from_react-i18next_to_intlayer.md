@@ -34,7 +34,6 @@ author: aymericzip
 Anstatt riesige JSON-Dateien in Ihre Seiten zu laden, laden Sie nur die benötigten Inhalte. Intlayer hilft Ihnen, **die Größe Ihres Bundles und Ihrer Seiten um bis zu 50 % zu reduzieren**.
 
 </Accordion>
-
 <Accordion header="Wartbarkeit">
 
 Das Scopen Ihrer Anwendungsinhalte **erleichtert die Wartung** für große Anwendungen. Sie können einen ganzen Feature-Ordner duplizieren oder löschen, ohne den mentalen Aufwand betreiben zu müssen, Ihre gesamte Inhalts-Codebase zu überprüfen. Darüber hinaus ist Intlayer **vollständig typisiert**, um die Richtigkeit Ihrer Inhalte sicherzustellen.
@@ -42,25 +41,21 @@ Das Scopen Ihrer Anwendungsinhalte **erleichtert die Wartung** für große Anwen
 Intlayer ist zudem die Lösung mit der **aktivsten Entwicklung** im i18n-Ökosystem — Probleme werden schnell behoben, neue Framework-Adapter kommen regelmäßig hinzu und die Kern-API wird kontinuierlich auf Basis echter Produktionserfahrungen verfeinert.
 
 </Accordion>
-
 <Accordion header="KI-Agent">
 
 Die Kollokation von Inhalten **reduziert den für Large Language Models (LLMs) erforderlichen Kontext**. Intlayer verfügt außerdem über eine Reihe von Werkzeugen, wie eine **CLI** zum Testen fehlender Übersetzungen, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/mcp_server.md)** und **[Agent Skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/agent_skills.md)**, um die Entwicklererfahrung (DX) für KI-Agenten noch reibungsloser zu gestalten.
 
 </Accordion>
-
 <Accordion header="Automatisierung">
 
 Nutzen Sie Automatisierung zur Übersetzung in Ihrer CI/CD-Pipeline unter Verwendung des LLM Ihrer Wahl zum Preis Ihres KI-Anbieters. Intlayer bietet auch einen **Compiler** zur Automatisierung der Inhaltsextraktion sowie eine [Web-Plattform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_CMS.md), die **Übersetzungen im Hintergrund** unterstützt.
 
 </Accordion>
-
 <Accordion header="Leistung">
 
 Das Verknüpfen riesiger JSON-Dateien mit Komponenten kann zu Leistungs- und Reaktivitätsproblemen führen. Intlayer optimiert das Laden Ihrer Inhalte zur Build-Zeit.
 
 </Accordion>
-
 <Accordion header="Skalierbarkeit mit Nicht-Entwicklern">
 
 Mehr als nur eine i18n-Lösung bietet Intlayer einen selbst gehosteten **[visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_visual_editor.md)** und ein **[vollständiges CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_CMS.md)**, das Ihnen hilft, Ihre mehrsprachigen Inhalte in **Echtzeit** zu verwalten. Dies ermöglicht eine nahtlose Zusammenarbeit mit Übersetzern, Textern und anderen Teammitgliedern. Die Inhalte können lokal und/oder remote gespeichert werden.
@@ -87,7 +82,6 @@ Dieser Leitfaden behandelt zuerst **Strategie 1** (schneller Kompatibilitätsada
 Die folgenden Schritte sind das Minimum, das erforderlich ist, um Ihre bestehende `react-i18next`-App auf Intlayer laufen zu lassen, ohne Codeänderungen vornehmen zu müssen.
 
 <Steps>
-
 <Step number={1} title="Abhängigkeiten installieren">
 
 Installieren Sie die Intlayer-Kernpakete und die Kompatibilitätsadapter:
@@ -131,7 +125,6 @@ bun add intlayer react-intlayer @intlayer/react-i18next @intlayer/i18next @intla
 > Sie können `react-i18next` und `i18next` installiert lassen — die Kompatibilitätsadapter verwenden sie als optionale `devDependencies` / `peerDependencies` für TypeScript-Typen. Sie müssen keine Peers in der `package.json` ändern.
 
 </Step>
-
 <Step number={2} title="Intlayer konfigurieren">
 
 Der Befehl `intlayer init` erstellt eine initiale Datei `intlayer.config.ts`. Aktualisieren Sie sie so, dass sie Ihren bestehenden Locales (Sprachen) entspricht, und verweisen Sie das `syncJSON`-Plugin auf Ihre Nachrichtendateien:
@@ -166,7 +159,6 @@ export default config;
 > **`source`** ordnet ein Locale dem Dateipfad seiner JSON-Datei zu. **`location`** gibt dem Intlayer-Watcher an, welcher Ordner auf Änderungen überwacht werden soll. Die Option `format: 'i18next'` stellt sicher, dass Platzhalter wie `{{name}}` korrekt verarbeitet werden.
 
 </Step>
-
 <Step number={3} title="Das Intlayer-Plugin zu Ihrem Bundler hinzufügen">
 
 Kapseln Sie Ihre bestehende Bundler-Konfiguration mit dem Kompatibilitäts-Plugin. Dieses integriert das Kern-Intlayer-Plugin, verbindet die Inhaltsüberwachung und — entscheidend — **injiziert Modul-Aliase**, sodass Ihre bestehenden Aufrufe für `import … from 'react-i18next'` (und `'i18next'`) zur Build-Zeit nahtlos auf `@intlayer/react-i18next` / `@intlayer/i18next` umgeleitet werden. Es sind keine Änderungen an den Quelldateien erforderlich.
@@ -232,7 +224,6 @@ Das war's für die schnelle Migration. Ihre App läuft nun auf Intlayer, währen
 Die folgenden Schritte sind optional und können inkrementell durchgeführt werden. Sie schalten die volle Funktionalität von Intlayer frei: visueller Editor, CMS, typisierte Inhaltsdateien, KI-gestützte Übersetzung und mehr.
 
 <Steps>
-
 <Step number={4} title="Importe explizit umbenennen (Optional)" isOptional={true}>
 
 Die Intlayer-Plugins kümmern sich bereits um das Aliasing auf Bundler-Ebene. Wenn Sie die Abhängigkeit in Ihren Quelldateien explizit machen möchten, können Sie die Importe manuell umbenennen:
@@ -257,7 +248,6 @@ Für Next.js (`next-i18next`):
 | `import { useTranslation } from 'next-i18next'`                                | `import { useTranslation } from '@intlayer/next-i18next'`         |
 
 </Step>
-
 <Step number={5} title="Aktivieren der KI-gestützten Übersetzungsautomatisierung" isOptional={true}>
 
 Sobald Intlayer konfiguriert ist, können Sie die CLI verwenden, um fehlende Übersetzungen automatisch aufzufüllen:

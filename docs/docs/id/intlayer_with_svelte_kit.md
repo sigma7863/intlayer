@@ -70,37 +70,31 @@ Dibandingkan dengan solusi utama seperti `svelte-i18n` atau `i18next`, Intlayer 
 Intlayer dioptimalkan untuk bekerja sempurna dengan SvelteKit dengan menawarkan **perutean multibahasa**, **dukungan SSR**, dan semua fitur yang diperlukan untuk penskalaan internasionalisasi (i18n).
 
 </Accordion>
-
 <Accordion header="Ukuran bundle">
 
 Daripada memuat file JSON berukuran besar ke halaman Anda, muat saja konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Kemampuan Pemeliharaan">
 
 Mencakup konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi berskala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **diketik sepenuhnya** untuk memastikan keakuratan konten Anda.
 
 </Accordion>
-
 <Accordion header="Agen AI">
 
 Menempatkan konten bersama **mengurangi konteks yang diperlukan** dengan Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk menjadikan pengalaman pengembang (DX) lebih lancar bagi agen AI.
 
 </Accordion>
-
 <Accordion header="Otomatisasi">
 
 Gunakan otomatisasi untuk menerjemahkan dalam saluran CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Pertunjukan">
 
 Menghubungkan file JSON berukuran besar ke komponen dapat menyebabkan masalah kinerja dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada waktu pembuatan.
 
 </Accordion>
-
 <Accordion header="Menskalakan tanpa pengembang">
 
 Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** yang dihosting sendiri dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi lancar. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -155,7 +149,6 @@ Untuk memulai, buat proyek SvelteKit baru. Berikut adalah struktur akhir yang ak
 ```
 
 <Steps>
-
 <Step number={1} title="Instalasi Dependencies">
 
 Instal paket yang diperlukan menggunakan npm:
@@ -205,7 +198,6 @@ bun add vite-intlayer --save-dev
 - **vite-intlayer**: Plugin Vite untuk mengintegrasikan deklarasi konten dengan proses build.
 
 </Step>
-
 <Step number={2} title="Konfigurasi proyek Anda">
 
 Buat file konfigurasi di root proyek Anda:
@@ -224,7 +216,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Integrasikan Intlayer dalam Konfigurasi Vite Anda">
 
 Perbarui `vite.config.ts` Anda untuk menyertakan plugin Intlayer. Plugin ini menangani transpile file konten Anda.
@@ -240,7 +231,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Deklarasikan Konten Anda">
 
 Buat file deklarasi konten Anda di mana saja dalam folder `src` Anda (misalnya, `src/lib/content` atau di samping komponen Anda). File-file ini mendefinisikan konten yang dapat diterjemahkan untuk aplikasi Anda menggunakan fungsi `t()` untuk setiap locale.
@@ -263,7 +253,6 @@ export default heroContent;
 ```
 
 </Step>
-
 <Step number={5} title="Gunakan Intlayer dalam Komponen Anda">
 
 Sekarang Anda dapat menggunakan fungsi `useIntlayer` di komponen Svelte apa pun. Fungsi ini mengembalikan sebuah reactive store yang secara otomatis diperbarui ketika lokal berubah. Fungsi akan secara otomatis menghormati lokal saat ini (baik selama SSR maupun navigasi sisi klien).
@@ -289,7 +278,6 @@ untuk mengakses nilai reaktifnya (misalnya, `$content.title`).
 ```
 
 </Step>
-
 <Step number={6} title="Atur routing" isOptional={true}>
 
 Langkah-langkah berikut menunjukkan cara mengatur routing berbasis locale di SvelteKit. Ini memungkinkan URL Anda menyertakan prefix locale (misalnya, `/en/about`, `/fr/about`) untuk SEO yang lebih baik dan pengalaman pengguna yang lebih baik.
@@ -316,7 +304,6 @@ Langkah-langkah berikut menunjukkan cara mengatur routing berbasis locale di Sve
 ```
 
 </Step>
-
 <Step number={7} title="Tangani Deteksi Locale di Server">
 
 Di SvelteKit, server perlu mengetahui locale pengguna untuk merender konten yang benar selama SSR. Kita menggunakan `hooks.server.ts` untuk mendeteksi locale dari URL atau cookie.
@@ -530,7 +517,6 @@ export const prerender = true;
 ```
 
 </Step>
-
 <Step number={8} title="Tautan Internasionalisasi" isOptional={true}>
 
 Untuk SEO, disarankan untuk menambahkan prefix locale pada rute Anda (misalnya, `/en/about`, `/fr/about`). Komponen ini secara otomatis menambahkan prefix locale saat ini pada setiap tautan.
@@ -565,7 +551,6 @@ goto(localizedPath); // Menavigasi ke /en/about atau /fr/about tergantung locale
 ```
 
 </Step>
-
 <Step number={9} title="Pengalih Bahasa" isOptional={true}>
 
 Untuk memungkinkan pengguna mengganti bahasa, perbarui URL.
@@ -608,7 +593,6 @@ Untuk memungkinkan pengguna mengganti bahasa, perbarui URL.
 ```
 
 </Step>
-
 <Step number={10} title="Tambahkan proxy backend" isOptional={true}>
 
 Untuk menambahkan proxy backend ke aplikasi SvelteKit Anda, Anda dapat menggunakan fungsi `intlayerProxy` yang disediakan oleh plugin `vite-intlayer`. Plugin ini akan secara otomatis mendeteksi locale terbaik untuk pengguna berdasarkan URL, cookie, dan preferensi bahasa browser.
@@ -634,7 +618,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={11} title="Mengatur editor / CMS intlayer" isOptional={true}>
 
 Untuk mengatur editor intlayer, Anda harus mengikuti [dokumentasi editor intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md).
@@ -661,7 +644,6 @@ Untuk dapat memvisualisasikan selector editor intlayer, Anda harus menggunakan s
 ```
 
 </Step>
-
 <Step number={1} title="Ekstrak konten komponen Anda" isOptional={true}>
 
 Jika Anda memiliki basis kode yang ada, mengubah ribuan file bisa memakan waktu lama.
@@ -790,25 +772,21 @@ Disarankan untuk mengabaikan file-file yang dihasilkan oleh Intlayer.
 Lihat [mengapa Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle SvelteKit saya?">
 
 Jauh lebih sedikit daripada solusi berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen, dan [kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale, mengurangi bundle hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari svelte-i18n atau typesafe-i18n tanpa menulis ulang komponen?">
 
 Sebagian besar ya. Ikuti [panduan migrasi Svelte I18n](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/compat/svelte-i18n.md).
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu.
@@ -818,7 +796,6 @@ Untuk proses otomatis penuh, [Intlayer Compiler](https://github.com/aymericzip/i
 Dua batasan perlu diketahui sebelum Anda mengaktifkan compiler. Ini bekerja dengan analisis statis, jadi string yang hanya ada saat runtime, seperti kode kesalahan API atau field CMS, tetap berada di luar jangkauan. Dan ini harus membedakan teks yang dilihat pengguna dari logika aplikasi seperti `className="active"` atau kode status, yang memerlukan beberapa anotasi di basis kode yang besar. [Perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) menghindari keduanya dengan menjaga Anda tetap memegang kendali.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -830,43 +807,36 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Apakah Intlayer bekerja dengan server side rendering dan prerender di SvelteKit?">
 
 Ya. Langkah 7 membahas deteksi bahasa sisi server di `hooks.server.ts`, sehingga HTML pertama dikirimkan ke klien dalam keadaan sudah diterjemahkan.
 
 </Question>
-
 <Question title="Bagaimana cara mengatur rute dan tautan terlokalisasi?">
 
 Langkah 6 dan 8 membahas hal ini. Segmen `[locale]` di pohon rute dan fungsi `getLocalizedUrl` menjaga navigasi dalam bahasa yang aktif.
 
 </Question>
-
 <Question title="Bagaimana cara membuat pengalih bahasa di Svelte?">
 
 Langkah 9 mendemonstrasikan komponen. `useLocale` menyediakan bahasa aktif, daftar bahasa, dan fungsi setter untuk beralih sambil menyimpan pilihan.
 
 </Question>
-
 <Question title="Bagaimana cara menerjemahkan aplikasi SvelteKit secara otomatis dengan AI?">
 
 Jalankan `npx intlayer fill`. Alat ini mendeteksi string yang hilang dan mengisinya menggunakan LLM pilihan Anda. Lihat [perintah fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/fill.md).
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung bentuk jamak, gender dan rich text?">
 
 Ya: [bentuk jamak (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/plurial.md), [konten berbasis gender](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/gender.md), kondisi, [penyisipan (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/markdown.md), dan [formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/formatters.md).
 
 </Question>
-
 <Question title="Bagaimana penerjemah dapat mengedit konten tanpa menyentuh kode?">
 
 Melalui [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md), yang memungkinkan siapa saja mengedit teks langsung di aplikasi yang berjalan, atau melalui [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md), yang memisahkan konten sehingga dapat diubah tanpa perlu redeploy kode.
 
 </Question>
-
 <Question title="Apakah Intlayer gratis dan open source?">
 
 Ya, di bawah lisensi Apache 2.0, termasuk penggunaan komersial. CMS yang di-host adalah layanan berbayar opsional yang juga dapat [di-host sendiri (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).

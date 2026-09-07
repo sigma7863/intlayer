@@ -56,7 +56,6 @@ author: aymericzip
 ## Vue-i18n 与 Intlayer 的分步设置指南
 
 <Steps>
-
 <Step number={1} title="安装依赖项">
 
 使用您首选的包管理器安装必要的包：
@@ -103,7 +102,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**：将 Intlayer 内容声明同步到 vue-i18n JSON 格式的插件
 
 </Step>
-
 <Step number={2} title="实现 Intlayer 插件来包装 JSON">
 
 创建一个 Intlayer 配置文件来定义您支持的语言环境：
@@ -142,7 +140,6 @@ export default config;
 有关 `syncJSON` 插件的更多详细信息，请参阅 [syncJSON 插件文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md)。
 
 </Step>
-
 <Step number={3} title="设置 AI 提供商">
 
 Intlayer 为您的 i18next 工作流解锁了一系列高级自动化和开发者友好的功能。

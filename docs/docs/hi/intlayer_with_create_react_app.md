@@ -45,45 +45,34 @@ author: aymericzip
 **इंटलेयर** एक अभिनव, ओपन-सोर्स अंतर्राष्ट्रीयकरण (i18n) लाइब्रेरी है जिसे आधुनिक वेब एप्लिकेशन में बहुभाषी समर्थन को सरल बनाने के लिए डिज़ाइन किया गया है।
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
-अपने पेजों में विशाल JSON फ़ाइलों को लोड करने के बजाय, केवल आवश्यक सामग्री लोड करें। Intlayer आपके **bundle और page sizes को 50% तक कम करने में मदद करता है**।
+अपने पृष्ठों में विशाल JSON फ़ाइलें लोड करने के बजाय, केवल आवश्यक सामग्री लोड करें। इंटलेयर आपके बंडल और पृष्ठ आकार को 50% तक कम करने में मदद करता है।
 
 </Accordion>
-
 <Accordion header="रखरखाव">
 
-अपने एप्लिकेशन की content को scope करना **बड़े पैमाने पर एप्लिकेशन के लिए रखरखाव को सुविधाजनक बनाता है**। आप अपने पूरे content codebase की समीक्षा करने के मानसिक भार के बिना एक एकल feature folder को duplicate या delete कर सकते हैं। इसके अलावा, Intlayer **पूरी तरह से typed** है ताकि आपकी content की सटीकता सुनिश्चित की जा सके।
+आपके एप्लिकेशन की सामग्री का दायरा बड़े पैमाने के अनुप्रयोगों के लिए **रखरखाव की सुविधा प्रदान करता है**। आप अपने संपूर्ण सामग्री कोडबेस की समीक्षा करने के मानसिक बोझ के बिना किसी एक फीचर फ़ोल्डर की नकल कर सकते हैं या उसे हटा सकते हैं। इसके अतिरिक्त, आपकी सामग्री की सटीकता सुनिश्चित करने के लिए Intlayer **पूरी तरह से टाइप किया गया** है।
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
-कंटेंट को एक साथ रखने से Large Language Models (LLMs) को आवश्यक context **कम हो जाता है**। Intlayer के साथ एक suite of tools भी आता है, जैसे **CLI** missing translations को test करने के लिए, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/mcp_server.md)**, और **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/agent_skills.md)**, ताकि AI agents के लिए developer experience (DX) को और भी smooth बनाया जा सके।
+सामग्री का सह-स्थानीकरण **बड़े भाषा मॉडल (एलएलएम) द्वारा आवश्यक संदर्भ को कम करता है**। इंटलेयर टूल के एक सूट के साथ भी आता है, जैसे **CLI** ताकि लापता अनुवादों का परीक्षण किया जा सके,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, और **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/agent_skills.md)**, AI एजेंटों के लिए डेवलपर अनुभव (DX) को और भी आसान बनाने के लिए।
 
 </Accordion>
+<Accordion header="स्वचालन">
 
-<Accordion header="Automation">
-
-अपनी CI/CD पाइपलाइन में अपनी पसंद के LLM का उपयोग करके अपने AI प्रदाता की लागत पर अनुवाद को स्वचालित करें। Intlayer एक **compiler** भी प्रदान करता है जो सामग्री निष्कर्षण को स्वचालित करता है, साथ ही एक [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md) जो **पृष्ठभूमि में अनुवाद** करने में सहायता करता है।
+अपने एआई प्रदाता की कीमत पर अपनी पसंद के एलएलएम का उपयोग करके अपने सीआई/सीडी पाइपलाइन में अनुवाद करने के लिए स्वचालन का उपयोग करें। इंटलेयर सामग्री निष्कर्षण को स्वचालित करने के लिए एक **कंपाइलर** के साथ-साथ **पृष्ठभूमि में अनुवाद** में मदद करने के लिए एक [वेब प्लेटफ़ॉर्म](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) भी प्रदान करता है।
 
 </Accordion>
-
 <Accordion header="Performance">
 
-इंटलेयर के साथ, आप कर सकते हैं:
-
-बड़ी JSON फ़ाइलों को components से जोड़ने से performance और reactivity की समस्याएं हो सकती हैं। Intlayer आपकी content loading को build time पर optimize करता है।
+बड़े पैमाने पर JSON फ़ाइलों को घटकों से जोड़ने से प्रदर्शन और प्रतिक्रियाशीलता संबंधी समस्याएं हो सकती हैं। इंटलेयर बिल्ड समय पर आपकी सामग्री लोडिंग को अनुकूलित करता है।
 
 </Accordion>
+<Accordion header="किसी भी देव के साथ स्केलिंग">
 
-<Accordion header="गैर-विकास के साथ स्केलिंग">
-
-- **आसानी से अनुवाद प्रबंधित करें** घटक स्तर पर घोषणात्मक शब्दकोशों का उपयोग करके।
-- **मेटाडेटा, रूट्स और सामग्री को गतिशील रूप से स्थानीयकृत करें**।
-- **टाइपस्क्रिप्ट समर्थन सुनिश्चित करें** स्वचालित रूप से उत्पन्न प्रकारों के साथ, जो ऑटोकम्प्लीशन और त्रुटि पहचान में सुधार करता है।
-- **उन्नत सुविधाओं का लाभ उठाएं**, जैसे गतिशील लोकेल पहचान और स्विचिंग।
+सिर्फ एक i18n समाधान से अधिक, Intlayer एक **स्व-होस्टेड [विज़ुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** और एक **[पूर्ण] प्रदान करता है सीएमएस](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** आपकी बहुभाषी सामग्री को **वास्तविक समय** में प्रबंधित करने में मदद करता है, जिससे अनुवादकों, कॉपीराइटरों और टीम के अन्य सदस्यों के साथ सहयोग सहज हो जाता है। सामग्री को स्थानीय और/या दूरस्थ रूप से संग्रहीत किया जा सकता है।
 
 </Accordion>
 </AccordionGroup>
@@ -91,7 +80,6 @@ author: aymericzip
 ## रिएक्ट एप्लिकेशन में इंटलेयर सेट अप करने के लिए चरण-दर-चरण गाइड
 
 <Steps>
-
 <Step number={1} title="निर्भरता स्थापित करें">
 
 npm का उपयोग करके आवश्यक पैकेज स्थापित करें:
@@ -145,7 +133,6 @@ bun add intlayer react-intlayer react-scripts-intlayer
   `react-scripts-intlayer` कमांड्स और प्लगइन्स को इंटलेयर के साथ क्रिएट रिएक्ट ऐप आधारित एप्लिकेशन में एकीकृत करता है। ये प्लगइन्स [क्राको](https://craco.js.org/) पर आधारित हैं और [वेबपैक](https://webpack.js.org/) बंडलर के लिए अतिरिक्त कॉन्फ़िगरेशन शामिल करते हैं।
 
 </Step>
-
 <Step number={2} title="अपने प्रोजेक्ट का कॉन्फ़िगरेशन">
 
 अपने एप्लिकेशन की भाषाओं को कॉन्फ़िगर करने के लिए एक कॉन्फ़िग फाइल बनाएं:
@@ -171,7 +158,6 @@ export default config;
 > इस कॉन्फ़िगरेशन फाइल के माध्यम से, आप स्थानीयकृत URL, मिडलवेयर रीडायरेक्शन, कुकी नाम, अपनी सामग्री घोषणाओं का स्थान और एक्सटेंशन, कंसोल में इंटलेयर लॉग्स को अक्षम करना, और अधिक सेट कर सकते हैं। उपलब्ध पैरामीटरों की पूरी सूची के लिए [कॉन्फ़िगरेशन दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/configuration.md) देखें।
 
 </Step>
-
 <Step number={3} title="अपने CRA कॉन्फ़िगरेशन में इंटलेयर को एकीकृत करें">
 
 अपने स्क्रिप्ट्स को react-intlayer का उपयोग करने के लिए बदलें
@@ -187,7 +173,6 @@ export default config;
 > `react-scripts-intlayer` स्क्रिप्ट्स [CRACO](https://craco.js.org/) पर आधारित हैं। आप इंटलेयर क्राको प्लगइन पर आधारित अपना सेटअप भी लागू कर सकते हैं। [यहाँ उदाहरण देखें](https://github.com/aymericzip/intlayer/blob/main/examples/react-app/craco.config.js)।
 
 </Step>
-
 <Step number={4} title="अपनी सामग्री घोषित करें">
 
 अनुवादों को संग्रहीत करने के लिए अपनी सामग्री घोषणाओं को बनाएं और प्रबंधित करें:
@@ -243,7 +228,6 @@ export default appContent;
 > यदि आपकी सामग्री फाइल में TSX कोड शामिल है, तो आपको अपनी सामग्री फाइल में `import React from "react";` आयात करने पर विचार करना चाहिए।
 
 </Step>
-
 <Step number={5} title="अपने कोड में इंटलेयर का उपयोग करें">
 
 अपने एप्लिकेशन में अपनी सामग्री शब्दकोशों का उपयोग करें:
@@ -294,7 +278,6 @@ export default App;
 > `useIntlayer` हुक के बारे में अधिक जानने के लिए, [डॉक्यूमेंटेशन](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/react-intlayer/useIntlayer.md) देखें।
 
 </Step>
-
 <Step number={6} title="अपनी सामग्री की भाषा बदलें" isOptional={true}>
 
 अपनी सामग्री की भाषा बदलने के लिए, आप `useLocale` हुक द्वारा प्रदान किए गए `setLocale` फ़ंक्शन का उपयोग कर सकते हैं। यह फ़ंक्शन आपको एप्लिकेशन की लोकेल सेट करने और सामग्री को अपडेट करने की अनुमति देता है।
@@ -318,7 +301,6 @@ const LocaleSwitcher = () => {
 > `useLocale` हुक के बारे में अधिक जानने के लिए, [डॉक्यूमेंटेशन](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/react-intlayer/useLocale.md) देखें।
 
 </Step>
-
 <Step number={7} title="अपने एप्लिकेशन में स्थानीयकृत रूटिंग जोड़ें" isOptional={true}>
 
 इस चरण का उद्देश्य प्रत्येक भाषा के लिए अद्वितीय रूट बनाना है। यह SEO और SEO-अनुकूल URL के लिए उपयोगी है।
@@ -460,7 +442,6 @@ const App: FC = () => (
 ```
 
 </Step>
-
 <Step number={8} title="जब स्थानीय बदलता है तो URL बदलें" isOptional={true}>
 
 लोकेल परिवर्तन के समय URL को बदलने के लिए, आप `useLocale` hook द्वारा प्रदान किए गए `onLocaleChange` prop का उपयोग कर सकते हैं। समानांतर में, आप `react-router-dom` से `useLocation` और `useNavigate` hooks का उपयोग करके URL पाथ को अपडेट कर सकते हैं।
@@ -542,7 +523,6 @@ const LocaleSwitcher: FC = () => {
 > - [`aria-current` विशेषता](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={9} title="HTML भाषा और दिशा विशेषताओं को स्विच करें" isOptional={true}>
 
 जब आपका एप्लिकेशन कई भाषाओं का समर्थन करता है, तो `<html>` टैग की `lang` और `dir` विशेषताओं को वर्तमान स्थानीय भाषा के अनुसार अपडेट करना महत्वपूर्ण है। ऐसा करने से सुनिश्चित होता है:
@@ -612,7 +592,7 @@ export default App;
 - सुनिश्चित करेगा कि **भाषा** (`lang`) एट्रिब्यूट वर्तमान लोकेल को सही ढंग से प्रतिबिंबित करता है, जो एसईओ और ब्राउज़र व्यवहार के लिए महत्वपूर्ण है।
 - **टेक्स्ट दिशा** (`dir`) को लोकेल के अनुसार समायोजित करेगा, जिससे विभिन्न पढ़ने के क्रम वाली भाषाओं के लिए पठनीयता और उपयोगिता बढ़ेगी।
 - एक अधिक **सुलभ** अनुभव प्रदान करेगा, क्योंकि सहायक तकनीकें इन एट्रिब्यूट्स पर निर्भर करती हैं।
-  </Step>
+</Step>
 
 </Steps>
 
@@ -679,25 +659,21 @@ Extension का उपयोग कैसे करें, इसके बा�
 [Intlayer क्यों चुनें](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/interest_of_intlayer.md) देखें।
 
 </Question>
-
 <Question title="i18n मेरे React बंडल आकार को कितना बढ़ाता है?">
 
 नेमस्पेस-आधारित समाधानों की तुलना में बहुत कम, क्योंकि एक पृष्ठ कभी भी उस कैटलॉग को डाउनलोड नहीं करता है जिसे वह रेंडर नहीं करता है। बिल्ड-टाइम कंपाइलर `useIntlayer` कॉल को घटक द्वारा उपयोग की जाने वाली सटीक प्रविष्टियों से बदल देता है, और [गतिशील शब्दकोश](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dynamic_dictionaries/index.md) शेष को प्रति लोकेल विभाजित करते हैं, जिससे बंडल 50% तक कम हो जाता है। [बंडल अनुकूलन](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/bundle_optimization.md) और [बेंचमार्क](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/benchmark/index.md) देखें।
 
 </Question>
-
 <Question title="क्या मैं अपने घटकों को फिर से लिखे बिना react-i18next या react-intl से माइग्रेट कर सकता हूँ?">
 
 हाँ, माइग्रेशन गाइड का पालन करें या संगतता एडेप्टर का उपयोग करें।
 
 </Question>
-
 <Question title="क्या मैं अपनी मौजूदा JSON translation files को रख सकता हूं?">
 
 हाँ। [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/plugins/sync-json.md) आपकी `/messages/{locale}/{namespace}.json` फ़ाइलों को सत्य का स्रोत बनाए रखता है और दोनों दिशाओं में उनसे Intlayer dictionaries बनाता है। [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/plugins/sync-po.md) gettext catalogs के लिए भी ऐसा ही करता है, और [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/per_locale_file.md) आपको locales को एक फ़ाइल में समूहीकृत करने के बजाय भाषा के अनुसार content को विभाजित करने देते हैं।
 
 </Question>
-
 <Question title="क्या मुझे अपनी content को key by key move करना होगा?">
 
 नहीं। `npx intlayer extract` चलाएं और Intlayer आपकी फ़ाइलों को पढ़ता है, उपयोगकर्ता के अनुकूल स्ट्रिंग्स निकालता है, और प्रत्येक के बगल में एक `.content` फ़ाइल लिखता है, जिससे आप कैटलॉग में मैन्युअल रूप से कॉपी करने के बजाय एक diff की समीक्षा करते हैं।
@@ -707,7 +683,6 @@ Extension का उपयोग कैसे करें, इसके बा�
 कंपाइलर को चालू करने से पहले दो सीमाएं जानने योग्य हैं। यह स्थिर विश्लेषण द्वारा काम करता है, इसलिए जो स्ट्रिंग्स केवल रनटाइम पर मौजूद होती हैं, जैसे कि API त्रुटि कोड या CMS फ़ील्ड, वे पहुंच से बाहर रहती हैं। और इसे `className="active"` या स्थिति कोड जैसे एप्लिकेशन लॉजिक से उपयोगकर्ता के सामने आने वाले टेक्स्ट को अलग करना होगा, जिसके लिए एक बड़े कोडबेस में कुछ एनोटेशन की आवश्यकता होती है। [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/cli/extract.md) आपको लूप में रखकर दोनों से बचाता है।
 
 </Question>
-
 <Question title="कौन से editor और AI agent tooling उपलब्ध हैं?">
 
 पाँच उपकरण, सभी वैकल्पिक:
@@ -719,49 +694,41 @@ Extension का उपयोग कैसे करें, इसके बा�
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/eslint.md)**: `no-raw-text` नियम हार्डकोडेड स्ट्रिंग्स को चिह्नित करता है।
 
 </Question>
-
 <Question title="Create React App अब समर्थित नहीं है। क्या मुझे पहले Vite पर जाना चाहिए?">
 
 यदि माइग्रेशन की योजना पहले से है, तो इसे पहले करें और [Vite और React गाइड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_with_vite+react.md) का पालन करें। यदि नहीं, तो यह गाइड मज़बूती से काम करती है और सेटअप के बीच सामग्री घोषणाएँ नहीं बदलती हैं।
 
 </Question>
-
 <Question title="Create React App में स्थानीयकृत रूटिंग कैसे सेट करें?">
 
 React Router के लिए, [React Router v7 गाइड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_with_react_router_v7.md) देखें। बिना राउटर वाले ऐप्स के लिए, `routing.mode` को `"no-prefix"` या `"search-params"` पर सेट करें।
 
 </Question>
-
 <Question title="क्लाइंट-साइड React ऐप में SEO मेटाडेटा कैसे प्रबंधित करें?">
 
 `html` तत्व पर `lang` और `dir` विशेषताएँ सेट करें और `getMultilingualUrls` का उपयोग करके `hreflang` लिंक प्रकाशित करें।
 
 </Question>
-
 <Question title="अरबी या हिब्रू जैसी दाएं से बाएं लिखी जाने वाली भाषाओं का समर्थन कैसे करें?">
 
 `getHTMLTextDir` किसी दिए गए लोकेल के लिए `ltr`, `rtl`, या `auto` लौटाता है, जिससे आप सक्रिय लोकेल से रूट तत्व पर `lang` और `dir` बाइंड कर सकते हैं और अपनी तार्किक CSS विशेषताओं को बाकी संभालने दे सकते हैं।
 
 </Question>
-
 <Question title="मैं ऐप को AI के साथ स्वचालित रूप से कैसे अनुवाद करूँ?">
 
 `npx intlayer fill` चलाएं। यह कमांड आपके चुने हुए LLM का उपयोग करके आपके अपने प्रदाता और API कुंजी के साथ लापता अनुवादों को भरता है, और `--git-diff` बदली गई फ़ाइलों तक संचालन को सीमित करता है। [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/cli/fill.md) और [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/CI_CD.md) देखें।
 
 </Question>
-
 <Question title="क्या Intlayer बहुवचन, लिंग और समृद्ध पाठ (rich text) का समर्थन करता है?">
 
 हाँ: [बहुवचन (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/plurial.md), [लिंग-आधारित सामग्री](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/gender.md), शर्तें, [सम्मिलन (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/markdown.md), और संख्याओं, तिथियों और मुद्राओं के लिए [प्रारूपक (formatters)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/formatters.md)।
 
 </Question>
-
 <Question title="अनुवादक कोड को छुए बिना सामग्री को कैसे संपादित कर सकते हैं?">
 
 [विज़ुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_visual_editor.md) के माध्यम से, जो किसी को भी सीधे चलते हुए ऐप में टेक्स्ट संपादित करने देता है, या [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md) के माध्यम से, जो सामग्री को अलग करता है ताकि कोड को फिर से तैनात किए बिना उसे अपडेट किया जा सके।
 
 </Question>
-
 <Question title="क्या Intlayer मुफ्त और ओपन सोर्स है?">
 
 हाँ, Apache 2.0 लाइसेंस के तहत, व्यावसायिक उपयोग सहित। होस्टेड CMS एक वैकल्पिक सशुल्क सेवा है जिसे [स्वयं होस्ट (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/self_hosting.md) भी किया जा सकता है।

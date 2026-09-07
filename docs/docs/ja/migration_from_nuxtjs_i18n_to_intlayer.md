@@ -34,7 +34,6 @@ author: aymericzip
 巨大なJSONファイルをページに読み込む代わりに、必要なコンテンツのみをロードします。Intlayerは、**バンドルとページのサイズを最大50%削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="メンテナンス性">
 
 アプリケーションのコンテンツをスコープ化することで、大規模なアプリケーションの**メンテナンスが容易**になります。機能フォルダ全体を複製または削除しても、すべてのコンテンツコードベースを確認するという精神的負担がありません。さらに、Intlayerはコンテンツの正確性を確保するために**完全に型付け**されています。
@@ -42,25 +41,21 @@ author: aymericzip
 また、Intlayerはi18nエコシステムの中で**最も活発に開発されている**ソリューションでもあります。問題は迅速に修正され、新しいフレームワークアダプタが定期的に登場し、コアAPIは実際の運用フィードバックに基づいて継続的に改良されています。
 
 </Accordion>
-
 <Accordion header="AIエージェント">
 
 コンテンツのコロケーション（同一場所配置）により、大規模言語モデル（LLM）に必要な**コンテキストが減少**します。Intlayerには、不足している翻訳をテストするための**CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/mcp_server.md)**、および**[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)**などのツールスイートが備わっており、AIエージェントにとってよりスムーズな開発者体験（DX）を提供します。
 
 </Accordion>
-
 <Accordion header="自動化">
 
 AIプロバイダーのコストで、お好みのLLMを使用してCI/CDパイプライン内で翻訳を自動化できます。Intlayerは、コンテンツ抽出を自動化するための**コンパイラ**や、**バックグラウンドでの翻訳**を支援する[ウェブプラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)も提供しています。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 コンポーネントに巨大なJSONファイルを接続すると、パフォーマンスやリアクティビティの問題が発生する可能性があります。Intlayerはビルド時にコンテンツのロードを最適化します。
 
 </Accordion>
-
 <Accordion header="非開発者とのスケーラビリティ">
 
 単なるi18nソリューションにとどまらず、Intlayerはセルフホストの**[ビジュアルエディタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)**と**[フルCMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)**を提供し、多言語コンテンツを**リアルタイム**で管理できるようにします。これにより、翻訳者やコピーライター、その他のチームメンバーとのシームレスなコラボレーションが可能になります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -87,7 +82,6 @@ AIプロバイダーのコストで、お好みのLLMを使用してCI/CDパイ�
 以下の手順は、コンポーネントのコードを変更せずに、既存のNuxtアプリをIntlayer上で実行するために必要な最小限のステップです。
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 Intlayerのコアパッケージと互換性アダプターをインストールします：
@@ -131,7 +125,6 @@ bun add intlayer vue-intlayer nuxt-intlayer @intlayer/vue-i18n @intlayer/sync-js
 > 移行中は`@nuxtjs/i18n`を安全にインストールしたままにしておけます（後でNuxtの設定から削除します）。
 
 </Step>
-
 <Step number={2} title="Intlayerの設定">
 
 `intlayer init`コマンドにより、初期の`intlayer.config.ts`ファイルが作成されます。既存のロケールに合わせて設定を更新し、`syncJSON`プラグインがメッセージファイルを指すようにします：
@@ -166,7 +159,6 @@ export default config;
 > **`source`**はロケールをそのJSONファイルのパスにマッピングします。**`location`**はIntlayerウォッチャーに監視するフォルダを指示します。`format: 'icu'`オプションは、`vue-i18n`のプレースホルダーが正しく解析されることを保証します。
 
 </Step>
-
 <Step number={3} title="Nuxt設定の更新">
 
 `nuxt.config.ts`内の`@nuxtjs/i18n`モジュールを`nuxt-intlayer`に置き換えます。Intlayerプラグインは自動的にモジュールエイリアスを注入するため、既存の`import { useI18n } from 'vue-i18n'`への呼び出しは透過的に`@intlayer/vue-i18n`にリダイレクトされます。
@@ -191,7 +183,6 @@ export default defineNuxtConfig({
 以下のステップはオプションであり、段階的に行うことができます。これにより、ビジュアルエディタ、CMS、型付けされたコンテンツファイル、AIを利用した翻訳自動化など、Intlayerの全機能が解放されます。
 
 <Steps>
-
 <Step number={4} title="インポートの明示的な変更（オプション）" isOptional={true}>
 
 Intlayerプラグインは既にバンドラレベルでのエイリアス化を処理しています。ソースファイル内で依存関係を明示的にしたい場合は、手動でインポート名を変更できます：
@@ -203,7 +194,6 @@ Intlayerプラグインは既にバンドラレベルでのエイリアス化を
 これらは**ドロップインの置き換え**であり、呼び出しシグネチャ、引数、または戻り値の型を変更する必要はありません。
 
 </Step>
-
 <Step number={5} title="AIを利用した翻訳自動化の有効化" isOptional={true}>
 
 Intlayerが設定されたら、CLIを使用して不足している翻訳を自動入力することができます：

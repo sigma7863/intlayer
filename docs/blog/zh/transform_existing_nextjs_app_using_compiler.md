@@ -275,19 +275,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
 可以。Intlayer 支持 `routing.mode: "search-params"` 以及基于 Cookie / Header 的语言检测，完整保留现有目录与 URL。
 
 </Question>
-
 <Question title="我必须手动替换代码中的所有硬编码字符串吗？">
 
 不需要。使用 `npx intlayer extract` 或 Intlayer 编译器即可自动提取和声明内容。
 
 </Question>
-
 <Question title="相比 next-intl，Intlayer 是如何减少打包体积的？">
 
 Intlayer 采用按组件声明与构建时宏优化，客户端只下载当前页面组件所需的内容片段。
 
 </Question>
-
 <Question title="可以使用 AI 自动将现有组件翻译为多种语言吗？">
 
 可以。运行 `npx intlayer fill` 即可自动连接 AI 服务生成上下文相关的缺失翻译。

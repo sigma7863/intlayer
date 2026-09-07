@@ -51,37 +51,31 @@ author: aymericzip
 Intlayer 针对 React 进行了优化，提供 **组件级内容作用域**、**延迟加载的翻译** 以及国际化 (i18n) 扩展所需的所有功能。
 
 </Accordion>
-
 <Accordion header="Bundle 大小">
 
 无需将庞大的 JSON 文件加载到页面中，只需加载必要的内容。Intlayer 可帮助 **将 bundle 和页面大小减少高达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 对应用程序内容的作用域划分 **便于大规模应用的维护**。您可以复制或删除单个功能文件夹，而无需审查整个内容代码库的负担。此外，Intlayer **完全类型化**，确保内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 共置内容 **降低大语言模型 (LLM) 所需的上下文**。Intlayer 还提供了一套工具，例如 **CLI** 用于测试缺失的翻译、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/mcp_server.md)** 以及 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI Agent 的开发者体验 (DX) 更加顺畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 在 CI/CD 管道中使用自动化翻译，使用您选择的 LLM，按照您的 AI 提供商的成本计费。Intlayer 还提供 **编译器** 以自动提取内容，以及 [网络平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 来帮助 **后台翻译**。
 
 </Accordion>
-
 <Accordion header="性能">
 
 将庞大的 JSON 文件连接到组件可能导致性能和响应性问题。Intlayer 在构建时优化您的内容加载。
 
 </Accordion>
-
 <Accordion header="与非开发人员协作的扩展">
 
 Intlayer 不仅是一个 i18n 解决方案，还提供 **自托管 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)** 和 **[完整 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)** 来帮助您 **实时** 管理多语言内容，使与翻译人员、文案撰写人员和其他团队成员的协作无缝进行。内容可以存储在本地和/或远程。
@@ -92,7 +86,6 @@ Intlayer 不仅是一个 i18n 解决方案，还提供 **自托管 [可视化编
 ## 在 React 应用中设置 Intlayer 的分步指南
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 使用 npm 安装必要的包：
@@ -146,7 +139,6 @@ bun add intlayer react-intlayer react-scripts-intlayer
   包含 `react-scripts-intlayer` 命令和插件，用于将 Intlayer 与基于 Create React App 的应用集成。这些插件基于 [craco](https://craco.js.org/)，并包含 [Webpack](https://webpack.js.org/) bundler 的额外配置。
 
 </Step>
-
 <Step number={2} title="配置你的项目">
 
 创建一个配置文件来配置应用的语言：
@@ -172,7 +164,6 @@ export default config;
 > 通过此配置文件，你可以设置本地化 URL、中间件重定向、cookie 名称、内容声明的位置和扩展名、禁用 Intlayer 控制台日志等。有关可用参数的完整列表，请参考 [配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="在 CRA 配置中集成 Intlayer">
 
 更改你的脚本以使用 react-intlayer
@@ -188,7 +179,6 @@ export default config;
 > `react-scripts-intlayer` 脚本基于 [CRACO](https://craco.js.org/)。你也可以基于 intlayer craco 插件实现自己的设置。[在此查看示例](https://github.com/aymericzip/intlayer/blob/main/examples/react-app/craco.config.js)。
 
 </Step>
-
 <Step number={4} title="声明你的内容">
 
 创建和管理你的内容声明以存储翻译：
@@ -244,7 +234,6 @@ export default appContent;
 > 如果你的内容文件包含 TSX 代码，你应该考虑在内容文件中导入 `import React from "react";`。
 
 </Step>
-
 <Step number={5} title="在你的代码中使用 Intlayer">
 
 在整个应用中访问你的内容字典：
@@ -295,7 +284,6 @@ export default App;
 > 要了解有关 `useIntlayer` 钩子的更多信息，请参考 [文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/react-intlayer/useIntlayer.md)。
 
 </Step>
-
 <Step number={6} title="更改你的内容的语言" isOptional={true}>
 
 要更改你的内容的语言，你可以使用 `useLocale` 钩子提供的 `setLocale` 函数。此函数允许你设置应用的语言环境并相应地更新内容。
@@ -316,7 +304,6 @@ const LocaleSwitcher = () => {
 > 要了解有关 `useLocale` 钩子的更多信息，请参考 [文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/react-intlayer/useLocale.md)。
 
 </Step>
-
 <Step number={7} title="为你的应用添加本地化路由" isOptional={true}>
 
 此步骤的目的是为每种语言创建唯一的路由。这对 SEO 和友好的 SEO URL 非常有用。
@@ -463,7 +450,6 @@ const App: FC = () => (
 ```
 
 </Step>
-
 <Step number={8} title="当语言环境更改时更改 URL" isOptional={true}>
 
 要在语言环境更改时更改 URL，你可以使用 `useLocale` 钩子提供的 `onLocaleChange` prop。同时，你可以使用 `react-router-dom` 中的 `useLocation` 和 `useNavigate` 钩子来更新 URL 路径。
@@ -545,7 +531,6 @@ const LocaleSwitcher: FC = () => {
 > - [`aria-current` 属性](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={9} title="切换 HTML 语言和方向属性" isOptional={true}>
 
 当你的应用支持多种语言时，更新 `<html>` 标签的 `lang` 和 `dir` 属性以匹配当前语言环境至关重要。这样做可以确保：
@@ -616,7 +601,6 @@ export default App;
 - 确保 **语言** (`lang`) 属性正确反映当前语言环境，这对 SEO 和浏览器行为非常重要。
 - 根据语言环境调整 **文本方向** (`dir`)，提升不同阅读顺序语言的可读性和可用性。
 - 提供更 **无障碍** 的体验，因为辅助技术依赖这些属性以实现最佳功能。
-
 </Step>
 
 </Steps>
@@ -684,25 +668,21 @@ Intlayer 使用模块增强来利用 TypeScript 的优势，使您的代码库�
 Create React App 封装了自己的 webpack 配置，因此集成是通过 `react-scripts-intlayer` 作为 `react-scripts` 的直接替代品来进行的，而无需您手动注册插件。请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/index.md)。
 
 </Question>
-
 <Question title="i18n 会给我的 React bundle 体积增加多少？">
 
 远少于基于命名空间的方案，因为页面永远不会下载它不渲染的语言目录。构建时编译器将 `useIntlayer` 调用替换为组件使用的确切字典条目，因此未使用的键和未使用的语言都会被自动丢弃，并且 [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 会按语言环境拆分剩余内容。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/index.md)。
 
 </Question>
-
 <Question title="我可以从 react-i18next 或 react-intl 迁移而无需重写组件吗？">
 
 可以，有两条迁移路径。您可以使用 [react-i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_react-i18next_to_intlayer.md) 或 [i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_i18next_to_intlayer.md) 逐步迁移内容。或者，您可以完全保留当前的 API：[兼容性适配器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/index.md) 公开与 `react-i18next`、`react-intl` 和 `i18next` 完全相同的 API，但底层由 Intlayer 字典驱动，因此只需更改导入语句，组件代码无需修改。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的组件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。
@@ -712,7 +692,6 @@ Create React App 封装了自己的 webpack 配置，因此集成是通过 `reac
 开启编译器前有两个限制值得了解：它通过静态分析工作，因此仅在运行时存在的字符串（如 API 错误代码或 CMS 字段）无法被捕获；此外它需要区分用户文本和应用程序逻辑（如 `className="active"` 或状态代码），在大型代码库中需要少量注解。而 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md) 则通过让您参与审查避免了这两个问题。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -724,49 +703,41 @@ Create React App 封装了自己的 webpack 配置，因此集成是通过 `reac
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="Create React App 已不再维护，我是否应该先迁移到 Vite？">
 
 如果您已经在计划迁移，建议优先迁移并参考 [Vite + React 指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_vite+react.md)：Vite 插件支持更完善，且重建速度更快。如果您尚未准备好迁移构建工具，本指南依然完全可用，并且两种方案之间的内容声明格式完全一致，因此后续迁移构建工具时无需重写您的 i18n 代码。
 
 </Question>
-
 <Question title="如何在 Create React App 项目中设置本地化路由？">
 
 第 7 步和第 8 步介绍了本地化路由以及在语言环境更改时重写 URL。如果您不希望在路径中包含语言环境，可以将 `routing.mode` 设置为 `"no-prefix"` 或 `"search-params"`，此时语言环境将通过 Cookie 或查询参数进行解析。请参阅 [配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Question>
-
 <Question title="如何在客户端渲染的 React 应用中处理 SEO 元数据？">
 
 根据第 9 步的展示，从活动语言环境中为 `html` 元素设置 `lang` 和 `dir`，并使用 `getMultilingualUrls` 为每个声明的语言环境输出 `hreflang` 备用链接（包括 `x-default`）。由于 Create React App 输出的是纯客户端渲染的外壳，对于必须可靠爬取的页面，建议优先使用预渲染或服务端渲染方案，如 [TanStack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_tanstack.md) 或 [React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_react_router_v7.md)。
 
 </Question>
-
 <Question title="如何支持阿拉伯语或希伯来语等从右到左 (RTL) 的语言？">
 
 第 9 步对此进行了介绍。`getHTMLTextDir` 会为特定语言环境返回 `ltr`、`rtl` 或 `auto`，因此您只需在根元素上根据活动语言环境绑定 `lang` 和 `dir`，并让 CSS 逻辑属性处理其余样式排版。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译应用？">
 
 运行 `npx intlayer fill`。它会使用您选择的 LLM、您自己的提供商和 API 密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、用于长文本的 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

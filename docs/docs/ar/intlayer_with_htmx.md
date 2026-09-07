@@ -42,13 +42,11 @@ htmx لا يعرض أي محتوى خاص به. كل تسمية يقرأها ا�
 يقوم middleware Intlayer بحل اللغة من الطلب نفسه، لذلك يجيب الجزء المقدم في الدقيقة العاشرة باللغة ذاتها التي تم تقديم الصفحة بها في الدقيقة الصفر.
 
 </Accordion>
-
 <Accordion header="يجب أن تسافر اللغة مع الطلب">
 
 يعمل حاملان مع htmx. يتم إرسال ملف تعريف الارتباط (`INTLAYER_LOCALE`) من قبل المتصفح تلقائياً في كل طلب، بما في ذلك طلبات htmx. يمكن إرفاق رأس (`x-intlayer-locale`) بطلبات htmx باستخدام السمة `hx-headers`. يتم قراءة كليهما بشكل افتراضي.
 
 </Accordion>
-
 <Accordion header="HTML المبدل لا يزال HTML">
 
 القيمة المترجمة المدرجة في مقطع هي markup. قم بـ escape لها، تماماً كما تفعل مع أي قيمة ديناميكية أخرى، لذلك لا يمكن لترجمة تحتوي على `<` أن تكسر المستند الذي يتم تبديله فيه.
@@ -69,7 +67,6 @@ htmx لا يعرض أي محتوى خاص به. كل تسمية يقرأها ا�
 انظر إلى [نموذج التطبيق](https://github.com/aymericzip/intlayer-htmx-template) على GitHub.
 
 <Steps>
-
 <Step number={1} title="تثبيت المتطلبات">
 
 قم بتثبيت `intlayer` بالإضافة إلى التكامل الخاص بخادمك.
@@ -158,7 +155,6 @@ bun add intlayer elysia-intlayer
 htmx نفسه عبارة عن وسم نصي واحد، مضاف في الخطوة 4.
 
 </Step>
-
 <Step number={2} title="تكوين مشروعك">
 
 أنشئ `intlayer.config.ts` في جذر مشروعك:
@@ -179,7 +175,6 @@ export default config;
 > للحصول على القائمة الكاملة للخيارات، راجع [توثيق التكوين](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md).
 
 </Step>
-
 <Step number={3} title="أعلن عن محتواك">
 
 أعلن عن كل التسميات التي سيعيدها الخادم، بما في ذلك تلك التي تظهر فقط داخل جزء:
@@ -223,7 +218,6 @@ export default appContent;
 > يمكن أن توجد إعلانات المحتوى في أي مكان تحت `contentDir` (بشكل افتراضي `./src`) وتطابق `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}`. انظر إلى [وثائق إعلان المحتوى](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/content_file.md).
 
 </Step>
-
 <Step number={4} title="تسجيل middleware Intlayer">
 
 يحل الـ middleware لغة كل طلب ويعرّضها لمعالجاتك.
@@ -297,7 +291,6 @@ const app = new Elysia().use(intlayer());
 افتراضياً، يتم أخذ locale من ملف تعريف `INTLAYER_LOCALE`، ثم رأس `x-intlayer-locale`، ثم تفاوض `Accept-Language`.
 
 </Step>
-
 <Step number={5} title="عرض الأجزاء مع locale الطلب">
 
 اكتب أداة عرض الأجزاء كدوال نقية لـ locale، وأرسل locale الذي حله الـ middleware. يحافظ تمريره بشكل صريح على ارتباط الجزء بالطلب الذي طلبه، أياً كان الخادم الذي تستخدمه.
@@ -399,7 +392,6 @@ app.post("/cart/items", ({ body, intlayer }) => {
 الآن يجيب نفس المقطع باللغة الفرنسية للزائر الذي تقول ملفات تعريفه `fr`، وباللغة العربية لمن تقول ملفات تعريفه `ar`، بدون أي تغيير في الترميز الذي يستدعيه.
 
 </Step>
-
 <Step number={6} title="خدمة الصفحة الأولى">
 
 قم بتصيير `<body>` بمفردها، بحيث يمكن لمحول اللغة في الخطوة 7 استبدالها بالكامل، ثم قم بلفها في المستند الذي يحمل htmx:
@@ -435,7 +427,6 @@ ${renderBody(locale, itemCount)}
 تُرجع `getHTMLTextDir` قيمة `ltr` أو `rtl` أو `auto` للـ locale، وهذا ما يجعل العربية والعبرية تتصرف بشكل صحيح.
 
 </Step>
-
 <Step number={7} title="تبديل اللغة">
 
 تبديل اللغة هو طلب مثل أي طلب آخر. يقوم الخادم بتخزين الاختيار في ملف تعريف الارتباط الذي يقرأه middleware، ثم يُرجع الصفحة معاد تصييرها باللغة الجديدة.
@@ -582,7 +573,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 > يقوم `isDeclaredLocale` بتضييق نطاق سلسلة نصية عشوائية إلى أحد لغاتك المُعدّة، لذلك لن تصل أي قيمة غير متوقعة إلى معالجاتك.
 
 </Step>
-
 <Step number={8} title="الحفاظ على lang و dir متزامنة بعد استبدال" isOptional={true}>
 
 يمكن للـ swap أن يستبدل `<body>`، لكن ليس العنصر `<html>` حوله. قم بتصيير `lang` و `dir` على الـ body المستبدل وانسخهما مرة أخرى إلى العنصر الجذر مرة واحدة، من الـ head:
@@ -601,7 +591,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 بدون هذا، عند التبديل إلى اللغة العربية، سيتم العرض من اليمين إلى اليسار داخل الـ body بينما لا يزال المستند يعلن اللغة السابقة لتكنولوجيا المساعدة وللزحافات.
 
 </Step>
-
 <Step number={9} title="إرسال المنطقة الإقليمية كرأس بدلاً من ملف تعريف ارتباط" isOptional={true}>
 
 إذا لم تناسبك ملف تعريف الارتباط (cookie)، أرفق الإعدادات المحلية لكل طلب htmx باستخدام `hx-headers` على عنصر أب. ترث العناصر الفرعية هذا:
@@ -685,67 +674,56 @@ export default config;
 لأن طلب الجزء لم يحمل أي locale. طلبات htmx مستقلة عن الصفحة التي أصدرتها، لذا يجب أن ينتقل locale عليها، من خلال ملف تعريف الارتباط `INTLAYER_LOCALE` أو رأس `x-intlayer-locale` معين مع `hx-headers`. تحقق من أن محلل ملفات تعريف الارتباط يعمل قبل middleware الـ Intlayer على Express و Fastify، وإلا فلن يتم قراءة ملف تعريف الارتباط أبداً وسيعود كل طلب إلى `Accept-Language`.
 
 </Question>
-
 <Question title="هل يجب أن أمرر locale إلى `getIntlayer` أم الاعتماد على سياق الطلب؟">
 
 مررها. التكاملات تكشف عن locale المحلول (`res.locals.locale`, `req.intlayer.locale`, `c.get("locale")`, `intlayer!.locale`)، وتمريره إلى `getIntlayer` يجعل كل renderer دالة نقية من locale. هذا أسهل للاختبار، ويحافظ على portability لـ fragment renderers الخاصة بك إذا قمت بتغيير الخادم.
 
 </Question>
-
 <Question title="هل أحتاج إلى مكتبة i18n على جانب العميل بجانب htmx؟">
 
 لا. كل شيء يراه الزائر يتم إنتاجه بواسطة الخادم، لذا لا يوجد شيء للترجمة في المتصفح. هذا أيضاً هو السبب في أن تكلفة وزن الصفحة للـ i18n في تطبيق htmx قريبة جداً من الصفر: لا يتم إرسال أي كتالوج إلى العميل أبداً.
 
 </Question>
-
 <Question title="كيف أقوم بتحديد موقع جغرافي للـ URL أيضاً، لأغراض SEO؟">
 
 قدم صفحاتك تحت بادئة لغة (`/fr/cart`) واقرأ اللغة من المسار في معالج المسار الخاص بك، بدلاً من ملف تعريف الارتباط، لعرض الصفحة الكاملة. يمكن للأجزاء أن تستمر في استخدام ملف تعريف الارتباط أو رأس الطلب. انظر إلى [المكونات الإضافية للإعدادات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md) لخيارات التوجيه و[إعادات كتابة عناوين URL المخصصة](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/custom_url_rewrites.md).
 
 </Question>
-
 <Question title="كيف أتعامل مع اللغات من اليمين إلى اليسار؟">
 
 `getHTMLTextDir(locale)` يُرجع `ltr` أو `rtl` أو `auto`. قم بتعيينه على المستند للعرض الأولي، وأعد تطبيقه بعد التبديل كما توضح الخطوة 8. استخدم خصائص CSS المنطقية (`margin-inline-start` بدلاً من `margin-left`) حتى يتبع تخطيطك.
 
 </Question>
-
 <Question title="هل يجب أن أهرب من القيم المترجمة؟">
 
 نعم، لأي شيء تقحمه في سلسلة نص template، تماماً كما هو الحال مع أي قيمة ديناميكية أخرى. المحتوى القادم من CMS أو من مترجم ليس markup تتحكم فيه. الخطوة 5 توضح escaper بسيط.
 
 </Question>
-
 <Question title="هل يمكن للمحتوى نفسه أن يخدم استجابات API الخاصة بي أيضاً؟">
 
 نعم. تعرض تكاملات الـ backend `t()` و `getIntlayer()` لأي معالج، لذلك رسالة خطأ معروضة في toast ونص معروض في fragment يأتيان من نفس المحتوى المُعلَّن. انظر إلى أدلة [Express](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_with_express.md) و [Fastify](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_with_fastify.md) و [Hono](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_with_hono.md) و [Elysia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_with_elysia.md).
 
 </Question>
-
 <Question title="هل يجب أن أنقل المحتوى الخاص بي مفتاحًا تلو الآخر؟">
 
 لا. قم بتشغيل `npx intlayer extract` وسيقرأ Intlayer ملفات المصدر الخاصة بك، ويسحب السلاسل النصية الموجهة للمستخدم ويكتب ملف `.content` بجانب كل منها، بحيث تراجع diff بدلاً من نسخ السلاسل إلى كتالوج واحد تلو الآخر. انظر إلى [أمر الاستخراج](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/extract.md).
 
 </Question>
-
 <Question title="هل يمكنني الاحتفاظ بملفات الترجمة JSON الموجودة لدي؟">
 
 نعم. تحافظ [مكونة مزامنة JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-json.md) على ملفات `/messages/{locale}/{namespace}.json` كمصدر الحقيقة وتُنشئ قواميس Intlayer منها، في كلا الاتجاهين. تقوم [مكونة مزامنة PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-po.md) بنفس العمل بالنسبة لكتالوجات gettext، و[الملفات المقسمة حسب اللغة](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/per_locale_file.md) تتيح لك تقسيم المحتوى حسب اللغة بدلاً من تجميع اللغات في ملف واحد.
 
 </Question>
-
 <Question title="كيف أترجم التطبيق تلقائياً باستخدام الذكاء الاصطناعي؟">
 
 قم بتشغيل `npx intlayer fill`، والذي يملأ الترجمات المفقودة باستخدام نموذج اللغة (LLM) من اختيارك باستخدام مزودك ومفتاح API الخاص بك. أضف `--git-diff` لترجمة المحتوى المتغير فقط على الفرع. اطلع على [أمر fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/fill.md) و [تكامل CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/CI_CD.md).
 
 </Question>
-
 <Question title="هل يدعم Intlayer النوع الاجتماعي والشروط والقيم المُدرجة؟">
 
 نعم: [محتوى قائم على النوع الاجتماعي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/gender.md)، الشروط، [التعديلات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/enumeration.md)، [الإدراجات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/insertion.md) للقيم المقحمة، و[المنسقات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/formatters.md) للأرقام والتواريخ والعملات.
 
 </Question>
-
 <Question title="ما هي أدوات المحررات والوكلاء الذكيين المتاحة؟">
 
 خمس قطع، كلها اختيارية:
@@ -757,7 +735,6 @@ export default config;
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/eslint.md)**: `no-raw-text` يوضح النصوص المشفرة بشكل ثابت.
 
 </Question>
-
 <Question title="هل Intlayer مجاني ومفتوح المصدر؟">
 
 نعم، بموجب ترخيص Apache 2.0، بما في ذلك الاستخدام التجاري. [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_CMS.md) المستضاف هو خدمة مدفوعة اختيارية يمكن أيضاً [استضافتها ذاتياً](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/self_hosting.md).

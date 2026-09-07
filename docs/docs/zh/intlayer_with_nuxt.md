@@ -46,37 +46,31 @@ author: aymericzip
 Intlayer 经过优化，可与 Nuxt 完美配合，提供**多语言路由**、**用于区域设置检测的中间件**、**站点地图**以及扩展国际化 (i18n) 所需的所有功能。
 
 </Accordion>
-
 <Accordion header="捆绑尺寸">
 
 不要将大量 JSON 文件加载到页面中，而只需加载必要的内容。 Intlayer 有助于**将捆绑包和页面大小减少多达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 确定应用程序内容的范围**有利于大型应用程序的维护**。您可以复制或删除单个功能文件夹，而无需承担检查整个内容代码库的精神负担。此外，Intlayer 具有**完全类型化 (fully typed)**，以确保您的内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 共置内容**减少大型语言模型 (LLM) 所需的上下文**。 Intlayer 还附带了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 代理的开发者体验 (DX) 更加流畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用您选择的法学硕士，通过自动化在 CI/CD 管道中进行翻译，而费用由您的 AI 提供商承担。 Intlayer 还提供了一个**编译器**来自动提取内容，以及一个[网络平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)来帮助**在后台翻译**。
 
 </Accordion>
-
 <Accordion header="表现">
 
 将大量 JSON 文件连接到组件可能会导致性能和反应性问题。 Intlayer 可在构建时 (build time)优化您的内容加载。
 
 </Accordion>
-
 <Accordion header="使用 none-dev 扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)**和一个**[完整的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** 来帮助您管理多语言内容**实时**，与译员、文案人员和其他团队成员无缝协作。内容可以本地和/或远程存储。
@@ -119,7 +113,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 查看 GitHub 上的[应用模板](https://github.com/aymericzip/intlayer-nuxt-4-template)。
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 使用 npm 安装必要的包：
@@ -175,7 +168,6 @@ bun add --dev nuxt-intlayer
   将 Intlayer 与 Nuxt 应用集成的 Nuxt 模块。它提供自动设置、locale 检测中间件、cookie 管理和 URL 重定向。
 
 </Step>
-
 <Step number={2} title="配置您的项目">
 
 创建一个配置文件来配置您的应用程序的语言：
@@ -201,7 +193,6 @@ export default config;
 > 通过此配置文件，您可以设置本地化 URL、中间件重定向、cookie 名称、内容声明的位置和扩展名、禁用控制台中的 Intlayer 日志等。有关可用参数的完整列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="在您的 Nuxt 配置中集成 Intlayer">
 
 将 intlayer 模块添加到您的 Nuxt 配置中：
@@ -218,7 +209,6 @@ export default defineNuxtConfig({
 > `nuxt-intlayer` 模块自动处理 Intlayer 与 Nuxt 的集成。它设置内容声明构建、在开发模式下监视文件、提供 locale 检测中间件，并管理本地化路由。
 
 </Step>
-
 <Step number={4} title="声明您的内容">
 
 创建并管理您的内容声明以存储翻译：
@@ -258,7 +248,6 @@ export default content;
 > 有关更多详细信息，请参阅[内容声明文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={5} title="在您的代码中使用 Intlayer">
 
 使用 `useIntlayer` composable 在整个 Nuxt 应用中访问您的内容字典：
@@ -329,7 +318,6 @@ Intlayer 提供了多种 API 来访问您的内容：
   - 或者使用 `const { myContent } = useIntlayer("myContent");` 以及 `{{ myContent}}` / `<myContent/>` 来解构内容。
 
 </Step>
-
 <Step number={6} title="更改内容语言">
 
 要更改内容的语言，可以使用 `useLocale` 组合函数提供的 `setLocale` 函数。该函数允许您设置应用程序的语言环境并相应地更新内容。
@@ -375,7 +363,6 @@ const { locale, availableLocales, setLocale } = useLocale();
 ```
 
 </Step>
-
 <Step number={7} title="为您的应用添加本地化路由">
 
 当使用 `nuxt-intlayer` 模块时，Nuxt 会自动处理本地化路由。它会根据您的页面目录结构自动为每种语言创建路由。
@@ -451,7 +438,6 @@ useHead({
 - 将用户重定向到相应的本地化 URL
 
 </Step>
-
 <Step number={8} title="创建本地化链接组件">
 
 为了确保您的应用程序导航遵循当前的语言环境，您可以创建一个自定义的 `Links` 组件。该组件会自动为内部 URL 添加当前语言前缀，这对于 **SEO 和页面可发现性** 至关重要。
@@ -521,7 +507,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 > - 浏览器历史记录能正确处理带有语言前缀的 URL
 
 </Step>
-
 <Step number={9} title="处理元数据和 SEO">
 
 Nuxt 通过 `useHead` 组合式函数（自动导入）提供了出色的 SEO 功能。您可以使用 Intlayer 处理本地化的元数据，使用 `.raw` 或 `.value` 访问器获取原始字符串值：
@@ -620,7 +605,6 @@ export default aboutPageContent;
 ```
 
 </Step>
-
 <Step number="6b" title="创建带导航的布局" isOptional={true}>
 
 Nuxt 布局允许您为页面定义一个通用结构。创建一个包含语言切换器和导航的默认布局：
@@ -696,25 +680,21 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 核心区别在于内容的存放位置。`@nuxtjs/i18n` 将内容集中在 `locales/*.json` 文件中，而 Intlayer 将内容与渲染它的组件放置在同一目录下，因此页面仅输出其实际使用的条目，且功能模块目录可以整体移动或删除。请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md) 和 [Vue i18n 性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/vue.md)。
 
 </Question>
-
 <Question title="i18n 会给我的 Nuxt bundle 体积增加多少？">
 
 远少于基于命名空间的方案，因为页面永远不会下载它不渲染的语言目录。服务端渲染的标记在服务端直接解析内容，构建时编译器将 `useIntlayer` 调用替换为组件使用的确切字典条目，因此未使用的键和未使用的语言都会被自动丢弃，并且 [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 会按语言环境拆分剩余内容。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/vue.md)。
 
 </Question>
-
 <Question title="我可以从 @nuxtjs/i18n 或 vue-i18n 迁移而无需重写组件吗？">
 
 可以，有两条迁移路径。您可以使用 [@nuxtjs/i18n 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_nuxtjs_i18n_to_intlayer.md) 逐步迁移内容。或者，您可以完全保留当前的 API：[兼容性适配器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/index.md) 公开与 `vue-i18n` 完全相同的 API，但底层由 Intlayer 字典驱动，因此只需更改导入语句，组件代码完全无需修改。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的源码文件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。请参阅 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md)。
@@ -722,7 +702,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 如需全自动流程，[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compiler.md) 可以在构建时对 JSX、TSX、Vue 和 Svelte 源码执行相同操作，在每次更改时自动生成字典，完全无需手动维护键名。它通过静态分析工作，因此仅在运行时存在的字符串无法被捕获，并且需要少量注解以区分用户文本和应用程序逻辑。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -734,49 +713,41 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="Intlayer 是否支持 Nuxt 服务端渲染 (SSR) 和静态生成？">
 
 是的。内容在 SSR 和 `nuxt generate` 过程中直接解析，因此预渲染的页面包含完整的已翻译标记，而无需在客户端二次获取目录。`nuxt-intlayer` 模块会自动为您配置 Provider 和语言环境检测。
 
 </Question>
-
 <Question title="我必须在 URL 中包含语言环境吗？">
 
 不需要。`routing.mode` 支持 `"prefix-no-default"`（默认，例如 `/about` 与 `/fr/about`）、`"prefix-all"`、`"no-prefix"` 和 `"search-params"`，而 `routing.domains` 可将每个语言环境映射到独立域名。请参阅 [配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Question>
-
 <Question title="如何在 Nuxt 中处理 SEO 元数据和 hreflang 标签？">
 
 本指南的第 9 步对此进行了介绍。本地化的 `useHead` 元数据直接来自您的字典，而 `getMultilingualUrls` 会为每个声明的语言环境构建 `hreflang` 备用链接（包括 `x-default`），同时为本地化站点地图提供数据。
 
 </Question>
-
 <Question title="如何构建保留当前页面的语言切换器？">
 
 使用 `useLocale` 获取活动和可用的语言环境，配合第 8 步中的本地化链接组件保持语言状态导航。`getLocalizedUrl` 会将当前路径重写为目标语言环境，使切换语言时读者保留在相同路由上。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译 Nuxt 应用？">
 
 运行 `npx intlayer fill`。它会使用您选择的 LLM、您自己的提供商和 API 密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持 Vue 模板中的复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、[Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

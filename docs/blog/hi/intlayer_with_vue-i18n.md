@@ -56,7 +56,6 @@ author: aymericzip
 ## vue-i18n के साथ Intlayer सेटअप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 <Steps>
-
 <Step number={1} title="निर्भरताएँ स्थापित करें">
 
 अपनी पसंदीदा पैकेज प्रबंधक का उपयोग करके आवश्यक पैकेज इंस्टॉल करें:
@@ -103,7 +102,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Intlayer सामग्री घोषणाओं को vue-i18n JSON प्रारूप के साथ सिंक करने के लिए प्लगइन
 
 </Step>
-
 <Step number={2} title="JSON को रैप करने के लिए Intlayer प्लगइन लागू करें">
 
 अपने समर्थित लोकल्स को परिभाषित करने के लिए एक Intlayer कॉन्फ़िगरेशन फ़ाइल बनाएं:
@@ -142,7 +140,6 @@ export default config;
 `syncJSON` प्लगइन के बारे में अधिक विवरण देखने के लिए, कृपया [syncJSON प्लगइन दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/plugins/sync-json.md) देखें।
 
 </Step>
-
 <Step number={3} title="प्रति-कंपोनेंट JSON अनुवाद लागू करें">
 
 डिफ़ॉल्ट रूप से, Intlayer दोनों JSON और सामग्री घोषणा फ़ाइलों को लोड, मर्ज और सिंक्रनाइज़ करेगा। अधिक विवरण के लिए [सामग्री घोषणा दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/content_file.md) देखें। लेकिन यदि आप चाहें, तो Intlayer प्लगइन का उपयोग करके, आप अपने कोडबेस में कहीं भी स्थानीयकृत JSON के प्रति-कंपोनेंट प्रबंधन को भी लागू कर सकते हैं।

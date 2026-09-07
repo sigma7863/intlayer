@@ -334,19 +334,16 @@ Jeśli chcesz skonfigurować wszystkie szczegóły (w tym pełne wsparcie TypeSc
 Tak. Możesz użyć `npx intlayer extract` do automatycznego wykrycia i wyodrębnienia tekstów do plików deklaracji, lub użyć kompilatora Intlayer, który przekształca komponenty w trakcie budowania, podczas gdy Ty piszesz standardowy kod JSX.
 
 </Question>
-
 <Question title="Jak Intlayer zmniejsza rozmiar paczki w Vite w porównaniu z react-i18next lub react-intl?">
 
 Intlayer stosuje definicje słowników na poziomie pojedynczych komponentów oraz optymalizację makrami podczas budowania. Paczki otrzymują tylko te teksty, które są faktycznie renderowane na danej stronie, zamiast ładować obszerne pliki JSON. Słowniki dynamiczne pozwalają dodatkowo ładować języki na żądanie.
 
 </Question>
-
 <Question title="Czy mogę użyć AI do przetłumaczenia moich istniejących komponentów na wiele języków?">
 
 Tak. CLI Intlayer zawiera polecenie `npx intlayer fill`, które łączy się z wybranym dostawcą AI (OpenAI, Anthropic, Mistral, DeepSeek), aby automatycznie generować kontekstowe tłumaczenia dla wszystkich skonfigurowanych języków.
 
 </Question>
-
 <Question title="Czy mogę przejść z react-i18next lub react-intl bez przepisywania komponentów?">
 
 Tak. Intlayer zapewnia adaptery zgodności dla `react-i18next` i `react-intl`, a także wtyczki synchronizujące istniejące pliki JSON z tłumaczeniami (`sync-json`).

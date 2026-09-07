@@ -58,7 +58,6 @@ author: aymericzip
 ## 使用 react-i18next 设置 Intlayer 的分步指南
 
 <Steps>
-
 <Step number={1} title="安装依赖项">
 
 安装必要的包：
@@ -105,7 +104,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**：将 Intlayer 内容声明导出为 react-i18next 兼容 JSON 格式的插件
 
 </Step>
-
 <Step number={2} title="实现 Intlayer 插件以包装 JSON">
 
 创建 Intlayer 配置文件以定义您支持的语言：
@@ -143,7 +141,6 @@ export default config;
 有关 `syncJSON` 插件的更多详情，请参考 [syncJSON 插件文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md)。
 
 </Step>
-
 <Step number={3} title="设置 AI 提供商">
 
 Intlayer 为您的 i18next 工作流解锁了一组高级自动化和开发者友好的功能。

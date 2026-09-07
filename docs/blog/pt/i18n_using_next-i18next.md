@@ -118,7 +118,6 @@ Aqui está a estrutura do projeto que vamos criar:
 ```
 
 <Steps>
-
 <Step number={1} title="Instalar Dependências">
 
 Instale os pacotes necessários usando npm:
@@ -140,7 +139,6 @@ yarn add i18next react-i18next i18next-resources-to-backend
 - **i18next-resources-to-backend**: Um plugin que permite o carregamento dinâmico dos arquivos de tradução, permitindo carregar apenas os namespaces que você precisa.
 
 </Step>
-
 <Step number={2} title="Configure Seu Projeto">
 
 Crie um arquivo de configuração para definir os seus locales suportados, o locale padrão e funções auxiliares para a localização de URLs. Este arquivo serve como a fonte única de verdade para a sua configuração i18n e garante segurança de tipos em toda a sua aplicação.
@@ -195,7 +193,6 @@ export function getCookie(locale: Locale) {
 ```
 
 </Step>
-
 <Step number={3} title="Centralizar Namespaces de Tradução">
 
 Crie uma fonte única de verdade para cada namespace que sua aplicação expõe. Reutilizar essa lista mantém o código do servidor, cliente e ferramentas sincronizados e desbloqueia a tipagem forte para os helpers de tradução.
@@ -207,7 +204,6 @@ export type Namespace = (typeof namespaces)[number];
 ```
 
 </Step>
-
 <Step number={4} title="Tipar Fortemente as Chaves de Tradução com TypeScript">
 
 Aumente o `i18next` para apontar para seus arquivos de idioma canônicos (geralmente em inglês). O TypeScript então infere as chaves válidas por namespace, assim as chamadas para `t()` são verificadas de ponta a ponta.
@@ -247,7 +243,6 @@ export type AboutTranslator = TFunction<"about">;
 ```
 
 </Step>
-
 <Step number={5} title="Configurar a Inicialização do i18n no Lado do Servidor">
 
 Crie uma função de inicialização do lado do servidor que carrega traduções para componentes do servidor. Esta função cria uma instância separada do i18next para renderização do lado do servidor, garantindo que as traduções sejam carregadas antes da renderização.
@@ -304,7 +299,6 @@ export async function initI18next(
 ```
 
 </Step>
-
 <Step number={6} title="Criar o Provedor i18n no Lado do Cliente">
 
 Crie um componente provedor no cliente que envolva sua aplicação com o contexto do i18next. Este provedor recebe traduções pré-carregadas do servidor para evitar o flash de conteúdo não traduzido (FOUC) e evitar buscas duplicadas.
@@ -389,7 +383,6 @@ export default function I18nProvider({
 ```
 
 </Step>
-
 <Step number={7} title="Definir Rotas Dinâmicas por Locale">
 
 Configure o roteamento dinâmico para os locales criando um diretório `[locale]` na sua pasta app. Isso permite que o Next.js gerencie o roteamento baseado em locale, onde cada locale se torna um segmento da URL (ex.: `/en/about`, `/fr/about`).
@@ -443,7 +436,6 @@ export default function LocaleLayout({
 ```
 
 </Step>
-
 <Step number={8} title="Crie Seus Arquivos de Tradução">
 
 Crie arquivos JSON para cada locale e namespace. Essa estrutura permite organizar as traduções de forma lógica e carregar apenas o que você precisa para cada página.
@@ -538,7 +530,6 @@ Organizar traduções por namespace (por exemplo, `common.json`, `about.json`) p
 </Tabs>
 
 </Step>
-
 <Step number={9} title="Utilize Traduções nas Suas Páginas">
 
 Crie um componente de página que inicialize o i18next no servidor e passe as traduções tanto para os componentes do servidor quanto para os do cliente. Isso garante que as traduções sejam carregadas antes da renderização e evita o piscar de conteúdo.
@@ -600,7 +591,6 @@ export default async function AboutPage({
 ```
 
 </Step>
-
 <Step number={10} title="Usar Traduções em Componentes Cliente">
 
 Componentes cliente podem usar o hook `useTranslation` para acessar traduções. Este hook fornece acesso à função de tradução e à instância i18n, permitindo traduzir conteúdo e acessar informações de locale.
@@ -653,7 +643,6 @@ export default ClientComponent;
 ```
 
 </Step>
-
 <Step number={11} title="Usar Traduções em Componentes de Servidor">
 
 Componentes server não podem usar React hooks, então eles recebem traduções via props de seus componentes pai. Essa abordagem mantém os componentes server síncronos e permite que sejam aninhados dentro de componentes client.
@@ -701,7 +690,6 @@ export default ServerComponent;
 ```
 
 </Step>
-
 <Step number={12} title="Alterar o idioma do seu conteúdo" isOptional={true}>
 
 Para alterar o idioma do seu conteúdo no Next.js, a forma recomendada é usar URLs prefixadas com o locale e links do Next.js. O exemplo abaixo lê o locale atual da rota, remove-o do pathname e renderiza um link para cada locale disponível.
@@ -775,7 +763,6 @@ export default function LocaleSwitcher() {
 ```
 
 </Step>
-
 <Step number={13} title="Construir um componente Link localizado" isOptional={true}>
 
 Reutilizar URLs localizadas em toda a sua aplicação mantém a navegação consistente e otimizada para SEO. Envolva o `next/link` em um pequeno helper que prefixa rotas internas com o locale ativo, enquanto deixa URLs externas intactas.
@@ -828,7 +815,6 @@ export default function LocalizedLink({
 > Dica: Como `LocalizedLink` é um substituto direto, faça a migração gradualmente trocando os imports e deixando o componente lidar com URLs específicas de locale.
 
 </Step>
-
 <Step number={14} title="Acessar o locale ativo dentro das Server Actions" isOptional={true}>
 
 Server Actions frequentemente precisam do locale atual para emails, logs ou integrações com terceiros. Combine o cookie de locale definido pelo seu proxy com o cabeçalho `Accept-Language` como fallback.
@@ -868,7 +854,6 @@ export async function stuffFromServer(formData: FormData) {
 > Como o helper depende dos cookies e headers do Next.js, ele funciona em Route Handlers, Server Actions e outros contextos exclusivos do servidor.
 
 </Step>
-
 <Step number={15} title="Internacionalize Seus Metadados" isOptional={true}>
 
 Traduzir o conteúdo é importante, mas o principal objetivo da internacionalização é tornar seu site mais visível para o mundo. I18n é uma alavanca incrível para melhorar a visibilidade do seu site por meio de SEO adequado.
@@ -937,7 +922,6 @@ export default async function AboutPage() {
 ```
 
 </Step>
-
 <Step number={16} title="Internacionalize seu Sitemap" isOptional={true}>
 
 Gere um sitemap que inclua todas as versões de locale das suas páginas. Isso ajuda os motores de busca a descobrir e indexar todas as versões linguísticas do seu conteúdo.
@@ -993,7 +977,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 ```
 
 </Step>
-
 <Step number={17} title="Internacionalize seu robots.txt" isOptional={true}>
 
 Crie um arquivo robots.txt que gerencie corretamente todas as versões de locale das suas rotas protegidas. Isso garante que os motores de busca não indexem páginas de administração ou dashboard em nenhum idioma.
@@ -1026,7 +1009,6 @@ export default function robots(): MetadataRoute.Robots {
 ```
 
 </Step>
-
 <Step number={18} title="Configurar Middleware para Roteamento de Locale" isOptional={true}>
 
 Crie um proxy para detectar automaticamente o locale preferido do usuário e redirecioná-lo para a URL apropriada com prefixo de locale. Isso melhora a experiência do usuário ao mostrar o conteúdo no idioma preferido.
@@ -1117,7 +1099,6 @@ export const config = {
 ```
 
 </Step>
-
 <Step number={19} title="Automatize Suas Traduções Usando o Intlayer" isOptional={true}>
 
 Intlayer é uma biblioteca **gratuita** e **open-source** projetada para auxiliar o processo de localização na sua aplicação. Enquanto o i18next gerencia o carregamento e a gestão das traduções, o Intlayer ajuda a automatizar o fluxo de trabalho das traduções.

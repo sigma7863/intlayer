@@ -34,7 +34,6 @@ author: aymericzip
 不再需要将庞大的 JSON 文件加载到页面中，只加载必要的内容。Intlayer 帮助您**将 bundle 和页面大小减少高达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 对应用程序的内容进行作用域划分**便于大规模应用的维护**。您可以复制或删除单个功能文件夹，无需审查整个内容代码库的心理负担。此外，Intlayer **完全类型化**，确保内容的准确性。
@@ -42,25 +41,21 @@ author: aymericzip
 Intlayer 也是 i18n 生态系统中**开发最活跃的**解决方案 — 问题修复快速、新框架适配器定期发布，核心 API 根据真实生产反馈不断优化。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 将内容并置**减少了大语言模型 (LLM) 所需的上下文**。Intlayer 还提供了一套工具，如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI agents 的开发体验 (DX) 更加顺畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 在 CI/CD 管道中使用自动化翻译，使用您选择的 LLM，按 AI 提供商的费用计费。Intlayer 还提供了**编译器**来自动提取内容，以及 [web 平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 来帮助**后台翻译**。
 
 </Accordion>
-
 <Accordion header="性能">
 
 将庞大的 JSON 文件连接到组件可能会导致性能和响应性问题。Intlayer 在构建时优化您的内容加载。
 
 </Accordion>
-
 <Accordion header="与非开发人员协作扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，它还提供**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)**和**[完整 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)**，帮助您**实时**管理多语言内容，使与翻译人员、文案人员和其他团队成员的协作无缝衔接。内容可以存储在本地和/或远程。
@@ -87,7 +82,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，它还提供**自托管的[可�
 以下步骤是使现有 Nuxt 应用在 Intlayer 上运行所需的最低要求，组件中无需任何代码更改。
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 安装 Intlayer 核心包和兼容性适配器：
@@ -131,7 +125,6 @@ bun add intlayer vue-intlayer nuxt-intlayer @intlayer/vue-i18n @intlayer/sync-js
 > 你可以在迁移期间安全地保持 `@nuxtjs/i18n` 已安装状态，尽管稍后你将从 Nuxt 配置中删除它。
 
 </Step>
-
 <Step number={2} title="配置 Intlayer">
 
 `intlayer init` 命令创建一个启动 `intlayer.config.ts`。更新它以匹配你现有的语言环境，并将 `syncJSON` 插件指向你的消息文件：
@@ -166,7 +159,6 @@ export default config;
 > **`source`** 将语言环境映射到其 JSON 文件路径。**`location`** 告诉 Intlayer 观察器监控哪个文件夹以查找更改。`format: 'icu'` 选项确保占位符被正确解析以供 `vue-i18n` 使用。
 
 </Step>
-
 <Step number={3} title="更新 Nuxt 配置">
 
 在 `nuxt.config.ts` 中用 `nuxt-intlayer` 替换 `@nuxtjs/i18n` 模块。Intlayer 插件自动注入模块别名，这意味着你现有的 `import { useI18n } from 'vue-i18n'` 调用被透明地重定向到 `@intlayer/vue-i18n`。
@@ -191,7 +183,6 @@ export default defineNuxtConfig({
 以下步骤是可选的，可以逐步完成。它们可以解锁 Intlayer 的完整功能集：可视编辑器、CMS、类型化内容文件、AI 驱动的翻译等。
 
 <Steps>
-
 <Step number={4} title="显式导入重命名（可选）" isOptional={true}>
 
 Intlayer 插件已在 bundler 级别处理别名。如果你更希望在源文件中明确表示依赖关系，可以手动重命名导入：
@@ -203,7 +194,6 @@ Intlayer 插件已在 bundler 级别处理别名。如果你更希望在源文�
 这些是**即插即用的替代品** — 不需要对调用签名、参数或返回类型进行任何更改。
 
 </Step>
-
 <Step number={5} title="启用 AI 驱动的翻译自动化" isOptional={true}>
 
 设置好 Intlayer 后，使用其 CLI 自动填充缺失的翻译：

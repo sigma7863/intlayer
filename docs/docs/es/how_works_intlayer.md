@@ -268,25 +268,21 @@ El paquete `@intlayer/backend` exporta tipos de backend y eventualmente ofrecer�
 En tiempo de compilación. El plugin del empaquetador, o `npx intlayer build`, escanea tus archivos `.content.ts`, los resuelve en diccionarios en la carpeta `.intlayer` y genera los tipos de TypeScript correspondientes. En tiempo de ejecución tus componentes solo leen el resultado, así que no se produce ningún análisis ni carga de archivos en la ruta de la solicitud.
 
 </Question>
-
 <Question title="¿Cuánto añade la i18n al tamaño de mi bundle?">
 
 Mucho menos que una configuración basada en espacios de nombres, porque una página nunca descarga un catálogo que no renderiza. El marcado renderizado en el servidor resuelve su contenido en el servidor, y el compilador de tiempo de compilación reemplaza las llamadas a `useIntlayer` por las entradas de diccionario exactas que usa un componente, de modo que se descartan las claves sin usar y los idiomas sin usar. Los [diccionarios dinámicos](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dynamic_dictionaries/index.md) reparten el resto por idioma. Frente a las alternativas habituales, Intlayer reduce el tamaño del bundle y de la página hasta en un 50%. Consulta la [optimización del bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/bundle_optimization.md) y el [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/benchmark/index.md).
 
 </Question>
-
 <Question title="¿Puedo migrar desde `i18next`, `next-intl` o `react-i18next` sin reescribir mis componentes?">
 
 Sí, y hay dos caminos. Puedes migrar el contenido de forma progresiva con la [guía de migración de i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/migration_from_i18next_to_intlayer.md) o la [guía de migración de next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/migration_from_next-intl_to_intlayer.md). O puedes mantener tu API actual por completo: los [adaptadores de compatibilidad](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/compat/index.md) exponen exactamente la misma API que `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` y `Lingui`, pero servida por diccionarios de Intlayer, así que cambian los imports y el código de los componentes no.
 
 </Question>
-
 <Question title="¿Puedo conservar mis archivos de traducción JSON existentes?">
 
 Sí. El [plugin de sincronización JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-json.md) mantiene tus archivos `/messages/{locale}/{namespace}.json` como fuente de verdad y genera diccionarios de Intlayer a partir de ellos, en ambas direcciones. Un [plugin de sincronización PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-po.md) hace lo mismo para los catálogos gettext, y los [archivos por idioma](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/per_locale_file.md) te permiten dividir el contenido por idioma en lugar de agrupar los idiomas en un solo archivo.
 
 </Question>
-
 <Question title="¿Tengo que trasladar mi contenido clave por clave?">
 
 No. Ejecuta `npx intlayer extract` e Intlayer lee tus archivos fuente, extrae las cadenas visibles para el usuario y escribe un archivo `.content` junto a cada uno, así que revisas un diff en lugar de copiar cadenas a un catálogo una por una. Consulta el [comando extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/extract.md).
@@ -294,7 +290,6 @@ No. Ejecuta `npx intlayer extract` e Intlayer lee tus archivos fuente, extrae la
 Para una canalización totalmente automatizada, el [compilador de Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/compiler.md) hace lo mismo en tiempo de compilación sobre código JSX, TSX, Vue y Svelte, generando los diccionarios en cada cambio para que no haya ninguna clave que mantener a mano. Funciona por análisis estático, así que las cadenas que solo existen en tiempo de ejecución quedan fuera de su alcance, y necesita unas pocas anotaciones para distinguir el texto visible para el usuario de la lógica de la aplicación.
 
 </Question>
-
 <Question title="¿Qué herramientas para editores y agentes de IA están disponibles?">
 
 Cinco piezas, todas opcionales:
@@ -306,43 +301,36 @@ Cinco piezas, todas opcionales:
 - **[Plugin de ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/eslint.md)**: `no-raw-text` marca las cadenas codificadas de forma fija, con reglas adicionales para claves de diccionario estáticas y contenido sin usar.
 
 </Question>
-
 <Question title="¿Qué es la carpeta .intlayer y debería incluirla en el control de versiones?">
 
 Es la salida generada: los diccionarios compilados y los tipos generados. Deriva de tus archivos de contenido, así que debería aparecer en `.gitignore` y reconstruirse en tu paso de build, exactamente igual que una carpeta `dist`.
 
 </Question>
-
 <Question title="¿Cómo se determina el idioma activo?">
 
 De las fuentes listadas en `routing.storage`, en este orden: el prefijo de la URL cuando `routing.mode` usa uno, luego una cookie, luego la cabecera `Accept-Language` y luego tu idioma por defecto. Un idioma que el usuario elige explícitamente se conserva, de modo que sobrevive a la siguiente visita. Consulta la [referencia de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
 
 </Question>
-
 <Question title="¿Cuál es la diferencia entre los diccionarios locales y los remotos?">
 
 Un diccionario local se declara en tu base de código y se compila con tu aplicación. Un diccionario remoto se gestiona en el [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md) y se resuelve en tiempo de ejecución, de modo que puede cambiar sin un despliegue. Ambos se leen a través de los mismos hooks, y el contenido remoto recurre a la declaración local cuando no está disponible.
 
 </Question>
-
 <Question title="¿Intlayer funciona sin TypeScript?">
 
 Sí. Los archivos de contenido se pueden escribir en TypeScript, JavaScript, ESM, CommonJS o JSON. TypeScript es lo que desbloquea los tipos generados y el autocompletado, así que es la configuración recomendada, pero no es obligatorio.
 
 </Question>
-
 <Question title="¿Cómo comparten el mismo contenido el renderizado en el servidor y el renderizado en el cliente?">
 
 El servidor resuelve el contenido de los componentes renderizados en el servidor directamente, así que no se envía ningún diccionario al cliente para ese marcado. Los componentes de cliente leen los mismos diccionarios a través del proveedor, que recibe el idioma resuelto en el servidor, de modo que el primer renderizado del cliente coincide con el HTML del servidor y no parpadea con un idioma distinto.
 
 </Question>
-
 <Question title="¿Cómo evita Intlayer una discrepancia de hidratación en el idioma?">
 
 El idioma se resuelve una sola vez en el servidor y se pasa al proveedor, en lugar de detectarse de nuevo en el navegador. Como el cliente parte del mismo idioma que renderizó el servidor, el marcado coincide, que es lo que suele romperse con la detección del idioma en el lado del cliente.
 
 </Question>
-
 <Question title="¿Necesito reconstruir cuando añado una traducción?">
 
 En desarrollo, no: el plugin vigila tus archivos de contenido y reconstruye los diccionarios afectados al guardar. En producción los diccionarios forman parte de la build, a menos que el contenido sea remoto, en cuyo caso el [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md) y la [sincronización en vivo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/live.md) aplican el cambio sin un despliegue.

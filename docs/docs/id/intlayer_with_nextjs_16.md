@@ -96,37 +96,31 @@ Intlayer dioptimalkan untuk bekerja dengan **Komponen Server** untuk rendering y
 > Untuk Next.js 12, 13, 14, dan 15 dengan App Router, lihat [panduan] ini(https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
 </Accordion>
-
 <Accordion header="Ukuran bundle">
 
 Daripada memuat file JSON berukuran besar ke halaman Anda, muat saja konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Kemampuan Pemeliharaan">
 
 Mencakup konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi berskala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **diketik sepenuhnya** untuk memastikan keakuratan konten Anda.
 
 </Accordion>
-
 <Accordion header="Agen AI">
 
 Menempatkan konten bersama **mengurangi konteks yang diperlukan** dengan Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk menjadikan pengalaman pengembang (DX) lebih lancar bagi agen AI.
 
 </Accordion>
-
 <Accordion header="Otomatisasi">
 
 Gunakan otomatisasi untuk menerjemahkan dalam saluran CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Pertunjukan">
 
 Menghubungkan file JSON berukuran besar ke komponen dapat menyebabkan masalah kinerja dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada waktu pembuatan.
 
 </Accordion>
-
 <Accordion header="Menskalakan tanpa pengembang">
 
 Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** yang dihosting sendiri dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi lancar. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -137,7 +131,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer di Aplikasi Next.js
 
 <Steps>
-
 <Step number={1} title="Instalasi Dependensi">
 
 Instal paket yang diperlukan menggunakan npm:
@@ -187,7 +180,6 @@ bun add intlayer next-intlayer
   Paket yang mengintegrasikan Intlayer dengan Next.js. Paket ini menyediakan context providers dan hooks untuk internasionalisasi Next.js. Selain itu, paket ini juga menyertakan plugin Next.js untuk mengintegrasikan Intlayer dengan [Webpack](https://webpack.js.org/) atau [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack), serta proxy untuk mendeteksi locale pilihan pengguna, mengelola cookie, dan menangani pengalihan URL.
 
 </Step>
-
 <Step number={2} title="Konfigurasikan Proyek Anda">
 
 Pilih apakah aplikasi Anda harus menggunakan path URL terlokalisasi (misalnya, `/id/about`, `/en/about`) atau menyajikan konten tanpa segmen locale di path (misalnya, `/about`, mendeteksi locale melalui cookie, header, atau parameter kueri).
@@ -310,7 +302,6 @@ export default config;
 > Melalui file konfigurasi ini, Anda dapat mengatur URL yang dilokalkan, pengalihan proxy, nama cookie, lokasi dan ekstensi deklarasi konten Anda, menonaktifkan log Intlayer di konsol, dan lainnya. Untuk daftar lengkap parameter yang tersedia, lihat [dokumentasi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrasikan Intlayer dalam Konfigurasi Next.js Anda">
 
 Konfigurasikan setup Next.js Anda untuk menggunakan Intlayer:
@@ -353,7 +344,6 @@ export default withIntlayer(nextConfig);
 > ```
 
 </Step>
-
 <Step number={4} title="Definisikan Rute Locale Dinamis">
 
 <Tabs group="routing-mode">
@@ -550,7 +540,6 @@ export default RootLayout;
 </Tabs>
 
 </Step>
-
 <Step number={5} title="Deklarasikan Konten Anda">
 
 Buat dan kelola deklarasi konten Anda untuk menyimpan terjemahan:
@@ -598,7 +587,6 @@ export default pageContent;
 > Untuk detail lebih lanjut, lihat [dokumentasi deklarasi konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Memanfaatkan Konten dalam Kode Anda">
 
 Akses kamus konten Anda di seluruh aplikasi:
@@ -757,7 +745,6 @@ export const ServerComponentExample: FC = () => {
 > Jika aplikasi Anda sudah ada, Anda dapat menggunakan [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/compiler.md) secara kombinasi dengan [perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) untuk mengonversi ribuan komponen dalam satu detik.
 
 </Step>
-
 <Step number={7} title="Konfigurasikan Proxy untuk Deteksi Locale" isOptional={true}>
 
 Atur proxy untuk mendeteksi locale yang dipilih pengguna:
@@ -785,7 +772,6 @@ export const proxy = multipleProxies([intlayerProxy, customProxy]);
 ```
 
 </Step>
-
 <Step number={8} title="Internasionalisasi metadata Anda" isOptional={true}>
 
 Jika Anda ingin menginternasionalisasi metadata Anda, seperti judul halaman Anda, Anda dapat menggunakan fungsi `generateMetadata` yang disediakan oleh Next.js. Di dalamnya, Anda dapat mengambil konten dari fungsi `getIntlayer` untuk menerjemahkan metadata Anda.
@@ -888,7 +874,6 @@ export const generateMetadata = async ({
 > Pelajari lebih lanjut tentang optimasi metadata [di dokumentasi resmi Next.js](https://nextjs.org/docs/app/building-your-application/optimizing/metadata).
 
 </Step>
-
 <Step number={9} title="Internasionalisasi sitemap.xml dan robots.txt Anda" isOptional={true}>
 
 Untuk menginternasionalisasi `sitemap.xml` dan `robots.txt` Anda, Anda dapat menggunakan fungsi `getMultilingualUrls` yang disediakan oleh Intlayer. Fungsi ini memungkinkan Anda untuk menghasilkan URL multibahasa untuk sitemap Anda.
@@ -953,7 +938,6 @@ export default robots;
 > Pelajari lebih lanjut tentang optimasi sitemap [di dokumentasi resmi Next.js](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap). Pelajari lebih lanjut tentang optimasi robots.txt [di dokumentasi resmi Next.js](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots).
 
 </Step>
-
 <Step number={10} title="Ubah bahasa konten Anda" isOptional={true}>
 
 Untuk mengubah bahasa konten Anda di Next.js, cara yang direkomendasikan adalah menggunakan komponen `Link` untuk mengarahkan pengguna ke halaman yang sesuai dengan lokal yang diinginkan. Komponen `Link` memungkinkan prefetching halaman, yang membantu menghindari pemuatan ulang halaman secara penuh.
@@ -1044,7 +1028,6 @@ return (
 > - atribut [`aria-current`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={11} title="Membuat Komponen Link yang Dilokalkan" isOptional={true}>
 
 Untuk memastikan navigasi aplikasi Anda menghormati lokal saat ini, Anda dapat membuat komponen `Link` kustom. Komponen ini secara otomatis menambahkan awalan bahasa saat ini pada URL internal, sehingga. Misalnya, ketika pengguna berbahasa Prancis mengklik tautan ke halaman "Tentang", mereka akan diarahkan ke `/fr/about` alih-alih `/about`.
@@ -1114,7 +1097,6 @@ export const Link: FC<PropsWithChildren<NextLinkProps>> = ({
 Dengan mengintegrasikan komponen `Link` ini di seluruh aplikasi, Anda mempertahankan pengalaman pengguna yang koheren dan sadar bahasa sambil juga mendapatkan manfaat dari peningkatan SEO dan kegunaan.
 
 </Step>
-
 <Step number={12} title="Mendapatkan locale saat ini di Server Actions" isOptional={true}>
 
 Jika Anda memerlukan locale yang aktif di dalam Server Action (misalnya, untuk melokalkan email atau menjalankan logika yang sensitif terhadap locale), panggil `getLocale` dari `next-intlayer/server`:
@@ -1141,7 +1123,6 @@ export const myServerAction = async () => {
 > Ini memastikan locale yang paling tepat dipilih berdasarkan konteks yang tersedia.
 
 </Step>
-
 <Step number={13} title="Mendapatkan locale saat ini di Server Actions" isOptional={true}>
 
 Saat menggunakan `next-intlayer`, dictionary disertakan dalam bundle untuk setiap halaman secara default. Untuk mengoptimalkan ukuran bundle, Intlayer menyediakan plugin SWC opsional yang secara cerdas mengganti panggilan `useIntlayer` menggunakan macro. Ini memastikan dictionary hanya disertakan dalam bundle untuk halaman yang benar-benar menggunakannya.
@@ -1186,7 +1167,6 @@ export const myServerAction = async () => {
 > Ini memastikan locale yang paling sesuai dipilih berdasarkan konteks yang tersedia.
 
 </Step>
-
 <Step number={14} title="Ekstrak konten komponen Anda" isOptional={true}>
 
 Jika Anda memiliki basis kode yang ada, mengubah ribuan file bisa memakan waktu lama.
@@ -1250,8 +1230,6 @@ bun x intlayer extract
  </Tab>
  <Tab value='Compiler Babel'>
 
-> Sejak v9, `intlayerCompiler` disertakan dalam plugin `intlayer`. Jadi Anda tidak perlu menambahkannya secara manual.
-
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
 ```
@@ -1301,7 +1279,6 @@ bun run build # Or bun run dev
 
  </Tab>
 </Tabs>
-
 </Step>
 
 </Steps>
@@ -1389,25 +1366,21 @@ Next.js tidak memiliki lapisan pesan bawaan sejak field `i18n` di `next.config.j
 Deklarasi per komponen memastikan halaman hanya memuat string yang digunakannya daripada seluruh katalog. Lihat [mengapa Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/interest_of_intlayer.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle Next.js saya?">
 
 Jauh lebih sedikit daripada solusi berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Komponen server menyelesaikan konten di server, dan kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen. [Kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale, mengurangi ukuran bundle hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari next-intl, next-i18next atau i18next tanpa menulis ulang komponen saya?">
 
 Ya, ada dua jalur. Anda dapat memigrasikan konten secara bertahap dengan [panduan migrasi i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_i18next_to_intlayer.md) atau [next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_next-intl_to_intlayer.md). Atau Anda dapat mempertahankan API saat ini sepenuhnya: [adapter kompatibilitas](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/compat/index.md) mengekspos API yang sama persis dengan `next-intl` dan `i18next` tetapi ditenagai oleh kamus Intlayer.
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca komponen Anda, mengeluarkan string yang dilihat pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu. Langkah 14 dari panduan ini menjelaskannya.
@@ -1417,7 +1390,6 @@ Untuk proses otomatis penuh, [Intlayer Compiler](https://github.com/aymericzip/i
 Dua batasan perlu diketahui sebelum Anda mengaktifkan compiler. Ini bekerja dengan analisis statis, jadi string yang hanya ada saat runtime, seperti kode kesalahan API atau field CMS, tetap berada di luar jangkauan. Dan ini harus membedakan teks yang dilihat pengguna dari logika aplikasi seperti `className="active"` atau kode status, yang memerlukan beberapa anotasi di basis kode yang besar. [Perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) menghindari keduanya dengan menjaga Anda tetap memegang kendali.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -1429,19 +1401,16 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Versi Next.js mana yang didukung Intlayer?">
 
 Next.js 12, 13, 14, 15, dan 16. Baik App Router maupun Pages Router didukung sepenuhnya.
 
 </Question>
-
 <Question title="Apakah Intlayer bekerja dengan React Server Components?">
 
 Ya. Konten di Server Components diselesaikan langsung di server, sehingga tidak ada kamus yang dikirim ke klien untuk teks yang dirender server. Client Components membaca kamus melalui provider.
 
 </Question>
-
 <Question title="Apakah saya harus mencantumkan locale di URL, seperti /id/about?">
 
 Tidak. Skema URL adalah opsi konfigurasi, bukan batasan. `routing.mode` menerima:
@@ -1454,37 +1423,31 @@ Tidak. Skema URL adalah opsi konfigurasi, bukan batasan. `routing.mode` menerima
 Anda juga dapat memetakan setiap locale ke domainnya sendiri dengan `routing.domains`. Lihat [referensi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md) dan [Langkah 2](#step-2-configure-your-project) untuk opsi mode perutean.
 
 </Question>
-
 <Question title="Bagaimana cara menambahkan tag hreflang dan metadata terlokalisasi untuk SEO?">
 
 Langkah `generateMetadata` dan `sitemap.xml` membahas hal ini. Fungsi `getMultilingualUrls` menghasilkan pemetaan `alternates.languages` untuk setiap locale yang dideklarasikan, termasuk `x-default`, sehingga mesin pencari mengindeks halaman dengan tepat.
 
 </Question>
-
 <Question title="Apakah saya memerlukan middleware?">
 
 Middleware mendeteksi bahasa pengunjung dan mengarahkan ke prefix yang sesuai, sehingga disarankan jika Anda tidak menangani routing locale sendiri. Rute API dan aset statis otomatis dikecualikan.
 
 </Question>
-
 <Question title="Bagaimana cara membuat komponen Link yang terlokalisasi?">
 
 Komponen membungkus `Link` standar Next.js dan meneruskan href melalui `getLocalizedUrl`, sehingga tautan `/about` otomatis diberi prefix locale yang aktif, misalnya `/id/about`.
 
 </Question>
-
 <Question title="Bagaimana cara menerjemahkan aplikasi secara otomatis dengan AI?">
 
 Jalankan `npx intlayer fill`. CLI mendeteksi terjemahan yang hilang dan mengisinya dengan LLM pilihan Anda menggunakan provider dan API key Anda sendiri. Flag `--git-diff` membatasi proses ke konten yang diubah pada branch saat ini. Lihat [perintah fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/fill.md) dan [integrasi CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/CI_CD.md).
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung bentuk jamak, gender dan rich text?">
 
 Ya: [bentuk jamak (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/plurial.md), [konten berbasis gender](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/gender.md), kondisi, [penyisipan (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/markdown.md), dan [formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/formatters.md) untuk angka, tanggal, dan mata uang.
 
 </Question>
-
 <Question title="Apakah Intlayer gratis dan open source?">
 
 Ya, di bawah lisensi Apache 2.0, termasuk penggunaan komersial. CMS yang di-host adalah layanan berbayar opsional yang juga dapat [di-host sendiri (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).

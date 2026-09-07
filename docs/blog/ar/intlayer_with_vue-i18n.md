@@ -56,7 +56,6 @@ author: aymericzip
 ## دليل خطوة بخطوة لإعداد Intlayer مع vue-i18n
 
 <Steps>
-
 <Step number={1} title="تثبيت التبعيات">
 
 قم بتثبيت الحزم اللازمة باستخدام مدير الحزم المفضل لديك:
@@ -103,7 +102,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: مكون إضافي لمزامنة إعلانات محتوى Intlayer إلى تنسيق JSON الخاص بـ vue-i18n
 
 </Step>
-
 <Step number={2} title="تنفيذ مكون Intlayer لتغليف JSON">
 
 قم بإنشاء ملف تكوين Intlayer لتعريف اللغات المدعومة لديك:
@@ -142,7 +140,6 @@ export default config;
 للاطلاع على مزيد من التفاصيل حول مكون `syncJSON` الإضافي، يرجى الرجوع إلى [توثيق مكون syncJSON الإضافي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="تنفيذ ترجمات JSON لكل مكون على حدة">
 
 بشكل افتراضي، سيقوم Intlayer بتحميل ودمج ومزامنة كل من ملفات JSON وملفات إعلان المحتوى. راجع [توثيق إعلان المحتوى](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/content_file.md) لمزيد من التفاصيل. ولكن إذا كنت تفضل، باستخدام مكون إضافي من Intlayer، يمكنك أيضًا تنفيذ إدارة JSON المترجمة لكل مكون في أي مكان في قاعدة الشيفرة الخاصة بك.

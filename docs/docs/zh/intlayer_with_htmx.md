@@ -42,13 +42,11 @@ Intlayer 通过其后端集成涵盖了这一点，这些集成按请求检测 l
 Intlayer middleware 从请求本身解析locale，因此在第十分钟提供的片段用的是与第零分钟提供的页面相同的语言。
 
 </Accordion>
-
 <Accordion header="locale必须随请求传递">
 
 两种方式可与htmx配合使用。浏览器会自动在每个请求（包括htmx请求）上发送cookie（`INTLAYER_LOCALE`）。可以使用`hx-headers`属性将header（`x-intlayer-locale`）附加到htmx请求。默认情况下两者都会被读取。
 
 </Accordion>
-
 <Accordion header="交换的 HTML 仍然是 HTML">
 
 插入到片段中的翻译值是标记。对其进行转义，就像对待任何其他动态值一样，这样包含 `<` 的翻译就无法破坏它被交换到的文档。
@@ -69,7 +67,6 @@ Intlayer middleware 从请求本身解析locale，因此在第十分钟提供的
 查看 GitHub 上的[应用程序模板](https://github.com/aymericzip/intlayer-htmx-template)。
 
 <Steps>
-
 <Step number={1} title="安装依赖项">
 
 安装 `intlayer` 加上适用于你的服务器的集成。
@@ -158,7 +155,6 @@ bun add intlayer elysia-intlayer
 htmx 本身是一个单独的脚本标签，在第 4 步中添加。
 
 </Step>
-
 <Step number={2} title="配置您的项目">
 
 在项目根目录创建 `intlayer.config.ts`：
@@ -179,7 +175,6 @@ export default config;
 > 有关完整的选项列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="声明您的内容">
 
 声明服务器将呈现的每个标签，包括仅出现在片段内的标签：
@@ -226,7 +221,6 @@ export default appContent;
 > 内容声明可以存在于 `contentDir` 下的任何位置（默认为 `./src`）并匹配 `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}`。见 [内容声明文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={4} title="注册 Intlayer middleware">
 
 中间件解决每个请求的 locale，并将其暴露给你的处理程序。
@@ -299,7 +293,6 @@ const app = new Elysia().use(intlayer());
 默认情况下，locale 是从 `INTLAYER_LOCALE` cookie 获取的，然后是 `x-intlayer-locale` header，然后是 `Accept-Language` 协商。
 
 </Step>
-
 <Step number={5} title="使用请求 locale 渲染片段">
 
 将你的片段渲染器编写为 locale 的纯函数，并传递中间件解析的 locale。显式传递它可以保持片段与请求它的服务器相关联。
@@ -401,7 +394,6 @@ app.post("/cart/items", ({ body, intlayer }) => {
 同一个片段现在为 cookie 设置为 `fr` 的访问者用法语回答，为 cookie 设置为 `ar` 的访问者用阿拉伯语回答，无需对调用标记进行任何更改。
 
 </Step>
-
 <Step number={6} title="提供第一个页面">
 
 单独渲染 `<body>`，以便第 7 步中的语言切换器可以整体交换它，然后将其包装在加载 htmx 的文档中：
@@ -437,7 +429,6 @@ ${renderBody(locale, itemCount)}
 `getHTMLTextDir` 为该语言返回 `ltr`、`rtl` 或 `auto`，这使得阿拉伯语和希伯来语能够正确显示。
 
 </Step>
-
 <Step number={7} title="切换语言">
 
 切换语言就像任何其他请求一样。服务器将选择存储在中间件读取的 cookie 中，然后返回以新语言环境重新渲染的页面。
@@ -582,7 +573,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 > `isDeclaredLocale` 将任意字符串缩小到你配置的locale之一，因此意外的值永远不会到达你的渲染器。
 
 </Step>
-
 <Step number={8} title="在swap后保持lang和dir同步" isOptional={true}>
 
 交换可以替换 `<body>`，但不会替换它周围的 `<html>`。在交换的 body 上渲染 `lang` 和 `dir`，然后从 head 中将它们复制回根元素一次：
@@ -599,7 +589,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 没有这个脚本，切换到阿拉伯语时会在 body 内渲染从右到左的文本，而文档仍然向辅助技术和爬虫宣传前一种语言。
 
 </Step>
-
 <Step number={9} title="发送区域设置作为标头而不是 cookie" isOptional={true}>
 
 如果 cookie 不适合你，可以使用 `hx-headers` 在祖先元素上将区域设置附加到每个 htmx 请求。后代元素会继承它：
@@ -683,67 +672,56 @@ export default config;
 因为片段请求没有携带 locale。htmx 请求独立于发送它们的页面，所以 locale 必须通过 `INTLAYER_LOCALE` cookie 或通过 `hx-headers` 设置的 `x-intlayer-locale` header 在每个请求上传输。检查 cookie 解析器在 Express 和 Fastify 上的 Intlayer middleware 之前运行，否则 cookie 永远不会被读取，每个请求都会回退到 `Accept-Language`。
 
 </Question>
-
 <Question title="我应该将 locale 传递给 `getIntlayer` 还是依赖请求上下文？">
 
 将它传递过去。这些集成公开了解析后的 locale（`res.locals.locale`、`req.intlayer.locale`、`c.get("locale")`、`intlayer!.locale`），将其传递给 `getIntlayer` 使每个渲染器成为 locale 的纯函数。这样更容易测试，如果你更换服务器，也能让你的 fragment 渲染器更具可移植性。
 
 </Question>
-
 <Question title="我需要在 htmx 旁边使用客户端 i18n 库吗？">
 
 不需要。访问者看到的所有内容都是由服务器生成的，所以浏览器中没有任何东西需要翻译。这也是为什么 htmx 应用中 i18n 的页面权重成本接近于零：没有 catalog 会被传送到客户端。
 
 </Question>
-
 <Question title="我如何本地化 URL，用于 SEO？">
 
 在区域设置前缀下提供您的页面（`/fr/cart`），并在您的路由处理程序中从路径而不是从 cookie 读取区域设置，以进行完整页面渲染。片段可以继续使用 cookie 或标头。请参阅[配置](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)以了解路由选项和[自定义 URL 重写](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/custom_url_rewrites.md)。
 
 </Question>
-
 <Question title="我如何处理从右到左的语言？">
 
 `getHTMLTextDir(locale)` 返回 `ltr`、`rtl` 或 `auto`。在初始渲染时将其设置在文档上，并在交换后重新应用，如第 8 步所示。使用 CSS 逻辑属性（例如 `margin-inline-start` 而不是 `margin-left`），以便您的布局遵循。
 
 </Question>
-
 <Question title="我是否需要转义翻译后的值?">
 
 是的，对于您插入到模板字符串中的任何内容，与任何其他动态值完全相同。来自 CMS 或翻译人员的内容不是您控制的标记。第 5 步显示了一个最小的转义器。
 
 </Question>
-
 <Question title="相同的内容能否也用于我的 API 响应?">
 
 是的。后端集成将 `t()` 和 `getIntlayer()` 暴露给任何处理程序，因此在 toast 中显示的错误消息和在片段中呈现的标签来自相同的已声明内容。请参阅 [Express](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_express.md)、[Fastify](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_fastify.md)、[Hono](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_hono.md) 和 [Elysia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_elysia.md) 指南。
 
 </Question>
-
 <Question title="我需要逐个移动我的内容键吗？">
 
 不是。运行 `npx intlayer extract`，Intlayer 会读取你的源文件，提取面向用户的字符串，并在每个文件旁边写入一个 `.content` 文件，这样你可以审查差异，而不是一次一个地将字符串复制到目录中。参见 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md)。
 
 </Question>
-
 <Question title="我可以保留我现有的 JSON 翻译文件吗？">
 
 是的。[sync JSON 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md)将您的 `/messages/{locale}/{namespace}.json` 文件作为真实源，并在两个方向上从它们生成 Intlayer 字典。[sync PO 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md)对 gettext 目录执行相同操作，[按语言区域的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md)允许您按语言拆分内容，而不是在一个文件中分组 locales。
 
 </Question>
-
 <Question title="我如何使用 AI 自动翻译应用？">
 
 运行 `npx intlayer fill`，它使用您选择的 LLM 通过您自己的提供商和 API 密钥填充缺失的翻译。添加 `--git-diff` 以仅翻译分支上更改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持性别、条件和插值值？">
 
 是的：[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件、[枚举](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/enumeration.md)、[插入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)用于插值，以及[格式化器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)用于数字、日期和货币。
 
 </Question>
-
 <Question title="有哪些编辑器和 AI 代理工具可用？">
 
 五个部分，均为可选：
@@ -755,7 +733,6 @@ export default config;
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**: `no-raw-text` 标记硬编码字符串。
 
 </Question>
-
 <Question title="Intlayer 是免费和开源的吗？">
 
 是的，根据 Apache 2.0 许可证，包括商业用途。托管的 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 是一项可选的付费服务，也可以 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

@@ -68,7 +68,6 @@ This guide explains how to leverage Intlayer as an **adapter for vue-i18n**, all
 ## Step-by-Step Guide to Set Up Intlayer with vue-i18n
 
 <Steps>
-
 <Step number={1} title="Install Dependencies">
 
 Install the necessary packages using your preferred package manager:
@@ -115,7 +114,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Plugin to sync Intlayer content declarations to vue-i18n JSON format
 
 </Step>
-
 <Step number={2} title="Implement the Intlayer plugin to wrap the JSON">
 
 Create an Intlayer configuration file to define your supported locales:
@@ -154,7 +152,6 @@ If changes are made using the CLI to translate the JSON, or using the CMS, Intla
 To see more details about the `syncJSON` plugin, please refer to the [syncJSON plugin documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="Set up AI provider">
 
 Intlayer unlocks a set of advanced automation and developer-friendly features for your i18next workflow.

@@ -42,13 +42,11 @@ Tek bir sayfa düzinelerce swap tetikleyebilir. Her biri, onu başlatan sayfanı
 Intlayer middleware, yerel ayarı istek kendisinden çözer, bu nedenle onuncu dakikada sunulan bir fragment, sıfırıncı dakikada sunulan sayfa ile aynı dilde cevap verir.
 
 </Accordion>
-
 <Accordion header="İstek ile yerel ayar seyahat etmelidir">
 
 htmx ile iki taşıyıcı çalışır. Bir cookie (`INTLAYER_LOCALE`), tarayıcı tarafından htmx olanlar da dahil olmak üzere her istek üzerinde otomatik olarak gönderilir. Bir başlık (`x-intlayer-locale`), `hx-headers` özniteliği ile htmx isteklerine eklenebilir. Her ikisi de varsayılan olarak okunur.
 
 </Accordion>
-
 <Accordion header="Değiştirilen HTML hala HTML'dir">
 
 Bir parçaya interpole edilen çevrilmiş bir değer markup'tır. Bunu diğer dinamik değerler gibi tam olarak escape edin, böylece `<` içeren bir çeviri, değiştirildiği belgeyi bozamaz.
@@ -69,7 +67,6 @@ Bir parçaya interpole edilen çevrilmiş bir değer markup'tır. Bunu diğer di
 GitHub'ta [Uygulama Şablonu](https://github.com/aymericzip/intlayer-htmx-template) sayfasına bakın.
 
 <Steps>
-
 <Step number={1} title="Bağımlılıkları Yükleyin">
 
 `intlayer` ve sunucunuz için entegrasyonu yükleyin.
@@ -158,7 +155,6 @@ bun add intlayer elysia-intlayer
 htmx'in kendisi, adım 4'te eklenen tek bir script tag'idir.
 
 </Step>
-
 <Step number={2} title="Projenizin Konfigürasyonu">
 
 Proje kökinizde bir `intlayer.config.ts` dosyası oluşturun:
@@ -179,7 +175,6 @@ export default config;
 > Konfigürasyonun tam seçenekleri için [yapılandırma belgelerine](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) bakın.
 
 </Step>
-
 <Step number={3} title="İçeriğinizi Bildirin">
 
 Sunucunun oluşturacağı tüm etiketleri bildirin; bunlar yalnızca bir fragment içinde görünen etiketleri de içerir:
@@ -226,7 +221,6 @@ export default appContent;
 > İçerik bildirimleri `contentDir` altında herhangi bir yerde bulunabilir (varsayılan olarak `./src`) ve `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}` ile eşleşir. Bkz. [içerik bildirimi belgeleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/content_file.md).
 
 </Step>
-
 <Step number={4} title="Intlayer middleware'ini kaydet">
 
 Middleware, her isteğin locale'ini çözer ve handler'larınıza açığa çıkarır.
@@ -300,7 +294,6 @@ const app = new Elysia().use(intlayer());
 Varsayılan olarak locale, `INTLAYER_LOCALE` cookie'sinden, sonra `x-intlayer-locale` header'ından, sonra `Accept-Language` görüşmesinden alınır.
 
 </Step>
-
 <Step number={5} title="İstek locale'i ile fragment'ları render edin">
 
 Fragment renderer'larınızı bir locale'in saf fonksiyonları olarak yazın ve middleware'in çözümlediği locale'i geçin. Bunu açık bir şekilde geçmek, fragment'ı hangi sunucuda olursa olsun, onu isteyen istekle bağlı tutar.
@@ -398,7 +391,6 @@ app.post("/cart/items", ({ body, intlayer }) => {
 Aynı fragment artık `fr` diyen bir ziyaretçi için Fransızca, `ar` diyen bir ziyaretçi için Arapça olarak yanıt veriyor, çağrı işaretlemesinde herhangi bir değişiklik olmaksızın.
 
 </Step>
-
 <Step number={6} title="İlk sayfayı sunun">
 
 `<body>` öğesini kendi başına render edin, böylece 7. adımdaki locale anahtarı onu tamamen değiştirebilsin, sonra htmx yükleyen belgeyle sarın:
@@ -433,7 +425,6 @@ ${renderBody(locale, itemCount)}
 `getHTMLTextDir`, locale için `ltr`, `rtl` veya `auto` döndürür, bu da Arapça ve İbranice'nin doğru şekilde düzenlenmesini sağlar.
 
 </Step>
-
 <Step number={7} title="Dili değiştir">
 
 Dil değiştirmek diğer herhangi bir istek gibidir. Sunucu seçimi middleware'in okuduğu cookie'de depolar, ardından sayfayı yeni locale'de yeniden render ederek döndürür.
@@ -574,7 +565,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 > `isDeclaredLocale`, keyfi bir string'i yapılandırılmış yerel ayarlarınızdan birine daraltır, bu nedenle beklenmeyen bir değer hiçbir zaman rendererlarınıza ulaşmaz.
 
 </Step>
-
 <Step number={8} title="Swap sonrasında lang ve dir'i senkronize tut" isOptional={true}>
 
 Bir swap `<body>` öğesini değiştirebilir, etrafındaki `<html>` öğesini asla değiştiremez. Swap yapılan body öğesinde `lang` ve `dir` özniteliklerini render edin ve bunları başlık bölümünden kök öğeye bir kez geri kopyalayın:
@@ -591,7 +581,6 @@ Bir swap `<body>` öğesini değiştirebilir, etrafındaki `<html>` öğesini as
 Bunu yapmazsanız, Arapçaya geçiş body içinde sağdan sola doğru render olurken, belge hala önceki dili yardımcı teknolojilere ve tarayıcılara bildirir.
 
 </Step>
-
 <Step number={9} title="Cookie yerine locale'i header olarak gönder" isOptional={true}>
 
 Bir cookie size uygun değilse, bir üst öğedeki `hx-headers` ile her htmx isteğine locale'i ekleyin. Alt öğeler bunu miras alır:
@@ -675,67 +664,56 @@ Daha ileri gitmek için, içeriğinizi [CMS](https://github.com/aymericzip/intla
 Çünkü fragment isteği hiçbir locale taşımadı. htmx istekleri onu yayınlayan sayfadan bağımsızdır, bu nedenle locale her birinde seyahat etmelidir, `INTLAYER_LOCALE` cookie'si veya `hx-headers` ile ayarlanan `x-intlayer-locale` başlığı aracılığıyla. Cookie parser'ın Express ve Fastify'de Intlayer middleware'den önce çalıştığını kontrol edin, aksi takdirde cookie hiçbir zaman okunmaz ve her istek `Accept-Language`'e geri döner.
 
 </Question>
-
 <Question title="Locale'i `getIntlayer`'e geçirmeli miyim yoksa request context'ine güvenmeli miyim?">
 
 Bunu geçin. Entegrasyonlar çözümlenmiş locale'i (`res.locals.locale`, `req.intlayer.locale`, `c.get("locale")`, `intlayer!.locale`) açığa çıkarır ve bunu `getIntlayer`'a vermek her renderer'ı bir locale'in saf fonksiyonu yapar. Bu test etmeyi kolaylaştırır ve sunucuyu değiştirirseniz fragment renderer'larınızı taşınabilir tutar.
 
 </Question>
-
 <Question title="htmx'in yanında client side i18n kütüphanesine ihtiyacım var mı?">
 
 Hayır. Ziyaretçinin gördüğü her şey sunucu tarafından üretilir, bu nedenle tarayıcıda çevirisi yapılacak bir şey yoktur. Bu ayrıca htmx uygulamasında i18n'nin sayfa ağırlığı maliyetinin neden sıfıra yakın olduğunun sebebidir: hiçbir katalog client'e gönderilmez.
 
 </Question>
-
 <Question title="URL'yi de lokalize etmek için SEO açısından nasıl yapabilirim?">
 
 Sayfalarınızı bir yerel ön eki altında sunun (`/fr/cart`) ve tam sayfa renderi için yerel kodu yoldan okuyun, tanımlama bilgisinden değil, rota işleyicinizde. Parçalar tanımlama bilgisini veya başlığı kullanmaya devam edebilir. [konfigürasyon](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) için yönlendirme seçeneklerine ve [özel URL yeniden yazımları](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/custom_url_rewrites.md) bölümüne bakın.
 
 </Question>
-
 <Question title="Sağdan sola dilleri nasıl işleyebilirim?">
 
 `getHTMLTextDir(locale)` `ltr`, `rtl` veya `auto` döndürür. İlk render için belgeye ayarlayın ve adım 8'in gösterdiği gibi bir takas sonrasında yeniden uygulayın. CSS mantıksal özellikleri kullanın (`margin-left` yerine `margin-inline-start`) böylece düzeniniz buna uyar.
 
 </Question>
-
 <Question title="Çevrilmiş değerleri kaçış karakteri ile işlemek zorunda mıyım?">
 
 Evet, bir şablon dizesine interpolate ettiğiniz herhangi bir şey için, diğer dinamik değerler gibi tam olarak aynı şekilde. CMS'den veya çevirmen tarafından gelen içerik kontrol ettiğiniz markup değildir. Adım 5 minimal bir escaper göstermektedir.
 
 </Question>
-
 <Question title="Aynı içerik API yanıtlarıma da hizmet verebilir mi?">
 
 Evet. Backend integrations, `t()` ve `getIntlayer()` fonksiyonlarını herhangi bir handler'a expose eder, böylece bir toast'ta gösterilen bir hata mesajı ve bir fragment'e render edilen bir label aynı declared content'ten gelir. [Express](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_express.md), [Fastify](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_fastify.md), [Hono](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_hono.md) ve [Elysia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_elysia.md) rehberlerine bakın.
 
 </Question>
-
 <Question title="İçeriği key by key taşımak zorunda mıyım?">
 
 Hayır. `npx intlayer extract` komutunu çalıştırın ve Intlayer kaynak dosyalarınızı okuyup kullanıcı tarafından görünen stringleri çıkartarak her birinin yanına bir `.content` dosyası yazar, böylece kataloğa birer birer string kopyalamak yerine bir diff'i gözden geçirirsiniz. [extract komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/extract.md) sayfasına bakınız.
 
 </Question>
-
 <Question title="Mevcut JSON çeviri dosyalarımı tutabilir miyim?">
 
 Evet. [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-json.md) sizin `/messages/{locale}/{namespace}.json` dosyalarınızı gerçeğin kaynağı olarak tutar ve her iki yönde de bunlardan Intlayer sözlükleri oluşturur. Bir [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-po.md) gettext kataloğu için aynısını yapar ve [locale başına dosyalar](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/per_locale_file.md) içeriği locales'i bir dosyada gruplamak yerine dile göre bölmenizi sağlar.
 
 </Question>
-
 <Question title="Uygulamayı AI ile otomatik olarak nasıl çevirebilirim?">
 
 `npx intlayer fill` komutunu çalıştırın; bu komut, kendi provider'ınız ve API anahtarınızı kullanarak seçtiğiniz LLM ile eksik çevirileri doldurur. Branch'de yapılan içeriği çevirmek için `--git-diff` ekleyin. Bkz. [fill komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/fill.md) ve [CI/CD entegrasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer cinsiyet, koşullar ve interpole edilmiş değerleri destekliyor mu?">
 
 Evet: [cinsiyet tabanlı içerik](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/gender.md), koşullar, [numaralandırmalar](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/enumeration.md), [eklemeler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/insertion.md) enterpolasyonlu değerler için ve [formatlayıcılar](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/formatters.md) sayılar, tarihler ve para birimler için.
 
 </Question>
-
 <Question title="Hangi editör ve AI aracı araçları mevcuttur?">
 
 Beş parça, hepsi isteğe bağlı:
@@ -747,7 +725,6 @@ Beş parça, hepsi isteğe bağlı:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/eslint.md)**: `no-raw-text` sabit kodlanmış stringleri işaretler.
 
 </Question>
-
 <Question title="Intlayer ücretsiz ve açık kaynak mı?">
 
 Evet, Apache 2.0 lisansı altında, ticari kullanım dahil. Barındırılan [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) isteğe bağlı bir ücretli hizmettir ve ayrıca [kendi kendine barındırılabilir](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/self_hosting.md).

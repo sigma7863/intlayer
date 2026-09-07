@@ -334,19 +334,16 @@ Wenn Sie jeden Teil Ihrer Anwendung detailliert einrichten möchten, einschließ
 Ja. Sie können `npx intlayer extract` verwenden, um fest kodierte Texte automatisch in lokalisierte Inhaltsdeklarationen zu überführen, oder den Intlayer-Compiler nutzen, der Komponenten zur Build-Zeit transformiert, während Sie weiterhin normales JSX schreiben.
 
 </Question>
-
 <Question title="Wie reduziert Intlayer die Bundle-Größe in Vite im Vergleich zu react-i18next oder react-intl?">
 
 Intlayer verwendet Wörterbuchdefinitionen auf Komponentenebene und Makro-Optimierung beim Build. Ihre Bundles erhalten nur die exakten Daten, die von den aktuell gerenderten Komponenten benötigt werden, statt ganze JSON-Dateien zu laden. Dynamische Wörterbücher können Sprachen zudem bei Bedarf nachladen.
 
 </Question>
-
 <Question title="Kann ich KI verwenden, um meine bestehenden Komponenten in mehrere Sprachen zu übersetzen?">
 
 Ja. Die Intlayer-CLI enthält den Befehl `npx intlayer fill`, der sich mit Ihrem bevorzugten KI-Anbieter (OpenAI, Anthropic, Mistral, DeepSeek) verbindet, um kontextbezogene Übersetzungen für alle konfigurierten Sprachen zu erstellen.
 
 </Question>
-
 <Question title="Kann ich von react-i18next oder react-intl migrieren, ohne meine Komponenten neu zu schreiben?">
 
 Ja. Intlayer bietet Kompatibilitäts-Adapter für `react-i18next` und `react-intl` sowie Plugins zur Synchronisierung bestehender JSON-Übersetzungsdateien (`sync-json`).

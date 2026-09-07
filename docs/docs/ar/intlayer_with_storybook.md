@@ -42,37 +42,31 @@ author: aymericzip
 تم تحسين Intlayer للعمل بشكل مثالي مع Storybook من خلال تقديم **أدوات تزيين القصص متعددة اللغات**، و**تبديل الإعدادات المحلية**، وجميع الميزات اللازمة لتوسيع نطاق التدويل (i18n) عبر نظام التصميم الخاص بك.
 
 </Accordion>
-
 <Accordion header="حجم الحزمة">
 
 بدلاً من تحميل ملفات JSON ضخمة إلى صفحاتك، قم بتحميل المحتوى الضروري فقط. يساعد Intlayer **في تقليل أحجام البندل وصفحاتك بنسبة تصل إلى 50%**.
 
 </Accordion>
-
 <Accordion header="قابلية الصيانة">
 
 يؤدي تحديد نطاق محتوى تطبيقك ** إلى تسهيل الصيانة ** للتطبيقات واسعة النطاق. يمكنك تكرار أو حذف مجلد ميزات واحد دون العبء العقلي لمراجعة قاعدة بيانات المحتوى بالكامل. بالإضافة إلى ذلك، تتم كتابة Intlayer **بالكامل** لضمان دقة المحتوى الخاص بك.
 
 </Accordion>
-
 <Accordion header="وكيل الذكاء الاصطناعي">
 
 يؤدي تحديد موقع المحتوى المشترك ** إلى تقليل السياق المطلوب ** بواسطة نماذج اللغات الكبيرة (LLMs). يأتي Intlayer أيضًا مزودًا بمجموعة من الأدوات، مثل **CLI** لاختبار الترجمات المفقودة،**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**، **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** و**[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/agent_skills.md)**، لجعل تجربة المطور (DX) أكثر سلاسة للذكاء الاصطناعي وكلاء.
 
 </Accordion>
-
 <Accordion header="الأتمتة">
 
 استخدم الأتمتة للترجمة في مسار CI/CD الخاص بك باستخدام LLM من اختيارك على حساب مزود الذكاء الاصطناعي الخاص بك. يقدم Intlayer أيضًا **مترجمًا** لأتمتة استخراج المحتوى، بالإضافة إلى [منصة ويب](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) للمساعدة في **الترجمة في الخلفية**.
 
 </Accordion>
-
 <Accordion header="أداء">
 
 يمكن أن يؤدي ربط ملفات JSON الضخمة بالمكونات إلى حدوث مشكلات في الأداء والتفاعل. يعمل Intlayer على تحسين تحميل المحتوى الخاص بك في وقت الإنشاء.
 
 </Accordion>
-
 <Accordion header="التحجيم مع عدم وجود مطور">
 
 أكثر من مجرد حل i18n، يوفر Intlayer **[محررًا مرئيًا] مستضافًا ذاتيًا](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** و**[كامل CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** لمساعدتك في إدارة المحتوى متعدد اللغات في **الوقت الفعلي**، مما يجعل التعاون مع المترجمين ومؤلفي النصوص وأعضاء الفريق الآخرين سلسًا. يمكن تخزين المحتوى محليًا و/أو عن بعد.
@@ -94,7 +88,6 @@ Storybook هو الأداة القياسية في الصناعة لتطوير و
 <Tab value="Vite Setup">
 
 <Steps>
-
 <Step number={1} title="تثبيت التبعيات">
 
 ```bash packageManager="npm"
@@ -124,7 +117,6 @@ bun add vite-intlayer --dev
 | `vite-intlayer`  | إضافة Vite - تراقب وتجمع ملفات إعلان المحتوى             |
 
 </Step>
-
 <Step number={2} title="إنشاء تكوين Intlayer">
 
 أنشئ ملف `intlayer.config.ts` في جذر مشروعك (أو داخل حزمة نظام التصميم الخاص بك):
@@ -153,7 +145,6 @@ export default config;
 > للحصول على القائمة الكاملة للخيارات، راجع [مرجع التكوين](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md).
 
 </Step>
-
 <Step number={3} title="إضافة إضافة Vite إلى Storybook">
 
 تتيح لك وظيفة `viteFinal` في Storybook توسيع تكوين Vite الداخلي. قم باستيراد وإضافة إضافة `intlayer()` هناك:
@@ -200,7 +191,6 @@ export default config;
 تراقب إضافة `intlayer()` ملفات `*.content.ts` الخاصة بك وتعيد بناء القواميس تلقائيًا كلما تغيرت أثناء عملية تطوير Storybook.
 
 </Step>
-
 <Step number={4} title="إضافة `IntlayerProvider` ومبدل اللغة في شريط الأدوات">
 
 ملف `preview` في Storybook هو المكان المناسب لتغليف كل قصة (story) بـ `IntlayerProvider` وعرض مبدل اللغة في شريط الأدوات:
@@ -260,7 +250,6 @@ export default preview;
 </Tab>
 <Tab value="Webpack Setup">
 <Steps>
-
 <Step number={1} title="تثبيت التبعيات">
 
 ```bash packageManager="npm"
@@ -284,7 +273,6 @@ bun add @intlayer/webpack --dev
 ```
 
 </Step>
-
 <Step number={2} title="إنشاء تكوين Intlayer">
 
 أنشئ ملف `intlayer.config.ts` في جذر مشروعك:
@@ -306,7 +294,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="تكوين Webpack لـ Storybook">
 
 بالنسبة لإعدادات Storybook القائمة على Webpack (مثل `@storybook/react-webpack5`)، قم بتوسيع تكوين webpack عبر `webpackFinal` لإضافة أسماء Intlayer البديلة والـ loader:
@@ -333,7 +320,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={4} title="إضافة `IntlayerProvider` ومبدل اللغة في شريط الأدوات">
 
 كما هو الحال في إعداد Vite - أضف الـ decorator ونوع اللغة العالمي في `.storybook/preview.tsx`:

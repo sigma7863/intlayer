@@ -276,19 +276,16 @@ This guide provided a high-level overview of how to retrofit internationalisatio
 Yes. Intlayer supports `routing.mode: "search-params"` as well as cookie- and header-based locale detection. You can keep your existing `app/` folder structure intact, making it ideal for retrofitting existing applications without breaking existing URLs or folder hierarchies.
 
 </Question>
-
 <Question title="Do I have to manually replace all hardcoded strings in my existing codebase?">
 
 No. You can use `npx intlayer extract` to automatically detect and extract hardcoded strings into localised content declarations, or use the Intlayer Compiler to transform components at build time so you can keep writing standard JSX.
 
 </Question>
-
 <Question title="How does Intlayer reduce Next.js bundle size compared to next-intl or next-i18next?">
 
 Intlayer uses per-component dictionary definitions and build-time macro optimisation. Client bundles only receive the exact fields needed by the components rendered on the page, rather than importing entire namespace JSON files. In addition, React Server Components render their content on the server with zero client overhead.
 
 </Question>
-
 <Question title="Can I use AI to translate my existing components into multiple languages?">
 
 Yes. Intlayer's CLI includes the `npx intlayer fill` command, which connects to your preferred AI provider (OpenAI, Anthropic, Mistral, DeepSeek) to generate contextual translations for missing locales across your entire project.

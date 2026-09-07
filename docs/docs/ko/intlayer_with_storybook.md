@@ -42,37 +42,31 @@ author: aymericzip
 Intlayer는 **다국어 스토리 데코레이터**, **로케일 전환** 및 디자인 시스템 전반에 걸쳐 국제화(i18n)를 확장하는 데 필요한 모든 기능을 제공하여 Storybook과 완벽하게 작동하도록 최적화되었습니다.
 
 </Accordion>
-
 <Accordion header="번들 크기">
 
 대용량 JSON 파일을 페이지에 로드하는 대신 필요한 콘텐츠만 로드하세요. Intlayer는 **번들 및 페이지 크기를 최대 50%** 줄이는 데 도움이 됩니다.
 
 </Accordion>
-
 <Accordion header="유지관리성">
 
 애플리케이션 콘텐츠의 범위를 지정하면 대규모 애플리케이션의 **유지 관리가 용이해집니다**. 전체 콘텐츠 코드베이스를 검토해야 하는 정신적 부담 없이 단일 기능 폴더를 복제하거나 삭제할 수 있습니다. 또한 Intlayer는 **완전히 유형**되어 콘텐츠의 정확성을 보장합니다.
 
 </Accordion>
-
 <Accordion header="AI 에이전트">
 
 콘텐츠를 같은 위치에 배치하면 LLM(대형 언어 모델)에 **필요한 컨텍스트가 줄어듭니다**. Intlayer에는 누락된 번역을 테스트하기 위한 **CLI**, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 및 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/agent_skills.md)**, AI 에이전트를 위한 개발자 경험(DX)을 더욱 원활하게 만듭니다.
 
 </Accordion>
-
 <Accordion header="오토메이션">
 
 AI 공급자의 비용으로 선택한 LLM을 사용하여 CI/CD 파이프라인을 번역하려면 자동화를 사용하세요. Intlayer는 또한 콘텐츠 추출을 자동화하는 **컴파일러**와 **백그라운드에서 번역**을 돕는 [웹 플랫폼](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)을 제공합니다.
 
 </Accordion>
-
 <Accordion header="성능">
 
 대규모 JSON 파일을 구성 요소에 연결하면 성능 및 반응성 문제가 발생할 수 있습니다. Intlayer는 빌드 시 콘텐츠 로딩을 최적화합니다.
 
 </Accordion>
-
 <Accordion header="개발자가 없는 경우 확장">
 
 Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는 **자체 호스팅 [비주얼 편집기](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** 및 **[전체 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**를 제공합니다. 다국어 콘텐츠를 **실시간**으로 제공하여 번역가, 카피라이터, 기타 팀원과 원활하게 협업할 수 있습니다. 콘텐츠는 로컬 및/또는 원격으로 저장될 수 있습니다.
@@ -94,7 +88,6 @@ Storybook은 UI 컴포넌트를 독립적으로 개발하고 문서화하기 위
 <Tab value="Vite Setup">
 
 <Steps>
-
 <Step number={1} title="종속성 설치">
 
 ```bash packageManager="npm"
@@ -124,7 +117,6 @@ bun add vite-intlayer --dev
 | `vite-intlayer`  | Vite 플러그인 - 콘텐츠 선언 파일을 감시하고 컴파일  |
 
 </Step>
-
 <Step number={2} title="Intlayer 구성 생성">
 
 프로젝트 루트(또는 디자인 시스템 패키지 내부)에 `intlayer.config.ts`를 생성합니다:
@@ -153,7 +145,6 @@ export default config;
 > 전체 옵션 목록은 [구성 참조](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md)를 확인하세요.
 
 </Step>
-
 <Step number={3} title="Storybook에 Vite 플러그인 추가">
 
 Storybook의 `viteFinal` 훅을 사용하면 내부 Vite 구성을 확장할 수 있습니다. 여기에 `intlayer()` 플러그인을 가져와서 추가합니다:
@@ -200,7 +191,6 @@ export default config;
 `intlayer()` 플러그인은 `*.content.ts` 파일을 감시하고 Storybook 개발 중에 변경 사항이 생길 때마다 자동으로 사전을 다시 빌드합니다.
 
 </Step>
-
 <Step number={4} title="`IntlayerProvider` 데코레이터 및 로케일 도구 모음 추가">
 
 Storybook의 `preview` 파일은 모든 스토리를 `IntlayerProvider`로 감싸고 도구 모음에 로케일 스위처를 노출하기에 적합한 장소입니다:
@@ -259,7 +249,7 @@ export default preview;
 </Steps>
 </Tab>
 <Tab value="Webpack Setup">
-
+<Steps>
 <Step number={1} title="종속성 설치">
 
 ```bash packageManager="npm"
@@ -283,7 +273,6 @@ bun add @intlayer/webpack --dev
 ```
 
 </Step>
-
 <Step number={2} title="Intlayer 구성 생성">
 
 프로젝트 루트에 `intlayer.config.ts`를 생성합니다:
@@ -305,7 +294,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Storybook의 Webpack 구성">
 
 Webpack 기반 Storybook 설정(예: `@storybook/react-webpack5`)의 경우, `webpackFinal`을 통해 webpack 구성을 확장하여 Intlayer 별칭(alias) 및 로더를 추가합니다:
@@ -332,7 +320,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={4} title="`IntlayerProvider` 데코레이터 및 로케일 도구 모음 추가">
 
 Vite 설정과 동일하게 `.storybook/preview.tsx`에 데코레이터와 전역 로케일 유형을 추가합니다:
@@ -375,6 +362,7 @@ export default preview;
 ```
 
 </Step>
+</Steps>
 </Tab>
 </Tabs>
 

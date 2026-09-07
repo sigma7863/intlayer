@@ -144,7 +144,6 @@ getLocalizedUrl("https://example.com/about", "fr"); // → "https://example.com/
 これらのタグを手作業で書くことは、2番目のlocaleとの接触に耐えられません。代わりに、localeリストから導出してください。
 
 <Steps>
-
 <Step number={1} title="すべてのページでクラスターを出力">
 
 すべての場所で同じセット、localeごとにcanonical、絶対URL、`x-default`を含めます。
@@ -239,7 +238,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="または、すべてをサイトマップに移動します">
 
 大規模な場合は、ページから注釈を完全に削除してください。`generateSitemap` は設定からロケールとルーティング モードを読み取り、エントリごとに `xhtml:link` 代替を生成します:
@@ -262,7 +260,6 @@ const sitemap = generateSitemap(
 - `entryPerLocale` (デフォルト `false`) — デフォルトでは1つの `<url>` エントリがすべての代替言語を含みます。どちらの形式も有効ですが、`<loc>` としてリストされたURLのみが Search Console で _送信済み_ としてカウントされます。代替言語のみのロケールは発見可能なままですが、サイトマップに属さないままになります。これをオンにすると、すべてのローカライズされたURLが独自のエントリを取得し、代替言語セット全体が繰り返されます。これはエントリ数をロケール数で乗算するため、50,000 URL / 50 MB の制限に注意し、それを超えた場合はサイトマップインデックスに分割してください。
 
 </Step>
-
 <Step number={3} title="クローラーが受け取るものを確認する">
 
 `hreflang` は無音で失敗するため、それを想定するのではなく確認してください。

@@ -144,7 +144,6 @@ ISO 639-1 用于语言，ISO 3166-1 Alpha 2 用于可选的地区：`fr`、`fr-C
 手动编写这些标签无法在添加第二种语言时保持一致。应该从你的语言列表中派生它们。
 
 <Steps>
-
 <Step number={1} title="在每个页面上发出集群">
 
 相同的集合到处都有，每个语言环境的规范链接，绝对URL，包括 `x-default`。
@@ -233,7 +232,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="或将其全部移至站点地图">
 
 大规模应用时，将注解完全从页面中移出。`generateSitemap` 根据配置读取 locale 和路由模式，为每个条目生成 `xhtml:link` 备用链接：
@@ -256,7 +254,6 @@ const sitemap = generateSitemap(
 - `entryPerLocale`（默认值 `false`）—— 默认情况下，一个 `<url>` 条目包含所有的备用语言版本。两种形式都是有效的，但只有列在 `<loc>` 中的 URL 才会在 Search Console 中被计算为**已提交**；仅作为备用语言的区域设置会保持可发现性但不会被归属到任何 sitemap。启用此选项会为每个本地化 URL 提供其自己的条目，并重复完整的备用语言集。这会按区域设置计数增加条目，因此需要注意 50,000 个 URL / 50 MB 的限制，超过后应分割为 sitemap 索引。
 
 </Step>
-
 <Step number={3} title="验证爬虫接收到的内容">
 
 `hreflang` 会无声地失败，因此应该检查它而不是假设它有效。

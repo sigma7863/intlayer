@@ -45,45 +45,37 @@ author: aymericzip
 
 与 `react-native-localize` 或 `i18next` 等主要解决方案相比，Intlayer 是一个带有集成优化的解决方案，例如：
 
-与“react-native-localize”或“i18next”等主要解决方案相比，Intlayer 是一个具有集成优化的解决方案，例如：
-
 <AccordionGroup>
 <Accordion header="完整的山猫覆盖">
 
 Intlayer 经过优化，可与 Lynx 和 React 完美配合，提供**组件级内容范围**、**TypeScript 支持**以及扩展国际化 (i18n) 所需的所有功能。
 
 </Accordion>
-
 <Accordion header="捆绑尺寸">
 
 不要将大量 JSON 文件加载到页面中，而只需加载必要的内容。 Intlayer 有助于**将捆绑包和页面大小减少多达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 确定应用程序内容的范围**有利于大型应用程序的维护**。您可以复制或删除单个功能文件夹，而无需承担检查整个内容代码库的精神负担。此外，Intlayer 具有**完全类型化 (fully typed)**，以确保您的内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 共置内容**减少大型语言模型 (LLM) 所需的上下文**。 Intlayer 还附带了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 代理的开发者体验 (DX) 更加流畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用您选择的法学硕士，通过自动化在 CI/CD 管道中进行翻译，而费用由您的 AI 提供商承担。 Intlayer 还提供了一个**编译器**来自动提取内容，以及一个[网络平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)来帮助**在后台翻译**。
 
 </Accordion>
-
 <Accordion header="表现">
 
 将大量 JSON 文件连接到组件可能会导致性能和反应性问题。 Intlayer 可在构建时 (build time)优化您的内容加载。
 
 </Accordion>
-
 <Accordion header="使用非开发环境进行扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)**和一个**[完整的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** 来帮助您管理多语言内容**实时**，与译员、文案人员和其他团队成员无缝协作。内容可以本地和/或远程存储。
@@ -92,7 +84,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 从你的 Lynx 项目中，安装以下包：
@@ -145,7 +136,6 @@ bun add intlayer react-intlayer lynx-intlayer
   Lynx 集成，提供用于将 Intlayer 与 Lynx bundler 集成的插件。
 
 </Step>
-
 <Step number={2} title="创建 Intlayer 配置">
 
 在您的项目根目录（或任何方便的位置）中，创建一个 **Intlayer 配置**文件。它可能如下所示：
@@ -176,7 +166,6 @@ export default config;
 - 有关更多信息，请参阅 [Intlayer 配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="将 Intlayer 插件添加到 Lynx bundler">
 
 要在 Lynx 中使用 Intlayer，您需要将插件添加到您的 `lynx.config.ts` 文件中：
@@ -194,7 +183,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="添加 Intlayer 提供者">
 
 为了在您的应用程序中保持用户语言同步，您需要使用 `react-intlayer` 中的 `IntlayerProvider` 组件包装您的根组件。
@@ -222,7 +210,6 @@ if (import.meta.webpackHot) {
 ```
 
 </Step>
-
 <Step number={5} title="声明您的内容">
 
 在您的项目中的任何位置（通常在 `src/` 中）创建**内容声明**文件，使用 Intlayer 支持的任何扩展格式：
@@ -337,7 +324,6 @@ export default appContent;
 > 有关内容声明的详细信息，请参阅 [Intlayer 的内容文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={6} title="在您的组件中使用 Intlayer">
 
 在子组件中使用 `useIntlayer` hook 来获取本地化内容。
@@ -396,7 +382,6 @@ export const App = () => {
 > 在基于字符串的 props 中使用 `content.someKey` 时（例如，按钮的 `title` 或 `Text` 组件的 `children`），**调用 `content.someKey.value`** 来获取实际字符串。
 
 </Step>
-
 <Step number={7} title="更改应用语言环境" isOptional={true}>
 
 要从您的组件中切换语言环境，您可以使用 `useLocale` hook 的 `setLocale` 方法：

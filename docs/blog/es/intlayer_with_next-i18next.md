@@ -55,7 +55,6 @@ Esta guía te muestra cómo aprovechar el superior sistema de declaración de co
 ## Guía paso a paso para configurar Intlayer con next-i18next
 
 <Steps>
-
 <Step number={1} title="Instalar dependencias">
 
 Instala los paquetes necesarios usando tu gestor de paquetes preferido:
@@ -102,7 +101,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Plugin para sincronizar las declaraciones de contenido de Intlayer al formato JSON de i18next
 
 </Step>
-
 <Step number={2} title="Implementar el plugin de Intlayer para envolver el JSON">
 
 Crea un archivo de configuración de Intlayer para definir los locales que soportas:

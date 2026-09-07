@@ -58,7 +58,6 @@ author: aymericzip
 ## دليل خطوة بخطوة لإعداد Intlayer مع react-i18next
 
 <Steps>
-
 <Step number={1} title="تثبيت التبعيات">
 
 قم بتثبيت الحزم اللازمة:
@@ -105,7 +104,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: مكون إضافي لتصدير إعلانات محتوى Intlayer إلى تنسيق JSON المتوافق مع react-i18next
 
 </Step>
-
 <Step number={2} title="تنفيذ مكون Intlayer الإضافي لتغليف JSON">
 
 أنشئ ملف تكوين Intlayer لتعريف اللغات المدعومة لديك:
@@ -143,7 +141,6 @@ export default config;
 للاطلاع على مزيد من التفاصيل حول المكون الإضافي `syncJSON`، يرجى الرجوع إلى [توثيق مكون syncJSON الإضافي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="تنفيذ ترجمات JSON لكل مكون">
 
 بشكل افتراضي، يقوم Intlayer بتحميل ودمج ومزامنة كل من ملفات JSON وملفات إعلان المحتوى. راجع [توثيق إعلان المحتوى](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/content_file.md) لمزيد من التفاصيل. ولكن إذا كنت تفضل، باستخدام مكون إضافي من Intlayer، يمكنك أيضًا تنفيذ إدارة JSON لكل مكون محليًا في أي مكان في قاعدة الشيفرة الخاصة بك.

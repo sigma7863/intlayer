@@ -33,7 +33,6 @@ author: aymericzip
 بدلاً من تحميل ملفات JSON ضخمة في صفحاتك، قم بتحميل فقط المحتوى الضروري. يساعد Intlayer على **تقليل حجم الحزمة والصفحات بما يصل إلى 50%**.
 
 </Accordion>
-
 <Accordion header="سهولة الصيانة">
 
 يسهل تحديد نطاق محتوى التطبيق **الصيانة** للتطبيقات واسعة النطاق. يمكنك نسخ أو حذف مجلد ميزة واحد دون الحاجة لمراجعة كود المحتوى بالكامل. بالإضافة إلى ذلك، Intlayer **مكتوب بشكل كامل** لضمان دقة المحتوى الخاص بك.
@@ -41,25 +40,21 @@ author: aymericzip
 Intlayer أيضاً هو الحل ذو **التطوير الأكثر نشاطاً** في نظام i18n البيئي — تُصلح المشاكل بسرعة، وتُضاف محولات إطار عمل جديدة بانتظام، ويتم تحسين API الأساسي بناءً على ملاحظات الإنتاج الحقيقية.
 
 </Accordion>
-
 <Accordion header="وكيل ذكي">
 
 يقلل دمج المحتوى **السياق المطلوب** من نماذج اللغة الكبيرة (LLMs). يأتي Intlayer أيضاً مع مجموعة من الأدوات، مثل **CLI** لاختبار الترجمات المفقودة، **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/lsp.md)**، **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/mcp_server.md)**، و**[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/agent_skills.md)**، لجعل تجربة المطور (DX) أكثر سلاسة حتى للوكلاء الذكيين.
 
 </Accordion>
-
 <Accordion header="الأتمتة">
 
 استخدم الأتمتة للترجمة في خط أنابيب CI/CD الخاص بك باستخدام نموذج LLM من اختيارك بتكلفة موفر الذكاء الاصطناعي الخاص بك. يوفر Intlayer أيضاً **compiler** لأتمتة استخراج المحتوى، بالإضافة إلى [منصة ويب](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_CMS.md) لمساعدتك على **الترجمة في الخلفية**.
 
 </Accordion>
-
 <Accordion header="الأداء">
 
 قد يؤدي ربط ملفات JSON الضخمة بالمكونات إلى مشاكل الأداء والاستجابة. يحسّن Intlayer تحميل المحتوى الخاص بك في وقت البناء.
 
 </Accordion>
-
 <Accordion header="التوسع مع غير المطورين">
 
 أكثر من مجرد حل i18n، يوفر Intlayer **[محرر مرئي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_visual_editor.md)** ذاتي الاستضافة و**[CMS كامل](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_CMS.md)** لمساعدتك على إدارة محتواك متعدد اللغات في **الوقت الفعلي**، مما يجعل التعاون مع المترجمين والكتاب والأعضاء الآخرين في الفريق بسيطاً. يمكن تخزين المحتوى محلياً و/أو بعداً.
@@ -86,7 +81,6 @@ Intlayer أيضاً هو الحل ذو **التطوير الأكثر نشاطا�
 الخطوات التالية هي الحد الأدنى المطلوب لتشغيل تطبيق `vue-i18n` الموجود على Intlayer بدون تغيير الكود في المكونات.
 
 <Steps>
-
 <Step number={1} title="تثبيت التبعيات">
 
 قم بتثبيت حزم Intlayer الأساسية ومحول التوافق:
@@ -130,7 +124,6 @@ bun add intlayer vue-intlayer @intlayer/vue-i18n @intlayer/sync-json-plugin
 > يمكنك الاحتفاظ بـ `vue-i18n` مثبتة — يستخدم محول التوافق كـ `devDependency` / `peerDependency` لأنواع TypeScript.
 
 </Step>
-
 <Step number={2} title="تكوين Intlayer">
 
 ينشئ أمر `intlayer init` ملف `intlayer.config.ts` بدء. حدثّه ليطابق البيئات المحلية الموجودة لديك وأشر إلى مكوّن `syncJSON` في ملفات الرسائل الخاصة بك:
@@ -165,7 +158,6 @@ export default config;
 > **`source`** يعيّن بيئة محلية إلى مسار ملف JSON الخاص بها. **`location`** يخبر مراقب Intlayer أي مجلد للبحث عن التغييرات. يضمن الخيار `format: 'icu'` أن الملاصقات يتم تحليلها بشكل صحيح لـ `vue-i18n`.
 
 </Step>
-
 <Step number={3} title="إضافة مكوّن Intlayer إلى Bundler الخاص بك">
 
 غلّف تكوين bundler الموجود مع مكوّن التوافق. يُنشئ هذا مكوّن Intlayer الأساسي، ويوصل مراقبة المحتوى، و— بشكل حاسم — **يحقن اسم مستعار module** حتى استدعاءات `import … from 'vue-i18n'` الموجودة لديك تُعاد توجيهها بشفافية إلى `@intlayer/vue-i18n` في وقت البناء. لا يلزم تغيير ملفات المصدر.
@@ -221,7 +213,6 @@ export default defineNuxtConfig({
 الخطوات أدناه اختيارية ويمكن إنجازها بشكل تدريجي. تفتح مجموعة ميزات Intlayer الكاملة: محرر مرئي، CMS، ملفات محتوى مكتوبة، ترجمة مدفوعة بالذكاء الاصطناعي، والمزيد.
 
 <Steps>
-
 <Step number={4} title="إعادة تسمية الاستيراد الصريحة (اختياري)" isOptional={true}>
 
 تتعامل مكوّنات Intlayer بالفعل مع الأسماء المستعارة على مستوى bundler. إذا كنت تفضل جعل التبعية صريحة في ملفات المصدر الخاصة بك، يمكنك إعادة تسمية الاستيرادات يدويياً:
@@ -234,7 +225,6 @@ export default defineNuxtConfig({
 هذه **بدائل drop-in** — لا تغييرات في توقيعات الدالة أو الحجج أو أنواع الإرجاع مطلوبة.
 
 </Step>
-
 <Step number={5} title="تفعيل أتمتة الترجمة المدفوعة بالذكاء الاصطناعي" isOptional={true}>
 
 بمجرد توصيل Intlayer، استخدم CLI الخاص به لملء الترجمات المفقودة تلقائياً:

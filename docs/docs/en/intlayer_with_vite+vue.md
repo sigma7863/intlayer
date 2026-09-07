@@ -49,37 +49,31 @@ Compared to main solutions like `vue-i18n` or `i18next`, Intlayer is a solution 
 Intlayer is optimized to work perfectly with Vue by offering **component-level content scoping**, **reactive translations**, and all the features needed for scaling internationalization (i18n).
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 Instead of loading massive JSON files into your pages, load only the necessary content. Intlayer helps **reduce your bundle and page sizes by up to 50%**.
 
 </Accordion>
-
 <Accordion header="Maintainability">
 
 Scoping your application's content **facilitates maintenance** for large-scale applications. You can duplicate or delete a single feature folder without the mental burden of reviewing your entire content codebase. Additionally, Intlayer is **fully typed** to ensure your content's accuracy.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Co-locating content **reduces the context needed** by Large Language Models (LLMs). Intlayer also comes with a suite of tools, such as a **CLI** to test for missing translations,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, and **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/agent_skills.md)**, to make the developer experience (DX) even smoother for AI agents.
 
 </Accordion>
-
 <Accordion header="Automation">
 
 Use automation to translate in your CI/CD pipeline using the LLM of your choice at the cost of your AI provider. Intlayer also offers a **compiler** to automate content extraction, as well as a [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) to help **translate in the background**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
 Connecting massive JSON files to components can lead to performance and reactivity issues. Intlayer optimizes your content loading at build time.
 
 </Accordion>
-
 <Accordion header="Scaling with none-dev">
 
 More than just an i18n solution, Intlayer provides an **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** and a **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** to help you manage your multilingual content in **real-time**, making collaboration with translators, copywriters, and other team members seamless. Content can be stored locally and/or remotely.
@@ -122,7 +116,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 See [Application Template](https://github.com/aymericzip/intlayer-vite-vue-template) on GitHub.
 
 <Steps>
-
 <Step number={1} title="Install Dependencies">
 
 Install the necessary packages using npm:
@@ -178,7 +171,6 @@ bun add vite-intlayer --dev
   Includes the Vite plugin for integrating Intlayer with the [Vite bundler](https://vite.dev/guide/why.html#why-bundle-for-production), as well as middleware for detecting the user's preferred locale, managing cookies, and handling URL redirection.
 
 </Step>
-
 <Step number={2} title="Configuration of your project">
 
 Create a config file to configure the languages of your application:
@@ -204,7 +196,6 @@ export default config;
 > Through this configuration file, you can set up localized URLs, middleware redirection, cookie names, the location and extension of your content declarations, disable Intlayer logs in the console, and more. For a complete list of available parameters, refer to the [configuration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrate Intlayer in Your Vite Configuration">
 
 Add the intlayer plugin into your configuration.
@@ -223,7 +214,6 @@ export default defineConfig({
 > The `intlayer()` Vite plugin is used to integrate Intlayer with Vite. It ensures the building of content declaration files and monitors them in development mode. It defines Intlayer environment variables within the Vite application. Additionally, it provides aliases to optimize performance.
 
 </Step>
-
 <Step number={4} title="Declare Your Content">
 
 Create and manage your content declarations to store translations:
@@ -337,7 +327,6 @@ export default helloWorldContent;
 > For more details, refer to the [content declaration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Utilize Intlayer in Your Code">
 
 To utilize Intlayer's internationalization features throughout your Vue application, you first need to register the Intlayer singleton instance in your main file. This step is crucial as it provides the internationalization context to all components in your application, making translations accessible anywhere in your component tree.
@@ -438,7 +427,6 @@ Intlayer offers different APIs to access your content:
   - Or use `const { myContent } = useIntlayer("myContent");` And `{{ myContent}}` / `<myContent/>` to destructure the content.
 
 </Step>
-
 <Step number={6} title="Change the language of your content" isOptional={true}>
 
 To change the language of your content, you can use the `setLocale` function provided by the `useLocale` composable. This function allows you to set the locale of the application and update the content accordingly.
@@ -507,7 +495,6 @@ const content = useIntlayer("app"); // Create related intlayer declaration file
 ```
 
 </Step>
-
 <Step number={7} title="Add localized Routing to your application" isOptional={true}>
 
 Adding localized routing in a Vue application typically involves using Vue Router with locale prefixes. This makes unique routes for each language, which is useful for SEO and SEO-friendly URLs.
@@ -647,7 +634,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={8} title="Change the URL when the locale changes" isOptional={true}>
 
 To automatically update the URL when the user changes the language, you can modify the `LocaleSwitcher` component to use Vue Router:
@@ -739,7 +725,6 @@ Tip: For better SEO and accessibility, use tags as `<a href="/fr/home" hreflang=
 ```
 
 </Step>
-
 <Step number={9} title="Switch the HTML Language and Direction Attributes" isOptional={true}>
 
 When your application supports multiple languages, it's crucial to update the `<html>` tag's `lang` and `dir` attributes to match the current locale. Doing so ensures:
@@ -801,7 +786,6 @@ useI18nHTMLAttributes();
 ```
 
 </Step>
-
 <Step number={10} title="Creating a Localized Link Component" isOptional={true}>
 
 To ensure that your application’s navigation respects the current locale, you can create a custom `Link` component. This component automatically prefixes internal URLs with the current language, so that. For example, when a French-speaking user clicks on a link to the "About" page, they are redirected to `/fr/about` instead of `/about`.
@@ -902,7 +886,6 @@ import RouterLink from "@components/RouterLink.vue";
 ```
 
 </Step>
-
 <Step number={11} title="Extract the content of your components" isOptional={true}>
 
 If you have an existing codebase, transforming thousands of files can be time-consuming.
@@ -1144,25 +1127,21 @@ To go further, you can implement the [visual editor](https://github.com/aymericz
 The practical difference is scope and typing. `vue-i18n` resolves keys as strings at runtime, so a renamed key fails silently, while Intlayer generates types from your declarations and drops content no component uses. See [why Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/interest_of_intlayer.md) and the [Vue i18n benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/benchmark/vue.md).
 
 </Question>
-
 <Question title="How much does i18n add to my Vue bundle size?">
 
 Much less than a namespace based setup, because a page never downloads a catalog it does not render. The build time compiler replaces `useIntlayer` calls with the exact dictionary entries a component uses, so unused keys and unused languages are dropped, and [dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dynamic_dictionaries/index.md) split the rest per locale. Measured against the usual alternatives, Intlayer reduces bundle and page size by up to 50%. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/bundle_optimization.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/benchmark/vue.md).
 
 </Question>
-
 <Question title="Can I migrate from `vue-i18n` without rewriting my components?">
 
 Yes, and there are two paths. You can migrate the content progressively with the [vue-i18n migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/migration_from_vue-i18n_to_intlayer.md). Or you can keep your current API entirely: the [compat adapters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/compat/index.md) expose the exact same API as `vue-i18n`, but served by Intlayer dictionaries, so imports change and component code does not.
 
 </Question>
-
 <Question title="Can I keep my existing JSON translation files?">
 
 Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-po.md) does the same for gettext catalogs, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/per_locale_file.md) let you split content by language instead of grouping locales in one file.
 
 </Question>
-
 <Question title="Do I have to move my content key by key?">
 
 No. Run `npx intlayer extract` and Intlayer reads your components, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalog one at a time. Step 11 of this guide walks through it.
@@ -1172,7 +1151,6 @@ For a fully automated pipeline, the [Intlayer Compiler](https://github.com/aymer
 Two limits are worth knowing before you turn the compiler on. It works by static analysis, so strings that only exist at runtime, such as API error codes or CMS fields, stay out of reach. And it has to tell user facing text apart from application logic like `className="active"` or a status code, which needs a few annotations in a large codebase. The [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/extract.md) avoids both by keeping you in the loop.
 
 </Question>
-
 <Question title="What editor and AI agent tooling is available?">
 
 Five pieces, all optional:
@@ -1184,43 +1162,36 @@ Five pieces, all optional:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/eslint.md)**: `no-raw-text` flags hardcoded strings, with further rules for static dictionary keys and unused content.
 
 </Question>
-
 <Question title="Does Intlayer work with the Vue Composition API and script setup?">
 
 Yes. `useIntlayer` is a composable used inside `<script setup>` like any other, and the returned content is reactive, so changing the locale re-renders the components that read it without a page reload.
 
 </Question>
-
 <Question title="How do I set up localized routing in a Vue SPA?">
 
 Steps 7 and 8 of this guide cover Vue Router integration: a locale segment on the route tree, and a watcher that rewrites the URL when the locale changes. If you do not want the locale in the path, set `routing.mode` to `"no-prefix"` or `"search-params"` and it is resolved from a cookie or a query parameter instead. See the [configuration reference](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Question>
-
 <Question title="How do I set the html lang and dir attributes for right to left languages?">
 
 Step 9 covers it. `getHTMLTextDir` returns `rtl` for languages such as Arabic, Hebrew, Persian and Urdu, so you can bind `lang` and `dir` on the root element from the active locale and let your CSS logical properties do the rest.
 
 </Question>
-
 <Question title="How do I translate a Vue app automatically with AI?">
 
 Run `npx intlayer fill`, which fills missing translations with the LLM of your choice using your own provider and API key. `--git-diff` limits the run to the content changed on the branch. See the [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/fill.md) and [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/CI_CD.md).
 
 </Question>
-
 <Question title="Does Intlayer support plurals, gender and rich text?">
 
 Yes: [plural forms](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/plurial.md), [gender based content](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/gender.md), conditions, [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/markdown.md) and [formatters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/formatters.md) for numbers, dates and currencies.
 
 </Question>
-
 <Question title="How can translators edit the content without touching the code?">
 
 Through the [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md), which runs on your own infrastructure and lets anyone edit text in place on the running app, or the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), which externalizes content so it can change without a deployment.
 
 </Question>
-
 <Question title="Is Intlayer free and open source?">
 
 Yes, under the Apache 2.0 license, commercial use included. The hosted CMS is an optional paid service that can also be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/self_hosting.md).

@@ -74,37 +74,31 @@ Dibandingkan dengan solusi utama seperti `@solid-primitives/i18n` atau `i18next`
 Intlayer dioptimalkan untuk bekerja secara sempurna dengan Solid dengan menawarkan **pelingkup konten tingkat komponen**, **terjemahan reaktif**, dan semua fitur yang diperlukan untuk menskalakan internasionalisasi (i18n).
 
 </Accordion>
-
 <Accordion header="Ukuran bundel">
 
 Alih-alih memuat file JSON yang sangat besar ke dalam halaman Anda, muat hanya konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundel dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Kemudahan pemeliharaan">
 
 Melingkupi konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi skala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **bertipe penuh** untuk memastikan akurasi konten Anda.
 
 </Accordion>
-
 <Accordion header="Agen AI">
 
 Menempatkan konten bersama **mengurangi konteks yang dibutuhkan** oleh Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk membuat pengalaman pengembang (DX) menjadi lebih lancar bagi agen AI.
 
 </Accordion>
-
 <Accordion header="Otomatisasi">
 
 Gunakan otomatisasi untuk menerjemahkan dalam alur CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **kompilator** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Performa">
 
 Menghubungkan file JSON yang besar ke komponen dapat menyebabkan masalah performa dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada saat build.
 
 </Accordion>
-
 <Accordion header="Skalabilitas dengan non-pengembang">
 
 Lebih dari sekadar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) mandiri** dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa Anda secara **real-time**, membuat kolaborasi dengan penerjemah, penulis teks, dan anggota tim lainnya menjadi mulus. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -115,7 +109,6 @@ Lebih dari sekadar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dalam Aplikasi SolidStart
 
 <Steps>
-
 <Step number={1} title="Install Dependensi">
 
 Install paket yang diperlukan menggunakan npm:
@@ -171,7 +164,6 @@ bun add intlayer solid-intlayer vite-intlayer
 > `vite-intlayer` adalah perhatian sisi server di sini, bukan hanya saat build: ini menyediakan penangan permintaan yang dijalankan oleh server Nitro SolidStart. Menyimpannya dalam `dependencies` adalah pilihan aman secara default — Anda dapat memindahkannya ke `devDependencies` hanya jika Anda menyebarkan direktori `.output` yang dibuat, di mana Nitro menyisipkan penangan tersebut.
 
 </Step>
-
 <Step number={2} title="Konfigurasi proyek Anda">
 
 Buat file konfigurasi untuk mengonfigurasi bahasa aplikasi Anda:
@@ -208,7 +200,6 @@ Dengan `prefix-no-default`, lokal default dilayani dari URL tanpa awalan:
 > Melalui file konfigurasi ini, Anda dapat mengatur URL terlokalisasi, pengalihan middleware, nama cookie, lokasi dan ekstensi deklarasi konten Anda, menonaktifkan log Intlayer di konsol, dan banyak lagi. Untuk daftar lengkap parameter yang tersedia, lihat [dokumentasi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrasikan Intlayer dalam Konfigurasi Vite Anda">
 
 Tambahkan plugin Intlayer ke konfigurasi Anda:
@@ -236,7 +227,6 @@ SolidStart berjalan di [Nitro](https://nitro.build), dan `intlayer()` mendaftark
 - cookie lokal ditulis kembali pada respons.
 
 </Step>
-
 <Step number={4} title="Deklarasikan Konten Anda">
 
 Buat dan kelola deklarasi konten Anda untuk menyimpan terjemahan:
@@ -310,7 +300,6 @@ export default homeContent;
 > Untuk detail selengkapnya, lihat [dokumentasi deklarasi konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Tambahkan pengarahan terlokalisasi">
 
 Tujuan dari langkah ini adalah untuk memberikan URL-nya sendiri ke setiap bahasa, yang diindeks oleh mesin pencari.
@@ -354,7 +343,6 @@ export default function LocaleLayout(props: RouteSectionProps) {
 > Lebih suka `[locale]` (wajib) daripada `[[locale]]` jika Anda menggunakan mode pengarahan `'prefix-all'`, dan hapus segmen sepenuhnya untuk `'no-prefix'` atau `'search-params'`.
 
 </Step>
-
 <Step number={6} title="Sediakan lokal ke aplikasi Anda">
 
 URL adalah satu-satunya sumber kebenaran untuk lokal: middleware telah mengalihkan permintaan ke jalur terlokalisasi, jadi membaca jalur di tata letak root menjaga penyajian server dan hidrasi klien tetap sesuai, dan membuat setiap navigasi sisi klien memperbarui lokal secara gratis.
@@ -405,7 +393,6 @@ export default function App() {
 > `IntlayerProvider` bereaksi terhadap prop `locale`-nya, jadi mempassing panggilan aksesor `locale()` di dalam JSX sudah cukup — Solid mengompilasinya ke getter, dan seluruh pohon dirender ulang dalam bahasa baru saat URL berubah.
 
 </Step>
-
 <Step number={7} title="Atur atribut lang dan dir HTML di server">
 
 Elemen `<html>` dirender oleh `entry-server.tsx`, di luar `Router`. Baca lokal dari URL permintaan sebagai gantinya:
@@ -451,7 +438,6 @@ Praperamban (crawlers) sekarang menerima bahasa yang tepat pada byte pertama:
 ```
 
 </Step>
-
 <Step number={8} title="Gunakan Intlayer di Halaman Anda">
 
 Akses kamus konten Anda di seluruh aplikasi Anda:
@@ -533,7 +519,6 @@ export default function Counter() {
 `plural()` memilih kategori melalui `Intl.PluralRules` untuk lokal yang aktif, sehingga bahasa dengan lebih dari dua bentuk jamak bekerja tanpa kode ekstra.
 
 </Step>
-
 <Step number={9} title="Buat Komponen Tautan Terlokalisasi">
 
 Buat komponent `Link` kustom yang secara otomatis memberi awalan URL internal dengan bahasa saat ini:
@@ -578,7 +563,6 @@ export const Nav: Component = () => {
 Menulis `href="/about"` sekali sekarang menghasilkan `/about`, `/fr/about` atau `/es/about` tergantung pada lokal aktif — tanpa pengawalan manual di mana pun di halaman Anda.
 
 </Step>
-
 <Step number={10} title="Buat Komponen Pengalih Lokal">
 
 Render pengalih sebagai **jangkar (anchor) nyata** daripada `<select>`: setiap bahasa dari halaman saat ini menjadi tautan yang dapat merayap yang dapat dibuka di tab baru, yang tidak dapat ditawarkan oleh kontrol khusus JavaScript.
@@ -650,7 +634,6 @@ export const LocaleSwitcher: Component = () => {
 > Untuk mempelajari lebih lanjut tentang hook `useLocale`, lihat [dokumentasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/solid-intlayer/useLocale.md).
 
 </Step>
-
 <Step number={11} title="Pancarkan tautan canonical dan hreflang" isOptional={true}>
 
 Anotasi `hreflang` memberi tahu mesin pencari bahwa `/about`, `/fr/about` dan `/es/about` adalah halaman yang sama dalam bahasa yang berbeda. `getMultilingualUrls` menurunkannya dari jalur kanonis (bebas lokal), mengikuti mode pengarahan Anda, sehingga tidak ada yang di-hard-code:
@@ -722,7 +705,6 @@ import { AlternateLinks } from "~/components/AlternateLinks";
 > **Catatan tentang `@solidjs/meta`**: pada saat penulisan, `<Title>` dan `<Meta>` dari `@solidjs/meta` diterapkan pada klien setelah hidrasi tetapi **tidak** dipancarkan ke dalam `<head>` yang dirender server di SolidStart v2. Sampai itu diperbaiki di hulu, render tag yang harus dilihat praperamban tanpa JavaScript — `canonical`, `hreflang`, dan jika perlu `title` / `description` — secara langsung di `entry-server.tsx`, seperti yang ditunjukkan di atas.
 
 </Step>
-
 <Step number={12} title="Kelola halaman tidak ditemukan" isOptional={true}>
 
 Rute splat di akar `src/routes` menangkap setiap jalur yang tidak cocok dengan segmen lokal — termasuk awalan lokal tidak valid yang ditolak oleh `matchFilters`. Karena lokal masih berasal dari URL melalui tata letak root, halaman 404 ditampilkan dalam bahasa pengunjung:
@@ -754,7 +736,6 @@ export default function NotFound() {
 | `/fr/nonexistent` | `404` dalam bahasa Prancis (`Page introuvable`) |
 
 </Step>
-
 <Step number={13} title="Hasilkan peta situs multibahasa" isOptional={true}>
 
 Generator peta situs Intlayer memperluas setiap jalur menjadi satu entri per lokal dan menghubungkan alternatif `xhtml:link` di antara mereka, sehingga rute hanya perlu mencantumkan jalur kanonis bebas lokal.
@@ -829,7 +810,6 @@ export const GET = () =>
 ```
 
 </Step>
-
 <Step number={14} title="Dapatkan lokal di fungsi server Anda" isOptional={true}>
 
 Anda mungkin ingin mengakses lokal saat ini dari dalam fungsi server atau rute API.
@@ -873,7 +853,6 @@ export default function Page() {
 > Jangan hanya mengandalkan `getLocale` di sini: cookie lokal hanya ditulis setelah pengunjung secara aktif beralih bahasa, jadi kunjungan pertama ke `/fr/...` akan menyelesaikan ke lokal default.
 
 </Step>
-
 <Step number={15} title="Ekstrak konten komponen Anda" isOptional={true}>
 
 Jika Anda memiliki basis kode yang ada, mengubah ribuan file dapat memakan waktu.
@@ -983,7 +962,6 @@ bun run build # Atau bun run dev
 </Tabs>
 
 </Step>
-
 <Step number={16} title="Konfigurasi TypeScript">
 
 Intlayer menggunakan augmentasi modul untuk mendapatkan manfaat TypeScript dan membuat basis kode Anda lebih kuat.
@@ -1088,25 +1066,21 @@ Untuk melangkah lebih jauh, Anda dapat mengimplementasikan [editor visual](https
 Lihat [mengapa Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle Solid Start saya?">
 
 Jauh lebih sedikit daripada solusi berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen, dan [kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale, mengurangi bundle hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari @solid-primitives/i18n atau i18next tanpa menulis ulang komponen?">
 
 Sebagian besar ya. Ikuti [panduan migrasi i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_i18next_to_intlayer.md).
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu.
@@ -1116,7 +1090,6 @@ Untuk proses otomatis penuh, [Intlayer Compiler](https://github.com/aymericzip/i
 Dua batasan perlu diketahui sebelum Anda mengaktifkan compiler. Ini bekerja dengan analisis statis, jadi string yang hanya ada saat runtime, seperti kode kesalahan API atau field CMS, tetap berada di luar jangkauan. Dan ini harus membedakan teks yang dilihat pengguna dari logika aplikasi seperti `className="active"` atau kode status, yang memerlukan beberapa anotasi di basis kode yang besar. [Perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) menghindari keduanya dengan menjaga Anda tetap memegang kendali.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -1128,61 +1101,51 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Apakah Intlayer bekerja dengan server side rendering (SSR) di Solid Start?">
 
 Ya. Konten diselesaikan saat SSR, dan langkah 16 mencakup konfigurasi prerender untuk menghasilkan HTML statis per locale.
 
 </Question>
-
 <Question title="Apakah pergantian bahasa me-render ulang seluruh aplikasi?">
 
 Tidak. Konten didukung oleh signal Solid, jadi mengubah bahasa hanya memperbarui node DOM teks yang berubah tanpa me-render ulang pohon komponen.
 
 </Question>
-
 <Question title="Bagaimana cara menambahkan tautan kanonik dan tag hreflang?">
 
 Di sitemap menggunakan `generateSitemap` atau `getMultilingualUrls`, yang membuat alternatif `xhtml:link` untuk mesin pencari.
 
 </Question>
-
 <Question title="Bagaimana cara menangani halaman 404 pada rute terlokalisasi?">
 
 Langkah 14 membahas hal ini. `validatePrefix` memeriksa apakah segmen bahasa di URL valid, mengembalikan status 404 untuk rute yang tidak dikenal.
 
 </Question>
-
 <Question title="Apakah saya harus mencantumkan locale di URL?">
 
 Tidak. Pengaturan `routing.mode` menerima `"prefix-no-default"` (default), `"prefix-all"`, `"no-prefix"`, dan `"search-params"`.
 
 </Question>
-
 <Question title="Bagaimana cara mendapatkan locale dalam fungsi server?">
 
 Dalam fungsi server Solid Start, fungsi `getIntlayer` secara otomatis menyelesaikan locale dari request context.
 
 </Question>
-
 <Question title="Bagaimana cara menerjemahkan aplikasi secara otomatis dengan AI?">
 
 Jalankan `npx intlayer fill`. Perintah ini mengisi terjemahan yang hilang menggunakan LLM pilihan Anda dengan provider dan API key Anda sendiri, dan `--git-diff` membatasi proses ke file yang diubah. Lihat [perintah fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/fill.md) dan [integrasi CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/CI_CD.md).
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung bentuk jamak, gender dan rich text?">
 
 Ya: [bentuk jamak (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/plurial.md), [konten berbasis gender](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/gender.md), kondisi, [penyisipan (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/markdown.md), dan [formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/formatters.md).
 
 </Question>
-
 <Question title="Bagaimana penerjemah dapat mengedit konten tanpa menyentuh kode?">
 
 Melalui [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md), yang memungkinkan siapa saja mengedit teks langsung di aplikasi yang berjalan, atau melalui [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md), yang memisahkan konten sehingga dapat diubah tanpa perlu redeploy kode.
 
 </Question>
-
 <Question title="Apakah Intlayer gratis dan open source?">
 
 Ya, di bawah lisensi Apache 2.0, termasuk penggunaan komersial. CMS yang di-host adalah layanan berbayar opsional yang juga dapat [di-host sendiri (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).

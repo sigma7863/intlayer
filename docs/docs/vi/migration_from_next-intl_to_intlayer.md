@@ -33,7 +33,6 @@ author: aymericzip
 Thay vì tải các tệp JSON khổng lồ vào các trang của bạn, chỉ tải nội dung cần thiết. Intlayer giúp **giảm kích thước bundle và trang của bạn lên tới 50%**.
 
 </Accordion>
-
 <Accordion header="Khả năng bảo trì">
 
 Phạm vi nội dung ứng dụng của bạn **tạo điều kiện thuận lợi cho việc bảo trì** các ứng dụng quy mô lớn. Bạn có thể sao chép hoặc xóa một thư mục tính năng duy nhất mà không cần lo lắng về việc xem xét toàn bộ codebase nội dung của bạn. Ngoài ra, Intlayer **hoàn toàn được gõ type** để đảm bảo độ chính xác của nội dung của bạn.
@@ -41,25 +40,21 @@ Phạm vi nội dung ứng dụng của bạn **tạo điều kiện thuận l�
 Intlayer cũng là giải pháp có **phát triển tích cực nhất** trong hệ sinh thái i18n — các sự cố được sửa chữa nhanh chóng, các adapter framework mới xuất hiện thường xuyên, và API cơ bản được liên tục cải tiến dựa trên phản hồi sản xuất thực tế.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Đặt nội dung cùng vị trí **giảm ngữ cảnh cần thiết** bởi Large Language Models (LLMs). Intlayer cũng đi kèm với một bộ công cụ, chẳng hạn như **CLI** để kiểm tra các bản dịch bị thiếu, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/mcp_server.md)**, và **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/agent_skills.md)**, để làm cho trải nghiệm của nhà phát triển (DX) càng mượt mà hơn cho các AI agents.
 
 </Accordion>
-
 <Accordion header="Tự động hóa">
 
 Sử dụng tự động hóa để dịch trong pipeline CI/CD của bạn bằng cách sử dụng LLM mà bạn chọn với chi phí của nhà cung cấp AI của bạn. Intlayer cũng cung cấp một **compiler** để tự động hóa trích xuất nội dung, cũng như một [nền tảng web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md) để giúp **dịch trong nền**.
 
 </Accordion>
-
 <Accordion header="Hiệu suất">
 
 Kết nối các tệp JSON khổng lồ với các thành phần có thể dẫn đến các vấn đề về hiệu suất và phản ứng. Intlayer tối ưu hóa việc tải nội dung của bạn tại thời điểm xây dựng.
 
 </Accordion>
-
 <Accordion header="Mở rộng với những người không phải nhà phát triển">
 
 Hơn chỉ là một giải pháp i18n, Intlayer cung cấp một **[trình chỉnh sửa trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md) được tự lưu trữ** và một **[CMS đầy đủ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md)** để giúp bạn quản lý nội dung đa ngôn ngữ của mình **theo thời gian thực**, làm cho sự cộng tác với các dịch giả, biên tập viên sao chép và các thành viên nhóm khác trở nên liền mạch. Nội dung có thể được lưu trữ cục bộ và/hoặc từ xa.
@@ -84,7 +79,6 @@ Theo thời gian, bạn có thể tùy chọn di chuyển các tệp riêng lẻ
 Các bước sau là mức tối thiểu cần thiết để chạy ứng dụng `next-intl` hiện tại của bạn trên Intlayer mà không cần thay đổi code.
 
 <Steps>
-
 <Step number={1} title="Cài đặt Dependencies">
 
 Cài đặt các gói lõi của Intlayer và adapter tương thích `@intlayer/next-intl`:
@@ -128,7 +122,6 @@ bun add intlayer next-intlayer @intlayer/next-intl @intlayer/sync-json-plugin
 > Giữ `next-intl` được cài đặt — nó vẫn được yêu cầu cho **định tuyến URL** (`createNavigation`, `createMiddleware`, `Link`, `redirect`, `usePathname`, `useRouter`). Adapter tương thích **không** thay thế lớp định tuyến.
 
 </Step>
-
 <Step number={2} title="Cấu hình Intlayer">
 
 Lệnh `intlayer init` tạo một `intlayer.config.ts` khởi đầu. Cập nhật nó để khớp với các locale hiện tại của bạn và trỏ plugin `syncJSON` tới các tệp tin message của bạn:
@@ -165,7 +158,6 @@ export default config;
 > Để xem danh sách đầy đủ các tùy chọn cấu hình, xem [tài liệu cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md).
 
 </Step>
-
 <Step number={3} title="Thêm Plugin Intlayer vào Next.js">
 
 Bao bọc cấu hình Next.js hiện tại của bạn với `createNextIntlPlugin` từ `@intlayer/next-intl/plugin`. Wrapper này soạn `withIntlayer` **và** đăng ký các alias `next-intl` → `@intlayer/next-intl` cho bạn:
@@ -211,7 +203,6 @@ export default withIntlayer(nextConfig);
 Các bước dưới đây là tùy chọn và có thể được thực hiện theo từng bước. Chúng mở khóa bộ tính năng đầy đủ của Intlayer: trình chỉnh sửa trực quan, CMS, các tệp nội dung được định kiểu, dịch thuật được hỗ trợ bởi AI, và hơn thế nữa.
 
 <Steps>
-
 <Step number={4} title="Đổi tên nhập khẩu rõ ràng (tùy chọn)" isOptional={true}>
 
 Trình bao bọc `createNextIntlPlugin()` đã xử lý bí danh `next-intl` → `@intlayer/next-intl` ở mức bundler. Nếu bạn muốn làm cho phụ thuộc rõ ràng trong các tệp nguồn của mình (và sử dụng plugin `withIntlayer` đơn giản thay vào đó), bạn có thể đổi tên các nhập khẩu theo cách thủ công:
@@ -238,7 +229,6 @@ Trình bao bọc `createNextIntlPlugin()` đã xử lý bí danh `next-intl` →
 > Ngoài ra, bạn có thể sử dụng `defineRouting` từ `@intlayer/next-intl/routing` để tự động hợp nhất cấu hình locale từ `intlayer.config.ts` của bạn.
 
 </Step>
-
 <Step number={5} title="Kích hoạt Tự động hóa Dịch thuật được hỗ trợ bởi AI" isOptional={true}>
 
 Sau khi Intlayer được kết nối, bạn có thể sử dụng CLI của nó để điền các bản dịch bị thiếu tự động bằng LLM mà bạn chọn:

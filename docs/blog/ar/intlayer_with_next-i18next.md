@@ -55,7 +55,6 @@ author: aymericzip
 ## دليل خطوة بخطوة لإعداد Intlayer مع next-i18next
 
 <Steps>
-
 <Step number={1} title="تثبيت التبعيات">
 
 قم بتثبيت الحزم اللازمة باستخدام مدير الحزم المفضل لديك:
@@ -102,7 +101,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: الإضافة لمزامنة إعلانات محتوى Intlayer إلى صيغة JSON الخاصة بـ i18next
 
 </Step>
-
 <Step number={2} title="تنفيذ إضافة Intlayer لتغليف JSON">
 
 قم بإنشاء ملف تكوين Intlayer لتعريف اللغات المدعومة لديك:
@@ -140,7 +138,6 @@ export default config;
 لمزيد من التفاصيل حول إضافة `syncJSON`، يرجى الرجوع إلى [توثيق إضافة syncJSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="تنفيذ ترجمات JSON لكل مكون على حدة">
 
 بشكل افتراضي، يقوم Intlayer بتحميل ودمج ومزامنة كل من ملفات JSON وملفات إعلان المحتوى. راجع [توثيق إعلان المحتوى](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/content_file.md) لمزيد من التفاصيل. ولكن إذا كنت تفضل، باستخدام إضافة Intlayer، يمكنك أيضًا تنفيذ إدارة JSON المترجمة لكل مكون في أي مكان في قاعدة الشيفرة الخاصة بك.

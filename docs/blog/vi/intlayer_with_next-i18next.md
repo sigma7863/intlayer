@@ -55,7 +55,6 @@ Hướng dẫn này sẽ chỉ cho bạn cách tận dụng hệ thống khai b�
 ## Hướng Dẫn Từng Bước Để Thiết Lập Intlayer với next-i18next
 
 <Steps>
-
 <Step number={1} title="Cài Đặt Các Phụ Thuộc">
 
 Cài đặt các gói cần thiết bằng trình quản lý gói bạn ưa thích:
@@ -102,7 +101,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Plugin để đồng bộ các khai báo nội dung Intlayer sang định dạng JSON của i18next
 
 </Step>
-
 <Step number={2} title="Triển khai plugin Intlayer để bao bọc JSON">
 
 Tạo một file cấu hình Intlayer để định nghĩa các ngôn ngữ bạn hỗ trợ:
@@ -140,7 +138,6 @@ Nếu có thay đổi được thực hiện bằng cách sử dụng CLI để 
 Để xem thêm chi tiết về plugin `syncJSON`, vui lòng tham khảo [tài liệu plugin syncJSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="Triển khai dịch JSON theo từng thành phần" isOptional={true}>
 
 Theo mặc định, Intlayer sẽ tải, hợp nhất và đồng bộ cả file JSON và file khai báo nội dung. Xem [tài liệu khai báo nội dung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/content_file.md) để biết thêm chi tiết. Nhưng nếu bạn muốn, sử dụng một plugin của Intlayer, bạn cũng có thể triển khai quản lý JSON theo từng thành phần được bản địa hóa ở bất kỳ đâu trong mã nguồn của bạn.

@@ -73,7 +73,6 @@ Met Intlayer kunt u:
 ## Stap-voor-stap gids om Intlayer in te stellen in een Vite- en Vanilla JS-applicatie
 
 <Steps>
-
 <Step number={1} title="Afhankelijkheden installeren">
 
 Installeer de benodigde pakketten met npm:
@@ -128,7 +127,6 @@ bun add vite-intlayer --dev
   Bevat de Vite-plugin voor het integreren van Intlayer met de [Vite-bundler](https://vite.dev/guide/why.html#why-bundle-for-production), evenals middleware voor het detecteren van de voorkeurstaal van de gebruiker, het beheren van cookies en het afhandelen van URL-omleidingen.
 
 </Step>
-
 <Step number={2} title="Configuratie van uw project">
 
 Maak een configuratiebestand om de talen van uw applicatie te configureren:
@@ -154,7 +152,6 @@ export default config;
 > Via dit configuratiebestand kunt u gelokaliseerde URL's, middleware-omleidingen, cookienamen, de locatie en extensie van uw inhoudsverklaringen instellen, Intlayer-logboeken in de console uitschakelen en meer. Raadpleeg de [configuratiedocumentatie](https://github.com/aymericzip/intlayer/blob/main/docs/docs/nl/configuration.md) voor een volledige lijst met beschikbare parameters.
 
 </Step>
-
 <Step number={3} title="Integreer Intlayer in uw Vite-configuratie">
 
 Voeg de intlayer-plugin toe aan uw configuratie.
@@ -178,7 +175,6 @@ export default defineConfig({
 > De `intlayer()` Vite-plugin wordt gebruikt om Intlayer met Vite te integreren. Het zorgt voor het bouwen van inhoudsverklaringsbestanden en bewaakt deze in ontwikkelingsmodus. Het definieert Intlayer-omgevingsvariabelen binnen de Vite-applicatie. Bovendien biedt het aliassen om de prestaties te optimaliseren.
 
 </Step>
-
 <Step number={4} title="Bootstrap Intlayer in uw toegangspunt">
 
 Roep `installIntlayer()` aan **voordat** enige inhoud wordt gerenderd, zodat de globale taal-singleton gereed is.
@@ -205,7 +201,6 @@ import "./app.js";
 ```
 
 </Step>
-
 <Step number={5} title="Declareer uw inhoud">
 
 Maak en beheer uw inhoudsverklaringen om vertalingen op te slaan:
@@ -285,7 +280,6 @@ export default appContent;
 > Raadpleeg de [inhoudsverklaringsdocumentatie](https://github.com/aymericzip/intlayer/blob/main/docs/docs/nl/dictionary/content_file.md) voor meer informatie.
 
 </Step>
-
 <Step number={6} title="Gebruik Intlayer in uw JavaScript">
 
 `vanilla-intlayer` spiegelt de `react-intlayer` surface API: `useIntlayer(key, locale?)` retourneert de vertaalde inhoud rechtstreeks. Koppel `.onChange()` aan het resultaat om u te abonneren op taalveranderingen - het expliciete equivalent van een React re-render.
@@ -323,7 +317,6 @@ document.querySelector<HTMLParagraphElement>(".read-the-docs")!.textContent =
 > ```
 
 </Step>
-
 <Step number={7} title="De taal van uw inhoud wijzigen" isOptional={true}>
 
 Gebruik de functie `setLocale` van `useLocale` om de taal van uw inhoud te wijzigen.
@@ -360,7 +353,6 @@ export function setupLocaleSwitcher(container: HTMLElement): () => void {
 ```
 
 </Step>
-
 <Step number={8} title="Markdown- en HTML-inhoud renderen" isOptional={true}>
 
 Intlayer ondersteunt `md()` en `html()` inhoudsverklaringen. In pure JS wordt gecompileerde uitvoer ingevoegd als onbewerkte HTML via `innerHTML`.
@@ -421,7 +413,6 @@ document.querySelector<HTMLDivElement>(".edit-note")!.innerHTML =
 > ```
 
 </Step>
-
 <Step number={9} title="Gelokaliseerde Routering toevoegen aan uw applicatie" isOptional={true}>
 
 Om unieke routes voor elke taal te maken (nuttig voor SEO), kunt u `intlayerProxy` gebruiken in uw Vite-configuratie voor taaldetectie aan de serverzijde.
@@ -446,7 +437,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={10} title="De URL wijzigen wanneer de taal verandert" isOptional={true}>
 
 Roep `useRewriteURL()` aan na het installeren van Intlayer om de browser-URL bij te werken wanneer de taal verandert:
@@ -462,7 +452,6 @@ const stopRewriteURL = useRewriteURL();
 ```
 
 </Step>
-
 <Step number={11} title="De HTML-taal- en richtingskenmerken wisselen" isOptional={true}>
 
 Werk de kenmerken `lang` en `dir` van de `<html>`-tag bij zodat deze overeenkomen met de huidige taal voor toegankelijkheid en SEO.
@@ -482,7 +471,6 @@ useLocale({
 ```
 
 </Step>
-
 <Step number={12} title="Woordenboeken per taal lazyloaden" isOptional={true}>
 
 Bij grote apps wilt u misschien het woordenboek van elke taal in een eigen chunk opsplitsen. Gebruik `useDictionaryDynamic` naast de dynamische `import()` van Vite:
@@ -507,7 +495,6 @@ const unsubscribe = useDictionaryDynamic(
 > De bundel van elke taal wordt alleen opgehaald wanneer die taal actief wordt en het resultaat wordt in de cache opgeslagen - volgende overschakelingen naar dezelfde taal zijn onmiddellijk.
 
 </Step>
-
 <Step number={13} title="De inhoud van uw componenten extraheren" isOptional={true}>
 
 Als u een bestaande codebase heeft, kan het transformeren van duizenden bestanden tijdrovend zijn.

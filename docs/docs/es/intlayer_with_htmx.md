@@ -42,13 +42,11 @@ Una sola página puede desencadenar docenas de intercambios. Cada uno es una sol
 El middleware de Intlayer resuelve la configuración regional de la solicitud misma, por lo que un fragmento servido en el minuto diez responde en el mismo idioma que la página servida en el minuto cero.
 
 </Accordion>
-
 <Accordion header="La configuración regional debe viajar con la solicitud">
 
 Dos portadores funcionan con htmx. Una cookie (`INTLAYER_LOCALE`) es enviada automáticamente por el navegador en cada solicitud, incluyendo las de htmx. Un encabezado (`x-intlayer-locale`) puede adjuntarse a las solicitudes de htmx con el atributo `hx-headers`. Ambos se leen por defecto.
 
 </Accordion>
-
 <Accordion header="El HTML intercambiado sigue siendo HTML">
 
 Un valor traducido interpolado en un fragmento es markup. Escápalo, exactamente como lo harías con cualquier otro valor dinámico, para que una traducción que contenga `<` no pueda romper el documento en el que se intercambia.
@@ -69,7 +67,6 @@ Un valor traducido interpolado en un fragmento es markup. Escápalo, exactamente
 Consulta la [Plantilla de Aplicación](https://github.com/aymericzip/intlayer-htmx-template) en GitHub.
 
 <Steps>
-
 <Step number={1} title="Instalar Dependencias">
 
 Instala `intlayer` más la integración para tu servidor.
@@ -158,7 +155,6 @@ bun add intlayer elysia-intlayer
 htmx en sí es una única etiqueta de script, agregada en el paso 4.
 
 </Step>
-
 <Step number={2} title="Configuración de tu proyecto">
 
 Crea un `intlayer.config.ts` en la raíz de tu proyecto:
@@ -179,7 +175,6 @@ export default config;
 > Para obtener la lista completa de opciones, consulta la [documentación de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
 
 </Step>
-
 <Step number={3} title="Declarar tu contenido">
 
 Declara cada etiqueta que el servidor renderizará, incluyendo las que solo aparecen dentro de un fragmento:
@@ -223,7 +218,6 @@ export default appContent;
 > Las declaraciones de contenido pueden vivir en cualquier lugar bajo `contentDir` (por defecto `./src`) y coincidir `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}`. Consulta la [documentación de declaración de contenido](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/content_file.md).
 
 </Step>
-
 <Step number={4} title="Registrar el middleware de Intlayer">
 
 El middleware resuelve la configuración regional de cada solicitud y la expone a tus manejadores.
@@ -300,7 +294,6 @@ La configuración regional resuelta es `intlayer!.locale` en el contexto de la r
 Por defecto, la configuración regional se toma de la cookie `INTLAYER_LOCALE`, luego del encabezado `x-intlayer-locale`, luego de la negociación `Accept-Language`.
 
 </Step>
-
 <Step number={5} title="Renderizar fragmentos con la configuración regional de la solicitud">
 
 Escribe tus renderizadores de fragmentos como funciones puras de una configuración regional, y pasa la configuración regional que el middleware resolvió. Pasarla explícitamente mantiene un fragmento vinculado a la solicitud que lo pidió, sin importar en qué servidor estés.
@@ -398,7 +391,6 @@ app.post("/cart/items", ({ body, intlayer }) => {
 El mismo fragmento ahora responde en francés para un visitante cuya cookie dice `fr`, y en árabe para uno cuya cookie dice `ar`, sin cambios en el marcado de llamada.
 
 </Step>
-
 <Step number={6} title="Servir la primera página">
 
 Renderiza el `<body>` por sí solo, para que el cambiador de idioma en el paso 7 pueda intercambiarlo completamente, luego envuélvelo en el documento que carga htmx:
@@ -434,7 +426,6 @@ ${renderBody(locale, itemCount)}
 `getHTMLTextDir` devuelve `ltr`, `rtl` o `auto` para la locale, lo que permite que el árabe y el hebreo se muestren correctamente.
 
 </Step>
-
 <Step number={7} title="Cambiar el idioma">
 
 Cambiar el idioma es una solicitud como cualquier otra. El servidor almacena la selección en la cookie que lee el middleware, y luego devuelve la página renderizada nuevamente en la nueva locale.
@@ -576,7 +567,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 > `isDeclaredLocale` estrecha una cadena arbitraria a uno de tus locales configurados, por lo que un valor inesperado nunca llega a tus renderizadores.
 
 </Step>
-
 <Step number={8} title="Mantener lang y dir sincronizados después de un swap" isOptional={true}>
 
 Un swap puede reemplazar el `<body>`, nunca el `<html>` que lo rodea. Renderiza `lang` y `dir` en el body intercambiado y cópialos de vuelta al elemento raíz una vez, desde el head:
@@ -593,7 +583,6 @@ Un swap puede reemplazar el `<body>`, nunca el `<html>` que lo rodea. Renderiza 
 Sin esto, un cambio al árabe renderiza de derecha a izquierda dentro del body mientras el documento aún anuncia el idioma anterior a la tecnología de asistencia y a los crawlers.
 
 </Step>
-
 <Step number={9} title="Enviar la configuración regional como encabezado en lugar de una cookie" isOptional={true}>
 
 Si una cookie no te conviene, adjunta la locale a cada solicitud htmx con `hx-headers` en un elemento ancestro. Los descendientes la heredan:
@@ -677,67 +666,56 @@ Para ir más allá, puedes externalizar tu contenido usando el [CMS](https://git
 Porque la solicitud del fragmento no llevaba ninguna configuración regional. Las solicitudes de htmx son independientes de la página que las emitió, por lo que la configuración regional tiene que viajar en cada una, a través de la cookie `INTLAYER_LOCALE` o un encabezado `x-intlayer-locale` establecido con `hx-headers`. Comprueba que el analizador de cookies se ejecuta antes del middleware de Intlayer en Express y Fastify, de lo contrario la cookie nunca se lee y cada solicitud vuelve a `Accept-Language`.
 
 </Question>
-
 <Question title="¿Debo pasar la configuración regional a `getIntlayer` o depender del contexto de la solicitud?">
 
 Pásalo. Las integraciones exponen la locale resuelta (`res.locals.locale`, `req.intlayer.locale`, `c.get("locale")`, `intlayer!.locale`), y pasarla a `getIntlayer` hace que cada renderer sea una función pura de una locale. Eso es más fácil de probar, y mantiene tus fragment renderers portátiles si cambias de servidor.
 
 </Question>
-
 <Question title="¿Necesito una librería i18n del lado del cliente junto a htmx?">
 
 No. Todo lo que ve un visitante es producido por el servidor, así que no hay nada que traducir en el navegador. Por eso también el costo de peso de la página del i18n en una app htmx es casi cero: ningún catálogo se envía nunca al cliente.
 
 </Question>
-
 <Question title="¿Cómo localizo también la URL, para SEO?">
 
 Sirva sus páginas bajo un prefijo de locale (`/fr/cart`) y lea el locale de la ruta en su controlador de rutas, en lugar de desde la cookie, para el renderizado completo de la página. Los fragmentos pueden seguir utilizando la cookie o el encabezado. Véase [configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md) para las opciones de enrutamiento y [reescrituras de URL personalizadas](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/custom_url_rewrites.md).
 
 </Question>
-
 <Question title="¿Cómo manejo los idiomas de derecha a izquierda?">
 
 `getHTMLTextDir(locale)` devuelve `ltr`, `rtl` o `auto`. Establézcalo en el documento para el renderizado inicial y vuelva a aplicarlo después de un intercambio como se muestra en el paso 8. Utilice propiedades lógicas de CSS (`margin-inline-start` en lugar de `margin-left`) para que su diseño se ajuste.
 
 </Question>
-
 <Question title="¿Tengo que escapar los valores traducidos?">
 
 Sí, para cualquier cosa que interpoles en una cadena de plantilla, exactamente como para cualquier otro valor dinámico. El contenido proveniente del CMS o de un traductor no es markup que controles. El paso 5 muestra un escapador mínimo.
 
 </Question>
-
 <Question title="¿Puede el mismo contenido servir también mis respuestas de API?">
 
 Sí. Las integraciones de backend exponen `t()` y `getIntlayer()` a cualquier manejador, por lo que un mensaje de error mostrado en un toast y una etiqueta renderizada en un fragmento provienen del mismo contenido declarado. Consulta las guías de [Express](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_with_express.md), [Fastify](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_with_fastify.md), [Hono](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_with_hono.md) y [Elysia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_with_elysia.md).
 
 </Question>
-
 <Question title="¿Tengo que mover mi contenido clave por clave?">
 
 No. Ejecuta `npx intlayer extract` e Intlayer lee tus archivos fuente, extrae las cadenas visibles para el usuario y escribe un archivo `.content` junto a cada uno, para que revises un diff en lugar de copiar cadenas en un catálogo una por una. Consulta el [comando extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/extract.md).
 
 </Question>
-
 <Question title="¿Puedo mantener mis archivos de traducción JSON existentes?">
 
 Sí. El [plugin de sincronización JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-json.md) mantiene tus archivos `/messages/{locale}/{namespace}.json` como la fuente de verdad y genera diccionarios de Intlayer a partir de ellos, en ambas direcciones. Un [plugin de sincronización PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-po.md) hace lo mismo para catálogos gettext, y los [archivos por locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/per_locale_file.md) te permiten dividir el contenido por idioma en lugar de agrupar locales en un archivo.
 
 </Question>
-
 <Question title="¿Cómo traduzco la aplicación automáticamente con IA?">
 
 Ejecuta `npx intlayer fill`, que completa las traducciones faltantes con el LLM de tu elección utilizando tu propio proveedor y clave API. Añade `--git-diff` para traducir solo el contenido modificado en la rama. Consulta el [comando fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/fill.md) e [integración CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/CI_CD.md).
 
 </Question>
-
 <Question title="¿Intlayer soporta género, condiciones y valores interpolados?">
 
 Sí: [contenido basado en género](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/gender.md), condiciones, [enumeraciones](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/enumeration.md), [inserciones](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/insertion.md) para valores interpolados, y [formateadores](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/formatters.md) para números, fechas y monedas.
 
 </Question>
-
 <Question title="¿Qué herramientas de editor y agente de IA están disponibles?">
 
 Cinco componentes, todos opcionales:
@@ -749,7 +727,6 @@ Cinco componentes, todos opcionales:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/eslint.md)**: `no-raw-text` marca strings hardcodeadas.
 
 </Question>
-
 <Question title="¿Es Intlayer gratuito y de código abierto?">
 
 Sí, bajo la licencia Apache 2.0, incluido el uso comercial. El [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md) alojado es un servicio de pago opcional que también puede ser [auto-hospedado](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/self_hosting.md).

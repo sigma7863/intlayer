@@ -275,19 +275,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
 Có. Intlayer hỗ trợ `routing.mode: "search-params"` và phát hiện qua cookie/header mà không thay đổi cấu trúc thư mục.
 
 </Question>
-
 <Question title="Tôi có phải thay thế thủ công toàn bộ chuỗi văn bản không?">
 
 Không. Sử dụng `npx intlayer extract` hoặc trình biên dịch Intlayer để tự động trích xuất.
 
 </Question>
-
 <Question title="Intlayer giảm kích thước gói so với next-intl như thế nào?">
 
 Nhờ khai báo từ điển theo thành phần và tối ưu hóa macro lúc biên dịch.
 
 </Question>
-
 <Question title="Tôi có thể dùng AI để tự động dịch các thành phần hiện có không?">
 
 Có. Lệnh `npx intlayer fill` kết nối với các mô hình AI để dịch thuật chính xác theo ngữ cảnh.

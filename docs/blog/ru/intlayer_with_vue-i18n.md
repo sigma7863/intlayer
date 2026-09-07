@@ -56,7 +56,6 @@ author: aymericzip
 ## Пошаговое руководство по настройке Intlayer с vue-i18n
 
 <Steps>
-
 <Step number={1} title="Установка зависимостей">
 
 Установите необходимые пакеты с помощью предпочитаемого менеджера пакетов:
@@ -103,7 +102,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Плагин для синхронизации деклараций контента Intlayer с форматом JSON vue-i18n
 
 </Step>
-
 <Step number={2} title="Реализация плагина Intlayer для обёртки JSON">
 
 Создайте файл конфигурации Intlayer для определения поддерживаемых локалей:

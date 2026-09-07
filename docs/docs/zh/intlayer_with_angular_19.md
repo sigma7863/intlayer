@@ -45,37 +45,31 @@ author: aymericzip
 Intlayer 经过优化，可与 Angular 完美配合，提供**组件级内容范围**、**延迟加载翻译**以及​​扩展国际化 (i18n) 所需的所有功能。
 
 </Accordion>
-
 <Accordion header="捆绑尺寸">
 
 不要将大量 JSON 文件加载到页面中，而只需加载必要的内容。 Intlayer 有助于**将捆绑包和页面大小减少多达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 确定应用程序内容的范围**有利于大型应用程序的维护**。您可以复制或删除单个功能文件夹，而无需承担检查整个内容代码库的精神负担。此外，Intlayer 具有**完全类型化 (fully typed)**，以确保您的内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 共置内容**减少大型语言模型 (LLM) 所需的上下文**。 Intlayer 还附带了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 代理的开发者体验 (DX) 更加流畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用您选择的法学硕士，通过自动化在 CI/CD 管道中进行翻译，而费用由您的 AI 提供商承担。 Intlayer 还提供了一个**编译器**来自动提取内容，以及一个[网络平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)来帮助**在后台翻译**。
 
 </Accordion>
-
 <Accordion header="表现">
 
 将大量 JSON 文件连接到组件可能会导致性能和反应性问题。 Intlayer 可在构建时 (build time)优化您的内容加载。
 
 </Accordion>
-
 <Accordion header="使用 none-dev 进行扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)**和一个**[完整的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** 来帮助您管理多语言内容**实时**，与译员、文案人员和其他团队成员无缝协作。内容可以本地和/或远程存储。
@@ -113,7 +107,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 查看 GitHub 上的[应用模板](https://github.com/aymericzip/intlayer-angular-19-template)。
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 使用 npm 安装必要的包：
@@ -169,7 +162,6 @@ bun add @angular-builders/custom-webpack --dev
   自定义 Angular CLI 的 Webpack 配置所需。
 
 </Step>
-
 <Step number={2} title="配置你的项目">
 
 创建一个配置文件来配置应用的语言：
@@ -195,7 +187,6 @@ export default config;
 > 通过此配置文件，你可以设置本地化 URL、中间件重定向、cookie 名称、内容声明的位置和扩展名、禁用 Intlayer 在控制台中的日志等等。有关可用参数的完整列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="在你的 Angular 配置中集成 Intlayer">
 
 要将 Intlayer 与 Angular CLI 集成，你需要使用自定义构建器。本指南假设你使用 Webpack（许多 Angular 项目的默认设置）。
@@ -240,7 +231,6 @@ export default mergeConfig({});
 > `mergeConfig` 函数使用 Intlayer 配置 Webpack。它注入 `IntlayerPlugin`（处理内容声明文件）并设置别名以获得最佳性能。
 
 </Step>
-
 <Step number={4} title="声明你的内容">
 
 创建并管理你的内容声明以存储翻译：
@@ -297,7 +287,6 @@ export default appContent;
 > 有关更多详情，请参阅[内容声明文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={5} title="在你的代码中使用 Intlayer">
 
 要在整个 Angular 应用中使用 Intlayer 的国际化功能，你需要在应用配置中提供 Intlayer。
@@ -347,7 +336,6 @@ export class AppComponent {
 Intlayer 内容作为 `Signal` 返回，所以你通过调用 signal 来访问值：`content().title`。
 
 </Step>
-
 <Step number={6} title="更改内容的语言" isOptional={true}>
 
 要更改内容的语言，你可以使用 `useLocale` 函数提供的 `setLocale` 函数。这允许你设置应用的语言环境并相应地更新内容。
@@ -472,25 +460,21 @@ Intlayer 使用模块扩充来发挥 TypeScript 的优势并使你的代码库�
 本指南涵盖 Angular 19。对于 Angular 21 及更高版本，请参阅 [Angular 指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_angular_21.md)。另请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md)。
 
 </Question>
-
 <Question title="i18n 会给我的 Angular bundle 体积增加多少？">
 
 远少于基于命名空间的方案，因为页面永远不会下载它不渲染的语言目录。构建时编译器将 `useIntlayer` 调用替换为组件使用的确切字典条目，因此未使用的键和未使用的语言都会被自动丢弃，并且 [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 会按语言环境拆分剩余内容。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/index.md)。
 
 </Question>
-
 <Question title="我可以从 ngx-translate、Transloco 或 @angular/localize 迁移而无需重写模板吗？">
 
 基本可以。请按照 [ngx-translate 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/ngx-translate.md) 或 [Transloco 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/transloco.md) 迁移内容。您也可以逐步迁移：[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将现有的 JSON 目录作为单一真实来源（source of truth），并生成 Intlayer 字典，使两个层在逐个组件迁移时保持同步。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的源码文件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。请参阅 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md)。
@@ -498,7 +482,6 @@ Intlayer 使用模块扩充来发挥 TypeScript 的优势并使你的代码库�
 如需全自动流程，[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compiler.md) 可以在构建时对 JSX、TSX、Vue 和 Svelte 源码执行相同操作，在每次更改时自动生成字典，完全无需手动维护键名。它通过静态分析工作，因此仅在运行时存在的字符串无法被捕获，并且需要少量注解以区分用户文本和应用程序逻辑。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -510,55 +493,46 @@ Intlayer 使用模块扩充来发挥 TypeScript 的优势并使你的代码库�
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="我是否需要为每种语言分别构建一个产物？">
 
 不需要。那是 `@angular/localize` 的模式，即每个语言环境都被编译为独立 bundle 并单独部署。而在 Intlayer 中，单次构建即可支持所有声明的语言环境，活动语言在运行时直接从 URL、Cookie 或 `Accept-Language` 请求头中解析。
 
 </Question>
-
 <Question title="Intlayer 是否支持 Angular signals 和独立组件 (standalone components)？">
 
 支持。内容通过 signals 公开，因此当语言环境更改时模板会自动重新渲染而无需刷新页面，并且 Provider 可以像其他独立 Provider 一样直接注册。
 
 </Question>
-
 <Question title="如何在运行时切换语言？">
 
 第 6 步对此进行了介绍。`useLocale` 公开活动语言环境、声明的语言环境以及持久化选择的设置函数，而 `getLocalizedUrl` 会重写当前路径，使用户在切换后保留在相同路由上。
 
 </Question>
-
 <Question title="它是否适用于 Angular Universal 服务端渲染 (SSR)？">
 
 是的。语言环境在服务端直接从 URL 或请求头中解析，并传递给 Provider，因此服务端渲染的 HTML 已经处于正确的语言，客户端进行水合 (hydration) 时无需重新切换。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译应用？">
 
 运行 `npx intlayer fill`。它会使用您选择的 LLM、您自己的提供商和 API密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、用于长文本的 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="如何在发布前捕获缺失的翻译？">
 
 在 CI 中运行 `npx intlayer test`。当声明的语言环境存在缺失内容时构建将失败。[VS Code 扩展](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/vs_code_extension.md) 会在您输入时实时报告相同错误。请参阅 [测试您的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/testing.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

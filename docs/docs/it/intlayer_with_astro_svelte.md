@@ -69,37 +69,31 @@ Rispetto alle soluzioni principali come `astro-i18n` o `i18next`, Intlayer è un
 Intlayer è ottimizzato per funzionare perfettamente con Astro offrendo **routing multilingue**, **mappa del sito** e tutte le funzionalità necessarie per scalare l'internazionalizzazione (i18n).
 
 </Accordion>
-
 <Accordion header="Dimensione del bundle">
 
 Invece di caricare enormi file JSON nelle tue pagine, carica solo il contenuto necessario. Intlayer aiuta a **ridurre le dimensioni del bundle e della pagina fino al 50%**.
 
 </Accordion>
-
 <Accordion header="Manutenibilità">
 
 L'ambito del contenuto dell'applicazione **facilita la manutenzione** per applicazioni su larga scala. Puoi duplicare o eliminare una singola cartella di funzionalità senza l'onere mentale di rivedere l'intera codebase dei contenuti. Inoltre, Intlayer è **completamente tipizzato (fully typed)** per garantire l'accuratezza dei tuoi contenuti.
 
 </Accordion>
-
 <Accordion header="Agente IA">
 
 La co-localizzazione dei contenuti **riduce il contesto necessario** dai Large Language Models (LLM). Intlayer viene fornito anche con una suite di strumenti, come una **CLI** per verificare le traduzioni mancanti,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** e **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/agent_skills.md)**, per rendere l'esperienza dello sviluppatore (DX) ancora più fluida per gli agenti IA.
 
 </Accordion>
-
 <Accordion header="Automazione">
 
 Utilizza l'automazione per tradurre nella tua pipeline CI/CD utilizzando il LLM di tua scelta al costo del tuo provider di intelligenza artificiale. Intlayer offre anche un **compilatore** per automatizzare l'estrazione dei contenuti, nonché una [piattaforma web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) per aiutare a **tradurre in background**.
 
 </Accordion>
-
 <Accordion header="Prestazione">
 
 La connessione di enormi file JSON ai componenti può portare a problemi di prestazioni e reattività. Intlayer ottimizza il caricamento dei contenuti in fase di compilazione.
 
 </Accordion>
-
 <Accordion header="Scalabilità con nessuno sviluppatore">
 
 Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** self-hosted e un **[CMS completo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** per aiutarti gestisci i tuoi contenuti multilingue in **tempo reale**, semplificando la collaborazione con traduttori, copywriter e altri membri del team. I contenuti possono essere archiviati localmente e/o in remoto.
@@ -112,7 +106,6 @@ Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](http
 Controlla il [template dell'applicazione](https://github.com/aymericzip/intlayer-astro-template) su GitHub.
 
 <Steps>
-
 <Step number={1} title="Installare le dipendenze">
 
 Installa i pacchetti necessari utilizzando il tuo gestore di pacchetti preferito:
@@ -169,7 +162,6 @@ bun add intlayer astro-intlayer svelte svelte-intlayer @astrojs/svelte
   Integrazione ufficiale di Astro che consente l'uso di islands di componenti Svelte.
 
 </Step>
-
 <Step number={2} title="Configura il tuo progetto">
 
 Crea un file di configurazione per definire le lingue della tua applicazione:
@@ -196,7 +188,6 @@ export default config;
 > Attraverso questo file di configurazione, puoi configurare URL localizzati, reindirizzamenti del middleware, nomi dei cookie, posizione ed estensioni delle dichiarazioni di contenuto, disabilitare i log di Intlayer nella console e altro ancora. Per un elenco completo dei parametri disponibili, consulta la [documentazione di configurazione](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integra Intlayer nella tua configurazione Astro">
 
 Aggiungi il plugin `intlayer` e l'integrazione Svelte alla tua configurazione Astro.
@@ -219,7 +210,6 @@ export default defineConfig({
 > L'integrazione `svelte()` consente di utilizzare islands di componenti Svelte tramite `client:only="svelte"`.
 
 </Step>
-
 <Step number={4} title="Dichiara i tuoi contenuti">
 
 Crea e gestisci le tue dichiarazioni di contenuto per memorizzare le traduzioni:
@@ -247,7 +237,6 @@ export default appContent;
 > Per ulteriori informazioni, consulta la [documentazione sulla dichiarazione del contenuto](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Utilizzare il contenuto in Astro">
 
 Puoi consumare i dizionari direttamente nei tuoi file `.astro` utilizzando gli helper core esportati da `intlayer`. Dovresti anche aggiungere metadati SEO (come hreflang e link canonici) a ogni pagina e introdurre una Svelte island per i contenuti interattivi lato client.
@@ -337,7 +326,6 @@ const { title } = getIntlayer("app", locale);
 > - **`search-param` o `no-prefix`:** non sono necessarie directory per la lingua. La lingua viene gestita tramite parametri di query o cookie.
 
 </Step>
-
 <Step number={6} title="Crea un componente Svelte Island">
 
 Crea un componente island che racchiuda la tua applicazione Svelte. Devi chiamare `setupIntlayer` con la lingua rilevata dal server prima di accedere agli store.
@@ -384,7 +372,6 @@ Crea un componente island che racchiuda la tua applicazione Svelte. Devi chiamar
 > La prop `locale` viene passata dalla pagina Astro (rilevamento lato server) e utilizzata per inizializzare `setupIntlayer`, impostando la lingua iniziale per tutti gli store nel componente.
 
 </Step>
-
 <Step number={7} title="Aggiungi un selettore di lingua">
 
 La funzionalità di cambio lingua è integrata direttamente all'interno della Svelte island (vedi passaggio 6 sopra). Utilizza lo store `useLocale` di `svelte-intlayer` e naviga verso l'URL localizzato quando un utente seleziona una nuova lingua:
@@ -430,7 +417,6 @@ La funzionalità di cambio lingua è integrata direttamente all'interno della Sv
 > L'uso di `onLocaleChange` per reindirizzare tramite `window.location.href` assicura che il nuovo URL linguistico venga visitato, consentendo al middleware Intlayer di impostare il cookie della lingua e di ricordare la preferenza dell'utente nelle visite future.
 
 </Step>
-
 <Step number={8} title="Sitemap e Robots.txt">
 
 Intlayer offre utilità per creare dinamicamente la tua sitemap localizzata e i file robots.txt.
@@ -492,7 +478,6 @@ export const GET: APIRoute = ({ site }) => {
 ```
 
 </Step>
-
 <Step number={15} title="Estrarre il contenuto dei tuoi componenti" isOptional={true}>
 
 Se hai una base di codice esistente, trasformare migliaia di file può richiedere molto tempo.
@@ -659,25 +644,21 @@ L'opzione `i18n` integrata di Astro gestisce i prefissi di locale e i reindirizz
 Dichiarare un'etichetta una volta e usarla sia in una pagina statica sia in un'island interattiva è il motivo per scegliere un unico livello di contenuto qui. Vedi [perché Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Quanto aggiunge l'i18n alla dimensione del mio bundle Astro?">
 
 Molto meno di una configurazione basata su namespace, perché una pagina non scarica mai un catalogo che non renderizza. Le pagine Astro sono renderizzate in fase di build, quindi inviano HTML tradotto e nessun dizionario; solo le island ne ricevono uno. Il compilatore in fase di build risolve le chiamate di contenuto alle esatte voci che un componente utilizza, e i [dizionari dinamici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dynamic_dictionaries/index.md) suddividono il resto per locale. Misurato rispetto alle alternative abituali, Intlayer riduce la dimensione del bundle e delle pagine fino al 50%. Vedi [ottimizzazione del bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/bundle_optimization.md) e il [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/benchmark/index.md).
 
 </Question>
-
 <Question title="Posso migrare da `svelte-i18n` senza riscrivere i miei componenti?">
 
 In gran parte. Segui la [guida alla migrazione da Svelte I18n](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/compat/svelte-i18n.md) per spostare il contenuto. Puoi anche migrare gradualmente: il [plugin di sincronizzazione JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/plugins/sync-json.md) mantiene i tuoi cataloghi JSON esistenti come fonte di verità e genera dizionari Intlayer da essi, così entrambi i livelli restano sincronizzati mentre sposti i componenti uno alla volta.
 
 </Question>
-
 <Question title="Posso mantenere i miei file di traduzione JSON esistenti?">
 
 Sì. Il [plugin di sincronizzazione JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/plugins/sync-json.md) mantiene i tuoi file `/messages/{locale}/{namespace}.json` come fonte di verità e genera dizionari Intlayer da essi, in entrambe le direzioni. Un [plugin di sincronizzazione PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/plugins/sync-po.md) fa lo stesso per i cataloghi gettext, e i [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/per_locale_file.md) ti permettono di dividere il contenuto per lingua invece di raggruppare i locale in un unico file.
 
 </Question>
-
 <Question title="Devo spostare il mio contenuto chiave per chiave?">
 
 No. Esegui `npx intlayer extract` e Intlayer legge i tuoi componenti, estrae le stringhe visibili all'utente e scrive un file `.content` accanto a ciascuno, così puoi rivedere un diff invece di copiare le stringhe in un catalogo una alla volta. Il passo 15 di questa guida lo illustra.
@@ -687,7 +668,6 @@ Per una pipeline completamente automatizzata, il [Compilatore Intlayer](https://
 Due limiti vale la pena conoscere prima di attivare il compilatore. Funziona per analisi statica, quindi le stringhe che esistono solo a runtime, come i codici di errore delle API o i campi del CMS, restano fuori portata. E deve distinguere il testo visibile all'utente dalla logica applicativa come `className="active"` o un codice di stato, il che richiede alcune annotazioni in una codebase estesa. Il [comando extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/cli/extract.md) evita entrambi mantenendoti nel ciclo.
 
 </Question>
-
 <Question title="Quali strumenti di editor e agenti AI sono disponibili?">
 
 Cinque componenti, tutti opzionali:
@@ -699,55 +679,46 @@ Cinque componenti, tutti opzionali:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/eslint.md)**: `no-raw-text` segnala le stringhe hardcoded, con ulteriori regole per le chiavi statiche dei dizionari e i contenuti non utilizzati.
 
 </Question>
-
 <Question title="Ho bisogno di una libreria i18n separata all'interno della mia island Svelte?">
 
 No. `svelte-intlayer` legge gli stessi dizionari del lato Astro, quindi non installi `svelte-i18n` accanto ad esso. Il passo 6 mostra il componente island che riceve la locale attiva dalla pagina invece di risolverla di nuovo.
 
 </Question>
-
 <Question title="Come fa l'island a sapere quale locale sta renderizzando la pagina?">
 
 La pagina Astro la passa in basso come prop e il provider Intlayer nell'island la raccoglie, così l'island si idrata nella stessa lingua che il server ha renderizzato. È questo che previene il lampo di lingua predefinita che ottieni quando un'island rileva la locale da sola nel browser.
 
 </Question>
-
 <Question title="Il contenuto tradotto viene inviato come HTML statico?">
 
 Sì per le parti Astro, che sono renderizzate in fase di build, quindi le pagine localizzate sono semplice HTML statico che i crawler leggono senza eseguire JavaScript. Solo le island ricevono un dizionario, e solo per la locale che renderizzano.
 
 </Question>
-
 <Question title="Come configuro il routing localizzato e un selettore di locale?">
 
 Il passo 7 copre il selettore. `routing.mode` decide lo schema dell'URL: `"prefix-no-default"` (il predefinito, `/about` e `/fr/about`), `"prefix-all"`, `"no-prefix"` o `"search-params"`, e `routing.domains` associa una locale al proprio dominio. `getLocalizedUrl` riscrive il percorso corrente così cambiare lingua mantiene il lettore sulla stessa pagina. Vedi il [riferimento di configurazione](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/configuration.md).
 
 </Question>
-
 <Question title="Come genero una sitemap localizzata e i tag hreflang?">
 
 Il passo 8 copre `sitemap.xml` e `robots.txt`. `getMultilingualUrls` costruisce gli alternate per ogni locale dichiarata, incluso `x-default`, che è ciò che i motori di ricerca usano per servire la versione linguistica giusta.
 
 </Question>
-
 <Question title="Come traduco il sito automaticamente con l'AI?">
 
 Esegui `npx intlayer fill`. Riempie le traduzioni mancanti con l'LLM di tua scelta, usando il tuo provider e la tua API key, e `--git-diff` limita l'esecuzione ai contenuti modificati nel branch. Vedi il [comando fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/cli/fill.md) e l'[integrazione CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer supporta plurali, genere e rich text?">
 
 Sì: [forme plurali](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dictionary/plurial.md), [contenuto basato sul genere](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dictionary/gender.md), condizioni, [inserimenti](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dictionary/markdown.md) per il testo lungo e [formattatori](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/formatters.md) per numeri, date e valute.
 
 </Question>
-
 <Question title="Come possono i traduttori modificare il contenuto senza toccare il codice?">
 
 Attraverso l'[editor visivo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/intlayer_visual_editor.md), che gira sulla tua infrastruttura e permette a chiunque di modificare il testo sul posto nell'app in esecuzione, o il [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/intlayer_CMS.md), che esternalizza il contenuto così può cambiare senza un deployment.
 
 </Question>
-
 <Question title="Intlayer è gratuito e open source?">
 
 Sì, sotto licenza Apache 2.0, uso commerciale incluso. Il CMS ospitato è un servizio a pagamento opzionale che può anche essere [auto-ospitato](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/self_hosting.md).

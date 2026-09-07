@@ -46,37 +46,31 @@ Im Vergleich zu Hauptlösungen wie „@nuxtjs/i18n“ oder „i18next“ ist Int
 Intlayer ist für die perfekte Zusammenarbeit mit Nuxt optimiert, indem es **mehrsprachiges Routing**, **Middleware zur Lokalisierungserkennung**, **Sitemap** und alle Funktionen bietet, die für die Skalierung der Internationalisierung (i18n) erforderlich sind.
 
 </Accordion>
-
 <Accordion header="Bundle-Größe">
 
 Anstatt riesige JSON-Dateien in Ihre Seiten zu laden, laden Sie nur den erforderlichen Inhalt. Intlayer hilft **Ihre Bundle- und Seitengröße um bis zu 50 % zu reduzieren**.
 
 </Accordion>
-
 <Accordion header="Wartbarkeit">
 
 Durch die Festlegung des Inhaltsbereichs Ihrer Anwendung wird die Wartung für umfangreiche Anwendungen erleichtert. Sie können einen einzelnen Feature-Ordner duplizieren oder löschen, ohne die mentale Belastung durch die Überprüfung Ihrer gesamten Inhaltscodebasis auf sich nehmen zu müssen. Darüber hinaus ist Intlayer **vollständig typisiert (fully typed)**, um die Genauigkeit Ihrer Inhalte sicherzustellen.
 
 </Accordion>
-
 <Accordion header="KI-Agent">
 
 Durch die gemeinsame Platzierung von Inhalten **reduziert sich der von Large Language Models (LLMs) benötigte Kontext**. Intlayer verfügt außerdem über eine Reihe von Tools, wie zum Beispiel eine **CLI** zum Testen auf fehlende Übersetzungen,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** und **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/agent_skills.md)**, um die Entwicklererfahrung (DX) für KI-Agenten noch reibungsloser zu gestalten.
 
 </Accordion>
-
 <Accordion header="Automatisierung">
 
 Nutzen Sie die Automatisierung, um Ihre CI/CD-Pipeline mit dem LLM Ihrer Wahl auf Kosten Ihres KI-Anbieters zu übersetzen. Intlayer bietet außerdem einen **Compiler** zur Automatisierung der Inhaltsextraktion sowie eine [Webplattform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) zur Unterstützung der **Übersetzung im Hintergrund**.
 
 </Accordion>
-
 <Accordion header="Leistung">
 
 Das Verbinden großer JSON-Dateien mit Komponenten kann zu Leistungs- und Reaktivitätsproblemen führen. Intlayer optimiert das Laden Ihrer Inhalte zur Erstellungszeit.
 
 </Accordion>
-
 <Accordion header="Skalierung mit Nicht-Entwickler">
 
 Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten [visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** und ein **[vollständiges CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, um Ihnen zu helfen Verwalten Sie Ihre mehrsprachigen Inhalte in **Echtzeit** und gestalten Sie die Zusammenarbeit mit Übersetzern, Textern und anderen Teammitgliedern reibungslos. Inhalte können lokal und/oder remote gespeichert werden.
@@ -119,7 +113,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 Siehe [Application Template](https://github.com/aymericzip/intlayer-nuxt-4-template) auf GitHub.
 
 <Steps>
-
 <Step number={1} title="Abhängigkeiten installieren">
 
 Installieren Sie die notwendigen Pakete mit npm:
@@ -175,7 +168,6 @@ bun add --dev nuxt-intlayer
   Das Nuxt-Modul, das Intlayer mit Nuxt-Anwendungen integriert. Es bietet automatische Einrichtung, Middleware zur Lokalerkennung, Cookie-Verwaltung und URL-Weiterleitung.
 
 </Step>
-
 <Step number={2} title="Konfiguration Ihres Projekts">
 
 Erstellen Sie eine Konfigurationsdatei, um die Sprachen Ihrer Anwendung zu konfigurieren:
@@ -201,7 +193,6 @@ export default config;
 > Durch diese Konfigurationsdatei können Sie lokalisierte URLs, Middleware-Weiterleitungen, Cookie-Namen, den Speicherort und die Erweiterung Ihrer Inhaltsdeklarationen einrichten, Intlayer-Logs in der Konsole deaktivieren und vieles mehr. Für eine vollständige Liste der verfügbaren Parameter konsultieren Sie bitte die [Konfigurationsdokumentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrieren Sie Intlayer in Ihre Nuxt-Konfiguration">
 
 Fügen Sie das Intlayer-Modul zu Ihrer Nuxt-Konfiguration hinzu:
@@ -218,7 +209,6 @@ export default defineNuxtConfig({
 > Das `nuxt-intlayer`-Modul übernimmt automatisch die Integration von Intlayer mit Nuxt. Es richtet den Aufbau der Inhaltsdeklarationen ein, überwacht Dateien im Entwicklungsmodus, stellt Middleware zur Lokalerkennung bereit und verwaltet die lokalisierte Routing.
 
 </Step>
-
 <Step number={4} title="Deklarieren Sie Ihre Inhalte">
 
 Erstellen und verwalten Sie Ihre Inhaltsdeklarationen, um Übersetzungen zu speichern:
@@ -255,7 +245,6 @@ export default content;
 > Für weitere Details siehe die [Dokumentation zur Inhaltsdeklaration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Intlayer in Ihrem Code verwenden">
 
 Greifen Sie in Ihrer gesamten Nuxt-Anwendung mit dem Composable `useIntlayer` auf Ihre Inhaltswörterbücher zu:
@@ -326,7 +315,6 @@ Intlayer bietet verschiedene APIs, um auf Ihre Inhalte zuzugreifen:
   - Oder verwenden Sie `const { myContent } = useIntlayer("myContent");` und `{{ myContent}}` / `<myContent/>`, um den Inhalt zu destrukturieren.
 
 </Step>
-
 <Step number={6} title="Ändern Sie die Sprache Ihres Inhalts" isOptional={true}>
 
 Um die Sprache Ihres Inhalts zu ändern, können Sie die Funktion `setLocale` verwenden, die vom `useLocale` Composable bereitgestellt wird. Diese Funktion ermöglicht es Ihnen, die Locale der Anwendung festzulegen und den Inhalt entsprechend zu aktualisieren.
@@ -372,7 +360,6 @@ Richten Sie anschließend Ihre `app.vue` so ein, dass Layouts verwendet werden:
 ```
 
 </Step>
-
 <Step number={7} title="Lokalisierte Routen zu Ihrer Anwendung hinzufügen" isOptional={true}>
 
 Nuxt verwaltet lokalisierte Routen automatisch, wenn das `nuxt-intlayer` Modul verwendet wird. Dies erstellt Routen für jede Sprache automatisch basierend auf der Struktur Ihres Seitenverzeichnisses.
@@ -448,7 +435,6 @@ Das `nuxt-intlayer`-Modul wird automatisch:
 - Benutzer zur entsprechenden lokalisierten URL weiterleiten
 
 </Step>
-
 <Step number={8} title="Erstellen einer lokalisierten Link-Komponente" isOptional={true}>
 
 Um sicherzustellen, dass die Navigation Ihrer Anwendung die aktuelle Locale berücksichtigt, können Sie eine benutzerdefinierte `Links`-Komponente erstellen. Diese Komponente fügt automatisch interne URLs mit der aktuellen Sprache als Präfix hinzu, was für **SEO und die Auffindbarkeit von Seiten** unerlässlich ist.
@@ -518,7 +504,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 > - Der Browserverlauf korrekt mit sprachpräfixierten URLs funktioniert
 
 </Step>
-
 <Step number={9} title="Metadaten und SEO verwalten" isOptional={true}>
 
 Nuxt bietet hervorragende SEO-Fähigkeiten über den `useHead` Composable (automatisch importiert). Sie können Intlayer verwenden, um lokalisierte Metadaten zu verwalten, indem Sie den `.raw` oder `.value` Zugriff verwenden, um den primitiven String-Wert zu erhalten:
@@ -619,7 +604,6 @@ export default aboutPageContent;
 ```
 
 </Step>
-
 <Step number="6b" title="Erstellen Sie ein Layout mit Navigation" isOptional={true}>
 
 Nuxt-Layouts ermöglichen es Ihnen, eine gemeinsame Struktur für Ihre Seiten zu definieren. Erstellen Sie ein Standard-Layout, das den Sprachumschalter und die Navigation enthält:
@@ -695,25 +679,21 @@ Zwei realistische Optionen:
 Der Unterschied liegt darin, wo die Inhalte liegen. `@nuxtjs/i18n` zentralisiert sie in `locales/*.json`-Dateien, während Intlayer sie mit der Komponente zusammenlegt, die sie rendert, sodass eine Seite nur die Einträge ausliefert, die sie verwendet, und ein Feature-Ordner in einem Stück verschoben oder gelöscht werden kann. Siehe [warum Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/interest_of_intlayer.md) und den [Vue-i18n-Benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/benchmark/vue.md).
 
 </Question>
-
 <Question title="Wie viel trägt i18n zu meiner Nuxt-Bundle-Größe bei?">
 
 Viel weniger als bei einem Namespace-basierten Setup, denn eine Seite lädt niemals einen Katalog herunter, den sie nicht rendert. Serverseitig gerendertes Markup löst seinen Inhalt auf dem Server auf, und der Build-Zeit-Compiler ersetzt `useIntlayer`-Aufrufe durch genau die Wörterbucheinträge, die eine Komponente verwendet, sodass ungenutzte Schlüssel und ungenutzte Sprachen entfernt werden, und [dynamische Wörterbücher](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dynamic_dictionaries/index.md) teilen den Rest pro Locale auf. Gemessen an den üblichen Alternativen reduziert Intlayer die Bundle- und Seitengröße um bis zu 50 %. Siehe [Bundle-Optimierung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/bundle_optimization.md) und den [Benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/benchmark/vue.md).
 
 </Question>
-
 <Question title="Kann ich von `@nuxtjs/i18n` oder `vue-i18n` migrieren, ohne meine Komponenten neu zu schreiben?">
 
 Ja, und es gibt zwei Wege. Sie können die Inhalte schrittweise migrieren mit dem [@nuxtjs/i18n-Migrationsleitfaden](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/migration_from_nuxtjs_i18n_to_intlayer.md). Oder Sie behalten Ihre aktuelle API vollständig bei: Die [Kompatibilitätsadapter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/compat/index.md) stellen genau dieselbe API wie `vue-i18n` bereit, aber aus Intlayer-Wörterbüchern bedient, sodass sich Importe ändern und der Komponentencode nicht.
 
 </Question>
-
 <Question title="Kann ich meine vorhandenen JSON-Übersetzungsdateien behalten?">
 
 Ja. Das [sync-JSON-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-json.md) behält Ihre `/messages/{locale}/{namespace}.json`-Dateien als Single Source of Truth und generiert daraus Intlayer-Wörterbücher, in beide Richtungen. Ein [sync-PO-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-po.md) macht dasselbe für gettext-Kataloge, und [Dateien pro Locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/per_locale_file.md) lassen Sie Inhalte nach Sprache aufteilen, statt Locales in einer Datei zu gruppieren.
 
 </Question>
-
 <Question title="Muss ich meine Inhalte Schlüssel für Schlüssel umziehen?">
 
 Nein. Führen Sie `npx intlayer extract` aus; Intlayer liest Ihre Quelldateien, zieht die für den Nutzer sichtbaren Strings heraus und schreibt neben jede eine `.content`-Datei, sodass Sie ein Diff prüfen, statt Strings einzeln in einen Katalog zu kopieren. Siehe den [extract-Befehl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/extract.md).
@@ -721,7 +701,6 @@ Nein. Führen Sie `npx intlayer extract` aus; Intlayer liest Ihre Quelldateien, 
 Für eine vollständig automatisierte Pipeline macht der [Intlayer-Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/compiler.md) dasselbe zur Build-Zeit auf JSX-, TSX-, Vue- und Svelte-Quellcode und generiert die Wörterbücher bei jeder Änderung, sodass es keine von Hand zu pflegenden Schlüssel gibt. Er arbeitet mit statischer Analyse, sodass Strings, die nur zur Laufzeit existieren, unerreichbar bleiben, und er braucht einige Annotationen, um für den Nutzer sichtbaren Text von Anwendungslogik zu unterscheiden.
 
 </Question>
-
 <Question title="Welches Editor- und KI-Agenten-Tooling ist verfügbar?">
 
 Fünf Bausteine, alle optional:
@@ -733,49 +712,41 @@ Fünf Bausteine, alle optional:
 - **[ESLint-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/eslint.md)**: `no-raw-text` markiert fest kodierte Strings, mit weiteren Regeln für statische Wörterbuchschlüssel und ungenutzte Inhalte.
 
 </Question>
-
 <Question title="Funktioniert Intlayer mit serverseitigem Rendering und statischer Generierung von Nuxt?">
 
 Ja. Inhalte werden während SSR und während `nuxt generate` aufgelöst, sodass vorgerenderte Seiten das übersetzte Markup enthalten, statt auf dem Client einen Katalog abzurufen. Das `nuxt-intlayer`-Modul verdrahtet den Provider und die Locale-Erkennung für Sie.
 
 </Question>
-
 <Question title="Muss ich die Locale in die URL aufnehmen?">
 
 Nein. `routing.mode` akzeptiert `"prefix-no-default"` (die Voreinstellung, `/about` und `/fr/about`), `"prefix-all"`, `"no-prefix"` und `"search-params"`, und `routing.domains` ordnet jede Locale ihrer eigenen Domain zu. Siehe die [Konfigurationsreferenz](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/configuration.md).
 
 </Question>
-
 <Question title="Wie handhabe ich SEO-Metadaten und hreflang-Tags in Nuxt?">
 
 Schritt 9 dieses Leitfadens behandelt das. Lokalisierte `useHead`-Metadaten kommen aus Ihren Wörterbüchern, und `getMultilingualUrls` erstellt die `hreflang`-Alternativen für jede deklarierte Locale, einschließlich `x-default`, was auch eine lokalisierte Sitemap speist.
 
 </Question>
-
 <Question title="Wie baue ich einen Sprachumschalter, der auf der aktuellen Seite bleibt?">
 
 Verwenden Sie `useLocale` für die aktive und die verfügbaren Locales und die lokalisierte Link-Komponente aus Schritt 8, damit die Navigation in der aktuellen Sprache bleibt. `getLocalizedUrl` schreibt den aktuellen Pfad in die Ziel-Locale um, sodass der Sprachwechsel den Leser auf derselben Route hält.
 
 </Question>
-
 <Question title="Wie übersetze ich eine Nuxt-App automatisch mit KI?">
 
 Führen Sie `npx intlayer fill` aus. Fehlende Übersetzungen werden mit dem LLM Ihrer Wahl unter Verwendung Ihres eigenen Anbieters und API-Schlüssels gefüllt, und `--git-diff` beschränkt den Lauf auf die im Branch geänderten Inhalte. Siehe den [fill-Befehl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/fill.md) und die [CI/CD-Integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/CI_CD.md).
 
 </Question>
-
 <Question title="Unterstützt Intlayer Pluralformen, Genus und Rich Text in Vue-Templates?">
 
 Ja: [Pluralformen](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/plurial.md), [genusbasierte Inhalte](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/gender.md), Bedingungen, [Einfügungen](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/markdown.md) und [Formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/formatters.md) für Zahlen, Daten und Währungen.
 
 </Question>
-
 <Question title="Wie können Übersetzer die Inhalte bearbeiten, ohne den Code anzufassen?">
 
 Über den [visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_visual_editor.md), der auf Ihrer eigenen Infrastruktur läuft und es jedem ermöglicht, Text direkt in der laufenden App zu bearbeiten, oder das [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_CMS.md), das Inhalte auslagert, sodass sie sich ohne Deployment ändern können.
 
 </Question>
-
 <Question title="Ist Intlayer kostenlos und Open Source?">
 
 Ja, unter der Apache-2.0-Lizenz, kommerzielle Nutzung eingeschlossen. Das gehostete CMS ist ein optionaler kostenpflichtiger Dienst, der auch [selbst gehostet](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/self_hosting.md) werden kann.

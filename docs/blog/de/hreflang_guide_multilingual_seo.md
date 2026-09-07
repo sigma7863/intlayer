@@ -144,7 +144,6 @@ Die eine Struktur, die Sie vermeiden sollten: Verschiedene Sprachen auf der **gl
 Das manuelle Schreiben dieser Tags überlebt den Kontakt mit einer zweiten Sprache nicht. Leiten Sie sie stattdessen von Ihrer Locale-Liste ab.
 
 <Steps>
-
 <Step number={1} title="Emit the cluster auf jeder Seite">
 
 Gleicher Satz überall, canonical pro Locale, absolute URLs, `x-default` inbegriffen.
@@ -233,7 +232,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="Oder verschiebe es alles in die Sitemap">
 
 In großem Maßstab solltest du die Annotationen ganz aus deinen Seiten heraushalten. `generateSitemap` gibt `xhtml:link`-Alternates pro Eintrag aus und liest Locales und Routing-Modus aus deiner Konfiguration:
@@ -256,7 +254,6 @@ Zwei wissenswerte Optionen:
 - `entryPerLocale` (Standard `false`) — standardmäßig trägt ein `<url>`-Eintrag alle Alternates. Beide Formen sind gültig, aber nur eine als `<loc>` aufgelistete URL zählt als _eingereicht_ in der Search Console; Alternate-only-Sprachen bleiben auffindbar, werden aber keinem Sitemap zugeordnet. Durch Aktivierung erhält jede lokalisierte URL einen eigenen Eintrag mit dem vollständigen Alternate-Set wiederholt. Dies vervielfacht die Einträge um die Sprachenanzahl, daher sollte das Limit von 50.000 URLs / 50 MB beachtet werden und bei Überschreitung in einen Sitemap-Index aufgeteilt werden.
 
 </Step>
-
 <Step number={3} title="Überprüfen Sie, was der Crawler erhält">
 
 `hreflang` schlägt lautlos fehl, daher sollten Sie es überprüfen, statt es anzunehmen.

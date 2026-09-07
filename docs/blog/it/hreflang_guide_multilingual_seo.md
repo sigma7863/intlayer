@@ -144,7 +144,6 @@ L'unica struttura da evitare: servire lingue diverse nello **stesso URL** basand
 Scrivere manualmente questi tag non funziona quando si aggiunge una seconda lingua. Deriva questi tag dalla tua lista di locale.
 
 <Steps>
-
 <Step number={1} title="Emetti il cluster su ogni pagina">
 
 Lo stesso set ovunque, canonical per locale, URL assoluti, `x-default` incluso.
@@ -234,7 +233,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="Oppure spostalo tutto nella sitemap">
 
 Su larga scala, mantieni le annotazioni completamente fuori dalle tue pagine. `generateSitemap` emette alternati `xhtml:link` per ogni voce, leggendo locale e modalità di routing dalla tua configurazione:
@@ -257,7 +255,6 @@ Due opzioni da conoscere:
 - `entryPerLocale` (default `false`) — per default un'entry `<url>` contiene tutti gli alternati. Entrambe le forme sono valide, ma solo un URL elencato come `<loc>` conta come _submitted_ in Search Console; le locale alternate rimangono scopribili ma attribuite a nessuna sitemap. Attivando questa opzione ogni URL localizzato ottiene la propria entry con l'intero set di alternati ripetuto. Moltiplica le entry per il numero di locale, quindi fai attenzione al limite di 50 000 URL / 50 MB e dividi in un indice sitemap oltre questo limite.
 
 </Step>
-
 <Step number={3} title="Verifica cosa riceve il crawler">
 
 `hreflang` fallisce silenziosamente, quindi controllalo piuttosto che darla per scontata.

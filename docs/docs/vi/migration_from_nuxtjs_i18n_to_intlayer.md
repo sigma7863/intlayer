@@ -34,7 +34,6 @@ author: aymericzip
 Thay vì tải các file JSON khổng lồ vào các trang của bạn, hãy tải chỉ nội dung cần thiết. Intlayer giúp bạn **giảm kích thước bundle và trang lên đến 50%**.
 
 </Accordion>
-
 <Accordion header="Khả năng bảo trì">
 
 Giới hạn nội dung ứng dụng của bạn **giúp dễ bảo trì** cho các ứng dụng quy mô lớn. Bạn có thể sao chép hoặc xóa một thư mục tính năng duy nhất mà không cần lo lắng về việc xem xét toàn bộ codebase nội dung của mình. Ngoài ra, Intlayer **được gõ hoàn toàn** để đảm bảo độ chính xác của nội dung của bạn.
@@ -42,25 +41,21 @@ Giới hạn nội dung ứng dụng của bạn **giúp dễ bảo trì** cho c
 Intlayer cũng là giải pháp có **phát triển tích cực nhất** trong hệ sinh thái i18n — các vấn đề được khắc phục nhanh chóng, các adapter framework mới được phát hành thường xuyên, và API cốt lõi được liên tục cải tiến dựa trên phản hồi sản xuất thực tế.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Đặt cùng vị trí nội dung **giảm bối cảnh cần thiết** bởi các Large Language Models (LLMs). Intlayer cũng đi kèm với một bộ công cụ, chẳng hạn như **CLI** để kiểm tra các bản dịch bị thiếu, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/mcp_server.md)**, và **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/agent_skills.md)**, để làm cho trải nghiệm nhà phát triển (DX) thậm chí còn suôn sẻ hơn cho các AI agent.
 
 </Accordion>
-
 <Accordion header="Tự động hóa">
 
 Sử dụng tự động hóa để dịch trong đường ống CI/CD của bạn bằng cách sử dụng LLM mà bạn chọn với chi phí của nhà cung cấp AI của bạn. Intlayer cũng cung cấp một **compiler** để tự động hóa trích xuất nội dung, cũng như một [nền tảng web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md) để giúp bạn **dịch ở chế độ nền**.
 
 </Accordion>
-
 <Accordion header="Hiệu suất">
 
 Kết nối các file JSON khổng lồ với các thành phần có thể dẫn đến các vấn đề về hiệu suất và phản ứng. Intlayer tối ưu hóa việc tải nội dung của bạn tại thời điểm xây dựng.
 
 </Accordion>
-
 <Accordion header="Mở rộng quy mô với những người không phải dev">
 
 Không chỉ là một giải pháp i18n, Intlayer cung cấp một **[trình soạn thảo hình ảnh](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md) được tự lưu trữ** và một **[CMS đầy đủ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md)** để giúp bạn quản lý nội dung đa ngôn ngữ của mình **theo thời gian thực**, giúp cộng tác với các dịch giả, biên tập viên và những thành viên nhóm khác trở nên liền mạch. Nội dung có thể được lưu trữ cục bộ và/hoặc từ xa.
@@ -87,7 +82,6 @@ Hướng dẫn này bao gồm **Chiến lược 1** trước (compat adapter dro
 Các bước sau là mức tối thiểu cần thiết để chạy ứng dụng Nuxt hiện có của bạn trên Intlayer mà không cần thay đổi bất kỳ mã nào trong các thành phần của bạn.
 
 <Steps>
-
 <Step number={1} title="Cài đặt Phụ thuộc">
 
 Cài đặt các gói lõi Intlayer và adapter tương thích:
@@ -131,7 +125,6 @@ bun add intlayer vue-intlayer nuxt-intlayer @intlayer/vue-i18n @intlayer/sync-js
 > Bạn có thể an toàn giữ `@nuxtjs/i18n` được cài đặt trong quá trình di chuyển, mặc dù bạn sẽ xóa nó khỏi cấu hình Nuxt của mình sớm.
 
 </Step>
-
 <Step number={2} title="Cấu hình Intlayer">
 
 Lệnh `intlayer init` tạo một `intlayer.config.ts` khởi động. Cập nhật nó để phù hợp với các locale hiện có của bạn và chỉ plugin `syncJSON` vào các tệp tin nhắn của bạn:
@@ -166,7 +159,6 @@ export default config;
 > **`source`** ánh xạ một locale vào đường dẫn tệp JSON của nó. **`location`** cho trình quan sát Intlayer biết thư mục nào để giám sát những thay đổi. Tùy chọn `format: 'icu'` đảm bảo rằng các placeholder được phân tích chính xác cho `vue-i18n`.
 
 </Step>
-
 <Step number={3} title="Cập nhật Cấu hình Nuxt">
 
 Thay thế module `@nuxtjs/i18n` bằng `nuxt-intlayer` trong `nuxt.config.ts` của bạn. Plugin Intlayer tự động cài đặt các alias module, có nghĩa là các cuộc gọi `import { useI18n } from 'vue-i18n'` hiện có của bạn được chuyển hướng trong suốt sang `@intlayer/vue-i18n`.
@@ -191,7 +183,6 @@ export default defineNuxtConfig({
 Các bước dưới đây là tùy chọn và có thể được thực hiện dần dần. Chúng mở khóa bộ tính năng Intlayer đầy đủ: trình chỉnh sửa trực quan, CMS, các tệp nội dung được gõ, dịch tự động bằng AI, và hơn thế nữa.
 
 <Steps>
-
 <Step number={4} title="Đổi tên import rõ ràng (tùy chọn)" isOptional={true}>
 
 Các plugin Intlayer đã xử lý aliasing ở cấp bundler. Nếu bạn muốn làm cho phụ thuộc rõ ràng trong các tệp nguồn của mình, bạn có thể đổi tên các import theo cách thủ công:
@@ -203,7 +194,6 @@ Các plugin Intlayer đã xử lý aliasing ở cấp bundler. Nếu bạn muố
 Đây là **những thay thế trực tiếp** — không cần thay đổi gì về chữ ký cuộc gọi, đối số hoặc kiểu trả về.
 
 </Step>
-
 <Step number={5} title="Bật Tự động hóa Dịch được Hỗ trợ bằng AI" isOptional={true}>
 
 Khi Intlayer được kết nối, hãy sử dụng CLI của nó để điền vào các bản dịch bị thiếu tự động:

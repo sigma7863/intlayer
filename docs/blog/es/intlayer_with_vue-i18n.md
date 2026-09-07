@@ -56,7 +56,6 @@ Esta guía te muestra cómo aprovechar el sistema superior de declaración de co
 ## Guía paso a paso para configurar Intlayer con vue-i18n
 
 <Steps>
-
 <Step number={1} title="Instalar dependencias">
 
 Instala los paquetes necesarios usando tu gestor de paquetes preferido:
@@ -103,7 +102,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Plugin para sincronizar las declaraciones de contenido de Intlayer al formato JSON de vue-i18n
 
 </Step>
-
 <Step number={2} title="Implementar el plugin de Intlayer para envolver el JSON">
 
 Crea un archivo de configuración de Intlayer para definir tus locales soportados:

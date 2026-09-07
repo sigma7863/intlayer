@@ -107,7 +107,6 @@ author: aymericzip
 ```
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 使用 npm 安装必要的包：
@@ -127,7 +126,6 @@ yarn add next-intl
 - **next-intl**：Next.js App Router 的核心国际化库，提供用于管理翻译的 hooks、服务器函数和客户端提供者。
 
 </Step>
-
 <Step number={2} title="配置项目">
 
 创建一个配置文件，定义你支持的语言环境并设置 next-intl 的请求配置。该文件作为你的国际化设置的唯一可信来源，并确保整个应用中的类型安全。
@@ -214,7 +212,6 @@ export const proxy = createMiddleware(routingOptions);
 ```
 
 </Step>
-
 <Step number={3} title="定义动态语言路由">
 
 通过在您的应用程序文件夹中创建一个 `[locale]` 目录来设置基于语言环境的动态路由。这允许 Next.js 处理基于语言环境的路由，其中每个语言环境成为 URL 的一部分（例如 `/en/about`，`/fr/about`）。
@@ -305,7 +302,6 @@ export default async function AboutPage({
 ```
 
 </Step>
-
 <Step number={4} title="创建您的翻译文件">
 
 为每个语言环境和命名空间创建 JSON 文件。此结构允许您逻辑性地组织翻译内容，并且只加载每个页面所需的内容。
@@ -367,7 +363,6 @@ export default async function AboutPage({
 </Tabs>
 
 </Step>
-
 <Step number={5} title="在页面中使用翻译">
 
 创建一个页面组件，在服务器端加载翻译，并将其传递给服务器和客户端组件。这确保了翻译在渲染之前加载，防止内容闪烁。
@@ -420,7 +415,6 @@ export default async function AboutPage({
 ```
 
 </Step>
-
 <Step number={6} title="在客户端组件中使用翻译">
 
 客户端组件可以使用 `useTranslations` 和 `useFormatter` 钩子来访问翻译和格式化函数。这些钩子从 `NextIntlClientProvider` 上下文中读取数据。
@@ -458,7 +452,6 @@ const ClientComponent = () => {
 ```
 
 </Step>
-
 <Step number={7} title="在服务器组件中使用翻译">
 
 服务器组件不能使用 React 钩子，因此它们通过父组件的 props 接收翻译和格式化函数。这种方法保持服务器组件的同步性，并允许它们嵌套在客户端组件内。
@@ -492,7 +485,6 @@ const ServerComponent = ({
 > 在你的页面或布局中，使用 `next-intl/server` 中的 `getTranslations` 和 `getFormatter` 预先计算翻译和格式化，然后将它们作为 props 传递给服务器组件。
 
 </Step>
-
 <Step number={8} title="更改内容语言" isOptional={true}>
 
 要使用 next-intl 更改内容语言，渲染指向相同路径名但切换语言环境的本地化链接。Provider 会自动重写 URL，因此你只需针对当前路由即可。
@@ -566,7 +558,6 @@ export default function LocaleSwitcher() {
 ```
 
 </Step>
-
 <Step number={9} title="使用本地化的 Link 组件" isOptional={true}>
 
 `next-intl` 提供了一个子包 `next-intl/navigation`，其中包含一个自动应用当前活动语言环境的本地化链接组件。我们已经在 `@/i18n` 文件中为你提取好了它，所以你可以这样使用：
@@ -578,7 +569,6 @@ return <Link href="/about">t("about.title")</Link>;
 ```
 
 </Step>
-
 <Step number={10} title="在服务器操作中访问活动语言环境" isOptional={true}>
 
 服务器操作可以使用 `next-intl/server` 读取当前语言环境。这对于发送本地化邮件或在提交的数据中存储语言偏好非常有用。
@@ -603,7 +593,6 @@ export async function handleContactForm(formData: FormData) {
 > `getLocale` 会读取由 `next-intl` 代理设置的 locale，因此它可以在服务器的任何地方使用：路由处理程序、服务器操作和边缘函数。
 
 </Step>
-
 <Step number={11} title="国际化您的元数据" isOptional={true}>
 
 翻译内容很重要，但国际化的主要目标是让您的网站对全世界更具可见性。I18n 是通过适当的 SEO 显著提升您网站可见性的强大杠杆。
@@ -644,7 +633,6 @@ export async function generateMetadata({
 ```
 
 </Step>
-
 <Step number={12} title="国际化您的网站地图" isOptional={true}>
 
 生成包含所有页面本地化版本的站点地图。这有助于搜索引擎发现并索引您内容的所有语言版本。
@@ -700,7 +688,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 ```
 
 </Step>
-
 <Step number={13} title="国际化您的 robots.txt" isOptional={true}>
 
 创建一个 robots.txt 文件，正确处理所有受保护路由的所有语言版本。这确保搜索引擎不会索引任何语言的管理员或仪表盘页面。
@@ -735,7 +722,6 @@ export default function robots(): MetadataRoute.Robots {
 ```
 
 </Step>
-
 <Step number={14} title="为本地化路由设置代理" isOptional={true}>
 
 创建一个代理，自动检测用户的首选语言环境，并将其重定向到相应的带有语言前缀的 URL。next-intl 提供了一个方便的代理函数，可以自动处理此操作。
@@ -757,7 +743,6 @@ export const config = {
 ```
 
 </Step>
-
 <Step number={15} title="为语言环境设置 TypeScript 类型" isOptional={true}>
 
 设置 TypeScript 将帮助您获得键的自动补全和类型安全。
@@ -785,7 +770,6 @@ declare module "next-intl" {
 此代码将使用模块增强（Module Augmentation）将 locales 和 messages 添加到 next-intl 的 AppConfig 类型中。
 
 </Step>
-
 <Step number={16} title="使用 Intlayer 自动化您的翻译工作" isOptional={true}>
 
 Intlayer 是一个 **免费** 和 **开源** 的库，旨在协助您的应用程序的本地化过程。虽然 next-intl 负责翻译的加载和管理，Intlayer 则帮助自动化翻译工作流程。

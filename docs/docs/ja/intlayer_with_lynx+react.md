@@ -51,37 +51,31 @@ author: aymericzip
 Intlayer は、**コンポーネント レベルのコンテンツ スコープ**、**TypeScript サポート**、および国際化 (i18n) のスケーリングに必要なすべての機能を提供することにより、Lynx および React と完全に連携するように最適化されています。
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
-
 <Accordion header="Automation">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) も提供します。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
 
 </Accordion>
-
 <Accordion header="none-devでのスケーリング">
 
 Intlayer は単なる i18n ソリューションではなく、**自己ホスト型 [ビジュアル エディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** と **[完全な CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** を提供します。 **リアルタイム**で多言語コンテンツを管理できるようになり、翻訳者、コピーライター、その他のチーム メンバーとのコラボレーションがシームレスになります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -90,7 +84,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="依存関係をインストールする">
 
 Lynxプロジェクトから、以下のパッケージをインストールします：
@@ -143,7 +136,6 @@ bun add intlayer react-intlayer lynx-intlayer
   IntlayerをLynxバンドラーと統合するためのプラグインを提供するLynx統合。
 
 </Step>
-
 <Step number={2} title="Intlayer設定を作成する">
 
 プロジェクトのルート（または便利な場所）に**Intlayer設定**ファイルを作成します。以下のようになります：
@@ -174,7 +166,6 @@ export default config;
 - 詳細は[Intlayer設定ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)をご覧ください。
 
 </Step>
-
 <Step number={3} title="LynxバンドラーにIntlayerプラグインを追加する">
 
 LynxでIntlayerを使用するには、`lynx.config.ts`ファイルにプラグインを追加する必要があります：
@@ -192,7 +183,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Intlayerプロバイダーを追加する">
 
 アプリケーション全体でユーザーの言語を同期させるには、`react-intlayer`の`IntlayerProvider`コンポーネントでルートコンポーネントをラップする必要があります。
@@ -220,7 +210,6 @@ if (import.meta.webpackHot) {
 ```
 
 </Step>
-
 <Step number={5} title="コンテンツを宣言する">
 
 プロジェクト内の任意の場所（通常は`src/`内）に**コンテンツ宣言**ファイルを作成します。Intlayerがサポートする任意の拡張形式を使用できます：
@@ -334,7 +323,6 @@ export default appContent;
 > コンテンツ宣言の詳細については、[Intlayerのコンテンツドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md)を参照してください。
 
 </Step>
-
 <Step number={6} title="コンポーネントでIntlayerを使用する">
 
 子コンポーネントで`useIntlayer`フックを使用してローカライズされたコンテンツを取得します。
@@ -392,7 +380,6 @@ export const App = () => {
 > 文字列ベースのプロパティ（例: ボタンの`title`や`Text`コンポーネントの`children`）で`content.someKey`を使用する場合、**`content.someKey.value`を呼び出して実際の文字列を取得してください**。
 
 </Step>
-
 <Step number={7} title="アプリのロケールを変更する">
 
 コンポーネント内からロケールを切り替えるには、`useLocale`フックの`setLocale`メソッドを使用します。

@@ -68,37 +68,31 @@ author: aymericzip
 Intlayer 经过优化，可与 Vanilla JavaScript 完美配合，提供**与框架无关的内容管理**、**TypeScript 支持**以及扩展国际化 (i18n) 所需的所有功能。
 
 </Accordion>
-
 <Accordion header="捆绑尺寸">
 
 不要将大量 JSON 文件加载到页面中，而只需加载必要的内容。 Intlayer 有助于**将捆绑包和页面大小减少多达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 确定应用程序内容的范围**有利于大型应用程序的维护**。您可以复制或删除单个功能文件夹，而无需承担检查整个内容代码库的精神负担。此外，Intlayer 具有**完全类型化 (fully typed)**，以确保您的内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 共置内容**减少大型语言模型 (LLM) 所需的上下文**。 Intlayer 还附带了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 代理的开发者体验 (DX) 更加流畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用您选择的法学硕士，通过自动化在 CI/CD 管道中进行翻译，而费用由您的 AI 提供商承担。 Intlayer 还提供了一个**编译器**来自动提取内容，以及一个[网络平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)来帮助**在后台翻译**。
 
 </Accordion>
-
 <Accordion header="表现">
 
 将大量 JSON 文件连接到组件可能会导致性能和反应性问题。 Intlayer 可在构建时 (build time)优化您的内容加载。
 
 </Accordion>
-
 <Accordion header="使用 none-dev 进行扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)**和一个**[完整的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** 来帮助您管理多语言内容**实时**，与译员、文案人员和其他团队成员无缝协作。内容可以本地和/或远程存储。
@@ -109,7 +103,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 ## Vanilla JS 应用中设置 Intlayer 的分步指南
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 使用 npm 安装必要的软件包：
@@ -171,7 +164,6 @@ bun x intlayer build
 > `intlayer standalone` CLI 的捆绑导出通过树摇动未使用的软件包、语言区域和特定于您的配置的非必要逻辑（如重定向或前缀）来生成优化的构建。
 
 </Step>
-
 <Step number={2} title="配置您的项目">
 
 创建一个配置文件来配置应用的语言：
@@ -197,7 +189,6 @@ export default config;
 > 通过此配置文件，您可以设置本地化的 URL、中间件重定向、cookie 名称、内容声明的位置和扩展名、禁用控制台中的 Intlayer 日志等。有关可用参数的完整列表，请参考[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="在您的 HTML 中导入捆绑包">
 
 生成 `intlayer.js` 捆绑包后，可以将其导入到 HTML 文件中：
@@ -223,7 +214,6 @@ export default config;
 该捆绑包在 `window` 上将 `Intlayer` 和 `VanillaIntlayer` 暴露为全局对象。
 
 </Step>
-
 <Step number={4} title="在您的入口点引导 Intlayer">
 
 在您的 `src/main.js` 中，在渲染任何内容**之前**调用 `installIntlayer()`，以便全局语言区域单例已准备就绪。
@@ -245,7 +235,6 @@ installIntlayerMarkdown();
 ```
 
 </Step>
-
 <Step number={5} title="声明您的内容">
 
 创建和管理您的内容声明以存储翻译：
@@ -331,7 +320,6 @@ export default appContent;
 > 有关更多详细信息，请参考[内容声明文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={6} title="在您的 JavaScript 中使用 Intlayer">
 
 `window.VanillaIntlayer` 对象提供 API 辅助函数：`useIntlayer(key, locale?)` 返回给定键的已翻译内容。
@@ -367,7 +355,6 @@ document.querySelector(".read-the-docs").textContent = String(
 > ```
 
 </Step>
-
 <Step number={7} title="更改您的内容的语言" isOptional={true}>
 
 要更改您的内容的语言，请使用由 `useLocale` 暴露的 `setLocale` 函数。
@@ -404,7 +391,6 @@ export function setupLocaleSwitcher(container) {
 ```
 
 </Step>
-
 <Step number={8} title="切换 HTML 语言和方向属性" isOptional={true}>
 
 更新 `<html>` 标签的 `lang` 和 `dir` 属性以匹配当前语言区域，以实现无障碍访问和 SEO。
@@ -424,7 +410,6 @@ useLocale({
 ```
 
 </Step>
-
 <Step number={9} title="按语言区域懒加载字典" isOptional={true}>
 
 如果您想按语言区域懒加载字典，可以使用 `useDictionaryDynamic`。这在您不想将所有翻译捆绑在初始 `intlayer.js` 文件中时很有用。
@@ -493,25 +478,21 @@ const unsubscribe = useDictionaryDynamic(
 可以。这正是本指南所涵盖的内容。您可以按照第 3 步的演示直接在 HTML 中引入 `vanilla-intlayer` 包，在入口文件中对其进行初始化，然后使用 `useIntlayer` 读取内容。不需要 Vite、webpack 或任何构建流程。
 
 </Question>
-
 <Question title="i18n 会给我的页面增加多少体积？">
 
 远少于运行时目录方案，因为页面永远不会下载它不渲染的语言。内容由预先编译的字典直接解析，按语言环境进行的懒加载会使其他语言保留在初始载荷之外，直到访客主动切换语言。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md)、[动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/index.md)。
 
 </Question>
-
 <Question title="我可以从 i18next 迁移而无需重写脚本吗？">
 
 基本可以。请按照 [i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_i18next_to_intlayer.md) 迁移内容。您也可以逐步迁移：[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将现有的 JSON 目录作为单一真实来源（source of truth），并生成 Intlayer 字典，使两个层在逐个脚本迁移时保持同步。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的源码文件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。请参阅 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md)。
@@ -519,7 +500,6 @@ const unsubscribe = useDictionaryDynamic(
 如需全自动流程，[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compiler.md) 可以在构建时对 JSX、TSX、Vue 和 Svelte 源码执行相同操作，在每次更改时自动生成字典，完全无需手动维护键名。它通过静态分析工作，因此仅在运行时存在的字符串无法被捕获，并且需要少量注解以区分用户文本和应用程序逻辑。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -531,7 +511,6 @@ const unsubscribe = useDictionaryDynamic(
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="国际化纯 JavaScript 站点有哪些不同的解决方案？">
 
 - **手写字典对象**：通常是通过 `fetch` 加载的每个语言一个 JSON 文件。没有依赖，但没有类型定义，没有复数规则，也没有任何工具能告诉你是否遗漏了翻译。
@@ -541,49 +520,41 @@ const unsubscribe = useDictionaryDynamic(
 请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md)。
 
 </Question>
-
 <Question title="如何读取翻译并放入 DOM 中？">
 
 使用您的字典键调用 `useIntlayer`，并将值自行写入节点中，如第 6 步所示。因为没有框架，没有东西会自行重新渲染：您需要在语言环境更改时更新节点，第 7 步对此进行了介绍。
 
 </Question>
-
 <Question title="如何检测访客的语言？">
 
 从 `routing.storage` 中列出的来源检测，通常优先读取 Cookie，然后是 `Accept-Language` 请求头，最后回退到您的默认语言环境。访客明确选择的语言会被持久化，以便在下次访问时保持。请参阅 [配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Question>
-
 <Question title="如何支持阿拉伯语或希伯来语等从右到左 (RTL) 的语言？">
 
 第 8 步对此进行了介绍。`getHTMLTextDir` 会为语言环境返回 `ltr`、`rtl` 或 `auto`，因此您可以在 `html` 元素上根据当前活动语言环境设置 `lang` 和 `dir`，并让 CSS 逻辑属性处理其余排版。
 
 </Question>
-
 <Question title="访客会下载每种语言吗？">
 
 如果您不想让他们下载，就不会。第 9 步介绍了按语言环境懒加载字典，因此页面仅加载一种语言，仅在访客切换时才去获取另一种语言。请参阅 [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md)。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译应用？">
 
 运行 `npx intlayer fill`。它会使用您选择的 LLM、您自己的提供商和 API 密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、用于长文本的 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

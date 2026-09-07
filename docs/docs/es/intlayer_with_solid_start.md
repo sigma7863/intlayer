@@ -74,37 +74,31 @@ En comparación con las soluciones principales como `@solid-primitives/i18n` o `
 Intlayer está optimizado para funcionar perfectamente con Solid ofreciendo **alcance de contenido a nivel de componente**, **traducciones reactivas**, y todas las funciones necesarias para escalar la internacionalización (i18n).
 
 </Accordion>
-
 <Accordion header="Tamaño del bundle">
 
 En lugar de cargar archivos JSON masivos en tus páginas, carga solo el contenido necesario. Intlayer ayuda a **reducir los tamaños de tu bundle y de tus páginas hasta en un 50%**.
 
 </Accordion>
-
 <Accordion header="Mantenibilidad">
 
 Limitar el alcance del contenido de tu aplicación **facilita el mantenimiento** para aplicaciones a gran escala. Puedes duplicar o eliminar una sola carpeta de funciones sin la carga mental de revisar toda tu base de código de contenido. Además, Intlayer está **completamente tipado** para garantizar la precisión de tu contenido.
 
 </Accordion>
-
 <Accordion header="Agente de IA">
 
 Colocar el contenido en la misma ubicación **reduce el contexto necesario** para los grandes modelos de lenguaje (LLM). Intlayer también viene con una suite de herramientas, como un **CLI** para probar traducciones faltantes, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/mcp_server.md)** y **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/agent_skills.md)**, para hacer la experiencia del desarrollador (DX) aún más fluida para los agentes de IA.
 
 </Accordion>
-
 <Accordion header="Automatización">
 
 Usa la automatización para traducir en tu flujo de CI/CD utilizando el LLM de tu elección al costo de tu proveedor de IA. Intlayer también ofrece un **compilador** para automatizar la extracción de contenido, así como una [plataforma web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md) para ayudar a **traducir en segundo plano**.
 
 </Accordion>
-
 <Accordion header="Rendimiento">
 
 Conectar archivos JSON masivos a los componentes puede generar problemas de rendimiento y reactividad. Intlayer optimiza la carga de tu contenido en el momento de la compilación.
 
 </Accordion>
-
 <Accordion header="Escalar con no desarrolladores">
 
 Más que una simple solución i18n, Intlayer proporciona un **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_visual_editor.md) autoalojado** y un **[CMS completo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md)** para ayudarte a gestionar tu contenido multilingüe en **tiempo real**, haciendo que la colaboración con traductores, redactores y otros miembros del equipo sea fluida. El contenido se puede almacenar de forma local y/o remota.
@@ -115,7 +109,6 @@ Más que una simple solución i18n, Intlayer proporciona un **[editor visual](ht
 ## Guía paso a paso para configurar Intlayer en una aplicación SolidStart
 
 <Steps>
-
 <Step number={1} title="Instalar dependencias">
 
 Instala los paquetes necesarios usando npm:
@@ -171,7 +164,6 @@ bun add intlayer solid-intlayer vite-intlayer
 > `vite-intlayer` es una preocupación del lado del servidor aquí, no solo en tiempo de compilación: suministra el controlador de solicitudes que ejecuta el servidor Nitro de SolidStart. Mantenerlo en `dependencies` es la opción segura predeterminada; solo puedes moverlo a `devDependencies` si despliegas el directorio `.output` compilado, en el que Nitro incluye el controlador en línea.
 
 </Step>
-
 <Step number={2} title="Configuración de tu proyecto">
 
 Crea un archivo de configuración para configurar los idiomas de tu aplicación:
@@ -208,7 +200,6 @@ Con `prefix-no-default`, la locale predeterminada se sirve desde URL sin prefijo
 > A través de este archivo de configuración, puedes configurar URL localizadas, redirección de middleware, nombres de cookies, la ubicación y extensión de tus declaraciones de contenido, desactivar los registros de Intlayer en la consola y más. Para obtener una lista completa de parámetros disponibles, consulta la [documentación de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrar Intlayer en tu configuración de Vite">
 
 Agrega el plugin Intlayer a tu configuración:
@@ -236,7 +227,6 @@ SolidStart se ejecuta en [Nitro](https://nitro.build), e `intlayer()` registra s
 - la cookie de locale se vuelve a escribir en la respuesta.
 
 </Step>
-
 <Step number={4} title="Declarar tu contenido">
 
 Crea y gestiona tus declaraciones de contenido para almacenar traducciones:
@@ -310,7 +300,6 @@ export default homeContent;
 > Para obtener más detalles, consulta la [documentación de declaración de contenido](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Agregar enrutamiento localizado">
 
 El objetivo de este paso es darle a cada idioma su propia URL, que es lo que los motores de búsqueda indexan.
@@ -354,7 +343,6 @@ export default function LocaleLayout(props: RouteSectionProps) {
 > Prefiere `[locale]` (requerido) sobre `[[locale]]` si usas el modo de enrutamiento `'prefix-all'`, y elimina el segmento por completo para `'no-prefix'` o `'search-params'`.
 
 </Step>
-
 <Step number={6} title="Proporcionar la locale a tu aplicación">
 
 La URL es la única fuente de verdad para la locale: el middleware ya ha redirigido la solicitud a su ruta localizada, por lo que leer la ruta en el layout raíz mantiene el renderizado del servidor y la hidratación del cliente de acuerdo, y hace que cada navegación del lado del cliente actualice la locale de forma gratuita.
@@ -405,7 +393,6 @@ export default function App() {
 > `IntlayerProvider` reacciona a su prop `locale`, por lo que pasar la llamada al accesador `locale()` dentro de JSX es suficiente: Solid lo compila en un getter y todo el árbol se vuelve a renderizar en el nuevo idioma cuando la URL cambia.
 
 </Step>
-
 <Step number={7} title="Establecer los atributos HTML lang y dir en el servidor">
 
 El elemento `<html>` se renderiza mediante `entry-server.tsx`, fuera del `Router`. Lee la locale desde la URL de la solicitud en su lugar:
@@ -451,7 +438,6 @@ Los rastreadores ahora reciben el idioma correcto desde el primer byte:
 ```
 
 </Step>
-
 <Step number={8} title="Utilizar Intlayer en tus páginas">
 
 Accede a tus diccionarios de contenido en toda tu aplicación:
@@ -533,7 +519,6 @@ export default function Counter() {
 `plural()` selecciona la categoría a través de `Intl.PluralRules` para la locale activa, por lo que los idiomas con más de dos formas plurales funcionan sin código adicional.
 
 </Step>
-
 <Step number={9} title="Crear un componente Link localizado">
 
 Crea un componente `Link` personalizado que agregue automáticamente un prefijo a las URL internas con el idioma actual:
@@ -578,7 +563,6 @@ export const Nav: Component = () => {
 Escribir `href="/about"` una vez ahora produce `/about`, `/fr/about` o `/es/about` según la locale activa; sin prefijos manuales en ninguna parte de tus páginas.
 
 </Step>
-
 <Step number={10} title="Crear un componente conmutador de locale">
 
 Renderiza el conmutador como **anclas reales** en lugar de un `<select>`: cada idioma de la página actual se convierte en un enlace rastreable que se puede abrir en una nueva pestaña, algo que un control basado solo en JavaScript no puede ofrecer.
@@ -650,7 +634,6 @@ export const LocaleSwitcher: Component = () => {
 > Para obtener más información sobre el hook `useLocale`, consulta la [documentación](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/solid-intlayer/useLocale.md).
 
 </Step>
-
 <Step number={11} title="Emitir enlaces canónicos y hreflang" isOptional={true}>
 
 Las anotaciones `hreflang` indican a los motores de búsqueda que `/about`, `/fr/about` y `/es/about` son la misma página en diferentes idiomas. `getMultilingualUrls` las deriva de la ruta canónica (sin locale), siguiendo tu modo de enrutamiento, de modo que nada está codificado de forma rígida:
@@ -722,7 +705,6 @@ import { AlternateLinks } from "~/components/AlternateLinks";
 > **Nota sobre `@solidjs/meta`**: al momento de escribir este artículo, `<Title>` y `<Meta>` de `@solidjs/meta` se aplican en el cliente después de la hidratación pero **no** se emiten en el `<head>` renderizado en el servidor en SolidStart v2. Hasta que eso se solucione en el proyecto original, renderiza las etiquetas que los rastreadores deben ver sin JavaScript (`canonical`, `hreflang` y, si es necesario, `title` / `description`) directamente en `entry-server.tsx`, como se muestra arriba.
 
 </Step>
-
 <Step number={12} title="Gestionar páginas no encontradas" isOptional={true}>
 
 Una ruta comodín (splat) en la raíz de `src/routes` captura cada ruta que el segmento de locale no coincidió, incluidos los prefijos de locale no válidos rechazados por `matchFilters`. Debido a que la locale todavía proviene de la URL a través del layout raíz, la página 404 se muestra en el idioma del visitante:
@@ -754,7 +736,6 @@ export default function NotFound() {
 | `/fr/nonexistent` | `404` en francés (`Page introuvable`)     |
 
 </Step>
-
 <Step number={13} title="Generar un sitemap multilingüe" isOptional={true}>
 
 El generador de sitemaps de Intlayer expande cada ruta en una entrada por locale y conecta las alternativas `xhtml:link` entre ellas, por lo que la ruta solo tiene que listar las rutas canónicas y sin locale.
@@ -829,7 +810,6 @@ export const GET = () =>
 ```
 
 </Step>
-
 <Step number={14} title="Recuperar la locale en tus funciones de servidor" isOptional={true}>
 
 Es posible que desees acceder a la locale actual desde dentro de una función de servidor o una ruta de API.
@@ -873,7 +853,6 @@ export default function Page() {
 > No te fíes únicamente de `getLocale` aquí: la cookie de locale solo se escribe una vez que un visitante cambia activamente de idioma, por lo que una primera visita a `/fr/...` se resolvería en la locale predeterminada.
 
 </Step>
-
 <Step number={15} title="Extraer el contenido de tus componentes" isOptional={true}>
 
 Si tienes una base de código existente, transformar miles de archivos puede llevar mucho tiempo.
@@ -983,7 +962,6 @@ bun run build # O bun run dev
 </Tabs>
 
 </Step>
-
 <Step number={16} title="Configurar TypeScript">
 
 Intlayer utiliza el aumento de módulos para aprovechar los beneficios de TypeScript y fortalecer tu base de código.
@@ -1089,25 +1067,21 @@ Para ir más lejos, puedes implementar el [editor visual](https://github.com/aym
 En Solid Start la diferencia se nota en las piezas del servidor, que esta guía cubre como pasos dedicados en lugar de dejártelas a ti. Consulta [por qué Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/interest_of_intlayer.md) y el [benchmark de i18n de Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/benchmark/solid.md).
 
 </Question>
-
 <Question title="¿Cuánto añade la i18n al tamaño del bundle de mi aplicación Solid Start?">
 
 Mucho menos que una configuración basada en espacios de nombres, porque una página nunca descarga un catálogo que no renderiza. El marcado renderizado en el servidor resuelve su contenido en el servidor, y el compilador de tiempo de compilación reemplaza las llamadas a `useIntlayer` por las entradas de diccionario exactas que usa un componente, de modo que se descartan las claves sin usar y los idiomas sin usar, y los [diccionarios dinámicos](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dynamic_dictionaries/index.md) reparten el resto por idioma. Frente a las alternativas habituales, Intlayer reduce el tamaño del bundle y de la página hasta en un 50%. Consulta la [optimización del bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/bundle_optimization.md) y el [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/benchmark/solid.md).
 
 </Question>
-
 <Question title="¿Puedo migrar desde `@solid-primitives/i18n` o `i18next` sin reescribir mis componentes?">
 
 En gran medida. Sigue la [guía de migración de i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/migration_from_i18next_to_intlayer.md) para trasladar el contenido. También puedes migrar de forma gradual: el [plugin de sincronización JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-json.md) mantiene tus catálogos JSON existentes como fuente de verdad y genera diccionarios de Intlayer a partir de ellos, de modo que ambas capas se mantienen sincronizadas mientras trasladas los componentes uno a uno.
 
 </Question>
-
 <Question title="¿Puedo conservar mis archivos de traducción JSON existentes?">
 
 Sí. El [plugin de sincronización JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-json.md) mantiene tus archivos `/messages/{locale}/{namespace}.json` como fuente de verdad y genera diccionarios de Intlayer a partir de ellos, en ambas direcciones. Un [plugin de sincronización PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-po.md) hace lo mismo para los catálogos gettext, y los [archivos por idioma](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/per_locale_file.md) te permiten dividir el contenido por idioma en lugar de agrupar los idiomas en un solo archivo.
 
 </Question>
-
 <Question title="¿Tengo que trasladar mi contenido clave por clave?">
 
 No. Ejecuta `npx intlayer extract` e Intlayer lee tus componentes, extrae las cadenas visibles para el usuario y escribe un archivo `.content` junto a cada uno, así que revisas un diff en lugar de copiar cadenas a un catálogo una por una. El paso 15 de esta guía lo explica paso a paso.
@@ -1117,7 +1091,6 @@ Para una canalización totalmente automatizada, el [compilador de Intlayer](http
 Conviene conocer dos límites antes de activar el compilador. Funciona por análisis estático, así que las cadenas que solo existen en tiempo de ejecución, como los códigos de error de la API o los campos del CMS, quedan fuera de su alcance. Y tiene que distinguir el texto visible para el usuario de la lógica de la aplicación, como `className="active"` o un código de estado, lo que requiere unas pocas anotaciones en una base de código grande. El [comando extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/extract.md) evita ambos manteniéndote en el proceso.
 
 </Question>
-
 <Question title="¿Qué herramientas para editores y agentes de IA están disponibles?">
 
 Cinco piezas, todas opcionales:
@@ -1129,61 +1102,51 @@ Cinco piezas, todas opcionales:
 - **[Plugin de ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/eslint.md)**: `no-raw-text` marca las cadenas codificadas de forma fija, con reglas adicionales para claves de diccionario estáticas y contenido sin usar.
 
 </Question>
-
 <Question title="¿Intlayer funciona con el renderizado en el servidor de Solid Start?">
 
 Sí. El paso 6 proporciona el idioma a la aplicación en el servidor y el paso 7 establece allí los atributos `lang` y `dir`, así que la primera respuesta HTML ya lleva el idioma correcto, que es lo que leen los rastreadores y los bots de vista previa social.
 
 </Question>
-
 <Question title="¿Cambiar el idioma vuelve a renderizar toda mi aplicación?">
 
 No. El contenido se respalda con señales de Solid, así que cambiar de idioma actualiza solo los nodos del DOM que leen los valores modificados, sin volver a ejecutar los componentes que los rodean.
 
 </Question>
-
 <Question title="¿Cómo añado enlaces canónicos y hreflang?">
 
 Lo cubre el paso 11. `getMultilingualUrls` construye las alternativas para cada idioma declarado, incluida `x-default`, y el paso 13 introduce los mismos datos en un sitemap multilingüe para que cada versión de idioma de una página enlace con las demás.
 
 </Question>
-
 <Question title="¿Cómo gestiono las páginas 404 en rutas localizadas?">
 
 Lo cubre el paso 12. `validatePrefix` te indica si el segmento de idioma de la URL es un idioma declarado, así que `/xx/about` devuelve un 404 real en lugar de tratarse como una ruta e indexarse como una página duplicada.
 
 </Question>
-
 <Question title="¿Tengo que poner el idioma en la URL?">
 
 No. `routing.mode` acepta `"prefix-no-default"` (el valor por defecto), `"prefix-all"`, `"no-prefix"` y `"search-params"`, y `routing.domains` asigna cada idioma a su propio dominio. Consulta la [referencia de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
 
 </Question>
-
 <Question title="¿Cómo obtengo el idioma en una función de servidor?">
 
 Lo cubre el paso 14. El idioma resuelto para la solicitud está disponible dentro de las funciones de servidor, así que los datos obtenidos allí pueden localizarse en la misma pasada en lugar de traducirse de nuevo en el cliente.
 
 </Question>
-
 <Question title="¿Cómo traduzco la aplicación automáticamente con IA?">
 
 Ejecuta `npx intlayer fill`. Rellena las traducciones que faltan con el LLM de tu elección, usando tu propio proveedor y tu clave de API, y `--git-diff` limita la ejecución al contenido modificado en la rama. Consulta el [comando fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/fill.md) y la [integración de CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/CI_CD.md).
 
 </Question>
-
 <Question title="¿Intlayer admite plurales, género y texto enriquecido?">
 
 Sí: [formas plurales](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/plurial.md), [contenido según el género](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/gender.md), condiciones, [inserciones](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/markdown.md) y [formateadores](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/formatters.md) para números, fechas y monedas.
 
 </Question>
-
 <Question title="¿Cómo pueden los traductores editar el contenido sin tocar el código?">
 
 A través del [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_visual_editor.md), que se ejecuta en tu propia infraestructura y permite que cualquiera edite texto en su sitio en la aplicación en ejecución, o del [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md), que externaliza el contenido para que pueda cambiar sin un despliegue.
 
 </Question>
-
 <Question title="¿Es Intlayer gratuito y de código abierto?">
 
 Sí, bajo la licencia Apache 2.0, uso comercial incluido. El CMS alojado es un servicio de pago opcional que también puede [autoalojarse](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/self_hosting.md).

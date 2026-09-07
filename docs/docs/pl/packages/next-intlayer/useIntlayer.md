@@ -85,6 +85,31 @@ Oto jak można zaimplementować hook `useIntlayer` na stronie Next.js, aby dynam
 ```tsx fileName="src/pages/[locale]/index.tsx" codeFormat={["typescript", "esm"]}
 import { ClientComponentExample } from "@components/ClientComponentExample";
 import { ServerComponentExample } from "@components/ServerComponentExample";
+import { type NextPageIntlayer } from "next-intlayer";
+import { useIntlayer } from "next-intlayer";
+import { IntlayerProvider } from "next-intlayer/server";
+
+const HomePage: NextPageIntlayer = async ({ params }) => {
+  const { locale } = await params;
+
+  const content = useIntlayer("homepage", locale);
+
+  return (
+    <IntlayerProvider locale={locale}>
+      <p>{content.introduction}</p>
+      <ClientComponentExample />
+      <ServerComponentExample />
+    </IntlayerProvider>
+  );
+};
+```
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx fileName="src/pages/[locale]/index.tsx" codeFormat={["typescript", "esm"]}
+import { ClientComponentExample } from "@components/ClientComponentExample";
+import { ServerComponentExample } from "@components/ServerComponentExample";
 import { type NextPageIntlayer, IntlayerClientProvider } from "next-intlayer";
 import { useIntlayer, IntlayerServerProvider } from "next-intlayer/server";
 
@@ -108,9 +133,9 @@ const HomePage: NextPageIntlayer = async ({ params }) => {
 ```
 
  </Tab>
- <Tab label='Intlayer <9.4' value='<9.4'>
+</Tabs>
 
-```tsx fileName="src/components/ClientComponentExample.tsx" codeFormat="typescript"
+```tsx fileName="src/components/ClientComponentExample.tsx" codeFormat={["typescript", "esm"]}
 "use-client";
 
 import type { FC } from "react";
@@ -128,41 +153,7 @@ const ClientComponentExample: FC = () => {
 };
 ```
 
-```"use-client";
-
-import { useIntlayer } from "next-intlayer";
-
-const ServerComponentExample = () => {
-  const content = useIntlayer("component-content");
-
-  return (
-    <div>
-      <h1>{content.title}</h1>
-      <p>{content.description}</p>
-    </div>
-  );
-};
-```
-
-```jsx fileName="src/components/ClientComponentExample.csx" codeFormat="commonjs"
-"use-client";
-
-const { useIntlayer } = require("next-intlayer");
-
-const ServerComponentExample = () => {
-  const content = useIntlayer("component-content");
-
-  return (
-    <div>
-      <h1>{content.title}</h1>
-      <p>{content.description}</p>
-    </div>
-  );
-};
-```
-
 ```tsx fileName="src/components/ServerComponentExample.tsx" codeFormat={["typescript", "esm"]}
-tsx fileName="src/components/ServerComponentExample.tsx" codeFormat="typescript"
 import type { FC } from "react";
 import { useIntlayer } from "next-intlayer/server";
 
@@ -177,9 +168,6 @@ const ServerComponentExample: FC = () => {
   );
 };
 ```
-
- </Tab>
-</Tabs>
 
 ## Obsługa lokalizacji atrybutów
 

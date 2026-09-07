@@ -33,7 +33,6 @@ author: aymericzip
 与其将大量 JSON 文件加载到页面中，不如只加载必要的内容。Intlayer 帮助**将 bundle 和页面大小减少高达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 将应用程序的内容范围化**便于大规模应用程序的维护**。您可以复制或删除单个功能文件夹，而无需费力审查整个内容 codebase。此外，Intlayer **完全类型化**，以确保内容的准确性。
@@ -41,25 +40,21 @@ author: aymericzip
 Intlayer 也是 i18n 生态中**开发最活跃的**解决方案 — 问题修复迅速，新的框架适配器定期发布，核心 API 根据真实生产反馈不断完善。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 将内容共置**降低大型语言模型（LLM）所需的上下文**。Intlayer 还附带一套工具，例如**用于测试缺失翻译的 CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/mcp_server.md)** 和**[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI agents 的开发者体验（DX）更加顺畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用自动化在 CI/CD 管道中进行翻译，使用您选择的 LLM，费用由您的 AI 提供商承担。Intlayer 还提供**编译器**来自动提取内容，以及一个 [web 平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)来帮助**后台翻译**。
 
 </Accordion>
-
 <Accordion header="性能">
 
 将大量 JSON 文件连接到组件可能会导致性能和响应性问题。Intlayer 在构建时优化内容加载。
 
 </Accordion>
-
 <Accordion header="与非开发人员的协作">
 
 Intlayer 不仅仅是一个 i18n 解决方案，它提供了一个**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)**和一个**[完整的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)** 来帮助您**实时**管理多语言内容，使与翻译人员、文案和其他团队成员的协作无缝进行。内容可以本地和/或远程存储。
@@ -84,7 +79,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，它提供了一个**自托管的
 以下步骤是使现有 `next-intl` 应用在 Intlayer 上运行所需的最少要求，无需更改任何代码。
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 安装 Intlayer 核心包和 `@intlayer/next-intl` 兼容性适配器：
@@ -128,7 +122,6 @@ bun add intlayer next-intlayer @intlayer/next-intl @intlayer/sync-json-plugin
 > 保持 `next-intl` 已安装 — 它仍然是 **URL 路由**（`createNavigation`、`createMiddleware`、`Link`、`redirect`、`usePathname`、`useRouter`）所必需的。兼容性适配器**不**替换路由层。
 
 </Step>
-
 <Step number={2} title="配置 Intlayer">
 
 `intlayer init` 命令创建一个启动器 `intlayer.config.ts`。更新它以匹配你现有的语言，并将 `syncJSON` 插件指向你的消息文件：
@@ -165,7 +158,6 @@ export default config;
 > 有关配置选项的完整列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="将 Intlayer 插件添加到 Next.js">
 
 使用来自 `@intlayer/next-intl/plugin` 的 `createNextIntlPlugin` 包装你现有的 Next.js 配置。此包装器组合了 `withIntlayer` **并**为你注册了 `next-intl` → `@intlayer/next-intl` 别名：
@@ -211,7 +203,6 @@ export default withIntlayer(nextConfig);
 下面的步骤是可选的，可以逐步执行。它们解锁了 Intlayer 的完整功能集：可视化编辑器、CMS、类型化内容文件、AI 驱动的翻译等。
 
 <Steps>
-
 <Step number={4} title="显式导入重命名（可选）" isOptional={true}>
 
 `createNextIntlPlugin()` 包装器已在打包工具级别处理了 `next-intl` → `@intlayer/next-intl` 别名。如果你希望在源文件中明确依赖关系（并改用纯 `withIntlayer` 插件），可以手动重命名导入：
@@ -238,7 +229,6 @@ export default withIntlayer(nextConfig);
 > 或者，你可以使用 `@intlayer/next-intl/routing` 中的 `defineRouting`，它会自动从你的 `intlayer.config.ts` 合并语言环境配置。
 
 </Step>
-
 <Step number={5} title="启用 AI 驱动的翻译自动化" isOptional={true}>
 
 Intlayer 接入后，你可以使用其 CLI 使用你选择的 LLM 自动填充缺失的翻译：

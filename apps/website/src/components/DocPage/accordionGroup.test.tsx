@@ -20,7 +20,6 @@ Intlayer is optimized to work with **Server Components**.
 > Intlayer is compatible with Next.js 12, 13, 14, 15, and 16.
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 Load only the necessary content, and [reduce](https://intlayer.org) your bundle by up to 50%.

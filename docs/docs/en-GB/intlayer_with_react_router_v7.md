@@ -1,6 +1,6 @@
 ---
 createdAt: 2025-09-04
-updatedAt: 2026-08-30
+updatedAt: 2026-08-29
 title: "React Router v7 i18n - Complete guide to translate your app"
 description: "No more i18next. The 2026 guide to building a multilingual (i18n) React Router v7 app. Translate with AI agents and optimise bundle size, SEO and performances."
 keywords:
@@ -39,11 +39,11 @@ history:
 author: aymericzip
 ---
 
-# Getting Started Internationalising (i18n) with Intlayer and React Router v7
+# Translate your React Router v7 website using Intlayer | Internationalisation (i18n)
 
 This guide demonstrates how to integrate **Intlayer** for seamless internationalisation in React Router v7 projects with locale-aware routing, TypeScript support, and modern development practices.
 
-This guide focuses on frontend routing. For fs-routes routing, refer to the [Intlayer with React Router v7 File-System Routes](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_with_react_router_v7_fs_routes.md) guide.
+It covers both **config-based routing** (`routes.ts`) and **file-system based routing** (`@react-router/fs-routes`).
 
 ## Table of Contents
 
@@ -56,53 +56,87 @@ Compared to main solutions like `react-i18next` or `i18next`, Intlayer is a solu
 <AccordionGroup>
 <Accordion header="Full React Router coverage">
 
-Intlayer is optimized to work perfectly with React Router by offering **locale-aware routing**, **middleware for locale detection**, and all the features needed for scaling internationalization (i18n).
+Intlayer is optimised to work perfectly with React Router by offering **locale-aware routing**, **middleware for locale detection**, and all the features needed for scaling internationalisation (i18n).
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 Instead of loading massive JSON files into your pages, load only the necessary content. Intlayer helps **reduce your bundle and page sizes by up to 50%**.
 
 </Accordion>
-
 <Accordion header="Maintainability">
 
 Scoping your application's content **facilitates maintenance** for large-scale applications. You can duplicate or delete a single feature folder without the mental burden of reviewing your entire content codebase. Additionally, Intlayer is **fully typed** to ensure your content's accuracy.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
-Co-locating content **reduces the context needed** by Large Language Models (LLMs). Intlayer also comes with a suite of tools, such as a **CLI** to test for missing translations,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, and **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/agent_skills.md)**, to make the developer experience (DX) even smoother for AI agents.
+Co-locating content **reduces the context needed** by Large Language Models (LLMs). Intlayer also comes with a suite of tools, such as a **CLI** to test for missing translations,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/mcp_server.md)**, and **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/agent_skills.md)**, to make the developer experience (DX) even smoother for AI agents.
 
 </Accordion>
-
 <Accordion header="Automation">
 
-Use automation to translate in your CI/CD pipeline using the LLM of your choice at the cost of your AI provider. Intlayer also offers a **compiler** to automate content extraction, as well as a [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) to help **translate in the background**.
+Use automation to translate in your CI/CD pipeline using the LLM of your choice at the cost of your AI provider. Intlayer also offers a **compiler** to automate content extraction, as well as a [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_CMS.md) to help **translate in the background**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
-Connecting massive JSON files to components can lead to performance and reactivity issues. Intlayer optimizes your content loading at build time.
+Connecting massive JSON files to components can lead to performance and reactivity issues. Intlayer optimises your content loading at build time.
 
 </Accordion>
-
 <Accordion header="Scaling with none-dev">
 
-More than just an i18n solution, Intlayer provides an **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** and a **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** to help you manage your multilingual content in **real-time**, making collaboration with translators, copywriters, and other team members seamless. Content can be stored locally and/or remotely.
+More than just an i18n solution, Intlayer provides an **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_visual_editor.md)** and a **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_CMS.md)** to help you manage your multilingual content in **real-time**, making collaboration with translators, copywriters, and other team members seamless. Content can be stored locally and/or remotely.
 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a React Router v7 Application
 
-<Steps>
+<Tabs defaultTab="video">
+  <Tab label="Video" value="video">
 
+<iframe title="How to translate an React Router v7 app using Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/dS9L7uJeak4?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
+
+  </Tab>
+  <Tab label="Code (Config-based)" value="code-config">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - How to Internationalize your application using Intlayer (Config-based)"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="Code (File-System Routes)" value="code-fs">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-fs-routes-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - How to Internationalize your application using Intlayer (File-System Routes)"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="Demo (Config-based)" value="demo">
+
+<iframe
+  src="https://intlayer-react-router-v7.vercel.app"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo Intlayer React Router v7 Template"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+</Tabs>
+
+See the [Config-Based Routing Template](https://github.com/aymericzip/intlayer-react-router-v7-template) or [File-System Routes Template](https://github.com/aymericzip/intlayer-react-router-v7-fs-routes-template) on GitHub.
+
+<Steps>
 <Step number={1} title="Install Dependencies">
 
 Install the necessary packages using your preferred package manager:
@@ -149,66 +183,16 @@ bun add vite-intlayer --dev
 
 - **intlayer**
 
-The core package that provides internationalisation tools for configuration management, translation, [content declaration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/content_file.md), transpilation, and [CLI commands](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/index.md).
+  The core package that provides internationalisation tools for configuration management, translation, [content declaration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/content_file.md), transpilation, and [CLI commands](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/index.md).
 
 - **react-intlayer**
-  The package that integrates Intlayer with a React application. It provides context providers and hooks for React internationalisation.
+  The package that integrates Intlayer with React application. It provides context providers and hooks for React internationalisation.
 
 - **vite-intlayer**
   Includes the Vite plugin for integrating Intlayer with the [Vite bundler](https://vite.dev/guide/why.html#why-bundle-for-production), as well as middleware for detecting the user's preferred locale, managing cookies, and handling URL redirection.
 
 </Step>
-
 <Step number={2} title="Configuration of your project">
-
-</Step>
-
-</Steps>
-
-## Step-by-Step Guide to Set Up Intlayer in a React Router v7 Application with File-System Routes
-
-<Tabs defaultTab="video">
-  <Tab label="Video" value="video">
-
-<iframe title="How to translate an React Router v7 app using Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/dS9L7uJeak4?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
-
-  </Tab>
-  <Tab label="Code (Config-based)" value="code-config">
-
-<iframe
-  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-template?file=intlayer.config.ts"
-  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="Demo CodeSandbox - How to Internationalize your application using Intlayer (Config-based)"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  loading="lazy"
-/>
-
-  </Tab>
-  <Tab label="Code (File-System Routes)" value="code-fs">
-
-<iframe
-  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-fs-routes-template?file=intlayer.config.ts"
-  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="Demo CodeSandbox - How to Internationalize your application using Intlayer (File-System Routes)"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  loading="lazy"
-/>
-
-  </Tab>
-  <Tab label="Demo (Config-based)" value="demo">
-
-<iframe
-  src="https://intlayer-react-router-v7.vercel.app"
-  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="Demo Intlayer React Router v7 Template"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  loading="lazy"
-/>
-
-  </Tab>
-</Tabs>
-
-See [Application Template](https://github.com/aymericzip/intlayer-react-router-v7-template) on GitHub.
 
 Create a config file to configure the languages of your application:
 
@@ -216,7 +200,7 @@ Create a config file to configure the languages of your application:
 import { type IntlayerConfig, Locales } from "intlayer";
 
 const config: IntlayerConfig = {
-  internationalization: {
+  internationalisation: {
     defaultLocale: Locales.ENGLISH,
     locales: [Locales.ENGLISH, Locales.FRENCH, Locales.SPANISH],
   },
@@ -227,8 +211,7 @@ export default config;
 
 > Through this configuration file, you can set up localised URLs, middleware redirection, cookie names, the location and extension of your content declarations, disable Intlayer logs in the console, and more. For a complete list of available parameters, refer to the [configuration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/configuration.md).
 
-<Steps>
-
+</Step>
 <Step number={3} title="Integrate Intlayer in Your Vite Configuration">
 
 Add the intlayer plugin into your configuration:
@@ -246,8 +229,10 @@ export default defineConfig({
 > The `intlayer()` Vite plugin is used to integrate Intlayer with Vite. It ensures the building of content declaration files and monitors them in development mode. It defines Intlayer environment variables within the Vite application. Additionally, it provides aliases to optimise performance.
 
 </Step>
-
 <Step number={4} title="Configure React Router v7 Routes">
+
+<Tabs group="routing-type">
+<Tab label="Config-based routing" value="config-based">
 
 Set up your routing configuration with locale-aware routes:
 
@@ -255,13 +240,37 @@ Set up your routing configuration with locale-aware routes:
 import { layout, route, type RouteConfig } from "@react-router/dev/routes";
 
 export default [
-  route("/:lang?", "routes/page.tsx"), // Localised home page
-  route("/:lang?/about", "routes/about/page.tsx"), // Localised about page
+  route("/:locale?", "routes/page.tsx"), // Localised home page
+  route("/:locale?/about", "routes/about/page.tsx"), // Localised about page
 ] satisfies RouteConfig;
 ```
 
-</Step>
+</Tab>
+<Tab label="File-system routes" value="fs-routes">
 
+Set up your routing configuration to use file-system based routes with `flatRoutes`:
+
+```typescript fileName="app/routes.ts"
+import type { RouteConfig } from "@react-router/dev/routes";
+import { flatRoutes } from "@react-router/fs-routes";
+import { configuration } from "intlayer";
+
+const routes: RouteConfig = flatRoutes({
+  // Ignore content declaration files from being treated as routes
+  ignoredRouteFiles: configuration.content.fileExtensions.map(
+    (fileExtension) => `**/*${fileExtension}`
+  ),
+});
+
+export default routes;
+```
+
+> The `flatRoutes` function from `@react-router/fs-routes` enables file-system based routing, where the file structure in the `routes/` directory determines your application's routes. The `ignoredRouteFiles` option ensures that Intlayer content declaration files (`.content.ts`, etc.) are not treated as route files.
+
+</Tab>
+</Tabs>
+
+</Step>
 <Step number={5} title="Create Layout Components">
 
 Set up your root layout and locale-specific layouts:
@@ -317,12 +326,11 @@ export function Layout({
 ```
 
 </Step>
-
 <Step number={6} title="Declare Your Content">
 
 Create and manage your content declarations to store translations:
 
-```tsx fileName="app/routes/[lang]/page.content.ts"
+```tsx fileName="app/routes/page.content.ts"
 import { t, type Dictionary } from "intlayer";
 
 const pageContent = {
@@ -354,20 +362,21 @@ const pageContent = {
 export default pageContent;
 ```
 
-> Your content declarations can be defined anywhere in your application as soon as they are included in the `contentDir` directory (by default, `./app`). And match the content declaration file extension (by default, `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}`).
+> Your content declarations can be defined anywhere in your application as soon they are included into the `contentDir` directory (by default, `./app`). And match the content declaration file extension (by default, `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}`).
+
+> Could be placed in `app/routes/($locale)._index.content.ts` in case of using file-system based routing.
 
 > For more details, refer to the [content declaration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/content_file.md).
 
 </Step>
-
 <Step number={7} title="Create Locale-Aware Components">
 
-Create a `LocalizedLink` component for locale-aware navigation:
+Create a `LocalisedLink` component for locale-aware navigation:
 
-```tsx fileName="app/components/localized-link.tsx"
+```tsx fileName="app/components/localised-link.tsx"
 import type { FC } from "react";
 
-import { getLocalizedUrl, type LocalesValues } from "intlayer";
+import { getLocalisedUrl, type LocalesValues } from "intlayer";
 import { useLocale } from "react-intlayer";
 import { Link, type LinkProps, type To } from "react-router";
 
@@ -379,7 +388,7 @@ export const locacalizeTo = (to: To, locale: LocalesValues): To => {
       return to;
     }
 
-    return getLocalizedUrl(to, locale);
+    return getLocalisedUrl(to, locale);
   }
 
   if (isExternalLink(to.pathname ?? "")) {
@@ -388,26 +397,26 @@ export const locacalizeTo = (to: To, locale: LocalesValues): To => {
 
   return {
     ...to,
-    pathname: getLocalizedUrl(to.pathname ?? "", locale),
+    pathname: getLocalisedUrl(to.pathname ?? "", locale),
   };
 };
 
-export const LocalizedLink: FC<LinkProps> = (props) => {
+export const LocalisedLink: FC<LinkProps> = (props) => {
   const { locale } = useLocale();
 
   return <Link {...props} to={locacalizeTo(props.to, locale)} />;
 };
 ```
 
-If you want to navigate to the localised routes, you can use the `useLocalizedNavigate` hook:
+In the case you want to navigate to the localised routes, you can use the `useLocalisedNavigate` hook:
 
-```tsx fileName="app/hooks/useLocalizedNavigate.ts"
+```tsx fileName="app/hooks/useLocalisedNavigate.ts"
 import { useLocale } from "react-intlayer";
 import { type NavigateOptions, type To, useNavigate } from "react-router";
 
-import { locacalizeTo } from "~/components/localized-link";
+import { locacalizeTo } from "~/components/localised-link";
 
-export const useLocalizedNavigate = () => {
+export const useLocalisedNavigate = () => {
   const navigate = useNavigate();
   const { locale } = useLocale();
 
@@ -422,12 +431,14 @@ export const useLocalizedNavigate = () => {
 ```
 
 </Step>
-
-<Step number={8} title="Utilise Intlayer in Your Pages">
+<Step number={8} title="Utilize Intlayer in Your Pages">
 
 Access your content dictionaries throughout your application:
 
 #### Localised Home Page
+
+<Tabs group="routing-type">
+<Tab label="Config-based routing" value="config-based">
 
 ```tsx fileName="app/routes/page.tsx"
 import { getIntlayer, validatePrefix } from "intlayer";
@@ -466,22 +477,74 @@ export default function Page() {
       <h1>{title}</h1>
       <p>{description}</p>
       <nav>
-        <LocalizedLink to="/about">{aboutLink}</LocalizedLink>
+        <LocalisedLink to="/about">{aboutLink}</LocalisedLink>
       </nav>
     </div>
   );
 }
 ```
 
-> To learn more about the `useIntlayer` hook, refer to the [documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/packages/react-intlayer/useIntlayer.md).
+</Tab>
+<Tab label="File-system routes" value="fs-routes">
+
+```tsx fileName="app/routes/($locale)._index.tsx"
+import { getIntlayer, validatePrefix } from "intlayer";
+import { useIntlayer } from "react-intlayer";
+import { data } from "react-router";
+
+import { LocaleSwitcher } from "~/components/locale-switcher";
+
+import { Navbar } from "~/components/navbar";
+import type { Route } from "./+types/($locale)._index";
+
+export const loader = ({ params }: Route.LoaderArgs) => {
+  const { locale } = params;
+
+  const { isValid } = validatePrefix(locale);
+
+  if (!isValid) {
+    throw data("Locale not supported", { status: 404 });
+  }
+};
+
+export const meta: Route.MetaFunction = ({ params }) => {
+  const content = getIntlayer("page", params.locale);
+
+  return [
+    { title: content.title },
+    { content: content.description, name: "description" },
+  ];
+};
+
+export default function Page() {
+  const { title, description, aboutLink } = useIntlayer("page");
+
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <nav>
+        <LocalisedLink to="/about">{aboutLink}</LocalisedLink>
+      </nav>
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
+> To Learn more about the `useIntlayer` hook, refer to the [documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/packages/react-intlayer/useIntlayer.md).
 
 > If your app already exists, you can use the [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/compiler.md), as well as the [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/extract.md), to transform thousands of components in a second.
 
 </Step>
-
 <Step number={9} title="Create a Locale Switcher Component">
 
 Create a component to allow users to change languages:
+
+<Tabs group="routing-type">
+<Tab label="Config-based routing" value="config-based">
 
 ```tsx fileName="app/components/locale-switcher.tsx"
 import type { FC } from "react";
@@ -489,18 +552,18 @@ import type { FC } from "react";
 import {
   getHTMLTextDir,
   getLocaleName,
-  getLocalizedUrl,
+  getLocalisedUrl,
   getPathWithoutLocale,
-  Locales,
+  defaultLocale,
 } from "intlayer";
-import { setLocaleInStorage, useIntlayer, useLocale } from "react-intlayer";
+import { useIntlayer, useLocale } from "react-intlayer";
 import { Link, useLocation } from "react-router";
 
 export const LocaleSwitcher: FC = () => {
   const { localeSwitcherLabel } = useIntlayer("locale-switcher");
   const { pathname } = useLocation();
 
-  const { availableLocales, locale } = useLocale();
+  const { availableLocales, locale, setLocale } = useLocale();
 
   const pathWithoutLocale = getPathWithoutLocale(pathname);
 
@@ -512,7 +575,7 @@ export const LocaleSwitcher: FC = () => {
             aria-current={localeItem === locale ? "page" : undefined}
             aria-label={`${localeSwitcherLabel.value} ${getLocaleName(localeItem)}`}
             onClick={() => setLocale(localeItem)}
-            to={getLocalizedUrl(pathWithoutLocale, localeItem)}
+            to={getLocalisedUrl(pathWithoutLocale, localeItem)}
           >
             <span>
               {/* Locale - e.g. FR */}
@@ -526,9 +589,9 @@ export const LocaleSwitcher: FC = () => {
               {/* Language in current Locale - e.g. Francés with current locale set to Locales.SPANISH */}
               {getLocaleName(localeItem)}
             </span>
-            <span dir="ltr" lang={Locales.ENGLISH}>
+            <span dir="ltr" lang={defaultLocale}>
               {/* Language in English - e.g. French */}
-              {getLocaleName(localeItem, Locales.ENGLISH)}
+              {getLocaleName(localeItem, defaultLocale)}
             </span>
           </Link>
         </li>
@@ -538,10 +601,71 @@ export const LocaleSwitcher: FC = () => {
 };
 ```
 
-> To learn more about the `useLocale` hook, refer to the [documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/packages/react-intlayer/useLocale.md).
+</Tab>
+<Tab label="File-system routes" value="fs-routes">
+
+```tsx fileName="app/components/locale-switcher.tsx"
+import type { FC } from "react";
+
+import {
+  getHTMLTextDir,
+  getLocaleName,
+  getLocalisedUrl,
+  getPathWithoutLocale,
+  defaultLocale,
+} from "intlayer";
+import { useIntlayer, useLocale } from "react-intlayer";
+import { Link, useLocation } from "react-router";
+
+export const LocaleSwitcher: FC = () => {
+  const { localeSwitcherLabel } = useIntlayer("locale-switcher");
+  const { pathname } = useLocation();
+
+  const { availableLocales, locale, setLocale } = useLocale();
+
+  const pathWithoutLocale = getPathWithoutLocale(pathname);
+
+  return (
+    <ol>
+      {availableLocales.map((localeItem) => (
+        <li key={localeItem}>
+          <Link
+            aria-current={localeItem === locale ? "page" : undefined}
+            aria-label={`${localeSwitcherLabel.value} ${getLocaleName(localeItem)}`}
+            onClick={() => setLocale(localeItem)}
+            reloadDocument // Reload the page to apply the new locale
+            to={getLocalisedUrl(pathWithoutLocale, localeItem)}
+          >
+            <span>
+              {/* Locale - e.g. FR */}
+              {localeItem}
+            </span>
+            <span>
+              {/* Language in its own Locale - e.g. Français */}
+              {getLocaleName(localeItem, locale)}
+            </span>
+            <span dir={getHTMLTextDir(localeItem)} lang={localeItem}>
+              {/* Language in current Locale - e.g. Francés with current locale set to Locales.SPANISH */}
+              {getLocaleName(localeItem)}
+            </span>
+            <span dir="ltr" lang={defaultLocale}>
+              {/* Language in English - e.g. French */}
+              {getLocaleName(localeItem, defaultLocale)}
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ol>
+  );
+};
+```
+
+</Tab>
+</Tabs>
+
+> To Learn more about the `useLocale` hook, refer to the [documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/packages/react-intlayer/useLocale.md).
 
 </Step>
-
 <Step number={10} title="Add HTML Attributes Management">
 
 Create a hook to manage HTML lang and dir attributes:
@@ -581,7 +705,6 @@ export default function RootLayout() {
 ```
 
 </Step>
-
 <Step number={11} title="Add middleware">
 
 You can also use the `intlayerProxy` to add server-side routing to your application. This plugin will automatically detect the current locale based on the URL and set the appropriate locale cookie. If no locale is specified, the plugin will determine the most appropriate locale based on the user's browser language preferences. If no locale is detected, it will redirect to the default locale.
@@ -591,14 +714,14 @@ You can also use the `intlayerProxy` to add server-side routing to your applicat
 > Since Intlayer v9, `intlayerProxy()` is bundled directly into the `intlayer()` plugin and enabled by default through the `routing.enableProxy` option (`true` by default). Registering it separately as shown below is now optional — it is kept for backward compatibility and for setups that need to control plugin order. Set `routing.enableProxy: false` to opt out. See the [v9 release notes](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/releases/v9.md).
 
 ```typescript {3,7} fileName="vite.config.ts"
-import { reactRouter } from "@react-router/dev/vite";
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 import { intlayer } from "vite-intlayer";
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    reactRouter(),
-
+    react(),
     intlayer({
       proxy: {
         ignore: (req) => req.url?.startsWith("/api"),
@@ -609,12 +732,11 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={12} title="Extract the content of your components" isOptional={true}>
 
 If you have an existing codebase, transforming thousands of files can be time-consuming.
 
-To ease this process, Intlayer proposes a [compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/compiler.md) / [extractor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/extract.md) to transform your components and extract the content.
+To ease this process, Intlayer propose a [compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/compiler.md) / [extractor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/extract.md) to transform your components and extract the content.
 
 To set it up, you can add a `compiler` section in your `intlayer.config.ts` file:
 
@@ -718,7 +840,7 @@ bun run build # Or bun run dev
 
 ## Configure TypeScript
 
-Intlayer uses module augmentation to benefit from TypeScript and strengthen your codebase.
+Intlayer uses module augmentation to get benefits of TypeScript and make your codebase stronger.
 
 Ensure your TypeScript configuration includes the autogenerated types:
 
@@ -732,11 +854,9 @@ Ensure your TypeScript configuration includes the autogenerated types:
 }
 ```
 
----
-
 ## Git Configuration
 
-It is recommended to ignore the files generated by Intlayer. This prevents you from committing them to your Git repository.
+It is recommended to ignore the files generated by Intlayer. This allows you to avoid committing them to your Git repository.
 
 To do this, you can add the following instructions to your `.gitignore` file:
 
@@ -745,11 +865,9 @@ To do this, you can add the following instructions to your `.gitignore` file:
 .intlayer
 ```
 
----
-
 ## VS Code Extension
 
-To enhance your development experience with Intlayer, you can install the official **Intlayer VS Code Extension**.
+To improve your development experience with Intlayer, you can install the official **Intlayer VS Code Extension**.
 
 [Install from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
 
@@ -762,13 +880,9 @@ This extension provides:
 
 For more details on how to use the extension, refer to the [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Go Further
 
 To go further, you can implement the [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_visual_editor.md) or externalise your content using the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_CMS.md).
-
----
 
 ## Documentation References
 
@@ -779,7 +893,7 @@ To go further, you can implement the [visual editor](https://github.com/aymericz
 - [Content Declaration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/content_file.md)
 - [Configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/configuration.md)
 
-This comprehensive guide provides everything you need to integrate Intlayer with React Router v7 for a fully internationalised application with locale-aware routing and TypeScript support.
+This comprehensive guide provides everything you need to integrate Intlayer with React Router v7 for a fully internationalized application with locale-aware routing and TypeScript support.
 
 ## Frequently Asked Questions
 
@@ -791,40 +905,35 @@ React Router v7 ships no message layer, so you pair it with an i18n library:
 
 - **`react-i18next` / `i18next`**: JSON namespaces loaded at runtime, with a separate locale detector to wire into the router.
 - **`react-intl`** and **`Lingui`**: ICU messages with an extraction step.
-- **`Intlayer`**: the most advanced solution. Content declared anywhere in your codebase ([next to each component or centralized](https://intlayer.org/blog/per-component-vs-centralized-i18n)), compiled at build time, typed end to end, with locale aware routing helpers, AI translation, a visual editor and a CMS.
+- **`Intlayer`**: the most advanced solution. Content declared anywhere in your codebase ([next to each component or centralised](https://intlayer.org/blog/per-component-vs-centralised-i18n)), compiled at build time, typed end to end, with locale aware routing helpers, AI translation, a visual editor and a CMS.
 
 See [why Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/interest_of_intlayer.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/benchmark/index.md).
 
 </Question>
-
 <Question title="How much does i18n add to my React Router bundle size?">
 
-Much less than a namespace based setup, because a page never downloads a catalogue it does not render. Server rendered markup resolves its content on the server, and the build time compiler replaces `useIntlayer` calls with the exact dictionary entries a component uses, so unused keys and unused languages are dropped, and [dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dynamic_dictionaries/index.md) split the rest per locale. Measured against the usual alternatives, Intlayer reduces bundle and page size by up to 50%. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/bundle_optimization.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/benchmark/index.md).
+Much less than a namespace based setup, because a page never downloads a catalog it does not render. Server rendered markup resolves its content on the server, and the build time compiler replaces `useIntlayer` calls with the exact dictionary entries a component uses, so unused keys and unused languages are dropped, and [dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dynamic_dictionaries/index.md) split the rest per locale. Measured against the usual alternatives, Intlayer reduces bundle and page size by up to 50%. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/bundle_optimization.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/benchmark/index.md).
 
 </Question>
-
 <Question title="Can I migrate from `react-i18next` or `react-intl` without rewriting my components?">
 
 Yes, and there are two paths. You can migrate the content progressively with the [react-i18next migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/migration_from_react-i18next_to_intlayer.md) or the [i18next migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/migration_from_i18next_to_intlayer.md). Or you can keep your current API entirely: the [compat adapters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/compat/index.md) expose the exact same API as `react-i18next`, `react-intl` and `i18next`, but served by Intlayer dictionaries, so imports change and component code does not.
 
 </Question>
-
 <Question title="Can I keep my existing JSON translation files?">
 
-Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-po.md) does the same for gettext catalogues, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/per_locale_file.md) let you split content by language instead of grouping locales in one file.
+Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-po.md) does the same for gettext catalogs, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/per_locale_file.md) let you split content by language instead of grouping locales in one file.
 
 </Question>
-
 <Question title="Do I have to move my content key by key?">
 
-No. Run `npx intlayer extract` and Intlayer reads your components, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalogue one at a time. Step 12 of this guide walks through it.
+No. Run `npx intlayer extract` and Intlayer reads your components, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalog one at a time. Step 12 of this guide walks through it.
 
 For a fully automated pipeline, the [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/compiler.md) does the same at build time: it scans your JSX, TSX, Vue and Svelte source on every change, generates the dictionaries and keeps them in sync through hot module replacement, so there are no keys to maintain by hand at all.
 
 Two limits are worth knowing before you turn the compiler on. It works by static analysis, so strings that only exist at runtime, such as API error codes or CMS fields, stay out of reach. And it has to tell user facing text apart from application logic like `className="active"` or a status code, which needs a few annotations in a large codebase. The [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/extract.md) avoids both by keeping you in the loop.
 
 </Question>
-
 <Question title="What editor and AI agent tooling is available?">
 
 Five pieces, all optional:
@@ -836,58 +945,49 @@ Five pieces, all optional:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/eslint.md)**: `no-raw-text` flags hardcoded strings, with further rules for static dictionary keys and unused content.
 
 </Question>
-
 <Question title="How do I add a locale segment to my routes?">
 
-Declare a `:locale` segment on your route tree and let Intlayer resolve it. `validatePrefix` tells you whether the segment is a declared locale, so an unknown prefix returns a 404 instead of rendering a duplicate page, and `getLocalizedUrl` rewrites any path into the target language. If you use file system routes, follow the [file system routes variant](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_with_react_router_v7_fs_routes.md) of this guide.
+Declare a `:locale` segment on your route tree and let Intlayer resolve it. `validatePrefix` tells you whether the segment is a declared locale, so an unknown prefix returns a 404 instead of rendering a duplicate page, and `getLocalisedUrl` rewrites any path into the target language. If you use file system routes, prepend the `($locale)` dynamic segment in your route filenames.
 
 </Question>
-
 <Question title="Do I have to put the locale in the URL?">
 
 No. `routing.mode` accepts `"prefix-no-default"` (the default), `"prefix-all"`, `"no-prefix"` and `"search-params"`, and `routing.domains` maps a locale to its own domain. The locale is persisted in a cookie either way. See the [configuration reference](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/configuration.md).
 
 </Question>
-
 <Question title="Does it work with React Router in framework mode, with SSR and loaders?">
 
-Yes. Content resolves during server rendering, and the active locale is available in loaders and actions, so server data can be localized in the same pass as the page. Client navigation keeps the locale without a full reload.
+Yes. Content resolves during server rendering, and the active locale is available in loaders and actions, so server data can be localised in the same pass as the page. Client navigation keeps the locale without a full reload.
 
 </Question>
-
 <Question title="How do I add hreflang tags for SEO?">
 
-Build the alternates map with `getMultilingualUrls` and emit it from your route `meta` or `links` export, including an `x-default` entry. The same helper feeds a localized `sitemap.xml`.
+Build the alternates map with `getMultilingualUrls` and emit it from your route `meta` or `links` export, including an `x-default` entry. The same helper feeds a localised `sitemap.xml`.
 
 </Question>
-
 <Question title="How do I build a language switcher that stays on the current page?">
 
-Use `useLocale` for the active and available locales, and `getLocalizedUrl` to translate the current path into the target locale. The user stays on the same route instead of being sent back to the home page, which also avoids losing scroll position and query parameters.
+Use `useLocale` for the active and available locales, and `getLocalisedUrl` to translate the current path into the target locale. The user stays on the same route instead of being sent back to the home page, which also avoids losing scroll position and query parameters.
 
 </Question>
-
 <Question title="How do I translate the app automatically with AI?">
 
 Run `npx intlayer fill`, which fills missing translations with the LLM of your choice using your own provider and API key. See the [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/fill.md) and [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/CI_CD.md).
 
 </Question>
-
 <Question title="Does Intlayer support plurals, gender and rich text?">
 
 Yes: [plural forms](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/plurial.md), [gender based content](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/gender.md), conditions, [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/markdown.md), and [formatters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/formatters.md) for numbers, dates and currencies.
 
 </Question>
-
 <Question title="How can translators edit the content without touching the code?">
 
-Through the self hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_visual_editor.md) or the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_CMS.md), which externalizes content so it can change without a deployment.
+Through the self hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_visual_editor.md) or the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_CMS.md), which externalises content so it can change without a deployment.
 
 </Question>
-
 <Question title="Is Intlayer free and open source?">
 
-Yes, under the Apache 2.0 licence, commercial use included. The hosted CMS is an optional paid service that can also be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/self_hosting.md).
+Yes, under the Apache 2.0 license, commercial use included. The hosted CMS is an optional paid service that can also be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/self_hosting.md).
 
 </Question>
 

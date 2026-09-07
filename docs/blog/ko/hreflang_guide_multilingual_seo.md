@@ -144,7 +144,6 @@ getLocalizedUrl("https://example.com/about", "fr"); // → "https://example.com/
 이러한 태그를 수동으로 작성하면 두 번째 locale과의 접촉에서 유지되지 않습니다. 대신 locale 목록에서 파생시키세요.
 
 <Steps>
-
 <Step number={1} title="모든 페이지에서 cluster 내보내기">
 
 모든 곳에서 동일한 set, locale별 canonical, 절대 URL, `x-default` 포함.
@@ -233,7 +232,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="또는 모든 것을 sitemap으로 이동">
 
 규모가 커지면 페이지에서 주석을 완전히 제거하세요. `generateSitemap`은 config에서 로케일과 라우팅 모드를 읽어 항목마다 `xhtml:link` alternates를 생성합니다:
@@ -256,7 +254,6 @@ const sitemap = generateSitemap(
 - `entryPerLocale` (기본값 `false`) — 기본적으로 하나의 `<url>` 항목이 모든 대체 언어를 포함합니다. 두 형식 모두 유효하지만, `<loc>`으로 나열된 URL만 Search Console에서 _제출됨_으로 계산되며, 대체 언어 전용 locale은 발견 가능하지만 sitemap에 속하지 않습니다. 이 옵션을 켜면 모든 지역화된 URL이 자체 항목을 가지고 전체 대체 언어 세트가 반복됩니다. 이렇게 하면 항목 수가 locale 수만큼 증가하므로 50,000 URL / 50 MB 제한을 주의하고, 초과하면 sitemap 인덱스로 분할하세요.
 
 </Step>
-
 <Step number={3} title="crawler가 수신하는 내용 확인">
 
 `hreflang`은 조용히 실패하므로, 가정하지 말고 확인하세요.

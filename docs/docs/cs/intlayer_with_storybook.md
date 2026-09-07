@@ -57,7 +57,6 @@ Storybook je standardní nástroj pro vývoj a dokumentaci UI komponent v izolac
 <Tab value="Vite Setup">
 
 <Steps>
-
 <Step number={1} title="Instalace závislostí">
 
 ```bash packageManager="npm"
@@ -87,7 +86,6 @@ bun add vite-intlayer --dev
 | `vite-intlayer`  | Vite plugin - sleduje a kompiluje soubory deklarace obsahu |
 
 </Step>
-
 <Step number={2} title="Vytvoření konfigurace Intlayer">
 
 Vytvořte `intlayer.config.ts` v kořenovém adresáři vašeho projektu (nebo uvnitř vašeho design-system balíčku):
@@ -116,7 +114,6 @@ export default config;
 > Úplný seznam možností naleznete v [referenci konfigurace](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/configuration.md).
 
 </Step>
-
 <Step number={3} title="Přidání Vite pluginu do Storybooku">
 
 Hook `viteFinal` ve Storybooku vám umožní rozšířit interní konfiguraci Vite. Zde importujte a přidejte plugin `intlayer()`:
@@ -163,7 +160,6 @@ export default config;
 Plugin `intlayer()` sleduje vaše soubory `*.content.ts` a automaticky znovu sestavuje slovníky, kdykoliv se během vývoje ve Storybooku změní.
 
 </Step>
-
 <Step number={4} title="Přidání dekorátoru `IntlayerProvider` a nástrojové lišty jazyků">
 
 Soubor `preview` ve Storybooku je správným místem pro obalení každého příběhu (story) pomocí `IntlayerProvider` a vystavení přepínače jazyků v nástrojové liště:
@@ -223,7 +219,6 @@ export default preview;
 </Tab>
 <Tab value="Webpack Setup">
 <Steps>
-
 <Step number={1} title="Instalace závislostí">
 
 ```bash packageManager="npm"
@@ -247,7 +242,6 @@ bun add @intlayer/webpack --dev
 ```
 
 </Step>
-
 <Step number={2} title="Vytvoření konfigurace Intlayer">
 
 Vytvořte `intlayer.config.ts` v kořenovém adresáři vašeho projektu:
@@ -269,7 +263,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Konfigurace Webpacku pro Storybook">
 
 U Storybooků založených na Webpacku (např. `@storybook/react-webpack5`) rozšiřte konfiguraci webpacku přes `webpackFinal` a přidejte Intlayer aliasy a loader:
@@ -296,7 +289,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={4} title="Přidání dekorátoru `IntlayerProvider` a nástrojové lišty jazyků">
 
 Stejné jako u nastavení Vite - přidejte dekorátor a globální typ lokality v `.storybook/preview.tsx`:

@@ -334,19 +334,16 @@ Si estás listo para configurar cada parte de tu aplicación en detalle, incluye
 Sí. Puedes usar `npx intlayer extract` para detectar y extraer automáticamente cadenas hardcodeadas en declaraciones de contenido localizadas, o utilizar el compilador Intlayer para transformar componentes en tiempo de compilación manteniendo tu JSX habitual.
 
 </Question>
-
 <Question title="¿Cómo reduce Intlayer el tamaño del bundle en Vite en comparación con react-i18next o react-intl?">
 
 Intlayer utiliza definiciones de diccionario por componente y optimización por macros en tiempo de compilación. Tus bundles solo reciben los campos exactos requeridos por los componentes mostrados en pantalla, en lugar de importar archivos JSON completos. Además, los diccionarios dinámicos permiten cargar idiomas bajo demanda.
 
 </Question>
-
 <Question title="¿Puedo usar IA para traducir mis componentes existentes a múltiples idiomas?">
 
 Sí. La CLI de Intlayer incluye el comando `npx intlayer fill`, que se conecta a tu proveedor de IA preferido (OpenAI, Anthropic, Mistral, DeepSeek) para generar traducciones contextuales para todos los idiomas configurados.
 
 </Question>
-
 <Question title="¿Puedo migrar desde react-i18next o react-intl sin reescribir mis componentes?">
 
 Sí. Intlayer ofrece adaptadores de compatibilidad para `react-i18next` y `react-intl`, así como plugins para sincronizar archivos JSON existentes (`sync-json`).

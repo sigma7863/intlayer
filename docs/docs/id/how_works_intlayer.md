@@ -265,25 +265,21 @@ Paket `@intlayer/backend` mengekspor tipe backend dan pada akhirnya akan menawar
 Saat build time. Plugin Intlayer memindai file `.content.ts`, mengompilasinya menjadi kamus teroptimasi, dan menulisnya ke folder `.intlayer`. Di lingkungan pengembangan, proses ini berjalan otomatis setiap kali Anda menyimpan file.
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle saya?">
 
 Jauh lebih sedikit daripada pengaturan berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Markup yang dirender di server menyelesaikan kontennya di server, dan kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen, sehingga kunci dan bahasa yang tidak digunakan dibuang. [Kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale. Dibandingkan dengan alternatif konvensional, Intlayer mengurangi ukuran bundle dan halaman hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari i18next, next-intl atau react-i18next tanpa menulis ulang komponen saya?">
 
 Ya, dan ada dua jalur. Anda dapat memigrasikan konten secara bertahap dengan [panduan migrasi i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_i18next_to_intlayer.md) atau [panduan migrasi next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_next-intl_to_intlayer.md). Atau Anda dapat mempertahankan API Anda saat ini sepenuhnya: [adapter kompatibilitas](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/compat/index.md) mengekspos API yang sama persis dengan `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` dan `Lingui`, tetapi ditenagai oleh kamus Intlayer, sehingga hanya import yang berubah dan kode komponen tetap sama.
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file sumber Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu. Lihat [perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md).
@@ -291,7 +287,6 @@ Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file sumber Anda, me
 Untuk alur kerja yang sepenuhnya otomatis, [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/compiler.md) melakukan hal yang sama saat build time pada kode JSX, TSX, Vue dan Svelte, menghasilkan kamus pada setiap perubahan sehingga tidak ada kunci yang perlu dikelola secara manual. Karena bekerja melalui analisis statis, string yang hanya ada di runtime berada di luar jangkauannya.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -303,43 +298,36 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Apa itu folder .intlayer dan haruskah saya meng-commit-nya ke git?">
 
 Folder tersebut adalah output yang dihasilkan: kamus yang dikompilasi dan tipe TypeScript yang dibuat. Folder ini sepenuhnya dihasilkan dari file konten Anda, sehingga harus ditambahkan ke `.gitignore` dan dibuat ulang di CI/CD melalui `intlayer build`.
 
 </Question>
-
 <Question title="Bagaimana locale aktif ditentukan?">
 
 Dari sumber yang tercantum dalam `routing.storage`, secara berurutan: prefix URL, cookie, header `Accept-Language`, dan bahasa default.
 
 </Question>
-
 <Question title="Apa perbedaan antara kamus lokal dan jarak jauh (remote)?">
 
 Kamus lokal dideklarasikan di codebase Anda dan dikompilasi bersama aplikasi. Kamus remote dikelola di CMS dan diambil melalui API, memungkinkan pembaruan teks tanpa perlu deploy ulang kode aplikasi.
 
 </Question>
-
 <Question title="Apakah Intlayer bekerja tanpa TypeScript?">
 
 Ya. File konten dapat ditulis dalam TypeScript, JavaScript, ESM, CommonJS, atau JSON. Namun, TypeScript membuka manfaat pengetikan otomatis dan autocompletion kunci di editor Anda.
 
 </Question>
-
 <Question title="Bagaimana server rendering dan client rendering berbagi konten yang sama?">
 
 Server menyelesaikan konten komponen yang dirender di server secara langsung, sehingga tidak ada kamus yang dikirim ke klien untuk komponen tersebut. Komponen klien hanya menerima kamus yang diperlukan untuk interaktivitas di browser.
 
 </Question>
-
 <Question title="Bagaimana Intlayer menghindari hydration mismatch terkait bahasa?">
 
 Bahasa diselesaikan satu kali di server dan diteruskan ke provider klien, bukan dideteksi ulang di browser, sehingga output HTML server dan klien cocok secara identik.
 
 </Question>
-
 <Question title="Apakah saya perlu me-rebuild saat menambahkan terjemahan?">
 
 Di lingkungan dev tidak: plugin memantau file dan memperbarui kamus secara instan. Di produksi ya: kamus lokal dikompilasi ke dalam bundle aplikasi saat langkah build.

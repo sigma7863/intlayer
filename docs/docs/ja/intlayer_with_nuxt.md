@@ -46,37 +46,31 @@ author: aymericzip
 Intlayer は、**多言語ルーティング**、**ロケール検出用のミドルウェア**、**サイトマップ**、および国際化のスケーリング (i18n) に必要なすべての機能を提供することにより、Nuxt と完全に連携するように最適化されています。
 
 </Accordion>
-
 <Accordion header="バンドルサイズ">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
-
 <Accordion header="オートメーション">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) も提供します。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
 
 </Accordion>
-
 <Accordion header="Scaling with none-dev">
 
 Intlayer は単なる i18n ソリューションではなく、**自己ホスト型 [ビジュアル エディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** と **[完全な CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** を提供します。 **リアルタイム**で多言語コンテンツを管理できるようになり、翻訳者、コピーライター、その他のチーム メンバーとのコラボレーションがシームレスになります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -119,7 +113,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 GitHubの[アプリケーションテンプレート](https://github.com/aymericzip/intlayer-nuxt-4-template)を参照してください。
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 npmを使って必要なパッケージをインストールします:
@@ -175,7 +168,6 @@ bun add --dev nuxt-intlayer
   NuxtアプリケーションとIntlayerを統合するNuxtモジュールです。自動セットアップ、ロケール検出のためのミドルウェア、クッキー管理、URLリダイレクトを提供します。
 
 </Step>
-
 <Step number={2} title="プロジェクトの設定">
 
 アプリケーションの言語を設定するための設定ファイルを作成します。
@@ -201,7 +193,6 @@ export default config;
 > この設定ファイルを通じて、ローカライズされたURL、ミドルウェアのリダイレクション、クッキー名、コンテンツ宣言の場所と拡張子、Intlayerのコンソールログの無効化などを設定できます。利用可能なパラメータの完全なリストについては、[設定ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Step>
-
 <Step number={3} title="Nuxt設定にIntlayerを統合する">
 
 Nuxtの設定にintlayerモジュールを追加します:
@@ -218,7 +209,6 @@ export default defineNuxtConfig({
 > `nuxt-intlayer` モジュールは、Intlayer と Nuxt の統合を自動的に処理します。コンテンツ宣言のビルドを設定し、開発モードでファイルを監視し、ロケール検出のためのミドルウェアを提供し、ローカライズされたルーティングを管理します。
 
 </Step>
-
 <Step number={4} title="コンテンツを宣言する">
 
 翻訳を格納するためのコンテンツ宣言を作成および管理します：
@@ -255,7 +245,6 @@ export default content;
 > 詳細については、[コンテンツ宣言ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md)を参照してください。
 
 </Step>
-
 <Step number={5} title="コード内でIntlayerを利用する">
 
 `useIntlayer`コンポーザブルを使って、Nuxtアプリケーション全体でコンテンツ辞書にアクセスします:
@@ -326,7 +315,6 @@ IntlayerはコンテンツにアクセスするためのさまざまなAPIを提
   - または、`const { myContent } = useIntlayer("myContent");` を使用してコンテンツを分割代入し、`{{ myContent }}` / `<myContent/>` としてレンダリングします。
 
 </Step>
-
 <Step number={6} title="コンテンツの言語を変更する">
 
 コンテンツの言語を変更するには、`useLocale` コンポーザブルが提供する `setLocale` 関数を使用します。この関数により、アプリケーションのロケールを設定し、それに応じてコンテンツを更新できます。
@@ -372,7 +360,6 @@ const { locale, availableLocales, setLocale } = useLocale();
 ```
 
 </Step>
-
 <Step number={7} title="アプリケーションにローカライズされたルーティングを追加する">
 
 `nuxt-intlayer` モジュールを使用すると、Nuxtはローカライズされたルーティングを自動的に処理します。これは、ページのディレクトリ構造に基づいて各言語のルートを自動的に作成します。
@@ -448,7 +435,6 @@ useHead({
 - ユーザーを適切なローカライズされた URL にリダイレクト
 
 </Step>
-
 <Step number={8} title="ローカライズされたリンクコンポーネントの作成">
 
 アプリケーションのナビゲーションが現在のロケールを尊重するようにするために、カスタムの `Links` コンポーネントを作成できます。このコンポーネントは内部URLに自動的に現在の言語をプレフィックスとして付加し、これは**SEOおよびページの発見性**に不可欠です。
@@ -518,7 +504,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 > - ブラウザの履歴がロケール接頭辞付きURLで正しく動作する
 
 </Step>
-
 <Step number={9} title="メタデータとSEOの処理">
 
 Nuxtは `useHead` コンポーザブル（自動インポート）を通じて優れたSEO機能を提供します。Intlayerを使って、`.raw` または `.value` アクセサを用いてプリミティブな文字列値を取得し、ローカライズされたメタデータを扱うことができます：
@@ -621,7 +606,6 @@ export default aboutPageContent;
 ```
 
 </Step>
-
 <Step number="6b" title="ナビゲーション付きレイアウトの作成" isOptional={true}>
 
 Nuxtのレイアウトを使うと、ページの共通構造を定義できます。ロケールスイッチャーとナビゲーションを含むデフォルトレイアウトを作成しましょう：
@@ -697,25 +681,21 @@ Intlayerでの開発体験を向上させるために、公式の**Intlayer VS C
 違いはコンテンツがどこに存在するかです。`@nuxtjs/i18n` は `locales/*.json` ファイルに集約しますが、Intlayer はそれをレンダリングするコンポーネントの隣に配置するため、ページはそれが使用するエントリのみを配信し、機能フォルダは 1 つの単位で移動または削除できます。[Intlayer を選ぶ理由](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/interest_of_intlayer.md)と [Vue i18n ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/vue.md)を参照してください。
 
 </Question>
-
 <Question title="i18n は Nuxt バンドルサイズにどの程度追加されますか？">
 
 ネームスペースベースのセットアップよりもはるかに少なくなります。ページはレンダリングしないカタログをダウンロードしないためです。サーバーレンダリングされたマークアップはサーバー上でコンテンツを解決し、ビルド時コンパイラは `useIntlayer` 呼び出しをコンポーネントが使用する正確な辞書エントリに置き換えるため、未使用のキーと未使用の言語は削除され、[動的辞書](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md)は残りをロケールごとに分割します。通常の代替案と比較すると、Intlayer はバンドルとページサイズを最大 50% 削減します。[バンドル最適化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/bundle_optimization.md)と[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/vue.md)を参照してください。
 
 </Question>
-
 <Question title="`@nuxtjs/i18n` または `vue-i18n` からコンポーネントを書き直さずに移行できますか？">
 
 はい、2 つのパスがあります。[@nuxtjs/i18n 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/migration_from_nuxtjs_i18n_to_intlayer.md)でコンテンツを段階的に移行できます。または、現在の API を完全に保つことができます：[互換性アダプタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compat/index.md)は `vue-i18n` と同じ API を公開しますが、Intlayer 辞書によって提供されるため、インポートは変わりますがコンポーネントコードは変わりません。
 
 </Question>
-
 <Question title="既存の JSON 翻訳ファイルを保持できますか？">
 
 はい。[sync JSON プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は `/messages/{locale}/{namespace}.json` ファイルを信頼できるソースとして保持し、双方向で Intlayer 辞書を生成します。[sync PO プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-po.md)は gettext カタログに対して同じことを行い、[ロケールごとのファイル](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/per_locale_file.md)では 1 つのファイルにロケールをグループ化する代わりに言語別にコンテンツを分割できます。
 
 </Question>
-
 <Question title="コンテンツをキーごとに移動する必要がありますか？">
 
 いいえ。`npx intlayer extract` を実行すると、Intlayer はソースファイルを読み取り、ユーザーに見える文字列を抽出し、各ファイルの隣に `.content` ファイルを書き込むため、カタログに 1 つずつ文字列をコピーする代わりに diff をレビューします。[extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)を参照してください。
@@ -723,7 +703,6 @@ Intlayerでの開発体験を向上させるために、公式の**Intlayer VS C
 完全に自動化されたパイプラインの場合、[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compiler.md) は JSX、TSX、Vue、Svelte ソース上でビルド時に同じことを行い、変更のたびに辞書を生成するため、手動で保守するキーはありません。静的分析によって機能するため、実行時にのみ存在する文字列は到達不可能なままで、ユーザーに見えるテキストをアプリケーションロジックから区別するために少数のアノテーションが必要です。
 
 </Question>
-
 <Question title="利用可能なエディタと AI エージェントツーリングは何ですか？">
 
 5 つのピース、すべてオプションです：
@@ -735,49 +714,41 @@ Intlayerでの開発体験を向上させるために、公式の**Intlayer VS C
 - **[ESLint プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/eslint.md)**: `no-raw-text` はハードコードされた文字列にフラグを立て、静的辞書キーと未使用コンテンツのさらなるルールがあります。
 
 </Question>
-
 <Question title="Intlayer は Nuxt サーバーサイドレンダリングと静的生成で機能しますか？">
 
 はい。コンテンツは SSR 中および `nuxt generate` 中に解決されるため、事前レンダリングされたページはクライアント上でカタログをフェッチするのではなく、翻訳されたマークアップを含みます。`nuxt-intlayer` モジュールはプロバイダーとロケール検出を配線します。
 
 </Question>
-
 <Question title="ロケールを URL に入れる必要がありますか？">
 
 いいえ。`routing.mode` は `"prefix-no-default"`（デフォルト、`/about` と `/fr/about`）、`"prefix-all"`、`"no-prefix"`、`"search-params"` を受け入れ、`routing.domains` は各ロケールを独自のドメインにマップします。[設定リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Question>
-
 <Question title="Nuxt で SEO メタデータと hreflang タグを処理するにはどうすればよいですか？">
 
 このガイドのステップ 9 でカバーされています。ローカライズされた `useHead` メタデータは辞書から取得され、`getMultilingualUrls` はすべての宣言されたロケール（`x-default` を含む）の `hreflang` 代替を構築し、これはローカライズされたサイトマップにも供給されます。
 
 </Question>
-
 <Question title="現在のページを保持するロケール切り替え機能を構築するにはどうすればよいですか？">
 
 アクティブで利用可能なロケールに `useLocale` を使用し、ステップ 8 からのローカライズされたリンクコンポーネントを使用してナビゲーションが現在の言語に留まるようにします。`getLocalizedUrl` は現在のパスをターゲットロケールに書き直すため、言語を切り替えると読者は同じルートに留まります。
 
 </Question>
-
 <Question title="Nuxt アプリを AI で自動的に翻訳するにはどうすればよいですか？">
 
 `npx intlayer fill` を実行します。不足している翻訳は、選択した LLM を使用して独自のプロバイダーと API キーで入力され、`--git-diff` は実行をブランチで変更されたコンテンツに制限します。[fill コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/fill.md)と [CI/CD 統合](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/CI_CD.md)を参照してください。
 
 </Question>
-
 <Question title="Intlayer は Vue テンプレートで複数形、性別、リッチテキストをサポートしていますか？">
 
 はい：[複数形](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/plurial.md)、[性別ベースのコンテンツ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/gender.md)、条件、[挿入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/insertion.md)、[Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/markdown.md)、および数値、日付、通貨の[フォーマッタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/formatters.md)。
 
 </Question>
-
 <Question title="翻訳者がコードに触れずにコンテンツを編集するにはどうすればよいですか？">
 
 [ビジュアルエディタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)を通じて、独自のインフラストラクチャで実行され、誰でも実行中のアプリ上でテキストをその場で編集できます。または、[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)を通じて、コンテンツを外部化してデプロイメントなしで変更できます。
 
 </Question>
-
 <Question title="Intlayer は無料でオープンソースですか？">
 
 はい、Apache 2.0 ライセンスの下で、商用利用を含みます。ホストされた CMS はオプションの有料サービスで、[自己ホスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md)することもできます。

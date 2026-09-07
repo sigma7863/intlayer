@@ -107,7 +107,6 @@ author: aymericzip
 ```
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 npmを使って必要なパッケージをインストールします：
@@ -127,7 +126,6 @@ yarn add next-intl
 - **next-intl**: Next.js App Router向けのコア国際化ライブラリで、翻訳管理のためのフック、サーバー関数、クライアントプロバイダーを提供します。
 
 </Step>
-
 <Step number={2} title="プロジェクトの設定">
 
 サポートするロケールを定義し、next-intlのリクエスト設定を行う設定ファイルを作成します。このファイルはi18n設定の単一の信頼できる情報源として機能し、アプリケーション全体で型安全性を保証します。
@@ -213,7 +211,6 @@ export const proxy = createMiddleware(routingOptions);
 ```
 
 </Step>
-
 <Step number={3} title="動的ロケールルートの定義">
 
 ロケールごとの動的ルーティングを設定するために、アプリフォルダ内に `[locale]` ディレクトリを作成します。これにより、Next.js はロケールベースのルーティングを処理でき、各ロケールが URL セグメント（例：`/en/about`、`/fr/about`）になります。
@@ -304,7 +301,6 @@ export default async function AboutPage({
 ```
 
 </Step>
-
 <Step number={4} title="翻訳ファイルを作成する">
 
 各ロケールと名前空間ごとにJSONファイルを作成します。この構造により、翻訳を論理的に整理し、各ページに必要なものだけを読み込むことができます。
@@ -366,7 +362,6 @@ export default async function AboutPage({
 </Tabs>
 
 </Step>
-
 <Step number={5} title="ページで翻訳を利用する">
 
 サーバーで翻訳を読み込み、それをサーバーコンポーネントとクライアントコンポーネントの両方に渡すページコンポーネントを作成します。これにより、レンダリング前に翻訳が読み込まれ、コンテンツのフラッシュを防止します。
@@ -419,7 +414,6 @@ export default async function AboutPage({
 ```
 
 </Step>
-
 <Step number={6} title="クライアントコンポーネントでの翻訳の使用">
 
 クライアントコンポーネントは、`useTranslations` と `useFormatter` フックを使用して翻訳およびフォーマット関数にアクセスできます。これらのフックは `NextIntlClientProvider` コンテキストから読み取ります。
@@ -457,7 +451,6 @@ const ClientComponent = () => {
 ```
 
 </Step>
-
 <Step number={7} title="サーバーコンポーネントでの翻訳の使用">
 
 サーバーコンポーネントは React フックを使用できないため、親コンポーネントから props 経由で翻訳とフォーマッターを受け取ります。この方法により、サーバーコンポーネントは同期的に保たれ、クライアントコンポーネント内にネストすることが可能になります。
@@ -491,7 +484,6 @@ const ServerComponent = ({
 > ページやレイアウト内で、`next-intl/server` から `getTranslations` と `getFormatter` を使用して翻訳とフォーマットを事前計算し、それらを props としてサーバーコンポーネントに渡してください。
 
 </Step>
-
 <Step number={8} title="コンテンツの言語を変更する" isOptional={true}>
 
 next-intl を使ってコンテンツの言語を変更するには、同じパス名を指しながらロケールを切り替えるロケール対応リンクをレンダリングします。プロバイダーが URL を自動的に書き換えるため、現在のルートをターゲットにするだけで済みます。
@@ -565,7 +557,6 @@ export default function LocaleSwitcher() {
 ```
 
 </Step>
-
 <Step number={9} title="ローカライズされたLinkコンポーネントを使用する" isOptional={true}>
 
 `next-intl`は、アクティブなロケールを自動的に適用するローカライズされたリンクコンポーネントを含むサブパッケージ`next-intl/navigation`を提供しています。これはすでに`@/i18n`ファイルで抽出してあるので、以下のように使用できます。
@@ -577,7 +568,6 @@ return <Link href="/about">t("about.title")</Link>;
 ```
 
 </Step>
-
 <Step number={10} title="Server Actions内でアクティブなロケールにアクセスする" isOptional={true}>
 
 Server Actionsは`next-intl/server`を使用して現在のロケールを読み取ることができます。これはローカライズされたメールを送信したり、送信されたデータと共に言語設定を保存したりするのに便利です。
@@ -602,7 +592,6 @@ export async function handleContactForm(formData: FormData) {
 > `getLocale` は `next-intl` プロキシによって設定されたロケールを読み取るため、サーバーのどこでも動作します：ルートハンドラー、サーバーアクション、およびエッジ関数。
 
 </Step>
-
 <Step number={11} title="メタデータの国際化" isOptional={true}>
 
 コンテンツの翻訳は重要ですが、国際化の主な目的はあなたのウェブサイトを世界により見えるようにすることです。I18nは適切なSEOを通じてウェブサイトの可視性を向上させるための強力な手段です。
@@ -644,7 +633,6 @@ export async function generateMetadata({
 ```
 
 </Step>
-
 <Step number={12} title="サイトマップの国際化" isOptional={true}>
 
 すべてのロケールバージョンのページを含むサイトマップを生成します。これにより、検索エンジンがすべての言語バージョンのコンテンツを検出し、インデックス化するのに役立ちます。
@@ -700,7 +688,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 ```
 
 </Step>
-
 <Step number={13} title="robots.txtの多言語対応" isOptional={true}>
 
 保護されたルートのすべてのロケールバージョンを適切に処理するrobots.txtファイルを作成します。これにより、検索エンジンが管理者ページやダッシュボードページをどの言語でもインデックスしないようにできます。
@@ -735,7 +722,6 @@ export default function robots(): MetadataRoute.Robots {
 ```
 
 </Step>
-
 <Step number={14} title="ロケールルーティングのためのプロキシ設定" isOptional={true}>
 
 ユーザーの優先ロケールを自動的に検出し、適切なロケールプレフィックス付きURLへリダイレクトするプロキシを作成します。next-intlはこれを自動で処理する便利なプロキシ関数を提供しています。
@@ -757,7 +743,6 @@ export const config = {
 ```
 
 </Step>
-
 <Step number={15} title="ロケール用のTypeScript型を設定する" isOptional={true}>
 
 TypeScriptを設定すると、キーのオートコンプリートと型安全性が得られます。
@@ -785,7 +770,6 @@ declare module "next-intl" {
 このコードはモジュール拡張（Module Augmentation）を使用して、locales と messages を next-intl の AppConfig 型に追加します。
 
 </Step>
-
 <Step number={16} title="Intlayerを使って翻訳を自動化する" isOptional={true}>
 
 Intlayerは、アプリケーションのローカリゼーションプロセスを支援するために設計された**無料**かつ**オープンソース**のライブラリです。next-intlが翻訳の読み込みと管理を担当する一方で、Intlayerは翻訳ワークフローの自動化を支援します。

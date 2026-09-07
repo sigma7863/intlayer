@@ -72,37 +72,31 @@ author: aymericzip
 Intlayer は TanStack Start 用に完全に最適化されており、**多言語ルーティング**、**Cookie 管理**、**サイトマップ生成**、**動的コンテンツ読み込み**、および国際化 (i18n) の取り組みを拡張するために必要なすべての機能を提供します。
 
 </Accordion>
-
 <Accordion header="バンドルサイズ">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
 </Accordion>
-
 <Accordion header="AI エージェント">
 
 コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
-
 <Accordion header="自動化">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md) も提供します。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
 
 </Accordion>
-
 <Accordion header="非開発者とのスケーリング">
 
 Intlayer は単なる i18n ソリューションではなく、**自己ホスト型 [ビジュアル エディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)** と **[完全な CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)** を提供します。 **リアルタイム**で多言語コンテンツを管理できるようになり、翻訳者、コピーライター、その他のチーム メンバーとのコラボレーションがシームレスになります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -145,13 +139,11 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 GitHubの[アプリケーションテンプレート](https://github.com/aymericzip/intlayer-tanstack-start-template)を参照してください。
 
 <Steps>
-
 <Step number={1} title="プロジェクトの作成">
 
 まず、TanStack Startウェブサイトの[プロジェクトの開始](https://tanstack.com/start/latest/docs/framework/react/quick-start)ガイドに従って、新しいTanStack Startプロジェクトを作成します。
 
 </Step>
-
 <Step number={2} title="Intlayerパッケージのインストール">
 
 好みのパッケージマネージャーを使用して、必要なパッケージをインストールします：
@@ -207,7 +199,6 @@ bun add vite-intlayer --dev
   Intlayerを[Viteバンミラー](https://vite.dev/guide/why.html#why-bundle-for-production)と統合するためのViteプラグイン、およびユーザーの優先ロケールの検出、クッキーの管理、URLリダイレクトの処理のためのミドルウェアが含まれています。
 
 </Step>
-
 <Step number={3} title="プロジェクトの構成">
 
 アプリケーションの言語を構成するための設定ファイルを作成します：
@@ -230,7 +221,6 @@ export default config;
 > この構成ファイルを通じて、ローカライズされたURL、ミドルウェアのリダイレクト、クッキー名、コンテンツ宣言の場所と拡張子、コンソールでのIntlayerログの無効化などを設定できます。利用可能なパラメータの完全なリストについては、[構成ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Step>
-
 <Step number={4} title="Vite構成へのIntlayerの統合">
 
 構成にintlayerプラグインを追加します：
@@ -266,7 +256,6 @@ export default config;
 > `intlayer()` Viteプラグインは、IntlayerをViteと統合するために使用されます。コンテンツ宣言ファイルの構築を確実にし、開発モードでそれらを監視します。Viteアプリケーション内でIntlayer環境変数を定義します。さらに、パフォーマンスを最適化するためのエイリアスを提供します。
 
 </Step>
-
 <Step number={5} title="ルートレイアウトの作成">
 
 `useParams`を使用して現在のロケールを検出し、`html`タグに`lang`および`dir`属性を設定することで、国際化をサポートするようにルートレイアウトを構成します。
@@ -322,7 +311,6 @@ function RootDocument({ children }: { children: ReactNode }) {
 ```
 
 </Step>
-
 <Step number={6} title="ロケールレイアウトの作成">
 
 ロケール接頭辞を処理し、検証を実行するレイアウトを作成します。
@@ -356,7 +344,6 @@ export const Route = createFileRoute("/{-$locale}")({
 > `'no-prefix'`または`'search-params'`モードの場合、スロットを完全に削除できます。
 
 </Step>
-
 <Step number={7} title="コンテンツの宣言">
 
 翻訳を保存するためのコンテンツ宣言を作成および管理します：
@@ -408,7 +395,6 @@ export default appContent;
 > 詳細については、[コンテンツ宣言ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md)を参照してください。
 
 </Step>
-
 <Step number={8} title="ロケール対応コンポーネントとフックの作成">
 
 ロケール対応のナビゲーションのための `LocalizedLink` コンポーネントを作成します：
@@ -513,7 +499,6 @@ export const useLocalizedNavigate = () => {
 ```
 
 </Step>
-
 <Step number={9} title="ページでのIntlayerの利用">
 
 > コンポーネント内では既定で **`useIntlayer`** を使用してください。コンパイラがレンダリング対象のロケールへ解決してくれるため、これが推奨される方法です。`getIntlayer` / `getIntlayerAsync` は React ツリーの外側（ルートの `head`、ローダー、サーバー関数）でのみ使用します。
@@ -572,7 +557,6 @@ function RouteComponent() {
 > `useIntlayer` hook の詳細については、[ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/react-intlayer/useIntlayer.md)を参照してください。
 
 </Step>
-
 <Step number={9} title="ロケール切り替えコンポーネントを作成する">
 
 ユーザーが言語を変更できるようにするコンポーネントを作成します:
@@ -635,7 +619,6 @@ export const LocaleSwitcher: FC = () => {
 > `useLocale` hook の詳細については、[ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/react-intlayer/useLocale.md)を参照してください。
 
 </Step>
-
 <Step number={10} title="HTML 属性管理">
 
 ステップ 5 で見たように、ルートコンポーネントで `useParams` を使用して `html` タグの `lang` と `dir` 属性を管理できます。これにより、サーバーとクライアントで正しい属性が設定されます。
@@ -656,7 +639,6 @@ function RootDocument({ children }: { children: ReactNode }) {
 ```
 
 </Step>
-
 <Step number={11} title="ミドルウェアを追加する">
 
 `intlayerProxy` を使用して、アプリケーションにサーバー側のルーティングを追加することもできます。このプラグインは URL に基づいて現在のロケールを自動的に検出し、適切なロケール cookie を設定します。ロケールが指定されていない場合、プラグインはユーザーのブラウザ言語設定に基づいて最も適切なロケールを決定します。ロケールが検出されない場合、デフォルトロケールにリダイレクトされます。
@@ -692,7 +674,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={12} title="メタデータを国際化する">
 
 <Tabs>
@@ -885,7 +866,6 @@ head の重大パスでその コストを支払うことなく、ロケール�
 | Developer experience | simplest              | one `await`                | content threaded through `loaderData`  |
 
 </Step>
-
 <Step number={13} title="サーバーアクションでロケールを取得する">
 
 サーバーアクションまたはAPIエンドポイント内から現在のロケールにアクセスしたい場合があります。
@@ -922,7 +902,6 @@ export const getLocaleServer = createServerFn().handler(async () => {
 ```
 
 </Step>
-
 <Step number={14} title="見つからないページを管理する">
 
 ユーザーが存在しないページにアクセスした場合、カスタムの 404 ページを表示できます。ロケールプレフィックスは、見つからないページがトリガーされる方法に影響を与える可能性があります。
@@ -998,7 +977,6 @@ export const Route = createFileRoute("/{-$locale}/$")({
 ```
 
 </Step>
-
 <Step number={15} title="コンポーネントのコンテンツを抽出する" isOptional={true}>
 
 既存のコードベースがある場合、数千のファイルを変換するのは時間がかかることがあります。
@@ -1102,7 +1080,6 @@ bun run build # または bun run dev
 </Tabs>
 
 </Step>
-
 <Step number={16} title="プリレンダリングとサイトマップ生成">
 
 Intlayer には、アプリケーションのサイトマップを簡単に作成できるサイトマップ ジェネレーターが組み込まれています。ローカライズされたルートを処理し、検索エンジンに必要なメタデータを追加します。
@@ -1177,7 +1154,6 @@ export const Route = createFileRoute("/sitemap.xml")({
 ```
 
 </Step>
-
 <Step number={17} title="TypeScriptの構成">
 
 Intlayer はモジュール拡張機能を利用して、TypeScript の利点を活用し、コードベースを強化します。
@@ -1253,25 +1229,21 @@ TanStack Start には独自の i18n レイヤーが付属していないため�
 TanStack Start で重要な違いはルーティングとサーバーレンダリングです。Intlayer はファイルベースのルーター、`head` 関数、プリレンダーパスと統合され、プロバイダー、ロケール検出器、サイトマップを手動で組み立てる必要がありません。[Intlayer を選ぶ理由](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/interest_of_intlayer.md)と [TanStack Start i18n ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/tanstack.md)を参照してください。
 
 </Question>
-
 <Question title="i18n は TanStack Start のバンドルサイズにどの程度追加されますか？">
 
 ネームスペースベースのセットアップよりもはるかに少なくなります。ページはレンダリングしないカタログをダウンロードしないためです。サーバーレンダリングされたマークアップはサーバー上でコンテンツを解決し、ビルド時コンパイラは `useIntlayer` 呼び出しをコンポーネントが使用する正確な辞書エントリに置き換えるため、未使用のキーと未使用の言語は削除され、[動的辞書](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md)は残りをロケールごとに分割します。通常の代替案と比較すると、Intlayer はバンドルとページサイズを最大 50% 削減します。[バンドル最適化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/bundle_optimization.md)と[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/tanstack.md)を参照してください。
 
 </Question>
-
 <Question title="`react-i18next` または `react-intl` からコンポーネントを書き直さずに移行できますか？">
 
 はい、2 つのパスがあります。[react-i18next 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/migration_from_react-i18next_to_intlayer.md)または [i18next 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/migration_from_i18next_to_intlayer.md)を使用してコンテンツを段階的に移行できます。または、現在の API を完全に保持できます：[互換性アダプター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compat/index.md)は `react-i18next`、`react-intl`、`i18next` と同じ API を公開しますが、Intlayer 辞書によって提供されるため、インポートは変わりますがコンポーネントコードは変わりません。
 
 </Question>
-
 <Question title="既存の JSON 翻訳ファイルを保持できますか？">
 
 はい。[sync JSON プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は `/messages/{locale}/{namespace}.json` ファイルを真実のソースとして保持し、双方向で Intlayer 辞書を生成します。[sync PO プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-po.md)は gettext カタログに対して同じことを行い、[ロケールごとのファイル](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/per_locale_file.md)ではロケールを 1 つのファイルにグループ化する代わりに言語ごとにコンテンツを分割できます。
 
 </Question>
-
 <Question title="コンテンツをキーごとに移動する必要がありますか？">
 
 いいえ。`npx intlayer extract` を実行すると、Intlayer はコンポーネントを読み込み、ユーザーに見える文字列を抽出し、各コンポーネントの隣に `.content` ファイルを書き込むため、文字列を 1 つずつカタログにコピーする代わりに diff を確認できます。このガイドのステップ 15 でそれを説明しています。
@@ -1281,7 +1253,6 @@ TanStack Start で重要な違いはルーティングとサーバーレンダ�
 コンパイラをオンにする前に知っておく価値のある 2 つの制限があります。静的分析によって機能するため、API エラーコードや CMS フィールドなど、実行時にのみ存在する文字列は到達不可能なままです。また、`className="active"` やステータスコードなどのアプリケーションロジックからユーザーに見える文字列を区別する必要があり、大規模なコードベースではいくつかのアノテーションが必要です。[extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)はループに保つことでその両方を回避します。
 
 </Question>
-
 <Question title="利用可能なエディターと AI エージェントツーリングは何ですか？">
 
 5 つのツール、すべてオプションです：
@@ -1293,55 +1264,46 @@ TanStack Start で重要な違いはルーティングとサーバーレンダ�
 - **[ESLint プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/eslint.md)**：`no-raw-text` はハードコードされた文字列にフラグを立て、静的辞書キーと未使用コンテンツのさらなるルールがあります。
 
 </Question>
-
 <Question title="Intlayer は TanStack Start でサーバーサイドレンダリングとプリレンダリングをサポートしていますか？">
 
 はい。コンテンツは SSR 中に解決され、ガイドはローカライズされたルートごとに 1 つの静的ドキュメントを出力するプリレンダー構成をカバーしています。ステップ 16 は `vite.config.ts` で `prerender` を有効にし、同じルートテーブルからローカライズされたサイトマップを生成する方法を示しています。
 
 </Question>
-
 <Question title="hreflang タグとローカライズされたサイトマップを追加するにはどうすればよいですか？">
 
 `src/routes/sitemap[.]xml.ts` ルートで組み込みの `generateSitemap` 関数を使用します。プレーンな URL リストとは異なり、`xhtml:link` ネームスペースを出力するため、ページのすべての言語バージョンは相互に双方向にリンクし、検索エンジンは各オーディエンスに対して正しいものをインデックスします。ローカライズされた `head` メタデータはステップ 12 で説明されています。
 
 </Question>
-
 <Question title="URL にロケールを入れる必要がありますか？">
 
 いいえ。`routing.mode` は URL スキームを制御します：`"prefix-no-default"`（デフォルト、`/about` と `/fr/about`）、`"prefix-all"`（`/en/about`）、`"no-prefix"`（cookie、header、またはドメインから解決）、または `"search-params"`（`/about?locale=fr`）。ロケールは `routing.domains` で別々のドメインにマップすることもできます。[構成リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Question>
-
 <Question title="現在のルートを保持するロケール切り替え機能を構築するにはどうすればよいですか？">
 
 ステップ 9 で説明されているローカライズされたリンクコンポーネントと一緒に `useLocale` を使用します。`useLocale` はアクティブなロケール、利用可能なロケール、選択を永続化するセッターを公開し、`getLocalizedUrl` は現在のパスをターゲット言語に書き直すため、ユーザーはホームページに着地する代わりに同じページにとどまります。
 
 </Question>
-
 <Question title="ローカライズされたルートで 404 ページを処理するにはどうすればよいですか？">
 
 ステップ 14 でカバーされています。`validatePrefix` は URL のロケールセグメントが宣言されたロケールであるかどうかを判断するため、`/xx/about` は処理されたパスとして扱われるのではなく、実際の 404 を返します。それなしでは、未知のプレフィックスは静かに解決され、検索エンジンは重複ページをインデックスします。
 
 </Question>
-
 <Question title="TanStack Start アプリを AI で自動的に翻訳するにはどうすればよいですか？">
 
 `npx intlayer fill` を実行します。CLI は不足している翻訳を見つけ、選択した LLM を使用して、独自のプロバイダーと API キーで埋めます。`--git-diff` を追加して、現在のブランチで変更されたコンテンツのみを翻訳し、CI 実行を安価に保ちます。[fill コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/fill.md)と [CI/CD 統合](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/CI_CD.md)を参照してください。
 
 </Question>
-
 <Question title="Intlayer は複数形、性別、リッチテキストをサポートしていますか？">
 
 はい。コンテンツ宣言は[複数形](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/plurial.md)、[性別ベースのコンテンツ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/gender.md)、条件、[挿入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/insertion.md)、長文テキスト用の [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/markdown.md)、および数値、日付、通貨の[フォーマッター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/formatters.md)に対応しています。
 
 </Question>
-
 <Question title="翻訳者がコードに触れずにコンテンツを編集するにはどうすればよいですか？">
 
 独自のインフラストラクチャ上で動作し、実行中のアプリでテキストをその場で編集できる[ビジュアルエディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)、またはコンテンツを外部化してデプロイなしで変更できるようにする[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)を通じて可能です。
 
 </Question>
-
 <Question title="Intlayer は無料でオープンソースですか？">
 
 はい、Apache 2.0 ライセンスの下で、商用利用を含みます。ホスト型 CMS はオプションの有料サービスですが、[セルフホスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md)することも可能です。

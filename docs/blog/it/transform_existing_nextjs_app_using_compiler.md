@@ -276,19 +276,16 @@ Per seguire la guida tecnica completa con middleware, generazione statica (`gene
 Sì. Intlayer supporta `routing.mode: "search-params"` e rilevamento tramite cookie/header, preservando le URL e la struttura esistente.
 
 </Question>
-
 <Question title="Devo sostituire manualmente tutte le stringhe di testo?">
 
 No. Con `npx intlayer extract` o il compilatore Intlayer i testi vengono estratti automaticamente.
 
 </Question>
-
 <Question title="In che modo Intlayer riduce la dimensione del bundle rispetto a next-intl?">
 
 Grazie all'estrazione mirata per componente e all'ottimizzazione macro in fase di build.
 
 </Question>
-
 <Question title="Posso usare l'IA per tradurre automaticamente la mia applicazione?">
 
 Sì, con il comando `npx intlayer fill` integrato direttamente con i principali modelli LLM.

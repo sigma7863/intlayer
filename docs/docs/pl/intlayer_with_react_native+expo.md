@@ -76,37 +76,31 @@ W porównaniu do głównych rozwiązań, takich jak `react-native-localize` czy 
 Intlayer jest zoptymalizowany do doskonałej współpracy z React Native i Expo, oferując **zakres treści na poziomie komponentów**, **obsługę TypeScript** i wszystkie funkcje potrzebne do skalowania internacjonalizacji (i18n) w aplikacjach mobilnych.
 
 </Accordion>
-
 <Accordion header="Łatwość konserwacji">
 
 Określanie zakresu zawartości aplikacji **ułatwia konserwację** aplikacji na dużą skalę. Możesz powielić lub usunąć pojedynczy folder funkcji bez obciążania psychicznego koniecznością przeglądania całej bazy kodu zawartości. Dodatkowo Intlayer jest **w pełni typowany**, aby zapewnić dokładność treści.
 
 </Accordion>
-
 <Accordion header="Agent AI">
 
 Wspólna lokalizacja treści **zmniejsza potrzebny kontekst** dzięki modelom dużego języka (LLM). Intlayer zawiera także zestaw narzędzi, takich jak **CLI** do sprawdzania brakujących tłumaczeń, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** i **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/agent_skills.md)**, aby praca programisty (DX) była jeszcze płynniejsza dla agentów AI.
 
 </Accordion>
-
 <Accordion header="Automatyzacja">
 
 Korzystaj z automatyzacji, aby tłumaczyć w swoim potoku CI/CD przy użyciu wybranego LLM na koszt dostawcy sztucznej inteligencji. Intlayer oferuje także **kompilator** do automatyzacji ekstrakcji treści, a także [platformę internetową](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), która pomaga **tłumaczyć w tle**.
 
 </Accordion>
-
 <Accordion header="Wydajność">
 
 Łączenie ogromnych plików JSON z komponentami może prowadzić do problemów z wydajnością i reaktywnością. Intlayer optymalizuje ładowanie treści w czasie kompilacji.
 
 </Accordion>
-
 <Accordion header="Skalowanie bez użycia dewelopera">
 
 Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wizualny](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** i **[pełny CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, który pomoże Ci zarządzać wielojęzyczną treścią w **czasie rzeczywistym**, dzięki czemu współpraca z tłumaczami, copywriterami i innymi członkami zespołu będzie płynna. Treść może być przechowywana lokalnie i/lub zdalnie.
 
 </Accordion>
-
 <Accordion header="Rozmiar bundle'a">
 
 Zamiast ładować ogromne pliki JSON na swoje strony, ładuj tylko niezbędną treść. Intlayer pomaga **zmniejszyć rozmiary pakietów i wyświetleń nawet o 50%**.
@@ -115,7 +109,6 @@ Zamiast ładować ogromne pliki JSON na swoje strony, ładuj tylko niezbędną t
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="Zainstaluj zależności">
 
 Zobacz [Szablon aplikacji](https://github.com/aymericzip/intlayer-react-native-template) w GitHub.
@@ -167,7 +160,6 @@ bun add intlayer react-native-intlayer
   Integracja z React Native, która dostarcza dostawców kontekstu oraz hooki React do pobierania i przełączania lokalizacji, polyfille dla React Native oraz wtyczkę Metro do integracji Intlayer z bundlerem React Native. Reeksportuje wszystko z `react-intlayer`, więc w aplikacji React Native potrzebny jest tylko ten jeden pakiet.
 
 </Step>
-
 <Step number={2} title="Utwórz konfigurację Intlayer">
 
 W katalogu głównym projektu (lub w dowolnym wygodnym miejscu) utwórz plik **konfiguracji Intlayer**. Może on wyglądać tak:
@@ -201,7 +193,6 @@ W ramach tej konfiguracji możesz:
 - Zobacz [dokumentację konfiguracji Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/configuration.md) po więcej informacji.
 
 </Step>
-
 <Step number={3} title="Dodaj wtyczkę Metro">
 
 Metro to bundler dla React Native. Jest to domyślny bundler dla projektów React Native tworzonych za pomocą polecenia `react-native init`. Aby używać Intlayer z Metro, musisz dodać wtyczkę do pliku `metro.config.js`:
@@ -221,7 +212,6 @@ module.exports = (async () => {
 > Uwaga: `configMetroIntlayerSync` nie pozwala na budowanie słowników intlayer podczas uruchamiania serwera
 
 </Step>
-
 <Step number={4} title="Dodaj dostawcę Intlayer">
 
 Aby utrzymać synchronizację języka użytkownika w całej aplikacji, musisz opakować swój komponent root w komponent `IntlayerProvider` z `react-native-intlayer`.
@@ -252,7 +242,6 @@ export default RootLayout;
 ```
 
 </Step>
-
 <Step number={5} title="Zadeklaruj swoją zawartość">
 
 Utwórz pliki **deklaracji zawartości** w dowolnym miejscu w swoim projekcie (zwykle w katalogu `src/`), używając dowolnego z formatów rozszerzeń obsługiwanych przez Intlayer:
@@ -326,7 +315,6 @@ export default homeScreenContent;
 > Szczegóły dotyczące deklaracji zawartości znajdziesz w [dokumentacji Intlayer dotyczącej zawartości](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Użyj Intlayer w swoich komponentach">
 
 Użyj hooka `useIntlayer` w komponentach potomnych, aby uzyskać zlokalizowaną zawartość.
@@ -379,7 +367,6 @@ export default HomeScreen;
 > Jeśli Twoja aplikacja już istnieje, możesz użyć [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/compiler.md) w połączeniu z [poleceniem extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/cli/extract.md), aby przekonwertować tysiące komponentów w jedną sekundę.
 
 </Step>
-
 <Step number={7} title="Zmiana lokalizacji aplikacji" isOptional={true}>
 
 Aby zmienić lokalizację z poziomu komponentów, możesz użyć metody `setLocale` hooka `useLocale`:
@@ -529,25 +516,21 @@ import "@formatjs/intl-datetimeformat/polyfill";
 Na platformach mobilnych kluczowy jest rozmiar pakietu i wydajność startu aplikacji: Intlayer eliminuje nieużywane wpisy i dostarcza treść zoptymalizowaną pod Fast Refresh. Zobacz [dlaczego Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="O ile i18n zwiększa rozmiar mojego bundle'a w React Native?">
 
 Znacznie mniej niż rozwiązania oparte na przestrzeniach nazw, ponieważ strona nigdy nie pobiera katalogu, którego nie renderuje. Kompilator czasu budowy zastępuje odwołania do treści dokładnymi wpisami, których używa komponent, a [słowniki dynamiczne](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dynamic_dictionaries/index.md) dzielą resztę na poszczególne języki. W porównaniu z typowymi alternatywami, Intlayer zmniejsza rozmiar bundle'a i strony nawet o 50%. Zobacz [optymalizację bundle'a](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/bundle_optimization.md) oraz [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/benchmark/index.md).
 
 </Question>
-
 <Question title="Czy mogę zmigrować z i18n-js lub react-i18next bez przepisywania moich komponentów?">
 
 Tak, i są dwie drogi. Możesz migrować treść stopniowo za pomocą [przewodnika migracji z react-i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/migration_from_react-i18next_to_intlayer.md). Możesz także zachować dotychczasowe API za pośrednictwem adapterów kompatybilności.
 
 </Question>
-
 <Question title="Czy mogę zachować moje istniejące pliki tłumaczeń JSON?">
 
 Tak. Wtyczka [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/plugins/sync-json.md) utrzymuje Twoje pliki `/messages/{locale}/{namespace}.json` jako źródło prawdy i generuje z nich słowniki Intlayer w obu kierunkach. Wtyczka [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/plugins/sync-po.md) robi to samo dla katalogów gettext, a [pliki per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/per_locale_file.md) pozwalają rozdzielić zawartość według języka zamiast grupować lokalizacje w jednym pliku.
 
 </Question>
-
 <Question title="Czy muszę przenosić moją zawartość klucz po kluczu?">
 
 Nie. Uruchom `npx intlayer extract`, a Intlayer odczyta Twoje pliki źródłowe, wyodrębni ciągi widoczne dla użytkownika i utworzy plik `.content` obok każdego z nich, dzięki czemu przeglądasz diff zamiast ręcznie kopiować ciągi do katalogu pojedynczo.
@@ -555,7 +538,6 @@ Nie. Uruchom `npx intlayer extract`, a Intlayer odczyta Twoje pliki źródłowe,
 W przypadku w pełni zautomatyzowanego procesu [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/compiler.md) robi to samo w czasie kompilacji kodu źródłowego JSX, TSX, Vue i Svelte, generując słowniki przy każdej zmianie, dzięki czemu nie trzeba ręcznie zarządzać kluczami. Działa w oparciu o analizę statyczną, więc ciągi znaków istniejące tylko w czasie wykonywania pozostają poza zasięgiem, a rozróżnienie tekstu dla użytkownika od logiki aplikacji wymaga kilku adnotacji.
 
 </Question>
-
 <Question title="Jakie narzędzia dla edytora i agentów AI są dostępne?">
 
 Pięć narzędzi, wszystkie opcjonalne:
@@ -567,49 +549,41 @@ Pięć narzędzi, wszystkie opcjonalne:
 - **[Wtyczka ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/eslint.md)**: reguła `no-raw-text` oznacza zakodowane na stałe ciągi tekstowe, z dodatkowymi regułami dla statycznych kluczy słownika i nieużywanej zawartości.
 
 </Question>
-
 <Question title="Czy Intlayer współpracuje z Expo i bundlerem Metro?">
 
 Tak. Krok 3 dodaje wtyczkę Metro, która kompiluje Twoje pliki `.content.ts` i regeneruje typy przy zapisie, dzięki czemu Fast Refresh działa natychmiastowo.
 
 </Question>
-
 <Question title="Jak wykryć język urządzenia?">
 
 Odczytaj go za pomocą `expo-localization` i przekaż do providera Intlayer jako początkowy język, a następnie zapisz ewentualny wybór użytkownika w `AsyncStorage`.
 
 </Question>
-
 <Question title="Jak zmienić język aplikacji w czasie jej działania?">
 
 Krok 7 to opisuje. Hook `useLocale` udostępnia aktywny język, zadeklarowane lokalizacje oraz funkcję zmieniającą, a komponenty odczytujące treść aktualizują się natychmiast bez restartowania aplikacji.
 
 </Question>
-
 <Question title="Jak obsługiwać języki od prawej do lewej, takie jak arabski lub hebrajski?">
 
 Użyj funkcji `getHTMLTextDir`, aby sprawdzić, czy aktywny język jest zapisywany od prawej do lewej, i zastosuj to za pośrednictwem modułu `I18nManager` z React Native.
 
 </Question>
-
 <Question title="Jak automatycznie przetłumaczyć aplikację za pomocą AI?">
 
 Uruchom `npx intlayer fill`. Narzędzie CLI wykrywa brakujące tłumaczenia i uzupełnia je za pomocą wybranego modelu LLM, korzystając z Twojego dostawcy i klucza API. Flaga `--git-diff` ogranicza operację do treści zmienionych na bieżącej gałęzi. Zobacz [polecenie fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/cli/fill.md) oraz [integrację CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/CI_CD.md).
 
 </Question>
-
 <Question title="Czy Intlayer obsługuje formy mnogie, płeć i sformatowany tekst (rich text)?">
 
 Tak: [formy mnogie](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/plurial.md), [treści zależne od płci](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/gender.md), warunki, [wstawki (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/markdown.md) dla dłuższych tekstów oraz [formatowania](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/formatters.md) dla liczb, dat i walut.
 
 </Question>
-
 <Question title="Jak tłumacze mogą edytować treść bez dotykania kodu?">
 
 Za pośrednictwem [edytora wizualnego](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_visual_editor.md), który pozwala każdemu edytować tekst bezpośrednio w działającej aplikacji, lub systemu [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_CMS.md), który wyodrębnia treść, dzięki czemu może być zmieniana bez konieczności ponownego wdrażania.
 
 </Question>
-
 <Question title="Czy Intlayer jest darmowy i open source?">
 
 Tak, na licencji Apache 2.0, włączając zastosowania komercyjne. Hostowany CMS to opcjonalna płatna usługa, którą można również [hostować samodzielnie (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/self_hosting.md).

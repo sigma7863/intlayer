@@ -45,37 +45,31 @@ author: aymericzip
 Intlayer は、**コンポーネント レベルのコンテンツ スコープ**、**遅延読み込み**、および国際化 (i18n) のスケーリングに必要なすべての機能を提供することにより、Angular と完全に連携するように最適化されています。
 
 </Accordion>
-
 <Accordion header="Bundle サイズ">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
-
 <Accordion header="Automation">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) も提供します。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
 
 </Accordion>
-
 <Accordion header="none-devでのスケーリング">
 
 Intlayer は単なる i18n ソリューションではなく、**自己ホスト型 [ビジュアル エディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** と **[完全な CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** を提供します。 **リアルタイム**で多言語コンテンツを管理できるようになり、翻訳者、コピーライター、その他のチーム メンバーとのコラボレーションがシームレスになります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -113,7 +107,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 GitHubで [アプリケーションテンプレート](https://github.com/aymericzip/intlayer-angular-19-template) を確認する。
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 npmを使用して必要なパッケージをインストールします：
@@ -169,7 +162,6 @@ bun add @angular-builders/custom-webpack --dev
   Angular CLIのWebpack構成をカスタマイズするために必要です。
 
 </Step>
-
 <Step number={2} title="プロジェクトの構成">
 
 アプリケーションの言語を構成するための設定ファイルを作成します：
@@ -195,7 +187,6 @@ export default config;
 > この構成ファイルを通じて、ローカライズされたURL、ミドルウェアのリダイレクト、クッキー名、コンテンツ宣言の場所と拡張子、コンソールでのIntlayerログの無効化などを設定できます。利用可能なパラメータの完全なリストについては、[構成ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md) を参照してください。
 
 </Step>
-
 <Step number={3} title="Angular構成へのIntlayerの統合">
 
 IntlayerをAngular CLIと統合するには、カスタムビルダーを使用する必要があります。このガイドでは、Webpack（多くのAngularプロジェクトのデフォルト）を使用していることを前提としています。
@@ -240,7 +231,6 @@ export default mergeConfig({});
 > `mergeConfig` 関数は、Intlayerを使用してWebpackを構成します。`IntlayerPlugin`（コンテンツ宣言ファイルを処理するため）を注入し、最適なパフォーマンスのためのエイリアスを設定します。
 
 </Step>
-
 <Step number={4} title="コンテンツの宣言">
 
 翻訳を保存するためのコンテンツ宣言を作成および管理します：
@@ -292,7 +282,6 @@ export default appContent;
 > 詳細については、[コンテンツ宣言のドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md) を参照してください。
 
 </Step>
-
 <Step number={5} title="コード内でのIntlayerの利用">
 
 Angularアプリケーション全体でIntlayerの国際化機能を利用するには、アプリケーションの構成でIntlayerを提供する必要があります。
@@ -342,7 +331,6 @@ export class AppComponent {
 Intlayerのコンテンツは `Signal` として返されるため、シグナルを呼び出すことで値にアクセスします：`content().title`。
 
 </Step>
-
 <Step number={6} title="コンテンツの言語を変更する" isOptional={true}>
 
 コンテンツの言語を変更するには、`useLocale` 関数によって提供される `setLocale` 関数を使用できます。これにより、アプリケーションのロケールを設定し、それに応じてコンテンツを更新できます。
@@ -467,25 +455,21 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 このガイドはAngular 19を対象としています。Angular 21以降については、[Angularガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_angular_21.md)に従ってください。[Intlayerを選ぶ理由](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/interest_of_intlayer.md)をご覧ください。
 
 </Question>
-
 <Question title="i18nはAngularのbundleサイズにどれくらい影響しますか？">
 
 名前空間ベースのセットアップよりもはるかに少ないです。なぜなら、ページはレンダリングしないカタログをダウンロードしないからです。ビルド時コンパイラは`useIntlayer`の呼び出しをコンポーネントが使用する正確な辞書エントリに置き換えるため、未使用のキーや未使用の言語は削除され、[動的辞書](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md)が残りをロケールごとに分割します。通常の代替案と比較して、Intlayerはbundleとページサイズを最大50%削減します。[bundle最適化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/bundle_optimization.md)と[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/index.md)をご覧ください。
 
 </Question>
-
 <Question title="`ngx-translate`、`Transloco`、または`@angular/localize`からテンプレートを書き換えずに移行できますか？">
 
 ほとんど可能です。[ngx-translate移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compat/ngx-translate.md)または[Transloco移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compat/transloco.md)に従ってコンテンツを移行してください。段階的に移行することも可能です。[sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は、既存のJSONカタログを信頼できる情報源として保持し、それらからIntlayer辞書を生成するため、テンプレートを一つずつ移行する間も両方のレイヤーが同期を保ちます。
 
 </Question>
-
 <Question title="既存のJSON翻訳ファイルを保持できますか？">
 
 はい、できます。[sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は、`/messages/{locale}/{namespace}.json`ファイルを信頼できる情報源として保持し、双方向でそれらからIntlayer辞書を生成します。[sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-po.md)はgettextカタログに対しても同様の機能を提供し、[ロケールごとのファイル](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/per_locale_file.md)を使用すると、複数のロケールを1つのファイルにまとめるのではなく、言語ごとにコンテンツを分割できます。
 
 </Question>
-
 <Question title="コンテンツをキーごとに移動する必要がありますか？">
 
 いいえ。`npx intlayer extract`を実行すると、Intlayerはソースファイルを読み込み、ユーザー向けの文字列を抽出し、それぞれの隣に`.content`ファイルを書き込みます。これにより、文字列をカタログに一つずつコピーする代わりに、差分を確認するだけで済みます。[extractコマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)をご覧ください。
@@ -493,7 +477,6 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 完全に自動化されたパイプラインの場合、[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compiler.md)はビルド時にJSX、TSX、Vue、Svelteのソースに対して同じ処理を行い、変更があるたびに辞書を生成するため、手動でキーを管理する必要がありません。これは静的解析によって機能するため、実行時にのみ存在する文字列は対象外となり、ユーザー向けのテキストとアプリケーションロジックを区別するためにいくつかの注釈が必要です。
 
 </Question>
-
 <Question title="利用可能なエディターおよびAIエージェントツールは何ですか？">
 
 5つのツールがあり、すべてオプションです。
@@ -505,55 +488,46 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/eslint.md)**: `no-raw-text`はハードコードされた文字列を検出し、静的辞書キーや未使用のコンテンツに対する追加のルールも提供します。
 
 </Question>
-
 <Question title="言語ごとにビルドが必要ですか？">
 
 いいえ。それは`@angular/localize`のモデルであり、各ロケールが独自のbundleにコンパイルされ、個別にデプロイされます。Intlayerでは、単一のビルドで宣言されたすべてのロケールを提供し、アクティブな言語はURL、cookie、または`Accept-Language` headerから実行時に解決されます。
 
 </Question>
-
 <Question title="IntlayerはAngular signalsとstandalone componentsをサポートしていますか？">
 
 はい。コンテンツはsignalsを通じて公開されるため、ロケールが変更されてもページのリロードなしにテンプレートが再レンダリングされ、プロバイダーは他のstandaloneプロバイダーと同様に登録されます。
 
 </Question>
-
 <Question title="実行時に言語を切り替えるにはどうすればよいですか？">
 
 ステップ6で説明されています。`useLocale`はアクティブなロケール、宣言されたロケール、および選択を永続化するセッターを公開し、`getLocalizedUrl`は現在のパスを書き換えるため、ユーザーは切り替え後も同じルートに留まります。
 
 </Question>
-
 <Question title="Angular Universalのサーバーサイドレンダリングで動作しますか？">
 
 はい。ロケールはサーバー上でURLまたはリクエストheadersから解決され、プロバイダーに渡されるため、サーバーでレンダリングされたHTMLはすでに正しい言語であり、クライアントは切り替えなしにハイドレートされます。
 
 </Question>
-
 <Question title="AIを使ってアプリを自動的に翻訳するにはどうすればよいですか？">
 
 `npx intlayer fill`を実行します。これにより、選択したLLMを使用し、独自のプロバイダーとAPIキーを使って、不足している翻訳が埋められます。`--git-diff`オプションを使用すると、ブランチで変更されたコンテンツのみに実行を限定できます。[fillコマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/fill.md)と[CI/CD統合](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/CI_CD.md)をご覧ください。
 
 </Question>
-
 <Question title="Intlayerは複数形、性別、リッチテキストをサポートしていますか？">
 
 はい、[複数形](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/plurial.md)、[性別に基づくコンテンツ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/gender.md)、条件、[挿入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/insertion.md)、[Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/markdown.md)、および数値、日付、通貨の[フォーマッター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/formatters.md)をサポートしています。
 
 </Question>
-
 <Question title="リリース前に翻訳の欠落を検出するにはどうすればよいですか？">
 
 CIで`npx intlayer test`を実行します。宣言されたロケールにコンテンツが不足している場合、ビルドは失敗します。[VS Code extension](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/vs_code_extension.md)は、入力中に同じエラーを報告します。[コンテンツのテスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/testing.md)をご覧ください。
 
 </Question>
-
 <Question title="翻訳者はコードに触れずにコンテンツを編集できますか？">
 
 はい、独自のインフラストラクチャで実行され、実行中のアプリ上で誰でもテキストを直接編集できる[ビジュアルエディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)または、デプロイなしでコンテンツを変更できるように外部化する[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)を通じて可能です。
 
 </Question>
-
 <Question title="Intlayerは無料のオープンソースですか？">
 
 はい、Apache 2.0ライセンスの下で、商用利用も含まれます。ホスト型CMSはオプションの有料サービスですが、[セルフホスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md)することも可能です。

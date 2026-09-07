@@ -68,37 +68,31 @@ author: aymericzip
 Intlayer は、**フレームワークに依存しないコンテンツ管理**、**TypeScript サポート**、および国際化 (i18n) の拡張に必要なすべての機能を提供することにより、Vanilla JavaScript と完全に連携するように最適化されています。
 
 </Accordion>
-
 <Accordion header="バンドルサイズ">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
-
 <Accordion header="自動化">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) も提供します。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
 
 </Accordion>
-
 <Accordion header="none-dev でのスケーリング">
 
 Intlayer は単なる i18n ソリューションではなく、**自己ホスト型 [ビジュアル エディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** と **[完全な CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** を提供します。 **リアルタイム**で多言語コンテンツを管理できるようになり、翻訳者、コピーライター、その他のチーム メンバーとのコラボレーションがシームレスになります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -109,7 +103,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 ## Vanilla JSアプリケーションでIntlayerをセットアップするためのステップバイステップガイド
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 npmを使用して必要なパッケージをインストールします：
@@ -171,7 +164,6 @@ bun x intlayer build
 > `intlayer standalone` CLIによるバンドリングエクスポートは、設定に特化した未使用のパッケージ、ロケール、および非本質的なロジック（リダイレクトやプレフィックスなど）をツリーシェイキング（不要なコードの削除）することで、最適化されたビルドを生成します。
 
 </Step>
-
 <Step number={2} title="プロジェクトの設定">
 
 アプリケーションの言語を設定するための設定ファイルを作成します：
@@ -197,7 +189,6 @@ export default config;
 > この設定ファイルを通じて、ローカライズされたURL、ミドルウェアのリダイレクト、クッキー名、コンテンツ宣言の場所と拡張子、コンソールでのIntlayerログの無効化などを設定できます。利用可能なパラメータの完全なリストについては、[設定ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Step>
-
 <Step number={3} title="HTMLへのバンドルのインポート">
 
 `intlayer.js` バンドルを生成したら、それをHTMLファイルにインポートできます：
@@ -223,7 +214,6 @@ export default config;
 バンドルは、`window` 上にグローバルオブジェクトとして `Intlayer` と `VanillaIntlayer` を公開します。
 
 </Step>
-
 <Step number={4} title="エントリポイントでのIntlayerのブートストラップ">
 
 `src/main.js` で、コンテンツがレンダリングされる**前**に `installIntlayer()` を呼び出し、グローバルロケールシングルトンの準備を整えます。
@@ -245,7 +235,6 @@ installIntlayerMarkdown();
 ```
 
 </Step>
-
 <Step number={5} title="コンテンツの宣言">
 
 翻訳を保存するためのコンテンツ宣言を作成および管理します：
@@ -325,7 +314,6 @@ export default appContent;
 > 詳細については、[コンテンツ宣言のドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md)を参照してください。
 
 </Step>
-
 <Step number={6} title="JavaScriptでIntlayerを使用する">
 
 `window.VanillaIntlayer` オブジェクトは API ヘルパーを提供します：`useIntlayer(key, locale?)` は、指定されたキーに対応する翻訳済みコンテンツを返します。
@@ -361,7 +349,6 @@ document.querySelector(".read-the-docs").textContent = String(
 > ```
 
 </Step>
-
 <Step number={7} title="コンテンツの言語を変更する">
 
 コンテンツの言語を変更するには、`useLocale` によって公開される `setLocale` 関数を使用します。
@@ -398,7 +385,6 @@ export function setupLocaleSwitcher(container) {
 ```
 
 </Step>
-
 <Step number={8} title="HTMLの言語および方向属性の切り替え">
 
 アクセシビリティとSEOのために、`<html>` タグの `lang` および `dir` 属性を現在のロケールに合わせて更新します。
@@ -418,7 +404,6 @@ useLocale({
 ```
 
 </Step>
-
 <Step number={9} title="ロケールごとのディクショナリの遅延読み込み">
 
 ロケールごとにディクショナリを遅延読み込みしたい場合は、`useDictionaryDynamic` を使用できます。これは、初期の `intlayer.js` ファイルにすべての翻訳をバンドルしたくない場合に便利です。
@@ -487,25 +472,21 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 はい。このガイドではそれをカバーしています。ステップ 3 に示すように、`vanilla-intlayer` バンドルを HTML に直接インポートし、エントリーポイントでブートストラップして、`useIntlayer` でコンテンツを読み込みます。Vite、webpack、ビルドパイプラインは必要ありません。
 
 </Question>
-
 <Question title="i18n はページの重さにどのくらい影響しますか？">
 
 ランタイムカタログよりもはるかに少なくなります。ページはレンダリングしない言語をダウンロードしないためです。コンテンツは事前にコンパイルされた辞書から解決され、ロケールごとの遅延読み込みにより、訪問者が言語を切り替えるまで他の言語は初期ペイロードから除外されます。通常の代替案と比較すると、Intlayer は bundle とページサイズを最大 50% 削減します。[bundle 最適化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/bundle_optimization.md)、[動的辞書](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md)、および[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/index.md)を参照してください。
 
 </Question>
-
 <Question title="`i18next` からスクリプトを書き直さずに移行できますか？">
 
 ほぼ可能です。[i18next 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/migration_from_i18next_to_intlayer.md)に従ってコンテンツを移動してください。段階的に移行することもできます。[sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md) は既存の JSON カタログを信頼できるソースとして保持し、それらから Intlayer 辞書を生成するため、両方のレイヤーは同期を保ったまま、スクリプトを一度に 1 つずつ移動できます。
 
 </Question>
-
 <Question title="既存の JSON 翻訳ファイルを保持できますか？">
 
 はい。[sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md) は `/messages/{locale}/{namespace}.json` ファイルを信頼できるソースとして保持し、双方向で Intlayer 辞書を生成します。[sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-po.md) は gettext カタログに対して同じことを行い、[ロケールごとのファイル](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/per_locale_file.md)ではコンテンツを言語ごとに分割できます。
 
 </Question>
-
 <Question title="コンテンツをキーごとに移動する必要がありますか？">
 
 いいえ。`npx intlayer extract` を実行すると、Intlayer はソースファイルを読み込み、ユーザーに見える文字列を抽出して、各ファイルの隣に `.content` ファイルを書き込むため、カタログに文字列を 1 つずつコピーする代わりに diff を確認できます。[extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)を参照してください。
@@ -513,7 +494,6 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 完全に自動化されたパイプラインの場合、[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compiler.md) はビルド時に JSX、TSX、Vue、Svelte ソースに対して同じことを行い、変更のたびに辞書を生成するため、手動でキーを保持する必要がありません。静的分析によって動作するため、ランタイムにのみ存在する文字列は到達不可能なままであり、ユーザーに見えるテキストをアプリケーションロジックから区別するために、いくつかのアノテーションが必要です。
 
 </Question>
-
 <Question title="利用可能なエディターと AI エージェントツールは何ですか？">
 
 5 つあり、すべてオプションです：
@@ -525,7 +505,6 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/eslint.md)**: `no-raw-text` はハードコードされた文字列にフラグを立て、静的辞書キーと未使用コンテンツの追加ルールがあります。
 
 </Question>
-
 <Question title="プレーン JavaScript サイトを国際化するために利用可能なさまざまなソリューションは何ですか？">
 
 - **手書きの辞書オブジェクト**、通常は `fetch` で読み込まれる言語ごとに 1 つの JSON ファイル：依存関係はありませんが、型付けなし、複数形ルールなし、翻訳が不足していることを示すものはありません。
@@ -535,49 +514,41 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 [Intlayer の利点](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/interest_of_intlayer.md)を参照してください。
 
 </Question>
-
 <Question title="翻訳を読み込んで DOM に配置するにはどうすればよいですか？">
 
 辞書キーで `useIntlayer` を呼び出し、ステップ 6 に示すように値をノードに自分で書き込みます。フレームワークがないため、何も自動的に再レンダリングされません。ロケールが変更されたときにノードを更新します。これはステップ 7 でカバーされています。
 
 </Question>
-
 <Question title="訪問者の言語はどのように検出されますか？">
 
 `routing.storage` にリストされたソースから、通常は cookie が最初で、次に `Accept-Language` header、デフォルトロケールにフォールバックします。訪問者が明示的に選択した言語は永続化されるため、次の訪問でも保持されます。[設定リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Question>
-
 <Question title="アラビア語やヘブライ語などの右から左への言語をサポートするにはどうすればよいですか？">
 
 ステップ 8 でカバーされています。`getHTMLTextDir` はロケールに対して `ltr`、`rtl`、または `auto` を返すため、アクティブなロケールから `html` 要素に `lang` と `dir` を設定し、CSS 論理プロパティに残りを処理させます。
 
 </Question>
-
 <Question title="訪問者はすべての言語をダウンロードしますか？">
 
 望まない場合はそうではありません。ステップ 9 ではロケールごとの辞書の遅延読み込みをカバーしているため、ページは 1 つの言語を読み込み、訪問者が切り替えるときにのみ別の言語を取得します。[動的辞書](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md)を参照してください。
 
 </Question>
-
 <Question title="AI でアプリを自動的に翻訳するにはどうすればよいですか？">
 
 `npx intlayer fill` を実行してください。選択した LLM を使用して、独自のプロバイダーと API キーで不足している翻訳を埋め、`--git-diff` は実行をブランチで変更されたコンテンツに制限します。[fill コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/fill.md)と [CI/CD 統合](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/CI_CD.md)を参照してください。
 
 </Question>
-
 <Question title="Intlayer は複数形、性別、リッチテキストをサポートしていますか？">
 
 はい：[複数形](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/plurial.md)、[性別ベースのコンテンツ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/gender.md)、条件、[挿入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/insertion.md)、[Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/markdown.md)、および数値、日付、通貨の[フォーマッター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/formatters.md)。
 
 </Question>
-
 <Question title="翻訳者はコードに触れずにコンテンツを編集できますか？">
 
 [ビジュアルエディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)を通じて、独自のインフラストラクチャで実行され、実行中のアプリでテキストをその場で編集できます。または、コンテンツを外部化して、デプロイメントなしで変更できる [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)。
 
 </Question>
-
 <Question title="Intlayer は無料でオープンソースですか？">
 
 はい、Apache 2.0 ライセンスの下で、商用利用を含みます。ホストされた CMS はオプションの有料サービスで、[自己ホスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md)することもできます。

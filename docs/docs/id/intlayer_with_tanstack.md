@@ -68,37 +68,31 @@ Dibandingkan dengan solusi utama seperti `react-i18next` atau `use-intl`, atau `
 Intlayer sepenuhnya dioptimalkan untuk TanStack Start, menyediakan **perutean multibahasa**, **manajemen cookie**, **pembuatan peta situs**, **pemuatan konten dinamis**, dan semua fitur yang diperlukan untuk meningkatkan upaya internasionalisasi Anda (i18n).
 
 </Accordion>
-
 <Accordion header="Ukuran bundle">
 
 Daripada memuat file JSON berukuran besar ke halaman Anda, muat saja konten yang diperlukan. Intlayer membantu **mengurangi ukuran bundle dan halaman Anda hingga 50%**.
 
 </Accordion>
-
 <Accordion header="Kemampuan Pemeliharaan">
 
 Mencakup konten aplikasi Anda **memfasilitasi pemeliharaan** untuk aplikasi berskala besar. Anda dapat menduplikasi atau menghapus satu folder fitur tanpa beban mental untuk meninjau seluruh basis kode konten Anda. Selain itu, Intlayer **diketik sepenuhnya** untuk memastikan keakuratan konten Anda.
 
 </Accordion>
-
 <Accordion header="Agen AI">
 
 Menempatkan konten bersama **mengurangi konteks yang diperlukan** dengan Model Bahasa Besar (LLM). Intlayer juga dilengkapi dengan serangkaian alat, seperti **CLI** untuk menguji terjemahan yang hilang,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, dan **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/agent_skills.md)**, untuk menjadikan pengalaman pengembang (DX) lebih lancar bagi agen AI.
 
 </Accordion>
-
 <Accordion header="Otomatisasi">
 
 Gunakan otomatisasi untuk menerjemahkan dalam saluran CI/CD Anda menggunakan LLM pilihan Anda dengan biaya penyedia AI Anda. Intlayer juga menawarkan **compiler** untuk mengotomatiskan ekstraksi konten, serta [platform web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) untuk membantu **menerjemahkan di latar belakang**.
 
 </Accordion>
-
 <Accordion header="Pertunjukan">
 
 Menghubungkan file JSON berukuran besar ke komponen dapat menyebabkan masalah kinerja dan reaktivitas. Intlayer mengoptimalkan pemuatan konten Anda pada waktu pembuatan.
 
 </Accordion>
-
 <Accordion header="Menskalakan tanpa pengembang">
 
 Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** yang dihosting sendiri dan **[CMS lengkap](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** untuk membantu Anda mengelola konten multibahasa secara **real-time**, membuat kolaborasi dengan penerjemah, copywriter, dan anggota tim lainnya menjadi lancar. Konten dapat disimpan secara lokal dan/atau jarak jauh.
@@ -141,13 +135,11 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 Lihat [Template Aplikasi](https://github.com/aymericzip/intlayer-tanstack-start-template) di GitHub.
 
 <Steps>
-
 <Step number={1} title="Buat Proyek">
 
 Mulailah dengan membuat proyek TanStack Start baru dengan mengikuti panduan [Memulai proyek baru](https://tanstack.com/start/latest/docs/framework/react/quick-start) di situs web TanStack Start.
 
 </Step>
-
 <Step number={2} title="Pasang Paket Intlayer">
 
 Pasang paket yang diperlukan menggunakan manajer paket pilihan Anda:
@@ -203,7 +195,6 @@ bun add vite-intlayer --dev
   Termasuk plugin Vite untuk mengintegrasikan Intlayer dengan [Vite bundler](https://vite.dev/guide/why.html#why-bundle-for-production), serta middleware untuk mendeteksi locale yang disukai pengguna, mengelola cookie, dan menangani pengalihan URL.
 
 </Step>
-
 <Step number={3} title="Konfigurasi proyek Anda">
 
 Buat file konfigurasi untuk mengonfigurasi bahasa aplikasi Anda:
@@ -226,7 +217,6 @@ export default config;
 > Melalui file konfigurasi ini, Anda dapat mengatur URL yang dilokalkan, pengalihan middleware, nama cookie, lokasi dan ekstensi deklarasi konten Anda, menonaktifkan log Intlayer di konsol, dan banyak lagi. Untuk daftar lengkap parameter yang tersedia, lihat [dokumentasi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
 </Step>
-
 <Step number={4} title="Integrasikan Intlayer dalam Konfigurasi Vite Anda">
 
 Tambahkan plugin intlayer ke dalam konfigurasi Anda:
@@ -262,7 +252,6 @@ export default config;
 > Plugin Vite `intlayer()` digunakan untuk mengintegrasikan Intlayer dengan Vite. Ini memastikan pembuatan file deklarasi konten dan memantaunya dalam mode pengembangan. Plugin ini mendefinisikan variabel lingkungan Intlayer di dalam aplikasi Vite. Selain itu, ini menyediakan alias untuk mengoptimalkan kinerja.
 
 </Step>
-
 <Step number={5} title="Buat Layout Root">
 
 Konfigurasikan layout root Anda untuk mendukung internasionalisasi dengan menggunakan `useParams` untuk mendeteksi locale saat ini dan mengatur atribut `lang` dan `dir` pada tag `html`.
@@ -318,7 +307,6 @@ function RootDocument({ children }: { children: ReactNode }) {
 ```
 
 </Step>
-
 <Step number={6} title="Buat Layout Locale">
 
 Buat layout yang menangani awalan locale dan melakukan validasi.
@@ -352,7 +340,6 @@ export const Route = createFileRoute("/{-$locale}")({
 > Untuk mode `'no-prefix'` atau `'search-params'`, Anda dapat menghapus slot sepenuhnya.
 
 </Step>
-
 <Step number={7} title="Deklarasikan Konten Anda">
 
 Buat dan kelola deklarasi konten Anda untuk menyimpan terjemahan:
@@ -400,7 +387,6 @@ export default appContent;
 > Untuk detail lebih lanjut, lihat [dokumentasi deklarasi konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/content_file.md).
 
 </Step>
-
 <Step number={8} title="Buat Komponen dan Hook yang Menyadari Locale">
 
 Buat komponen `LocalizedLink` untuk navigasi yang menyadari locale:
@@ -505,7 +491,6 @@ export const useLocalizedNavigate = () => {
 ```
 
 </Step>
-
 <Step number={9} title="Manfaatkan Intlayer di Halaman Anda">
 
 > Gunakan **`useIntlayer`** secara default: ini cara yang direkomendasikan untuk membaca konten di dalam komponen, dan compiler meresolusinya ke locale yang sedang dirender. Gunakan `getIntlayer` / `getIntlayerAsync` hanya di luar pohon React: `head` rute, loader, dan server function.
@@ -564,7 +549,6 @@ function RouteComponent() {
 > Untuk mempelajari lebih lanjut tentang hook `useIntlayer`, lihat [dokumentasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/react-intlayer/useIntlayer.md).
 
 </Step>
-
 <Step number={9} title="Buat Komponen Locale Switcher">
 
 Buat komponen untuk memungkinkan pengguna mengubah bahasa:
@@ -627,7 +611,6 @@ export const LocaleSwitcher: FC = () => {
 > Untuk mempelajari lebih lanjut tentang hook `useLocale`, lihat [dokumentasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/react-intlayer/useLocale.md).
 
 </Step>
-
 <Step number={10} title="Manajemen Atribut HTML">
 
 Seperti yang terlihat di Step 5, Anda dapat mengelola atribut `lang` dan `dir` dari tag `html` menggunakan `useParams` di komponen root Anda. Ini memastikan bahwa atribut yang benar ditetapkan di server dan klien.
@@ -648,7 +631,6 @@ function RootDocument({ children }: { children: ReactNode }) {
 ```
 
 </Step>
-
 <Step number={11} title="Tambahkan middleware">
 
 Anda juga dapat menggunakan `intlayerProxy` untuk menambahkan routing sisi server ke aplikasi Anda. Plugin ini akan secara otomatis mendeteksi locale saat ini berdasarkan URL dan menetapkan cookie locale yang sesuai. Jika tidak ada locale yang ditentukan, plugin akan menentukan locale yang paling sesuai berdasarkan preferensi bahasa browser pengguna. Jika tidak ada locale yang terdeteksi, plugin akan mengalihkan ke locale default.
@@ -684,7 +666,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={12} title="Internasionalisasi Metadata Anda">
 
 <Tabs>
@@ -877,7 +858,6 @@ Anda menyimpan chunk per-locale tanpa membayar biayanya di jalur penting head. H
 | Developer experience | simplest              | one `await`                | content threaded through `loaderData`  |
 
 </Step>
-
 <Step number={13} title="Ambil locale di server actions Anda">
 
 Anda mungkin ingin mengakses locale saat ini dari dalam server actions atau API endpoints Anda.
@@ -914,7 +894,6 @@ export const getLocaleServer = createServerFn().handler(async () => {
 ```
 
 </Step>
-
 <Step number={14} title="Kelola halaman tidak ditemukan">
 
 Ketika seorang pengguna mengunjungi halaman yang tidak ada, Anda dapat menampilkan halaman tidak ditemukan yang disesuaikan dan awalan locale dapat mempengaruhi cara halaman tidak ditemukan dipicu.
@@ -990,7 +969,6 @@ export const Route = createFileRoute("/{-$locale}/$")({
 ```
 
 </Step>
-
 <Step number={15} title="Ekstrak konten komponen Anda" isOptional={true}> isOptional={true}>
 
 Jika Anda memiliki basis kode yang ada, mengubah ribuan file bisa memakan waktu lama.
@@ -1090,7 +1068,6 @@ bun run build # Or bun run dev
 </Tabs>
 
 </Step>
-
 <Step number={16} title="Pre-render & Generate Sitemap">
 
 Intlayer dilengkapi dengan pembuat sitemap bawaan untuk membantu Anda membuat sitemap untuk aplikasi Anda dengan mudah. Ini menangani rute yang dilokalisasi dan menambahkan metadata yang diperlukan untuk mesin pencari.
@@ -1165,7 +1142,6 @@ export const Route = createFileRoute("/sitemap.xml")({
 ```
 
 </Step>
-
 <Step number={17} title="Konfigurasi TypeScript">
 
 Intlayer menggunakan module augmentation untuk mendapatkan keuntungan dari TypeScript dan membuat codebase Anda lebih kuat.
@@ -1239,25 +1215,21 @@ TanStack Start tidak memiliki lapisan i18n sendiri:
 Lihat [mengapa Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle TanStack Start saya?">
 
 Jauh lebih sedikit daripada solusi berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen, dan [kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale, mengurangi bundle hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari react-i18next atau react-intl tanpa menulis ulang komponen?">
 
 Ya, melalui panduan migrasi atau adapter kompatibilitas.
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu.
@@ -1267,7 +1239,6 @@ Untuk proses otomatis penuh, [Intlayer Compiler](https://github.com/aymericzip/i
 Dua batasan perlu diketahui sebelum Anda mengaktifkan compiler. Ini bekerja dengan analisis statis, jadi string yang hanya ada saat runtime, seperti kode kesalahan API atau field CMS, tetap berada di luar jangkauan. Dan ini harus membedakan teks yang dilihat pengguna dari logika aplikasi seperti `className="active"` atau kode status, yang memerlukan beberapa anotasi di basis kode yang besar. [Perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md) menghindari keduanya dengan menjaga Anda tetap memegang kendali.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -1279,55 +1250,46 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung server side rendering dan prerender di TanStack Start?">
 
 Ya. Konten diselesaikan saat SSR, dan panduan ini mencakup konfigurasi prerender untuk setiap locale.
 
 </Question>
-
 <Question title="Bagaimana cara menambahkan tag hreflang dan sitemap terlokalisasi?">
 
 Gunakan `generateSitemap` di rute `src/routes/sitemap[.]xml.ts` untuk menghasilkan tag `xhtml:link` dan entri `x-default`.
 
 </Question>
-
 <Question title="Apakah saya harus mencantumkan locale di URL?">
 
 Tidak. Pengaturan `routing.mode` menerima `"prefix-no-default"` (default), `"prefix-all"`, `"no-prefix"`, dan `"search-params"`.
 
 </Question>
-
 <Question title="Bagaimana cara membuat pengalih bahasa yang mempertahankan rute saat ini?">
 
 Gunakan `useLocale` bersama dengan komponen link terlokalisasi yang dijelaskan pada langkah 9.
 
 </Question>
-
 <Question title="Bagaimana cara menangani halaman 404 pada rute terlokalisasi?">
 
 Langkah 14 membahas hal ini. `validatePrefix` memvalidasi segmen bahasa di URL.
 
 </Question>
-
 <Question title="Bagaimana cara menerjemahkan aplikasi TanStack Start secara otomatis dengan AI?">
 
 Jalankan `npx intlayer fill`. Alat ini mendeteksi string yang hilang dan mengisinya menggunakan LLM pilihan Anda. Lihat [perintah fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/fill.md).
 
 </Question>
-
 <Question title="Apakah Intlayer mendukung bentuk jamak, gender dan rich text?">
 
 Ya: [bentuk jamak (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/plurial.md), [konten berbasis gender](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/gender.md), kondisi, [penyisipan (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/markdown.md), dan [formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/formatters.md).
 
 </Question>
-
 <Question title="Bagaimana penerjemah dapat mengedit konten tanpa menyentuh kode?">
 
 Melalui [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md), yang memungkinkan siapa saja mengedit teks langsung di aplikasi yang berjalan, atau melalui [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md), yang memisahkan konten sehingga dapat diubah tanpa perlu redeploy kode.
 
 </Question>
-
 <Question title="Apakah Intlayer gratis dan open source?">
 
 Ya, di bawah lisensi Apache 2.0, termasuk penggunaan komersial. CMS yang di-host adalah layanan berbayar opsional yang juga dapat [di-host sendiri (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).

@@ -70,37 +70,31 @@ Compared to main solutions like `svelte-i18n` or `i18next`, Intlayer is a soluti
 Intlayer is optimized to work perfectly with SvelteKit by offering **multilingual routing**, **SSR support**, and all the features needed for scaling internationalization (i18n).
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 Instead of loading massive JSON files into your pages, load only the necessary content. Intlayer helps **reduce your bundle and page sizes by up to 50%**.
 
 </Accordion>
-
 <Accordion header="Maintainability">
 
 Scoping your application's content **facilitates maintenance** for large-scale applications. You can duplicate or delete a single feature folder without the mental burden of reviewing your entire content codebase. Additionally, Intlayer is **fully typed** to ensure your content's accuracy.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Co-locating content **reduces the context needed** by Large Language Models (LLMs). Intlayer also comes with a suite of tools, such as a **CLI** to test for missing translations,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, and **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/agent_skills.md)**, to make the developer experience (DX) even smoother for AI agents.
 
 </Accordion>
-
 <Accordion header="Automation">
 
 Use automation to translate in your CI/CD pipeline using the LLM of your choice at the cost of your AI provider. Intlayer also offers a **compiler** to automate content extraction, as well as a [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) to help **translate in the background**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
 Connecting massive JSON files to components can lead to performance and reactivity issues. Intlayer optimizes your content loading at build time.
 
 </Accordion>
-
 <Accordion header="Scaling with none-dev">
 
 More than just an i18n solution, Intlayer provides an **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** and a **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** to help you manage your multilingual content in **real-time**, making collaboration with translators, copywriters, and other team members seamless. Content can be stored locally and/or remotely.
@@ -155,7 +149,6 @@ To get started, create a new SvelteKit project. Here is the final structure that
 ```
 
 <Steps>
-
 <Step number={1} title="Install Dependencies">
 
 Install the necessary packages using npm:
@@ -205,7 +198,6 @@ bun add vite-intlayer --save-dev
 - **vite-intlayer**: The Vite plugin to integrate content declarations with the build process.
 
 </Step>
-
 <Step number={2} title="Configuration of your project">
 
 Create a config file in your project root:
@@ -224,7 +216,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Integrate Intlayer in Your Vite Configuration">
 
 Update your `vite.config.ts` to include the Intlayer plugin. This plugin handles the transpilation of your content files.
@@ -240,7 +231,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Declare Your Content">
 
 Create your content declaration files anywhere in your `src` folder (e.g., `src/lib/content` or alongside your components). These files define the translatable content for your application using the `t()` function for each locale.
@@ -263,7 +253,6 @@ export default heroContent;
 ```
 
 </Step>
-
 <Step number={5} title="Utilize Intlayer in Your Components">
 
 Now you can use the `useIntlayer` function in any Svelte component. It returns a reactive store that automatically updates when the locale changes. The function will automatically respect the current locale (both during SSR and client-side navigation).
@@ -289,7 +278,6 @@ Now you can use the `useIntlayer` function in any Svelte component. It returns a
 ```
 
 </Step>
-
 <Step number={6} title="Set up routing" isOptional={true}>
 
 The following steps show how to set up locale-based routing in SvelteKit. This allows your URLs to include the locale prefix (e.g., `/en/about`, `/fr/about`) for better SEO and user experience.
@@ -316,7 +304,6 @@ The following steps show how to set up locale-based routing in SvelteKit. This a
 ```
 
 </Step>
-
 <Step number={7} title="Handle Server-Side Locale Detection">
 
 In SvelteKit, the server needs to know the user's locale to render the correct content during SSR. We use `hooks.server.ts` to detect the locale from the URL or cookies.
@@ -530,7 +517,6 @@ export const prerender = true;
 ```
 
 </Step>
-
 <Step number={8} title="Internationalized Links" isOptional={true}>
 
 For SEO, it is recommended to prefix your routes with the locale (e.g., `/en/about`, `/fr/about`). This component automatically prefixes any link with the current locale.
@@ -565,7 +551,6 @@ goto(localizedPath); // Navigates to /en/about or /fr/about depending on locale
 ```
 
 </Step>
-
 <Step number={9} title="Language Switcher" isOptional={true}>
 
 To allow users to switch languages, update the URL.
@@ -608,7 +593,6 @@ To allow users to switch languages, update the URL.
 ```
 
 </Step>
-
 <Step number={10} title="Add backend proxy" isOptional={true}>
 
 To add a backend proxy to your SvelteKit application, you can use the `intlayerProxy` function provided by the `vite-intlayer` plugin. This plugin will automatically detect the best locale for the user based on the URL, cookies, and browser language preferences.
@@ -634,7 +618,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={11} title="Set up the intlayer editor / CMS" isOptional={true}>
 
 To set up the intlayer editor, you must follow the [intlayer editor documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md).
@@ -661,7 +644,6 @@ To be able to visualize the intlayer editor selector, you will have to use the c
 ```
 
 </Step>
-
 <Step number={12} title="Extract the content of your components" isOptional={true}>
 
 If you have an existing codebase, transforming thousands of files can be time-consuming.
@@ -794,25 +776,21 @@ It is recommended to ignore the files generated by Intlayer.
 On SvelteKit the difference shows in the server side pieces: locale detection in hooks, localized links and the editor integration come with the library instead of being assembled per project. See [why Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/interest_of_intlayer.md) and the [Svelte i18n benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/benchmark/svelte.md).
 
 </Question>
-
 <Question title="How much does i18n add to my SvelteKit bundle size?">
 
 Much less than a namespace based setup, because a page never downloads a catalog it does not render. Server rendered markup resolves its content on the server, and the build time compiler replaces `useIntlayer` calls with the exact dictionary entries a component uses, so unused keys and unused languages are dropped, and [dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dynamic_dictionaries/index.md) split the rest per locale. Measured against the usual alternatives, Intlayer reduces bundle and page size by up to 50%. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/bundle_optimization.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/benchmark/svelte.md).
 
 </Question>
-
 <Question title="Can I migrate from `svelte-i18n` or `typesafe-i18n` without rewriting my components?">
 
 Largely. Follow the [Svelte I18n migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/compat/svelte-i18n.md) to move the content over. You can also migrate gradually: the [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md) keeps your existing JSON catalogs as the source of truth and generates Intlayer dictionaries from them, so both layers stay in sync while you move components across one at a time.
 
 </Question>
-
 <Question title="Can I keep my existing JSON translation files?">
 
 Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-po.md) does the same for gettext catalogs, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/per_locale_file.md) let you split content by language instead of grouping locales in one file.
 
 </Question>
-
 <Question title="Do I have to move my content key by key?">
 
 No. Run `npx intlayer extract` and Intlayer reads your components, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalog one at a time. Step 12 of this guide walks through it.
@@ -822,7 +800,6 @@ For a fully automated pipeline, the [Intlayer Compiler](https://github.com/aymer
 Two limits are worth knowing before you turn the compiler on. It works by static analysis, so strings that only exist at runtime, such as API error codes or CMS fields, stay out of reach. And it has to tell user facing text apart from application logic like `className="active"` or a status code, which needs a few annotations in a large codebase. The [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/extract.md) avoids both by keeping you in the loop.
 
 </Question>
-
 <Question title="What editor and AI agent tooling is available?">
 
 Five pieces, all optional:
@@ -834,43 +811,36 @@ Five pieces, all optional:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/eslint.md)**: `no-raw-text` flags hardcoded strings, with further rules for static dictionary keys and unused content.
 
 </Question>
-
 <Question title="Does Intlayer work with SvelteKit server side rendering and prerendering?">
 
 Yes. Step 7 covers server side locale detection in `hooks.server.ts`, so the first HTML response already carries the right language, which is what search engines and social crawlers read. Prerendered routes resolve their content at build time.
 
 </Question>
-
 <Question title="How do I set up localized routes and internationalized links?">
 
 Steps 6 and 8 cover it. A locale segment on the route tree plus `getLocalizedUrl` for links keeps navigation inside the active language, and `routing.mode` decides whether the default locale is prefixed at all. See the [configuration reference](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Question>
-
 <Question title="How do I build a language switcher in Svelte?">
 
 Step 9 shows the component. `useLocale` exposes the active locale, the declared locales and a setter that persists the choice in a cookie, while `getLocalizedUrl` rewrites the current path so the reader stays on the same page after switching.
 
 </Question>
-
 <Question title="How do I translate a SvelteKit app automatically with AI?">
 
 Run `npx intlayer fill`, which fills missing translations with the LLM of your choice using your own provider and API key, and `--git-diff` restricts the run to the content changed on the branch. See the [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/fill.md) and [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/CI_CD.md).
 
 </Question>
-
 <Question title="Does Intlayer support plurals, gender and rich text?">
 
 Yes: [plural forms](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/plurial.md), [gender based content](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/gender.md), conditions, [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/markdown.md) and [formatters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/formatters.md) for numbers, dates and currencies.
 
 </Question>
-
 <Question title="How can translators edit the content without touching the code?">
 
 Through the [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md), which runs on your own infrastructure and lets anyone edit text in place on the running app, or the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), which externalizes content so it can change without a deployment.
 
 </Question>
-
 <Question title="Is Intlayer free and open source?">
 
 Yes, under the Apache 2.0 license, commercial use included. The hosted CMS is an optional paid service that can also be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/self_hosting.md).

@@ -34,7 +34,6 @@ author: aymericzip
 Sayfalarınıza devasa JSON dosyalarını yüklemek yerine yalnızca gerekli içeriği yükleyin. Intlayer, **paket ve sayfa boyutunuzu %50'ye kadar azaltmanıza** yardımcı olur.
 
 </Accordion>
-
 <Accordion header="Sürdürülebilirlik">
 
 Uygulamanızın içeriğini kapsamlandırmak (scoping), büyük ölçekli uygulamaları **sürdürmesi kolay** hale getirir. Tüm içerik kod tabanınızı gözden geçirme yükü olmadan bir özellik dizinini silebilir veya kopyalayabilirsiniz. Ayrıca, Intlayer içeriğinizin doğruluğunu garanti etmek için **sıkı bir şekilde yazılmıştır (strongly typed)**.
@@ -42,25 +41,21 @@ Uygulamanızın içeriğini kapsamlandırmak (scoping), büyük ölçekli uygula
 Intlayer aynı zamanda i18n ekosisteminde **en aktif şekilde geliştirilen** çözümdür — sorunlar hızlıca çözülür, yeni framework adaptörleri düzenli olarak yayınlanır ve çekirdek API, üretimdeki gerçek geri bildirimlere dayanarak sürekli olarak iyileştirilir.
 
 </Accordion>
-
 <Accordion header="Yapay Zeka (AI) Ajanları">
 
 İçeriğin (kod ile) bir arada bulunması (colocation), Büyük Dil Modelleri (LLM'ler) için **gerekli bağlamı azaltır**. Intlayer ayrıca eksik çevirileri test etmek için bir **CLI**, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/mcp_server.md)** ve yapay zeka ajanları için Geliştirici Deneyimini (DX) çok daha pürüzsüz hale getiren **[Agent Skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/agent_skills.md)** gibi bir dizi araç sunar.
 
 </Accordion>
-
 <Accordion header="Otomasyon">
 
 Seçtiğiniz bir LLM'yi kullanarak, CI/CD süreçlerinizdeki çevirileri kendi AI sağlayıcınızın maliyeti üzerinden otomatikleştirin. Intlayer ayrıca içerik çıkarma işlemini otomatikleştiren bir **derleyici** ve **arka planda çeviriye** yardımcı olmak için bir [web platformu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) sunar.
 
 </Accordion>
-
 <Accordion header="Performans">
 
 Büyük JSON dosyalarını bileşenlere bağlamak, performans ve reaktivite sorunlarına yol açabilir. Intlayer, derleme (build) zamanında içeriğin yüklenmesini optimize eder.
 
 </Accordion>
-
 <Accordion header="Geliştirici Olmayanlarla Ölçeklenebilirlik">
 
 Basit bir i18n çözümünden çok daha fazlası olan Intlayer, çok dilli içeriğinizi **gerçek zamanlı** olarak yönetmenize yardımcı olan kendi barındırdığınız (self-hosted) bir **[görsel editör](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md)** ve **[tam donanımlı bir CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md)** sağlar. Bu, çevirmenler, metin yazarları ve ekibin diğer üyeleriyle sorunsuz bir işbirliği sağlar. İçerik yerel ve/veya uzak bir sunucuda barındırılabilir.
@@ -87,7 +82,6 @@ Bu kılavuz, öncelikle **Strateji 1'i** (doğrudan eklenebilir uyumluluk adapt�
 Aşağıdaki adımlar, mevcut `vue-i18n` uygulamanızı hiçbir bileşen kodunu değiştirmeden Intlayer üzerinde çalıştırmak için gereken minimum işlemlerdir.
 
 <Steps>
-
 <Step number={1} title="Bağımlılıkları Kurun">
 
 Temel Intlayer paketlerini ve uyumluluk adaptörünü kurun:
@@ -131,7 +125,6 @@ bun add intlayer vue-intlayer @intlayer/vue-i18n @intlayer/sync-json-plugin
 > `vue-i18n`'i güvenle yüklü bırakabilirsiniz; uyumluluk adaptörü onu TypeScript türleri için `devDependency` / `peerDependency` olarak kullanır.
 
 </Step>
-
 <Step number={2} title="Intlayer'ı Yapılandırın">
 
 `intlayer init` komutu başlangıç olarak bir `intlayer.config.ts` dosyası oluşturur. Bunu mevcut yerel ayarlarınıza (locales) uyacak şekilde güncelleyin ve mesaj dosyalarınızı `syncJSON` eklentisine işaret edin:
@@ -166,7 +159,6 @@ export default config;
 > **`source`**, bir dili JSON dosya yolunuza eşler. **`location`**, Intlayer izleyicisine (watcher) değişiklikler için hangi klasörü izlemesi gerektiğini söyler. `format: 'icu'` seçeneği, `vue-i18n` yer tutucularının (placeholder) doğru bir şekilde çözümlenmesini garanti eder.
 
 </Step>
-
 <Step number={3} title="Intlayer Eklentilerini Paketleyiciye (Bundler) Ekleyin">
 
 Mevcut bundler yapılandırmanızı uyumluluk eklentisiyle sarmalayın. Bu işlem, temel Intlayer eklentisini dâhil eder, içerik izlemeyi etkinleştirir ve en önemlisi **modül takma adları (alias) enjekte eder**. Böylece `import … from 'vue-i18n'` çağrıları derleme aşamasında şeffaf bir şekilde `@intlayer/vue-i18n` adresine yönlendirilir. Kaynak kodunda hiçbir değişiklik yapmanıza gerek yoktur.
@@ -222,7 +214,6 @@ Hızlı geçiş bu kadar. Uygulamanız artık `vue-i18n` içe aktarmalarınız v
 Aşağıdaki adımlar isteğe bağlıdır ve kademeli olarak yapılabilir. Bunlar, görsel editör, CMS, türetilmiş (typed) içerik dosyaları, AI çeviri otomasyonu gibi Intlayer özelliklerinin tam kapsamlı kullanımını sağlar.
 
 <Steps>
-
 <Step number={4} title="İçe Aktarmaları Açıkça Yeniden Adlandırın (İsteğe Bağlı)" isOptional={true}>
 
 Intlayer eklentisi takma adlama (aliasing) işlemlerini bundler düzeyinde çoktan halleder. Bağımlılığı kaynak dosyalarınızda açık tutmayı tercih ederseniz, içe aktarma yollarını manuel olarak yeniden adlandırabilirsiniz:
@@ -235,7 +226,6 @@ Intlayer eklentisi takma adlama (aliasing) işlemlerini bundler düzeyinde çokt
 Bunlar **doğrudan değişimlerdir**; fonksiyon çağırma şeklinizde, argümanlarda veya dönüş türlerinde hiçbir değişiklik gerekmez.
 
 </Step>
-
 <Step number={5} title="AI Çeviri Otomasyonunu Etkinleştirin" isOptional={true}>
 
 Intlayer yapılandırıldığında, eksik çevirileri otomatik olarak doldurmak için CLI'yı kullanabilirsiniz:

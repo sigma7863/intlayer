@@ -276,19 +276,16 @@ Para o passo a passo técnico completo com middleware, geração estática (`gen
 Sim. O Intlayer suporta `routing.mode: "search-params"` e detecção por cookies/headers sem alterar sua estrutura de pastas.
 
 </Question>
-
 <Question title="Preciso substituir manualmente todos os textos do meu app?">
 
 Não. Utilize `npx intlayer extract` ou o compilador do Intlayer para extração automática.
 
 </Question>
-
 <Question title="Como o Intlayer reduz o tamanho do bundle comparado ao next-intl?">
 
 Através de declarações modulares por componente e eliminação de código não utilizado durante o build.
 
 </Question>
-
 <Question title="Posso usar IA para traduzir os componentes existentes?">
 
 Sim. O comando `npx intlayer fill` conecta seu projeto a LLMs para preenchimento de traduções com contexto.

@@ -69,37 +69,31 @@ Im Vergleich zu Hauptlösungen wie „i18next“ oder „i18n.js“ ist Intlayer
 Intlayer ist für die perfekte Zusammenarbeit mit Vite optimiert, indem es **Framework-unabhängiges Content-Management**, **TypeScript-Unterstützung** und alle für die Skalierung der Internationalisierung (i18n) erforderlichen Funktionen bietet.
 
 </Accordion>
-
 <Accordion header="Bundle-Größe">
 
 Anstatt riesige JSON-Dateien in Ihre Seiten zu laden, laden Sie nur den erforderlichen Inhalt. Intlayer hilft **Ihre Bundle- und Seitengröße um bis zu 50 % zu reduzieren**.
 
 </Accordion>
-
 <Accordion header="Wartbarkeit">
 
 Durch die Festlegung des Inhaltsbereichs Ihrer Anwendung wird die Wartung für umfangreiche Anwendungen erleichtert. Sie können einen einzelnen Feature-Ordner duplizieren oder löschen, ohne die mentale Belastung durch die Überprüfung Ihrer gesamten Inhaltscodebasis auf sich nehmen zu müssen. Darüber hinaus ist Intlayer **vollständig typisiert (fully typed)**, um die Genauigkeit Ihrer Inhalte sicherzustellen.
 
 </Accordion>
-
 <Accordion header="KI-Agent">
 
 Durch die gemeinsame Platzierung von Inhalten **reduziert sich der von Large Language Models (LLMs) benötigte Kontext**. Intlayer verfügt außerdem über eine Reihe von Tools, wie zum Beispiel eine **CLI** zum Testen auf fehlende Übersetzungen,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** und **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/agent_skills.md)**, um die Entwicklererfahrung (DX) für KI-Agenten noch reibungsloser zu gestalten.
 
 </Accordion>
-
 <Accordion header="Automatisierung">
 
 Nutzen Sie die Automatisierung, um Ihre CI/CD-Pipeline mit dem LLM Ihrer Wahl auf Kosten Ihres KI-Anbieters zu übersetzen. Intlayer bietet außerdem einen **Compiler** zur Automatisierung der Inhaltsextraktion sowie eine [Webplattform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) zur Unterstützung der **Übersetzung im Hintergrund**.
 
 </Accordion>
-
 <Accordion header="Leistung">
 
 Das Verbinden großer JSON-Dateien mit Komponenten kann zu Leistungs- und Reaktivitätsproblemen führen. Intlayer optimiert das Laden Ihrer Inhalte zur Erstellungszeit.
 
 </Accordion>
-
 <Accordion header="Skalierung mit Nicht-Entwickler">
 
 Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten [visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** und ein **[vollständiges CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, um Ihnen zu helfen Verwalten Sie Ihre mehrsprachigen Inhalte in **Echtzeit** und gestalten Sie die Zusammenarbeit mit Übersetzern, Textern und anderen Teammitgliedern reibungslos. Inhalte können lokal und/oder remote gespeichert werden.
@@ -110,7 +104,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 ## Schritt-für-Schritt-Anleitung zur Einrichtung von Intlayer in einer Vite und Vanilla JS Anwendung
 
 <Steps>
-
 <Step number={1} title="Abhängigkeiten installieren">
 
 Installieren Sie die notwendigen Pakete mit npm:
@@ -165,7 +158,6 @@ bun add vite-intlayer --dev
   Enthält das Vite-Plugin zur Integration von Intlayer in den [Vite-Bundler](https://vite.dev/guide/why.html#why-bundle-for-production) sowie Middleware zur Erkennung der bevorzugten Sprache des Benutzers, zur Verwaltung von Cookies und zur Handhabung von URL-Weiterleitungen.
 
 </Step>
-
 <Step number={2} title="Konfiguration Ihres Projekts">
 
 Erstellen Sie eine Konfigurationsdatei, um die Sprachen Ihrer Anwendung zu konfigurieren:
@@ -191,7 +183,6 @@ export default config;
 > Über diese Konfigurationsdatei können Sie lokalisierte URLs, Middleware-Weiterleitungen, Cookie-Namen, den Speicherort und die Erweiterung Ihrer Inhaltsdeklarationen festlegen, Intlayer-Protokolle in der Konsole deaktivieren und vieles mehr. Eine vollständige Liste der verfügbaren Parameter finden Sie in der [Konfigurationsdokumentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/configuration.md).
 
 </Step>
-
 <Step number={3} title="Intlayer in Ihre Vite-Konfiguration integrieren">
 
 Fügen Sie das intlayer-Plugin in Ihre Konfiguration ein.
@@ -215,7 +206,6 @@ export default defineConfig({
 > Das Vite-Plugin `intlayer()` wird verwendet, um Intlayer in Vite zu integrieren. Es stellt die Erstellung von Inhaltsdeklarationsdateien sicher und überwacht diese im Entwicklungsmodus. Es definiert Intlayer-Umgebungsvariablen innerhalb der Vite-Anwendung. Zusätzlich bietet es Aliase zur Leistungsoptimierung.
 
 </Step>
-
 <Step number={4} title="Intlayer in Ihrem Einstiegspunkt initialisieren">
 
 Rufen Sie `installIntlayer()` auf, **bevor** Inhalte gerendert werden, damit das globale Sprach-Singleton bereit ist.
@@ -242,7 +232,6 @@ import "./app.js";
 ```
 
 </Step>
-
 <Step number={5} title="Deklarieren Sie Ihren Inhalt">
 
 Erstellen und verwalten Sie Ihre Inhaltsdeklarationen, um Übersetzungen zu speichern:
@@ -322,7 +311,6 @@ export default appContent;
 > Für weitere Details besuchen Sie die [Dokumentation zur Inhaltsdeklaration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Intlayer in Ihrem JavaScript verwenden">
 
 `vanilla-intlayer` spiegelt die Oberflächen-API von `react-intlayer` wider: `useIntlayer(key, locale?)` gibt den übersetzten Inhalt direkt zurück. Verketten Sie `.onChange()` am Ergebnis, um Sprachänderungen zu abonnieren - das explizite Äquivalent zu einem React-Re-Render.
@@ -360,7 +348,6 @@ document.querySelector<HTMLParagraphElement>(".read-the-docs")!.textContent =
 > ```
 
 </Step>
-
 <Step number={7} title="Die Sprache Ihres Inhalts ändern" isOptional={true}>
 
 Um die Sprache Ihres Inhalts zu ändern, verwenden Sie die Funktion `setLocale`, die von `useLocale` bereitgestellt wird.
@@ -397,7 +384,6 @@ export function setupLocaleSwitcher(container: HTMLElement): () => void {
 ```
 
 </Step>
-
 <Step number={8} title="Markdown- und HTML-Inhalte rendern" isOptional={true}>
 
 Intlayer unterstützt `md()` und `html()` Inhaltsdeklarationen. In Vanilla JS wird die kompilierte Ausgabe als rohes HTML über `innerHTML` eingefügt.
@@ -458,7 +444,6 @@ document.querySelector<HTMLDivElement>(".edit-note")!.innerHTML =
 > ```
 
 </Step>
-
 <Step number={9} title="Lokalisiertes Routing zu Ihrer Anwendung hinzufügen" isOptional={true}>
 
 Um eindeutige Routen für jede Sprache zu erstellen (nützlich für SEO), können Sie `intlayerProxy` in Ihrer Vite-Konfiguration zur serverseitigen Spracherkennung verwenden.
@@ -485,7 +470,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={10} title="Die URL ändern, wenn sich die Sprache ändert" isOptional={true}>
 
 Um die Browser-URL zu aktualisieren, wenn sich die Sprache ändert, rufen Sie `useRewriteURL()` nach der Installation von Intlayer auf:
@@ -501,7 +485,6 @@ const stopRewriteURL = useRewriteURL();
 ```
 
 </Step>
-
 <Step number={11} title="Wechseln der HTML-Sprach- und Richtungsattribute" isOptional={true}>
 
 Aktualisieren Sie die Attribute `lang` und `dir` des `<html>`-Tags entsprechend der aktuellen Sprache für Barrierefreiheit und SEO.
@@ -521,7 +504,6 @@ useLocale({
 ```
 
 </Step>
-
 <Step number={12} title="Wörterbücher pro Sprache lazy-loaden" isOptional={true}>
 
 Für große Apps möchten Sie vielleicht das Wörterbuch jeder Sprache in einen eigenen Chunk aufteilen. Verwenden Sie `useDictionaryDynamic` zusammen mit dem dynamischen `import()` von Vite:
@@ -546,7 +528,6 @@ const unsubscribe = useDictionaryDynamic(
 > Das Bundle jeder Sprache wird nur abgerufen, wenn diese Sprache aktiv wird, und das Ergebnis wird zwischengespeichert - nachfolgende Wechsel zur gleichen Sprache erfolgen sofort.
 
 </Step>
-
 <Step number={13} title="Den Inhalt Ihrer Komponenten extrahieren" isOptional={true}>
 
 Wenn Sie eine bestehende Codebasis haben, kann die Transformation von Tausenden von Dateien zeitaufwendig sein.
@@ -781,25 +762,21 @@ Vite hat keine Meinung zu i18n, sodass die Wahl aus dem Vanilla-JS-Ökosystem ko
 Der Vite-spezifische Gewinn ist, dass Übersetzungen zur Compile-Zeit aufgelöst und tree-shaken werden, statt zur Laufzeit als JSON abgerufen zu werden, sodass eine Seite nur die Einträge ausliefert, die sie rendert. Siehe [warum Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/interest_of_intlayer.md) und den [Benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/benchmark/index.md).
 
 </Question>
-
 <Question title="Wie viel trägt i18n zu meiner Vite-Bundle-Größe bei?">
 
 Viel weniger als bei einem Namespace-basierten Setup, denn eine Seite lädt niemals einen Katalog herunter, den sie nicht rendert. Der Build-Zeit-Compiler ersetzt `useIntlayer`-Aufrufe durch genau die Wörterbucheinträge, die eine Komponente verwendet, sodass ungenutzte Schlüssel und ungenutzte Sprachen entfernt werden, und [dynamische Wörterbücher](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dynamic_dictionaries/index.md) teilen den Rest pro Locale auf. Gemessen an den üblichen Alternativen reduziert Intlayer die Bundle- und Seitengröße um bis zu 50 %. Siehe [Bundle-Optimierung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/bundle_optimization.md) und den [Benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/benchmark/index.md).
 
 </Question>
-
 <Question title="Kann ich von `i18next` migrieren, ohne meine Module neu zu schreiben?">
 
 Weitgehend. Folgen Sie dem [i18next-Migrationsleitfaden](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/migration_from_i18next_to_intlayer.md), um die Inhalte zu übernehmen. Sie können auch schrittweise migrieren: Das [sync-JSON-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-json.md) behält Ihre vorhandenen JSON-Kataloge als Single Source of Truth und generiert daraus Intlayer-Wörterbücher, sodass beide Ebenen synchron bleiben, während Sie Module nach und nach umziehen.
 
 </Question>
-
 <Question title="Kann ich meine vorhandenen JSON-Übersetzungsdateien behalten?">
 
 Ja. Das [sync-JSON-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-json.md) behält Ihre `/messages/{locale}/{namespace}.json`-Dateien als Single Source of Truth und generiert daraus Intlayer-Wörterbücher, in beide Richtungen. Ein [sync-PO-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-po.md) macht dasselbe für gettext-Kataloge, und [Dateien pro Locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/per_locale_file.md) lassen Sie Inhalte nach Sprache aufteilen, statt Locales in einer Datei zu gruppieren.
 
 </Question>
-
 <Question title="Muss ich meine Inhalte Schlüssel für Schlüssel umziehen?">
 
 Nein. Führen Sie `npx intlayer extract` aus; Intlayer liest Ihre Komponenten, zieht die für den Nutzer sichtbaren Strings heraus und schreibt neben jede eine `.content`-Datei, sodass Sie ein Diff prüfen, statt Strings einzeln in einen Katalog zu kopieren. Schritt 13 dieses Leitfadens führt Sie hindurch.
@@ -809,7 +786,6 @@ Für eine vollständig automatisierte Pipeline macht der [Intlayer-Compiler](htt
 Zwei Einschränkungen sollten Sie kennen, bevor Sie den Compiler aktivieren. Er arbeitet mit statischer Analyse, sodass Strings, die nur zur Laufzeit existieren, etwa API-Fehlercodes oder CMS-Felder, unerreichbar bleiben. Und er muss für den Nutzer sichtbaren Text von Anwendungslogik wie `className="active"` oder einem Statuscode unterscheiden, was in einer großen Codebasis einige Annotationen erfordert. Der [extract-Befehl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/extract.md) vermeidet beides, indem er Sie einbezieht.
 
 </Question>
-
 <Question title="Welches Editor- und KI-Agenten-Tooling ist verfügbar?">
 
 Fünf Bausteine, alle optional:
@@ -821,61 +797,51 @@ Fünf Bausteine, alle optional:
 - **[ESLint-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/eslint.md)**: `no-raw-text` markiert fest kodierte Strings, mit weiteren Regeln für statische Wörterbuchschlüssel und ungenutzte Inhalte.
 
 </Question>
-
 <Question title="Wie verwende ich übersetzten Inhalt in einer Vanilla-JS-Komponente?">
 
 Initialisieren Sie Intlayer in Ihrem Einstiegspunkt, wie Schritt 4 zeigt, und lesen Sie dann den Inhalt mit `useIntlayer` und schreiben Sie ihn ins DOM. Es ist kein Framework und kein virtuelles DOM beteiligt, sodass Sie entscheiden, wann die Knoten aktualisiert werden. Schritt 8 behandelt das Rendern von Markdown- und HTML-Inhalten.
 
 </Question>
-
 <Question title="Funktioniert Intlayer mit dem Vite-Dev-Server und Hot Reload?">
 
 Ja. Das `intlayer()`-Vite-Plugin überwacht Ihre `.content.ts`-Dateien und baut die betroffenen Wörterbücher beim Speichern neu, sodass Änderungen ohne Neustart des Dev-Servers erscheinen, und die generierten Typen werden gleichzeitig neu erzeugt, sodass die Autovervollständigung synchron bleibt.
 
 </Question>
-
 <Question title="Wie richte ich lokalisiertes Routing ein?">
 
 Die Schritte 9 und 10 behandeln die lokalisierten Routen und das Umschreiben der URL, wenn sich die Locale ändert. `routing.mode` bestimmt das URL-Schema: `"prefix-no-default"` (die Voreinstellung, `/about` und `/fr/about`), `"prefix-all"`, `"no-prefix"` (aus einem Cookie, einem Header oder einer Domain aufgelöst) oder `"search-params"` (`/about?locale=fr`). Siehe die [Konfigurationsreferenz](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/configuration.md).
 
 </Question>
-
 <Question title="Wie unterstütze ich Rechts-nach-links-Sprachen wie Arabisch oder Hebräisch?">
 
 Schritt 11 behandelt das. `getHTMLTextDir` gibt `ltr`, `rtl` oder `auto` für eine Locale zurück, sodass Sie `lang` und `dir` am Wurzelelement aus der aktiven Locale binden und Ihre logischen CSS-Eigenschaften den Rest erledigen lassen.
 
 </Question>
-
 <Question title="Wie handhabe ich SEO-Metadaten in einer clientseitig gerenderten Vite-App?">
 
 Setzen Sie `lang` und `dir` am `html`-Element aus der aktiven Locale und geben Sie `hreflang`-Alternativen für jede deklarierte Locale mit `getMultilingualUrls` aus, einschließlich `x-default`. Für Seiten, die zuverlässig gecrawlt werden müssen, bevorzugen Sie ein vorgerendertes oder serverseitig gerendertes Setup.
 
 </Question>
-
 <Question title="Wie übersetze ich die App automatisch mit KI?">
 
 Führen Sie `npx intlayer fill` aus. Es füllt fehlende Übersetzungen mit dem LLM Ihrer Wahl, unter Verwendung Ihres eigenen Anbieters und API-Schlüssels, und `--git-diff` beschränkt den Lauf auf die im Branch geänderten Inhalte. Siehe den [fill-Befehl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/fill.md) und die [CI/CD-Integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/CI_CD.md).
 
 </Question>
-
 <Question title="Unterstützt Intlayer Pluralformen, Genus und Rich Text?">
 
 Ja: [Pluralformen](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/plurial.md), [genusbasierte Inhalte](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/gender.md), Bedingungen, [Einfügungen](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dictionary/markdown.md) und [Formatter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/formatters.md) für Zahlen, Daten und Währungen.
 
 </Question>
-
 <Question title="Kann ich nur die Sprache laden, die der Besucher benötigt?">
 
 Ja. Schritt 12 behandelt das Lazy Loading von Wörterbüchern pro Locale, sodass die initiale Nutzlast eine Sprache trägt und die anderen nur abgerufen werden, wenn der Besucher wechselt. Siehe [dynamische Wörterbücher](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dynamic_dictionaries/index.md).
 
 </Question>
-
 <Question title="Wie können Übersetzer die Inhalte bearbeiten, ohne den Code anzufassen?">
 
 Über den [visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_visual_editor.md), der auf Ihrer eigenen Infrastruktur läuft und es jedem ermöglicht, Text direkt in der laufenden App zu bearbeiten, oder das [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_CMS.md), das Inhalte auslagert, sodass sie sich ohne Deployment ändern können.
 
 </Question>
-
 <Question title="Ist Intlayer kostenlos und Open Source?">
 
 Ja, unter der Apache-2.0-Lizenz, kommerzielle Nutzung eingeschlossen. Das gehostete CMS ist ein optionaler kostenpflichtiger Dienst, der auch [selbst gehostet](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/self_hosting.md) werden kann.

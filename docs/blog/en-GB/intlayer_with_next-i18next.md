@@ -65,7 +65,6 @@ This guide explains how to leverage Intlayer as an **adapter for i18next**, allo
 ## Step-by-Step Guide to Set Up Intlayer with next-i18next
 
 <Steps>
-
 <Step number={1} title="Install Dependencies">
 
 Install the necessary packages using your preferred package manager:
@@ -112,7 +111,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Plugin to synchronise Intlayer content declarations to i18next JSON format
 
 </Step>
-
 <Step number={2} title="Implement the Intlayer plugin to wrap the JSON">
 
 Create an Intlayer configuration file to define your supported locales:

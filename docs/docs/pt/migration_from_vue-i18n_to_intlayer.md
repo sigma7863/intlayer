@@ -33,7 +33,6 @@ author: aymericzip
 Em vez de carregar enormes arquivos JSON em suas páginas, carregue apenas o conteúdo necessário. Intlayer ajuda você a **reduzir o tamanho do pacote e da página em até 50%**.
 
 </Accordion>
-
 <Accordion header="Manutenibilidade">
 
 Criar escopos para o conteúdo da sua aplicação torna aplicações em larga escala **fáceis de manter**. Você pode duplicar ou excluir um diretório de recursos inteiro sem o esforço mental de revisar toda a sua base de código de conteúdo. Além disso, Intlayer é **fortemente tipado** para garantir a precisão do seu conteúdo.
@@ -41,25 +40,21 @@ Criar escopos para o conteúdo da sua aplicação torna aplicações em larga es
 Intlayer também é a solução **desenvolvida mais ativamente** no ecossistema i18n — problemas são corrigidos rapidamente, novos adaptadores de frameworks são lançados regularmente e a API principal é continuamente refinada com base em feedback do mundo real em produção.
 
 </Accordion>
-
 <Accordion header="Agentes de IA">
 
 A co-localização do conteúdo **reduz o contexto necessário** para Modelos de Linguagem de Grande Escala (LLMs). O Intlayer também oferece um conjunto de ferramentas como uma **CLI** para testar traduções ausentes, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/mcp_server.md)** e **[Agent Skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/agent_skills.md)** para tornar a Experiência do Desenvolvedor (DX) muito mais suave para agentes de IA.
 
 </Accordion>
-
 <Accordion header="Automação">
 
 Automatize as traduções em seu pipeline de CI/CD usando o LLM de sua preferência pelo custo do seu provedor de IA. O Intlayer também oferece um **compilador** para automatizar a extração de conteúdo, bem como uma [plataforma web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_CMS.md) para auxiliar com **tradução em segundo plano**.
 
 </Accordion>
-
 <Accordion header="Desempenho">
 
 Conectar enormes arquivos JSON aos componentes pode levar a problemas de desempenho e reatividade. O Intlayer otimiza o carregamento do conteúdo no momento do build (build time).
 
 </Accordion>
-
 <Accordion header="Escalabilidade com não desenvolvedores">
 
 Muito mais que apenas uma solução i18n, o Intlayer fornece um **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_visual_editor.md)** auto-hospedável e um **[CMS completo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_CMS.md)** para ajudá-lo a gerenciar seu conteúdo multilíngue em **tempo real**, tornando perfeita a colaboração com tradutores, redatores e outros membros da equipe. O conteúdo pode ser armazenado local e/ou remotamente.
@@ -86,7 +81,6 @@ Este guia cobre primeiro a **Estratégia 1** (adaptador de compatibilidade) e, e
 As etapas a seguir são o mínimo necessário para executar seu aplicativo `vue-i18n` existente no Intlayer, sem alterar o código de nenhum componente.
 
 <Steps>
-
 <Step number={1} title="Instale as Dependências">
 
 Instale o pacote principal do Intlayer e o adaptador de compatibilidade:
@@ -130,7 +124,6 @@ bun add intlayer vue-intlayer @intlayer/vue-i18n @intlayer/sync-json-plugin
 > Você pode manter o pacote base listado que reside na estrutura e formato focado de uso com nome via o termo para designar listando no pacote no seu aplicativo onde mora as referências provindas perante via com base e nome referenciado provindo com termo em base e listado `vue-i18n` como instalado contido na segurança com total integridade e em extrema segurança na raiz com total via perante do base na via do projeto perante a estrutura base de dependências — todo pacote auxiliar que encarrega por trás com adaptação na classe de auxiliar de adaptador das compatibilidades e das partes engajadas por vias ligadas a auxiliar de compatibilidade usa por trás dos cenários focando a parte contida por e para encarregado na fonte atrelada perante em classificar nas bases atadas via dependência secundária onde habita nas extensões designando por vias do lado para apontamento atrelado a `devDependency` / com o parceiro no arrasto no caso o também lado voltado nas configurações na área designando apontamentos no caso referenciando apontamento focado em vias das frentes designando com `peerDependency` operando tudo isso em bases de referências para focar em retornos atrelados com utilidade no caso do foco de uso em retornos encarregados por via ao auxílio para auxiliar a parte atrelada base no uso focado perante o lado do auxílio com o compilador base perante a estruturação dos tipos e arranjos atrelados do que lida ali no modo onde opera com a área dos arranjos voltados perante e de utilidade pro ambiente e linguagem provinda listando com formatação perante o auxílio provindo na parte que opera e encarrega sob o Typescript focando com as vias de suas tratativas atadas e ligadas às partes dos e para encarregados ao repasse focando repasses visando com vias do compilador nas listagens nas frentes que atam com encarregados via dos "tipos TypeScript".
 
 </Step>
-
 <Step number={2} title="Configure o Intlayer">
 
 O comando `intlayer init` cria um arquivo inicial `intlayer.config.ts`. Atualize-o para corresponder aos seus locales existentes e direcione o plugin `syncJSON` aos seus arquivos de mensagens:
@@ -165,7 +158,6 @@ export default config;
 > **`source`** mapeia um locale para o caminho de seu arquivo JSON correspondente. **`location`** diz ao observador (watcher) do Intlayer qual pasta monitorar para alterações. A opção `format: 'icu'` garante que espaços reservados do `vue-i18n` sejam analisados corretamente.
 
 </Step>
-
 <Step number={3} title="Adicione os plugins do Intlayer ao seu bundler">
 
 Insira ao redor contendo sua forma inicial já estabelecida englobada a respeito e encargo atrelado à parte e seção dos dados descritores voltados à moldar seu agrupador que compila as bases num conjunto agrupado (bundler) atrelando encarregamentos ao plugin com foco e papel para a compatibilidade e a base referida contendo foco no que se trata e trata focado sob a parte do aliasing, o que na teoria e em vias diretas quer dizer as partes em rotinas geradas baseadas e designadas focando injeções por trás dos módulos visando criar redirecionamentos nos módulos perante ao alias em uso no formato do pacote (e muito além por conta na parte encarregada sob bases perante o compilador onde opera ele focado em compilar e carregar via uso contido referenciado nas linhas com uso para o empacotamento que arrasta referências e vias perante onde trata a respeito do núcleo base do que opera no core das engrenagens oriundas na essência e nas ferramentas de bases oriundas sob responsabilidade na raiz vinculada sob pacote principal pertencente focado no próprio ambiente principal vindo com formato atrelado para as raízes focadas atreladas perante o uso na base do plugin próprio e nativo da extensão raiz atada perante uso contido pelo `Intlayer`). A partir da integração ele orgulhosamente encarregará suas automatizações de forma onde todas e qualquer importação preexistente advinda por chamadas nas vias do modelo `import … from 'vue-i18n'` acabe interceptada fluindo redirecionada transparente e de brinde à quem programar de via que ao transcorrer em rotina que ocorra englobando o instante de build por fim aponte referenciada pro caminho `@intlayer/vue-i18n`. Não são necessárias modificações focando no âmbito das frentes contidas e abarcando seus respectivos arquivos-fonte no decorrer perante esse processo e a esse quesito encarregado nas etapas a vir adiante baseando e embutindo para as partes ao decorrer perante o andamento encarregado nesta base descrita sob a etapa do decorrer e fase dessa parte atrelada com listagens e passos.
@@ -221,7 +213,6 @@ Isso é tudo para a migração rápida. Seu aplicativo agora está rodando no In
 As etapas a seguir são opcionais e podem ser feitas gradativamente. Elas desbloqueiam o conjunto completo das funcionalidades do Intlayer: editor visual, CMS, arquivos de conteúdo tipados, automação de tradução por IA e muito mais.
 
 <Steps>
-
 <Step number={4} title="Renomeie Explícitamente as Importações (Opcional)" isOptional={true}>
 
 O plugin do Intlayer já lida com o aliasing (apelido) a nível do bundler. Se preferir tornar a dependência explícita nos seus arquivos de código-fonte, você pode renomear as importações manualmente:
@@ -234,7 +225,6 @@ O plugin do Intlayer já lida com o aliasing (apelido) a nível do bundler. Se p
 Essas são **substituições diretas** (drop-in) — nenhuma alteração de assinaturas de chamadas, argumentos ou tipos de retorno é necessária.
 
 </Step>
-
 <Step number={5} title="Habilite a Automação de Tradução por IA" isOptional={true}>
 
 Com o Intlayer configurado, você pode usar a CLI para preencher traduções ausentes automaticamente:

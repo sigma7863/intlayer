@@ -56,7 +56,6 @@ author: aymericzip
 ## Пошаговое руководство по настройке Intlayer с react-intl
 
 <Steps>
-
 <Step number={1} title="Установка зависимостей">
 
 Установите необходимые пакеты:
@@ -103,7 +102,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Плагин для экспорта деклараций контента Intlayer в формат JSON, совместимый с react-intl
 
 </Step>
-
 <Step number={2} title="Реализация плагина Intlayer для обертки JSON">
 
 Создайте файл конфигурации Intlayer для определения поддерживаемых локалей:

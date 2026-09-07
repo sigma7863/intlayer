@@ -41,60 +41,47 @@ author: aymericzip
 
 # IntlayerでReact Router v7を翻訳する | 国際化（i18n）
 
-<Tabs defaultTab="video">
-  <Tab label="動画" value="video">
+このガイドでは、React Router v7 プロジェクトでロケール対応ルーティング、TypeScript サポート、および最新の開発プラクティスを使用して、シームレスな国際化のために **Intlayer** を統合する方法を示します。
 
-<iframe title="Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/dS9L7uJeak4?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
+**設定ベースのルーティング** (`routes.ts`) と **ファイルシステムベースのルーティング** (`@react-router/fs-routes`) の両方をカバーしています。
 
-  </Tab>
-</Tabs>
 ## 目次
 
 <TOC/>
 
-## 代替手段ではなく Interlayer を使用する理由
+## 代替手段ではなく Intlayer を使用する理由
 
 「react-i18next」や「i18next」などの主要なソリューションと比較して、Intlayer は次のような統合された最適化を備えたソリューションです。
 
 <AccordionGroup>
-
-**React Router を完全にカバー**
+<Accordion header="React Router を完全にカバー">
 
 Intlayer は、**ロケール対応ルーティング**、**ロケール検出用のミドルウェア**、およびスケーリング国際化 (i18n) に必要なすべての機能を提供することにより、React Router と完全に連携するように最適化されています。
 
-**バンドルサイズ**
-
-<Accordion header="Bundle size">
+</Accordion>
+<Accordion header="バンドルサイズ">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
-**保守性**
+</Accordion>
+<Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
-**AI エージェント**
-
 </Accordion>
+<Accordion header="AI エージェント">
 
-<Accordion header="AI Agent">
-
-コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
-
-**オートメーション**
+コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** などのツール スイートも付属しており、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
 <Accordion header="自動化">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) も提供します。
 
-**パフォーマンス**
-
 </Accordion>
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
-
-**非開発によるスケーリング**
 
 </Accordion>
 <Accordion header="開発者以外でのスケーリング">
@@ -104,15 +91,55 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
+## React Router v7 アプリケーションで Intlayer をセットアップするためのステップバイステップ ガイド
 
-## VS Code Extension
+<Tabs defaultTab="video">
+  <Tab label="ビデオ" value="video">
 
-To improve your development experience with Intlayer, you can install the official **Intlayer VS Code Extension**.
+<iframe title="Intlayerを使用してReact Router v7アプリを翻訳する方法" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/dS9L7uJeak4?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
-[Install from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
+  </Tab>
+  <Tab label="コード (設定ベース)" value="code-config">
 
-This extension provides:
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="デモ CodeSandbox - Intlayerを使用してアプリケーションを多言語化する方法 (設定ベース)"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="コード (ファイルシステムルート)" value="code-fs">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-fs-routes-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="デモ CodeSandbox - Intlayerを使用してアプリケーションを多言語化する方法 (ファイルシステムルート)"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="デモ (設定ベース)" value="demo">
+
+<iframe
+  src="https://intlayer-react-router-v7.vercel.app"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="デモ Intlayer React Router v7 Template"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+</Tabs>
+
+See the [Config-Based Routing Template](https://github.com/aymericzip/intlayer-react-router-v7-template) or [File-System Routes Template](https://github.com/aymericzip/intlayer-react-router-v7-fs-routes-template) on GitHub.
+
+<Steps>
+<Step number={1} title="依存関係のインストール">
+
+お好みのパッケージマネージャーを使用して、必要なパッケージをインストールします:
 
 ```bash packageManager="npm"
 npx intlayer init --interactive
@@ -156,70 +183,16 @@ bun add vite-intlayer --dev
 
 - **intlayer**
 
-設定管理、翻訳、[コンテンツ宣言](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md)、トランスパイレーション、および[CLIコマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/index.md)のための国際化ツールを提供するコアパッケージです。
+  設定管理、翻訳、[コンテンツ宣言](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md)、トランスパイレーション、および[CLIコマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/index.md)のための国際化ツールを提供するコアパッケージです。
 
-- **Autocompletion** for translation keys.
-- **Real-time error detection** for missing translations.
-- **Inline previews** of translated content.
-- **Quick actions** to easily create and update translations.
+- **react-intlayer**
+  IntlayerをReactアプリケーションと統合するパッケージです。Reactの国際化のためのコンテキストプロバイダーとフックを提供します。
 
-For more details on how to use the extension, refer to the [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension).
-
-<Step number={2} title="プロジェクトの設定">
+- **vite-intlayer**
+  Intlayerを[Viteバンドラー](https://vite.dev/guide/why.html#why-bundle-for-production)と統合するためのViteプラグイン、およびユーザーの優先ロケールの検出、Cookieの管理、URLリダイレクトの処理のためのミドルウェアが含まれています。
 
 </Step>
-
----
-
-## Documentation References
-
-<Tabs defaultTab="video">
-  <Tab label="ビデオ" value="video">
-
-<iframe title="Intlayerを使用してReact Router v7アプリを翻訳する方法" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/dS9L7uJeak4?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
-
-  </Tab>
-  <Tab label="コード (設定ベース)" value="code-config">
-
-<iframe
-  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-template?file=intlayer.config.ts"
-  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="デモ CodeSandbox - Intlayerを使用してアプリケーションを多言語化する方法 (設定ベース)"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  loading="lazy"
-/>
-
-  </Tab>
-  <Tab label="コード (ファイルシステムルート)" value="code-fs">
-
-<iframe
-  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-fs-routes-template?file=intlayer.config.ts"
-  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="デモ CodeSandbox - Intlayerを使用してアプリケーションを多言語化する方法 (ファイルシステムルート)"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  loading="lazy"
-/>
-
-  </Tab>
-  <Tab label="デモ (設定ベース)" value="demo">
-
-<iframe
-  src="https://intlayer-react-router-v7.vercel.app"
-  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="デモ Intlayer React Router v7 Template"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  loading="lazy"
-/>
-
-  </Tab>
-</Tabs>
-
-- [Intlayer Documentation](https://intlayer.org)
-- [React Router v7 Documentation](https://reactrouter.com/)
-- [useIntlayer hook](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/react-intlayer/useIntlayer.md)
-- [useLocale hook](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/react-intlayer/useLocale.md)
-- [Content Declaration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md)
-- [Configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md)
+<Step number={2} title="プロジェクトの設定">
 
 アプリケーションの言語を設定するための config ファイルを作成します:
 
@@ -236,10 +209,9 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
-This comprehensive guide provides everything you need to integrate Intlayer with React Router v7 for a fully internationalized application with locale-aware routing and TypeScript support.
+> この設定ファイルを通じて、ローカライズされたURL、ミドルウェアのリダイレクト、Cookie名、コンテンツ宣言の場所と拡張子の設定、コンソールでのIntlayerログの無効化などを設定できます。利用可能なパラメータの完全なリストについては、[設定ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
-<Steps>
-
+</Step>
 <Step number={3} title="Integrate Intlayer in Your Vite Configuration">
 
 Add the intlayer plugin into your configuration:
@@ -257,8 +229,10 @@ export default defineConfig({
 > `intlayer()` Vite プラグインは、Intlayer を Vite と統合するために使用されます。コンテンツ宣言ファイルのビルドを確保し、開発モードでそれらを監視します。Vite アプリケーション内で Intlayer 環境変数を定義します。さらに、パフォーマンスを最適化するためのエイリアスを提供します。
 
 </Step>
-
 <Step number={4} title="React Router v7 ルートを設定する">
+
+<Tabs group="routing-type">
+<Tab label="Config-based routing" value="config-based">
 
 ロケール対応ルートでルーティング設定を設定します:
 
@@ -266,19 +240,41 @@ export default defineConfig({
 import { layout, route, type RouteConfig } from "@react-router/dev/routes";
 
 export default [
-  route("/:lang?", "routes/page.tsx"), // ローカライズされたホームページ
-  route("/:lang?/about", "routes/about/page.tsx"), // ローカライズされたアバウトページ
+  route("/:locale?", "routes/page.tsx"), // ローカライズされたホームページ
+  route("/:locale?/about", "routes/about/page.tsx"), // ローカライズされたアバウトページ
 ] satisfies RouteConfig;
 ```
 
-</Step>
+</Tab>
+<Tab label="File-system routes" value="fs-routes">
 
+Set up your routing configuration to use file-system based routes with `flatRoutes`:
+
+```typescript fileName="app/routes.ts"
+import type { RouteConfig } from "@react-router/dev/routes";
+import { flatRoutes } from "@react-router/fs-routes";
+import { configuration } from "intlayer";
+
+const routes: RouteConfig = flatRoutes({
+  // Ignore content declaration files from being treated as routes
+  ignoredRouteFiles: configuration.content.fileExtensions.map(
+    (fileExtension) => `**/*${fileExtension}`
+  ),
+});
+
+export default routes;
+```
+
+> The `flatRoutes` function from `@react-router/fs-routes` enables file-system based routing, where the file structure in the `routes/` directory determines your application's routes. The `ignoredRouteFiles` option ensures that Intlayer content declaration files (`.content.ts`, etc.) are not treated as route files.
+
+</Tab>
+</Tabs>
+
+</Step>
 <Step number={5} title="ルートレイアウトの作成">
 
 ルートレイアウトとロケール固有のレイアウトを設定します:
 
-</Step>
-</Steps>
 #### Root Layout
 
 ```tsx fileName="app/root.tsx"
@@ -329,6 +325,7 @@ export function Layout({
 }
 ```
 
+</Step>
 <Step number={6} title="コンテンツ宣言">
 
 翻訳を保存するためのコンテンツ宣言を作成し管理します：
@@ -371,10 +368,11 @@ export default pageContent;
 
 > コンテンツ宣言は、`contentDir` ディレクトリに含まれている限り、アプリケーション内のどこでも定義できます（デフォルトは `./app`）。また、コンテンツ宣言ファイルの拡張子と一致する必要があります（デフォルトは `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}`）。
 
+> ファイルシステムベースのルーティングを使用する場合は、`app/routes/($locale)._index.content.ts` に配置できます。
+
 > 詳細については、[コンテンツ宣言ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md) を参照してください。
 
 </Step>
-
 <Step number={7} title="ロケール対応コンポーネントを作成">
 
 ロケール対応ナビゲーション用の `LocalizedLink` コンポーネントを作成します：
@@ -437,13 +435,14 @@ export const useLocalizedNavigate = () => {
 ```
 
 </Step>
-
 <Step number={8} title="ページで Intlayer を使用">
 
 アプリケーション全体でコンテンツ辞書にアクセスします：
 
-</Step>
 #### ローカライズされたホームページ
+
+<Tabs group="routing-type">
+<Tab label="Config-based routing" value="config-based">
 
 ```tsx fileName="app/routes/page.tsx"
 import { getIntlayer, validatePrefix } from "intlayer";
@@ -489,13 +488,67 @@ export default function Page() {
 }
 ```
 
+</Tab>
+<Tab label="File-system routes" value="fs-routes">
+
+```tsx fileName="app/routes/($locale)._index.tsx"
+import { getIntlayer, validatePrefix } from "intlayer";
+import { useIntlayer } from "react-intlayer";
+import { data } from "react-router";
+
+import { LocaleSwitcher } from "~/components/locale-switcher";
+
+import { Navbar } from "~/components/navbar";
+import type { Route } from "./+types/($locale)._index";
+
+export const loader = ({ params }: Route.LoaderArgs) => {
+  const { locale } = params;
+
+  const { isValid } = validatePrefix(locale);
+
+  if (!isValid) {
+    throw data("Locale not supported", { status: 404 });
+  }
+};
+
+export const meta: Route.MetaFunction = ({ params }) => {
+  const content = getIntlayer("page", params.locale);
+
+  return [
+    { title: content.title },
+    { content: content.description, name: "description" },
+  ];
+};
+
+export default function Page() {
+  const { title, description, aboutLink } = useIntlayer("page");
+
+  return (
+    <div>
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <nav>
+        <LocalizedLink to="/about">{aboutLink}</LocalizedLink>
+      </nav>
+    </div>
+  );
+}
+```
+
+</Tab>
+</Tabs>
+
 > `useIntlayer` フックについて詳しく知るには、[ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/react-intlayer/useIntlayer.md)を参照してください。
 
 > 既存のアプリケーションがある場合、[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compiler.md) と [extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)を使用して、わずか数秒で数千のコンポーネントを変換できます。
 
+</Step>
 <Step number={9} title="ロケール切り替えコンポーネントの作成">
 
 ユーザーが言語を変更できるようにするコンポーネントを作成します:
+
+<Tabs group="routing-type">
+<Tab label="Config-based routing" value="config-based">
 
 ```tsx fileName="app/components/locale-switcher.tsx"
 import type { FC } from "react";
@@ -505,15 +558,16 @@ import {
   getLocaleName,
   getLocalizedUrl,
   getPathWithoutLocale,
+  defaultLocale,
 } from "intlayer";
-import { setLocaleInStorage, useIntlayer, useLocale } from "react-intlayer";
+import { useIntlayer, useLocale } from "react-intlayer";
 import { Link, useLocation } from "react-router";
 
 export const LocaleSwitcher: FC = () => {
   const { localeSwitcherLabel } = useIntlayer("locale-switcher");
   const { pathname } = useLocation();
 
-  const { availableLocales, locale } = useLocale();
+  const { availableLocales, locale, setLocale } = useLocale();
 
   const pathWithoutLocale = getPathWithoutLocale(pathname);
 
@@ -525,6 +579,7 @@ export const LocaleSwitcher: FC = () => {
             aria-current={localeItem === locale ? "page" : undefined}
             aria-label={`${localeSwitcherLabel.value} ${getLocaleName(localeItem)}`}
             onClick={() => setLocale(localeItem)}
+            reloadDocument // Reload the page to apply the new locale
             to={getLocalizedUrl(pathWithoutLocale, localeItem)}
           >
             <span>
@@ -539,9 +594,9 @@ export const LocaleSwitcher: FC = () => {
               {/* 言語を現在のロケールで表示 - 例: Francés（現在のロケールがLocales.SPANISHの場合） */}
               {getLocaleName(localeItem)}
             </span>
-            <span dir="ltr" lang={Locales.ENGLISH}>
+            <span dir="ltr" lang={defaultLocale}>
               {/* 言語を英語で表示 - 例: French */}
-              {getLocaleName(localeItem, Locales.ENGLISH)}
+              {getLocaleName(localeItem, defaultLocale)}
             </span>
           </Link>
         </li>
@@ -551,10 +606,71 @@ export const LocaleSwitcher: FC = () => {
 };
 ```
 
+</Tab>
+<Tab label="File-system routes" value="fs-routes">
+
+```tsx fileName="app/components/locale-switcher.tsx"
+import type { FC } from "react";
+
+import {
+  getHTMLTextDir,
+  getLocaleName,
+  getLocalizedUrl,
+  getPathWithoutLocale,
+  defaultLocale,
+} from "intlayer";
+import { useIntlayer, useLocale } from "react-intlayer";
+import { Link, useLocation } from "react-router";
+
+export const LocaleSwitcher: FC = () => {
+  const { localeSwitcherLabel } = useIntlayer("locale-switcher");
+  const { pathname } = useLocation();
+
+  const { availableLocales, locale, setLocale } = useLocale();
+
+  const pathWithoutLocale = getPathWithoutLocale(pathname);
+
+  return (
+    <ol>
+      {availableLocales.map((localeItem) => (
+        <li key={localeItem}>
+          <Link
+            aria-current={localeItem === locale ? "page" : undefined}
+            aria-label={`${localeSwitcherLabel.value} ${getLocaleName(localeItem)}`}
+            onClick={() => setLocale(localeItem)}
+            reloadDocument // Reload the page to apply the new locale
+            to={getLocalizedUrl(pathWithoutLocale, localeItem)}
+          >
+            <span>
+              {/* Locale - e.g. FR */}
+              {localeItem}
+            </span>
+            <span>
+              {/* Language in its own Locale - e.g. Français */}
+              {getLocaleName(localeItem, locale)}
+            </span>
+            <span dir={getHTMLTextDir(localeItem)} lang={localeItem}>
+              {/* Language in current Locale - e.g. Francés with current locale set to Locales.SPANISH */}
+              {getLocaleName(localeItem)}
+            </span>
+            <span dir="ltr" lang={defaultLocale}>
+              {/* Language in English - e.g. French */}
+              {getLocaleName(localeItem, defaultLocale)}
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ol>
+  );
+};
+```
+
+</Tab>
+</Tabs>
+
 > `useLocale` フックについて詳しく知るには、[ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/react-intlayer/useLocale.md)を参照してください。
 
 </Step>
-
 <Step number={10} title="HTML 属性の管理を追加">
 
 HTML の lang および dir 属性を管理するフックを作成します:
@@ -594,7 +710,6 @@ export default function RootLayout() {
 ```
 
 </Step>
-
 <Step number={11} title="ミドルウェアを追加">
 
 `intlayerProxy` を使用して、アプリケーションにサーバーサイドルーティングを追加することもできます。このプラグインは、URL に基づいて現在のロケールを自動的に検出し、適切なロケールクッキーを設定します。ロケールが指定されていない場合、プラグインはユーザーのブラウザ言語設定に基づいて最も適切なロケールを決定します。ロケールが検出されない場合は、デフォルトロケールにリダイレクトします。
@@ -622,7 +737,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={12} title="コンポーネントのコンテンツを抽出" isOptional={true}>
 
 既存の codebase を持っている場合、数千のファイルを変換するには時間がかかることがあります。
@@ -727,6 +841,8 @@ bun run build # または bun run dev
 
 </Step>
 
+</Steps>
+
 ## TypeScriptの設定
 
 Intlayerはモジュール拡張を使用して、TypeScriptの利点を活かし、コードベースをより強固にします。
@@ -743,8 +859,6 @@ TypeScriptの設定に自動生成された型が含まれていることを確�
 }
 ```
 
----
-
 ## Gitの設定
 
 Intlayerによって生成されたファイルは無視することを推奨します。これにより、Gitリポジトリへのコミットを避けることができます。
@@ -755,8 +869,6 @@ Intlayerによって生成されたファイルは無視することを推奨し
 # Intlayerによって生成されたファイルを無視する
 .intlayer
 ```
-
----
 
 ## VS Code 拡張機能
 
@@ -773,13 +885,9 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 
 拡張機能の使い方の詳細は、[Intlayer VS Code 拡張機能のドキュメント](https://intlayer.org/doc/vs-code-extension)を参照してください。
 
----
-
 ## さらに進む
 
 さらに進めるために、[ビジュアルエディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)を実装するか、[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)を使用してコンテンツを外部化することができます。
-
----
 
 ## ドキュメント参照
 
@@ -807,25 +915,21 @@ React Router v7 にはメッセージレイヤーが付属していないため�
 [Intlayer を選ぶ理由](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/interest_of_intlayer.md)と[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/index.md)を参照してください。
 
 </Question>
-
 <Question title="i18n は React Router のバンドルサイズにどの程度の影響を与えますか？">
 
 ネームスペースベースのセットアップよりもはるかに少なくなります。ページは自身がレンダリングしないカタログをダウンロードしないためです。サーバーレンダリングされたマークアップはサーバー上でコンテンツを解決し、ビルド時コンパイラは `useIntlayer` 呼び出しをコンポーネントが使用する正確な辞書エントリに置き換えるため、未使用のキーと未使用の言語は削除され、[動的辞書](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md)は残りをロケールごとに分割します。通常の代替案と比較すると、Intlayer はバンドルとページサイズを最大 50% 削減します。[バンドル最適化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/bundle_optimization.md)と[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/index.md)を参照してください。
 
 </Question>
-
 <Question title="`react-i18next` または `react-intl` からコンポーネントを書き直さずに移行できますか？">
 
 はい、2 つのパスがあります。[react-i18next 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/migration_from_react-i18next_to_intlayer.md)または [i18next 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/migration_from_i18next_to_intlayer.md)を使用してコンテンツを段階的に移行できます。または、現在の API を完全に保持できます：[互換性アダプター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compat/index.md)は `react-i18next`、`react-intl`、`i18next` と同じ API を公開しますが、Intlayer 辞書によって提供されるため、インポートは変わりますがコンポーネントコードは変わりません。
 
 </Question>
-
 <Question title="既存の JSON 翻訳ファイルを保持できますか？">
 
 はい。[sync JSON プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は `/messages/{locale}/{namespace}.json` ファイルを信頼できるソースとして保持し、双方向で Intlayer 辞書を生成します。[sync PO プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-po.md)は gettext カタログに対して同じことを行い、[ロケールごとのファイル](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/per_locale_file.md)では 1 つのファイルにロケールをグループ化する代わりに言語ごとにコンテンツを分割できます。
 
 </Question>
-
 <Question title="コンテンツをキーごとに移動する必要がありますか？">
 
 いいえ。`npx intlayer extract` を実行すると、Intlayer はコンポーネントを読み取り、ユーザーに見える文字列を抽出し、各コンポーネントの隣に `.content` ファイルを書き込むため、カタログに 1 つずつ文字列をコピーする代わりに diff をレビューできます。このガイドのステップ 12 でそれについて説明しています。
@@ -835,7 +939,6 @@ React Router v7 にはメッセージレイヤーが付属していないため�
 コンパイラをオンにする前に知っておく価値のある 2 つの制限があります。静的分析によって機能するため、API エラーコードや CMS フィールドなど、ランタイムにのみ存在する文字列は到達不可能なままです。また、`className="active"` やステータスコードなどのアプリケーションロジックからユーザーに見える文字列を区別する必要があり、大規模なコードベースではいくつかのアノテーションが必要です。[extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)はあなたをループに保つことで両方を回避します。
 
 </Question>
-
 <Question title="利用可能なエディターと AI エージェントツールは何ですか？">
 
 5 つのツール、すべてオプションです：
@@ -847,55 +950,46 @@ React Router v7 にはメッセージレイヤーが付属していないため�
 - **[ESLint プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/eslint.md)**: `no-raw-text` はハードコードされた文字列にフラグを立て、静的辞書キーと未使用コンテンツのさらなるルールがあります。
 
 </Question>
-
 <Question title="ルートにロケールセグメントを追加するにはどうすればよいですか？">
 
-ルートツリーに `:locale` セグメントを宣言し、Intlayer に解決させます。`validatePrefix` はセグメントが宣言されたロケールであるかどうかを判断するため、不明なプレフィックスは重複ページをレンダリングする代わりに 404 を返し、`getLocalizedUrl` は任意のパスをターゲット言語に書き直します。ファイルシステムルートを使用する場合は、このガイドの[ファイルシステムルートバリアント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_react_router_v7_fs_routes.md)に従ってください。
+ルートツリーに `:locale` セグメントを宣言し、Intlayer に解決させます。`validatePrefix` はセグメントが宣言されたロケールであるかどうかを判断するため、不明なプレフィックスは重複ページをレンダリングする代わりに 404 を返し、`getLocalizedUrl` は任意のパスをターゲット言語に書き直します。ファイルシステムルートを使用する場合は、ルートファイル名に `($locale)` 動的セグメントを付加します。
 
 </Question>
-
 <Question title="ロケールを URL に入れる必要がありますか？">
 
 いいえ。`routing.mode` は `"prefix-no-default"`（デフォルト）、`"prefix-all"`、`"no-prefix"`、`"search-params"` を受け入れ、`routing.domains` はロケールを独自のドメインにマップします。ロケールはいずれにせよ cookie に永続化されます。[設定リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Question>
-
 <Question title="React Router をフレームワークモード、SSR、ローダーで使用できますか？">
 
 はい。コンテンツはサーバーレンダリング中に解決され、アクティブなロケールはローダーとアクションで利用可能なため、サーバーデータはページと同じパスでローカライズできます。クライアントナビゲーションは完全なリロードなしでロケールを保持します。
 
 </Question>
-
 <Question title="SEO 用に hreflang タグを追加するにはどうすればよいですか？">
 
 `getMultilingualUrls` で代替マップを構築し、ルート `meta` または `links` エクスポートから発行します。`x-default` エントリを含めます。同じヘルパーはローカライズされた `sitemap.xml` を提供します。
 
 </Question>
-
 <Question title="現在のページに留まる言語スイッチャーを構築するにはどうすればよいですか？">
 
 アクティブで利用可能なロケールに `useLocale` を使用し、現在のパスをターゲット言語に翻訳するために `getLocalizedUrl` を使用します。ユーザーはホームページに送り返される代わりに同じルートに留まるため、スクロール位置とクエリパラメータの喪失も回避できます。
 
 </Question>
-
 <Question title="AI で自動的にアプリを翻訳するにはどうすればよいですか？">
 
 `npx intlayer fill` を実行します。これは、独自のプロバイダーと API キーを使用して選択した LLM で不足している翻訳を入力します。[fill コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/fill.md)と [CI/CD 統合](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/CI_CD.md)を参照してください。
 
 </Question>
-
 <Question title="Intlayer は複数形、性別、リッチテキストをサポートしていますか？">
 
 はい：[複数形](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/plurial.md)、[性別ベースのコンテンツ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/gender.md)、条件、[挿入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/insertion.md)、[Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/markdown.md)、および数値、日付、通貨の[フォーマッター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/formatters.md)。
 
 </Question>
-
 <Question title="翻訳者がコードに触れずにコンテンツを編集するにはどうすればよいですか？">
 
 自己ホスト型の[ビジュアルエディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)または [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md) を通じて。コンテンツを外部化し、デプロイメントなしで変更できます。
 
 </Question>
-
 <Question title="Intlayer は無料でオープンソースですか？">
 
 はい、Apache 2.0 ライセンスの下で、商用利用を含みます。ホスト型 CMS はオプションの有料サービスで、[自己ホスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md)も可能です。

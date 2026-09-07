@@ -64,7 +64,6 @@ Panduan ini menunjukkan cara memanfaatkan sistem deklarasi konten Intlayer yang 
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dengan i18next
 
 <Steps>
-
 <Step number={1} title="Instalasi Dependensi">
 
 Instal paket-paket yang diperlukan:
@@ -111,7 +110,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Plugin untuk mengekspor deklarasi konten Intlayer ke format JSON yang kompatibel dengan i18next
 
 </Step>
-
 <Step number={2} title="Terapkan plugin Intlayer untuk membungkus JSON">
 
 Buat file konfigurasi Intlayer untuk mendefinisikan locale yang didukung:
@@ -149,7 +147,6 @@ Jika perubahan dilakukan menggunakan CLI untuk menerjemahkan JSON, atau mengguna
 Untuk melihat lebih detail tentang plugin `syncJSON`, silakan merujuk ke [dokumentasi plugin syncJSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="Implementasikan terjemahan JSON per-komponen">
 
 Secara default, Intlayer akan memuat, menggabungkan, dan menyinkronkan baik file JSON maupun file deklarasi konten. Lihat [dokumentasi deklarasi konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/content_file.md) untuk informasi lebih lanjut. Namun jika Anda lebih suka, menggunakan plugin Intlayer, Anda juga dapat mengimplementasikan pengelolaan JSON terlokalisasi per-komponen di mana saja dalam basis kode Anda.

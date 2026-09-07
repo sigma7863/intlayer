@@ -276,19 +276,16 @@ Dieser Leitfaden gibt einen Überblick über die nachträgliche Internationalisi
 Ja. Intlayer unterstützt `routing.mode: "search-params"` sowie Cookie- und Header-basierte Erkennung. Ihre bestehende Ordnerstruktur bleibt vollständig erhalten.
 
 </Question>
-
 <Question title="Muss ich alle fest kodierten Texte manuell ersetzen?">
 
 Nein. Mit `npx intlayer extract` oder dem Intlayer-Compiler werden Texte automatisch extrahiert und deklariert.
 
 </Question>
-
 <Question title="Wie reduziert Intlayer die Bundle-Größe im Vergleich zu next-intl oder next-i18next?">
 
 Intlayer verwendet Inhaltsdeklarationen pro Komponente und Makro-Optimierung. Der Client lädt nur die für die gerenderte Seite erforderlichen Texte.
 
 </Question>
-
 <Question title="Kann ich KI verwenden, um meine Komponenten automatisch zu übersetzen?">
 
 Ja. Der Befehl `npx intlayer fill` bindet OpenAI, Anthropic, Mistral oder DeepSeek ein, um fehlende Übersetzungen mit Kontext automatisch zu ergänzen.

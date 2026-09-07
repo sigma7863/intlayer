@@ -51,45 +51,34 @@ En comparación con soluciones principales como `react-i18next` o `i18next`, Int
 **Intlayer** es una biblioteca innovadora y de código abierto para la internacionalización (i18n) diseñada para simplificar el soporte multilingüe en aplicaciones web modernas.
 
 </Accordion>
-
 <Accordion header="Tamaño del bundle">
 
 En lugar de cargar archivos JSON masivos en tus páginas, carga solo el contenido necesario. Intlayer te ayuda a **reducir el tamaño de tu bundle y páginas hasta un 50%**.
 
 </Accordion>
-
 <Accordion header="Mantenibilidad">
 
-Scoping your application's content **facilitates maintenance** for large-scale applications. You can duplicate or delete a single feature folder without the mental burden of reviewing your entire content codebase. Additionally, Intlayer is **fully typed** to ensure your content's accuracy.
+Determinar el alcance del contenido de su aplicación **facilita el mantenimiento** para aplicaciones a gran escala. Puede duplicar o eliminar una sola carpeta de funciones sin la carga mental de revisar todo el código base de contenido. Además, Intlayer está **completamente escrito** para garantizar la precisión de su contenido.
 
 </Accordion>
-
 <Accordion header="Agente de IA">
 
 Co-localizar contenido **reduce el contexto necesario** para los Modelos de Lenguaje Grande (LLMs). Intlayer también viene con un conjunto de herramientas, como un **CLI** para probar traducciones faltantes, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/mcp_server.md)**, y **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/agent_skills.md)**, para hacer la experiencia del desarrollador (DX) aún más fluida para agentes de IA.
 
 </Accordion>
-
 <Accordion header="Automatización">
 
 Utiliza automatización para traducir en tu pipeline de CI/CD usando el LLM de tu elección al costo de tu proveedor de IA. Intlayer también ofrece un **compilador** para automatizar la extracción de contenido, así como una [plataforma web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md) para ayudarte a **traducir en segundo plano**.
 
 </Accordion>
-
 <Accordion header="Rendimiento">
 
 Conectar archivos JSON masivos a componentes puede causar problemas de rendimiento y reactividad. Intlayer optimiza la carga de contenido en tiempo de compilación.
 
 </Accordion>
+<Accordion header="Escalando sin ningún desarrollador">
 
-<Accordion header="Scaling with none-dev">
-
-Con Intlayer, puedes:
-
-- **Gestionar fácilmente las traducciones** utilizando diccionarios declarativos a nivel de componente.
-- **Localizar dinámicamente metadatos**, rutas y contenido.
-- **Garantizar soporte para TypeScript** con tipos autogenerados, mejorando la autocompletación y la detección de errores.
-- **Aprovechar características avanzadas**, como la detección dinámica de locales y el cambio entre ellos.
+Más que una simple solución i18n, Intlayer proporciona un **[editor visual] autohospedado(https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** y un **[CMS completo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** para ayudarle a administrar su contenido multilingüe en **tiempo real**, lo que facilita la colaboración con traductores, redactores y otros miembros del equipo. El contenido se puede almacenar de forma local y/o remota.
 
 </Accordion>
 </AccordionGroup>
@@ -97,7 +86,6 @@ Con Intlayer, puedes:
 ## Guía paso a paso para configurar Intlayer en una aplicación React
 
 <Steps>
-
 <Step number={1} title="Instalar dependencias">
 
 Instala los paquetes necesarios usando npm:
@@ -151,7 +139,6 @@ bun add intlayer react-intlayer react-scripts-intlayer
 Incluye los comandos y complementos `react-scripts-intlayer` para integrar Intlayer con aplicaciones basadas en Create React App. Estos complementos están basados en [craco](https://craco.js.org/) e incluyen configuración adicional para el empaquetador [Webpack](https://webpack.js.org/).
 
 </Step>
-
 <Step number={2} title="Configuración de tu proyecto">
 
 Crea un archivo de configuración para configurar los idiomas de tu aplicación:
@@ -177,7 +164,6 @@ export default config;
 > A través de este archivo de configuración, puedes configurar URLs localizadas, redirección de middleware, nombres de cookies, la ubicación y extensión de tus declaraciones de contenido, desactivar los logs de Intlayer en la consola y más. Para una lista completa de parámetros disponibles, consulta la [documentación de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrar Intlayer en tu configuración de CRA">
 
 Cambia tus scripts para usar react-intlayer
@@ -193,7 +179,6 @@ Cambia tus scripts para usar react-intlayer
 > Los scripts `react-scripts-intlayer` están basados en [CRACO](https://craco.js.org/). También puedes implementar tu propia configuración basada en el complemento craco de Intlayer. [Ver ejemplo aquí](https://github.com/aymericzip/intlayer/blob/main/examples/react-app/craco.config.js).
 
 </Step>
-
 <Step number={4} title="Declarar tu contenido">
 
 Crea y gestiona tus declaraciones de contenido para almacenar traducciones:
@@ -243,7 +228,6 @@ export default appContent;
 > Si tu archivo de contenido incluye código TSX, deberías considerar importar `import React from "react";` en tu archivo de contenido.
 
 </Step>
-
 <Step number={5} title="Utilizar Intlayer en tu código">
 
 Accede a tus diccionarios de contenido en toda tu aplicación:
@@ -296,7 +280,6 @@ export default App;
 > Para obtener más información sobre el hook `useIntlayer`, consulta la [documentación](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/react-intlayer/useIntlayer.md).
 
 </Step>
-
 <Step number={6} title="Cambiar el idioma de tu contenido" isOptional={true}>
 
 Para cambiar el idioma de tu contenido, puedes usar la función `setLocale` proporcionada por el hook `useLocale`. Esta función te permite establecer el local de la aplicación y actualizar el contenido en consecuencia.
@@ -319,7 +302,6 @@ const LocaleSwitcher = () => {
 > Para aprender más sobre el hook `useLocale`, consulta la [documentación](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/react-intlayer/useLocale.md).
 
 </Step>
-
 <Step number={7} title="Añadir enrutamiento por localeizado a tu aplicación" isOptional={true}>
 
 El propósito de este paso es crear rutas únicas para cada idioma. Esto es útil para SEO y URLs amigables con SEO.
@@ -466,7 +448,6 @@ const App: FC = () => (
 ```
 
 </Step>
-
 <Step number={8} title="Cambiar la URL cuando cambia el local" isOptional={true}>
 
 Para cambiar la URL cuando cambia el local, puedes usar la prop `onLocaleChange` proporcionada por el hook `useLocale`. Paralelamente, puedes usar los hooks `useLocation` y `useNavigate` de `react-router-dom` para actualizar la ruta URL.
@@ -548,7 +529,6 @@ const LocaleSwitcher: FC = () => {
 > - [`atributo aria-current`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={9} title="Cambiar los atributos de idioma y dirección en el HTML" isOptional={true}>
 
 Cuando tu aplicación soporta múltiples idiomas, es crucial actualizar los atributos `lang` y `dir` de la etiqueta `<html>` para que coincidan con la configuración regional actual. Hacer esto garantiza:
@@ -619,7 +599,7 @@ Al aplicar estos cambios, tu aplicación:
 - Garantizará que el atributo **idioma** (`lang`) refleje correctamente el local actual, lo cual es importante para SEO y el comportamiento del navegador.
 - Ajustará la **dirección del texto** (`dir`) según el local, mejorando la legibilidad y usabilidad para idiomas con diferentes órdenes de lectura.
 - Proporcionará una experiencia más **accesible**, ya que las tecnologías asistivas dependen de estos atributos para funcionar de manera óptima.
-  </Step>
+</Step>
 
 </Steps>
 
@@ -687,25 +667,21 @@ Para ir más allá, puedes implementar el [editor visual](https://github.com/aym
 Create React App envuelve su propia configuración de webpack, así que la integración se hace mediante el reemplazo directo `react-scripts-intlayer` de `react-scripts` en lugar de un plugin que registres tú mismo. Consulta [por qué Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/interest_of_intlayer.md) y el [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/benchmark/index.md).
 
 </Question>
-
 <Question title="¿Cuánto añade la i18n al tamaño del bundle de mi aplicación React?">
 
 Mucho menos que una configuración basada en espacios de nombres, porque una página nunca descarga un catálogo que no renderiza. El compilador de tiempo de compilación reemplaza las llamadas a `useIntlayer` por las entradas de diccionario exactas que usa un componente, de modo que se descartan las claves sin usar y los idiomas sin usar, y los [diccionarios dinámicos](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dynamic_dictionaries/index.md) reparten el resto por idioma. Frente a las alternativas habituales, Intlayer reduce el tamaño del bundle y de la página hasta en un 50%. Consulta la [optimización del bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/bundle_optimization.md) y el [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/benchmark/index.md).
 
 </Question>
-
 <Question title="¿Puedo migrar desde `react-i18next` o `react-intl` sin reescribir mis componentes?">
 
 Sí, y hay dos caminos. Puedes migrar el contenido de forma progresiva con la [guía de migración de react-i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/migration_from_react-i18next_to_intlayer.md) o la [guía de migración de i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/migration_from_i18next_to_intlayer.md). O puedes mantener tu API actual por completo: los [adaptadores de compatibilidad](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/compat/index.md) exponen exactamente la misma API que `react-i18next`, `react-intl` y `i18next`, pero servida por diccionarios de Intlayer, así que cambian los imports y el código de los componentes no.
 
 </Question>
-
 <Question title="¿Puedo conservar mis archivos de traducción JSON existentes?">
 
 Sí. El [plugin de sincronización JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-json.md) mantiene tus archivos `/messages/{locale}/{namespace}.json` como fuente de verdad y genera diccionarios de Intlayer a partir de ellos, en ambas direcciones. Un [plugin de sincronización PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-po.md) hace lo mismo para los catálogos gettext, y los [archivos por idioma](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/per_locale_file.md) te permiten dividir el contenido por idioma en lugar de agrupar los idiomas en un solo archivo.
 
 </Question>
-
 <Question title="¿Tengo que trasladar mi contenido clave por clave?">
 
 No. Ejecuta `npx intlayer extract` e Intlayer lee tus componentes, extrae las cadenas visibles para el usuario y escribe un archivo `.content` junto a cada uno, así que revisas un diff en lugar de copiar cadenas a un catálogo una por una.
@@ -715,7 +691,6 @@ Para una canalización totalmente automatizada, el [compilador de Intlayer](http
 Conviene conocer dos límites antes de activar el compilador. Funciona por análisis estático, así que las cadenas que solo existen en tiempo de ejecución, como los códigos de error de la API o los campos del CMS, quedan fuera de su alcance. Y tiene que distinguir el texto visible para el usuario de la lógica de la aplicación, como `className="active"` o un código de estado, lo que requiere unas pocas anotaciones en una base de código grande. El [comando extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/extract.md) evita ambos manteniéndote en el proceso.
 
 </Question>
-
 <Question title="¿Qué herramientas para editores y agentes de IA están disponibles?">
 
 Cinco piezas, todas opcionales:
@@ -727,49 +702,41 @@ Cinco piezas, todas opcionales:
 - **[Plugin de ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/eslint.md)**: `no-raw-text` marca las cadenas codificadas de forma fija, con reglas adicionales para claves de diccionario estáticas y contenido sin usar.
 
 </Question>
-
 <Question title="Create React App ya no recibe mantenimiento. ¿Debería migrar primero a Vite?">
 
 Si ya estás planeando la migración, hazla primero y sigue la [guía de Vite y React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_with_vite+react.md) en su lugar: el plugin de Vite es la vía mejor soportada y te da recompilaciones más rápidas. Si no estás listo, esta guía sigue funcionando, y las declaraciones de contenido no cambian entre las dos configuraciones, así que migrar la build más adelante no significa reescribir tu i18n.
 
 </Question>
-
 <Question title="¿Cómo configuro el enrutamiento localizado en un proyecto de Create React App?">
 
 Los pasos 7 y 8 cubren las rutas localizadas y la reescritura de la URL cuando cambia el idioma. Si no quieres el idioma en la ruta, establece `routing.mode` en `"no-prefix"` o `"search-params"` y se resuelve a partir de una cookie o un parámetro de consulta en su lugar. Consulta la [referencia de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
 
 </Question>
-
 <Question title="¿Cómo gestiono los metadatos de SEO en una aplicación React renderizada en el cliente?">
 
 Establece `lang` y `dir` en el elemento `html` a partir del idioma activo, como muestra el paso 9, y emite alternativas `hreflang` para cada idioma declarado con `getMultilingualUrls`, incluida `x-default`. Como Create React App entrega un único shell renderizado en el cliente, prefiere una configuración prerenderizada o renderizada en el servidor como [TanStack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_with_tanstack.md) o [React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_with_react_router_v7.md) para las páginas que deben rastrearse de forma fiable.
 
 </Question>
-
 <Question title="¿Cómo doy soporte a idiomas de derecha a izquierda como el árabe o el hebreo?">
 
 Lo cubre el paso 9. `getHTMLTextDir` devuelve `ltr`, `rtl` o `auto` para un idioma, así que vinculas `lang` y `dir` en el elemento raíz a partir del idioma activo y dejas que tus propiedades lógicas de CSS se encarguen del resto.
 
 </Question>
-
 <Question title="¿Cómo traduzco la aplicación automáticamente con IA?">
 
 Ejecuta `npx intlayer fill`. Rellena las traducciones que faltan con el LLM de tu elección, usando tu propio proveedor y tu clave de API, y `--git-diff` limita la ejecución al contenido modificado en la rama. Consulta el [comando fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/fill.md) y la [integración de CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/CI_CD.md).
 
 </Question>
-
 <Question title="¿Intlayer admite plurales, género y texto enriquecido?">
 
 Sí: [formas plurales](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/plurial.md), [contenido según el género](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/gender.md), condiciones, [inserciones](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/markdown.md) y [formateadores](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/formatters.md) para números, fechas y monedas.
 
 </Question>
-
 <Question title="¿Cómo pueden los traductores editar el contenido sin tocar el código?">
 
 A través del [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_visual_editor.md), que se ejecuta en tu propia infraestructura y permite que cualquiera edite texto en su sitio en la aplicación en ejecución, o del [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md), que externaliza el contenido para que pueda cambiar sin un despliegue.
 
 </Question>
-
 <Question title="¿Es Intlayer gratuito y de código abierto?">
 
 Sí, bajo la licencia Apache 2.0, uso comercial incluido. El CMS alojado es un servicio de pago opcional que también puede [autoalojarse](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/self_hosting.md).

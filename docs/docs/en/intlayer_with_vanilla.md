@@ -68,37 +68,31 @@ Compared to main solutions like `i18next` or `i18n.js`, Intlayer is a solution t
 Intlayer is optimized to work perfectly with Vanilla JavaScript by offering **framework-agnostic content management**, **TypeScript support**, and all the features needed for scaling internationalization (i18n).
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 Instead of loading massive JSON files into your pages, load only the necessary content. Intlayer helps **reduce your bundle and page sizes by up to 50%**.
 
 </Accordion>
-
 <Accordion header="Maintainability">
 
 Scoping your application's content **facilitates maintenance** for large-scale applications. You can duplicate or delete a single feature folder without the mental burden of reviewing your entire content codebase. Additionally, Intlayer is **fully typed** to ensure your content's accuracy.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Co-locating content **reduces the context needed** by Large Language Models (LLMs). Intlayer also comes with a suite of tools, such as a **CLI** to test for missing translations,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, and **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/agent_skills.md)**, to make the developer experience (DX) even smoother for AI agents.
 
 </Accordion>
-
 <Accordion header="Automation">
 
 Use automation to translate in your CI/CD pipeline using the LLM of your choice at the cost of your AI provider. Intlayer also offers a **compiler** to automate content extraction, as well as a [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) to help **translate in the background**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
 Connecting massive JSON files to components can lead to performance and reactivity issues. Intlayer optimizes your content loading at build time.
 
 </Accordion>
-
 <Accordion header="Scaling with none-dev">
 
 More than just an i18n solution, Intlayer provides an **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** and a **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** to help you manage your multilingual content in **real-time**, making collaboration with translators, copywriters, and other team members seamless. Content can be stored locally and/or remotely.
@@ -109,7 +103,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 ## Step-by-Step Guide to Set Up Intlayer in a Vanilla JS Application
 
 <Steps>
-
 <Step number={1} title="Install Dependencies">
 
 Install the necessary packages using npm:
@@ -171,7 +164,6 @@ bun x intlayer build
 > The `intlayer standalone` CLI's bundling export produces an optimized build by tree-shaking unused packages, locales, and non-essential logic (such as redirection or prefixes) specific to your configuration.
 
 </Step>
-
 <Step number={2} title="Configuration of your project">
 
 Create a config file to configure the languages of your application:
@@ -197,7 +189,6 @@ export default config;
 > Through this configuration file, you can set up localized URLs, middleware redirection, cookie names, the location and extension of your content declarations, disable Intlayer logs in the console, and more. For a complete list of available parameters, refer to the [configuration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Step>
-
 <Step number={3} title="Import the bundle in your HTML">
 
 Once you have generated the `intlayer.js` bundle, you can import it in your HTML file:
@@ -223,7 +214,6 @@ Once you have generated the `intlayer.js` bundle, you can import it in your HTML
 The bundle exposes `Intlayer` and `VanillaIntlayer` as global objects on the `window`.
 
 </Step>
-
 <Step number={4} title="Bootstrap Intlayer in your entry point">
 
 In your `src/main.js`, call `installIntlayer()` **before** any content is rendered so that the global locale singleton is ready.
@@ -245,7 +235,6 @@ installIntlayerMarkdown();
 ```
 
 </Step>
-
 <Step number={5} title="Declare Your Content">
 
 Create and manage your content declarations to store translations:
@@ -325,7 +314,6 @@ export default appContent;
 > For more details, refer to the [content declaration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Use Intlayer in Your JavaScript">
 
 The `window.VanillaIntlayer` object provides API helpers: `useIntlayer(key, locale?)` returns the translated content for a given key.
@@ -361,7 +349,6 @@ document.querySelector(".read-the-docs").textContent = String(
 > ```
 
 </Step>
-
 <Step number={7} title="Change the language of your content" isOptional={true}>
 
 To change the language of your content, use the `setLocale` function exposed by `useLocale`.
@@ -398,7 +385,6 @@ export function setupLocaleSwitcher(container) {
 ```
 
 </Step>
-
 <Step number={8} title="Switch the HTML Language and Direction Attributes" isOptional={true}>
 
 Update the `<html>` tag's `lang` and `dir` attributes to match the current locale for accessibility and SEO.
@@ -418,7 +404,6 @@ useLocale({
 ```
 
 </Step>
-
 <Step number={9} title="Lazy-load dictionaries per locale" isOptional={true}>
 
 If you want to lazy-load dictionaries per locale, you can use `useDictionaryDynamic`. This is useful if you don't want to bundle all translations in the initial `intlayer.js` file.
@@ -487,25 +472,21 @@ To go further, you can implement the [visual editor](https://github.com/aymericz
 Yes. That is what this guide covers. You import the `vanilla-intlayer` bundle directly in your HTML as step 3 shows, bootstrap it in your entry point, and read your content with `useIntlayer`. No Vite, no webpack and no build pipeline is required.
 
 </Question>
-
 <Question title="How much does i18n add to my page weight?">
 
 Much less than a runtime catalog, because a page never downloads a language it does not render. Content is resolved from dictionaries compiled ahead of time, and lazy loading per locale keeps the other languages out of the initial payload until the visitor switches. Measured against the usual alternatives, Intlayer reduces bundle and page size by up to 50%. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/bundle_optimization.md), [dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dynamic_dictionaries/index.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/benchmark/index.md).
 
 </Question>
-
 <Question title="Can I migrate from `i18next` without rewriting my scripts?">
 
 Largely. Follow the [i18next migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/migration_from_i18next_to_intlayer.md) to move the content over. You can also migrate gradually: the [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md) keeps your existing JSON catalogs as the source of truth and generates Intlayer dictionaries from them, so both layers stay in sync while you move scripts across one at a time.
 
 </Question>
-
 <Question title="Can I keep my existing JSON translation files?">
 
 Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-po.md) does the same for gettext catalogs, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/per_locale_file.md) let you split content by language instead of grouping locales in one file.
 
 </Question>
-
 <Question title="Do I have to move my content key by key?">
 
 No. Run `npx intlayer extract` and Intlayer reads your source files, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalog one at a time. See the [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/extract.md).
@@ -513,7 +494,6 @@ No. Run `npx intlayer extract` and Intlayer reads your source files, pulls the u
 For a fully automated pipeline, the [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/compiler.md) does the same at build time on JSX, TSX, Vue and Svelte source, generating the dictionaries on every change so there are no keys to maintain by hand. It works by static analysis, so strings that only exist at runtime stay out of reach, and it needs a few annotations to tell user facing text apart from application logic.
 
 </Question>
-
 <Question title="What editor and AI agent tooling is available?">
 
 Five pieces, all optional:
@@ -525,7 +505,6 @@ Five pieces, all optional:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/eslint.md)**: `no-raw-text` flags hardcoded strings, with further rules for static dictionary keys and unused content.
 
 </Question>
-
 <Question title="What are the different solutions available to internationalize a plain JavaScript site?">
 
 - **A hand written dictionary object**, usually one JSON file per language loaded with `fetch`: no dependency, but no typing, no plural rules, and nothing that tells you a translation is missing.
@@ -535,49 +514,41 @@ Five pieces, all optional:
 See [why Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="How do I read a translation and put it in the DOM?">
 
 Call `useIntlayer` with your dictionary key and write the value into the node yourself, as step 6 shows. Because there is no framework, nothing re-renders on its own: you update the nodes when the locale changes, which step 7 covers.
 
 </Question>
-
 <Question title="How is the visitor's language detected?">
 
 From the sources listed in `routing.storage`, typically a cookie first, then the `Accept-Language` header, falling back to your default locale. A language the visitor picks explicitly is persisted, so it survives the next visit. See the [configuration reference](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Question>
-
 <Question title="How do I support right to left languages such as Arabic or Hebrew?">
 
 Step 8 covers it. `getHTMLTextDir` returns `ltr`, `rtl` or `auto` for a locale, so you set `lang` and `dir` on the `html` element from the active locale and let your CSS logical properties do the rest.
 
 </Question>
-
 <Question title="Do visitors download every language?">
 
 Not if you do not want them to. Step 9 covers lazy loading dictionaries per locale, so the page loads one language and fetches another only when the visitor switches. See [dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dynamic_dictionaries/index.md).
 
 </Question>
-
 <Question title="How do I translate the app automatically with AI?">
 
 Run `npx intlayer fill`. It fills missing translations with the LLM of your choice, using your own provider and API key, and `--git-diff` limits the run to the content changed on the branch. See the [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/fill.md) and [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/CI_CD.md).
 
 </Question>
-
 <Question title="Does Intlayer support plurals, gender and rich text?">
 
 Yes: [plural forms](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/plurial.md), [gender based content](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/gender.md), conditions, [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/markdown.md) and [formatters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/formatters.md) for numbers, dates and currencies.
 
 </Question>
-
 <Question title="How can translators edit the content without touching the code?">
 
 Through the [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md), which runs on your own infrastructure and lets anyone edit text in place on the running app, or the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), which externalizes content so it can change without a deployment.
 
 </Question>
-
 <Question title="Is Intlayer free and open source?">
 
 Yes, under the Apache 2.0 license, commercial use included. The hosted CMS is an optional paid service that can also be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/self_hosting.md).

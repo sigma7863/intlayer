@@ -275,19 +275,16 @@ Szczegółową instrukcję krok po kroku z obsługą middleware, SSG (`generateS
 Tak. Intlayer obsługuje tryb `search-params` i ciasteczka, zachowując nienaruszoną strukturę katalogów.
 
 </Question>
-
 <Question title="Czy muszę ręcznie przepisywać wszystkie teksty w kodzie?">
 
 Nie. Komenda `npx intlayer extract` lub kompilator Intlayer wyodrębniają teksty automatycznie.
 
 </Question>
-
 <Question title="Dlaczego paczka Intlayer jest mniejsza niż w next-intl?">
 
 Dzięki deklaracji słowników per-komponent i makrom optymalizacyjnym eliminującym nieużywane teksty.
 
 </Question>
-
 <Question title="Czy mogę automatycznie przetłumaczyć aplikację przy użyciu AI?">
 
 Tak, komenda `npx intlayer fill` łączy się z modelami OpenAI, Anthropic czy DeepSeek.

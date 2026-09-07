@@ -55,7 +55,6 @@ Dieser Leitfaden zeigt Ihnen, wie Sie das überlegene Inhaltsdeklarationssystem 
 ## Schritt-für-Schritt-Anleitung zur Einrichtung von Intlayer mit next-i18next
 
 <Steps>
-
 <Step number={1} title="Abhängigkeiten installieren">
 
 Installieren Sie die notwendigen Pakete mit Ihrem bevorzugten Paketmanager:
@@ -102,7 +101,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Plugin zum Synchronisieren von Intlayer-Inhaltsdeklarationen im i18next JSON-Format
 
 </Step>
-
 <Step number={2} title="Implementieren Sie das Intlayer-Plugin, um das JSON zu umschließen">
 
 Erstellen Sie eine Intlayer-Konfigurationsdatei, um Ihre unterstützten Sprachen zu definieren:

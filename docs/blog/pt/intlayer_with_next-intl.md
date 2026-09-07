@@ -58,7 +58,6 @@ Este guia mostra como aproveitar o sistema superior de declaração de conteúdo
 ## Guia passo a passo para configurar o Intlayer com next-intl
 
 <Steps>
-
 <Step number={1} title="Instalar dependências">
 
 Instale os pacotes necessários:
@@ -105,7 +104,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Plugin para exportar declarações de conteúdo do Intlayer para o formato JSON compatível com next-intl
 
 </Step>
-
 <Step number={2} title="Implemente o plugin Intlayer para encapsular o JSON">
 
 Crie um arquivo de configuração do Intlayer para definir os locais suportados:
@@ -144,7 +142,6 @@ Se alterações forem feitas usando o CLI para traduzir o JSON, ou usando o CMS,
 Para ver mais detalhes sobre o plugin `syncJSON`, por favor consulte a [documentação do plugin syncJSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/plugins/sync-json.md).
 
 </Step>
-
 <Step number={3} title="Implementar traduções JSON por componente" isOptional={true}>
 
 Por padrão, o Intlayer carregará, mesclará e sincronizará tanto os arquivos JSON quanto os arquivos de declaração de conteúdo. Veja [a documentação de declaração de conteúdo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/dictionary/content_file.md) para mais detalhes. Mas, se preferir, usando um plugin do Intlayer, você também pode implementar o gerenciamento por componente de JSON localizado em qualquer lugar da sua base de código.

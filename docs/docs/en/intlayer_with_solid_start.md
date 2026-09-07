@@ -75,37 +75,31 @@ Compared to main solutions like `@solid-primitives/i18n` or `i18next`, Intlayer 
 Intlayer is optimized to work perfectly with Solid by offering **component-level content scoping**, **reactive translations**, and all the features needed for scaling internationalization (i18n).
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 Instead of loading massive JSON files into your pages, load only the necessary content. Intlayer helps **reduce your bundle and page sizes by up to 50%**.
 
 </Accordion>
-
 <Accordion header="Maintainability">
 
 Scoping your application's content **facilitates maintenance** for large-scale applications. You can duplicate or delete a single feature folder without the mental burden of reviewing your entire content codebase. Additionally, Intlayer is **fully typed** to ensure your content's accuracy.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Co-locating content **reduces the context needed** by Large Language Models (LLMs). Intlayer also comes with a suite of tools, such as a **CLI** to test for missing translations,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, and **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/agent_skills.md)**, to make the developer experience (DX) even smoother for AI agents.
 
 </Accordion>
-
 <Accordion header="Automation">
 
 Use automation to translate in your CI/CD pipeline using the LLM of your choice at the cost of your AI provider. Intlayer also offers a **compiler** to automate content extraction, as well as a [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) to help **translate in the background**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
 Connecting massive JSON files to components can lead to performance and reactivity issues. Intlayer optimizes your content loading at build time.
 
 </Accordion>
-
 <Accordion header="Scaling with none-dev">
 
 More than just an i18n solution, Intlayer provides an **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** and a **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** to help you manage your multilingual content in **real-time**, making collaboration with translators, copywriters, and other team members seamless. Content can be stored locally and/or remotely.
@@ -116,7 +110,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 ## Step-by-Step Guide to Set Up Intlayer in a SolidStart Application
 
 <Steps>
-
 <Step number={1} title="Install Dependencies">
 
 Install the necessary packages using npm:
@@ -172,7 +165,6 @@ bun add intlayer solid-intlayer vite-intlayer
 > `vite-intlayer` is a server-side concern here, not only a build-time one: it supplies the request handler that SolidStart's Nitro server runs. Keeping it in `dependencies` is the safe default — you can move it to `devDependencies` only if you deploy the built `.output` directory, into which Nitro inlines the handler.
 
 </Step>
-
 <Step number={2} title="Configuration of your project">
 
 Create a config file to configure the languages of your application:
@@ -209,7 +201,6 @@ With `prefix-no-default`, the default locale is served from unprefixed URLs:
 > Through this configuration file, you can set up localized URLs, middleware redirection, cookie names, the location and extension of your content declarations, disable Intlayer logs in the console, and more. For a complete list of available parameters, refer to the [configuration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrate Intlayer in Your Vite Configuration">
 
 Add the Intlayer plugin to your configuration:
@@ -237,7 +228,6 @@ SolidStart runs on [Nitro](https://nitro.build), and `intlayer()` registers its 
 - the locale cookie is written back on the response.
 
 </Step>
-
 <Step number={4} title="Declare Your Content">
 
 Create and manage your content declarations to store translations:
@@ -311,7 +301,6 @@ export default homeContent;
 > For more details, refer to the [content declaration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Add localized routing">
 
 The goal of this step is to give each language its own URL, which is what search engines index.
@@ -355,7 +344,6 @@ export default function LocaleLayout(props: RouteSectionProps) {
 > Prefer `[locale]` (required) over `[[locale]]` if you use the `'prefix-all'` routing mode, and drop the segment entirely for `'no-prefix'` or `'search-params'`.
 
 </Step>
-
 <Step number={6} title="Provide the locale to your application">
 
 The URL is the single source of truth for the locale: the middleware has already redirected the request to its localized path, so reading the path in the root layout keeps the server render and the client hydration in agreement, and makes every client-side navigation update the locale for free.
@@ -406,7 +394,6 @@ export default function App() {
 > `IntlayerProvider` reacts to its `locale` prop, so passing the accessor call `locale()` inside JSX is enough — Solid compiles it to a getter, and the whole tree re-renders in the new language when the URL changes.
 
 </Step>
-
 <Step number={7} title="Set the HTML lang and dir attributes on the server">
 
 The `<html>` element is rendered by `entry-server.tsx`, outside the `Router`. Read the locale from the request URL instead:
@@ -452,7 +439,6 @@ Crawlers now receive the right language on the first byte:
 ```
 
 </Step>
-
 <Step number={8} title="Utilize Intlayer in Your Pages">
 
 Access your content dictionaries throughout your application:
@@ -534,7 +520,6 @@ export default function Counter() {
 `plural()` selects the category through `Intl.PluralRules` for the active locale, so languages with more than two plural forms work without any extra code.
 
 </Step>
-
 <Step number={9} title="Create a Localized Link Component">
 
 Create a custom `Link` component that automatically prefixes internal URLs with the current language:
@@ -579,7 +564,6 @@ export const Nav: Component = () => {
 Writing `href="/about"` once now produces `/about`, `/fr/about` or `/es/about` depending on the active locale — no manual prefixing anywhere in your pages.
 
 </Step>
-
 <Step number={10} title="Create a Locale Switcher Component">
 
 Render the switcher as **real anchors** rather than a `<select>`: each language of the current page becomes a crawlable link that can be opened in a new tab, which a JavaScript-only control cannot offer.
@@ -651,7 +635,6 @@ export const LocaleSwitcher: Component = () => {
 > To learn more about the `useLocale` hook, refer to the [documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/solid-intlayer/useLocale.md).
 
 </Step>
-
 <Step number={11} title="Emit canonical and hreflang links" isOptional={true}>
 
 `hreflang` annotations tell search engines that `/about`, `/fr/about` and `/es/about` are the same page in different languages. `getMultilingualUrls` derives them from the canonical (locale-free) path, following your routing mode, so nothing is hard-coded:
@@ -723,7 +706,6 @@ import { AlternateLinks } from "~/components/AlternateLinks";
 > **Note on `@solidjs/meta`**: at the time of writing, `<Title>` and `<Meta>` from `@solidjs/meta` are applied on the client after hydration but are **not** emitted into the server-rendered `<head>` in SolidStart v2. Until that is fixed upstream, render the tags that crawlers must see without JavaScript — `canonical`, `hreflang`, and if needed `title` / `description` — directly in `entry-server.tsx`, as shown above.
 
 </Step>
-
 <Step number={12} title="Manage not found pages" isOptional={true}>
 
 A splat route at the root of `src/routes` catches every path the locale segment did not match — including invalid locale prefixes rejected by `matchFilters`. Because the locale still comes from the URL through the root layout, the 404 page is displayed in the visitor's language:
@@ -755,7 +737,6 @@ export default function NotFound() {
 | `/fr/nonexistent` | `404` in French (`Page introuvable`)    |
 
 </Step>
-
 <Step number={13} title="Generate a multilingual sitemap" isOptional={true}>
 
 Intlayer's sitemap generator expands every path into one entry per locale and wires the `xhtml:link` alternates between them, so the route only has to list the canonical, locale-free paths.
@@ -830,7 +811,6 @@ export const GET = () =>
 ```
 
 </Step>
-
 <Step number={14} title="Retrieve the locale in your server functions" isOptional={true}>
 
 You may want to access the current locale from inside a server function or an API route.
@@ -874,7 +854,6 @@ export default function Page() {
 > Do not rely on `getLocale` alone here: the locale cookie is only written once a visitor actively switches language, so a first visit to `/fr/...` would resolve to the default locale.
 
 </Step>
-
 <Step number={15} title="Extract the content of your components" isOptional={true}>
 
 If you have an existing codebase, transforming thousands of files can be time-consuming.
@@ -984,7 +963,6 @@ bun run build # Or bun run dev
 </Tabs>
 
 </Step>
-
 <Step number={16} title="Configure TypeScript">
 
 Intlayer uses module augmentation to get the benefits of TypeScript and make your codebase stronger.
@@ -1090,25 +1068,21 @@ To go further, you can implement the [visual editor](https://github.com/aymericz
 On Solid Start the difference shows in the server pieces, which this guide covers as dedicated steps rather than leaving them to you. See [why Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/interest_of_intlayer.md) and the [Solid i18n benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/benchmark/solid.md).
 
 </Question>
-
 <Question title="How much does i18n add to my Solid Start bundle size?">
 
 Much less than a namespace based setup, because a page never downloads a catalog it does not render. Server rendered markup resolves its content on the server, and the build time compiler replaces `useIntlayer` calls with the exact dictionary entries a component uses, so unused keys and unused languages are dropped, and [dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dynamic_dictionaries/index.md) split the rest per locale. Measured against the usual alternatives, Intlayer reduces bundle and page size by up to 50%. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/bundle_optimization.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/benchmark/solid.md).
 
 </Question>
-
 <Question title="Can I migrate from `@solid-primitives/i18n` or `i18next` without rewriting my components?">
 
 Largely. Follow the [i18next migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/migration_from_i18next_to_intlayer.md) to move the content over. You can also migrate gradually: the [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md) keeps your existing JSON catalogs as the source of truth and generates Intlayer dictionaries from them, so both layers stay in sync while you move components across one at a time.
 
 </Question>
-
 <Question title="Can I keep my existing JSON translation files?">
 
 Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/plugins/sync-po.md) does the same for gettext catalogs, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/per_locale_file.md) let you split content by language instead of grouping locales in one file.
 
 </Question>
-
 <Question title="Do I have to move my content key by key?">
 
 No. Run `npx intlayer extract` and Intlayer reads your components, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalog one at a time. Step 15 of this guide walks through it.
@@ -1118,7 +1092,6 @@ For a fully automated pipeline, the [Intlayer Compiler](https://github.com/aymer
 Two limits are worth knowing before you turn the compiler on. It works by static analysis, so strings that only exist at runtime, such as API error codes or CMS fields, stay out of reach. And it has to tell user facing text apart from application logic like `className="active"` or a status code, which needs a few annotations in a large codebase. The [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/extract.md) avoids both by keeping you in the loop.
 
 </Question>
-
 <Question title="What editor and AI agent tooling is available?">
 
 Five pieces, all optional:
@@ -1130,61 +1103,51 @@ Five pieces, all optional:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/eslint.md)**: `no-raw-text` flags hardcoded strings, with further rules for static dictionary keys and unused content.
 
 </Question>
-
 <Question title="Does Intlayer work with Solid Start server side rendering?">
 
 Yes. Step 6 provides the locale to the application on the server and step 7 sets the `lang` and `dir` attributes there, so the first HTML response already carries the right language, which is what crawlers and social preview bots read.
 
 </Question>
-
 <Question title="Does changing the locale re-render my whole app?">
 
 No. Content is backed by Solid signals, so switching language updates only the DOM nodes that read the changed values, without re-running the components around them.
 
 </Question>
-
 <Question title="How do I add canonical and hreflang links?">
 
 Step 11 covers it. `getMultilingualUrls` builds the alternates for every declared locale, including `x-default`, and step 13 feeds the same data into a multilingual sitemap so every language version of a page links to the others.
 
 </Question>
-
 <Question title="How do I handle 404 pages on localized routes?">
 
 Step 12 covers it. `validatePrefix` tells you whether the locale segment of the URL is a declared locale, so `/xx/about` returns a real 404 instead of being treated as a path and indexed as a duplicate page.
 
 </Question>
-
 <Question title="Do I have to put the locale in the URL?">
 
 No. `routing.mode` accepts `"prefix-no-default"` (the default), `"prefix-all"`, `"no-prefix"` and `"search-params"`, and `routing.domains` maps each locale to its own domain. See the [configuration reference](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md).
 
 </Question>
-
 <Question title="How do I get the locale in a server function?">
 
 Step 14 covers it. The locale resolved for the request is available inside server functions, so data fetched there can be localized in the same pass instead of being translated again on the client.
 
 </Question>
-
 <Question title="How do I translate the app automatically with AI?">
 
 Run `npx intlayer fill`. It fills missing translations with the LLM of your choice, using your own provider and API key, and `--git-diff` limits the run to the content changed on the branch. See the [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/fill.md) and [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/CI_CD.md).
 
 </Question>
-
 <Question title="Does Intlayer support plurals, gender and rich text?">
 
 Yes: [plural forms](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/plurial.md), [gender based content](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/gender.md), conditions, [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/markdown.md) and [formatters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/formatters.md) for numbers, dates and currencies.
 
 </Question>
-
 <Question title="How can translators edit the content without touching the code?">
 
 Through the [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md), which runs on your own infrastructure and lets anyone edit text in place on the running app, or the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), which externalizes content so it can change without a deployment.
 
 </Question>
-
 <Question title="Is Intlayer free and open source?">
 
 Yes, under the Apache 2.0 license, commercial use included. The hosted CMS is an optional paid service that can also be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/self_hosting.md).

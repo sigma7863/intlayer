@@ -71,7 +71,6 @@ Yüksek seviyede, kullandığım tarif şöyle:
 6. **Geri bildirim için sorguları günlüğe kaydetme** Her kullanıcı sorgusu depolanır. Bu, acı noktaları, eksik dokümanları veya yeni fırsatları anlamak için altın değerindedir.
 
 <Steps>
-
 <Step number={1} title="Dokümanları Okuma">
 
 İlk adım basitti: docs/ klasöründeki tüm .md dosyalarını tarayacak bir yol gerekiyordu. Node.js ve glob kullanarak, her Markdown dosyasının içeriğini belleğe aldım.
@@ -79,7 +78,6 @@ Yüksek seviyede, kullandığım tarif şöyle:
 Bu, pipeline'ı esnek tutar: Markdown yerine, bir veritabanından, CMS'den veya hatta bir API'den dokümanları çekebilirsiniz.
 
 </Step>
-
 <Step number={2} title="Dokümantasyonu Chunking">
 
 Neden chunking? Çünkü dil modellerinin **bağlam limitleri** vardır. Onlara bir kitap dolusu doküman beslemek işe yaramaz.
@@ -99,7 +97,6 @@ Bu trade-off (parça boyutu vs örtüşme) RAG verimliliği için anahtardır:
 - Çok büyük → bağlam boyutunu patlatırsınız.
 
 </Step>
-
 <Step number={3} title="Embeddings Oluşturma">
 
 Dokümanlar parçalandıktan sonra, **embeddings** oluştururuz, her parçayı temsil eden yüksek boyutlu vektörler.
@@ -119,7 +116,6 @@ OpenAI'nin text-embedding-3-large modelini kullandım, ama herhangi bir modern e
 Her vektör, metnin matematiksel bir parmak izidir, benzerlik aramasını etkinleştirir.
 
 </Step>
-
 <Step number={4} title="Embeddings'i İndeksleme ve Depolama">
 
 Embeddings'i birden fazla kez yeniden oluşturmamak için, onları embeddings.json'da depoladım.
@@ -134,7 +130,6 @@ Embeddings'i birden fazla kez yeniden oluşturmamak için, onları embeddings.js
 Vektör DB'ler indeksleme, ölçeklenebilirlik ve hızlı arama ile ilgilenir. Ama prototipim için yerel JSON yeterliydi.
 
 </Step>
-
 <Step number={5} title="Kosinüs Benzerliği ile Retrieval">
 
 Bir kullanıcı soru sorduğunda:
@@ -148,7 +143,6 @@ Kosinüs benzerliği iki vektör arasındaki açıyı ölçer. Mükemmel bir eş
 Bu şekilde, sistem sorguya en yakın doküman pasajlarını bulur.
 
 </Step>
-
 <Step number={6} title="Augmentation + Generation">
 
 Şimdi sihir geliyor. Üstteki parçaları ChatGPT için **sistem prompt**una enjekte ederiz.
@@ -158,7 +152,6 @@ Bu, modelin o parçalar konuşmanın bir parçasıymış gibi cevap vermesi anla
 Sonuç: doğru, **doküman-temelli cevaplar**.
 
 </Step>
-
 <Step number={7} title="Kullanıcı Sorgularını Günlüğe Kaydetme">
 
 Bu gizli süper güç.
@@ -173,7 +166,6 @@ Sorulan her soru depolanır. Zamanla, şunları içeren bir veri seti oluşturur
 Bu, RAG asistanınızı **sürekli kullanıcı araştırma aracı**na dönüştürür.
 
 </Step>
-
 <Step number={8} title="Maliyeti Ne Kadar?">
 
 RAG'ye karşı yaygın bir itiraz maliyet. Pratikte, şaşırtıcı derecede ucuz:
@@ -185,7 +177,6 @@ RAG'ye karşı yaygın bir itiraz maliyet. Pratikte, şaşırtıcı derecede ucu
 Buna barındırma maliyetini de ekleyebilirsiniz.
 
 </Step>
-
 <Step number={9} title="Uygulama Detayları">
 
 Stack:

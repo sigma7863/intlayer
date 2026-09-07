@@ -68,37 +68,31 @@ Compared to main solutions like `lit-localize` or `i18next`, Intlayer is a solut
 Intlayer is optimized to work perfectly with Lit by offering **Web Component-level content scoping**, **TypeScript support**, and all the features needed for scaling internationalization (i18n).
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 Instead of loading massive JSON files into your pages, load only the necessary content. Intlayer helps **reduce your bundle and page sizes by up to 50%**.
 
 </Accordion>
-
 <Accordion header="Maintainability">
 
 Scoping your application's content **facilitates maintenance** for large-scale applications. You can duplicate or delete a single feature folder without the mental burden of reviewing your entire content codebase. Additionally, Intlayer is **fully typed** to ensure your content's accuracy.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Co-locating content **reduces the context needed** by Large Language Models (LLMs). Intlayer also comes with a suite of tools, such as a **CLI** to test for missing translations,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, and **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/agent_skills.md)**, to make the developer experience (DX) even smoother for AI agents.
 
 </Accordion>
-
 <Accordion header="Automation">
 
 Use automation to translate in your CI/CD pipeline using the LLM of your choice at the cost of your AI provider. Intlayer also offers a **compiler** to automate content extraction, as well as a [web platform](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) to help **translate in the background**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
 Connecting massive JSON files to components can lead to performance and reactivity issues. Intlayer optimizes your content loading at build time.
 
 </Accordion>
-
 <Accordion header="Scaling with none-dev">
 
 More than just an i18n solution, Intlayer provides an **self-hosted [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** and a **[full CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** to help you manage your multilingual content in **real-time**, making collaboration with translators, copywriters, and other team members seamless. Content can be stored locally and/or remotely.
@@ -111,7 +105,6 @@ See [Application Template](https://github.com/aymericzip/intlayer-vite-lit-templ
 ## Step-by-Step Guide to Set Up Intlayer in a Vite and Lit Application
 
 <Steps>
-
 <Step number={1} title="Install Dependencies">
 
 Install the necessary packages using npm:
@@ -167,7 +160,6 @@ bun add vite-intlayer --dev
   Includes the Vite plugin for integrating Intlayer with the [Vite bundler](https://vite.dev/guide/why.html#why-bundle-for-production), as well as middleware for detecting the user's preferred locale, managing cookies, and handling URL redirection.
 
 </Step>
-
 <Step number={2} title="Configuration of your project">
 
 Create a config file to configure the languages of your application:
@@ -193,7 +185,6 @@ export default config;
 > Through this configuration file, you can set up localised URLs, middleware redirection, cookie names, the location and extension of your content declarations, disable Intlayer logs in the console, and more. For a complete list of available parameters, refer to the [configuration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrate Intlayer in Your Vite Configuration">
 
 Add the intlayer plugin into your configuration.
@@ -217,7 +208,6 @@ export default defineConfig({
 > The `intlayer()` Vite plugin is used to integrate Intlayer with Vite. It ensures the building of content declaration files and monitors them in development mode. It defines Intlayer environment variables within the Vite application. Additionally, it provides aliases to optimise performance.
 
 </Step>
-
 <Step number={4} title="Bootstrap Intlayer in your entry point">
 
 Call `installIntlayer()` **before** any custom elements are registered so that the global locale singleton is ready when the first element connects.
@@ -244,7 +234,6 @@ import "./my-element.js";
 ```
 
 </Step>
-
 <Step number={5} title="Declare Your Content">
 
 Create and manage your content declarations to store translations:
@@ -332,7 +321,6 @@ export default appContent;
 > For more details, refer to the [content declaration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Utilise Intlayer in Your LitElement">
 
 Use `useIntlayer` inside a `LitElement`. It returns a `ReactiveController` proxy that automatically triggers re-renders whenever the active locale changes - no extra setup required.
@@ -379,7 +367,6 @@ export class MyElement extends LitElement {
 > ```
 
 </Step>
-
 <Step number={7} title="Change the language of your content" isOptional={true}>
 
 To change the language of your content, use the `setLocale` method exposed by the `useLocale` controller.
@@ -416,7 +403,6 @@ export class LocaleSwitcher extends LitElement {
 ```
 
 </Step>
-
 <Step number={8} title="Render Markdown and HTML content" isOptional={true}>
 
 Intlayer supports `md()` and `html()` content declarations. In Lit, compiled output is injected as raw HTML via the `unsafeHTML` directive.
@@ -468,7 +454,6 @@ export class MyElement extends LitElement {
 > `String(content.editNote)` calls `toString()` on the `IntlayerNode`, which returns the raw Markdown string. Pass it to `compileMarkdown` to get an HTML string, then render it with Lit's `unsafeHTML` directive.
 
 </Step>
-
 <Step number={9} title="Add localised Routing to your application" isOptional={true}>
 
 To make unique routes for each language (useful for SEO), you can use a client-side router alongside Intlayer's `localeMap` / `localeFlatMap` helpers, and the `intlayerProxy` Vite plugin for server-side locale detection.
@@ -495,7 +480,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={10} title="Change the URL when the locale changes" isOptional={true}>
 
 To update the browser URL when the locale changes, use `useRewriteURL` alongside the locale switcher:
@@ -535,7 +519,6 @@ export class LocaleSwitcher extends LitElement {
 ```
 
 </Step>
-
 <Step number={11} title="Switch the HTML Language and Direction Attributes" isOptional={true}>
 
 Update the `<html>` tag's `lang` and `dir` attributes to match the current locale for accessibility and SEO.
@@ -562,7 +545,6 @@ export class MyElement extends LitElement {
 ```
 
 </Step>
-
 <Step number={12} title="Extract the content of your components" isOptional={true}>
 
 If you have an existing codebase, transforming thousands of files can be time-consuming.
@@ -746,25 +728,21 @@ Vite has no opinion on i18n, so the choice comes from the Lit ecosystem:
 The Vite specific gain is that translations are resolved and tree shaken at compile time instead of being fetched as JSON at runtime, so a page ships only the entries it renders. See [why Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/interest_of_intlayer.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/benchmark/index.md).
 
 </Question>
-
 <Question title="How much does i18n add to my Lit bundle size?">
 
 Much less than a namespace based setup, because a page never downloads a catalogue it does not render. The build time compiler replaces `useIntlayer` calls with the exact dictionary entries a component uses, so unused keys and unused languages are dropped, and [dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dynamic_dictionaries/index.md) split the rest per locale. Measured against the usual alternatives, Intlayer reduces bundle and page size by up to 50%. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/bundle_optimization.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/benchmark/index.md).
 
 </Question>
-
 <Question title="Can I migrate from `@lit/localize` without rewriting my elements?">
 
 Largely. Follow the [compat adapters overview](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/compat/index.md) to move the content over. You can also migrate gradually: the [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-json.md) keeps your existing JSON catalogues as the source of truth and generates Intlayer dictionaries from them, so both layers stay in sync while you move elements across one at a time.
 
 </Question>
-
 <Question title="Can I keep my existing JSON translation files?">
 
 Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-po.md) does the same for gettext catalogues, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/per_locale_file.md) let you split content by language instead of grouping locales in one file.
 
 </Question>
-
 <Question title="Do I have to move my content key by key?">
 
 No. Run `npx intlayer extract` and Intlayer reads your components, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalogue one at a time. Step 12 of this guide walks through it.
@@ -774,7 +752,6 @@ For a fully automated pipeline, the [Intlayer Compiler](https://github.com/aymer
 Two limits are worth knowing before you turn the compiler on. It works by static analysis, so strings that only exist at runtime, such as API error codes or CMS fields, stay out of reach. And it has to tell user facing text apart from application logic like `className="active"` or a status code, which needs a few annotations in a large codebase. The [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/extract.md) avoids both by keeping you in the loop.
 
 </Question>
-
 <Question title="What editor and AI agent tooling is available?">
 
 Five pieces, all optional:
@@ -786,55 +763,46 @@ Five pieces, all optional:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/eslint.md)**: `no-raw-text` flags hardcoded strings, with further rules for static dictionary keys and unused content.
 
 </Question>
-
 <Question title="How do I use translated content in a Lit component?">
 
 Read the content inside your `LitElement` render method through the Intlayer binding, as step 6 shows. Changing the locale triggers an update of the elements that read it, so language switching does not require reloading the page or shipping a second bundle.
 
 </Question>
-
 <Question title="Does Intlayer work with the Vite dev server and hot reload?">
 
 Yes. The `intlayer()` Vite plugin watches your `.content.ts` files and rebuilds the affected dictionaries on save, so edits appear without restarting the dev server, and the generated types are regenerated at the same time so autocompletion stays in sync.
 
 </Question>
-
 <Question title="How do I set up localized routing?">
 
 Steps 9 and 10 cover the localized routes and rewriting the URL when the locale changes. `routing.mode` decides the URL scheme: `"prefix-no-default"` (the default, `/about` and `/fr/about`), `"prefix-all"`, `"no-prefix"` (resolved from a cookie, a header or a domain) or `"search-params"` (`/about?locale=fr`). See the [configuration reference](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/configuration.md).
 
 </Question>
-
 <Question title="How do I support right to left languages such as Arabic or Hebrew?">
 
 Step 11 covers it. `getHTMLTextDir` returns `ltr`, `rtl` or `auto` for a locale, so you bind `lang` and `dir` on the root element from the active locale and let your CSS logical properties handle the rest.
 
 </Question>
-
 <Question title="How do I handle SEO metadata in a client rendered Vite app?">
 
 Set `lang` and `dir` on the `html` element from the active locale, and emit `hreflang` alternates for every declared locale with `getMultilingualUrls`, including `x-default`. For pages that must be crawled reliably, prefer a pre-rendered or server rendered setup.
 
 </Question>
-
 <Question title="How do I translate the app automatically with AI?">
 
 Run `npx intlayer fill`. It fills missing translations with the LLM of your choice, using your own provider and API key, and `--git-diff` limits the run to the content changed on the branch. See the [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/fill.md) and [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/CI_CD.md).
 
 </Question>
-
 <Question title="Does Intlayer support plurals, gender and rich text?">
 
 Yes: [plural forms](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/plurial.md), [gender based content](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/gender.md), conditions, [insertions](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dictionary/markdown.md) and [formatters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/formatters.md) for numbers, dates and currencies.
 
 </Question>
-
 <Question title="How can translators edit the content without touching the code?">
 
 Through the [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_visual_editor.md), which runs on your own infrastructure and lets anyone edit text in place on the running app, or the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_CMS.md), which externalizes content so it can change without a deployment.
 
 </Question>
-
 <Question title="Is Intlayer free and open source?">
 
 Yes, under the Apache 2.0 licence, commercial use included. The hosted CMS is an optional paid service that can also be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/self_hosting.md).

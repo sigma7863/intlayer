@@ -42,13 +42,11 @@ A single page can trigger dozens of swaps. Each one is a fresh request with no m
 The Intlayer middleware resolves the locale from the request itself, so a fragment served at minute ten answers in the same language as the page served at minute zero.
 
 </Accordion>
-
 <Accordion header="ロケールはリクエストと共に移動する必要があります">
 
 Two carriers work with htmx. A cookie (`INTLAYER_LOCALE`) is sent by the browser automatically on every request, including htmx ones. A header (`x-intlayer-locale`) can be attached to htmx requests with the `hx-headers` attribute. Both are read by default.
 
 </Accordion>
-
 <Accordion header="交換されたHTMLはまだHTMLです">
 
 フラグメントに挿入された翻訳値はマークアップです。他の動的な値と同じように、それをエスケープしてください。そうすれば、`<` を含む翻訳が、それが交換されるドキュメントを破壊することはありません。
@@ -69,7 +67,6 @@ Two carriers work with htmx. A cookie (`INTLAYER_LOCALE`) is sent by the browser
 [Application Template](https://github.com/aymericzip/intlayer-htmx-template) を GitHub で参照してください。
 
 <Steps>
-
 <Step number={1} title="依存関係をインストール">
 
 `intlayer` とサーバーの統合をインストールします。
@@ -158,7 +155,6 @@ bun add intlayer elysia-intlayer
 htmx自体は単一のscriptタグであり、ステップ4で追加されます。
 
 </Step>
-
 <Step number={2} title="プロジェクトの設定">
 
 プロジェクトのルートに`intlayer.config.ts`を作成します：
@@ -179,7 +175,6 @@ export default config;
 > 全オプションのリストについては、[設定ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Step>
-
 <Step number={3} title="コンテンツを宣言する">
 
 サーバーがレンダリングするすべてのラベルを宣言します。フラグメント内にのみ表示されるものも含めて:
@@ -226,7 +221,6 @@ export default appContent;
 > コンテンツ宣言は `contentDir` 以下（デフォルトは `./src`）のどこにでも配置でき、`.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}` にマッチします。[コンテンツ宣言ドキュメンテーション](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md)を参照してください。
 
 </Step>
-
 <Step number={4} title="Intlayer ミドルウェアを登録する">
 
 各リクエストのlocaleを解決し、ハンドラーに公開するミドルウェア。
@@ -301,7 +295,6 @@ const app = new Elysia().use(intlayer());
 デフォルトでは、ロケールは `INTLAYER_LOCALE` クッキーから取得され、次に `x-intlayer-locale` ヘッダー、その後 `Accept-Language` ネゴシエーションから取得されます。
 
 </Step>
-
 <Step number={5} title="リクエストロケールでフラグメントをレンダリングする">
 
 フラグメントレンダラーをロケールの純粋な関数として記述し、ミドルウェアが解決したロケールを渡します。明示的に渡すことで、フラグメントがどのサーバー上にあるかに関わらず、それを要求したリクエストに関連付けられます。
@@ -403,7 +396,6 @@ app.post("/cart/items", ({ body, intlayer }) => {
 同じフラグメントは、クッキーが `fr` であるビジターに対してはフランス語で、クッキーが `ar` であるビジターに対してはアラビア語で応答するようになりました。呼び出すマークアップに変更はありません。
 
 </Step>
-
 <Step number={6} title="最初のページを配信する">
 
 `<body>` を単独でレンダリングして、ステップ 7 のロケール切り替え機能でそれ全体をスワップできるようにしてから、htmx を読み込むドキュメントでラップします：
@@ -438,7 +430,6 @@ ${renderBody(locale, itemCount)}
 `getHTMLTextDir` は、ロケールに対して `ltr`、`rtl`、または `auto` を返します。これにより、アラビア語とヘブライ語が正しくレイアウトされるようになります。
 
 </Step>
-
 <Step number={7} title="言語を切り替える">
 
 言語の切り替えは、他のリクエストと同様です。サーバーはこの選択をミドルウェアが読み込むクッキーに保存し、その後、ページを新しいロケールで再レンダリングして返します。
@@ -581,7 +572,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 > `isDeclaredLocale` は任意の文字列をあなたが設定したロケールの1つに絞り込むため、予期しない値がレンダラーに到達することはありません。
 
 </Step>
-
 <Step number={8} title="スワップ後に lang と dir を同期させた状態に保つ" isOptional={true}>
 
 swapは`<body>`を置き換えることができますが、その周りの`<html>`は置き換えられません。swappedされたbodyに`lang`と`dir`をレンダリングし、headからroot要素に一度コピーして戻します:
@@ -598,7 +588,6 @@ swapは`<body>`を置き換えることができますが、その周りの`<htm
 これがない場合、アラビア語への切り替えはbody内で右から左へレンダリングされますが、ドキュメントは前の言語を支援技術とクローラーに引き続き広告します。
 
 </Step>
-
 <Step number={9} title="localeをクッキーの代わりにヘッダーとして送信する" isOptional={true}>
 
 Cookieが適切でない場合は、祖先要素の`hx-headers`を使用して、すべてのhtmxリクエストにlocaleを付与します。子孫はそれを継承します：
@@ -683,67 +672,56 @@ Intlayer を使用した開発体験を向上させるために、公式の **In
 フラグメントリクエストにロケールが含まれていなかったため。htmxリクエストはそれを発行したページから独立しているため、`INTLAYER_LOCALE` cookieまたは`hx-headers`で設定された`x-intlayer-locale`ヘッダーを通じて、各リクエストにロケールを含める必要があります。ExpressおよびFastifyでcookie parserがIntlayer middlewareの前に実行されていることを確認してください。そうでない場合、cookieは読み込まれず、すべてのリクエストが`Accept-Language`にフォールバックします。
 
 </Question>
-
 <Question title="ロケールを`getIntlayer`に渡すべきか、それともリクエストコンテキストに依存すべきか?">
 
 それを渡してください。インテグレーションは解決されたロケール（`res.locals.locale`、`req.intlayer.locale`、`c.get("locale")`、`intlayer!.locale`）を公開しており、`getIntlayer`に渡すことで各レンダラーをロケールの純粋な関数にします。これはテストしやすく、サーバーを変更した場合でもフラグメントレンダラーをポータブルに保つことができます。
 
 </Question>
-
 <Question title="htmxと一緒にクライアント側のi18nライブラリが必要ですか?">
 
 いいえ。訪問者が見るものはすべてサーバーによって生成されるため、ブラウザで翻訳するものはありません。これはまた、htmxアプリのi18nのページ重量コストがほぼゼロである理由です。カタログがクライアントに送信されることはありません。
 
 </Question>
-
 <Question title="SEO用にURLもローカライズするにはどうすればよいですか?">
 
 ロケールプレフィックス（`/fr/cart`）の下でページを提供し、Cookie ではなくルートハンドラーのパスからロケールを読み取ります。これはフルページレンダリングの場合です。フラグメントは引き続き Cookie またはヘッダーを使用できます。[configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)でルーティングオプションを、[custom URL rewrites](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/custom_url_rewrites.md)を参照してください。
 
 </Question>
-
 <Question title="右から左への言語にはどのように対応しますか?">
 
 `getHTMLTextDir(locale)` は `ltr`、`rtl`、または `auto` を返します。初期レンダリングではドキュメントに設定し、ステップ 8 に示すようにスワップ後に再度適用します。CSS 論理プロパティ（`margin-left` ではなく `margin-inline-start`）を使用して、レイアウトが従うようにします。
 
 </Question>
-
 <Question title="翻訳された値をエスケープする必要がありますか?">
 
 はい、テンプレート文字列に挿入するすべてのものに対して、他の動的値とまったく同じようにエスケープする必要があります。CMSまたは翻訳者から来るコンテンツは、あなたが制御するマークアップではありません。ステップ5は最小限のエスケーパーを示しています。
 
 </Question>
-
 <Question title="同じコンテンツをAPI応答にも使用できますか?">
 
 はい。バックエンド統合は `t()` と `getIntlayer()` をあらゆるハンドラーに公開するため、トーストに表示されるエラーメッセージとフラグメントにレンダリングされるラベルは、同じ宣言されたコンテンツから取得されます。[Express](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_express.md)、[Fastify](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_fastify.md)、[Hono](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_hono.md)、[Elysia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_elysia.md)ガイドを参照してください。
 
 </Question>
-
 <Question title="コンテンツをキーごとに移動する必要がありますか?">
 
 いいえ。`npx intlayer extract` を実行すると、Intlayer がソースファイルを読み込み、ユーザー向けの文字列を抽出して、各ファイルの隣に `.content` ファイルを書き込みます。これにより、カタログに文字列を 1 つずつコピーするのではなく、diff を確認できます。[extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)を参照してください。
 
 </Question>
-
 <Question title="既存の JSON 翻訳ファイルを保持できますか?">
 
 はい。[sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は、`/messages/{locale}/{namespace}.json`ファイルを真実のソースとして保つ一方で、Intlayerディクショナリを両方向で生成します。[sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-po.md)はgetextカタログに対して同じことを行い、[per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/per_locale_file.md)では、ロケールを1つのファイルにグループ化する代わりに、言語別にコンテンツを分割できます。
 
 </Question>
-
 <Question title="AIで自動的にアプリを翻訳するにはどうしたらいいですか?">
 
 `npx intlayer fill` を実行します。これにより、選択した LLM を使用して、独自のプロバイダーと API キーで不足している翻訳が入力されます。`--git-diff` を追加して、ブランチで変更されたコンテンツのみを翻訳します。[fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/fill.md) と [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/CI_CD.md) を参照してください。
 
 </Question>
-
 <Question title="Intlayer は gender、条件分岐、補間値に対応していますか？">
 
 はい：[性別ベースのコンテンツ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/gender.md)、条件、[列挙](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/enumeration.md)、補間値用の[挿入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/insertion.md)、および数値、日付、通貨用の[フォーマッター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/formatters.md)。
 
 </Question>
-
 <Question title="どのようなエディターとAIエージェントツールが利用可能ですか？">
 
 5つ、すべてオプションです：
@@ -755,7 +733,6 @@ Intlayer を使用した開発体験を向上させるために、公式の **In
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/eslint.md)**: `no-raw-text` ハードコードされた文字列にフラグを立てます。
 
 </Question>
-
 <Question title="Intlayer は無料でオープンソースですか？">
 
 はい、Apache 2.0 ライセンスの下で、商用利用を含みます。ホストされている [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md) はオプションの有料サービスであり、[自己ホスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md) することもできます。

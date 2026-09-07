@@ -58,7 +58,6 @@ Intlayerは優れた単独のi18nソリューションを提供します（当�
 ## react-i18nextとIntlayerをセットアップするステップバイステップガイド
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 必要なパッケージをインストールします:
@@ -105,7 +104,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Intlayerのコンテンツ宣言をreact-i18next互換のJSON形式にエクスポートするプラグイン
 
 </Step>
-
 <Step number={2} title="JSONをラップするためのIntlayerプラグインの実装">
 
 サポートするロケールを定義するためのIntlayer設定ファイルを作成します。

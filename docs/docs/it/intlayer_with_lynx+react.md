@@ -51,37 +51,31 @@ Rispetto alle soluzioni principali come `react-native-localize` o `i18next`, Int
 Intlayer è ottimizzato per funzionare perfettamente con Lynx e React offrendo **ambito del contenuto a livello di componente**, **supporto TypeScript** e tutte le funzionalità necessarie per scalare l'internazionalizzazione (i18n).
 
 </Accordion>
-
 <Accordion header="Dimensione del bundle">
 
 Invece di caricare enormi file JSON nelle tue pagine, carica solo il contenuto necessario. Intlayer aiuta a **ridurre le dimensioni del bundle e della pagina fino al 50%**.
 
 </Accordion>
-
 <Accordion header="Manutenibilità">
 
 L'ambito del contenuto dell'applicazione **facilita la manutenzione** per applicazioni su larga scala. Puoi duplicare o eliminare una singola cartella di funzionalità senza l'onere mentale di rivedere l'intera codebase dei contenuti. Inoltre, Intlayer è **completamente tipizzato (fully typed)** per garantire l'accuratezza dei tuoi contenuti.
 
 </Accordion>
-
 <Accordion header="Agente IA">
 
 La co-localizzazione dei contenuti **riduce il contesto necessario** dai Large Language Models (LLM). Intlayer viene fornito anche con una suite di strumenti, come una **CLI** per verificare le traduzioni mancanti,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** e **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/agent_skills.md)**, per rendere l'esperienza dello sviluppatore (DX) ancora più fluida per gli agenti IA.
 
 </Accordion>
-
 <Accordion header="Automazione">
 
 Utilizza l'automazione per tradurre nella tua pipeline CI/CD utilizzando il LLM di tua scelta al costo del tuo provider di intelligenza artificiale. Intlayer offre anche un **compilatore** per automatizzare l'estrazione dei contenuti, nonché una [piattaforma web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) per aiutare a **tradurre in background**.
 
 </Accordion>
-
 <Accordion header="Prestazione">
 
 La connessione di enormi file JSON ai componenti può portare a problemi di prestazioni e reattività. Intlayer ottimizza il caricamento dei contenuti in fase di compilazione.
 
 </Accordion>
-
 <Accordion header="Scalabilità con nessuno sviluppatore">
 
 Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** self-hosted e un **[CMS completo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** per aiutarti gestisci i tuoi contenuti multilingue in **tempo reale**, semplificando la collaborazione con traduttori, copywriter e altri membri del team. I contenuti possono essere archiviati localmente e/o in remoto.
@@ -90,7 +84,6 @@ Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](http
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="Installa le dipendenze">
 
 Dal tuo progetto Lynx, installa i seguenti pacchetti:
@@ -143,7 +136,6 @@ bun add intlayer react-intlayer lynx-intlayer
   Integrazione Lynx che fornisce il plugin per integrare Intlayer con il bundler Lynx.
 
 </Step>
-
 <Step number={2} title="Crea una Configurazione Intlayer">
 
 Nella radice del tuo progetto (o in qualsiasi posizione comoda), crea un file di **configurazione Intlayer**. Potrebbe apparire così:
@@ -174,7 +166,6 @@ All'interno di questa configurazione, puoi:
 - Consulta la [documentazione sulla configurazione di Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/configuration.md) per ulteriori informazioni.
 
 </Step>
-
 <Step number={3} title="Aggiungi il plugin Intlayer al bundler Lynx">
 
 Per utilizzare Intlayer con Lynx, devi aggiungere il plugin al file `lynx.config.ts`:
@@ -192,7 +183,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Aggiungi il provider Intlayer">
 
 Per mantenere sincronizzata la lingua dell'utente in tutta l'applicazione, devi avvolgere il tuo componente radice con il componente `IntlayerProvider` di `react-intlayer`.
@@ -220,7 +210,6 @@ if (import.meta.webpackHot) {
 ```
 
 </Step>
-
 <Step number={5} title="Dichiarare i tuoi contenuti">
 
 Crea file di **dichiarazione dei contenuti** ovunque nel tuo progetto (comunemente all'interno di `src/`), utilizzando uno qualsiasi dei formati di estensione supportati da Intlayer:
@@ -335,7 +324,6 @@ export default appContent;
 > Per dettagli sulle dichiarazioni di contenuto, consulta la [documentazione sui contenuti di Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Usa Intlayer nei tuoi Componenti">
 
 Usa il hook `useIntlayer` nei componenti figli per ottenere contenuti localizzati.
@@ -393,7 +381,6 @@ export const App = () => {
 > Quando utilizzi `content.someKey` in proprietà basate su stringhe (ad esempio, il `title` di un pulsante o il `children` di un componente `Text`), **chiama `content.someKey.value`** per ottenere la stringa effettiva.
 
 </Step>
-
 <Step number={7} title="Cambia la Lingua dell'App">
 
 Per cambiare la lingua direttamente dai tuoi componenti, puoi usare il metodo `setLocale` del hook `useLocale`:

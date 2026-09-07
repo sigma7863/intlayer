@@ -42,37 +42,31 @@ So với các giải pháp chính như `storybook-react-i18next` hay `i18next`, 
 Intlayer được tối ưu hóa để hoạt động hoàn hảo với Storybook bằng cách cung cấp **trình trang trí câu chuyện đa ngôn ngữ**, **chuyển đổi ngôn ngữ** và tất cả các tính năng cần thiết để mở rộng quy mô quốc tế hóa (i18n) trên hệ thống thiết kế của bạn.
 
 </Accordion>
-
 <Accordion header="Kích thước bundle">
 
 Thay vì tải các tệp JSON lớn vào trang của bạn, hãy chỉ tải nội dung cần thiết. Intlayer giúp **giảm tới 50% kích thước bundle và kích thước trang**.
 
 </Accordion>
-
 <Accordion header="Khả năng bảo trì">
 
 Xác định phạm vi nội dung ứng dụng của bạn **tạo điều kiện bảo trì** cho các ứng dụng quy mô lớn. Bạn có thể sao chép hoặc xóa một thư mục tính năng mà không phải lo lắng về việc xem lại toàn bộ cơ sở mã nội dung của mình. Ngoài ra, Intlayer **được nhập đầy đủ** để đảm bảo tính chính xác cho nội dung của bạn.
 
 </Accordion>
-
 <Accordion header="Đại lý AI">
 
 Nội dung cùng định vị **giảm ngữ cảnh cần thiết** của Mô hình ngôn ngữ lớn (LLM). Intlayer cũng đi kèm một bộ công cụ, chẳng hạn như **CLI** để kiểm tra các bản dịch bị thiếu,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** và **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/agent_skills.md)**, để giúp trải nghiệm của nhà phát triển (DX) trở nên mượt mà hơn nữa đối với các tác nhân AI.
 
 </Accordion>
-
 <Accordion header="Tự động hóa">
 
 Sử dụng tính năng tự động hóa để dịch trong quy trình CI/CD của bạn bằng cách sử dụng LLM mà bạn chọn với chi phí do nhà cung cấp AI của bạn chi trả. Intlayer cũng cung cấp **trình biên dịch** để tự động trích xuất nội dung cũng như [nền tảng web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) để giúp **dịch ở chế độ nền**.
 
 </Accordion>
-
 <Accordion header="Hiệu suất">
 
 Việc kết nối các tệp JSON lớn với các thành phần có thể dẫn đến các vấn đề về hiệu suất và khả năng phản hồi. Intlayer tối ưu hóa việc tải nội dung của bạn tại thời điểm build.
 
 </Accordion>
-
 <Accordion header="Mở rộng quy mô không có nhà phát triển">
 
 Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh sửa trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** và **[CMS đầy đủ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** để giúp bạn quản lý nội dung đa ngôn ngữ của mình trong **thời gian thực**, giúp việc cộng tác với người dịch, người viết quảng cáo và các thành viên khác trong nhóm trở nên liền mạch. Nội dung có thể được lưu trữ cục bộ và/hoặc từ xa.
@@ -94,7 +88,6 @@ Storybook là công cụ tiêu chuẩn trong ngành để phát triển và lậ
 <Tab value="Vite Setup">
 
 <Steps>
-
 <Step number={1} title="Cài đặt các phụ thuộc">
 
 ```bash packageManager="npm"
@@ -124,7 +117,6 @@ bun add vite-intlayer --dev
 | `vite-intlayer`  | Plugin Vite - theo dõi và biên dịch các tệp khai báo nội dung |
 
 </Step>
-
 <Step number={2} title="Tạo cấu hình Intlayer">
 
 Tạo `intlayer.config.ts` tại thư mục gốc của dự án (hoặc bên trong gói hệ thống thiết kế của bạn):
@@ -153,7 +145,6 @@ export default config;
 > Để xem danh sách đầy đủ các tùy chọn, hãy tham khảo [tài liệu cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md).
 
 </Step>
-
 <Step number={3} title="Thêm Plugin Vite vào Storybook">
 
 Hook `viteFinal` của Storybook cho phép bạn mở rộng cấu hình Vite nội bộ. Nhập và thêm plugin `intlayer()` tại đó:
@@ -200,7 +191,6 @@ export default config;
 Plugin `intlayer()` theo dõi các tệp `*.content.ts` của bạn và tự động xây dựng lại các từ điển bất cứ khi nào chúng thay đổi trong quá trình phát triển trên Storybook.
 
 </Step>
-
 <Step number={4} title="Thêm Decorator `IntlayerProvider` và Thanh công cụ Ngôn ngữ">
 
 Tệp `preview` của Storybook là nơi thích hợp để bao bọc mọi câu chuyện với `IntlayerProvider` và hiển thị trình chuyển đổi ngôn ngữ trên thanh công cụ:
@@ -260,7 +250,6 @@ export default preview;
 </Tab>
 <Tab value="Webpack Setup">
 <Steps>
-
 <Step number={1} title="Cài đặt các phụ thuộc">
 
 ```bash packageManager="npm"
@@ -284,7 +273,6 @@ bun add @intlayer/webpack --dev
 ```
 
 </Step>
-
 <Step number={2} title="Tạo cấu hình Intlayer">
 
 Tạo `intlayer.config.ts` tại thư mục gốc của dự án:
@@ -306,7 +294,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Cấu hình Webpack của Storybook">
 
 Đối với các thiết lập Storybook dựa trên Webpack (ví dụ: `@storybook/react-webpack5`), hãy mở rộng cấu hình webpack thông qua `webpackFinal` để thêm các alias và loader của Intlayer:
@@ -333,7 +320,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={4} title="Thêm Decorator `IntlayerProvider` và Thanh công cụ Ngôn ngữ">
 
 Tương tự như thiết lập Vite - thêm decorator và kiểu ngôn ngữ toàn cục trong tệp `.storybook/preview.tsx`:

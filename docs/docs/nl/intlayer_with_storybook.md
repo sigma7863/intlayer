@@ -57,7 +57,6 @@ Storybook is de industriestandaard tool voor het in isolatie ontwikkelen en docu
 <Tab value="Vite Setup">
 
 <Steps>
-
 <Step number={1} title="Afhankelijkheden installeren">
 
 ```bash packageManager="npm"
@@ -87,7 +86,6 @@ bun add vite-intlayer --dev
 | `vite-intlayer`  | Vite-plugin - bewaakt en compileert inhoudsdeclaratiebestanden |
 
 </Step>
-
 <Step number={2} title="Een Intlayer-configuratie aanmaken">
 
 Maak `intlayer.config.ts` aan in de root van uw project (of in uw design-system pakket):
@@ -116,7 +114,6 @@ export default config;
 > Zie voor de volledige lijst met opties de [configuratiereferentie](https://github.com/aymericzip/intlayer/blob/main/docs/docs/nl/configuration.md).
 
 </Step>
-
 <Step number={3} title="De Vite-plugin toevoegen aan Storybook">
 
 Met de `viteFinal` hook van Storybook kunt u de interne Vite-configuratie uitbreiden. Importeer en voeg de `intlayer()` plugin daar toe:
@@ -163,7 +160,6 @@ export default config;
 De `intlayer()` plugin bewaakt uw `*.content.ts` bestanden and bouwt automatisch woordenboeken opnieuw op wanneer ze veranderen tijdens de Storybook-ontwikkeling.
 
 </Step>
-
 <Step number={4} title="De `IntlayerProvider` decorator en een locale-werkbalk toevoegen">
 
 Het `preview` bestand van Storybook is de juiste plek om elke story te omhullen met de `IntlayerProvider` en een taalschakelaar in de werkbalk te tonen:
@@ -223,7 +219,6 @@ export default preview;
 </Tab>
 <Tab value="Webpack Setup">
 <Steps>
-
 <Step number={1} title="Afhankelijkheden installeren">
 
 ```bash packageManager="npm"
@@ -247,7 +242,6 @@ bun add @intlayer/webpack --dev
 ```
 
 </Step>
-
 <Step number={2} title="Een Intlayer-configuratie aanmaken">
 
 Maak `intlayer.config.ts` aan in de root van uw project:
@@ -269,7 +263,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Webpack van Storybook configureren">
 
 Breid voor op Webpack gebaseerde Storybook-instellingen (bijv. `@storybook/react-webpack5`) de webpack-configuratie uit via `webpackFinal` om de Intlayer-aliassen en loader toe te voegen:
@@ -296,7 +289,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={4} title="De `IntlayerProvider` decorator en een locale-werkbalk toevoegen">
 
 Hetzelfde als de Vite-instelling - voeg de decorator en het globale locale-type toe in `.storybook/preview.tsx`:

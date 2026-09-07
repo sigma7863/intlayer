@@ -55,7 +55,6 @@ Bu rehber, Intlayer'ın üstün içerik beyan sistemi avantajlarından yararlan�
 ## Intlayer'ı next-i18next ile Kurmak İçin Adım Adım Rehber
 
 <Steps>
-
 <Step number={1} title="Bağımlılıkları Yükleyin">
 
 Tercih ettiğiniz paket yöneticisini kullanarak gerekli paketleri yükleyin:
@@ -102,7 +101,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Intlayer içerik beyanlarını i18next JSON formatına senkronize etmek için eklenti
 
 </Step>
-
 <Step number={2} title="JSON'u sarmak için Intlayer eklentisini uygulayın">
 
 Desteklenen yerel ayarları tanımlamak için bir Intlayer yapılandırma dosyası oluşturun:
@@ -152,7 +150,6 @@ JSON'i çevirmek için CLI kullanılarak veya CMS kullanılarak değişiklikler 
 `syncJSON` eklentisi hakkında daha fazla ayrıntı için lütfen [syncJSON eklenti dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-json.md) bakınız.
 
 </Step>
-
 <Step number={3} title="Bileşen başına JSON çevirilerini uygulama">
 
 Varsayılan olarak, Intlayer hem JSON hem de içerik beyan dosyalarını yükler, birleştirir ve senkronize eder. Daha fazla ayrıntı için [içerik beyan dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/content_file.md) bakınız. Ancak isterseniz, Intlayer eklentisi kullanarak, kod tabanınızın herhangi bir yerinde yerelleştirilmiş JSON'un bileşen bazında yönetimini de uygulayabilirsiniz.

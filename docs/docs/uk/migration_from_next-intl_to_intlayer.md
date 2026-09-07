@@ -33,7 +33,6 @@ author: aymericzip
 Замість завантаження масивних JSON файлів на ваші сторінки, завантажуйте лише необхідний вміст. Intlayer допомагає **зменшити розміри bundle та сторінок на 50%**.
 
 </Accordion>
-
 <Accordion header="Зручність обслуговування">
 
 Структурування вмісту вашого додатку **спрощує обслуговування** для великомасштабних додатків. Ви можете дублювати або видаляти окрему папку функцій без необхідності перегляду всієї вашої codebase вмісту. Крім того, Intlayer **повністю типізований** для забезпечення точності вашого вмісту.
@@ -41,25 +40,21 @@ author: aymericzip
 Intlayer також є рішенням з **найбільш активною розробкою** в екосистемі i18n — проблеми вирішуються швидко, нові адаптери фреймворків регулярно з'являються, а базовий API постійно удосконалюється на основі реального feedback з production.
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 Розташування вмісту в одному місці **зменшує контекст, необхідний** для великих мовних моделей (LLMs). Intlayer також поставляється з набором інструментів, таких як **CLI** для перевірки відсутніх перекладів, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/mcp_server.md)** та **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/agent_skills.md)**, щоб зробити developer experience (DX) ще більш гладким для AI агентів.
 
 </Accordion>
-
 <Accordion header="Автоматизація">
 
 Використовуйте автоматизацію для перекладу в вашому CI/CD pipeline з допомогою LLM на ваш вибір за вартість вашого AI провайдера. Intlayer також пропонує **compiler** для автоматизації видобування вмісту, а також [web платформу](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_CMS.md) для **перекладу у фоновому режимі**.
 
 </Accordion>
-
 <Accordion header="Продуктивність">
 
 Підключення масивних JSON файлів до компонентів може призвести до проблем з продуктивністю та реактивністю. Intlayer оптимізує завантаження вашого вмісту на етапі збірки.
 
 </Accordion>
-
 <Accordion header="Масштабування без розробників">
 
 Більше ніж просто i18n рішення, Intlayer надає **самостійно розміщений [редактор видимості](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_visual_editor.md)** та **[повну CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_CMS.md)** для допомоги в управлінні вашим багатомовним вмістом в **реальному часі**, що робить співпрацю з перекладачами, копірайтерами та іншими членами команди безпроблемною. Вміст може зберігатися локально та/або віддалено.
@@ -84,7 +79,6 @@ Intlayer також є рішенням з **найбільш активною �
 Наступні кроки — це мінімум, необхідний для запуску вашого існуючого `next-intl` додатку на Intlayer без змін коду.
 
 <Steps>
-
 <Step number={1} title="Встановлення залежностей">
 
 Встановіть основні пакети Intlayer та адаптер сумісності `@intlayer/next-intl`:
@@ -128,7 +122,6 @@ bun add intlayer next-intlayer @intlayer/next-intl @intlayer/sync-json-plugin
 > Тримайте `next-intl` встановленим — він все ще необхідний для **маршрутизації URL** (`createNavigation`, `createMiddleware`, `Link`, `redirect`, `usePathname`, `useRouter`). Адаптер сумісності **не** замінює шар маршрутизації.
 
 </Step>
-
 <Step number={2} title="Налаштування Intlayer">
 
 Команда `intlayer init` створює стартовий файл `intlayer.config.ts`. Оновіть його, щоб він відповідав вашим існуючим локалям і вкажіть плагін `syncJSON` на ваші файли повідомлень:
@@ -165,7 +158,6 @@ export default config;
 > Для повного переліку параметрів конфігурації дивіться [документацію конфігурації](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/configuration.md).
 
 </Step>
-
 <Step number={3} title="Додайте плагін Intlayer до Next.js">
 
 Обгорніть вашу існуючу конфігурацію Next.js за допомогою `createNextIntlPlugin` із `@intlayer/next-intl/plugin`. Цей wrapper складає `withIntlayer` **та** реєструє псевдоніми `next-intl` → `@intlayer/next-intl` для вас:
@@ -211,7 +203,6 @@ export default withIntlayer(nextConfig);
 Кроки, наведені нижче, є необов'язковими і можуть виконуватися поступово. Вони розблоковують повний набір функцій Intlayer: візуальний редактор, CMS, типізовані файли вмісту, автоматизований переклад на основі AI та інше.
 
 <Steps>
-
 <Step number={4} title="Явне перейменування імпортів (опціонально)" isOptional={true}>
 
 Обгортка `createNextIntlPlugin()` вже обробляє створення псевдоніма `next-intl` → `@intlayer/next-intl` на рівні bundler. Якщо ви віддаєте перевагу зробити залежність явною у вихідних файлах (і використовувати звичайний плагін `withIntlayer` замість цього), ви можете перейменувати імпорти вручну:
@@ -238,7 +229,6 @@ export default withIntlayer(nextConfig);
 > Як альтернатива, ви можете використовувати `defineRouting` з `@intlayer/next-intl/routing`, який автоматично об'єднує конфігурацію локалі з вашого `intlayer.config.ts`.
 
 </Step>
-
 <Step number={5} title="Увімкнути автоматизацію перекладу на основі AI" isOptional={true}>
 
 Після настройки Intlayer ви можете використовувати його CLI для автоматичного заповнення відсутніх перекладів за допомогою LLM на ваш вибір:

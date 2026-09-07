@@ -45,37 +45,31 @@ author: aymericzip
 Intlayer оптимизирован для идеальной работы с Preact, предлагая **охват контента на уровне компонентов**, **отложенные переводы** и все функции, необходимые для масштабирования интернационализации (i18n).
 
 </Accordion>
-
 <Accordion header="Размер бандла">
 
 Вместо загрузки огромных файлов JSON на свои страницы загружайте только необходимый контент. Intlayer помогает **уменьшить размер бандла и страниц до 50 %**.
 
 </Accordion>
-
 <Accordion header="Удобство обслуживания">
 
 Определение области содержимого вашего приложения **облегчает обслуживание** крупномасштабных приложений. Вы можете дублировать или удалить отдельную папку функций, не утруждав себя мысленным бременем проверки всей кодовой базы контента. Кроме того, Intlayer **полностью типизирован**, что обеспечивает точность вашего контента.
 
 </Accordion>
-
 <Accordion header="Агент ИИ">
 
 Совместное размещение контента **уменьшает контекст, необходимый** для моделей большого языка (LLM). Intlayer также поставляется с набором инструментов, таких как **CLI** для проверки отсутствия переводов,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, и **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/agent_skills.md)**, чтобы сделать работу разработчика (DX) еще более удобной для агентов ИИ.
 
 </Accordion>
-
 <Accordion header="Автоматизация">
 
 Используйте автоматизацию для перевода в своем конвейере CI/CD, используя LLM по вашему выбору за счет вашего поставщика ИИ. Intlayer также предлагает **компилятор** для автоматизации извлечения контента, а также [веб-платформу](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), которая помогает **переводить в фоновом режиме**.
 
 </Accordion>
-
 <Accordion header="Производительность">
 
 Подключение больших файлов JSON к компонентам может привести к проблемам с производительностью и реактивностью. Intlayer оптимизирует загрузку контента во время сборки (build time).
 
 </Accordion>
-
 <Accordion header="Масштабирование с помощью не-разработчиками">
 
 Intlayer — это больше, чем просто решение i18n. Он предоставляет **автономный [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** и **[полный CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, чтобы помочь вам управлять многоязычным контентом в **реальном времени**, упрощая сотрудничество с переводчиками, копирайтерами и другими членами команды. Контент может храниться локально и/или удаленно.
@@ -118,7 +112,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 См. [Шаблон приложения](https://github.com/aymericzip/intlayer-vite-preact-template) на GitHub.
 
 <Steps>
-
 <Step number={1} title="Установка зависимостей">
 
 Установите необходимые пакеты с помощью npm:
@@ -172,7 +165,6 @@ bun add vite-intlayer --dev
   Включает плагин Vite для интеграции Intlayer с [сборщиком Vite](https://vite.dev/guide/why.html#why-bundle-for-production), а также промежуточное ПО для определения предпочтительной локали пользователя, управления куки и обработки перенаправления URL.
 
 </Step>
-
 <Step number={2} title="Конфигурация вашего проекта">
 
 Создайте файл конфигурации для настройки языков вашего приложения:
@@ -202,7 +194,6 @@ export default config;
 > Через этот конфигурационный файл вы можете настроить локализованные URL, режимы маршрутизации, параметры хранения, имена куки, расположение и расширение ваших объявлений контента, отключить логи Intlayer в консоли и многое другое. Полный список доступных параметров см. в [документации по конфигурации](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/configuration.md).
 
 </Step>
-
 <Step number={3} title="Интеграция Intlayer в конфигурацию Vite">
 
 Добавьте плагин intlayer в вашу конфигурацию.
@@ -221,7 +212,6 @@ export default defineConfig({
 > Плагин Vite `intlayer()` используется для интеграции Intlayer с Vite. Он обеспечивает сборку файлов объявлений контента и отслеживает их в режиме разработки. Он определяет переменные окружения Intlayer внутри приложения Vite. Кроме того, он предоставляет алиасы для оптимизации производительности.
 
 </Step>
-
 <Step number={4} title="Объявление контента">
 
 Создайте и управляйте своими объявлениями контента для хранения переводов:
@@ -345,7 +335,6 @@ export default appContent;
 > Если ваш файл контента содержит код TSX, вам может потребоваться импортировать `import { h } from "preact";` или убедиться, что ваша JSX прагма правильно настроена для Preact.
 
 </Step>
-
 <Step number={5} title="Использование Intlayer в коде">
 
 Получайте доступ к вашим словарям контента по всему приложению:
@@ -419,7 +408,6 @@ export default App;
 > Если ваше приложение уже существует, вы можете использовать [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/compiler.md) в сочетании с [командой extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/cli/extract.md), чтобы преобразовать тысячи компонентов за одну секунду.
 
 </Step>
-
 <Step number={6} title="Изменение языка контента" isOptional={true}>
 
 Для изменения языка контента вы можете использовать функцию `setLocale`, предоставляемую хуком `useLocale`. Эта функция позволяет установить локаль приложения и обновить контент соответствующим образом.
@@ -445,7 +433,6 @@ export default LocaleSwitcher;
 > Чтобы узнать больше о хуке `useLocale`, обратитесь к [документации](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/react-intlayer/useLocale.md) (API для `preact-intlayer` аналогично).
 
 </Step>
-
 <Step number={7} title="Добавьте локализованную маршрутизацию в ваше приложение" isOptional={true}>
 
 Цель этого шага, создать уникальные маршруты для каждого языка. Это полезно для SEO и создания дружественных к поисковым системам URL.
@@ -534,7 +521,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={8} title="Изменяйте URL при смене локали" isOptional={true}>
 
 Чтобы изменить URL при смене локали, вы можете использовать проп `onLocaleChange`, предоставляемый хуком `useLocale`. Параллельно вы можете использовать метод `route` из `useLocation` библиотеки `preact-iso` для обновления пути URL.
@@ -612,7 +598,6 @@ export default LocaleSwitcher;
 Ниже приведена обновленная **Шаг 9** с добавленными объяснениями и уточненными примерами кода:
 
 </Step>
-
 <Step number={9} title="Переключайте атрибуты языка и направления HTML" isOptional={true}>
 
 Когда ваше приложение поддерживает несколько языков, крайне важно обновлять атрибуты `lang` и `dir` тега `<html>`, чтобы они соответствовали текущей локали. Это обеспечивает:
@@ -687,7 +672,6 @@ export default App;
 - Обеспечьте более **доступный** опыт, так как вспомогательные технологии зависят от этих атрибутов для оптимального функционирования.
 
 </Step>
-
 <Step number={10} title="Создание компонента локализованной ссылки" isOptional={true}>
 
 Чтобы навигация в вашем приложении учитывала текущую локаль, вы можете создать пользовательский компонент `Link`. Этот компонент автоматически добавляет префикс текущего языка к внутренним URL.
@@ -754,7 +738,6 @@ Link.displayName = "Link";
   Компонент возвращает элемент `<a>` с локализованным URL, гарантируя, что навигация соответствует локали.
 
 </Step>
-
 <Step number={11} title="Рендеринг Markdown и HTML" isOptional={true}>
 
 Intlayer поддерживает рендеринг контента в форматах Markdown и HTML в Preact.
@@ -790,7 +773,6 @@ return (
 ```
 
 </Step>
-
 <Step number={1} title="Извлечение содержимого ваших компонентов" isOptional={true}>
 
 Если у вас есть существующая кодовая база, преобразование тысяч файлов может занять много времени.
@@ -1039,25 +1021,21 @@ Intlayer использует модульное расширение, чтоб�
 Специфичный для Vite выигрыш в том, что переводы разрешаются и подвергаются tree-shaking во время компиляции, а не загружаются как JSON во время выполнения, поэтому страница поставляет только те записи, которые отображает. См. [почему Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/interest_of_intlayer.md) и [бенчмарк](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/benchmark/index.md).
 
 </Question>
-
 <Question title="Насколько i18n увеличивает размер бандла моего Preact?">
 
 Гораздо меньше, чем при подходе на основе пространств имён, потому что страница никогда не загружает каталог, который не отображает. Компилятор во время сборки заменяет вызовы `useIntlayer` точными записями словаря, которые использует компонент, поэтому неиспользуемые ключи и неиспользуемые языки отбрасываются, а [динамические словари](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dynamic_dictionaries/index.md) разделяют остальное по локалям. По сравнению с обычными альтернативами Intlayer сокращает размер бандла и страницы до 50%. См. [оптимизацию бандла](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/bundle_optimization.md) и [бенчмарк](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/benchmark/index.md).
 
 </Question>
-
 <Question title="Могу ли я мигрировать с `preact-i18n` или `react-i18next`, не переписывая свои компоненты?">
 
 Да, и есть два пути. Вы можете мигрировать контент постепенно с помощью [руководства по миграции с react-i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/migration_from_react-i18next_to_intlayer.md). Или вы можете полностью сохранить свой текущий API: [адаптеры совместимости](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/compat/index.md) предоставляют точно такой же API, как `react-i18next` и `react-intl`, но обслуживаемый словарями Intlayer, поэтому меняются импорты, а код компонентов - нет.
 
 </Question>
-
 <Question title="Могу ли я сохранить свои существующие файлы переводов JSON?">
 
 Да. [Плагин синхронизации JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/plugins/sync-json.md) сохраняет ваши файлы `/messages/{locale}/{namespace}.json` как источник истины и генерирует из них словари Intlayer, в обоих направлениях. [Плагин синхронизации PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/plugins/sync-po.md) делает то же самое для каталогов gettext, а [файлы по локали](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/per_locale_file.md) позволяют разделить контент по языкам вместо группировки локалей в одном файле.
 
 </Question>
-
 <Question title="Должен ли я переносить свой контент ключ за ключом?">
 
 Нет. Запустите `npx intlayer extract`, и Intlayer прочитает ваши компоненты, извлечёт строки, видимые пользователю, и запишет файл `.content` рядом с каждым из них, так что вы просматриваете diff вместо копирования строк в каталог по одной. Шаг 12 этого руководства проводит вас через это.
@@ -1067,7 +1045,6 @@ Intlayer использует модульное расширение, чтоб�
 Стоит знать о двух ограничениях, прежде чем включать компилятор. Он работает через статический анализ, поэтому строки, существующие только во время выполнения, такие как коды ошибок API или поля CMS, остаются недоступными. И ему нужно отличать текст, видимый пользователю, от логики приложения вроде `className="active"` или кода статуса, что требует нескольких аннотаций в большой кодовой базе. [Команда extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/cli/extract.md) избегает обоих ограничений, оставляя вас в процессе.
 
 </Question>
-
 <Question title="Какие инструменты для редактора и ИИ-агентов доступны?">
 
 Пять компонентов, все опциональные:
@@ -1079,55 +1056,46 @@ Intlayer использует модульное расширение, чтоб�
 - **[Плагин ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/eslint.md)**: `no-raw-text` помечает жёстко закодированные строки, с дополнительными правилами для статических ключей словаря и неиспользуемого контента.
 
 </Question>
-
 <Question title="Как использовать переведённый контент в компоненте Preact?">
 
 Вызовите `useIntlayer` в вашем компоненте, точно так же, как вы сделали бы это в React. `preact-intlayer` - это нативная привязка для Preact, поэтому вы не проходите через `preact/compat` для неё. Шаг 5 показывает использование, а шаг 11 охватывает контент Markdown и HTML.
 
 </Question>
-
 <Question title="Работает ли Intlayer с dev-сервером Vite и горячей перезагрузкой?">
 
 Да. Плагин Vite `intlayer()` следит за вашими файлами `.content.ts` и пересобирает затронутые словари при сохранении, поэтому правки появляются без перезапуска dev-сервера, а сгенерированные типы регенерируются одновременно, поэтому автодополнение остаётся синхронизированным.
 
 </Question>
-
 <Question title="Как настроить локализованную маршрутизацию?">
 
 Шаги 7 и 8 охватывают локализованные маршруты и переписывание URL при смене локали, а шаг 10 добавляет локализованный компонент ссылки. `routing.mode` решает схему URL: `"prefix-no-default"` (по умолчанию, `/about` и `/fr/about`), `"prefix-all"`, `"no-prefix"` (разрешается из cookie, заголовка или домена) или `"search-params"` (`/about?locale=fr`). См. [справочник по конфигурации](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/configuration.md).
 
 </Question>
-
 <Question title="Как поддерживать языки с письмом справа налево, такие как арабский или иврит?">
 
 Шаг 9 охватывает это. `getHTMLTextDir` возвращает `ltr`, `rtl` или `auto` для локали, поэтому вы привязываете `lang` и `dir` на корневом элементе из активной локали и позволяете логическим свойствам CSS обрабатывать остальное.
 
 </Question>
-
 <Question title="Как обрабатывать SEO-метаданные в Vite-приложении с клиентским рендерингом?">
 
 Установите `lang` и `dir` на элементе `html` из активной локали и выдайте альтернативы `hreflang` для каждой объявленной локали с помощью `getMultilingualUrls`, включая `x-default`. Для страниц, которые должны надёжно индексироваться, предпочтите настройку с пре-рендерингом или серверным рендерингом.
 
 </Question>
-
 <Question title="Как автоматически перевести приложение с помощью ИИ?">
 
 Запустите `npx intlayer fill`. Она заполняет недостающие переводы с помощью выбранной вами LLM, используя ваш собственный провайдер и API-ключ, а `--git-diff` ограничивает запуск контентом, изменённым в ветке. См. [команду fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/cli/fill.md) и [интеграцию CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/CI_CD.md).
 
 </Question>
-
 <Question title="Поддерживает ли Intlayer множественное число, род и форматированный текст?">
 
 Да: [формы множественного числа](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/plurial.md), [контент на основе рода](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/gender.md), условия, [вставки](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dictionary/markdown.md) и [форматтеры](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/formatters.md) для чисел, дат и валют.
 
 </Question>
-
 <Question title="Как переводчики могут редактировать контент, не касаясь кода?">
 
 Через [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_visual_editor.md), который работает на вашей собственной инфраструктуре и позволяет любому редактировать текст на месте в работающем приложении, или [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_CMS.md), которая выносит контент вовне, чтобы он мог меняться без развёртывания.
 
 </Question>
-
 <Question title="Является ли Intlayer бесплатным и с открытым исходным кодом?">
 
 Да, по лицензии Apache 2.0, включая коммерческое использование. Размещённая CMS - это необязательный платный сервис, который также можно [разместить самостоятельно](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/self_hosting.md).

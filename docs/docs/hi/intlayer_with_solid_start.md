@@ -74,37 +74,31 @@ author: aymericzip
 Intlayer को Solid के साथ पूरी तरह से काम करने के लिए अनुकूलित किया गया है, जो **कंपोनेंट-स्तरीय सामग्री स्कोपिंग**, **प्रतिक्रियाशील (reactive) अनुवाद**, और अंतर्राष्ट्रीयकरण (i18n) को बढ़ाने के लिए आवश्यक सभी सुविधाएं प्रदान करता है।
 
 </Accordion>
-
 <Accordion header="बंडल साइज़">
 
 अपनी पृष्ठों में विशाल JSON फ़ाइलों को लोड करने के बजाय, केवल आवश्यक सामग्री लोड करें। Intlayer आपके **बंडल और पेज के आकार को 50% तक कम करने में मदद करता है**।
 
 </Accordion>
-
 <Accordion header="रखरखाव (Maintainability)">
 
 अपने एप्लिकेशन की सामग्री को स्कोप करने से बड़े पैमाने के अनुप्रयोगों के लिए **रखरखाव में आसानी** होती है। आप अपने संपूर्ण कोडबेस की समीक्षा किए बिना किसी एक सुविधा फ़ोल्डर को डुप्लिकेट या हटा सकते हैं। इसके अतिरिक्त, आपकी सामग्री की सटीकता सुनिश्चित करने के लिए Intlayer **पूरी तरह से टाइप किया गया (fully typed)** है।
 
 </Accordion>
-
 <Accordion header="AI एजेंट">
 
 सामग्री को एक साथ रखने से बड़े भाषा मॉडल (LLMs) के लिए **आवश्यक संदर्भ (context) कम हो जाता है**। Intlayer कई टूल के साथ आता है, जैसे गायब अनुवादों का परीक्षण करने के लिए **CLI**, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, और **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/agent_skills.md)**, ताकि AI एजेंट्स के लिए डेवलपर अनुभव (DX) और भी सुगम हो सके।
 
 </Accordion>
-
 <Accordion header="स्वचालन (Automation)">
 
 अपने AI प्रदाता की लागत पर अपनी पसंद के LLM का उपयोग करके अपनी CI/CD पाइपलाइन में अनुवाद करने के लिए स्वचालन का उपयोग करें। Intlayer सामग्री निष्कर्षण को स्वचालित करने के लिए एक **कंपाइलर**, साथ ही **पृष्ठभूमि में अनुवाद** करने में मदद करने के लिए एक [वेब प्लेटफॉर्म](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) भी प्रदान करता है।
 
 </Accordion>
-
 <Accordion header="प्रदर्शन (Performance)">
 
 विशाल JSON फ़ाइलों को कंपोनेंट्स से जोड़ने से प्रदर्शन और प्रतिक्रियाशीलता में समस्याएं आ सकती हैं। Intlayer निर्माण समय (build time) पर आपकी सामग्री लोडिंग को अनुकूलित करता है।
 
 </Accordion>
-
 <Accordion header="गैर-डेवलपर्स के साथ स्केल करना">
 
 केवल एक i18n समाधान से अधिक, Intlayer एक **स्व-होस्टेड [विजुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** और एक **[पूर्ण CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** प्रदान करता है ताकि आप **वास्तविक समय (real-time)** में अपनी बहुभाषी सामग्री को प्रबंधित कर सकें, जिससे अनुवादकों, कॉपीराइटर्स और अन्य टीम के सदस्यों के साथ सहज सहयोग हो सके। सामग्री को स्थानीय रूप से और/या दूरस्थ रूप से संग्रहीत किया जा सकता है।
@@ -115,7 +109,6 @@ Intlayer को Solid के साथ पूरी तरह से काम �
 ## SolidStart एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण गाइड
 
 <Steps>
-
 <Step number={1} title="निर्भरता (Dependencies) स्थापित करें">
 
 npm का उपयोग करके आवश्यक पैकेज स्थापित करें:
@@ -171,7 +164,6 @@ bun add intlayer solid-intlayer vite-intlayer
 > यहाँ `vite-intlayer` एक सर्वर-साइड विषय है, न कि केवल एक बिल्ड-टाइम विषय: यह अनुरोध हैंडलर की आपूर्ति करता है जिसे SolidStart का Nitro सर्वर चलाता है। इसे `dependencies` में रखना सुरक्षित डिफ़ॉल्ट है — आप इसे केवल तभी `devDependencies` में ले जा सकते हैं यदि आप निर्मित `.output` निर्देशिका को तैनात करते हैं, जिसमें Nitro हैंडलर को इनलाइन करता है।
 
 </Step>
-
 <Step number={2} title="अपने प्रोजेक्ट का कॉन्फ़िगरेशन">
 
 अपने एप्लिकेशन की भाषाओं को कॉन्फ़िगर करने के लिए एक कॉन्फ़िगरेशन फ़ाइल बनाएं:
@@ -208,7 +200,6 @@ export default config;
 > इस कॉन्फ़िगरेशन फ़ाइल के माध्यम से, आप स्थानीयकृत URL, मिडलवेयर पुनर्निर्देशन, कुकी नाम, अपनी सामग्री घोषणाओं का स्थान और एक्सटेंशन सेट कर सकते हैं, कंसोल में Intlayer लॉग अक्षम कर सकते हैं, और बहुत कुछ। उपलब्ध मापदंडों की पूरी सूची के लिए, [कॉन्फ़िगरेशन दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md) देखें।
 
 </Step>
-
 <Step number={3} title="अपने Vite कॉन्फ़िगरेशन में Intlayer को एकीकृत करें">
 
 अपने कॉन्फ़िगरेशन में Intlayer प्लगइन जोड़ें:
@@ -236,7 +227,6 @@ SolidStart [Nitro](https://nitro.build) पर चलता है, और `intl
 - लोकेल कुकी को प्रतिक्रिया पर वापस लिखा जाता है।
 
 </Step>
-
 <Step number={4} title="अपनी सामग्री घोषित करें">
 
 अनुवाद संग्रहीत करने के लिए अपनी सामग्री घोषणाएं बनाएं और प्रबंधित करें:
@@ -310,7 +300,6 @@ export default homeContent;
 > अधिक विवरण के लिए, [सामग्री घोषणा दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md) देखें।
 
 </Step>
-
 <Step number={5} title="स्थानीयकृत रूटिंग जोड़ें">
 
 इस चरण का लक्ष्य प्रत्येक भाषा को अपना URL देना है, जिसे खोज इंजन अनुक्रमित (index) करते हैं।
@@ -354,7 +343,6 @@ export default function LocaleLayout(props: RouteSectionProps) {
 > यदि आप `'prefix-all'` रूटिंग मोड का उपयोग करते हैं तो `[[locale]]` के बजाय `[locale]` (आवश्यक) को प्राथमिकता दें, और `'no-prefix'` या `'search-params'` के लिए सेगमेंट को पूरी तरह से हटा दें।
 
 </Step>
-
 <Step number={6} title="अपने एप्लिकेशन को लोकेल प्रदान करें">
 
 URL लोकेल के लिए सत्य का एकमात्र स्रोत है: मिडलवेयर ने पहले ही अनुरोध को उसके स्थानीयकृत मार्ग पर पुनर्निर्देशित कर दिया है, इसलिए रूट लेआउट में पाथ को पढ़ने से सर्वर रेंडर और क्लाइंट हाइड्रेशन सहमत रहते हैं, और हर क्लाइंट-साइड नेविगेशन लोकेल को मुफ्त में अपडेट करता है।
@@ -405,7 +393,6 @@ export default function App() {
 > `IntlayerProvider` अपने `locale` प्रोप पर प्रतिक्रिया करता है, इसलिए JSX के अंदर एक्सेस कॉलिंग `locale()` पास करना पर्याप्त है — Solid इसे एक गेटर में संकलित करता है, और URL बदलने पर पूरा ट्री नई भाषा में फिर से रेंडर होता है।
 
 </Step>
-
 <Step number={7} title="सर्वर पर HTML lang और dir विशेषताएं सेट करें">
 
 `<html>` तत्व `Router` के बाहर `entry-server.tsx` द्वारा रेंडर किया जाता है। इसके बजाय अनुरोध URL से लोकेल पढ़ें:
@@ -451,7 +438,6 @@ export default createHandler(() => (
 ```
 
 </Step>
-
 <Step number={8} title="अपने पेजों में Intlayer का उपयोग करें">
 
 अपने संपूर्ण एप्लिकेशन में अपनी सामग्री शब्दकोशों तक पहुंचें:
@@ -533,7 +519,6 @@ export default function Counter() {
 `plural()` सक्रिय लोकेल के लिए `Intl.PluralRules` के माध्यम से श्रेणी का चयन करता है, इसलिए दो से अधिक बहुवचन रूपों वाली भाषाएं बिना किसी अतिरिक्त कोड के काम करती हैं।
 
 </Step>
-
 <Step number={9} title="एक स्थानीयकृत लिंक कंपोनेंट बनाएं">
 
 एक कस्टम `Link` कंपोनेंट बनाएं जो आंतरिक URL को वर्तमान भाषा के साथ स्वचालित रूप से उपसर्ग करता है:
@@ -578,7 +563,6 @@ export const Nav: Component = () => {
 एक बार `href="/about"` लिखने पर अब सक्रिय लोकेल के आधार पर `/about`, `/fr/about` या `/es/about` उत्पन्न होता है — आपके पेजों में कहीं भी मैन्युअल उपसर्ग की आवश्यकता नहीं है।
 
 </Step>
-
 <Step number={10} title="एक लोकेल स्विचर कंपोनेंट बनाएं">
 
 स्विचर को `<select>` के बजाय **वास्तविक एंकर** के रूप में रेंडर करें: वर्तमान पेज की प्रत्येक भाषा एक क्रॉल करने योग्य लिंक बन जाती है जिसे एक नए टैब में खोला जा सकता है, जो केवल JavaScript वाला नियंत्रण प्रदान नहीं कर सकता है।
@@ -649,7 +633,6 @@ export const LocaleSwitcher: Component = () => {
 > `useLocale` हुक के बारे में अधिक जानने के लिए, [दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/solid-intlayer/useLocale.md) देखें।
 
 </Step>
-
 <Step number={11} title="कैनोनिकल (canonical) और hreflang लिंक उत्सर्जित करें" isOptional={true}>
 
 `hreflang` एनोटेशन खोज इंजनों को बताते हैं कि `/about`, `/fr/about` और `/es/about` अलग-अलग भाषाओं में एक ही पेज हैं। `getMultilingualUrls` आपके रूटिंग मोड का पालन करते हुए विहित (लोकेल-मुक्त) मार्ग से उन्हें प्राप्त करता है, इसलिए कुछ भी हार्ड-कोड नहीं किया गया है:
@@ -721,7 +704,6 @@ import { AlternateLinks } from "~/components/AlternateLinks";
 > **`@solidjs/meta` पर ध्यान दें**: लिखते समय, `@solidjs/meta` से `<Title>` और `<Meta>` हाइड्रेशन के बाद क्लाइंट पर लागू होते हैं, लेकिन SolidStart v2 में सर्वर-रेंडर्ड `<head>` में उत्सर्जित **नहीं** होते हैं। जब तक इसे अपस्ट्रीम में ठीक नहीं किया जाता, तब तक क्रॉलर्स को बिना JavaScript के देखने के लिए आवश्यक टैग — `canonical`, `hreflang`, और यदि आवश्यक हो तो `title` / `description` — को सीधे `entry-server.tsx` में रेंडर करें, जैसा कि ऊपर दिखाया गया है।
 
 </Step>
-
 <Step number={12} title="पेज न मिलने (404) को प्रबंधित करें" isOptional={true}>
 
 `src/routes` के रूट पर एक स्प्लैट मार्ग (splat route) हर उस रास्ते को पकड़ता है जिससे लोकेल सेगमेंट मेल नहीं खाता — जिसमें `matchFilters` द्वारा अस्वीकार किए गए अमान्य लोकेल उपसर्ग शामिल हैं। चूँकि लोकेल अभी भी रूट लेआउट के माध्यम से URL से आता है, इसलिए 404 पेज आगंतुक की भाषा में प्रदर्शित होता है:
@@ -753,7 +735,6 @@ export default function NotFound() {
 | `/fr/nonexistent` | फ्रेंच में `404` (`Page introuvable`)         |
 
 </Step>
-
 <Step number={13} title="एक बहुभाषी साइटमैप (sitemap) उत्पन्न करें" isOptional={true}>
 
 Intlayer का साइटमैप जनरेटर प्रत्येक पाथ को प्रति लोकेल एक प्रविष्टि में विस्तारित करता है और उनके बीच `xhtml:link` विकल्पों को जोड़ता है, इसलिए मार्ग को केवल विहित (canonical), लोकेल-मुक्त रास्तों को सूचीबद्ध करना पड़ता है।
@@ -828,7 +809,6 @@ export const GET = () =>
 ```
 
 </Step>
-
 <Step number={14} title="अपने सर्वर फ़ंक्शंस में लोकेल प्राप्त करें" isOptional={true}>
 
 आप सर्वर फ़ंक्शन या API मार्ग के अंदर से वर्तमान लोकेल तक पहुंचना चाह सकते हैं।
@@ -872,7 +852,6 @@ export default function Page() {
 > यहाँ केवल `getLocale` पर भरोसा न करें: लोकेल कुकी केवल तभी लिखी जाती है जब कोई आगंतुक सक्रिय रूप से भाषा बदलता है, इसलिए `/fr/...` की पहली यात्रा डिफ़ॉल्ट लोकेल में हल होगी।
 
 </Step>
-
 <Step number={15} title="अपने कंपोनेंट्स की सामग्री निकालें" isOptional={true}>
 
 यदि आपके पास मौजूदा कोडबेस है, तो हज़ारों फ़ाइलों को परिवर्तित करने में समय लग सकता है।
@@ -982,7 +961,6 @@ bun run build # या bun run dev
 </Tabs>
 
 </Step>
-
 <Step number={16} title="TypeScript को कॉन्फ़िगर करें">
 
 Intlayer TypeScript के लाभ प्राप्त करने और आपके कोडबेस को मजबूत बनाने के लिए मॉड्यूल संवर्धन (module augmentation) का उपयोग करता है।
@@ -1087,25 +1065,21 @@ Intlayer के साथ अपने विकास अनुभव को �
 [Intlayer क्यों चुनें](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/interest_of_intlayer.md) देखें।
 
 </Question>
-
 <Question title="i18n मेरे Solid Start बंडल आकार को कितना बढ़ाता है?">
 
 नेमस्पेस-आधारित समाधानों की तुलना में बहुत कम, क्योंकि एक पृष्ठ कभी भी उस कैटलॉग को डाउनलोड नहीं करता है जिसे वह रेंडर नहीं करता है। बिल्ड-टाइम कंपाइलर `useIntlayer` कॉल को घटक द्वारा उपयोग की जाने वाली सटीक प्रविष्टियों से बदल देता है, और [गतिशील शब्दकोश](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dynamic_dictionaries/index.md) शेष को प्रति लोकेल विभाजित करते हैं, जिससे बंडल 50% तक कम हो जाता है। [बंडल अनुकूलन](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/bundle_optimization.md) और [बेंचमार्क](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/benchmark/index.md) देखें।
 
 </Question>
-
 <Question title="क्या मैं अपने घटकों को फिर से लिखे बिना @solid-primitives/i18n या i18next से माइग्रेट कर सकता हूँ?">
 
 काफी हद तक हाँ। [i18next माइग्रेशन गाइड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/migration_from_i18next_to_intlayer.md) का पालन करें।
 
 </Question>
-
 <Question title="क्या मैं अपनी मौजूदा JSON translation files को रख सकता हूं?">
 
 हाँ। [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/plugins/sync-json.md) आपकी `/messages/{locale}/{namespace}.json` फ़ाइलों को सत्य का स्रोत बनाए रखता है और दोनों दिशाओं में उनसे Intlayer dictionaries बनाता है। [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/plugins/sync-po.md) gettext catalogs के लिए भी ऐसा ही करता है, और [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/per_locale_file.md) आपको locales को एक फ़ाइल में समूहीकृत करने के बजाय भाषा के अनुसार content को विभाजित करने देते हैं।
 
 </Question>
-
 <Question title="क्या मुझे अपनी content को key by key move करना होगा?">
 
 नहीं। `npx intlayer extract` चलाएं और Intlayer आपकी फ़ाइलों को पढ़ता है, उपयोगकर्ता के अनुकूल स्ट्रिंग्स निकालता है, और प्रत्येक के बगल में एक `.content` फ़ाइल लिखता है, जिससे आप कैटलॉग में मैन्युअल रूप से कॉपी करने के बजाय एक diff की समीक्षा करते हैं।
@@ -1115,7 +1089,6 @@ Intlayer के साथ अपने विकास अनुभव को �
 कंपाइलर को चालू करने से पहले दो सीमाएं जानने योग्य हैं। यह स्थिर विश्लेषण द्वारा काम करता है, इसलिए जो स्ट्रिंग्स केवल रनटाइम पर मौजूद होती हैं, जैसे कि API त्रुटि कोड या CMS फ़ील्ड, वे पहुंच से बाहर रहती हैं। और इसे `className="active"` या स्थिति कोड जैसे एप्लिकेशन लॉजिक से उपयोगकर्ता के सामने आने वाले टेक्स्ट को अलग करना होगा, जिसके लिए एक बड़े कोडबेस में कुछ एनोटेशन की आवश्यकता होती है। [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/cli/extract.md) आपको लूप में रखकर दोनों से बचाता है।
 
 </Question>
-
 <Question title="कौन से editor और AI agent tooling उपलब्ध हैं?">
 
 पाँच उपकरण, सभी वैकल्पिक:
@@ -1127,61 +1100,51 @@ Intlayer के साथ अपने विकास अनुभव को �
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/eslint.md)**: `no-raw-text` नियम हार्डकोडेड स्ट्रिंग्स को चिह्नित करता है।
 
 </Question>
-
 <Question title="क्या Intlayer Solid Start में सर्वर-साइड रेंडरिंग (SSR) के साथ काम करता है?">
 
 हाँ। SSR के दौरान सामग्री का समाधान किया जाता है, और चरण 16 प्रति लोकेल स्थिर HTML उत्पन्न करने के लिए प्रीरेंडर कॉन्फ़िगरेशन को कवर करता है।
 
 </Question>
-
 <Question title="क्या भाषा बदलने से पूरा ऐप फिर से रेंडर होता है?">
 
 नहीं। सामग्री Solid सिग्नलों द्वारा संचालित होती है, इसलिए भाषा बदलने पर घटक ट्री को फिर से बनाए बिना केवल बदले हुए टेक्स्ट DOM नोड्स अपडेट होते हैं।
 
 </Question>
-
 <Question title="कैनोनिकल लिंक और hreflang टैग कैसे जोड़ें?">
 
 `generateSitemap` या `getMultilingualUrls` का उपयोग करके साइटमैप में, जो सर्च इंजनों के लिए `xhtml:link` विकल्प बनाते हैं।
 
 </Question>
-
 <Question title="स्थानीयकृत मार्गों पर 404 पृष्ठों को कैसे संभालें?">
 
 चरण 14 इसे समझाता है। `validatePrefix` जाँचता है कि क्या URL में भाषा खंड मान्य है, अज्ञात मार्गों के लिए 404 स्थिति लौटाता है।
 
 </Question>
-
 <Question title="क्या मुझे URL में लोकेल शामिल करना अनिवार्य है?">
 
 नहीं। `routing.mode` सेटिंग `"prefix-no-default"` (डिफ़ॉल्ट), `"prefix-all"`, `"no-prefix"`, और `"search-params"` स्वीकार करती है।
 
 </Question>
-
 <Question title="सर्वर फ़ंक्शन में लोकेल कैसे प्राप्त करें?">
 
 Solid Start सर्वर फ़ंक्शंस में, `getIntlayer` फ़ंक्शन अनुरोध संदर्भ से स्वचालित रूप से लोकेल का समाधान करता है।
 
 </Question>
-
 <Question title="मैं ऐप को AI के साथ स्वचालित रूप से कैसे अनुवाद करूँ?">
 
 `npx intlayer fill` चलाएं। यह कमांड आपके चुने हुए LLM का उपयोग करके आपके अपने प्रदाता और API कुंजी के साथ लापता अनुवादों को भरता है, और `--git-diff` बदली गई फ़ाइलों तक संचालन को सीमित करता है। [fill command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/cli/fill.md) और [CI/CD integration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/CI_CD.md) देखें।
 
 </Question>
-
 <Question title="क्या Intlayer बहुवचन, लिंग और समृद्ध पाठ (rich text) का समर्थन करता है?">
 
 हाँ: [बहुवचन (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/plurial.md), [लिंग-आधारित सामग्री](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/gender.md), शर्तें, [सम्मिलन (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dictionary/markdown.md), और संख्याओं, तिथियों और मुद्राओं के लिए [प्रारूपक (formatters)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/formatters.md)।
 
 </Question>
-
 <Question title="अनुवादक कोड को छुए बिना सामग्री को कैसे संपादित कर सकते हैं?">
 
 [विज़ुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_visual_editor.md) के माध्यम से, जो किसी को भी सीधे चलते हुए ऐप में टेक्स्ट संपादित करने देता है, या [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md) के माध्यम से, जो सामग्री को अलग करता है ताकि कोड को फिर से तैनात किए बिना उसे अपडेट किया जा सके।
 
 </Question>
-
 <Question title="क्या Intlayer मुफ्त और ओपन सोर्स है?">
 
 हाँ, Apache 2.0 लाइसेंस के तहत, व्यावसायिक उपयोग सहित। होस्टेड CMS एक वैकल्पिक सशुल्क सेवा है जिसे [स्वयं होस्ट (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/self_hosting.md) भी किया जा सकता है।

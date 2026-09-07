@@ -275,19 +275,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
 Так. Intlayer підтримує `routing.mode: "search-params"` і виявлення через cookies/заголовки, зберігаючи чинну структуру тек.
 
 </Question>
-
 <Question title="Чи потрібно вручну змінювати всі рядки тексту в проєкті?">
 
 Ні. За допомогою `npx intlayer extract` або компілятора Intlayer тексти вилучаються автоматично.
 
 </Question>
-
 <Question title="Чому бандл Intlayer менший, ніж у next-intl?">
 
 Завдяки модульній декларації для кожного компонента та оптимізації макросами під час збірки.
 
 </Question>
-
 <Question title="Чи можна скористатися ШІ для автоматичного перекладу компонентів?">
 
 Так, команда `npx intlayer fill` використовує LLM для перекладу з урахуванням контексту проєкту.

@@ -55,7 +55,6 @@ Ten przewodnik pokazuje, jak wykorzystać zaawansowany system deklaracji treści
 ## Przewodnik krok po kroku: konfiguracja Intlayer z next-i18next
 
 <Steps>
-
 <Step number={1} title="Instalacja zależności">
 
 Zainstaluj niezbędne pakiety, używając preferowanego menedżera pakietów:
@@ -102,7 +101,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Wtyczka do synchronizacji deklaracji treści Intlayer z formatem JSON i18next
 
 </Step>
-
 <Step number={2} title="Implementacja wtyczki Intlayer do opakowania JSON">
 
 Utwórz plik konfiguracyjny Intlayer, aby zdefiniować obsługiwane lokalizacje:

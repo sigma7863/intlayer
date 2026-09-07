@@ -96,37 +96,31 @@ Intlayer оптимізовано для роботи з **компонента�
 > Щодо Next.js 12, 13, 14 і 15 із маршрутизатором програм див. цей [посібник](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
 </Accordion>
-
 <Accordion header="Розмір бандлу">
 
 Замість того, щоб завантажувати великі файли JSON на свої сторінки, завантажуйте лише необхідний вміст. Intlayer допомагає **зменшити розмір бандлу і сторінок до 50%**.
 
 </Accordion>
-
 <Accordion header="Підтримуваність">
 
 Організація вмісту за окремими областями (scoping) **полегшує технічне обслуговування** великомасштабних програм. Ви можете скопіювати або видалити окрему папку функцій без розумового навантаження перегляду всієї кодової бази вмісту. Крім того, Intlayer **повністю типізований (fully typed)**, щоб забезпечити точність вашого вмісту.
 
 </Accordion>
-
 <Accordion header="Агент AI">
 
 Спільне розміщення вмісту **зменшує контекст, необхідний** для великих мовних моделей (LLM). Intlayer також постачається з набором інструментів, наприклад **CLI** для перевірки відсутніх перекладів,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** і **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/agent_skills.md)**, щоб зробити роботу розробника (DX) ще зручнішою для агентів ШІ.
 
 </Accordion>
-
 <Accordion header="Автоматизація">
 
 Використовуйте автоматизацію для перекладу в конвеєрі CI/CD за допомогою LLM за вашим вибором за рахунок вашого постачальника штучного інтелекту. Intlayer також пропонує **компілятор** для автоматизації екстракція вмісту, а також [веб-платформу](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), щоб допомогти **перекладати у фоновому режимі**.
 
 </Accordion>
-
 <Accordion header="Продуктивність">
 
 Підключення великих файлів JSON до компонентів може призвести до проблем з продуктивністю та реакцією. Intlayer оптимізує завантаження вмісту під час збірки (build time).
 
 </Accordion>
-
 <Accordion header="Співпраця з не-розробниками">
 
 Більше ніж просто рішення i18n, Intlayer пропонує **власний [візуальний редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** і **[повний CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, щоб допомогти вам керувати своїм багатомовним вмістом у **реальному часі**, спрощуючи співпрацю з перекладачами, копірайтерами та іншими членами команди. Контент можна зберігати локально та/або віддалено.
@@ -137,7 +131,6 @@ Intlayer оптимізовано для роботи з **компонента�
 ## Покроковий посібник із налаштування Intlayer у додатку Next.js
 
 <Steps>
-
 <Step number={1} title="Встановлення залежностей">
 
 Встановіть необхідні пакети за допомогою npm:
@@ -187,7 +180,6 @@ bun add intlayer next-intlayer
   Пакет, який інтегрує Intlayer з Next.js. Він надає провайдери контексту та хуки для інтернаціоналізації в Next.js. Крім того, він включає плагін Next.js для інтеграції Intlayer з [Webpack](https://webpack.js.org/) або [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack), а також проксі для визначення пріоритетної локалі користувача, керування файлами cookie та обробки перенаправлення URL.
 
 </Step>
-
 <Step number={2} title="Налаштуйте свій проєкт">
 
 Виберіть, чи повинна ваша програма використовувати локалізовані шляхи URL (наприклад, `/uk/about`, `/en/about`) або надавати вміст без сегмента локалі в шляху (наприклад, `/about`, визначаючи локаль через cookie, заголовки або параметри пошуку).
@@ -310,7 +302,6 @@ export default config;
 > Через цей файл конфігурації ви можете налаштувати локалізовані URL-адреси, перенаправлення через проксі, назви файлів cookie, розташування та розширення декларацій вашого контенту, вимкнути логи Intlayer у консолі та багато іншого. Повний список доступних параметрів можна знайти в [документації з конфігурації](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/configuration.md).
 
 </Step>
-
 <Step number={3} title="Інтегруйте Intlayer у конфігурацію Next.js">
 
 Налаштуйте Next.js для використання Intlayer:
@@ -353,7 +344,6 @@ export default withIntlayer(nextConfig);
 > ```
 
 </Step>
-
 <Step number={4} title="Визначте динамічні маршрути локалей">
 
 <Tabs group="routing-mode">
@@ -550,7 +540,6 @@ export default RootLayout;
 </Tabs>
 
 </Step>
-
 <Step number={5} title="Оголосіть свій контент">
 
 Створюйте декларації контенту та керуйте ними для зберігання перекладів:
@@ -598,7 +587,6 @@ export default pageContent;
 > Для отримання додаткової інформації зверніться до [документації з декларації контенту](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Використовуйте контент у своєму коді">
 
 Отримуйте доступ до ваших словників контенту по всьому додатку:
@@ -757,7 +745,6 @@ export const ServerComponentExample: FC = () => {
 > Якщо ваш застосунок уже існує, ви можете скористатися [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/compiler.md) у поєднанні з [командой extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/cli/extract.md), щоб перетворити тисячі компонентів за одну секунду.
 
 </Step>
-
 <Step number={7} title="Налаштуйте проксі для виявлення локалі" isOptional={true}>
 
 Налаштуйте проксі для виявлення бажаної локалі користувача:
@@ -785,7 +772,6 @@ export const proxy = multipleProxies([intlayerProxy, customProxy]);
 ```
 
 </Step>
-
 <Step number={8} title="Інтернаціоналізація ваших метаданих" isOptional={true}>
 
 У випадку, якщо ви хочете інтернаціоналізувати свої метадані, наприклад заголовок вашої сторінки, ви можете скористатися функцією `generateMetadata`, наданою Next.js. Всередині ви можете отримати контент за допомогою функції `getIntlayer`, щоб перекласти ваші метадані.
@@ -888,7 +874,6 @@ export const generateMetadata = async ({
 > Дізнайтеся більше про оптимізацію метаданих [в офіційній документації Next.js](https://nextjs.org/docs/app/building-your-application/optimizing/metadata).
 
 </Step>
-
 <Step number={9} title="Інтернаціоналізація ваших sitemap.xml та robots.txt" isOptional={true}>
 
 Щоб інтернаціоналізувати ваші `sitemap.xml` та `robots.txt`, ви можете скористатися функцією `getMultilingualUrls`, наданою Intlayer. Ця функція дозволяє генерувати багатомовні URL-адреси для вашої карти сайту.
@@ -953,7 +938,6 @@ export default robots;
 > Дізнайтеся більше про оптимізацію карти сайту [в офіційній документації Next.js](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap). Дізнайтеся більше про оптимізацію robots.txt [в офіційній документації Next.js](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots).
 
 </Step>
-
 <Step number={10} title="Зміна мови вашого контенту" isOptional={true}>
 
 Щоб змінити мову вашого контенту в Next.js, рекомендованим способом є використання компонента `Link` для перенаправлення користувачів на відповідну локалізовану сторінку. Компонент `Link` дозволяє попередньо завантажувати сторінку, що допомагає уникнути повного перезавантаження сторінки.
@@ -1044,7 +1028,6 @@ return (
 > - [атрибут `aria-current`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={11} title="Створення локалізованого компонента Link" isOptional={true}>
 
 Щоб навигація вашого додатка відповідала поточній локалі, ви можете створити кастомний компонент `Link`. Цей компонент автоматично додає префікс поточної мови до внутрішніх URL-адрес. Наприклад, коли франкомовний користувач натискає на посилання на сторінку "Про нас", він перенаправляється на `/fr/about` замість `/about`.
@@ -1114,7 +1097,6 @@ export const Link: FC<PropsWithChildren<NextLinkProps>> = ({
 Інтегруючи цей компонент `Link` у весь додаток, ви підтримуєте узгоджений та чутливий до мови інтерфейс користувача, а також отримуєте переваги від покращеного SEO та зручності використання.
 
 </Step>
-
 <Step number={12} title="Отримання поточної локалі в Server Actions" isOptional={true}>
 
 Якщо вам потрібна активна локаль всередині Server Action (наприклад, для локалізації електронних листів або запуску логіки, залежної від локалі), викличте `getLocale` з `next-intlayer/server`:
@@ -1141,7 +1123,6 @@ export const myServerAction = async () => {
 > Це гарантує вибір найбільш підходящої локалі на основі доступного контексту.
 
 </Step>
-
 <Step number={13} title="Оптимізація розміру вашого бандла" isOptional={true}>
 
 При використанні `next-intlayer` словники за замовчуванням включаються в бандл для кожної сторінки. Для оптимізації розміру бандла Intlayer надає додатковий плагін SWC, який інтелектуально замінює виклики `useIntlayer` за допомогою макросів. Це гарантує, що словники включаються в бандли тільки для тих сторінок, які їх дійсно використовують.
@@ -1171,7 +1152,6 @@ bun add @intlayer/swc --dev
 > Примітка: Якщо ви встановите опцію `importMode: 'dynamic'` або `importMode: 'fetch'` (у конфігурації `dictionary`), вона буде покладатися на Suspense, тому вам доведеться обгорнути ваші виклики `useIntlayer` в межу `Suspense`. Це означає, що ви не зможете використовувати `useIntlayer` безпосередньо на верхньому рівні вашого компонента Page / Layout.
 
 </Step>
-
 <Step number={14} title="Витягніть вміст ваших компонентів" isOptional={true}>
 
 Якщо у вас є існуюча кодова база, перетворення тисяч файлів може зайняти багато часу.
@@ -1234,8 +1214,6 @@ bun x intlayer extract
 
  </Tab>
  <Tab value='Компілятор Babel'>
-
-> Починаючи з v9, `intlayerCompiler` включено в плагін `intlayer`. Тому вам не потрібно додавати його вручну.
 
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
@@ -1373,25 +1351,21 @@ Next.js не має вбудованого рівня повідомлень, о
 Оголошення на рівні компонентів гарантує, що сторінка завантажує лише потрібні рядки замість усього каталогу. Див. [чому Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/interest_of_intlayer.md) та [бенчмарк](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/benchmark/index.md).
 
 </Question>
-
 <Question title="Скільки i18n додає до розміру бандла Next.js?">
 
 Значно менше, ніж рішення на основі просторів імен (namespaces), оскільки сторінка ніколи не завантажує каталог, який вона не рендерить. Серверні компоненти обробляють контент на сервері, а компілятор під час збирання замінює виклики `useIntlayer` точними записами словника. [Динамічні словники](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dynamic_dictionaries/index.md) розділяють залишок за локалями, зменшуючи розмір бандла до 50%. Див. [оптимізацію бандла](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/bundle_optimization.md) та [бенчмарк](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/benchmark/index.md).
 
 </Question>
-
 <Question title="Чи можу я мігрувати з next-intl, next-i18next або i18next без переписування моїх компонентів?">
 
 Так, є два шляхи. Ви можете переносити вміст поступово за допомогою [посібника з міграції з i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/migration_from_i18next_to_intlayer.md) або [next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/migration_from_next-intl_to_intlayer.md). Або зберегти поточний API: [адаптери сумісності](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/compat/index.md) надають абсолютно той самий API для `next-intl` та `i18next`, але працюють на словниках Intlayer.
 
 </Question>
-
 <Question title="Чи можу я зберігати мої існуючі JSON файли перекладів?">
 
 Так. [sync JSON плагін](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/plugins/sync-json.md) зберігає ваші файли `/messages/{locale}/{namespace}.json` як джерело істини та генерує словники Intlayer з них в обох напрямках. [sync PO плагін](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/plugins/sync-po.md) робить те ж саме для gettext каталогів, а [файли для окремих локалей](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/per_locale_file.md) дозволяють розділити контент за мовами замість групування всіх перекладів в один файл.
 
 </Question>
-
 <Question title="Чи потрібно переносити вміст ключ за ключем?">
 
 Ні. Запустіть `npx intlayer extract`, і Intlayer прочитає ваші компоненти, витягне призначені для користувача рядки і створить файл `.content` поруч із кожним, завдяки чому ви переглядаєте diff замість копіювання рядків у каталог вручну. Крок 14 цього посібника пояснює це.
@@ -1401,7 +1375,6 @@ Next.js не має вбудованого рівня повідомлень, о
 Варто знати два обмеження перед увімкненням компілятора. Він працює за допомогою статичного аналізу, тому рядки, які існують лише під час виконання, такі як коди помилок API або поля CMS, залишаються недосяжними. І він повинен відрізняти текст для користувача від логіки додатка, як-от `className="active"` або код статусу, що вимагає кількох анотацій у великій кодовій базі. [Команда extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/cli/extract.md) уникає обох проблем, тримаючи вас у курсі.
 
 </Question>
-
 <Question title="Які інструменти для редактора та AI агентів доступні?">
 
 П'ять інструментів, усі опціональні:
@@ -1413,19 +1386,16 @@ Next.js не має вбудованого рівня повідомлень, о
 - **[Плагін ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/eslint.md)**: правило `no-raw-text` відстежує жорстко закодовані рядки.
 
 </Question>
-
 <Question title="Які версії Next.js підтримує Intlayer?">
 
 Next.js 12, 13, 14, 15 та 16. Підтримуються як App Router, так і Pages Router.
 
 </Question>
-
 <Question title="Чи працює Intlayer із React Server Components?">
 
 Так. Контент у Server Components вирішується безпосередньо на сервері, тому для серверних компонентів клієнту не надсилається жоден словник. Клієнтські компоненти отримують словники через провайдер.
 
 </Question>
-
 <Question title="Чи обов'язково додавати локаль до URL, наприклад /uk/about?">
 
 Ні. Схема URL є параметром конфігурації, а не обмеженням. `routing.mode` приймає:
@@ -1438,37 +1408,31 @@ Next.js 12, 13, 14, 15 та 16. Підтримуються як App Router, та
 Ви також можете зіставити кожну локаль із власним доменом за допомогою `routing.domains`. Див. [довідку з налаштування](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/configuration.md) та [Крок 2](#step-2-configure-your-project) для параметрів режиму маршрутизації.
 
 </Question>
-
 <Question title="Як додати теги hreflang та локалізовані метадані для SEO?">
 
 Кроки `generateMetadata` та `sitemap.xml` описують це. Функція `getMultilingualUrls` створює відображення `alternates.languages` для кожної оголошеної локалі, включно з `x-default`, щоб пошукові системи правильно індексували сторінки.
 
 </Question>
-
 <Question title="Чи потрібен middleware?">
 
 Middleware визначає мову відвідувача та перенаправляє на відповідний префікс, тому він рекомендований, якщо ви не керуєте маршрутизацією самостійно. Маршрути API та статичні ресурси автоматично виключаються.
 
 </Question>
-
 <Question title="Як створити компонент локалізованого посилання (Link)?">
 
 Компонент огортає стандартний Next.js `Link` і передає значення href через `getLocalizedUrl`, завдяки чому посилання `/about` автоматично отримує префікс активної локалі, наприклад `/uk/about`.
 
 </Question>
-
 <Question title="Як автоматично перекласти додаток за допомогою AI?">
 
 Запустіть `npx intlayer fill`. Утиліта CLI знаходить відсутні переклади та заповнює їх за допомогою обраної LLM, використовуючи вашого власного провайдера та ключ API. Прапорець `--git-diff` обмежує операцію вмістом, зміненим у поточній гілці. Див. [команду fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/cli/fill.md) та [інтеграцію CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/CI_CD.md).
 
 </Question>
-
 <Question title="Чи підтримує Intlayer форми множини, стать та форматований текст (rich text)?">
 
 Так: [форми множини](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/plurial.md), [контент з урахуванням статі](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/gender.md), умови, [вставки (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/markdown.md) та [форматування](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/formatters.md) для чисел, дат і валют.
 
 </Question>
-
 <Question title="Чи є Intlayer безкоштовним та відкритим кодом?">
 
 Так, під ліцензією Apache 2.0, включно з комерційним використанням. Хмарна CMS - це додаткова платна послуга, яку також можна [розгорнути самостійно (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/self_hosting.md).

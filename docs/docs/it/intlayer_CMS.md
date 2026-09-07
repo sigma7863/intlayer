@@ -442,25 +442,21 @@ Se riscontri problemi con il CMS, verifica quanto segue:
 L'[editor visivo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/intlayer_visual_editor.md) modifica i dizionari locali e riscrive la modifica nel tuo codice, quindi l'app viene ricostruita e la modifica passa attraverso la tua normale revisione e deployment. Il CMS modifica i dizionari remoti: la modifica non tocca il tuo codice e il sito in esecuzione la recepisce senza un deployment. I team spesso usano entrambi, l'editor per i contenuti di proprietà degli sviluppatori e il CMS per i contenuti che il marketing cambia ogni settimana.
 
 </Question>
-
 <Question title="Quanto aggiunge l'i18n alla dimensione del mio bundle?">
 
 Molto meno di una configurazione basata su namespace, perché una pagina non scarica mai un catalogo che non renderizza. Il markup renderizzato lato server risolve i suoi contenuti sul server, e il compilatore in fase di build sostituisce le chiamate `useIntlayer` con le esatte voci del dizionario che un componente utilizza, quindi le chiavi e le lingue non utilizzate vengono eliminate. I [dizionari dinamici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dynamic_dictionaries/index.md) suddividono il resto per locale. Misurato rispetto alle alternative abituali, Intlayer riduce la dimensione del bundle e delle pagine fino al 50%. Vedi [ottimizzazione del bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/bundle_optimization.md) e il [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/benchmark/index.md).
 
 </Question>
-
 <Question title="Posso migrare da `i18next`, `next-intl` o `react-i18next` senza riscrivere i miei componenti?">
 
 Sì, e ci sono due percorsi. Puoi migrare il contenuto progressivamente con la [guida alla migrazione da i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/migration_from_i18next_to_intlayer.md) o la [guida alla migrazione da next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/migration_from_next-intl_to_intlayer.md). Oppure puoi mantenere interamente la tua API attuale: gli [adattatori di compatibilità](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/compat/index.md) espongono esattamente la stessa API di `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` e `Lingui`, ma servita dai dizionari Intlayer, quindi cambiano gli import e il codice dei componenti no.
 
 </Question>
-
 <Question title="Posso mantenere i miei file di traduzione JSON esistenti?">
 
 Sì. Il [plugin di sincronizzazione JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/plugins/sync-json.md) mantiene i tuoi file `/messages/{locale}/{namespace}.json` come fonte di verità e genera dizionari Intlayer da essi, in entrambe le direzioni. Un [plugin di sincronizzazione PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/plugins/sync-po.md) fa lo stesso per i cataloghi gettext, e i [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/per_locale_file.md) ti permettono di dividere il contenuto per lingua invece di raggruppare i locale in un unico file.
 
 </Question>
-
 <Question title="Devo spostare il mio contenuto chiave per chiave?">
 
 No. Esegui `npx intlayer extract` e Intlayer legge i tuoi file sorgente, estrae le stringhe visibili all'utente e scrive un file `.content` accanto a ciascuno, così puoi rivedere un diff invece di copiare le stringhe in un catalogo una alla volta. Vedi il [comando extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/cli/extract.md).
@@ -468,7 +464,6 @@ No. Esegui `npx intlayer extract` e Intlayer legge i tuoi file sorgente, estrae 
 Per una pipeline completamente automatizzata, il [Compilatore Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/compiler.md) fa lo stesso in fase di build sul codice sorgente JSX, TSX, Vue e Svelte, generando i dizionari ad ogni modifica così non ci sono chiavi da mantenere a mano. Funziona per analisi statica, quindi le stringhe che esistono solo a runtime restano fuori portata, e ha bisogno di alcune annotazioni per distinguere il testo visibile all'utente dalla logica applicativa.
 
 </Question>
-
 <Question title="Quali strumenti di editor e agenti AI sono disponibili?">
 
 Cinque componenti, tutti opzionali:
@@ -480,43 +475,36 @@ Cinque componenti, tutti opzionali:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/eslint.md)**: `no-raw-text` segnala le stringhe hardcoded, con ulteriori regole per le chiavi statiche dei dizionari e i contenuti non utilizzati.
 
 </Question>
-
 <Question title="Quale contenuto dovrebbe essere spostato nel CMS?">
 
 Contenuto che cambia spesso e non appartiene a una release: testi della landing page, formulazione dei prezzi, annunci, tutto ciò che un team di marketing possiede. Il contenuto che fa parte dell'interfaccia, come le etichette dei pulsanti e gli errori dei form, è meglio lasciarlo come dizionari locali, dove viene rivisto insieme al codice che lo usa.
 
 </Question>
-
 <Question title="Cosa succede se il CMS non è raggiungibile?">
 
 L'applicazione ricade sulla dichiarazione locale del dizionario, quindi un guasto di rete o un'interruzione degrada al contenuto spedito con la tua build invece che a una pagina vuota. Ecco perché è importante mantenere una dichiarazione locale per ogni dizionario remoto.
 
 </Question>
-
 <Question title="Posso auto-ospitare il CMS?">
 
 Sì. Il CMS può girare sulla tua infrastruttura, che è la risposta abituale quando il contenuto non deve lasciare la tua rete. Vedi [auto-ospitare Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/self_hosting.md).
 
 </Question>
-
 <Question title="Gli editor di contenuti hanno bisogno di uno sviluppatore per pubblicare una modifica?">
 
 No. È questo il punto dei dizionari remoti: un editor cambia il testo nel CMS e il sito lo riflette, con la [sincronizzazione live](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/cli/live.md) che applica l'aggiornamento a runtime invece di aspettare una build.
 
 </Question>
-
 <Question title="Posso automatizzare il CMS invece di usare l'interfaccia?">
 
 Sì. L'SDK `@intlayer/api` espone gli stessi endpoint dell'interfaccia, così puoi recuperare progetti, leggere dizionari e inviare aggiornamenti da uno script o una pipeline. La sezione qui sopra mostra l'autenticatore e gli endpoint.
 
 </Question>
-
 <Question title="Il CMS supporta l'A/B testing delle traduzioni?">
 
 Sì. I dizionari remoti supportano le [varianti di contenuto](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dynamic_dictionaries/variants.md), e gli [analytics](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/analytics.md) riportano come ogni variante viene esposta, così una modifica di formulazione può essere misurata invece che discussa.
 
 </Question>
-
 <Question title="Il CMS è gratuito?">
 
 La libreria Intlayer, la CLI, il compilatore e l'editor visivo sono gratuiti e open source sotto licenza Apache 2.0. Il CMS ospitato è un servizio a pagamento opzionale, e può essere [auto-ospitato](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/self_hosting.md) invece.

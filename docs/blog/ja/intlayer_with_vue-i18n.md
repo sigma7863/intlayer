@@ -56,7 +56,6 @@ Intlayer は優れた単独の i18n ソリューションを提供します（[V
 ## vue-i18nとIntlayerをセットアップするステップバイステップガイド
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 お好みのパッケージマネージャーを使用して必要なパッケージをインストールします:
@@ -103,7 +102,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Intlayerのコンテンツ宣言をvue-i18nのJSON形式に同期するプラグイン
 
 </Step>
-
 <Step number={2} title="JSONをラップするためのIntlayerプラグインの実装">
 
 サポートするロケールを定義するためにIntlayerの設定ファイルを作成します。

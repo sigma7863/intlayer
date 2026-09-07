@@ -339,19 +339,16 @@ Eksiksiz TypeScript tip güvenliği, dinamik sözlükler ve görsel editör dahi
 Evet. `npx intlayer extract` komutunu çalıştırarak sabit metinleri otomatik olarak yerelleştirilmiş içerik bildirim dosyalarına çıkarabilir veya standart JSX yazarken bileşenleri derleme anında dönüştüren Intlayer derleyicisini kullanabilirsiniz.
 
 </Question>
-
 <Question title="react-i18next veya react-intl ile karşılaştırıldığında Intlayer Vite paket boyutunu nasıl küçültür?">
 
 Intlayer, bileşen başına sözlük tanımları ve derleme zamanı makro optimizasyonu kullanır. Paketleriniz, devasa JSON dosyalarını yüklemek yerine yalnızca ekranda oluşturulan bileşenlerin gereksinim duyduğu alanları alır. Dinamik sözlükler de dillerin isteğe bağlı yüklenmesini sağlar.
 
 </Question>
-
 <Question title="Mevcut bileşenlerimi birden fazla dile çevirmek için yapay zeka kullanabilir miyim?">
 
 Evet. Intlayer CLI, yapılandırılmış tüm dillerde eksik çevirileri bağlamsal olarak tamamlamak üzere tercih ettiğiniz yapay zeka sağlayıcısına (OpenAI, Anthropic, Mistral, DeepSeek) bağlanan `npx intlayer fill` komutuna sahiptir.
 
 </Question>
-
 <Question title="Bileşenleri yeniden yazmadan react-i18next veya react-intl kütüphanesinden geçiş yapabilir miyim?">
 
 Evet. Intlayer hem `react-i18next` ve `react-intl` için uyumluluk adaptörleri hem de mevcut JSON çeviri dosyalarını senkronize eden eklentiler (`sync-json`) sunar.

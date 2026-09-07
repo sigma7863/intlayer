@@ -55,7 +55,6 @@ Intlayer가 훌륭한 독립형 i18n 솔루션을 제공하지만(자세한 내�
 ## next-i18next와 함께 Intlayer 설정 단계별 가이드
 
 <Steps>
-
 <Step number={1} title="의존성 설치">
 
 선호하는 패키지 관리자를 사용하여 필요한 패키지를 설치하세요:
@@ -102,7 +101,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Intlayer 콘텐츠 선언을 i18next JSON 형식과 동기화하는 플러그인
 
 </Step>
-
 <Step number={2} title="JSON을 래핑하기 위한 Intlayer 플러그인 구현">
 
 지원하는 로케일을 정의하기 위해 Intlayer 구성 파일을 만듭니다:
@@ -140,7 +138,6 @@ CLI를 사용하여 JSON을 번역하거나 CMS를 사용하여 변경 사항이
 `syncJSON` 플러그인에 대한 자세한 내용은 [syncJSON 플러그인 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/plugins/sync-json.md)를 참조하세요.
 
 </Step>
-
 <Step number={3} title="컴포넌트별 JSON 번역 구현" isOptional={true}>
 
 기본적으로 Intlayer는 JSON 파일과 콘텐츠 선언 파일을 모두 로드, 병합 및 동기화합니다. 자세한 내용은 [콘텐츠 선언 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dictionary/content_file.md)를 참조하세요. 하지만 원한다면 Intlayer 플러그인을 사용하여 코드베이스 어디에서나 지역화된 JSON을 컴포넌트별로 관리할 수도 있습니다.

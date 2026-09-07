@@ -51,37 +51,31 @@ author: aymericzip
 تم تحسين Intlayer للعمل بشكل مثالي مع TanStack Start وSolid من خلال تقديم **توجيه متعدد اللغات**، و**sitemap**، وجميع الميزات اللازمة لتوسيع نطاق التدويل (i18n).
 
 </Accordion>
-
 <Accordion header="حجم الحزمة">
 
 بدلاً من تحميل ملفات JSON ضخمة إلى صفحاتك، قم بتحميل المحتوى الضروري فقط. يساعد Intlayer **في تقليل أحجام البندل وصفحاتك بنسبة تصل إلى 50%**.
 
 </Accordion>
-
 <Accordion header="قابلية الصيانة">
 
 يؤدي تحديد نطاق محتوى تطبيقك ** إلى تسهيل الصيانة ** للتطبيقات واسعة النطاق. يمكنك تكرار أو حذف مجلد ميزات واحد دون العبء العقلي لمراجعة قاعدة بيانات المحتوى بالكامل. بالإضافة إلى ذلك، تتم كتابة Intlayer **بالكامل** لضمان دقة المحتوى الخاص بك.
 
 </Accordion>
-
 <Accordion header="وكيل الذكاء الاصطناعي">
 
 يؤدي تحديد موقع المحتوى المشترك ** إلى تقليل السياق المطلوب ** بواسطة نماذج اللغات الكبيرة (LLMs). يأتي Intlayer أيضًا مزودًا بمجموعة من الأدوات، مثل **CLI** لاختبار الترجمات المفقودة،**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**، **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** و**[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/agent_skills.md)**، لجعل تجربة المطور (DX) أكثر سلاسة للذكاء الاصطناعي وكلاء.
 
 </Accordion>
-
 <Accordion header="أتمتة">
 
 استخدم الأتمتة للترجمة في مسار CI/CD الخاص بك باستخدام LLM من اختيارك على حساب مزود الذكاء الاصطناعي الخاص بك. يقدم Intlayer أيضًا **مترجمًا** لأتمتة استخراج المحتوى، بالإضافة إلى [منصة ويب](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) للمساعدة في **الترجمة في الخلفية**.
 
 </Accordion>
-
 <Accordion header="أداء">
 
 يمكن أن يؤدي ربط ملفات JSON الضخمة بالمكونات إلى حدوث مشكلات في الأداء والتفاعل. يعمل Intlayer على تحسين تحميل المحتوى الخاص بك في وقت الإنشاء.
 
 </Accordion>
-
 <Accordion header="التحجيم مع عدم وجود مطور">
 
 أكثر من مجرد حل i18n، يوفر Intlayer **[محررًا مرئيًا] مستضافًا ذاتيًا](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** و**[كامل CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** لمساعدتك في إدارة المحتوى متعدد اللغات في **الوقت الفعلي**، مما يجعل التعاون مع المترجمين ومؤلفي النصوص وأعضاء الفريق الآخرين سلسًا. يمكن تخزين المحتوى محليًا و/أو عن بعد.
@@ -124,13 +118,11 @@ author: aymericzip
 شاهد [قالب التطبيق](https://github.com/aymericzip/intlayer-tanstack-start-solid-template) على GitHub.
 
 <Steps>
-
 <Step number={1} title="إنشاء المشروع">
 
 ابدأ بإنشاء مشروع TanStack Start جديد باتباع دليل [بدء مشروع جديد](https://tanstack.com/start/latest/docs/framework/solid/quick-start) على موقع TanStack Start.
 
 </Step>
-
 <Step number={2} title="تثبيت حزم Intlayer">
 
 قم بتثبيت الحزم اللازمة باستخدام مدير الحزم المفضل لديك:
@@ -186,7 +178,6 @@ bun add vite-intlayer --dev
   تتضمن إضافة Vite لدمج Intlayer مع [أداة بناء Vite](https://vite.dev/guide/why.html#why-bundle-for-production)، كذالك البرمجيات الوسيطة (middleware) لاكتشاف اللغة المفضلة للمستخدم، وإدارة ملفات تعريف الارتباط (cookies)، والتعامل مع إعادة توجيه الروابط.
 
 </Step>
-
 <Step number={3} title="إعداد مشروعك">
 
 قم بإنشاء ملف إعدادات لتكوين اللغات في تطبيقك:
@@ -209,7 +200,6 @@ export default config;
 > من خلال ملف الإعدادات هذا، يمكنك تكوين الروابط المترجمة، إعادة توجيه البرمجيات الوسيطة، أسماء ملفات تعريف الارتباط، وموقع وامتداد إعلانات المحتوى الخاصة بك، وتعطيل سجلات Intlayer في وحدة التحكم، والمزيد. للحصول على قائمة كاملة بالمعلمات المتاحة، راجع [توثيق الإعدادات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md).
 
 </Step>
-
 <Step number={4} title="دمج Intlayer في إعدادات Vite الخاصة بك">
 
 أضف إضافة intlayer إلى إعداداتك:
@@ -243,7 +233,6 @@ export default defineConfig({
 > تُستخدم إضافة `intlayer()` لـ Vite لدمج Intlayer مع Vite. تضمن بناء ملفات إعلان المحتوى ومراقبتها في وضع التطوير. وتعرّف متغيرات بيئة Intlayer داخل تطبيق Vite. بالإضافة إلى ذلك، توفر أسماء بديلة (aliases) لتحسين الأداء.
 
 </Step>
-
 <Step number={5} title="إنشاء التخطيط الجذري">
 
 قم بتكوين التخطيط الجذري الخاص بك لدعم التدويل باستخدام `useParams` لاكتشاف اللغة الحالية وتعيين سمات `lang` و `dir` على وسم `html`.
@@ -288,7 +277,6 @@ const RootComponent: ParentComponent = (props) => {
 ```
 
 </Step>
-
 <Step number={6} title="إنشاء تخطيط اللغة">
 
 أنشئ تخطيطًا يتعامل مع بادئة اللغة ويقوم بالتحقق من صحتها. سيضمن هذا التخطيط معالجة اللغات الصالحة فقط.
@@ -325,7 +313,6 @@ export const Route = createFileRoute("/{-$locale}")({
 > لوضع `'no-prefix'` أو `'search-params'`، يمكنك إزالة الجزء تمامًا.
 
 </Step>
-
 <Step number={7} title="إعلان المحتوى الخاص بك">
 
 قم بإنشاء وإدارة إعلانات المحتوى الخاصة بك لتخزين الترجمات:
@@ -373,7 +360,6 @@ export default appContent;
 > لمزيد من التفاصيل، راجع [توثيق إعلان المحتوى](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/content_file.md).
 
 </Step>
-
 <Step number={8} title="استخدام المكونات والخطافات المدركة للغة">
 
 قم بإنشاء مكون `LocalizedLink` للتنقل المدرك للغة:
@@ -454,7 +440,6 @@ export const useLocalizedNavigate = () => {
 ```
 
 </Step>
-
 <Step number={9} title="استخدام Intlayer في صفحاتك">
 
 > استخدم **`useIntlayer`** افتراضيًا: فهي الطريقة الموصى بها لقراءة المحتوى داخل المكوّنات، ويقوم المُصرِّف بتحويلها إلى اللغة التي يجري عرضها. لا تلجأ إلى `getIntlayer` / `getIntlayerAsync` إلا خارج شجرة Solid: في `head` المسارات، والمُحمِّلات، ودوال الخادم.
@@ -499,7 +484,6 @@ function RouteComponent() {
 > لمعرفة المزيد حول خطاف `useIntlayer` ، راجع [التوثيق](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/solid-intlayer/useIntlayer.md).
 
 </Step>
-
 <Step number={10} title="إنشاء مكون لتبديل اللغة">
 
 أنشئ مكونًا للسماح للمستخدمين بتغيير اللغات:
@@ -545,7 +529,6 @@ export default LocaleSwitcher;
 > لمعرفة المزيد حول خطاف `useLocale` ، راجع [التوثيق](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/solid-intlayer/useLocale.md).
 
 </Step>
-
 <Step number={11} title="إدارة سمات HTML">
 
 كما رأيت في الخطوة 5، يمكنك إدارة سمات `lang` و `dir` لوسم `html` باستخدام `useParams` في المكون الجذري الخاص بك. يضمن ذلك تعيين السمات الصحيحة على كل من الخادم والعميل.
@@ -564,7 +547,6 @@ const RootComponent: ParentComponent = (props) => {
 ```
 
 </Step>
-
 <Step number={12} title="إضافة برمجية وسيطة">
 
 يمكنك أيضًا استخدام `intlayerProxy` لإضافة توجيه من جانب الخادم إلى تطبيقك. ستكتشف هذه الإضافة تلقائيًا اللغة الحالية بناءً على الرابط وتعيين ملف تعريف الارتباط المناسب للغة. إذا لم يتم تحديد لغة، فستحدد الإضافة اللغة الأكثر ملاءمة بناءً على تفضيلات لغة متصفح المستخدم. إذا لم يتم اكتشاف لغة، فسيتم إعادة التوجيه إلى اللغة الافتراضية.
@@ -600,7 +582,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={13} title="تدويل العناوين (metadata) الخاصة بك">
 
 <Tabs>
@@ -793,7 +774,6 @@ export const Route = createFileRoute("/{-$locale}/")({
 | تجربة المطوّر      | الأبسط            | `await` واحد               | المحتوى يُمرَّر عبر `loaderData`        |
 
 </Step>
-
 <Step number={14} title="الحصول على اللغة في إجراءات الخادم الخاص بك">
 
 قد ترغب في الوصول إلى اللغة الحالية من داخل إجراءات الخادم (server actions) أو نقاط نهاية API.
@@ -830,7 +810,6 @@ export const getLocaleServer = createServerFn().handler(async () => {
 ```
 
 </Step>
-
 <Step number={15} title="إدارة الصفحات غير الموجودة (404)" isOptional={true}>
 
 عندما يزور المستخدم صفحة غير موجودة ، يمكنك عرض صفحة 404 مخصصة ويمكن أن تؤثر بادئة اللغة على كيفية تشغيل الصفحة غير الموجودة.
@@ -906,7 +885,6 @@ export const Route = createFileRoute("/{-$locale}/$")({
 ```
 
 </Step>
-
 <Step number={16} title="استخراج المحتوى من مكوناتك" isOptional={true}>
 
 إذا كان لديك قاعدة أكواد حالية ، فقد يستغرق تحويل آلاف الملفات وقتًا طويلاً.
@@ -1021,7 +999,6 @@ bun run build # أو bun run dev
 </Tabs>
 
 </Step>
-
 <Step number={16} title="قبل العرض وإنشاء خريطة الموقع">
 
 يأتي Intlayer مع مولد خريطة الموقع المدمج لمساعدتك في إنشاء خريطة موقع لتطبيقك بسهولة. يتعامل مع المسارات المحلية ويضيف البيانات الوصفية الضرورية لمحركات البحث.
@@ -1094,7 +1071,6 @@ export const Route = createFileRoute("/sitemap.xml")({
 ```
 
 </Step>
-
 <Step number={17} title="إعداد TypeScript">
 
 يستخدم Intlayer تقوية الوحدات (module augmentation) للاستفادة من ميزات TypeScript وجعل قاعدة الأكواد الخاصة بك أكثر قوة.
@@ -1168,25 +1144,21 @@ export const Route = createFileRoute("/sitemap.xml")({
 انظر [لماذا Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="كم يضيف i18n إلى حجم حزمة TanStack Start لدي؟">
 
 أقل بكثير من الحلول القائمة على فضاءات الأسماء، لأن الصفحة لا تُحمل أبدًا كتالوجًا لا تعرضه. يستبدل مترجم وقت البناء استدعاءات `useIntlayer` بإدخالات القاموس الدقيقة التي يستخدمها المكون، وتفصل [القواميس الديناميكية](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dynamic_dictionaries/index.md) الباقي حسب اللغة، مما يقلل الحزمة بنسبة تصل إلى 50%. انظر [تحسين الحزم](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/bundle_optimization.md) و [المقارنة المعيارية](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/benchmark/index.md).
 
 </Question>
-
 <Question title="هل يمكنني الترحيل من @solid-primitives/i18n أو i18next دون إعادة كتابة المكونات؟">
 
 إلى حد كبير نعم. اتبع [دليل ترحيل i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/migration_from_i18next_to_intlayer.md).
 
 </Question>
-
 <Question title="هل يمكنني الاحتفاظ بملفات الترجمة JSON الموجودة لدي؟">
 
 نعم. تحافظ [مكونة مزامنة JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-json.md) على ملفات `/messages/{locale}/{namespace}.json` الخاصة بك كمصدر الحقيقة وتُنشئ قواميس Intlayer منها، في كلا الاتجاهين. وتقوم [مكونة مزامنة PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-po.md) بنفس الشيء لكتالوجات gettext، وتسمح لك [الملفات المقسمة حسب اللغة](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/per_locale_file.md) بتقسيم المحتوى حسب اللغة بدلاً من تجميع كل اللغات في ملف واحد.
 
 </Question>
-
 <Question title="هل يجب أن أنقل المحتوى الخاص بي مفتاحًا تلو الآخر؟">
 
 لا. قم بتشغيل `npx intlayer extract` وسيقرأ Intlayer ملفاتك، ويسحب السلاسل النصية الموجهة للمستخدم، ويكتب ملف `.content` بجانب كل منها، حتى تراجع diff بدلاً من نسخ السلاسل إلى كتالوج يدويًا.
@@ -1196,7 +1168,6 @@ export const Route = createFileRoute("/sitemap.xml")({
 من المفيد معرفة قيدين قبل تشغيل المترجم. إنه يعمل عن طريق التحليل الثابت، وبالتالي فإن السلاسل النصية التي تظهر فقط أثناء التشغيل، مثل رموز أخطاء API أو حقول CMS، تظل بعيدة عن متناوله. ويجب عليه تمييز النص الموجه للمستخدم عن منطق التطبيق مثل `className="active"` أو رموز الحالة، الأمر الذي يتطلب بعض التدوينات في قواعد الأكواد الكبيرة. أمر [extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/extract.md) يتجنب كلاهما من خلال إبقائك في مسار التحكم.
 
 </Question>
-
 <Question title="ما هي أدوات المحررات والوكلاء الذكيين المتاحة؟">
 
 خمس أدوات، كلها اختيارية:
@@ -1208,61 +1179,51 @@ export const Route = createFileRoute("/sitemap.xml")({
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/eslint.md)**: قاعدة `no-raw-text` ترصد النصوص المكتوبة مباشرة بدون تدويل.
 
 </Question>
-
 <Question title="هل يوفر Intlayer دعمًا للعرض من جانب الخادم و SSG؟">
 
 نعم. يتم حل المحتوى أثناء SSR، وتغطي الخطوة 16 إنشاء مستندات ثابتة لكل لغة.
 
 </Question>
-
 <Question title="هل يؤدي تبديل اللغة إلى إعادة عرض التطبيق بالكامل؟">
 
 لا. تقوم إشارات Solid بتحديث عقد DOM النصية المتغيرة فقط دون إعادة عرض شجرة المكونات بالكامل.
 
 </Question>
-
 <Question title="كيف أضيف وسوم hreflang وخريطة موقع مترجمة؟">
 
 استخدم دالة `generateSitemap` في المسار `src/routes/sitemap[.]xml.ts`، والتي تنشئ مساحة اسم `xhtml:link` لكل لغة.
 
 </Question>
-
 <Question title="كيف أتعامل مع صفحات 404 على المسارات المترجمة؟">
 
 توضح الخطوة 14 ذلك. يتحقق `validatePrefix` من صحة اللغة في URL، مع إرجاع 404 للغات غير المعروفة.
 
 </Question>
-
 <Question title="هل يجب تضمين اللغة في عنوان URL؟">
 
 لا. تدعم معلمة `routing.mode` القيم `"prefix-no-default"` (الافتراضية)، و `"prefix-all"`، و `"no-prefix"`، و `"search-params"`.
 
 </Question>
-
 <Question title="كيف أنشئ مبدل لغة يحافظ على المسار الحالي؟">
 
 توضح الخطوة 9 المكون. يوفر `useLocale` اللغة النشطة ودالة التعيين للحفاظ على المسار أثناء التبديل.
 
 </Question>
-
 <Question title="كيف أترجم التطبيق تلقائياً باستخدام الذكاء الاصطناعي؟">
 
 قم بتشغيل `npx intlayer fill`. يملأ هذا الأمر الترجمات المفقودة باستخدام نموذج اللغة الذي تختاره مع مزودك ومفتاح API الخاص بك، ويحد `--git-diff` العملية على الملفات المعدلة. انظر [أمر fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/fill.md) و [تكامل CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/CI_CD.md).
 
 </Question>
-
 <Question title="هل يدعم Intlayer صيغ الجمع والجنس والنصوص المنسقة؟">
 
 نعم: [صيغ الجمع (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/plurial.md)، [المحتوى القائم على النوع الاجتماعي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/gender.md)، الشروط، [الإدراجات (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/insertion.md)، [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/markdown.md)، والمنسقات للأرقام والتواريخ والعملات.
 
 </Question>
-
 <Question title="كيف يمكن للمترجمين تحرير المحتوى دون لمس الكود؟">
 
 من خلال [المحرر المرئي (visual editor)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_visual_editor.md)، الذي يسمح لأي شخص بتحرير النصوص مباشرة على التطبيق قيد التشغيل، أو عبر [نظام إدارة المحتوى (CMS)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_CMS.md)، الذي يفصل المحتوى ليتم تحديثه دون الحاجة لإعادة نشر الكود.
 
 </Question>
-
 <Question title="هل Intlayer مجاني ومفتوح المصدر؟">
 
 نعم، بموجب ترخيص Apache 2.0، بما في ذلك الاستخدام التجاري. الـ CMS السحابي المستضاف هو خدمة مدفوعة اختيارية يمكن أيضًا [استضافتها ذاتيًا (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/self_hosting.md).

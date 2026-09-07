@@ -339,19 +339,16 @@ Nếu bạn muốn cấu hình từng phần chi tiết, bao gồm hỗ trợ ki
 Có. Bạn có thể sử dụng lệnh `npx intlayer extract` để tự động phát hiện và trích xuất các chuỗi cố định thành các tệp khai báo nội dung đã được bản địa hóa, hoặc dùng trình biên dịch Intlayer để chuyển đổi component trong quá trình build trong khi bạn vẫn viết JSX thông thường.
 
 </Question>
-
 <Question title="Intlayer giảm dung lượng bundle Vite như thế nào so với react-i18next hoặc react-intl?">
 
 Intlayer sử dụng định nghĩa từ điển theo từng component và tối ưu hóa macro trong quá trình build. Bundle chỉ nhận các trường cần thiết cho những component đang được hiển thị trên trang thay vì nhập toàn bộ tệp JSON đồ sộ. Từ điển động cũng cho phép tải ngôn ngữ theo nhu cầu.
 
 </Question>
-
 <Question title="Tôi có thể dùng AI để dịch các component hiện có sang nhiều ngôn ngữ không?">
 
 Có. CLI Intlayer có sẵn lệnh `npx intlayer fill`, kết nối trực tiếp với nhà cung cấp AI bạn chọn (OpenAI, Anthropic, Mistral, DeepSeek) để tạo các bản dịch chuẩn ngữ cảnh cho toàn bộ ngôn ngữ đã cấu hình.
 
 </Question>
-
 <Question title="Tôi có thể di chuyển từ react-i18next hoặc react-intl mà không cần viết lại component không?">
 
 Có. Intlayer cung cấp các adapter tương thích cho `react-i18next` và `react-intl`, cùng với các plugin đồng bộ hóa tệp dịch JSON sẵn có (`sync-json`).

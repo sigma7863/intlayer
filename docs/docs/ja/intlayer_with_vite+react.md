@@ -47,37 +47,31 @@ author: aymericzip
 Intlayer は、**コンポーネント レベルのコンテンツ スコープ**、**遅延読み込み翻訳**、および国際化のスケーリング (i18n) に必要なすべての機能を提供することにより、Vite および React と完全に連携するように最適化されています。
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
-
 <Accordion header="自動化">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) も提供します。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
 
 </Accordion>
-
 <Accordion header="none-devでのスケーリング">
 
 Intlayer は単なる i18n ソリューションではなく、**自己ホスト型 [ビジュアル エディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** と **[完全な CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** を提供します。 **リアルタイム**で多言語コンテンツを管理できるようになり、翻訳者、コピーライター、その他のチーム メンバーとのコラボレーションがシームレスになります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -120,7 +114,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 GitHubの[Application Template](https://github.com/aymericzip/intlayer-vite-react-template)を参照してください。
 
 <Steps>
-
 <Step number={1} title="依存関係のインストール">
 
 npm を使用して必要なパッケージをインストールします:
@@ -175,7 +168,6 @@ bun add vite-intlayer --dev
   Intlayerを[Viteバンドラー](https://vite.dev/guide/why.html#why-bundle-for-production)と統合するためのViteプラグイン、およびユーザーの優先ロケール検出、Cookie管理、URL リダイレクト処理を行うミドルウェアが含まれています。
 
 </Step>
-
 <Step number={2} title="プロジェクトの設定">
 
 アプリケーションの言語を設定するための config ファイルを作成します:
@@ -201,7 +193,6 @@ export default config;
 > この設定ファイルを通じて、ローカライズされた URL、ミドルウェアリダイレクト、Cookie 名、コンテンツ宣言の場所と拡張子、Intlayer ログのコンソールへの出力の無効化など、さまざまな設定ができます。利用可能なパラメータの完全なリストについては、[設定ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Step>
-
 <Step number={3} title="Intlayer を Vite 設定に統合する">
 
 intlayer プラグインを設定に追加します。
@@ -220,7 +211,6 @@ export default defineConfig({
 > `intlayer()` Vite プラグインは、Intlayer と Vite を統合するために使用されます。コンテンツ宣言ファイルのビルドを保証し、開発モードでそれらを監視します。Vite アプリケーション内に Intlayer 環境変数を定義します。さらに、パフォーマンスを最適化するためのエイリアスを提供します。
 
 </Step>
-
 <Step number={4} title="コンテンツの宣言">
 
 コンテンツ宣言を作成・管理して翻訳を保存します:
@@ -359,7 +349,6 @@ export default appContent;
 > コンテンツファイルに TSX コードが含まれている場合は、コンテンツファイルに `import React from "react";` をインポートすることを検討してください。
 
 </Step>
-
 <Step number={5} title="コードで Intlayer を利用する">
 
 アプリケーション全体でコンテンツ辞書にアクセスします:
@@ -424,7 +413,6 @@ export default App;
 > 既存のアプリケーションがある場合、[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compiler.md)と[extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)を使用して、数千のコンポーネントを数秒で変換できます。
 
 </Step>
-
 <Step number={6} title="コンテンツの言語を変更する" isOptional={true}>
 
 コンテンツの言語を変更するには、`useLocale` フックから提供される `setLocale` 関数を使用できます。この関数を使用すると、アプリケーションのロケールを設定し、それに応じてコンテンツを更新できます。
@@ -446,7 +434,6 @@ const LocaleSwitcher: FC = () => {
 > `useLocale` フックについてさらに詳しく知るには、[ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/react-intlayer/useLocale.md)を参照してください。
 
 </Step>
-
 <Step number={7} title="アプリケーションにローカライズされたルーティングを追加する" isOptional={true}>
 
 このステップの目的は、言語ごとに一意のルートを作成することです。これはSEOとSEOフレンドリーなURLに役立ちます。
@@ -531,7 +518,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={8} title="ロケールが変更されたときにURLを変更する" isOptional={true}>
 
 ロケールが変更されたときにURLを変更するには、`useLocale`フックで提供される`onLocaleChange`プロップを使用できます。並行して、`react-router-dom`から`useLocation`および`useNavigate`フックを使用して、URLパスを更新できます。
@@ -615,7 +601,6 @@ const LocaleSwitcher: FC = () => {
 以下は、追加の説明と改良されたコード例を含む更新された **Step 9** です:
 
 </Step>
-
 <Step number={9} title="HTMLの言語属性と方向属性を切り替える" isOptional={true}>
 
 アプリケーションが複数の言語をサポートしている場合、現在のロケールに合わせて `<html>` タグの `lang` および `dir` 属性を更新することが重要です。そうすることで、以下が保証されます:
@@ -688,7 +673,6 @@ export default App;
 - 支援技術が最適に機能するためにこれらの属性に依存しているため、より**アクセシブル**な体験を提供します。
 
 </Step>
-
 <Step number={10} title="ローカライズされた Link コンポーネントの作成" isOptional={true}>
 
 アプリケーションのナビゲーションが現在のロケールを尊重するように、カスタムの `Link` コンポーネントを作成できます。このコンポーネントは、内部 URL の先頭に現在の言語を自動的に付加します。例えば、フランス語を話すユーザーが「About」ページへのリンクをクリックすると、`/about` ではなく `/fr/about` にリダイレクトされます。
@@ -764,7 +748,6 @@ Link.displayName = "Link";
 この `Link` コンポーネントをアプリケーション全体に統合することで、SEOとユーザビリティの向上というメリットを享受しながら、一貫性のある言語対応のユーザーエクスペリエンスを維持できます。
 
 </Step>
-
 <Step number={11} title="コンポーネントのコンテンツを抽出する" isOptional={true}>
 
 既存のコードベースがある場合、数千ものファイルを変換するのは時間がかかる場合があります。
@@ -1009,25 +992,21 @@ Vite は i18n について特定の見解を持たないため、選択肢は Re
 Vite 特有の点として、Intlayer はビルドにプラグインされるため、翻訳は実行時に JSON として取得されるのではなく、コンパイル時に解決され tree shaken されます。[Intlayer を選ぶ理由](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/interest_of_intlayer.md)と[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/index.md)を参照してください。
 
 </Question>
-
 <Question title="i18n は Vite バンドルサイズにどの程度追加されますか？">
 
 ネームスペースベースのセットアップよりもはるかに少なくなります。ページはレンダリングしないカタログをダウンロードしないためです。ビルド時コンパイラは `useIntlayer` 呼び出しをコンポーネントが使用する正確な辞書エントリに置き換えるため、未使用のキーと未使用の言語は削除され、[動的辞書](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md)は残りをロケールごとに分割します。通常の代替案と比較すると、Intlayer はバンドルとページサイズを最大 50% 削減します。[バンドル最適化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/bundle_optimization.md)と[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/index.md)を参照してください。
 
 </Question>
-
 <Question title="`react-i18next` または `react-intl` からコンポーネントを書き直さずに移行できますか？">
 
 はい、2 つのパスがあります。[react-i18next 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/migration_from_react-i18next_to_intlayer.md)または [i18next 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/migration_from_i18next_to_intlayer.md)を使用してコンテンツを段階的に移行できます。または、現在の API を完全に保持できます：[互換性アダプタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compat/index.md)は `react-i18next`、`react-intl`、`i18next` と同じ API を公開しますが、Intlayer 辞書によって提供されるため、インポートは変わりますがコンポーネントコードは変わりません。
 
 </Question>
-
 <Question title="既存の JSON 翻訳ファイルを保持できますか？">
 
 はい。[sync JSON プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は `/messages/{locale}/{namespace}.json` ファイルを信頼できるソースとして保持し、双方向で Intlayer 辞書を生成します。[sync PO プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-po.md)は gettext カタログに対して同じことを行い、[ロケールごとのファイル](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/per_locale_file.md)ではロケールを 1 つのファイルにグループ化する代わりに言語ごとにコンテンツを分割できます。
 
 </Question>
-
 <Question title="コンテンツをキーごとに移動する必要がありますか？">
 
 いいえ。`npx intlayer extract` を実行すると、Intlayer はコンポーネントを読み込み、ユーザー向けの文字列を抽出し、各コンポーネントの隣に `.content` ファイルを書き込むため、カタログに 1 つずつ文字列をコピーする代わりに diff をレビューできます。このガイドのステップ 11 でそれについて説明しています。
@@ -1037,7 +1016,6 @@ Vite 特有の点として、Intlayer はビルドにプラグインされるた
 コンパイラをオンにする前に知っておく価値のある 2 つの制限があります。静的分析によって機能するため、API エラーコードや CMS フィールドなど、実行時にのみ存在する文字列は到達不可能なままです。また、`className="active"` やステータスコードなどのアプリケーションロジックからユーザー向けテキストを区別する必要があり、大規模なコードベースではいくつかのアノテーションが必要です。[extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)はループに保つことで両方を回避します。
 
 </Question>
-
 <Question title="利用可能なエディタと AI エージェントツールは何ですか？">
 
 5 つのツール、すべてオプションです：
@@ -1049,43 +1027,36 @@ Vite 特有の点として、Intlayer はビルドにプラグインされるた
 - **[ESLint プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/eslint.md)**: `no-raw-text` はハードコードされた文字列にフラグを立て、静的辞書キーと未使用コンテンツのさらなるルールがあります。
 
 </Question>
-
 <Question title="Intlayer は Vite の dev サーバーと HMR で機能しますか？">
 
 はい。`intlayer()` Vite プラグインは `.content.ts` ファイルを監視し、保存時に辞書を再構築するため、dev サーバーを再起動せずに編集が表示されます。型定義は同時に再生成され、オートコンプリートを同期に保ちます。
 
 </Question>
-
 <Question title="Vite と React SPA でロケール対応ルーティングをセットアップするにはどうすればよいですか？">
 
 Intlayer はロケール解決を処理し、ルーティングをルーターに任せます。React Router の場合、専用の [React Router v7 ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_react_router_v7.md)に従ってください。ルーターなしのアプリの場合、`routing.mode` を `"no-prefix"` または `"search-params"` に設定できるため、ロケールはパスの代わりに cookie またはクエリパラメータに保存されます。[設定リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Question>
-
 <Question title="クライアントレンダリングされた Vite アプリで SEO メタデータを処理するにはどうすればよいですか？">
 
 アクティブなロケールから `html` 要素に `lang` と `dir` 属性を設定し、`getMultilingualUrls` で宣言されたすべてのロケールに対して `hreflang` 代替を発行します。確実にクロールされる必要があるページの場合、[TanStack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_tanstack.md)または [React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_react_router_v7.md)などの事前レンダリングまたはサーバーレンダリングセットアップを優先してください。
 
 </Question>
-
 <Question title="Vite アプリを AI で自動的に翻訳するにはどうすればよいですか？">
 
 `npx intlayer fill` を実行します。CLI は欠落している翻訳を検出し、選択した LLM を使用して独自のプロバイダーと API キーで埋めます。`--git-diff` は実行をブランチで変更されたコンテンツに制限します。[fill コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/fill.md)と [CI/CD 統合](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/CI_CD.md)を参照してください。
 
 </Question>
-
 <Question title="Intlayer は複数形、性別、リッチテキストをサポートしていますか？">
 
 はい：[複数形](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/plurial.md)、[性別ベースのコンテンツ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/gender.md)、条件、[挿入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/insertion.md)、長文用の [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/markdown.md)、および数値、日付、通貨用の[フォーマッタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/formatters.md)があります。
 
 </Question>
-
 <Question title="翻訳者がコードに触れずにコンテンツを編集するにはどうすればよいですか？">
 
 [ビジュアルエディタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)（自己ホスト型）を通じて、誰でも実行中のアプリ上でテキストをその場で編集できます。または、デプロイメントなしで変更する必要があるコンテンツの場合は [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md) を使用します。
 
 </Question>
-
 <Question title="Intlayer は無料でオープンソースですか？">
 
 はい、Apache 2.0 ライセンスの下で、商用利用を含みます。ホストされた CMS はオプションの有料サービスで、[自己ホスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md)することもできます。

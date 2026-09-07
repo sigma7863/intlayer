@@ -78,7 +78,6 @@ Intlayer کے ساتھ، آپ یہ کر سکتے ہیں:
 ## Vanilla JS ایپلی کیشن میں Intlayer ترتیب دینے کے لیے مرحلہ وار گائیڈ
 
 <Steps>
-
 <Step number={1} title="انحصار نصب کریں">
 
 npm کا استعمال کرتے ہوئے ضروری پیکیجز نصب کریں:
@@ -140,7 +139,6 @@ bun x intlayer build
 > `intlayer standalone` CLI کی بنڈلنگ ایکسپورٹ آپ کی ترتیب (configuration) کے لیے مخصوص غیر استعمال شدہ پیکیجز، لوکیلز، اور غیر ضروری لاجک (جیسے ری ڈائریکٹس یا سابقے) کو ٹری شیکنگ (tree-shaking) کے ذریعے خارج کر کے ایک بہترین بلڈ بناتی ہے۔
 
 </Step>
-
 <Step number={2} title="اپنے پروجیکٹ کی کنفیگریشن">
 
 اپنی ایپلی کیشن کی زبانوں کو ترتیب دینے کے لیے ایک کنفیگ فائل بنائیں:
@@ -166,7 +164,6 @@ export default config;
 > اس کنفیگریشن فائل کے ذریعے، آپ مقامی URLs، مڈل ویئر ری ڈائریکشن، کوکی کے نام، اپنے مواد کے اعلانات کی جگہ اور توسیع، کنسول میں Intlayer لاگز کو غیر فعال کرنا، اور بہت کچھ ترتیب دے سکتے ہیں۔ دستیاب پیرامیٹرز کی مکمل فہرست کے لیے، [کنفیگریشن دستاویزات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ur/configuration.md) دیکھیں۔
 
 </Step>
-
 <Step number={3} title="اپنے HTML میں بنڈل درآمد کریں">
 
 ایک بار جب آپ `intlayer.js` بنڈل تیار کر لیں، تو آپ اسے اپنی HTML فائل میں درآمد کر سکتے ہیں:
@@ -192,7 +189,6 @@ export default config;
 بنڈل `Intlayer` اور `VanillaIntlayer` کو `window` پر عالمی اشیاء کے طور پر ظاہر کرتا ہے۔
 
 </Step>
-
 <Step number={4} title="اپنے انٹری پوائنٹ میں Intlayer کو بوٹ اسٹریپ کریں">
 
 اپنے `src/main.js` میں، کسی بھی مواد کے رینڈر ہونے سے **پہلے** `installIntlayer()` کو کال کریں تاکہ عالمی لوکیل سنگلٹن تیار ہو جائے۔
@@ -214,7 +210,6 @@ installIntlayerMarkdown();
 ```
 
 </Step>
-
 <Step number={5} title="اپنے مواد کا اعلان کریں">
 
 تراجم کو اسٹور کرنے کے لیے اپنے مواد کے اعلانات بنائیں اور ان کا انتظام کریں:
@@ -294,7 +289,6 @@ export default appContent;
 > مزید تفصیلات کے لیے، [مواد کے اعلان کے دستاویزات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ur/dictionary/content_file.md) دیکھیں۔
 
 </Step>
-
 <Step number={6} title="اپنے JavaScript میں Intlayer استعمال کریں">
 
 `window.VanillaIntlayer` آبجیکٹ API مددگار فراہم کرتا ہے: `useIntlayer(key, locale?)` دی گئی کلید کے لیے ترجمہ شدہ مواد واپس کرتا ہے۔
@@ -330,7 +324,6 @@ document.querySelector(".read-the-docs").textContent = String(
 > ```
 
 </Step>
-
 <Step number={7} title="اپنے مواد کی زبان تبدیل کریں" isOptional={true}>
 
 اپنے مواد کی زبان تبدیل کرنے کے لیے، `useLocale` کے ذریعے ظاہر کردہ `setLocale` فنکشن استعمال کریں۔
@@ -367,7 +360,6 @@ export function setupLocaleSwitcher(container) {
 ```
 
 </Step>
-
 <Step number={8} title="HTML زبان اور سمت کے اوصاف کو تبدیل کریں" isOptional={true}>
 
 ایکسیسبیلٹی اور SEO کے لیے `<html>` ٹیگ کے `lang` اور `dir` اوصاف کو موجودہ لوکیل سے مطابقت رکھنے کے لیے اپ ڈیٹ کریں۔
@@ -387,7 +379,6 @@ useLocale({
 ```
 
 </Step>
-
 <Step number={9} title="فی لوکیل لغات کو سست لوڈ (Lazy-load) کریں" isOptional={true}>
 
 اگر آپ فی لوکیل لغات کو سست لوڈ کرنا چاہتے ہیں، تو آپ `useDictionaryDynamic` استعمال کر سکتے ہیں۔ یہ مفید ہے اگر آپ ابتدائی `intlayer.js` فائل میں تمام تراجم کو بنڈل نہیں کرنا چاہتے ہیں۔

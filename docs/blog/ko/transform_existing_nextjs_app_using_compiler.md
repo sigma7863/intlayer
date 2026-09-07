@@ -275,19 +275,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
 네. Intlayer는 `routing.mode: "search-params"`와 쿠키/헤더 감지를 지원하여 기존 폴더 구조를 완전히 유지할 수 있습니다.
 
 </Question>
-
 <Question title="기존 코드의 모든 문자열을 수동으로 바꿔야 하나요?">
 
 아닙니다. `npx intlayer extract` 또는 Intlayer 컴파일러를 통해 자동으로 추출 및 선언할 수 있습니다.
 
 </Question>
-
 <Question title="next-intl 대비 Intlayer는 어떻게 번들 크기를 줄이나요?">
 
 컴포넌트 단위 선언과 빌드 타임 매크로를 통해 실제 페이지에서 사용되는 번역 필드만 클라이언트에 번들링합니다.
 
 </Question>
-
 <Question title="AI를 사용해 컴포넌트를 여러 언어로 자동 번역할 수 있나요?">
 
 네. `npx intlayer fill` 명령을 통해 OpenAI, Claude 등 다양한 LLM으로 문맥을 고려한 고품질 번역을 자동 생성합니다.

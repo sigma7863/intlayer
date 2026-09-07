@@ -42,13 +42,11 @@ Intlayer охоплює це через свої backend інтеграції, �
 Middleware Intlayer розв'язує локаль із самого запиту, тому фрагмент, поданий на десятій хвилині, відповідає тією ж мовою, що й сторінка, подана на нульовій хвилині.
 
 </Accordion>
-
 <Accordion header="Локаль має подорожувати з запитом">
 
 Два переносники працюють з htmx. Cookie (`INTLAYER_LOCALE`) автоматично відправляється браузером при кожному запиті, включаючи запити htmx. Заголовок (`x-intlayer-locale`) може бути прикріплений до запитів htmx за допомогою атрибута `hx-headers`. Обидва читаються за замовчуванням.
 
 </Accordion>
-
 <Accordion header="Замінений HTML залишається HTML">
 
 Перекладене значення, інтерпольоване у фрагмент, є розміткою. Екранізуйте його точно так само, як ви робили б з будь-яким іншим динамічним значенням, тому переклад, що містить `<`, не може розірвати документ, у який він вставляється.
@@ -69,7 +67,6 @@ Middleware Intlayer розв'язує локаль із самого запит�
 Див. [Application Template](https://github.com/aymericzip/intlayer-htmx-template) на GitHub.
 
 <Steps>
-
 <Step number={1} title="Встановлення залежностей">
 
 Встановіть `intlayer` плюс інтеграцію для вашого сервера.
@@ -158,7 +155,6 @@ bun add intlayer elysia-intlayer
 htmx сам по собі - це один тег скрипту, який додається на кроці 4.
 
 </Step>
-
 <Step number={2} title="Конфігурація вашого проекту">
 
 Створіть `intlayer.config.ts` у кореневі вашого проекту:
@@ -179,7 +175,6 @@ export default config;
 > Для повного списку параметрів див. [документацію конфігурації](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/configuration.md).
 
 </Step>
-
 <Step number={3} title="Оголосити ваш вміст">
 
 Оголосіть кожен label, який сервер буде відображати, включаючи ті, що з'являються тільки всередині фрагмента:
@@ -226,7 +221,6 @@ export default appContent;
 > Оголошення контенту можуть знаходитися будь-де під `contentDir` (за замовчуванням `./src`) та відповідати `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}`. Див. [документацію оголошення контенту](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/content_file.md).
 
 </Step>
-
 <Step number={4} title="Зареєструвати middleware Intlayer">
 
 Middleware розпізнає локаль кожного запиту та надає її доступ до ваших обробників.
@@ -300,7 +294,6 @@ const app = new Elysia().use(intlayer());
 За замовчуванням locale беруть з cookies `INTLAYER_LOCALE`, потім із заголовка `x-intlayer-locale`, потім із переговорів `Accept-Language`.
 
 </Step>
-
 <Step number={5} title="Рендеризуйте фрагменти з locale запиту">
 
 Напишіть ваші рендери фрагментів як чисті функції locale та передайте locale, яке middleware розрахував. Передання його явно утримує фрагмент прив'язаним до запиту, який його запросив, незалежно від того, на якому сервері ви перебуваєте.
@@ -398,7 +391,6 @@ app.post("/cart/items", ({ body, intlayer }) => {
 Той же фрагмент тепер відповідає французькою мовою для відвідувача, чий cookie говорить `fr`, і арабською для того, чий cookie говорить `ar`, без змін у викликаному розмітці.
 
 </Step>
-
 <Step number={6} title="Служба першої сторінки">
 
 Рендеріть `<body>` окремо, щоб перемикач мови на кроці 7 міг замінити його цілком, потім обгорніть його в документ, який завантажує htmx:
@@ -433,7 +425,6 @@ ${renderBody(locale, itemCount)}
 `getHTMLTextDir` повертає `ltr`, `rtl` або `auto` для locale, що забезпечує правильне відображення арабської та іврит мов.
 
 </Step>
-
 <Step number={7} title="Змінити мову">
 
 Зміна мови - це запит як і будь-який інший. Сервер зберігає вибір у cookie, що його читає middleware, потім повертає сторінку, перевідрендерену на новій локалі.
@@ -573,7 +564,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 > `isDeclaredLocale` звужує довільний рядок до одного з ваших налаштованих локалей, тому неочікуване значення ніколи не потрапляє до ваших рендерерів.
 
 </Step>
-
 <Step number={8} title="Синхронізуйте lang і dir після заміни" isOptional={true}>
 
 Обмін може замінити `<body>`, але ніколи не замінює `<html>` навколо нього. Рендеріть `lang` та `dir` на обміненому body та скопіюйте їх назад на кореневий елемент один раз з head:
@@ -590,7 +580,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 Без цього перемикання на арабську мову рендеритиме справа наліво всередину body, а документ все ще повідомляє попередню мову допоміжним технологіям та краулерам.
 
 </Step>
-
 <Step number={9} title="Надіслати локаль як заголовок замість cookie" isOptional={true}>
 
 Якщо cookie вас не влаштовує, додайте локаль до кожного htmx запиту за допомогою `hx-headers` на елементі-предку. Нащадки успадковують її:
@@ -674,67 +663,56 @@ export default config;
 Тому що запит фрагмента не мав локалі. htmx запити незалежні від сторінки, яка їх видала, тому локаль повинна передаватися на кожному з них через cookie `INTLAYER_LOCALE` або заголовок `x-intlayer-locale`, встановлений за допомогою `hx-headers`. Переконайтеся, що парсер cookie запускається перед middleware Intlayer на Express та Fastify, інакше cookie ніколи не читається і кожен запит повертається до `Accept-Language`.
 
 </Question>
-
 <Question title="Чи повинен я передавати локаль до `getIntlayer` або покладатися на контекст запиту?">
 
 Передавайте його. Інтеграції надають розпізнану локаль (`res.locals.locale`, `req.intlayer.locale`, `c.get("locale")`, `intlayer!.locale`), а передача її до `getIntlayer` робить кожен renderer чистою функцією локалі. Це простіше тестувати, і це робить ваші fragment renderers портативними, якщо ви зміните server.
 
 </Question>
-
 <Question title="Чи мені потрібна клієнтська бібліотека i18n поряд з htmx?">
 
 Ні. Все, що бачить відвідувач, створюється сервером, тому в браузері нічого не потрібно перекладати. Саме тому вартість ваги сторінки для i18n в htmx додатку близька до нуля: жоден каталог ніколи не відправляється клієнту.
 
 </Question>
-
 <Question title="Як мені локалізувати URL також для SEO?">
 
 Подавайте свої сторінки з префіксом локалі (`/fr/cart`) і читайте локаль зі шляху у вашому обробнику маршруту, а не з cookie, для повного рендерингу сторінки. Фрагменти можуть продовжити використовувати cookie або заголовок. Див. [configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/configuration.md) для параметрів маршрутизації та [custom URL rewrites](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/custom_url_rewrites.md).
 
 </Question>
-
 <Question title="Як я обробляю мови, які читаються справа наліво?">
 
 `getHTMLTextDir(locale)` повертає `ltr`, `rtl` або `auto`. Установіть його на документ для першого рендерингу та переналаштуйте його після заміни, як показано на кроці 8. Використовуйте логічні властивості CSS (`margin-inline-start` замість `margin-left`), щоб ваш макет слідував за ними.
 
 </Question>
-
 <Question title="Чи потрібно мені екранувати перекладені значення?">
 
 Так, для будь-чого, що ви інтерполюєте в рядок шаблону, точно як і для будь-якого іншого динамічного значення. Вміст, який надходить від CMS або від перекладача, - це не розмітка, яку ви контролюєте. Крок 5 показує мінімальний екранувач.
 
 </Question>
-
 <Question title="Чи може той же вміст обслуговувати мої відповіді API?">
 
 Так. Backend інтеграції виставляють `t()` та `getIntlayer()` для будь-якого handler, тому повідомлення об помилці, показане в toast, і label, відрендерений у fragment, походять від того самого оголошеного content. Див. керівництва [Express](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_with_express.md), [Fastify](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_with_fastify.md), [Hono](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_with_hono.md) та [Elysia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_with_elysia.md).
 
 </Question>
-
 <Question title="Чи потрібно мені переміщувати мій content ключ за ключем?">
 
 Ні. Запустіть `npx intlayer extract` і Intlayer прочитає ваші вихідні файли, витягне рядки, орієнтовані на користувача, і напише файл `.content` поруч з кожним з них, тому ви переглядаєте diff замість копіювання рядків в каталог один за одним. Див. [команду extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/cli/extract.md).
 
 </Question>
-
 <Question title="Чи можу я зберігати мої існуючі JSON файли перекладів?">
 
 Так. [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/plugins/sync-json.md) зберігає ваші файли `/messages/{locale}/{namespace}.json` як джерело істини та генерує словники Intlayer з них, в обох напрямках. [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/plugins/sync-po.md) робить те ж саме для gettext каталогів, а [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/per_locale_file.md) дозволяють вам розділити вміст за мовою замість групування локалей в один файл.
 
 </Question>
-
 <Question title="Як я автоматично перекладаю додаток за допомогою штучного інтелекту?">
 
 Запустіть `npx intlayer fill`, який заповнює відсутні переклади за допомогою LLM на ваш вибір, використовуючи вашого власного провайдера та API ключ. Додайте `--git-diff`, щоб перекладати лише вміст, змінений у гілці. Див. [команду fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/cli/fill.md) та [інтеграцію CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/CI_CD.md).
 
 </Question>
-
 <Question title="Чи Intlayer підтримує гендер, умови та інтерпольовані значення?">
 
 Так: [контент на основі статі](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/gender.md), умови, [перелічення](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/enumeration.md), [вставки](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/insertion.md) для інтерпольованих значень та [форматори](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/formatters.md) для чисел, дат та валют.
 
 </Question>
-
 <Question title="Які редактори та інструменти AI агентів доступні?">
 
 П'ять компонентів, всі необов'язкові:
@@ -746,7 +724,6 @@ export default config;
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/eslint.md)**: `no-raw-text` позначає жорстко закодовані рядки.
 
 </Question>
-
 <Question title="Чи є Intlayer безкоштовним та відкритим джерелом?">
 
 Так, під ліцензією Apache 2.0, включаючи комерційне використання. Розміщена [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_CMS.md) - це опційна платна послуга, яка також може бути [самостійно розміщена](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/self_hosting.md).

@@ -46,37 +46,31 @@ author: aymericzip
 Intlayer, **çok dilli yönlendirme**, **yerel algılama için ara yazılım**, **site haritası** ve uluslararasılaştırmayı ölçeklendirmek için gereken tüm özellikleri (i18n) sunarak Nuxt ile mükemmel çalışacak şekilde optimize edilmiştir.
 
 </Accordion>
-
 <Accordion header="Bundle boyutu">
 
 Sayfalarınıza çok büyük JSON dosyaları yüklemek yerine yalnızca gerekli içeriği yükleyin. Intlayer **bundle ve sayfa boyutlarınızı %50'ye kadar azaltmanıza** yardımcı olur.
 
 </Accordion>
-
 <Accordion header="Sürdürülebilirlik">
 
 Uygulamanızın içeriğinin kapsamını belirlemek, büyük ölçekli uygulamalar için **bakımı kolaylaştırır**. İçerik kod tabanınızın tamamını gözden geçirmenin zihinsel yükü olmadan, tek bir özellik klasörünü çoğaltabilir veya silebilirsiniz. Ayrıca Intlayer, içeriğinizin doğruluğunu sağlamak için **tamamen tiplendirilmiş (fully typed)tır**.
 
 </Accordion>
-
 <Accordion header="Yapay Zeka Temsilcisi">
 
 İçeriğin bir arada konumlandırılması **Büyük Dil Modellerinin (LLM'ler) ihtiyaç duyduğu bağlamı azaltır**. Intlayer ayrıca eksik çevirileri test etmek için **CLI** gibi bir araç paketiyle birlikte gelir**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** ve **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/agent_skills.md)**, geliştirici deneyimini (DX) yapay zeka için daha da sorunsuz hale getirmek için ajanlar.
 
 </Accordion>
-
 <Accordion header="Otomasyon">
 
 Maliyeti AI sağlayıcınıza ait olmak üzere seçtiğiniz LLM'yi kullanarak CI/CD işlem hattınızda çeviri yapmak için otomasyonu kullanın. Intlayer ayrıca içerik çıkarmayı otomatikleştirmek için bir **derleyici** ve **arka planda çeviri yapmaya** yardımcı olacak bir [web platformu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) sunar.
 
 </Accordion>
-
 <Accordion header="Performans">
 
 Büyük JSON dosyalarını bileşenlere bağlamak performans ve tepkime sorunlarına yol açabilir. Intlayer, içerik yüklemenizi derleme sırasında optimize eder.
 
 </Accordion>
-
 <Accordion header="Non-dev ile ölçeklendirme">
 
 Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barındırılan bir [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** ve **[tam CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** çok dilli içeriğinizi **gerçek zamanlı** olarak yönetmenize yardımcı olarak çevirmenler, metin yazarları ve diğer ekip üyeleriyle işbirliğini kusursuz hale getirir. İçerik yerel olarak ve/veya uzaktan depolanabilir.
@@ -119,7 +113,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 GitHub'da [Uygulama Şablonunu](https://github.com/aymericzip/intlayer-nuxt-4-template) inceleyin.
 
 <Steps>
-
 <Step number={1} title="Bağımlılıkları Yükleyin">
 
 Gerekli paketleri npm kullanarak yükleyin:
@@ -175,7 +168,6 @@ bun add --dev nuxt-intlayer
   Nuxt uygulamalarıyla Intlayer'ı entegre eden Nuxt modülü. Otomatik kurulum, yerel algılama için middleware, çerez yönetimi ve URL yönlendirmesi sağlar.
 
 </Step>
-
 <Step number={2} title="Projenizin yapılandırması">
 
 Uygulamanızın dillerini yapılandırmak için bir konfigürasyon dosyası oluşturun:
@@ -201,7 +193,6 @@ export default config;
 > Bu yapılandırma dosyası aracılığıyla, yerelleştirilmiş URL'leri, middleware yönlendirmesini, çerez isimlerini, içerik bildirimlerinizin konumunu ve uzantısını ayarlayabilir, Intlayer loglarını konsolda devre dışı bırakabilir ve daha fazlasını yapabilirsiniz. Mevcut parametrelerin tam listesi için [yapılandırma dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) bakınız.
 
 </Step>
-
 <Step number={3} title="Intlayer'ı Nuxt Yapılandırmanıza Entegre Edin">
 
 Intlayer modülünü Nuxt yapılandırmanıza ekleyin:
@@ -218,7 +209,6 @@ export default defineNuxtConfig({
 > `nuxt-intlayer` modülü, Intlayer'ın Nuxt ile entegrasyonunu otomatik olarak yönetir. İçerik bildirimlerinin oluşturulmasını ayarlar, geliştirme modunda dosyaları izler, yerel tespit için middleware sağlar ve yerelleştirilmiş yönlendirmeyi yönetir.
 
 </Step>
-
 <Step number={4} title="İçeriğinizi Bildirin">
 
 Çevirileri depolamak için içerik bildirimlerinizi oluşturun ve yönetin:
@@ -255,7 +245,6 @@ export default content;
 > Daha fazla detay için [içerik bildirim dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/content_file.md) bakınız.
 
 </Step>
-
 <Step number={5} title="Intlayer'ı Kodunuzda Kullanın">
 
 Nuxt uygulamanızın her yerinde içerik sözlüklerinize `useIntlayer` composable'ı ile erişin:
@@ -326,7 +315,6 @@ Intlayer, içeriğinize erişmek için farklı API'ler sunar:
   - Ya da içeriği yapı bozma ile almak için `const { myContent } = useIntlayer("myContent");` kullanın ve `{{ myContent}}` / `<myContent/>` şeklinde render edin.
 
 </Step>
-
 <Step number={6} title="İçeriğinizin dilini değiştirin" isOptional={true}>
 
 İçeriğinizin dilini değiştirmek için `useLocale` composable tarafından sağlanan `setLocale` fonksiyonunu kullanabilirsiniz. Bu fonksiyon, uygulamanın yerel ayarını belirlemenize ve içeriği buna göre güncellemenize olanak tanır.
@@ -372,7 +360,6 @@ Sonra, `app.vue` dosyanızı layout kullanacak şekilde ayarlayın:
 ```
 
 </Step>
-
 <Step number={7} title="Uygulamanıza yerelleştirilmiş Yönlendirme ekleyin" isOptional={true}>
 
 Nuxt, `nuxt-intlayer` modülünü kullandığınızda yerelleştirilmiş yönlendirmeyi otomatik olarak yönetir. Bu, sayfalar dizin yapınıza dayanarak her dil için otomatik olarak rotalar oluşturur.
@@ -448,7 +435,6 @@ useHead({
 - Kullanıcıları uygun yerelleştirilmiş URL'ye yönlendirir
 
 </Step>
-
 <Step number={8} title="Yerelleştirilmiş Bir Link Bileşeni Oluşturma" isOptional={true}>
 
 Uygulamanızın navigasyonunun mevcut locale'a uygun olmasını sağlamak için özel bir `Links` bileşeni oluşturabilirsiniz. Bu bileşen, dahili URL'lerin önüne otomatik olarak mevcut dili ekler; bu, **SEO ve sayfa keşfedilebilirliği** için çok önemlidir.
@@ -518,7 +504,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 > - Tarayıcı geçmişi, dil önekli URL'lerle doğru şekilde çalışır
 
 </Step>
-
 <Step number={9} title="Meta Verileri ve SEO'yu Yönetme" isOptional={true}>
 
 Nuxt, `useHead` composable (otomatik olarak içe aktarılır) aracılığıyla mükemmel SEO yetenekleri sunar. Intlayer'ı, yerelleştirilmiş meta verileri yönetmek için `.raw` veya `.value` erişicisini kullanarak temel string değerini almak için kullanabilirsiniz:
@@ -619,7 +604,6 @@ export default aboutPageContent;
 ```
 
 </Step>
-
 <Step number="6b" title="Navigasyonlu Bir Layout Oluşturun" isOptional={true}>
 
 Nuxt layout'ları, sayfalarınız için ortak bir yapı tanımlamanıza olanak tanır. Dil değiştirici ve navigasyonu içeren varsayılan bir layout oluşturun:
@@ -695,25 +679,21 @@ Daha ileri gitmek için, [görsel editörü](https://github.com/aymericzip/intla
 Bkz. [neden Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="i18n Nuxt paket boyutuma ne kadar ekler?">
 
 Ad alanı tabanlı bir kuruluma kıyasla çok daha az, çünkü bir sayfa render etmediği bir sözlüğü asla indirmez. Derleme zamanı derleyicisi `useIntlayer` çağrılarını bileşenin kullandığı kesin kayıtlarla değiştirir ve [dinamik sözlükler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dynamic_dictionaries/index.md) geri kalanını diller arasında böler. Intlayer paket boyutunu %50'ye kadar azaltır. Bkz. [paket optimizasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/bundle_optimization.md) ve [kıyaslama](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/benchmark/index.md).
 
 </Question>
-
 <Question title="@nuxtjs/i18n veya vue-i18n'den bileşenlerimi yeniden yazmadan geçiş yapabilir miyim?">
 
 Evet. [@nuxtjs/i18n geçiş kılavuzunu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/migration_from_vue-i18n_to_intlayer.md) izleyin veya uyumluluk adaptörlerini kullanın.
 
 </Question>
-
 <Question title="Mevcut JSON çeviri dosyalarımı koruyabilir miyim?">
 
 Evet. [sync JSON eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-json.md), `/messages/{locale}/{namespace}.json` dosyalarınızı doğruluk kaynağı olarak tutar ve her iki yönde Intlayer sözlükleri üretir. [sync PO eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-po.md) gettext katalogları için aynısını yapar ve [yerel başına dosyalar](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/per_locale_file.md), yerelleri tek bir dosyada gruplamak yerine içeriği dile göre ayırmanıza olanak tanır.
 
 </Question>
-
 <Question title="İçeriğimi anahtar anahtar taşımak zorunda mıyım?">
 
 Hayır. `npx intlayer extract` komutunu çalıştırın; Intlayer kaynak dosyalarınızı okur, kullanıcıya dönük dizeleri çıkarır ve her birinin yanına bir `.content` dosyası yazar, böylece dizeleri tek tek kopyalamak yerine bir diff incelersiniz. Bkz. [extract komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/extract.md).
@@ -721,7 +701,6 @@ Hayır. `npx intlayer extract` komutunu çalıştırın; Intlayer kaynak dosyala
 Tam otomatik bir akış için [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/compiler.md) derleme sırasında aynı işlemi yapar ve sözlükleri her değişiklikte otomatik üretir.
 
 </Question>
-
 <Question title="Hangi editör ve AI aracı araçları mevcuttur?">
 
 Beş araç, hepsi isteğe bağlı:
@@ -733,49 +712,41 @@ Beş araç, hepsi isteğe bağlı:
 - **[ESLint eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/eslint.md)**: `no-raw-text` kuralı doğrudan kodlanmış metinleri işaretler.
 
 </Question>
-
 <Question title="Intlayer Nuxt sunucu tarafı render ve statik üretim ile çalışır mı?">
 
 Evet. İçerik SSR ve `nuxt generate` sırasında çözümlenir, böylece üretilen sayfalar hazır çevrilmiş HTML içerir.
 
 </Question>
-
 <Question title="URL'ye yerel koymak zorunda mıyım?">
 
 Hayır. `routing.mode` ayarı `"prefix-no-default"`, `"prefix-all"`, `"no-prefix"` ve `"search-params"` değerlerini kabul eder.
 
 </Question>
-
 <Question title="Nuxt'ta SEO meta verilerini ve hreflang etiketlerini nasıl yönetirim?">
 
 Adım 9 bunu kapsar. `useHead` meta verileri sözlüklerden gelir ve `getMultilingualUrls` arama motorları için `hreflang` etiketlerini üretir.
 
 </Question>
-
 <Question title="Mevcut sayfayı koruyan bir dil değiştirici nasıl oluşturulur?">
 
 Aktif ve mevcut diller için `useLocale` ve adım 8'deki yerelleştirilmiş link bileşenini kullanarak.
 
 </Question>
-
 <Question title="Nuxt uygulamasını AI ile otomatik olarak nasıl çevirebilirim?">
 
 `npx intlayer fill` komutunu çalıştırın. Eksik çevirileri seçtiğiniz LLM ile tamamlar ve `--git-diff` işlemi daldaki değişikliklerle sınırlar. Bkz. [fill komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/fill.md).
 
 </Question>
-
 <Question title="Intlayer Vue şablonlarında çoğulları, cinsiyeti ve zengin metni destekliyor mu?">
 
 Evet: [çoğul biçimleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/plurial.md), [cinsiyete dayalı içerik](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/gender.md), koşullar, [eklemeler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/insertion.md) ve [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/markdown.md).
 
 </Question>
-
 <Question title="Çevirmenler koda dokunmadan içeriği nasıl düzenleyebilir?">
 
 Kendi altyapınızda çalışan ve herkesin metinleri çalışan uygulamada yerinde düzenlemesine olanak tanıyan [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) veya içeriği kod dağıtımı olmadan güncellenebilecek şekilde dışsallaştıran [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) aracılığıyla.
 
 </Question>
-
 <Question title="Intlayer ücretsiz ve açık kaynaklı mı?">
 
 Evet, ticari kullanım dahil Apache 2.0 lisansı altındadır. Barındırılan CMS isteğe bağlı ücretli bir hizmettir ve ayrıca [kendi sunucunuzda barındırılabilir (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/self_hosting.md).

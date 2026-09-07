@@ -34,7 +34,6 @@ author: aymericzip
 与其将大量 JSON 文件加载到你的页面中，不如只加载必要的内容。Intlayer 帮助你**将 bundle 和页面大小减少多达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 对应用内容进行作用域划分**便于大规模应用的维护**。你可以复制或删除单个功能文件夹，而无需费力审查整个内容 codebase。此外，Intlayer **完全类型化**，确保你的内容准确性。
@@ -42,25 +41,21 @@ author: aymericzip
 Intlayer 也是 i18n 生态中**最活跃开发**的方案——问题修复速度快，新的 framework 适配器定期发布，core API 根据真实生产反馈不断改进。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 内容的共置**降低了大语言模型 (LLM) 所需的上下文**。Intlayer 还配备了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，让 AI agent 的开发者体验 (DX) 更加顺畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 在 CI/CD pipeline 中使用自动化翻译，使用你选择的 LLM，成本由你的 AI 提供商承担。Intlayer 还提供**编译器**来自动化内容提取，以及一个 [web 平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)来帮助**后台翻译**。
 
 </Accordion>
-
 <Accordion header="性能">
 
 将大量 JSON 文件连接到组件可能导致性能和响应性问题。Intlayer 在构建时优化你的内容加载。
 
 </Accordion>
-
 <Accordion header="与非开发人员协作扩展">
 
 Intlayer 不仅是一个 i18n 方案，它还提供**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)**和**[完整的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)**，帮助你**实时**管理多语言内容，使与翻译人员、文案编写者和其他团队成员的协作无缝衔接。内容可以存储在本地和/或远程。
@@ -87,7 +82,6 @@ Intlayer 不仅是一个 i18n 方案，它还提供**自托管的[可视化编�
 以下步骤是在零代码更改的情况下让现有 `react-i18next` 应用在 Intlayer 上运行所需的最少步骤。
 
 <Steps>
-
 <Step number={1} title="安装依赖项">
 
 安装 Intlayer 核心包和兼容性适配器：
@@ -131,7 +125,6 @@ bun add intlayer react-intlayer @intlayer/react-i18next @intlayer/i18next @intla
 > 你可以保留 `react-i18next` 和 `i18next` 已安装——兼容性适配器将它们用作 TypeScript 类型的 `devDependencies` / 可选的 `peerDependencies`。你无需更改任何 `package.json` 同级依赖。
 
 </Step>
-
 <Step number={2} title="配置 Intlayer">
 
 `intlayer init` 命令会创建一个启动 `intlayer.config.ts`。更新它以匹配你现有的语言环境并将 `syncJSON` 插件指向你的消息文件：
@@ -166,7 +159,6 @@ export default config;
 > **`source`** 将语言环境映射到其 JSON 文件路径。**`location`** 告诉 Intlayer 监视程序要监视哪个文件夹以查找更改。`format: 'i18next'` 选项确保正确解析 `{{name}}` 等占位符。
 
 </Step>
-
 <Step number={3} title="将 Intlayer 插件添加到你的 Bundler">
 
 使用兼容性插件包装你现有的 bundler 配置。它组成核心 Intlayer 插件，连接内容监视，以及——至关重要的是——**注入模块别名**，以便你现有的 `import … from 'react-i18next'`（和 `'i18next'`）调用在构建时透明地重定向到 `@intlayer/react-i18next` / `@intlayer/i18next`。不需要更改源文件。
@@ -232,7 +224,6 @@ export default withIntlayer(nextConfig);
 以下步骤是可选的，可以逐步完成。它们解锁完整的 Intlayer 功能集：可视化编辑器、CMS、类型化内容文件、AI 驱动的翻译等。
 
 <Steps>
-
 <Step number={4} title="显式导入重命名（可选）" isOptional={true}>
 
 Intlayer 插件已在打包程序级别处理别名。如果你更希望在源文件中明确依赖关系，可以手动重命名导入：
@@ -257,7 +248,6 @@ Intlayer 插件已在打包程序级别处理别名。如果你更希望在源�
 | `import { useTranslation } from 'next-i18next'`                                | `import { useTranslation } from '@intlayer/next-i18next'`         |
 
 </Step>
-
 <Step number={5} title="启用 AI 驱动的翻译自动化" isOptional={true}>
 
 Intlayer 设置完成后，使用其 CLI 自动填充缺失的翻译：

@@ -51,37 +51,31 @@ So với các giải pháp chính như `react-native-localize` hay `i18next`, In
 Intlayer được tối ưu hóa để hoạt động hoàn hảo với Lynx và React bằng cách cung cấp **phạm vi nội dung cấp thành phần**, **hỗ trợ TypeScript** và tất cả các tính năng cần thiết để mở rộng quy mô quốc tế hóa (i18n).
 
 </Accordion>
-
 <Accordion header="Kích thước bundle">
 
 Thay vì tải các tệp JSON lớn vào trang của bạn, hãy chỉ tải nội dung cần thiết. Intlayer giúp **giảm tới 50% kích thước bundle và kích thước trang**.
 
 </Accordion>
-
 <Accordion header="Khả năng bảo trì">
 
 Xác định phạm vi nội dung ứng dụng của bạn **tạo điều kiện bảo trì** cho các ứng dụng quy mô lớn. Bạn có thể sao chép hoặc xóa một thư mục tính năng mà không phải lo lắng về việc xem lại toàn bộ cơ sở mã nội dung của mình. Ngoài ra, Intlayer **được nhập đầy đủ** để đảm bảo tính chính xác cho nội dung của bạn.
 
 </Accordion>
-
 <Accordion header="Đại lý AI">
 
 Nội dung cùng định vị **giảm ngữ cảnh cần thiết** của Mô hình ngôn ngữ lớn (LLM). Intlayer cũng đi kèm một bộ công cụ, chẳng hạn như **CLI** để kiểm tra các bản dịch bị thiếu,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** và **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/agent_skills.md)**, để giúp trải nghiệm của nhà phát triển (DX) trở nên mượt mà hơn nữa đối với các tác nhân AI.
 
 </Accordion>
-
 <Accordion header="Tự động hóa">
 
 Sử dụng tính năng tự động hóa để dịch trong quy trình CI/CD của bạn bằng cách sử dụng LLM mà bạn chọn với chi phí do nhà cung cấp AI của bạn chi trả. Intlayer cũng cung cấp **trình biên dịch** để tự động trích xuất nội dung cũng như [nền tảng web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) để giúp **dịch ở chế độ nền**.
 
 </Accordion>
-
 <Accordion header="Hiệu suất">
 
 Việc kết nối các tệp JSON lớn với các thành phần có thể dẫn đến các vấn đề về hiệu suất và khả năng phản hồi. Intlayer tối ưu hóa việc tải nội dung của bạn tại thời điểm build.
 
 </Accordion>
-
 <Accordion header="Mở rộng quy mô không có nhà phát triển">
 
 Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh sửa trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** và **[CMS đầy đủ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** để giúp bạn quản lý nội dung đa ngôn ngữ của mình trong **thời gian thực**, giúp việc cộng tác với người dịch, người viết quảng cáo và các thành viên khác trong nhóm trở nên liền mạch. Nội dung có thể được lưu trữ cục bộ và/hoặc từ xa.
@@ -90,7 +84,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="Cài đặt các phụ thuộc">
 
 Từ dự án Lynx của bạn, cài đặt các gói sau:
@@ -144,7 +137,6 @@ bun add intlayer react-intlayer lynx-intlayer
   Tích hợp Lynx cung cấp plugin để tích hợp Intlayer với trình đóng gói Lynx.
 
 </Step>
-
 <Step number={2} title="Tạo cấu hình Intlayer">
 
 Trong thư mục gốc dự án của bạn (hoặc bất kỳ nơi nào thuận tiện), tạo một tệp **cấu hình Intlayer**. Nó có thể trông như sau:
@@ -175,7 +167,6 @@ Trong cấu hình này, bạn có thể:
 - Xem thêm tại [tài liệu cấu hình Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md).
 
 </Step>
-
 <Step number={3} title="Thêm plugin Intlayer vào trình đóng gói Lynx">
 
 Để sử dụng Intlayer với Lynx, bạn cần thêm plugin vào file `lynx.config.ts` của bạn:
@@ -193,7 +184,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Thêm provider Intlayer">
 
 Để giữ đồng bộ ngôn ngữ người dùng trên toàn bộ ứng dụng của bạn, bạn cần bao bọc component gốc của bạn với component `IntlayerProvider` từ `react-intlayer`.
@@ -221,7 +211,6 @@ if (import.meta.webpackHot) {
 ```
 
 </Step>
-
 <Step number={5} title="Khai báo Nội dung của bạn">
 
 Tạo các file **khai báo nội dung** ở bất kỳ đâu trong dự án của bạn (thường là trong `src/`), sử dụng bất kỳ định dạng phần mở rộng nào mà Intlayer hỗ trợ:
@@ -328,7 +317,6 @@ export default appContent;
 > Để biết chi tiết về khai báo nội dung, xem [tài liệu nội dung của Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="Sử dụng Intlayer trong các Component của bạn">
 
 Sử dụng hook `useIntlayer` trong các component con để lấy nội dung đã được địa phương hóa.
@@ -387,7 +375,6 @@ export const App = () => {
 > Khi sử dụng `content.someKey` trong các props dạng chuỗi (ví dụ, `title` của một nút hoặc `children` của một component `Text`), **hãy gọi `content.someKey.value`** để lấy chuỗi thực tế.
 
 </Step>
-
 <Step number={7} title="Thay đổi Locale của Ứng dụng" isOptional={true}>
 
 Để chuyển đổi locale từ bên trong các component của bạn, bạn có thể sử dụng phương thức `setLocale` của hook `useLocale`:

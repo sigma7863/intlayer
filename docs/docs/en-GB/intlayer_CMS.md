@@ -437,25 +437,21 @@ If you encounter any issues with the CMS, check the following:
 The [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_visual_editor.md) edits local dictionaries and writes the change back into your code base, so the app is rebuilt and the change goes through your normal review and deployment. The CMS edits remote dictionaries: the change does not touch your code base and the running site picks it up without a deployment. Teams often use both, the editor for content owned by developers and the CMS for content that marketing changes weekly.
 
 </Question>
-
 <Question title="How much does i18n add to my bundle size?">
 
 Much less than a namespace based setup, because a page never downloads a catalogue it does not render. Server rendered markup resolves its content on the server, and the build time compiler replaces `useIntlayer` calls with the exact dictionary entries a component uses, so unused keys and unused languages are dropped. [Dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dynamic_dictionaries/index.md) split the rest per locale. Measured against the usual alternatives, Intlayer reduces bundle and page size by up to 50%. See [bundle optimization](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/bundle_optimization.md) and the [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/benchmark/index.md).
 
 </Question>
-
 <Question title="Can I migrate from `i18next`, `next-intl` or `react-i18next` without rewriting my components?">
 
 Yes, and there are two paths. You can migrate the content progressively with the [i18next migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/migration_from_i18next_to_intlayer.md) or the [next-intl migration guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/migration_from_next-intl_to_intlayer.md). Or you can keep your current API entirely: the [compat adapters](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/compat/index.md) expose the exact same API as `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` and `Lingui`, but served by Intlayer dictionaries, so imports change and component code does not.
 
 </Question>
-
 <Question title="Can I keep my existing JSON translation files?">
 
 Yes. The [sync JSON plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-json.md) keeps your `/messages/{locale}/{namespace}.json` files as the source of truth and generates Intlayer dictionaries from them, in both directions. A [sync PO plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/plugins/sync-po.md) does the same for gettext catalogues, and [per locale files](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/per_locale_file.md) let you split content by language instead of grouping locales in one file.
 
 </Question>
-
 <Question title="Do I have to move my content key by key?">
 
 No. Run `npx intlayer extract` and Intlayer reads your source files, pulls the user facing strings out and writes a `.content` file next to each one, so you review a diff instead of copying strings into a catalogue one at a time. See the [extract command](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/extract.md).
@@ -463,7 +459,6 @@ No. Run `npx intlayer extract` and Intlayer reads your source files, pulls the u
 For a fully automated pipeline, the [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/compiler.md) does the same at build time on JSX, TSX, Vue and Svelte source, generating the dictionaries on every change so there are no keys to maintain by hand. It works by static analysis, so strings that only exist at runtime stay out of reach, and it needs a few annotations to tell user facing text apart from application logic.
 
 </Question>
-
 <Question title="What editor and AI agent tooling is available?">
 
 Five pieces, all optional:
@@ -475,43 +470,36 @@ Five pieces, all optional:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/eslint.md)**: `no-raw-text` flags hardcoded strings, with further rules for static dictionary keys and unused content.
 
 </Question>
-
 <Question title="Which content should be moved to the CMS?">
 
 Content that changes often and does not belong to a release: landing page copy, pricing wording, announcements, anything a marketing team owns. Content that is part of the interface, such as button labels and form errors, is better left as local dictionaries, where it is reviewed with the code that uses it.
 
 </Question>
-
 <Question title="What happens if the CMS is unreachable?">
 
 The application falls back to the local declaration of the dictionary, so a network failure or an outage degrades to the content shipped with your build rather than to an empty page. This is why keeping a local declaration for every remote dictionary matters.
 
 </Question>
-
 <Question title="Can I self host the CMS?">
 
 Yes. The CMS can run on your own infrastructure, which is the usual answer when content must not leave your network. See [self hosting Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/self_hosting.md).
 
 </Question>
-
 <Question title="Do content editors need a developer to publish a change?">
 
 No. That is the point of remote dictionaries: an editor changes the text in the CMS and the site reflects it, with [live sync](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/cli/live.md) applying the update at runtime instead of waiting for a build.
 
 </Question>
-
 <Question title="Can I automate the CMS instead of using the interface?">
 
 Yes. The `@intlayer/api` SDK exposes the same endpoints as the interface, so you can fetch projects, read dictionaries and push updates from a script or a pipeline. The section above shows the authenticator and the endpoints.
 
 </Question>
-
 <Question title="Does the CMS support A/B testing translations?">
 
 Yes. Remote dictionaries support [content variants](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/dynamic_dictionaries/variants.md), and [analytics](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/analytics.md) reports how each variant is exposed, so a wording change can be measured rather than argued about.
 
 </Question>
-
 <Question title="Is the CMS free?">
 
 The Intlayer library, CLI, compiler and visual editor are free and open source under the Apache 2.0 licence. The hosted CMS is an optional paid service, and it can be [self hosted](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/self_hosting.md) instead.

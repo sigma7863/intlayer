@@ -267,25 +267,21 @@ Le package `@intlayer/backend` exporte des types backend et proposera éventuell
 Au moment du build. Le plugin du bundler, ou `npx intlayer build`, analyse vos fichiers `.content.ts`, les résout en dictionnaires dans le dossier `.intlayer`, et génère les types TypeScript correspondants. À l'exécution, vos composants ne font que lire le résultat, si bien qu'aucune analyse ni chargement de fichier ne se produit sur le chemin de la requête.
 
 </Question>
-
 <Question title="Quel poids l'i18n ajoute-t-elle à la taille de mon bundle ?">
 
 Bien moins qu'une configuration basée sur des espaces de noms, car une page ne télécharge jamais un catalogue qu'elle n'affiche pas. Le balisage rendu côté serveur résout son contenu sur le serveur, et le compilateur au moment du build remplace les appels `useIntlayer` par les entrées de dictionnaire exactes qu'un composant utilise, si bien que les clés inutilisées et les langues inutilisées sont éliminées. Les [dictionnaires dynamiques](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/dynamic_dictionaries/index.md) répartissent le reste par locale. Mesuré face aux alternatives habituelles, Intlayer réduit la taille du bundle et des pages jusqu'à 50 %. Voir l'[optimisation du bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/bundle_optimization.md) et le [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/benchmark/index.md).
 
 </Question>
-
 <Question title="Puis-je migrer depuis `i18next`, `next-intl` ou `react-i18next` sans réécrire mes composants ?">
 
 Oui, et il existe deux voies. Vous pouvez migrer le contenu progressivement avec le [guide de migration i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/migration_from_i18next_to_intlayer.md) ou le [guide de migration next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/migration_from_next-intl_to_intlayer.md). Ou vous pouvez conserver entièrement votre API actuelle : les [adaptateurs de compatibilité](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/compat/index.md) exposent exactement la même API que `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` et `Lingui`, mais servie par des dictionnaires Intlayer : seuls les imports changent, pas le code des composants.
 
 </Question>
-
 <Question title="Puis-je conserver mes fichiers de traduction JSON existants ?">
 
 Oui. Le [plugin de synchronisation JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-json.md) conserve vos fichiers `/messages/{locale}/{namespace}.json` comme source de vérité et génère les dictionnaires Intlayer à partir d'eux, dans les deux sens. Un [plugin de synchronisation PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/plugins/sync-po.md) fait de même pour les catalogues gettext, et les [fichiers par locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/per_locale_file.md) permettent de séparer le contenu par langue au lieu de regrouper les locales dans un seul fichier.
 
 </Question>
-
 <Question title="Dois-je déplacer mon contenu clé par clé ?">
 
 Non. Lancez `npx intlayer extract` et Intlayer lit vos fichiers source, en extrait les chaînes destinées aux utilisateurs et écrit un fichier `.content` à côté de chacun, de sorte que vous relisez un diff plutôt que de copier des chaînes dans un catalogue une par une. Voir la [commande extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/extract.md).
@@ -293,7 +289,6 @@ Non. Lancez `npx intlayer extract` et Intlayer lit vos fichiers source, en extra
 Pour un pipeline entièrement automatisé, le [compilateur Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/compiler.md) fait la même chose au moment du build sur du code source JSX, TSX, Vue et Svelte, en générant les dictionnaires à chaque changement, de sorte qu'il n'y a aucune clé à maintenir à la main. Il fonctionne par analyse statique : les chaînes qui n'existent qu'à l'exécution restent hors de portée, et il a besoin de quelques annotations pour distinguer le texte destiné aux utilisateurs de la logique applicative.
 
 </Question>
-
 <Question title="Quels outils d'éditeur et d'agent IA sont disponibles ?">
 
 Cinq éléments, tous optionnels :
@@ -305,43 +300,36 @@ Cinq éléments, tous optionnels :
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/eslint.md)** : `no-raw-text` signale les chaînes codées en dur, avec d'autres règles pour les clés de dictionnaire statiques et le contenu inutilisé.
 
 </Question>
-
 <Question title="Qu'est-ce que le dossier .intlayer et dois-je le versionner ?">
 
 C'est la sortie générée : les dictionnaires compilés et les types générés. Il est dérivé de vos fichiers de contenu, il doit donc figurer dans `.gitignore` et être reconstruit par votre étape de build, exactement comme un dossier `dist`.
 
 </Question>
-
 <Question title="Comment la locale active est-elle déterminée ?">
 
 À partir des sources listées dans `routing.storage`, dans l'ordre : le préfixe d'URL lorsque `routing.mode` en utilise un, puis un cookie, puis l'en-tête `Accept-Language`, puis votre locale par défaut. Une locale que l'utilisateur choisit explicitement est persistée, elle survit donc à la visite suivante. Voir la [référence de configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/configuration.md).
 
 </Question>
-
 <Question title="Quelle est la différence entre les dictionnaires locaux et distants ?">
 
 Un dictionnaire local est déclaré dans votre base de code et compilé avec votre application. Un dictionnaire distant est géré dans le [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md) et résolu à l'exécution, il peut donc changer sans déploiement. Les deux sont lus via les mêmes hooks, et le contenu distant se replie sur la déclaration locale lorsqu'il est indisponible.
 
 </Question>
-
 <Question title="Intlayer fonctionne-t-il sans TypeScript ?">
 
 Oui. Les fichiers de contenu peuvent être écrits en TypeScript, JavaScript, ESM, CommonJS ou JSON. C'est TypeScript qui débloque les types générés et l'autocomplétion, c'est donc la configuration recommandée, mais elle n'est pas obligatoire.
 
 </Question>
-
 <Question title="Comment le rendu serveur et le rendu client partagent-ils le même contenu ?">
 
 Le serveur résout directement le contenu des composants rendus côté serveur, si bien qu'aucun dictionnaire n'est envoyé au client pour ce balisage. Les composants client lisent les mêmes dictionnaires via le provider, qui reçoit la locale résolue sur le serveur, si bien que le premier rendu client correspond au HTML du serveur et n'affiche pas brièvement une autre langue.
 
 </Question>
-
 <Question title="Comment Intlayer évite-t-il une incohérence d'hydratation sur la locale ?">
 
 La locale est résolue une seule fois sur le serveur et transmise au provider, plutôt que d'être à nouveau détectée dans le navigateur. Comme le client part de la même locale que celle rendue par le serveur, le balisage correspond, ce qui est justement ce qui casse habituellement avec la détection de locale côté client.
 
 </Question>
-
 <Question title="Dois-je reconstruire lorsque j'ajoute une traduction ?">
 
 En développement, non : le plugin surveille vos fichiers de contenu et reconstruit les dictionnaires affectés à l'enregistrement. En production, les dictionnaires font partie du build, sauf si le contenu est distant, auquel cas le [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md) et la [synchronisation en direct](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/live.md) appliquent le changement sans déploiement.

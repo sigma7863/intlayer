@@ -44,43 +44,36 @@ author: aymericzip
 بدلاً من تحميل ملفات JSON ضخمة إلى صفحاتك، قم بتحميل المحتوى الضروري فقط. يساعد Intlayer **في تقليل أحجام البندل وصفحاتك بنسبة تصل إلى 50%**.
 
 </Accordion>
-
 <Accordion header="قابلية الصيانة">
 
 يؤدي تحديد نطاق محتوى تطبيقك ** إلى تسهيل الصيانة ** للتطبيقات واسعة النطاق. يمكنك تكرار أو حذف مجلد ميزات واحد دون العبء العقلي لمراجعة قاعدة بيانات المحتوى بالكامل. بالإضافة إلى ذلك، تتم كتابة Intlayer **بالكامل** لضمان دقة المحتوى الخاص بك.
 
 </Accordion>
-
 <Accordion header="وكيل الذكاء الاصطناعي">
 
 يؤدي تحديد موقع المحتوى المشترك ** إلى تقليل السياق المطلوب ** بواسطة نماذج اللغات الكبيرة (LLMs). يأتي Intlayer أيضًا مزودًا بمجموعة من الأدوات، مثل **CLI** لاختبار الترجمات المفقودة،**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**، **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** و**[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/agent_skills.md)**، لجعل تجربة المطور (DX) أكثر سلاسة للذكاء الاصطناعي وكلاء.
 
 </Accordion>
-
 <Accordion header="ميزة">
 
 يقدم Intlayer مجموعة من الميزات الإضافية التي لا تتوفر في حلول i18n الأخرى، مثل [دعم Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/markdown.md)، [جلب خارجي المحتوى](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/function_fetching.md)، [تحميل محتوى الملف](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/file.md)، [المحتوى المباشر تحديث](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/live.md)، [محرر مرئي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) والمزيد.
 
 </Accordion>
-
 <Accordion header="الأتمتة">
 
 استخدم الأتمتة للترجمة في مسار CI/CD الخاص بك باستخدام LLM من اختيارك على حساب مزود الذكاء الاصطناعي الخاص بك. يقدم Intlayer أيضًا **مترجمًا** لأتمتة استخراج المحتوى، بالإضافة إلى [منصة ويب](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) للمساعدة في **الترجمة في الخلفية**.
 
 </Accordion>
-
 <Accordion header="أداء">
 
 يمكن أن يؤدي ربط ملفات JSON الضخمة بالمكونات إلى حدوث مشكلات في الأداء والتفاعل. يعمل Intlayer على تحسين تحميل المحتوى الخاص بك في وقت الإنشاء.
 
 </Accordion>
-
 <Accordion header="التحجيم مع عدم وجود مطور">
 
 أكثر من مجرد حل i18n، يوفر Intlayer **[محررًا مرئيًا] مستضافًا ذاتيًا](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** و**[كامل CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** لمساعدتك في إدارة المحتوى متعدد اللغات في **الوقت الفعلي**، مما يجعل التعاون مع المترجمين ومؤلفي النصوص وأعضاء الفريق الآخرين سلسًا. يمكن تخزين المحتوى محليًا و/أو عن بعد.
 
 </Accordion>
-
 <Accordion header="تصميم الإطار المتقاطع">
 
 إذا كنت تستخدم أطر عمل مختلفة لأجزاء مختلفة من تطبيقك (على سبيل المثال، React وReact-native وVue وAngular وSvelte وما إلى ذلك)، فإن Intlayer يوفر طريقة **لاستخدام بناء جملة مشترك وتنفيذه عبر جميع أطر عمل الواجهة الأمامية الرئيسية**. ستتمكن أيضًا من مشاركة إعلان المحتوى الخاص بك عبر نظام التصميم والتطبيقات والواجهة الخلفية وما إلى ذلك.
@@ -305,25 +298,21 @@ export const ComponentExample = () => {
 - **مكتبات طبقة المحتوى (Content layer)**: `Intlayer`. إعلان بجانب المكون، تصفية تلقائية، أنواع TypeScript، ترجمة بالذكاء الاصطناعي، ومحرر مرئي.
 
 </Question>
-
 <Question title="كم يضيف i18n إلى حجم حزمة (bundle) تطبيقي؟">
 
 أقل بكثير من الإعدادات القائمة على فضاءات الأسماء، لأن الصفحة لا تُحمّل أبدًا كتالوجًا لا تعرضه. يُحل المحتوى المعروض على الخادم مباشرة على الخادم، ويستبدل مترجم وقت البناء استدعاءات `useIntlayer` بإدخالات القاموس الدقيقة التي يستخدمها المكون، لذلك يتم التخلص من المفاتيح واللغات غير المستخدمة. تقسم [القواميس الديناميكية](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dynamic_dictionaries/index.md) الباقي حسب اللغة. مقارنة بالبدائل التقليدية، يقلل Intlayer حجم الحزمة والصفحة بنسبة تصل إلى 50%. انظر [تحسين الحزم](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/bundle_optimization.md) و [المقارنة المعيارية](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/benchmark/index.md).
 
 </Question>
-
 <Question title="هل يمكنني الترحيل من i18next أو next-intl أو react-i18next دون إعادة كتابة مكوناتي؟">
 
 نعم، وبطريقتين. يمكنك ترحيل المحتوى تدريجيًا باستخدام [دليل ترحيل i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/migration_from_i18next_to_intlayer.md) أو [دليل ترحيل next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/migration_from_next-intl_to_intlayer.md). أو يمكنك الاحتفاظ بواجهة برمجة التطبيقات الحالية بالكامل: تكشف [محولات التوافق](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/compat/index.md) نفس واجهات `i18next` و `react-i18next` و `next-intl` و `next-i18next` و `react-intl` و `use-intl` و `vue-i18n` و `Lingui`، ولكنها مدعومة بقواميس Intlayer، بحيث تتغير الاستيرادات فقط بينما يظل كود المكون كما هو.
 
 </Question>
-
 <Question title="هل يمكنني الاحتفاظ بملفات الترجمة JSON الموجودة لدي؟">
 
 نعم. تحافظ [مكونة مزامنة JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-json.md) على ملفات `/messages/{locale}/{namespace}.json` الخاصة بك كمصدر الحقيقة وتُنشئ قواميس Intlayer منها، في كلا الاتجاهين. وتقوم [مكونة مزامنة PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-po.md) بنفس الشيء لكتالوجات gettext، وتسمح لك [الملفات المقسمة حسب اللغة](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/per_locale_file.md) بتقسيم المحتوى حسب اللغة بدلاً من تجميع كل اللغات في ملف واحد.
 
 </Question>
-
 <Question title="هل يجب أن أنقل المحتوى الخاص بي مفتاحًا تلو الآخر؟">
 
 لا. قم بتشغيل `npx intlayer extract` وسيقرأ Intlayer ملفات المصدر الخاصة بك، ويسحب السلاسل النصية الموجهة للمستخدم ويكتب ملف `.content` بجانب كل منها، بحيث تراجع diff بدلاً من نسخ السلاسل إلى كتالوج يدويًا. راجع [أمر extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/extract.md).
@@ -331,7 +320,6 @@ export const ComponentExample = () => {
 لأتمتة كاملة، يقوم [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/compiler.md) بالشيء نفسه في وقت البناء على كود JSX و TSX و Vue و Svelte، منشئًا القواميس عند كل تغيير دون الحاجة إلى إدارة المفاتيح يدويًا.
 
 </Question>
-
 <Question title="ما هي أدوات المحررات والوكلاء الذكيين المتاحة؟">
 
 خمس أدوات، كلها اختيارية:
@@ -343,43 +331,36 @@ export const ComponentExample = () => {
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/eslint.md)**: قاعدة `no-raw-text` ترصد النصوص المكتوبة مباشرة بدون تدويل.
 
 </Question>
-
 <Question title="كيف يختلف Intlayer عن next-intl؟">
 
 `next-intl` هي طبقة رسائل لـ Next.js تعتمد على ملفات JSON لكل لغة. يصرح Intlayer بالمحتوى مباشرة بجوار المكون، ويزيل الإدخالات غير المستخدمة في وقت البناء، وينشئ أنواع TypeScript صارمة لكل قاموس، ويوفر ترجمة مدمجة بالذكاء الاصطناعي ومحررًا مرئيًا.
 
 </Question>
-
 <Question title="كيف يختلف Intlayer عن i18next و react-i18next؟">
 
 يحل `i18next` المفاتيح النصية في وقت التشغيل، مما يعني أن الخطأ الإملائي في اسم المفتاح يفشل بصمت ويعرض نصًا فارغًا. يفحص Intlayer المفاتيح بشكل ثابت أثناء الترجمة، ويستبعد اللغات غير المستخدمة من الحزمة، ويؤتمت سير عمل الترجمة.
 
 </Question>
-
 <Question title="هل Intlayer أسرع أو أخف من البدائل؟">
 
 من حيث حجم الحزمة والصفحة، نعم: يؤدي عدم تحميل الكتالوجات التي لا تعرضها الصفحة إلى تقليل حجم الحزمة بنسبة تصل إلى 50%. من حيث أداء وقت التشغيل، تقضي الترجمة المسبقة على تكلفة التحليل في وقت التشغيل. انظر [المقارنة المعيارية](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/benchmark/index.md).
 
 </Question>
-
 <Question title="هل يستحق ترحيل تطبيق حالي؟">
 
 يعتمد ذلك على القيود التي تواجهها. إذا كانت مشكلتك هي الحجم الكبير للحزمة، أو الترجمات المفقودة دون تحذير، أو صعوبة تحرير النصوص لغير المطورين، فإن Intlayer يحل ذلك؛ تسمح محولات التوافق بالترحيل التدريجي دون إعادة كتابة الكود.
 
 </Question>
-
 <Question title="ما الذي يقدمه Intlayer ولا تقدمه مكتبات i18n الأخرى؟">
 
 دعم [محتوى Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/markdown.md)، جلب المحتوى من CMS، محرر مرئي متكامل، ترجمة تلقائية بالذكاء الاصطناعي باستخدام الخيار `--git-diff`، وإكمال تلقائي لـ TypeScript بناءً على تحليل المكون.
 
 </Question>
-
 <Question title="هل يمكنني استخدام Intlayer كمدير ترجمة فقط والاحتفاظ بمكتبتي الحالية؟">
 
 نعم. يمكن لـ Intlayer إنشاء فضاءات أسماء بالتنسيق والموقع المتوقعين بواسطة مكتبتك الحالية (على سبيل المثال `/messages/{locale}/{namespace}.json`)، مما يتيح لك الاستمتاع بـ CLI ومحرر Intlayer دون تغيير كود تطبيقك.
 
 </Question>
-
 <Question title="هل Intlayer مفتوح المصدر ومجاني؟">
 
 نعم، بموجب ترخيص Apache 2.0، بما في ذلك الاستخدام التجاري. الـ CMS السحابي هو خدمة مدفوعة اختيارية ويمكن أيضًا [استضافتها ذاتيًا](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/self_hosting.md).

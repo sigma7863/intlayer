@@ -42,37 +42,31 @@ author: aymericzip
 Intlayer оптимизирован для идеальной работы с Storybook, предлагая **многоязычные декораторы историй**, **переключение языковых стандартов** и все функции, необходимые для масштабирования интернационализации (i18n) в вашей дизайн-системе.
 
 </Accordion>
-
 <Accordion header="Размер бандла">
 
 Вместо загрузки огромных файлов JSON на свои страницы загружайте только необходимый контент. Intlayer помогает **уменьшить размер бандла и страниц до 50 %**.
 
 </Accordion>
-
 <Accordion header="Удобство обслуживания">
 
 Определение области содержимого вашего приложения **облегчает обслуживание** крупномасштабных приложений. Вы можете дублировать или удалить отдельную папку функций, не утруждав себя мысленным бременем проверки всей кодовой базы контента. Кроме того, Intlayer **полностью типизирован**, что обеспечивает точность вашего контента.
 
 </Accordion>
-
 <Accordion header="Агент ИИ">
 
 Совместное размещение контента **уменьшает контекст, необходимый** для моделей большого языка (LLM). Intlayer также поставляется с набором инструментов, таких как **CLI** для проверки отсутствия переводов,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**, и **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/agent_skills.md)**, чтобы сделать работу разработчика (DX) еще более удобной для агентов ИИ.
 
 </Accordion>
-
 <Accordion header="Автоматизация">
 
 Используйте автоматизацию для перевода в своем конвейере CI/CD, используя LLM по вашему выбору за счет вашего поставщика ИИ. Intlayer также предлагает **компилятор** для автоматизации извлечения контента, а также [веб-платформу](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), которая помогает **переводить в фоновом режиме**.
 
 </Accordion>
-
 <Accordion header="Производительность">
 
 Подключение больших файлов JSON к компонентам может привести к проблемам с производительностью и реактивностью. Intlayer оптимизирует загрузку контента во время сборки (build time).
 
 </Accordion>
-
 <Accordion header="Масштабирование с помощью не-разработчиками">
 
 Intlayer — это больше, чем просто решение i18n. Он предоставляет **автономный [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** и **[полный CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, чтобы помочь вам управлять многоязычным контентом в **реальном времени**, упрощая сотрудничество с переводчиками, копирайтерами и другими членами команды. Контент может храниться локально и/или удаленно.
@@ -94,7 +88,6 @@ Storybook - это отраслевой стандарт для разработ
 <Tab value="Vite Setup">
 
 <Steps>
-
 <Step number={1} title="Установка зависимостей">
 
 ```bash packageManager="npm"
@@ -124,7 +117,6 @@ bun add vite-intlayer --dev
 | `vite-intlayer`  | Плагин Vite - отслеживает и компилирует файлы деклараций контента |
 
 </Step>
-
 <Step number={2} title="Создание конфигурации Intlayer">
 
 Создайте `intlayer.config.ts` в корне вашего проекта (или внутри вашего пакета дизайн-системы):
@@ -153,7 +145,6 @@ export default config;
 > Полный список опций см. в [справочнике по конфигурации](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/configuration.md).
 
 </Step>
-
 <Step number={3} title="Добавление плагина Vite в Storybook">
 
 Хук `viteFinal` в Storybook позволяет расширить внутреннюю конфигурацию Vite. Импортируйте и добавьте туда плагин `intlayer()`:
@@ -200,7 +191,6 @@ export default config;
 Плагин `intlayer()` отслеживает ваши файлы `*.content.ts` и автоматически перестраивает словари при любых изменениях во время разработки в Storybook.
 
 </Step>
-
 <Step number={4} title="Добавление декоратора `IntlayerProvider` и переключателя языков">
 
 Файл `preview` в Storybook - подходящее место для обертывания каждой истории в `IntlayerProvider` и добавления переключателя языков в панель инструментов:
@@ -260,7 +250,6 @@ export default preview;
 </Tab>
 <Tab value="Webpack Setup">
 <Steps>
-
 <Step number={1} title="Установка зависимостей">
 
 ```bash packageManager="npm"
@@ -284,7 +273,6 @@ bun add @intlayer/webpack --dev
 ```
 
 </Step>
-
 <Step number={2} title="Создание конфигурации Intlayer">
 
 Создайте `intlayer.config.ts` в корне вашего проекта:
@@ -306,7 +294,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Настройка Webpack в Storybook">
 
 Для настроек Storybook на базе Webpack (например, `@storybook/react-webpack5`) расширьте конфигурацию webpack через `webpackFinal`, чтобы добавить алиасы и загрузчик Intlayer:
@@ -333,7 +320,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={4} title="Добавление декоратора `IntlayerProvider` и переключателя языков">
 
 Аналогично настройке Vite - добавьте декоратор и глобальный тип языка в `.storybook/preview.tsx`:

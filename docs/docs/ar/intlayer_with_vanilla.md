@@ -68,37 +68,31 @@ author: aymericzip
 تم تحسين Intlayer للعمل بشكل مثالي مع Vanilla JavaScript من خلال تقديم **إدارة محتوى مستقلة عن إطار العمل**، و**دعم TypeScript**، وجميع الميزات اللازمة لتوسيع نطاق التدويل (i18n).
 
 </Accordion>
-
 <Accordion header="حجم الحزمة">
 
 بدلاً من تحميل ملفات JSON ضخمة إلى صفحاتك، قم بتحميل المحتوى الضروري فقط. يساعد Intlayer **في تقليل أحجام البندل وصفحاتك بنسبة تصل إلى 50%**.
 
 </Accordion>
-
 <Accordion header="قابلية الصيانة">
 
 يؤدي تحديد نطاق محتوى تطبيقك ** إلى تسهيل الصيانة ** للتطبيقات واسعة النطاق. يمكنك تكرار أو حذف مجلد ميزات واحد دون العبء العقلي لمراجعة قاعدة بيانات المحتوى بالكامل. بالإضافة إلى ذلك، تتم كتابة Intlayer **بالكامل** لضمان دقة المحتوى الخاص بك.
 
 </Accordion>
-
 <Accordion header="وكيل الذكاء الاصطناعي">
 
 يؤدي تحديد موقع المحتوى المشترك ** إلى تقليل السياق المطلوب ** بواسطة نماذج اللغات الكبيرة (LLMs). يأتي Intlayer أيضًا مزودًا بمجموعة من الأدوات، مثل **CLI** لاختبار الترجمات المفقودة،**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**، **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** و**[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/agent_skills.md)**، لجعل تجربة المطور (DX) أكثر سلاسة للذكاء الاصطناعي وكلاء.
 
 </Accordion>
-
 <Accordion header="التشغيل الآلي">
 
 استخدم الأتمتة للترجمة في مسار CI/CD الخاص بك باستخدام LLM من اختيارك على حساب مزود الذكاء الاصطناعي الخاص بك. يقدم Intlayer أيضًا **مترجمًا** لأتمتة استخراج المحتوى، بالإضافة إلى [منصة ويب](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) للمساعدة في **الترجمة في الخلفية**.
 
 </Accordion>
-
 <Accordion header="أداء">
 
 يمكن أن يؤدي ربط ملفات JSON الضخمة بالمكونات إلى حدوث مشكلات في الأداء والتفاعل. يعمل Intlayer على تحسين تحميل المحتوى الخاص بك في وقت الإنشاء.
 
 </Accordion>
-
 <Accordion header="التحجيم مع عدم وجود مطور">
 
 أكثر من مجرد حل i18n، يوفر Intlayer **[محررًا مرئيًا] مستضافًا ذاتيًا](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** و**[كامل CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** لمساعدتك في إدارة المحتوى متعدد اللغات في **الوقت الفعلي**، مما يجعل التعاون مع المترجمين ومؤلفي النصوص وأعضاء الفريق الآخرين سلسًا. يمكن تخزين المحتوى محليًا و/أو عن بعد.
@@ -109,7 +103,6 @@ author: aymericzip
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Vanilla JS
 
 <Steps>
-
 <Step number={1} title="تثبيت التبعيات">
 
 قم بتثبيت الحزم اللازمة باستخدام npm:
@@ -171,7 +164,6 @@ bun x intlayer build
 > ينتج تصدير الربط (bundling) من واجهة سطر أوامر `intlayer standalone` بناءً محسّناً من خلال تقليم الشجرة (tree-shaking) للحزم غير المستخدمة، واللغات، والمنطق غير الأساسي (مثل عمليات إعادة التوجيه أو البوادئ) الخاصة بتكوينك.
 
 </Step>
-
 <Step number={2} title="تكوين مشروعك">
 
 قم بإنشاء ملف تكوين لتكوين لغات تطبيقك:
@@ -197,7 +189,6 @@ export default config;
 > من خلال ملف التكوين هذا، يمكنك إعداد عناوين URL الموطنة، وإعادة توجيه البرامج الوسيطة، وأسماء ملفات تعريف الارتباط، وموقع وامتداد تصريحات المحتوى الخاصة بك، وتعطيل سجلات Intlayer في وحدة التحكم، والمزيد. للحصول على قائمة كاملة بالمعلمات المتاحة، راجع [وثائق التكوين](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md).
 
 </Step>
-
 <Step number={3} title="استيراد الحزمة في HTML الخاص بك">
 
 بمجرد إنشاء حزمة `intlayer.js` ، يمكنك استيرادها في ملف HTML الخاص بك:
@@ -223,7 +214,6 @@ export default config;
 تكشف الحزمة عن `Intlayer` و `VanillaIntlayer` ككائنات عالمية على `window`.
 
 </Step>
-
 <Step number={4} title="تهيئة Intlayer في نقطة الدخول الخاصة بك">
 
 في ملف `src/main.js` ، قم باستدعاء `installIntlayer()` **قبل** عرض أي محتوى بحيث يكون الكائن المنفرد للغة العالمية جاهزًا.
@@ -245,7 +235,6 @@ installIntlayerMarkdown();
 ```
 
 </Step>
-
 <Step number={5} title="التصريح عن المحتوى الخاص بك">
 
 قم بإنشاء وإدارة تصريحات المحتوى الخاصة بك لتخزين الترجمات:
@@ -325,7 +314,6 @@ export default appContent;
 > لمزيد من التفاصيل ، راجع [وثائق تصريح المحتوى](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/content_file.md).
 
 </Step>
-
 <Step number={6} title="استخدام Intlayer في JavaScript الخاص بك">
 
 يوفر كائن `window.VanillaIntlayer` مساعدين لواجهة البرمجة: `useIntlayer(key, locale?)` يعيد المحتوى المترجم لمفتاح معين.
@@ -361,7 +349,6 @@ document.querySelector(".read-the-docs").textContent = String(
 > ```
 
 </Step>
-
 <Step number={7} title="تغيير لغة المحتوى الخاص بك" isOptional={true}>
 
 لتغيير لغة المحتوى الخاص بك ، استخدم وظيفة `setLocale` التي كشفت عنها `useLocale`.
@@ -398,7 +385,6 @@ export function setupLocaleSwitcher(container) {
 ```
 
 </Step>
-
 <Step number={8} title="تبديل سمات لغة HTML والاتجاه" isOptional={true}>
 
 قم بتحديث سمات `lang` و `dir` لعلامة `<html>` لمطابقة اللغة الحالية لتسهيل الوصول وتحسين محركات البحث.
@@ -418,7 +404,6 @@ useLocale({
 ```
 
 </Step>
-
 <Step number={9} title="تحميل القواميس بكسل لكل لغة" isOptional={true}>
 
 إذا كنت ترغب في تحميل القواميس بكسل (lazy-load) لكل لغة ، يمكنك استخدام `useDictionaryDynamic`. هذا مفيد إذا كنت لا تريد حزم جميع الترجمات في ملف `intlayer.js` الأولي.
@@ -487,25 +472,21 @@ const unsubscribe = useDictionaryDynamic(
 نعم. هذا الدليل مخصص تحديدًا لهذه الحالة. تقوم بتضمين حزمة `vanilla-intlayer` مباشرة في HTML، وتهيئتها، وقراءة المحتوى عبر `useIntlayer` أو `getIntlayer`.
 
 </Question>
-
 <Question title="كم يضيف i18n إلى حجم صفحتي؟">
 
 أقل بكثير من الكتالوجات التقليدية، لأن الصفحة لا تُحمل أبدًا لغة لا تعرضها. يتم تسليم المحتوى بتنسيقات محسنة. انظر [تحسين الحزم](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/bundle_optimization.md).
 
 </Question>
-
 <Question title="هل يمكنني الترحيل من i18next دون إعادة كتابة برامجي النصية؟">
 
 إلى حد كبير نعم. اتبع [دليل ترحيل i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/migration_from_i18next_to_intlayer.md).
 
 </Question>
-
 <Question title="هل يمكنني الاحتفاظ بملفات الترجمة JSON الموجودة لدي؟">
 
 نعم. تحافظ [مكونة مزامنة JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-json.md) على ملفات `/messages/{locale}/{namespace}.json` الخاصة بك كمصدر الحقيقة وتُنشئ قواميس Intlayer منها، في كلا الاتجاهين. وتقوم [مكونة مزامنة PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/plugins/sync-po.md) بنفس الشيء لكتالوجات gettext، وتسمح لك [الملفات المقسمة حسب اللغة](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/per_locale_file.md) بتقسيم المحتوى حسب اللغة بدلاً من تجميع كل اللغات في ملف واحد.
 
 </Question>
-
 <Question title="هل يجب أن أنقل المحتوى الخاص بي مفتاحًا تلو الآخر؟">
 
 لا. قم بتشغيل `npx intlayer extract` وسيقرأ Intlayer ملفات المصدر الخاصة بك، ويسحب السلاسل النصية الموجهة للمستخدم ويكتب ملف `.content` بجانب كل منها، بحيث تراجع diff بدلاً من نسخ السلاسل إلى كتالوج يدويًا. راجع [أمر extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/extract.md).
@@ -513,7 +494,6 @@ const unsubscribe = useDictionaryDynamic(
 لأتمتة كاملة، يقوم [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/compiler.md) بالشيء نفسه في وقت البناء وينشئ القواميس عند كل تغيير.
 
 </Question>
-
 <Question title="ما هي أدوات المحررات والوكلاء الذكيين المتاحة؟">
 
 خمس أدوات، كلها اختيارية:
@@ -525,7 +505,6 @@ const unsubscribe = useDictionaryDynamic(
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/eslint.md)**: قاعدة `no-raw-text` ترصد النصوص المكتوبة مباشرة بدون تدويل.
 
 </Question>
-
 <Question title="ما هي الحلول المختلفة المتاحة لتدويل موقع JavaScript عادي؟">
 
 - **كائنات القاموس اليدوية**: بدون أنواع أو أدوات تحقق.
@@ -535,49 +514,41 @@ const unsubscribe = useDictionaryDynamic(
 انظر [لماذا Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="كيف أقرأ الترجمة وأدخلها في الـ DOM؟">
 
 استدعِ `useIntlayer` بمفتاح القاموس وقم بتعيين القيمة يدويًا لعقدة DOM، كما هو موضح في الخطوة 6.
 
 </Question>
-
 <Question title="كيف يتم اكتشاف لغة الزائر؟">
 
 من المصادر المحددة في `routing.storage`: عادةً ملفات تعريف الارتباط أولاً، ثم ترويسة `Accept-Language`، والعودة إلى اللغة الافتراضية. انظر [مرجع الإعدادات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md).
 
 </Question>
-
 <Question title="كيف أدعم اللغات من اليمين إلى اليسار؟">
 
 توضح الخطوة 8 ذلك. تُرجع `getHTMLTextDir` القيمة `ltr` أو `rtl` أو `auto`، مما يتيح لك تعيين سمتي `lang` و `dir` على عنصر `html` أو `body`.
 
 </Question>
-
 <Question title="هل يتعين على الزوار تنزيل كل اللغات؟">
 
 لا، إذا كنت لا تريد ذلك. تغطي الخطوة 9 التحميل الكسول للقواميس حسب اللغة، بحيث تقوم الصفحة بتحميل اللغة النشطة فقط.
 
 </Question>
-
 <Question title="كيف أترجم التطبيق تلقائياً باستخدام الذكاء الاصطناعي؟">
 
 قم بتشغيل `npx intlayer fill`. يملأ هذا الأمر الترجمات المفقودة باستخدام نموذج اللغة الذي تختاره مع مزودك ومفتاح API الخاص بك، ويحد `--git-diff` العملية على الملفات المعدلة. انظر [أمر fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/fill.md) و [تكامل CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/CI_CD.md).
 
 </Question>
-
 <Question title="هل يدعم Intlayer صيغ الجمع والجنس والنصوص المنسقة؟">
 
 نعم: [صيغ الجمع (plurals)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/plurial.md)، [المحتوى القائم على النوع الاجتماعي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/gender.md)، الشروط، [الإدراجات (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/insertion.md)، والمنسقات للأرقام والتواريخ والعملات.
 
 </Question>
-
 <Question title="كيف يمكن للمترجمين تحرير المحتوى دون لمس الكود؟">
 
 من خلال [المحرر المرئي (visual editor)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_visual_editor.md)، الذي يسمح لأي شخص بتحرير النصوص مباشرة على التطبيق قيد التشغيل، أو عبر [نظام إدارة المحتوى (CMS)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_CMS.md)، الذي يفصل المحتوى ليتم تحديثه دون الحاجة لإعادة نشر الكود.
 
 </Question>
-
 <Question title="هل Intlayer مجاني ومفتوح المصدر؟">
 
 نعم، بموجب ترخيص Apache 2.0، بما في ذلك الاستخدام التجاري. الـ CMS السحابي المستضاف هو خدمة مدفوعة اختيارية يمكن أيضًا [استضافتها ذاتيًا (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/self_hosting.md).

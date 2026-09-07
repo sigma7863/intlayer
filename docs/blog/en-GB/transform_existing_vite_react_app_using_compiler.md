@@ -338,19 +338,16 @@ If you are ready to configure every part of your Vite and React application step
 Yes. You can use `npx intlayer extract` to automatically detect and extract hardcoded strings into localised content declarations, or use the Intlayer Compiler to transform components at build time so you can keep writing standard JSX.
 
 </Question>
-
 <Question title="How does Intlayer reduce Vite bundle size compared to react-i18next or react-intl?">
 
 Intlayer uses per-component dictionary definitions and build-time macro optimisation. Bundles only receive the exact fields needed by the components rendered on the page, rather than importing entire namespace JSON files. Dynamic dictionaries can also lazy-load languages on demand.
 
 </Question>
-
 <Question title="Can I use AI to translate my existing components into multiple languages?">
 
 Yes. Intlayer's CLI includes the `npx intlayer fill` command, which connects to your preferred AI provider (OpenAI, Anthropic, Mistral, DeepSeek) to generate contextual translations for missing locales across your entire project.
 
 </Question>
-
 <Question title="Can I migrate from react-i18next or react-intl without rewriting my components?">
 
 Yes. Intlayer provides compatibility adapters for `react-i18next` and `react-intl`, as well as plugins to synchronise existing JSON translation files (`sync-json`).

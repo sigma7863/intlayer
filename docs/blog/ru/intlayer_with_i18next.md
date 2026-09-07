@@ -64,7 +64,6 @@ author: aymericzip
 ## Пошаговое руководство по настройке Intlayer с i18next
 
 <Steps>
-
 <Step number={1} title="Установка зависимостей">
 
 Установите необходимые пакеты:
@@ -111,7 +110,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Плагин для экспорта деклараций контента Intlayer в JSON-формат, совместимый с i18next
 
 </Step>
-
 <Step number={2} title="Реализация плагина Intlayer для обертки JSON">
 
 Создайте файл конфигурации Intlayer для определения поддерживаемых локалей:

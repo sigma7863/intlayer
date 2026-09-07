@@ -34,7 +34,6 @@ author: aymericzip
 بدلاً من تحميل ملفات JSON ضخمة في صفحاتك، قم بتحميل المحتوى الضروري فقط. يساعدك Intlayer على **تقليل حجم bundle والصفحات بنسبة تصل إلى 50%**.
 
 </Accordion>
-
 <Accordion header="سهولة الصيانة">
 
 تقسيم محتوى التطبيق الخاص بك **يسهل الصيانة** للتطبيقات الكبيرة. يمكنك نسخ أو حذف مجلد ميزة واحد دون العبء الذهني لمراجعة قاعدة الكود كاملة. بالإضافة إلى ذلك، Intlayer **مكتوب بالكامل** لضمان دقة المحتوى الخاص بك.
@@ -42,25 +41,21 @@ author: aymericzip
 Intlayer هو أيضًا الحل الذي يتمتع بـ **أنشط تطور** في نظام i18n البيئي - يتم إصلاح المشاكل بسرعة، وتصل محولات frameworks جديدة بانتظام، ويتم تحسين API الأساسي بشكل مستمر بناءً على ملاحظات الإنتاج الواقعية.
 
 </Accordion>
-
 <Accordion header="وكيل AI">
 
 **يقلل** Co-locating المحتوى من السياق المطلوب بواسطة النماذج اللغوية الكبيرة (LLMs). يأتي Intlayer أيضًا مع مجموعة من الأدوات، مثل **CLI** لاختبار الترجمات المفقودة، **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**، **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)**، و **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/agent_skills.md)**، لجعل تجربة المطور (DX) أكثر سلاسة حتى بالنسبة لوكلاء AI.
 
 </Accordion>
-
 <Accordion header="الأتمتة">
 
 استخدم الأتمتة للترجمة في خط أنابيب CI/CD الخاص بك باستخدام LLM من اختيارك بتكلفة موفر AI الخاص بك. يوفر Intlayer أيضًا **مترجم** لأتمتة استخراج المحتوى، وكذلك [منصة ويب](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) لمساعدتك في **الترجمة في الخلفية**.
 
 </Accordion>
-
 <Accordion header="الأداء">
 
 ربط ملفات JSON ضخمة بمكونات قد يؤدي إلى مشاكل الأداء والتفاعل. يحسّن Intlayer تحميل المحتوى الخاص بك في وقت البناء.
 
 </Accordion>
-
 <Accordion header="التوسع مع غير المطورين">
 
 أكثر من مجرد حل i18n، يوفر Intlayer **محرر بصري مستضاف على الخادم الخاص بك** و **CMS كامل** لمساعدتك في إدارة محتوى متعدد اللغات **في الوقت الفعلي**، مما يجعل التعاون مع المترجمين والمحررين وأعضاء الفريق الآخرين سلساً. يمكن تخزين المحتوى محليًا و/أو عن بعد.
@@ -87,7 +82,6 @@ Intlayer هو أيضًا الحل الذي يتمتع بـ **أنشط تطور**
 الخطوات التالية هي الحد الأدنى المطلوب للحصول على تطبيق `react-i18next` الموجود يعمل على Intlayer دون تغييرات الكود.
 
 <Steps>
-
 <Step number={1} title="تثبيت التبعيات">
 
 قم بتثبيت حزم Intlayer الأساسية ومحولات التوافق:
@@ -131,7 +125,6 @@ bun add intlayer react-intlayer @intlayer/react-i18next @intlayer/i18next @intla
 > يمكنك الاحتفاظ بـ `react-i18next` و `i18next` المثبتة - تستخدم محولات التوافق كـ `devDependencies` / `peerDependencies` اختياري لأنواع TypeScript. لا تحتاج إلى تغيير أي أقران `package.json`.
 
 </Step>
-
 <Step number={2} title="تكوين Intlayer">
 
 ينشئ أمر `intlayer init` ملف `intlayer.config.ts` البداية. قم بتحديثه ليطابق المناطق الموجودة لديك وأشر مكون `syncJSON` إلى ملفات الرسائل الخاصة بك:
@@ -166,7 +159,6 @@ export default config;
 > **`source`** يعيّن منطقة إلى مسار ملفها JSON. **`location`** يخبر المراقب Intlayer أي مجلد يجب مراقبته للتغييرات. يضمن الخيار `format: 'i18next'` أن العناصر النائبة مثل `{{name}}` يتم تحليلها بشكل صحيح.
 
 </Step>
-
 <Step number={3} title="إضافة مكون Intlayer إلى Bundler الخاص بك">
 
 لف إعداد bundler الموجود لديك بمكون التوافق. يقوم بدمج مكون Intlayer الأساسي، ويربط مراقبة المحتوى، و - بشكل حاسم - **يحقن بدائل module** بحيث تتم إعادة توجيه استدعاءات `import … from 'react-i18next'` (و `'i18next'`) الموجودة بشفافية إلى `@intlayer/react-i18next` / `@intlayer/i18next` في وقت البناء. لا توجد حاجة لتغييرات ملفات المصدر.
@@ -232,7 +224,6 @@ export default withIntlayer(nextConfig);
 الخطوات أدناه اختيارية ويمكن القيام بها بشكل تدريجي. تفتح مجموعة ميزات Intlayer الكاملة: محرر بصري، CMS، ملفات محتوى مكتوبة، ترجمة مدعومة بـ AI، والمزيد.
 
 <Steps>
-
 <Step number={4} title="إعادة تسمية الاستيراد الصريح (اختياري)" isOptional={true}>
 
 تتعامل مكونات Intlayer بالفعل مع البدائل على مستوى bundler. إذا كنت تفضل جعل التبعية صريحة في ملفات المصدر، يمكنك إعادة تسمية الاستيرادات يدويًا:
@@ -257,7 +248,6 @@ export default withIntlayer(nextConfig);
 | `import { useTranslation } from 'next-i18next'`                                | `import { useTranslation } from '@intlayer/next-i18next'`         |
 
 </Step>
-
 <Step number={5} title="تفعيل أتمتة الترجمة المدعومة بـ AI" isOptional={true}>
 
 بمجرد توصيل Intlayer، استخدم CLI الخاص به لملء الترجمات المفقودة تلقائياً:

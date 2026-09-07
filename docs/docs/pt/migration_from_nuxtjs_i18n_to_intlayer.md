@@ -34,7 +34,6 @@ author: aymericzip
 Em vez de carregar enormes arquivos JSON em suas páginas, carregue apenas o conteúdo necessário. Intlayer ajuda você a **reduzir o tamanho do pacote e da página em até 50%**.
 
 </Accordion>
-
 <Accordion header="Manutenibilidade">
 
 Criar escopos para o conteúdo da sua aplicação torna aplicações em larga escala **fáceis de manter**. Você pode duplicar ou excluir um diretório de recursos inteiro sem o esforço mental de revisar toda a sua base de código de conteúdo. Além disso, Intlayer é **fortemente tipado** para garantir a precisão do seu conteúdo.
@@ -42,25 +41,21 @@ Criar escopos para o conteúdo da sua aplicação torna aplicações em larga es
 Intlayer também é a solução **desenvolvida mais ativamente** no ecossistema i18n — problemas são corrigidos rapidamente, novos adaptadores de frameworks são lançados regularmente e a API principal é continuamente refinada com base em feedback do mundo real em produção.
 
 </Accordion>
-
 <Accordion header="Agentes de IA">
 
 A co-localização do conteúdo **reduz o contexto necessário** para Modelos de Linguagem de Grande Escala (LLMs). O Intlayer também oferece um conjunto de ferramentas como uma **CLI** para testar traduções ausentes, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/mcp_server.md)** e **[Agent Skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/agent_skills.md)** para tornar a Experiência do Desenvolvedor (DX) muito mais suave para agentes de IA.
 
 </Accordion>
-
 <Accordion header="Automação">
 
 Automatize as traduções em seu pipeline de CI/CD usando o LLM de sua preferência pelo custo do seu provedor de IA. O Intlayer também oferece um **compilador** para automatizar a extração de conteúdo, bem como uma [plataforma web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_CMS.md) para auxiliar com **tradução em segundo plano**.
 
 </Accordion>
-
 <Accordion header="Desempenho">
 
 Conectar enormes arquivos JSON aos componentes pode levar a problemas de desempenho e reatividade. O Intlayer otimiza o carregamento do conteúdo no momento do build (build time).
 
 </Accordion>
-
 <Accordion header="Escalabilidade com não desenvolvedores">
 
 Muito mais que apenas uma solução i18n, o Intlayer fornece um **[editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_visual_editor.md)** auto-hospedável e um **[CMS completo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_CMS.md)** para ajudá-lo a gerenciar seu conteúdo multilíngue em **tempo real**, tornando perfeita a colaboração com tradutores, redatores e outros membros da equipe. O conteúdo pode ser armazenado local e/ou remotamente.
@@ -87,7 +82,6 @@ Este guia foca inicialmente em tratar a fundo a **Estratégia 1** (que aborda o 
 As etapas a seguir são o mínimo necessário para executar seu aplicativo Nuxt existente no Intlayer, sem fazer alterações no código de seus componentes.
 
 <Steps>
-
 <Step number={1} title="Instale as Dependências">
 
 Instale o pacote principal do Intlayer e o adaptador de compatibilidade:
@@ -131,7 +125,6 @@ bun add intlayer vue-intlayer nuxt-intlayer @intlayer/vue-i18n @intlayer/sync-js
 > Fique a vontade para manter o `@nuxtjs/i18n` instalado e ativo seguramente ao longo de sua etapa de migração do código (estaremos desabilitando e varrendo o tal serviço brevemente na definição/configuração principal do Nuxt ali no passo adiante).
 
 </Step>
-
 <Step number={2} title="Configure o Intlayer">
 
 O comando `intlayer init` cria um arquivo inicial `intlayer.config.ts`. Atualize-o para corresponder aos seus locales existentes e direcione o plugin `syncJSON` aos seus arquivos de mensagens:
@@ -166,7 +159,6 @@ export default config;
 > **`source`** mapeia um locale para o caminho do arquivo JSON correspondente. **`location`** diz ao observador (watcher) do Intlayer qual pasta monitorar para alterações. A opção `format: 'icu'` garante que espaços reservados do `vue-i18n` sejam analisados corretamente.
 
 </Step>
-
 <Step number={3} title="Atualize a Configuração do Nuxt">
 
 Troque a representação em tela que declarava antes como módulo o `@nuxtjs/i18n` para em seguida adicionar no seu `nuxt.config.ts` o módulo atual sendo `nuxt-intlayer`. Este plugin em si que pertence e constrói debaixo da base fornecida pelo sistema do Intlayer adiciona "em seus bastidores" injeções de reencaminhamentos automáticos via criação de aliases nos seus módulos com resultados que garantem e efetuam por onde ocorra declarações chamadas pelo `import { useI18n } from 'vue-i18n'` passem imperceptíveis e perfeitamente bem ao `@intlayer/vue-i18n`.
@@ -191,7 +183,6 @@ Isso é tudo para a migração rápida. Seu aplicativo Nuxt agora está executan
 As etapas a seguir são opcionais e podem ser feitas gradativamente. Elas desbloqueiam o conjunto completo das funcionalidades do Intlayer: editor visual, CMS, arquivos de conteúdo tipados, automação de tradução por IA e muito mais.
 
 <Steps>
-
 <Step number={4} title="Renomeie Explícitamente as Importações (Opcional)" isOptional={true}>
 
 O plugin atrelado à ferramenta Intlayer engloba nativamente a estrutura e lida com base no nível central da máquina empacotadora a parte relacionada a aliases no projeto. Ainda assim, caso seu interesse prefira forçar como explícitos os caminhos para uso nas suas fontes internas ou dependências diretas de origem nativa em particular, lhe daremos opções fáceis manuais voltadas para isso:
@@ -203,7 +194,6 @@ O plugin atrelado à ferramenta Intlayer engloba nativamente a estrutura e lida 
 Essas são **substituições diretas** (drop-in) — nenhuma alteração de assinaturas de chamadas, argumentos ou tipos de retorno é necessária.
 
 </Step>
-
 <Step number={5} title="Habilite a Automação de Tradução por IA" isOptional={true}>
 
 Com o Intlayer configurado, você pode usar a CLI para preencher traduções ausentes automaticamente:

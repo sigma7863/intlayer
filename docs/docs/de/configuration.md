@@ -1110,25 +1110,21 @@ Einstellungen, die den Intlayer-Compiler steuern, der Wörterbücher direkt aus 
 Im Stammverzeichnis Ihres Projekts, neben `package.json`. Intlayer akzeptiert auch `intlayer.config.js`, `intlayer.config.mjs`, `intlayer.config.cjs` und JSON, sodass die Datei zu dem Modulsystem passt, das Ihr Projekt verwendet.
 
 </Question>
-
 <Question title="Wie viel trägt i18n zu meiner Bundle-Größe bei?">
 
 Viel weniger als bei einem Namespace-basierten Setup, denn eine Seite lädt niemals einen Katalog herunter, den sie nicht rendert. Serverseitig gerendertes Markup löst seinen Inhalt auf dem Server auf, und der Build-Zeit-Compiler ersetzt `useIntlayer`-Aufrufe durch genau die Wörterbucheinträge, die eine Komponente verwendet, sodass ungenutzte Schlüssel und ungenutzte Sprachen entfernt werden. [Dynamische Wörterbücher](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dynamic_dictionaries/index.md) teilen den Rest pro Locale auf. Gemessen an den üblichen Alternativen reduziert Intlayer die Bundle- und Seitengröße um bis zu 50 %. Siehe [Bundle-Optimierung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/bundle_optimization.md) und den [Benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/benchmark/index.md).
 
 </Question>
-
 <Question title="Kann ich von `i18next`, `next-intl` oder `react-i18next` migrieren, ohne meine Komponenten neu zu schreiben?">
 
 Ja, und es gibt zwei Wege. Sie können die Inhalte schrittweise migrieren mit dem [i18next-Migrationsleitfaden](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/migration_from_i18next_to_intlayer.md) oder dem [next-intl-Migrationsleitfaden](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/migration_from_next-intl_to_intlayer.md). Oder Sie behalten Ihre aktuelle API vollständig bei: Die [Kompatibilitätsadapter](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/compat/index.md) stellen genau dieselbe API wie `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` und `Lingui` bereit, aber aus Intlayer-Wörterbüchern bedient, sodass sich Importe ändern und der Komponentencode nicht.
 
 </Question>
-
 <Question title="Kann ich meine vorhandenen JSON-Übersetzungsdateien behalten?">
 
 Ja. Das [sync-JSON-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-json.md) behält Ihre `/messages/{locale}/{namespace}.json`-Dateien als Single Source of Truth und generiert daraus Intlayer-Wörterbücher, in beide Richtungen. Ein [sync-PO-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/plugins/sync-po.md) macht dasselbe für gettext-Kataloge, und [Dateien pro Locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/per_locale_file.md) lassen Sie Inhalte nach Sprache aufteilen, statt Locales in einer Datei zu gruppieren.
 
 </Question>
-
 <Question title="Muss ich meine Inhalte Schlüssel für Schlüssel umziehen?">
 
 Nein. Führen Sie `npx intlayer extract` aus; Intlayer liest Ihre Quelldateien, zieht die für den Nutzer sichtbaren Strings heraus und schreibt neben jede eine `.content`-Datei, sodass Sie ein Diff prüfen, statt Strings einzeln in einen Katalog zu kopieren. Siehe den [extract-Befehl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/extract.md).
@@ -1136,7 +1132,6 @@ Nein. Führen Sie `npx intlayer extract` aus; Intlayer liest Ihre Quelldateien, 
 Für eine vollständig automatisierte Pipeline macht der [Intlayer-Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/compiler.md) dasselbe zur Build-Zeit auf JSX-, TSX-, Vue- und Svelte-Quellcode und generiert die Wörterbücher bei jeder Änderung, sodass es keine von Hand zu pflegenden Schlüssel gibt. Er arbeitet mit statischer Analyse, sodass Strings, die nur zur Laufzeit existieren, unerreichbar bleiben, und er braucht einige Annotationen, um für den Nutzer sichtbaren Text von Anwendungslogik zu unterscheiden.
 
 </Question>
-
 <Question title="Welches Editor- und KI-Agenten-Tooling ist verfügbar?">
 
 Fünf Bausteine, alle optional:
@@ -1148,49 +1143,41 @@ Fünf Bausteine, alle optional:
 - **[ESLint-Plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/eslint.md)**: `no-raw-text` markiert fest kodierte Strings, mit weiteren Regeln für statische Wörterbuchschlüssel und ungenutzte Inhalte.
 
 </Question>
-
 <Question title="Wie füge ich meiner App eine neue Sprache hinzu?">
 
 Fügen Sie die Locale zu `internationalization.locales` hinzu und führen Sie dann `npx intlayer fill` aus, um die vorhandenen Inhalte darin zu übersetzen. Die generierten Typen werden gleichzeitig aktualisiert, sodass jede Inhaltsdatei, der die neue Locale fehlt, zu einem Typfehler wird statt zu einem stillen Fallback.
 
 </Question>
-
 <Question title="Wie entferne ich das Locale-Präfix aus meinen URLs?">
 
 Setzen Sie `routing.mode`. Die Voreinstellung `"prefix-no-default"` ergibt `/about` für die Standard-Locale und `/fr/about` für die anderen. `"prefix-all"` stellt jeder Locale ein Präfix voran. `"no-prefix"` hält die Locale vollständig aus dem Pfad heraus und löst sie aus einem Cookie, einem Header oder einer Domain auf. `"search-params"` legt sie als `/about?locale=fr` in den Query-String.
 
 </Question>
-
 <Question title="Kann ich jede Sprache von ihrer eigenen Domain ausliefern?">
 
 Ja. `routing.domains` ordnet eine Locale einem Hostnamen zu, zum Beispiel `{ fr: 'example.fr', en: 'example.com' }`. Die Domain identifiziert die Locale, sodass dem Pfad kein Präfix hinzugefügt wird, und `getLocalizedUrl` gibt eine absolute URL auf der richtigen Domain zurück.
 
 </Question>
-
 <Question title="Wie wird die Sprache des Nutzers erkannt?">
 
 Über `routing.storage`, das die zu lesenden Quellen der Reihe nach auflistet, typischerweise die URL, dann ein Cookie, dann den `Accept-Language`-Header. Eine ausdrückliche Wahl des Nutzers wird persistiert, sodass sie beim nächsten Besuch gewinnt.
 
 </Question>
-
 <Question title="Was macht routing.enableProxy?">
 
 Es steuert den Locale-Routing-Proxy, die Middleware, die Präfixe und Weiterleitungen auflöst. Ohne gesetzten Wert läuft der Proxy, aber Entwicklungs- und Preview-Server ignorieren die gespeicherte Locale als Weiterleitungsquelle, was verhindert, in eine Sprache umgeleitet zu werden, die Sie nicht testen; die Produktion verhält sich, als wäre er `true`. Setzen Sie ihn auf `false`, um das Locale-Routing selbst zu übernehmen.
 
 </Question>
-
 <Question title="Was ist der Unterschied zwischen importMode static, dynamic und fetch?">
 
 `"static"`, die Voreinstellung, importiert Wörterbücher statisch, sodass sie gebündelt und synchron gelesen werden. `"dynamic"` importiert sie über Suspense, sodass eine Locale nur heruntergeladen wird, wenn eine Komponente sie rendert, was Sie bei großen Inhaltsmengen wollen. `"fetch"` ruft sie über die Live-Sync-API ab und fällt bei einem Fehler auf `"dynamic"` zurück. Siehe [Bundle-Optimierung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/bundle_optimization.md) und [dynamische Wörterbücher](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/dynamic_dictionaries/index.md).
 
 </Question>
-
 <Question title="Wo lege ich den KI-Anbieter und den API-Schlüssel für die automatische Übersetzung fest?">
 
 Entweder in der Konfigurationsdatei oder auf der Kommandozeile mit `--provider`, `--model` und `--api-key`. Der Schlüssel bleibt Ihrer: Die Übersetzungsaufrufe gehen von Ihrer Maschine oder Ihrem CI-Runner an den von Ihnen gewählten Anbieter, sodass nichts über einen Dritten geleitet wird. Siehe den [fill-Befehl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/fill.md).
 
 </Question>
-
 <Question title="Muss ich den Dev-Server nach einer Änderung der Konfiguration neu starten?">
 
 Normalerweise nicht. Der Intlayer-Watcher überwacht `intlayer.config.ts` selbst: Beim Speichern lädt er die Konfiguration neu und bereitet die Wörterbücher erneut vor, sodass das Hinzufügen einer Locale oder das Ändern eines Routing-Modus wie eine Inhaltsänderung erkannt wird. Die Konfiguration kann jedoch von den Systemen zwischengespeichert werden. Ein Neustart Ihrer App kann eine gute Lösung sein.

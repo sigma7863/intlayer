@@ -42,13 +42,11 @@ Một trang có thể kích hoạt hàng chục swaps. Mỗi cái là một yêu
 Middleware Intlayer giải quyết locale từ chính yêu cầu đó, vì vậy một fragment được phục vụ tại phút mười trả lời cùng ngôn ngữ với trang được phục vụ tại phút không.
 
 </Accordion>
-
 <Accordion header="Locale phải di chuyển cùng với yêu cầu">
 
 Hai trình vận chuyển hoạt động với htmx. Một cookie (`INTLAYER_LOCALE`) được gửi bởi trình duyệt tự động trên mỗi yêu cầu, bao gồm các yêu cầu htmx. Một header (`x-intlayer-locale`) có thể được đính kèm vào các yêu cầu htmx với thuộc tính `hx-headers`. Cả hai đều được đọc theo mặc định.
 
 </Accordion>
-
 <Accordion header="HTML được hoán đổi vẫn là HTML">
 
 Một giá trị được dịch nội suy vào một fragment là markup. Escape nó, giống như bạn sẽ làm với bất kỳ giá trị động nào khác, vì vậy một bản dịch chứa `<` không thể phá vỡ tài liệu mà nó được hoán đổi vào.
@@ -69,7 +67,6 @@ Một giá trị được dịch nội suy vào một fragment là markup. Escap
 Xem [Application Template](https://github.com/aymericzip/intlayer-htmx-template) trên GitHub.
 
 <Steps>
-
 <Step number={1} title="Cài đặt Dependencies">
 
 Cài đặt `intlayer` cùng với integration cho server của bạn.
@@ -158,7 +155,6 @@ bun add intlayer elysia-intlayer
 htmx chính nó là một single script tag, được thêm vào bước 4.
 
 </Step>
-
 <Step number={2} title="Cấu hình dự án của bạn">
 
 Tạo một `intlayer.config.ts` ở root của dự án:
@@ -179,7 +175,6 @@ export default config;
 > Để xem danh sách đầy đủ các tùy chọn, hãy xem [tài liệu cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md).
 
 </Step>
-
 <Step number={3} title="Khai báo Nội dung của bạn">
 
 Khai báo mọi nhãn mà máy chủ sẽ hiển thị, bao gồm cả những nhãn chỉ xuất hiện bên trong một fragment:
@@ -226,7 +221,6 @@ export default appContent;
 > Các khai báo nội dung có thể nằm ở bất kỳ đâu trong `contentDir` (theo mặc định là `./src`) và khớp với `.content.{json,ts,tsx,js,jsx,mjs,cjs,md,mdx,yaml,yml}`. Xem [tài liệu khai báo nội dung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/content_file.md).
 
 </Step>
-
 <Step number={4} title="Đăng ký middleware Intlayer">
 
 Middleware giải quyết locale của mỗi request và hiển thị nó cho các handler của bạn.
@@ -300,7 +294,6 @@ Locale đã được phân giải là `intlayer!.locale` trên bối cảnh rout
 Theo mặc định, locale được lấy từ cookie `INTLAYER_LOCALE`, sau đó là header `x-intlayer-locale`, sau đó là thương lượng `Accept-Language`.
 
 </Step>
-
 <Step number={5} title="Render các fragment với locale của request">
 
 Viết các renderer fragment của bạn dưới dạng pure function của một locale, và truyền locale mà middleware đã phân giải. Truyền nó một cách rõ ràng giúp giữ một fragment được liên kết với request đã yêu cầu nó, bất kể bạn đang ở server nào.
@@ -398,7 +391,6 @@ app.post("/cart/items", ({ body, intlayer }) => {
 Đoạn code tương tự hiện đã trả lời bằng tiếng Pháp cho một khách thăm có cookie `fr`, và bằng tiếng Ả Rập cho một khách có cookie `ar`, mà không có thay đổi nào trong markup gọi.
 
 </Step>
-
 <Step number={6} title="Phục vụ trang đầu tiên">
 
 Render `<body>` riêng biệt, để công tắc locale trong bước 7 có thể hoán đổi toàn bộ, sau đó bọc nó trong tài liệu mà tải htmx:
@@ -433,7 +425,6 @@ ${renderBody(locale, itemCount)}
 `getHTMLTextDir` trả về `ltr`, `rtl` hoặc `auto` cho locale, đó là những gì làm cho tiếng Ả Rập và tiếng Do Thái hiển thị bố cục một cách chính xác.
 
 </Step>
-
 <Step number={7} title="Chuyển đổi ngôn ngữ">
 
 Chuyển đổi ngôn ngữ là một yêu cầu như bất kỳ yêu cầu nào khác. Server lưu trữ lựa chọn trong cookie mà middleware đọc, sau đó trả về trang được hiển thị lại trong locale mới.
@@ -573,7 +564,6 @@ app.post("/locale", ({ body, cookie, status }) => {
 > `isDeclaredLocale` thu hẹp một chuỗi tùy ý thành một trong các ngôn ngữ được cấu hình của bạn, do đó một giá trị không mong muốn không bao giờ đạt đến các renderer của bạn.
 
 </Step>
-
 <Step number={8} title="Giữ lang và dir đồng bộ sau khi hoán đổi" isOptional={true}>
 
 Một swap có thể thay thế `<body>`, nhưng không bao giờ thay thế `<html>` xung quanh nó. Render `lang` và `dir` trên body được swap và sao chép chúng trở lại phần tử gốc một lần, từ head:
@@ -590,7 +580,6 @@ Một swap có thể thay thế `<body>`, nhưng không bao giờ thay thế `<h
 Không có điều này, một sự chuyển đổi sang tiếng Ả Rập sẽ render từ phải sang trái bên trong body trong khi tài liệu vẫn quảng cáo ngôn ngữ trước đó cho công nghệ hỗ trợ và cho các crawler.
 
 </Step>
-
 <Step number={9} title="Gửi locale như một header thay vì một cookie" isOptional={true}>
 
 Nếu cookie không phù hợp với bạn, hãy đính kèm locale vào mọi yêu cầu htmx bằng `hx-headers` trên một phần tử tổ tiên. Các phần tử con sẽ kế thừa nó:
@@ -674,67 +663,56 @@ Tiện ích mở rộng này cung cấp:
 Vì yêu cầu fragment không mang theo locale. htmx requests là độc lập với trang phát hành chúng, vì vậy locale phải được truyền trên mỗi yêu cầu, thông qua cookie `INTLAYER_LOCALE` hoặc header `x-intlayer-locale` được đặt với `hx-headers`. Kiểm tra rằng cookie parser chạy trước Intlayer middleware trên Express và Fastify, nếu không cookie sẽ không bao giờ được đọc và mọi yêu cầu sẽ quay lại `Accept-Language`.
 
 </Question>
-
 <Question title="Tôi nên truyền locale cho `getIntlayer` hay dựa vào request context?">
 
 Hãy truyền nó. Các integrations expose locale được resolved (`res.locals.locale`, `req.intlayer.locale`, `c.get("locale")`, `intlayer!.locale`), và việc truyền nó tới `getIntlayer` làm cho mỗi renderer trở thành một pure function của một locale. Điều đó dễ dàng hơn để test, và nó giữ cho fragment renderers của bạn portable nếu bạn thay đổi server.
 
 </Question>
-
 <Question title="Tôi có cần một thư viện i18n phía client cùng với htmx không?">
 
 Không. Mọi thứ mà một visitor nhìn thấy được produced bởi server, vì vậy không có gì để translate trong browser. Đó cũng là lý do tại sao page weight cost của i18n trong một htmx app gần như bằng không: không có catalog nào được shipped tới client.
 
 </Question>
-
 <Question title="Làm cách nào để localize URL cũng vậy, cho SEO?">
 
 Phục vụ các trang của bạn dưới một tiền tố locale (`/fr/cart`) và đọc locale từ đường dẫn trong trình xử lý route của bạn, thay vì từ cookie, để render toàn bộ trang. Các fragment có thể tiếp tục sử dụng cookie hoặc header. Xem [configuration](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md) để biết các tùy chọn định tuyến và [custom URL rewrites](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/custom_url_rewrites.md).
 
 </Question>
-
 <Question title="Làm cách nào để xử lý các ngôn ngữ từ phải sang trái?">
 
 `getHTMLTextDir(locale)` trả về `ltr`, `rtl` hoặc `auto`. Đặt nó trên document cho lần render ban đầu, và áp dụng lại sau khi swap như bước 8 chỉ ra. Sử dụng các thuộc tính CSS logic (`margin-inline-start` thay vì `margin-left`) để bố cục của bạn tuân theo.
 
 </Question>
-
 <Question title="Có phải tôi phải escape các giá trị được dịch không?">
 
 Có, đối với bất kỳ thứ gì bạn nội suy vào một template string, giống như đối với bất kỳ giá trị động nào khác. Nội dung đến từ CMS hoặc từ một người dịch không phải là markup mà bạn kiểm soát. Bước 5 cho thấy một hàm escape tối thiểu.
 
 </Question>
-
 <Question title="Nội dung tương tự có thể phục vụ cho các phản hồi API của tôi không?">
 
 Có. Các backend integrations expose `t()` và `getIntlayer()` cho bất kỳ handler nào, vì vậy một error message hiển thị trong toast và một label được render thành fragment đều đến từ cùng một declared content. Xem các hướng dẫn [Express](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_express.md), [Fastify](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_fastify.md), [Hono](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_hono.md) và [Elysia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_elysia.md).
 
 </Question>
-
 <Question title="Tôi có phải di chuyển nội dung từng khóa một không?">
 
 Không. Chạy `npx intlayer extract` và Intlayer sẽ đọc các tệp nguồn của bạn, trích xuất các chuỗi dành cho người dùng và tạo một tệp `.content` bên cạnh mỗi tệp, vì vậy bạn xem xét một diff thay vì sao chép các chuỗi vào catalog từng cái một. Xem [lệnh extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/extract.md).
 
 </Question>
-
 <Question title="Tôi có thể giữ các tệp dịch JSON hiện có của mình không?">
 
 Có. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-json.md) giữ cho các file `/messages/{locale}/{namespace}.json` của bạn là nguồn sự thật duy nhất và tạo các từ điển Intlayer từ chúng, theo cả hai hướng. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/plugins/sync-po.md) làm tương tự cho các catalog gettext, và [các file theo locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/per_locale_file.md) cho phép bạn chia nội dung theo ngôn ngữ thay vì nhóm các locale trong một file.
 
 </Question>
-
 <Question title="Làm cách nào tôi có thể dịch ứng dụng tự động bằng AI?">
 
 Chạy `npx intlayer fill`, lệnh này điền các bản dịch còn thiếu bằng LLM mà bạn chọn sử dụng nhà cung cấp và API key của riêng bạn. Thêm `--git-diff` để chỉ dịch nội dung đã thay đổi trên branch. Xem [lệnh fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/fill.md) và [tích hợp CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer có hỗ trợ gender, điều kiện và các giá trị được nội suy không?">
 
 Có: [nội dung dựa trên giới tính](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/gender.md), điều kiện, [liệt kê](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/enumeration.md), [chèn](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/insertion.md) cho các giá trị nội suy, và [định dạng](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/formatters.md) cho số, ngày tháng và tiền tệ.
 
 </Question>
-
 <Question title="Có những công cụ editor và AI agent nào có sẵn?">
 
 Năm phần, tất cả đều là tùy chọn:
@@ -746,7 +724,6 @@ Năm phần, tất cả đều là tùy chọn:
 - **[ESLint plugin](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/eslint.md)**: `no-raw-text` đánh dấu các chuỗi được hardcoded.
 
 </Question>
-
 <Question title="Intlayer có phải là phần mềm tự do và mã nguồn mở không?">
 
 Có, theo giấy phép Apache 2.0, bao gồm cả sử dụng thương mại. [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md) được lưu trữ là một dịch vụ trả phí tùy chọn cũng có thể được [tự lưu trữ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/self_hosting.md).

@@ -34,7 +34,6 @@ author: aymericzip
 Zamiast ładować ogromne pliki JSON do stron, ładuj tylko niezbędną zawartość. Intlayer pomaga **zmniejszyć bundle i rozmiary stron nawet o 50%**.
 
 </Accordion>
-
 <Accordion header="Łatwość utrzymania">
 
 Ograniczanie zawartości aplikacji **ułatwia utrzymanie** dużych aplikacji. Możesz zduplikować lub usunąć jeden folder funkcji bez konieczności przeglądania całej bazy kodu zawartości. Ponadto Intlayer jest **w pełni wpisany** aby zapewnić dokładność zawartości.
@@ -42,25 +41,21 @@ Ograniczanie zawartości aplikacji **ułatwia utrzymanie** dużych aplikacji. Mo
 Intlayer jest również rozwiązaniem z **najaktywniejszym rozwojem** w ekosystemie i18n — problemy są naprawiane szybko, nowe adaptery frameworku pojawiają się regularnie, a podstawowy API jest stale ulepsszany na podstawie opinii z produkcji.
 
 </Accordion>
-
 <Accordion header="Agent AI">
 
 Umieszczanie zawartości razem **zmniejsza kontekst potrzebny** przez Duże Modele Języka (LLM). Intlayer zawiera również pakiet narzędzi, takich jak **CLI** do testowania brakujących tłumaczeń, **LSP**, **MCP** i **agent skills**, aby jeszcze bardziej gładka była doświadczenie dla programistów (DX) dla agentów AI.
 
 </Accordion>
-
 <Accordion header="Automatyzacja">
 
 Użyj automatyzacji do tłumaczenia w pipeline CI/CD korzystając z wybranego LLM za koszt dostawcy AI. Intlayer oferuje również **kompilator** do automatycznego wyodrębniania zawartości, a także **platforma internetowa** aby pomóc **tłumaczyć w tle**.
 
 </Accordion>
-
 <Accordion header="Wydajność">
 
 Łączenie dużych plików JSON z komponentami może prowadzić do problemów z wydajnością i reaktywnością. Intlayer optymalizuje ładowanie zawartości w czasie budowania.
 
 </Accordion>
-
 <Accordion header="Skalowanie wraz z non-dev">
 
 Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia samodzielnie hostowany **edytor wizualny** i **pełny CMS** aby pomóc ci zarządzać multilingual zawartością w **rzeczywistym czasie**, czyniąc współpracę z tłumaczami, copywriterami i innymi członkami zespołu bezproblemową. Zawartość może być przechowywana lokalnie i/lub zdalnie.
@@ -87,7 +82,6 @@ Ten przewodnik obejmuje **Strategię 1** najpierw (adapter compat drop-in), a na
 Poniższe kroki to minimum wymagane, aby uruchomić istniejącą aplikację Nuxt w Intlayer bez żadnych zmian kodu w komponentach.
 
 <Steps>
-
 <Step number={1} title="Instalacja zależności">
 
 Zainstaluj główne pakiety Intlayer i adapter kompatybilności:
@@ -131,7 +125,6 @@ bun add intlayer vue-intlayer nuxt-intlayer @intlayer/vue-i18n @intlayer/sync-js
 > Możesz bezpiecznie utrzymać `@nuxtjs/i18n` zainstalowany podczas migracji, chociaż usuniemy go z konfiguracji Nuxt wkrótce.
 
 </Step>
-
 <Step number={2} title="Konfiguracja Intlayer">
 
 Komenda `intlayer init` tworzy starter `intlayer.config.ts`. Zaktualizuj go, aby pasował do twoich istniejących lokalizacji i wskaż plugin `syncJSON` na pliki wiadomości:
@@ -166,7 +159,6 @@ export default config;
 > **`source`** mapuje lokalizację na ścieżkę pliku JSON. **`location`** mówi obserwatorowi Intlayer, który folder monitorować pod kątem zmian. Opcja `format: 'icu'` zapewnia, że placeholdery są poprawnie analizowane dla `vue-i18n`.
 
 </Step>
-
 <Step number={3} title="Aktualizacja konfiguracji Nuxt">
 
 Zastąp moduł `@nuxtjs/i18n` modułem `nuxt-intlayer` w pliku `nuxt.config.ts`. Plugin Intlayer automatycznie wstrzykuje aliasy modułów, co oznacza, że istniejące wywołania `import { useI18n } from 'vue-i18n'` są transparentnie przekierowywane do `@intlayer/vue-i18n`.
@@ -191,7 +183,6 @@ To wszystko dla szybkiej migracji. Twoja aplikacja Nuxt działa teraz na Intlaye
 Poniższe kroki są opcjonalne i można je wykonywać przyrostowo. Odblokują one pełny zestaw funkcji Intlayer: edytor wizualny, CMS, typed content files, tłumaczenie wspierane sztuczną inteligencją i wiele więcej.
 
 <Steps>
-
 <Step number={4} title="Explicit import renaming (optional)" isOptional={true}>
 
 Pluginy Intlayer już obsługują aliasing na poziomie bundlera. Jeśli wolisz uczynić zależność jawną w plikach źródłowych, możesz ręcznie zmienić nazwy importów:
@@ -203,7 +194,6 @@ Pluginy Intlayer już obsługują aliasing na poziomie bundlera. Jeśli wolisz u
 To są **drop-in replacements** — nie są wymagane żadne zmiany sygnatur funkcji, argumentów ani typów zwracanych.
 
 </Step>
-
 <Step number={5} title="Enable AI-Powered Translation Automation" isOptional={true}>
 
 Gdy Intlayer jest już skonfigurowany, użyj jego CLI do automatycznego uzupełniania brakujących tłumaczeń:

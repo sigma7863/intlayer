@@ -78,7 +78,6 @@ Intlayer کے ساتھ، آپ کر سکتے ہیں:
 GitHub پر [ایپلیکیشن ٹیمپلیٹ](https://github.com/aymericzip/intlayer-angular-22-template) دیکھیں۔
 
 <Steps>
-
 <Step number={1} title="منحصر چیزیں انسٹال کریں">
 
 npm کا استعمال کرتے ہوئے ضروری پیکجز انسٹال کریں:
@@ -134,7 +133,6 @@ bun add @angular-builders/custom-esbuild --dev
   Angular CLI کی esbuild کنفیگریشن کو حسب ضرورت بنانے کے لیے درکار ہے۔
 
 </Step>
-
 <Step number={2} title="آپ کے پروجیکٹ کی کنفیگریشن">
 
 اپنی ایپ کی زبانوں کو کنفیگر کرنے کے لیے ایک کنفیگریشن فائل بنائیں:
@@ -160,7 +158,6 @@ export default config;
 > اس کنفیگریشن فائل کے ذریعے، آپ لوکلائزڈ URLs، مڈل ویئر ری ڈائریکشن، کوکی کے نام، اپنے مواد کے اعلانات کا مقام اور توسیع ترتیب دے سکتے ہیں، کنسول میں Intlayer لاگز کو غیر فعال کر سکتے ہیں، اور بہت کچھ کر سکتے ہیں۔ دستیاب پیرامیٹرز کی مکمل فہرست کے لیے، [کنفیگریشن دستاویزات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ur/configuration.md) سے رجوع کریں۔
 
 </Step>
-
 <Step number={3} title="اپنی Angular کنفیگریشن میں Intlayer کو شامل کریں">
 
 Intlayer کو Angular CLI کے ساتھ مربوط کرنے کے لیے، آپ کو ایک کسٹم بلڈر استعمال کرنے کی ضرورت ہے۔ یہ گائیڈ فرض کرتی ہے کہ آپ Vite/esbuild (Angular 22 پروجیکٹس کے لیے ڈیفالٹ) استعمال کر رہے ہیں۔
@@ -224,7 +221,6 @@ export default [intlayerEsbuildPlugin()];
 > پھر `angular.json` میں `"./esbuild.plugins.ts"` کے بجائے `"./esbuild.plugins.mjs"` کی طرف اشارہ کریں۔
 
 </Step>
-
 <Step number={4} title="اپنے مواد کا اعلان کریں">
 
 تراجم کو ذخیرہ کرنے کے لیے اپنے مواد کے اعلانات بنائیں اور ان کا نظم کریں:
@@ -276,7 +272,6 @@ export default appContent;
 > مزید تفصیلات کے لیے، [مواد کے اعلان کے دستاویزات](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ur/dictionary/content_file.md) سے رجوع کریں۔
 
 </Step>
-
 <Step number={5} title="اپنے کوڈ میں Intlayer کا استعمال کریں">
 
 اپنی پوری Angular ایپلی کیشن میں Intlayer کی بین الاقوامی سازی کی خصوصیات کو استعمال کرنے کے لیے، آپ کو ایپ کی کنفیگریشن میں Intlayer فراہم کرنا ہوگا۔
@@ -326,7 +321,6 @@ export class AppComponent {
 Intlayer مواد ایک `Signal` کے طور پر لوٹایا جاتا ہے، لہذا آپ سگنل کو کال کر کے اقدار تک رسائی حاصل کرتے ہیں: `content().title`۔
 
 </Step>
-
 <Step number={6} title="اپنے مواد کی زبان تبدیل کریں" isOptional={true}>
 
 اپنے مواد کی زبان کو تبدیل کرنے کے لیے، آپ `useLocale` فنکشن کے ذریعے فراہم کردہ `setLocale` فنکشن کا استعمال کر سکتے ہیں۔ یہ آپ کو ایپ کا لوکیل سیٹ کرنے اور اسی کے مطابق مواد کو اپ ڈیٹ کرنے کی سہولت دیتا ہے۔

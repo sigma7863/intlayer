@@ -70,37 +70,31 @@ author: aymericzip
 Intlayer は、**多言語ルーティング**、**SSR サポート**、およびスケーリング国際化 (i18n) に必要なすべての機能を提供することにより、SvelteKit と完全に連携するように最適化されています。
 
 </Accordion>
-
 <Accordion header="Bundle size">
 
 大量の JSON ファイルをページにロードするのではなく、必要なコンテンツのみをロードします。 Intlayer は、**バンドルとページのサイズを最大 50% 削減**するのに役立ちます。
 
 </Accordion>
-
 <Accordion header="保守性">
 
 アプリケーションのコンテンツのスコープを設定すると、大規模なアプリケーションの **メンテナンスが容易になります**。コンテンツ コードベース全体を確認するという精神的な負担を負うことなく、単一の機能フォルダーを複製または削除できます。さらに、Intlayer は**完全に型指定**されており、コンテンツの正確性を保証します。
 
 </Accordion>
-
 <Accordion header="AI Agent">
 
 コンテンツを同じ場所に配置すると、大規模言語モデル (LLM) によって **必要なコンテキストが削減**されます。 Intlayer には、翻訳の欠落をテストする **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** などのツール スイートも付属しています。および **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/agent_skills.md)** により、AI エージェントの開発者エクスペリエンス (DX) がさらにスムーズになります。
 
 </Accordion>
-
 <Accordion header="自動化">
 
 AI プロバイダーの費用で、選択した LLM を使用して CI/CD パイプラインで自動化を変換します。 Intlayer は、コンテンツ抽出を自動化する **コンパイラー** と、**バックグラウンドでの翻訳**を支援する [Web プラットフォーム](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) も提供します。
 
 </Accordion>
-
 <Accordion header="パフォーマンス">
 
 大量の JSON ファイルをコンポーネントに接続すると、パフォーマンスと反応性の問題が発生する可能性があります。 Intlayer は、ビルド時のコンテンツの読み込みを最適化します。
 
 </Accordion>
-
 <Accordion header="none-dev でのスケーリング">
 
 Intlayer は単なる i18n ソリューションではなく、**自己ホスト型 [ビジュアル エディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** と **[完全な CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** を提供します。 **リアルタイム**で多言語コンテンツを管理できるようになり、翻訳者、コピーライター、その他のチーム メンバーとのコラボレーションがシームレスになります。コンテンツはローカルおよび/またはリモートに保存できます。
@@ -155,7 +149,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 ```
 
 <Steps>
-
 <Step number={1} title="依存関係をインストール">
 
 npm を使用して必要なパッケージをインストールしてください:
@@ -205,7 +198,6 @@ bun add vite-intlayer --save-dev
 - **vite-intlayer**: コンテンツ宣言をビルドプロセスに統合するViteプラグイン。
 
 </Step>
-
 <Step number={2} title="プロジェクトの設定">
 
 プロジェクトのルートに設定ファイルを作成します:
@@ -224,7 +216,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Intlayer を Vite 設定に統合する">
 
 `vite.config.ts` を更新して、Intlayer プラグインを含めます。このプラグインは、コンテンツファイルのトランスパイルを処理します。
@@ -240,7 +231,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="コンテンツを宣言する">
 
 `src` フォルダ内の任意の場所（例：`src/lib/content` またはコンポーネントの隣）にコンテンツ宣言ファイルを作成します。これらのファイルは、各ロケールに対して `t()` 関数を使用してアプリケーション用の翻訳可能なコンテンツを定義します。
@@ -264,7 +254,6 @@ export default heroContent;
 ```
 
 </Step>
-
 <Step number={5} title="Intlayerをコンポーネントで利用する">
 
 これで、任意の Svelte コンポーネントで `useIntlayer` 関数を使用できます。これはロケールが変更されると自動的に更新されるリアクティブストアを返します。この関数は現在のロケール (SSR とクライアント側のナビゲーション の両方) を自動的に尊重します。
@@ -290,7 +279,6 @@ export default heroContent;
 ```
 
 </Step>
-
 <Step number={6} title="ルーティングの設定" isOptional={true}>
 
 以下の手順は、SvelteKit でロケールベースのルーティングをセットアップする方法を示しています。これにより、URL にロケールプレフィックス (例: `/en/about`, `/fr/about`) を含めることができ、SEO とユーザー体験が向上します。
@@ -317,7 +305,6 @@ export default heroContent;
 ```
 
 </Step>
-
 <Step number={7} title="サーバーサイドのロケール検出を処理する">
 
 SvelteKit では、SSR 時に正しいコンテンツをレンダリングするため、サーバーはユーザーのロケールを認識する必要があります。`hooks.server.ts` を使用して、URL またはクッキーからロケールを検出します。
@@ -532,7 +519,6 @@ export const prerender = true;
 ```
 
 </Step>
-
 <Step number={8} title="国際化されたリンク" isOptional={true}>
 
 SEO のため、ルートをロケール接頭辞を付けることが推奨されます (例: `/en/about`, `/fr/about`)。このコンポーネントは現在のロケールで自動的にリンクに接頭辞を付けます。
@@ -567,7 +553,6 @@ goto(localizedPath); // ロケールに応じて /en/about または /fr/about �
 ```
 
 </Step>
-
 <Step number={1} title="コンポーネントのコンテンツを抽出する" isOptional={true}>
 
 既存のコードベースがある場合、数千のファイルを変換するのは時間がかかることがあります。
@@ -610,7 +595,6 @@ goto(localizedPath); // ロケールに応じて /en/about または /fr/about �
 ```
 
 </Step>
-
 <Step number={10} title="バックエンドプロキシを追加する" isOptional={true}>
 
 SvelteKitアプリケーションにバックエンドプロキシを追加するには、`vite-intlayer`プラグインが提供する`intlayerProxy`関数を使用できます。このプラグインは、URL、クッキー、およびブラウザーの言語設定に基づいて、ユーザーに最適なロケールを自動的に検出します。
@@ -636,7 +620,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={11} title="intlayer editor / CMS を設定する" isOptional={true}>
 
 intlayer エディターをセットアップするには、[intlayer エディターのドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)に従う必要があります。
@@ -663,7 +646,6 @@ intlayer editor selector を視覚化するには、intlayer のコンテンツ�
 ```
 
 </Step>
-
 <Step number={12} title="コンポーネントのコンテンツを抽出する" isOptional={true}>
 
 既存の codebase がある場合、数千のファイルを変換するのに時間がかかる可能性があります。
@@ -797,25 +779,21 @@ Intlayerによって生成されたファイルを無視することをお勧め
 SvelteKit ではサーバーサイドの部分に違いが現れます。hooks でのロケール検出、ローカライズされたリンク、エディタ統合がライブラリに付属しており、プロジェクトごとに組み立てる必要がありません。[Intlayer を選ぶ理由](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/interest_of_intlayer.md)と [Svelte i18n ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/svelte.md)を参照してください。
 
 </Question>
-
 <Question title="i18n は SvelteKit のバンドルサイズにどの程度の影響を与えますか？">
 
 ネームスペースベースのセットアップよりもはるかに少なくなります。ページはレンダリングしないカタログをダウンロードしないためです。サーバーレンダリングされたマークアップはサーバー上でコンテンツを解決し、ビルド時コンパイラは `useIntlayer` 呼び出しをコンポーネントが使用する正確な辞書エントリに置き換えるため、未使用のキーと未使用の言語は削除され、[動的辞書](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md)は残りをロケールごとに分割します。通常の代替案と比較すると、Intlayer はバンドルとページサイズを最大 50% 削減します。[バンドル最適化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/bundle_optimization.md)と[ベンチマーク](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/benchmark/svelte.md)を参照してください。
 
 </Question>
-
 <Question title="`svelte-i18n` または `typesafe-i18n` からコンポーネントを書き直さずに移行できますか？">
 
 ほぼ可能です。[Svelte I18n 移行ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/compat/svelte-i18n.md)に従ってコンテンツを移動してください。段階的に移行することもできます。[sync JSON プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は既存の JSON カタログを信頼できるソースとして保ち、それらから Intlayer 辞書を生成するため、両方のレイヤーが同期を保ちながらコンポーネントを 1 つずつ移動できます。
 
 </Question>
-
 <Question title="既存の JSON 翻訳ファイルを保持できますか？">
 
 はい。[sync JSON プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-json.md)は `/messages/{locale}/{namespace}.json` ファイルを信頼できるソースとして保ち、双方向で Intlayer 辞書を生成します。[sync PO プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/plugins/sync-po.md)は gettext カタログに対して同じことを行い、[ロケールごとのファイル](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/per_locale_file.md)では 1 つのファイルにロケールをグループ化する代わりに言語ごとにコンテンツを分割できます。
 
 </Question>
-
 <Question title="コンテンツをキーごとに移動する必要がありますか？">
 
 いいえ。`npx intlayer extract` を実行すると、Intlayer はコンポーネントを読み込み、ユーザーに見える文字列を抽出し、各コンポーネントの隣に `.content` ファイルを書き込むため、文字列をカタログに 1 つずつコピーする代わりに diff をレビューできます。このガイドのステップ 12 でそれについて説明しています。
@@ -825,7 +803,6 @@ SvelteKit ではサーバーサイドの部分に違いが現れます。hooks �
 コンパイラをオンにする前に知っておく価値のある 2 つの制限があります。静的分析によって機能するため、API エラーコードや CMS フィールドなど、実行時にのみ存在する文字列は到達不可能です。また、`className="active"` やステータスコードなどのアプリケーションロジックからユーザーに見える文字列を区別する必要があり、大規模なコードベースではいくつかのアノテーションが必要です。[extract コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/extract.md)はあなたをループに保つことでその両方を回避します。
 
 </Question>
-
 <Question title="利用可能なエディタと AI エージェントツールは何ですか？">
 
 5 つのピース、すべてオプションです：
@@ -837,43 +814,36 @@ SvelteKit ではサーバーサイドの部分に違いが現れます。hooks �
 - **[ESLint プラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/eslint.md)**: `no-raw-text` はハードコードされた文字列にフラグを立て、静的辞書キーと未使用コンテンツのさらなるルールがあります。
 
 </Question>
-
 <Question title="Intlayer は SvelteKit のサーバーサイドレンダリングとプリレンダリングで機能しますか？">
 
 はい。ステップ 7 は `hooks.server.ts` でのサーバーサイドロケール検出をカバーしているため、最初の HTML レスポンスはすでに正しい言語を含んでおり、これは検索エンジンとソーシャルクローラーが読むものです。プリレンダリングされたルートはビルド時にコンテンツを解決します。
 
 </Question>
-
 <Question title="ローカライズされたルートと国際化されたリンクをセットアップするにはどうすればよいですか？">
 
 ステップ 6 と 8 でカバーしています。ルートツリー上のロケールセグメントと、リンク用の `getLocalizedUrl` はナビゲーションをアクティブな言語内に保ち、`routing.mode` はデフォルトロケールがまったくプレフィックスされるかどうかを決定します。[設定リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
 </Question>
-
 <Question title="Svelte で言語スイッチャーを構築するにはどうすればよいですか？">
 
 ステップ 9 がコンポーネントを示しています。`useLocale` はアクティブなロケール、宣言されたロケール、cookie に選択を永続化するセッターを公開し、`getLocalizedUrl` は現在のパスを書き直すため、読者は言語を切り替えた後も同じページに留まります。
 
 </Question>
-
 <Question title="SvelteKit アプリを AI で自動的に翻訳するにはどうすればよいですか？">
 
 `npx intlayer fill` を実行します。これは選択した LLM を使用して独自のプロバイダーと API キーで不足している翻訳を入力し、`--git-diff` は実行をブランチで変更されたコンテンツに制限します。[fill コマンド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/fill.md)と [CI/CD 統合](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/CI_CD.md)を参照してください。
 
 </Question>
-
 <Question title="Intlayer は複数形、性別、リッチテキストをサポートしていますか？">
 
 はい：[複数形](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/plurial.md)、[性別ベースのコンテンツ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/gender.md)、条件、[挿入](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/insertion.md)、[Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/markdown.md)、および数値、日付、通貨の[フォーマッター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/formatters.md)。
 
 </Question>
-
 <Question title="翻訳者がコードに触れずにコンテンツを編集するにはどうすればよいですか？">
 
 [ビジュアルエディタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)を通じて、独自のインフラストラクチャで実行され、誰でも実行中のアプリ上でテキストをその場で編集できます。または、[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)を通じて、コンテンツを外部化してデプロイなしで変更できます。
 
 </Question>
-
 <Question title="Intlayer は無料でオープンソースですか？">
 
 はい、Apache 2.0 ライセンスの下で、商用利用を含みます。ホストされた CMS はオプションの有料サービスで、[自己ホスト](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md)することもできます。

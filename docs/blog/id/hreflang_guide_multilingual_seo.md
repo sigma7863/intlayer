@@ -144,7 +144,6 @@ Satu struktur yang harus dihindari: melayani bahasa berbeda di **URL yang sama**
 Menulis tag ini secara manual tidak akan bertahan dengan locale kedua. Turunkan tag-tag ini dari daftar locale Anda.
 
 <Steps>
-
 <Step number={1} title="Emit cluster di setiap halaman">
 
 Set yang sama di mana saja, canonical per locale, URL absolut, `x-default` disertakan.
@@ -233,7 +232,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="Atau pindahkan semuanya ke sitemap">
 
 Dalam skala besar, jangan sertakan anotasi di halaman Anda sama sekali. `generateSitemap` mengeluarkan alternates `xhtml:link` per entri, membaca locale dan mode routing dari konfigurasi Anda:
@@ -256,7 +254,6 @@ Dua opsi yang perlu diketahui:
 - `entryPerLocale` (default `false`) — secara default satu entri `<url>` membawa semua alternates. Kedua bentuk valid, namun hanya URL yang terdaftar sebagai `<loc>` yang dihitung sebagai _submitted_ di Search Console; locale alternate-only tetap discoverable namun tidak dikaitkan dengan sitemap. Mengaktifkan ini memberikan setiap URL lokal entri tersendiri dengan set alternate lengkap yang diulang. Ini mengalikan entri berdasarkan jumlah locale, jadi perhatikan batas 50 000 URL / 50 MB dan pisahkan ke sitemap index melampaui batas itu.
 
 </Step>
-
 <Step number={3} title="Verifikasi apa yang diterima crawler">
 
 `hreflang` gagal secara senyap, jadi periksa daripada menganggap.

@@ -71,7 +71,6 @@ Ainsi, RAG n’est pas seulement un outil de support. C’est aussi un **moteur 
 6.  **Enregistrement des requêtes pour feedback** Chaque requête utilisateur est stockée. C’est une mine d’or pour comprendre les points de douleur, les documents manquants ou les nouvelles opportunités.
 
 <Steps>
-
 <Step number={1} title="Lecture des Docs">
 
 La première étape était simple : j’avais besoin d’un moyen pour scanner un dossier docs/ à la recherche de tous les fichiers .md. En utilisant Node.js et glob, j’ai récupéré le contenu de chaque fichier Markdown en mémoire.
@@ -79,7 +78,6 @@ La première étape était simple : j’avais besoin d’un moyen pour scanner u
 Cela maintient la flexibilité du pipeline : au lieu de Markdown, vous pourriez récupérer les documents depuis une base de données, un CMS, ou même une API.
 
 </Step>
-
 <Step number={2} title="Découpage de la documentation">
 
 Pourquoi découper ? Parce que les modèles de langage ont des **limites de contexte**. Leur fournir un livre entier de documentation ne fonctionnera pas.
@@ -99,7 +97,6 @@ Ce compromis (taille des chunks vs chevauchement) est essentiel pour l'efficacit
 - Trop grand → vous explosez la taille du contexte.
 
 </Step>
-
 <Step number={3} title="Génération des embeddings">
 
 Une fois les documents découpés en chunks, nous générons des **embeddings**, des vecteurs de haute dimension représentant chaque chunk.
@@ -119,7 +116,6 @@ J'ai utilisé le modèle text-embedding-3-large d'OpenAI, mais vous pouvez utili
 Chaque vecteur est une empreinte mathématique du texte, permettant la recherche de similarité.
 
 </Step>
-
 <Step number={4} title="Indexation et stockage des embeddings">
 
 Pour éviter de régénérer les embeddings plusieurs fois, je les ai stockés dans embeddings.json.
@@ -134,7 +130,6 @@ En production, vous voudriez probablement une base de données vectorielle telle
 Les bases de données vectorielles gèrent l’indexation, la scalabilité et la recherche rapide. Mais pour mon prototype, un JSON local a très bien fonctionné.
 
 </Step>
-
 <Step number={5} title="Recherche avec similarité cosinus">
 
 Lorsqu’un utilisateur pose une question :
@@ -148,7 +143,6 @@ La similarité cosinus mesure l’angle entre deux vecteurs. Une correspondance 
 Ainsi, le système trouve les passages de documents les plus proches de la requête.
 
 </Step>
-
 <Step number={6} title="Augmentation + Génération">
 
 Voici la magie. Nous prenons les meilleurs chunks et les injectons dans le **prompt système** pour ChatGPT.
@@ -158,7 +152,6 @@ Cela signifie que le modèle répond comme si ces extraits faisaient partie de l
 Le résultat : des réponses précises, **fondées sur la documentation**.
 
 </Step>
-
 <Step number={7} title="Enregistrement des requêtes utilisateur">
 
 C’est la superpuissance cachée.
@@ -173,7 +166,6 @@ Chaque question posée est stockée. Au fil du temps, vous constituez un ensembl
 Cela transforme votre assistant RAG en un **outil continu de recherche utilisateur**.
 
 </Step>
-
 <Step number={8} title="Quel est le coût ?">
 
 Une objection courante au RAG est le coût. En pratique, c’est étonnamment peu cher :
@@ -185,7 +177,6 @@ Une objection courante au RAG est le coût. En pratique, c’est étonnamment pe
 En plus de cela, vous pouvez inclure le coût d’hébergement.
 
 </Step>
-
 <Step number={9} title="Détails de l’implémentation">
 
 Stack :

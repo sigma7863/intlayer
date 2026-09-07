@@ -57,7 +57,6 @@ Storybook تنہائی میں UI اجزاء کی تیاری اور دستاوی�
 <Tab value="Vite Setup">
 
 <Steps>
-
 <Step number={1} title="انحصارات (Dependencies) انسٹال کریں">
 
 ```bash packageManager="npm"
@@ -87,7 +86,6 @@ bun add vite-intlayer --dev
 | `vite-intlayer`  | Vite پلگ ان - مواد کے اعلان کی فائلوں کی نگرانی اور ترتیب کرتا ہے |
 
 </Step>
-
 <Step number={2} title="Intlayer کنفیگریشن فائل بنائیں">
 
 اپنے پروجیکٹ کی جڑ (root) میں (یا اپنے ڈیزائن سسٹم پیکیج کے اندر) `intlayer.config.ts` بنائیں:
@@ -116,7 +114,6 @@ export default config;
 > اختیارات کی مکمل فہرست کے لیے [کنفیگریشن حوالہ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ur/configuration.md) دیکھیں۔
 
 </Step>
-
 <Step number={3} title="Storybook میں Vite پلگ ان شامل کریں">
 
 Storybook کا `viteFinal` ہک آپ کو اندرونی Vite کنفیگریشن بڑھانے کی اجازت دیتا ہے۔ وہاں `intlayer()` پلگ ان درآمد کریں اور شامل کریں:
@@ -163,7 +160,6 @@ export default config;
 `intlayer()` پلگ ان آپ کی `*.content.ts` فائلوں کی نگرانی کرتا ہے اور Storybook کی تیاری کے دوران جب بھی وہ تبدیل ہوتی ہیں تو خود بخود ڈکشنریوں کو دوبارہ تیار کرتا ہے۔
 
 </Step>
-
 <Step number={4} title="`IntlayerProvider` ڈیکوریٹر اور لوکل ٹول بار شامل کریں">
 
 Storybook کی `preview` فائل ہر سٹوری کو `IntlayerProvider` کے اندر لپیٹنے اور ٹول بار میں زبان منتخب کرنے والا بٹن دکھانے کے لیے موزوں جگہ ہے:
@@ -223,7 +219,6 @@ export default preview;
 </Tab>
 <Tab value="Webpack Setup">
 <Steps>
-
 <Step number={1} title="انحصارات انسٹال کریں">
 
 ```bash packageManager="npm"
@@ -247,7 +242,6 @@ bun add @intlayer/webpack --dev
 ```
 
 </Step>
-
 <Step number={2} title="Intlayer کنفیگریشن فائل بنائیں">
 
 اپنے پروجیکٹ کی جڑ میں `intlayer.config.ts` بنائیں:
@@ -269,7 +263,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={3} title="Storybook کے Webpack کو کنفیگر کریں">
 
 Webpack پر مبنی Storybook سیٹ اپس کے لیے (مثلاً `@storybook/react-webpack5`) ، `webpackFinal` کے ذریعے ویب پیک کنفیگریشن کو بڑھائیں تاکہ Intlayer ایلیئسز اور لوڈر شامل کیا جا سکے:
@@ -296,7 +289,6 @@ export default config;
 ```
 
 </Step>
-
 <Step number={4} title="`IntlayerProvider` ڈیکوریٹر اور لوکل ٹول بار شامل کریں">
 
 وہی جو Vite سیٹ اپ کے لیے ہے - `.storybook/preview.tsx` میں ڈیکوریٹر اور عالمی لوکل ٹائپ شامل کریں:

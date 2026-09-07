@@ -52,37 +52,31 @@ author: aymericzip
 Intlayer оптимізовано для ідеальної роботи з Nuxt, пропонуючи **багатомовну маршрутизацію**, **проміжне програмне забезпечення для визначення локалі**, **карту сайту** та всі функції, необхідні для інтернаціоналізації масштабування (i18n).
 
 </Accordion>
-
 <Accordion header="Розмір бандлу">
 
 Замість того, щоб завантажувати великі файли JSON на свої сторінки, завантажуйте лише необхідний вміст. Intlayer допомагає **зменшити розмір бандлу і сторінок до 50%**.
 
 </Accordion>
-
 <Accordion header="Підтримуваність">
 
 Організація вмісту за окремими областями (scoping) **полегшує технічне обслуговування** великомасштабних програм. Ви можете скопіювати або видалити окрему папку функцій без розумового навантаження перегляду всієї кодової бази вмісту. Крім того, Intlayer **повністю типізований (fully typed)**, щоб забезпечити точність вашого вмісту.
 
 </Accordion>
-
 <Accordion header="Агент AI">
 
 Спільне розміщення вмісту **зменшує контекст, необхідний** для великих мовних моделей (LLM). Intlayer також постачається з набором інструментів, наприклад **CLI** для перевірки відсутніх перекладів,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** і **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/agent_skills.md)**, щоб зробити роботу розробника (DX) ще зручнішою для агентів ШІ.
 
 </Accordion>
-
 <Accordion header="Автоматизація">
 
 Використовуйте автоматизацію для перекладу в конвеєрі CI/CD за допомогою LLM за вашим вибором за рахунок вашого постачальника штучного інтелекту. Intlayer також пропонує **компілятор** для автоматизації екстракція вмісту, а також [веб-платформу](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md), щоб допомогти **перекладати у фоновому режимі**.
 
 </Accordion>
-
 <Accordion header="Продуктивність">
 
 Підключення великих файлів JSON до компонентів може призвести до проблем з продуктивністю та реакцією. Intlayer оптимізує завантаження вмісту під час збірки (build time).
 
 </Accordion>
-
 <Accordion header="Співпраця з не-розробниками">
 
 Більше ніж просто рішення i18n, Intlayer пропонує **власний [візуальний редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** і **[повний CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**, щоб допомогти вам керувати своїм багатомовним вмістом у **реальному часі**, спрощуючи співпрацю з перекладачами, копірайтерами та іншими членами команди. Контент можна зберігати локально та/або віддалено.
@@ -125,7 +119,6 @@ Intlayer оптимізовано для ідеальної роботи з Nuxt
 Перегляньте репозиторій Application Template на GitHub: https://github.com/aymericzip/intlayer-nuxt-4-template
 
 <Steps>
-
 <Step number={1} title="Встановлення залежностей">
 
 Встановіть необхідні пакети за допомогою відповідного пакетного менеджера:
@@ -181,7 +174,6 @@ bun add --dev nuxt-intlayer
   Nuxt-модуль, який інтегрує Intlayer у Nuxt-застосунки. Він забезпечує автоматичне налаштування, middleware для виявлення локалі, керування cookie та перенаправлення URL.
 
 </Step>
-
 <Step number={2} title="Конфігурація вашого проєкту">
 
 Створіть файл конфігурації, щоб налаштувати мови вашого застосунку:
@@ -207,7 +199,6 @@ export default config;
 > Через цей файл конфігурації ви можете налаштувати локалізовані URL, перенаправлення через middleware, імена cookie, розташування та розширення ваших декларацій контенту, відключити логи Intlayer у консолі та інше. Для повного переліку доступних параметрів зверніться до [документації з конфігурації](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/configuration.md).
 
 </Step>
-
 <Step number={3} title="Інтеграція Intlayer у вашу конфігурацію Nuxt">
 
 Додайте модуль intlayer до вашої конфігурації Nuxt:
@@ -224,7 +215,6 @@ export default defineNuxtConfig({
 > Модуль `nuxt-intlayer` автоматично керує інтеграцією Intlayer з Nuxt. Він налаштовує побудову декларацій контенту, відстежує файли в режимі розробки, надає middleware для виявлення локалі та керує локалізованим маршрутизуванням.
 
 </Step>
-
 <Step number={4} title="Оголосіть свій контент">
 
 Створюйте та керуйте деклараціями контенту для збереження перекладів:
@@ -264,7 +254,6 @@ export default content;
 > Для детальнішої інформації див. [документацію щодо оголошення контенту](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Використання Intlayer у вашому коді">
 
 Отримуйте доступ до ваших словників контенту в усьому Nuxt-застосунку за допомогою композиції `useIntlayer`:
@@ -335,7 +324,6 @@ Intlayer пропонує різні API для доступу до вашого
 - Або використовуйте `const { myContent } = useIntlayer("myContent");` і `{{ myContent}}` / `<myContent/>`, щоб деструктурувати контент.
 
 </Step>
-
 <Step number={6} title="Змінити мову вашого контенту" isOptional={true}>
 
 Щоб змінити мову вашого контенту, ви можете використовувати функцію `setLocale`, яку надає composable `useLocale`. Ця функція дозволяє встановити локаль додатка та відповідно оновити контент.
@@ -381,7 +369,6 @@ const { locale, availableLocales, setLocale } = useLocale();
 ```
 
 </Step>
-
 <Step number={7} title="Додайте локалізовану маршрутизацію до вашого застосунку" isOptional={true}>
 
 Nuxt автоматично налаштовує локалізовану маршрутизацію при використанні модуля `nuxt-intlayer`. Це створює маршрути для кожної мови автоматично на основі структури каталогу pages.
@@ -457,7 +444,6 @@ useHead({
 - Перенаправляє користувачів на відповідний локалізований URL
 
 </Step>
-
 <Step number={8} title="Створення локалізованого компонента посилань" isOptional={true}>
 
 Щоб гарантувати, що навігація вашого застосунку відповідає поточній локалі, ви можете створити власний компонент `Links`. Цей компонент автоматично додає префікс із поточною мовою до внутрішніх URL-адрес, що важливо для **SEO та видимості сторінок у пошукових системах**.
@@ -527,7 +513,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 > - Історія браузера коректно працює з URL-адресами, що мають префікс локалі
 
 </Step>
-
 <Step number={9} title="Обробка метаданих та SEO" isOptional={true}>
 
 Nuxt надає потужні можливості для SEO через композицію `useHead` (автоматично імпортується). Ви можете використовувати Intlayer для обробки локалізованих метаданих, використовуючи доступники `.raw` або `.value` для отримання примітивного рядкового значення:
@@ -635,7 +620,6 @@ export default aboutPageContent;
 ```
 
 </Step>
-
 <Step number="6b" title="Створіть Layout з навігацією" isOptional={true}>
 
 Макети Nuxt дозволяють визначити спільну структуру для ваших сторінок. Створіть макет за замовчуванням, який включає перемикач локалі та навігацію:
@@ -711,25 +695,21 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 Див. [чому Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="Скільки i18n додає до розміру бандла Nuxt?">
 
 Значно менше, ніж рішення на основі просторів імен, оскільки сторінка ніколи не завантажує каталог, який вона не рендерить. Компілятор часу збирання замінює виклики `useIntlayer` точними записами словника, а [динамічні словники](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dynamic_dictionaries/index.md) розділяють залишок за локалями, зменшуючи бандл до 50%. Див. [оптимізацію бандла](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/bundle_optimization.md) та [бенчмарк](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/benchmark/index.md).
 
 </Question>
-
 <Question title="Чи можу я мігрувати з @nuxtjs/i18n або vue-i18n без переписування компонентів?">
 
 Так. Дотримуйтесь [посібника з міграції з @nuxtjs/i18n](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/migration_from_vue-i18n_to_intlayer.md) або адаптерів сумісності.
 
 </Question>
-
 <Question title="Чи можу я зберігати мої існуючі JSON файли перекладів?">
 
 Так. [sync JSON плагін](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/plugins/sync-json.md) зберігає ваші файли `/messages/{locale}/{namespace}.json` як джерело істини та генерує словники Intlayer з них в обох напрямках. [sync PO плагін](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/plugins/sync-po.md) робить те ж саме для gettext каталогів, а [файли для окремих локалей](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/per_locale_file.md) дозволяють розділити контент за мовами замість групування локалей в один файл.
 
 </Question>
-
 <Question title="Чи потрібно переносити вміст ключ за ключем?">
 
 Ні. Запустіть `npx intlayer extract`, і Intlayer прочитає ваші файли, витягне призначені для користувача рядки і створить файл `.content` поруч із кожним компонентом, завдяки чому ви переглядаєте diff замість копіювання рядків у каталог вручну. Див. [команду extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/cli/extract.md).
@@ -737,7 +717,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 Для повної автоматизації [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/compiler.md) робить те саме під час збирання та генерує словники під час кожної зміни.
 
 </Question>
-
 <Question title="Які інструменти для редактора та AI агентів доступні?">
 
 П'ять інструментів, усі опціональні:
@@ -749,49 +728,41 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 - **[Плагін ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/eslint.md)**: правило `no-raw-text` відстежує жорстко закодовані рядки.
 
 </Question>
-
 <Question title="Чи працює Intlayer із серверним рендерингом та статичною генерацією в Nuxt?">
 
 Так. Контент вирішується під час SSR та під час `nuxt generate`, тому згенеровані сторінки містять готовий перекладений HTML.
 
 </Question>
-
 <Question title="Чи обов'язково додавати локаль до URL?">
 
 Ні. `routing.mode` приймає `"prefix-no-default"`, `"prefix-all"`, `"no-prefix"` та `"search-params"`.
 
 </Question>
-
 <Question title="Як керувати SEO метаданими та тегами hreflang у Nuxt?">
 
 Крок 9 описує це. Метадані `useHead` формуються зі словників, а `getMultilingualUrls` створює альтернативні посилання `hreflang`.
 
 </Question>
-
 <Question title="Як створити перемикач мов, який зберігає поточну сторінку?">
 
 Використовуючи `useLocale` для отримання активної мови та компонент локалізованого посилання з кроку 8.
 
 </Question>
-
 <Question title="Як автоматично перекласти додаток Nuxt за допомогою AI?">
 
 Запустіть `npx intlayer fill`. Утиліта заповнює відсутні рядки через обрану LLM. Див. [команду fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/cli/fill.md).
 
 </Question>
-
 <Question title="Чи підтримує Intlayer форми множини, стать та форматований текст у шаблонах Vue?">
 
 Так: [форми множини](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/plurial.md), [контент з урахуванням статі](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/gender.md), умови, [вставки](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/insertion.md) та [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/dictionary/markdown.md).
 
 </Question>
-
 <Question title="Як перекладачі можуть редагувати вміст без втручання в код?">
 
 Через [візуальний редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_visual_editor.md), який дозволяє будь-кому редагувати тексти безпосередньо у працюючому додатку, або через [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_CMS.md), яка відокремлює вміст і дозволяє оновлювати його без повторного розгортання коду.
 
 </Question>
-
 <Question title="Чи є Intlayer безкоштовним та відкритим кодом?">
 
 Так, під ліцензією Apache 2.0, включно з комерційним використанням. Хмарна CMS - це додаткова платна послуга, яку також можна [розгорнути самостійно (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/self_hosting.md).

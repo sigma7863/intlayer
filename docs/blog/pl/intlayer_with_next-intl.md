@@ -59,7 +59,6 @@ Ten przewodnik pokazuje, jak wykorzystać zaawansowany system deklaracji treści
 ## Przewodnik krok po kroku, jak skonfigurować Intlayer z next-intl
 
 <Steps>
-
 <Step number={1} title="Instalacja zależności">
 
 Zainstaluj niezbędne pakiety:
@@ -106,7 +105,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin**: Wtyczka do eksportowania deklaracji treści Intlayer do formatu JSON kompatybilnego z next-intl
 
 </Step>
-
 <Step number={2} title="Implementacja wtyczki Intlayer do opakowania JSON">
 
 Utwórz plik konfiguracyjny Intlayer, aby zdefiniować obsługiwane lokalizacje:

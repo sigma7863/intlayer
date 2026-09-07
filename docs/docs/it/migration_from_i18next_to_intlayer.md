@@ -32,7 +32,6 @@ author: aymericzip
 Invece di caricare enormi file JSON nelle tue pagine, carica solo i contenuti necessari. Intlayer ti aiuta a **ridurre la dimensione del bundle e delle pagine fino al 50%**.
 
 </Accordion>
-
 <Accordion header="Manutenibilità">
 
 Definire lo scope dei contenuti della tua applicazione **facilita la manutenzione** per applicazioni su larga scala. Puoi duplicare o eliminare un'intera cartella di funzionalità senza lo sforzo mentale di revisionare l'intero codice dei contenuti. Inoltre, Intlayer è **completamente tipizzato** per garantire la correttezza dei tuoi contenuti.
@@ -40,25 +39,21 @@ Definire lo scope dei contenuti della tua applicazione **facilita la manutenzion
 Intlayer è anche la soluzione con lo **sviluppo più attivo** nell'ecosistema i18n — i problemi vengono risolti rapidamente, nuovi adattatori per framework vengono aggiunti regolarmente e l'API principale viene continuamente affinata sulla base di feedback reali in produzione.
 
 </Accordion>
-
 <Accordion header="Agenti IA">
 
 La co-localizzazione dei contenuti **riduce il contesto necessario** per i Modelli Linguistici di Grandi Dimensioni (LLM). Intlayer offre inoltre una suite di strumenti, come una **CLI** per testare le traduzioni mancanti, **[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/mcp_server.md)**, e **[Agent Skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/agent_skills.md)**, per rendere l'Esperienza Sviluppatore (DX) per gli agenti IA ancora più fluida.
 
 </Accordion>
-
 <Accordion header="Automazione">
 
 Utilizza l'automazione per tradurre nella tua pipeline CI/CD impiegando l'LLM di tua scelta al costo del tuo provider IA. Intlayer offre inoltre un **compilatore** per automatizzare l'estrazione dei contenuti, così come una [piattaforma web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/intlayer_CMS.md) per facilitare **la traduzione in background**.
 
 </Accordion>
-
 <Accordion header="Performance">
 
 Collegare enormi file JSON ai componenti può portare a problemi di performance e reattività. Intlayer ottimizza il caricamento dei contenuti a tempo di build (build-time).
 
 </Accordion>
-
 <Accordion header="Scalabilità con i non-sviluppatori">
 
 Molto più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/intlayer_visual_editor.md)** self-hosted e un **[CMS completo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/intlayer_CMS.md)** per aiutarti a gestire i tuoi contenuti multilingue in **tempo reale**, rendendo fluida la collaborazione con traduttori, copywriter e altri membri del team. Il contenuto può essere archiviato localmente e/o in remoto.
@@ -85,7 +80,6 @@ Questa guida tratta prima la **Strategia 1** (adattatore di compatibilità drop-
 I seguenti passaggi rappresentano il minimo indispensabile per far funzionare la tua app `i18next` esistente su Intlayer, senza modifiche al codice sorgente.
 
 <Steps>
-
 <Step number={1} title="Installare le Dipendenze">
 
 Installa i pacchetti principali di Intlayer e l'adattatore di compatibilità:
@@ -129,7 +123,6 @@ bun add intlayer @intlayer/i18next @intlayer/sync-json-plugin
 > Puoi mantenere installato `i18next` in modo sicuro — l'adattatore di compatibilità lo usa come `devDependency` / `peerDependency` per i tipi TypeScript.
 
 </Step>
-
 <Step number={2} title="Configurare Intlayer">
 
 Il comando `intlayer init` crea un file iniziale `intlayer.config.ts`. Aggiornalo affinché corrisponda alle tue lingue esistenti e indirizza il plugin `syncJSON` verso i tuoi file di messaggi:
@@ -164,7 +157,6 @@ export default config;
 > **`source`** mappa un locale al percorso del suo file JSON. **`location`** dice al watcher di Intlayer quale cartella monitorare per le modifiche. L'opzione `format: 'i18next'` assicura che i placeholder come `{{name}}` vengano interpretati correttamente.
 
 </Step>
-
 <Step number={3} title="Aggiornare l'Alias del Bundler (Opzionale)">
 
 Se stai utilizzando un bundler (Vite, Webpack, esbuild), puoi iniettare un alias di modulo in modo che `import ... from 'i18next'` venga risolto automaticamente in `@intlayer/i18next`. Ciò rimuove la necessità di modificare manualmente le importazioni nell'intera codebase.
@@ -193,7 +185,6 @@ Questo è tutto per la migrazione rapida. La tua app ora è in esecuzione su Int
 I passaggi seguenti sono opzionali e possono essere eseguiti in modo incrementale. Sbloccano l'intera gamma delle funzionalità di Intlayer: editor visivo, CMS, file di contenuto tipizzati, automazione della traduzione basata sull'IA e altro ancora.
 
 <Steps>
-
 <Step number={4} title="Rinominare Esplicitamente le Importazioni (Opzionale)" isOptional={true}>
 
 Se preferisci rendere esplicita la dipendenza nei tuoi file sorgente o non usi un plugin di bundler per creare l'alias delle importazioni, puoi rinominare le importazioni manualmente:
@@ -207,7 +198,6 @@ Se preferisci rendere esplicita la dipendenza nei tuoi file sorgente o non usi u
 Si tratta di **sostituzioni dirette** — non ci sono modifiche necessarie alle firme delle chiamate, agli argomenti o ai tipi di ritorno.
 
 </Step>
-
 <Step number={5} title="Abilitare l'Automazione della Traduzione IA" isOptional={true}>
 
 Una volta configurato Intlayer, usa la CLI per inserire automaticamente le traduzioni mancanti:

@@ -51,37 +51,31 @@ GitHub'da [Uygulama Şablonu](https://github.com/aymericzip/intlayer-lynx-templa
 Intlayer, **bileşen düzeyinde içerik kapsamı**, **TypeScript desteği** ve uluslararasılaştırmayı (i18n) ölçeklendirmek için gereken tüm özellikleri sunarak Lynx ve React ile mükemmel çalışacak şekilde optimize edilmiştir.
 
 </Accordion>
-
 <Accordion header="Bundle boyutu">
 
 Sayfalarınıza çok büyük JSON dosyaları yüklemek yerine yalnızca gerekli içeriği yükleyin. Intlayer **bundle ve sayfa boyutlarınızı %50'ye kadar azaltmanıza** yardımcı olur.
 
 </Accordion>
-
 <Accordion header="Sürdürülebilirlik">
 
 Uygulamanızın içeriğinin kapsamını belirlemek, büyük ölçekli uygulamalar için **bakımı kolaylaştırır**. İçerik kod tabanınızın tamamını gözden geçirmenin zihinsel yükü olmadan, tek bir özellik klasörünü çoğaltabilir veya silebilirsiniz. Ayrıca Intlayer, içeriğinizin doğruluğunu sağlamak için **tamamen tiplendirilmiş (fully typed)tır**.
 
 </Accordion>
-
 <Accordion header="Yapay Zeka Temsilcisi">
 
 İçeriğin bir arada konumlandırılması **Büyük Dil Modellerinin (LLM'ler) ihtiyaç duyduğu bağlamı azaltır**. Intlayer ayrıca eksik çevirileri test etmek için **CLI** gibi bir araç paketiyle birlikte gelir**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** ve **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/agent_skills.md)**, geliştirici deneyimini (DX) yapay zeka için daha da sorunsuz hale getirmek için ajanlar.
 
 </Accordion>
-
 <Accordion header="Otomasyon">
 
 Maliyeti AI sağlayıcınıza ait olmak üzere seçtiğiniz LLM'yi kullanarak CI/CD işlem hattınızda çeviri yapmak için otomasyonu kullanın. Intlayer ayrıca içerik çıkarmayı otomatikleştirmek için bir **derleyici** ve **arka planda çeviri yapmaya** yardımcı olacak bir [web platformu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) sunar.
 
 </Accordion>
-
 <Accordion header="Performans">
 
 Büyük JSON dosyalarını bileşenlere bağlamak performans ve tepkime sorunlarına yol açabilir. Intlayer, içerik yüklemenizi derleme sırasında optimize eder.
 
 </Accordion>
-
 <Accordion header="Non-dev ile ölçeklendirme">
 
 Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barındırılan bir [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** ve **[tam CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** çok dilli içeriğinizi **gerçek zamanlı** olarak yönetmenize yardımcı olarak çevirmenler, metin yazarları ve diğer ekip üyeleriyle işbirliğini kusursuz hale getirir. İçerik yerel olarak ve/veya uzaktan depolanabilir.
@@ -90,7 +84,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="Bağımlılıkları Yükleyin">
 
 Lynx projenizden aşağıdaki paketleri yükleyin:
@@ -143,7 +136,6 @@ bun add intlayer react-intlayer lynx-intlayer
   Intlayer'ı Lynx paketleyici ile entegre etmek için eklentiyi sağlayan Lynx entegrasyonu.
 
 </Step>
-
 <Step number={2} title="Intlayer Yapılandırması Oluşturun">
 
 Proje kökünüzde (veya uygun herhangi bir yerde) bir **Intlayer yapılandırma** dosyası oluşturun. Şöyle görünebilir:
@@ -174,7 +166,6 @@ Bu yapılandırma içinde şunları yapabilirsiniz:
 - Daha fazla bilgi için [Intlayer yapılandırma dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md) bakın.
 
 </Step>
-
 <Step number={3} title="Lynx Paketleyiciye Intlayer Eklentisini Ekleyin">
 
 Lynx ile Intlayer kullanmak için `lynx.config.ts` dosyanıza eklentiyi eklemeniz gerekir:
@@ -192,7 +183,6 @@ export default defineConfig({
 ```
 
 </Step>
-
 <Step number={4} title="Intlayer Sağlayıcısını Ekleyin">
 
 Kullanıcı dilini uygulamanız genelinde senkronize tutmak için kök bileşeninizi `react-intlayer`'dan `IntlayerProvider` bileşeniyle sarmalamanız gerekir.
@@ -220,7 +210,6 @@ if (import.meta.webpackHot) {
 ```
 
 </Step>
-
 <Step number={5} title="İçeriğinizi Bildirin">
 
 Projenizde herhangi bir yerde **içerik bildirim** dosyaları oluşturun (genellikle `src/` içinde), Intlayer'ın desteklediği uzantı formatlarından herhangi birini kullanarak:
@@ -327,7 +316,6 @@ export default appContent;
 > İçerik bildirimleri hakkında detaylar için [Intlayer'ın içerik dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md) bakın.
 
 </Step>
-
 <Step number={6} title="Bileşenlerinizde Intlayer'ı Kullanın">
 
 Yerelleştirilmiş içeriği almak için alt bileşenlerde `useIntlayer` hook'unu kullanın.
@@ -386,7 +374,6 @@ export const App = () => {
 > `content.someKey`'i dize tabanlı prop'larda kullanırken (örneğin, bir düğmenin `title`ı veya `Text` bileşeninin `children`ı), gerçek dizeyi almak için **çağrı `content.someKey.value`** yapın.
 
 </Step>
-
 <Step number={7} title="Uygulama Yerel Ayarını Değiştirin">
 
 Bileşenleriniz içinden yerel ayarları değiştirmek için `useLocale` hook'unun `setLocale` metodunu kullanabilirsiniz:

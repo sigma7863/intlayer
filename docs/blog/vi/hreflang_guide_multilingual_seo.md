@@ -144,7 +144,6 @@ Cấu trúc duy nhất cần tránh: phục vụ các ngôn ngữ khác nhau t�
 Viết thủ công những tag này không tồn tại khi tiếp xúc với locale thứ hai. Thay vào đó, hãy lấy chúng từ danh sách locale của bạn.
 
 <Steps>
-
 <Step number={1} title="Phát hành cluster trên mỗi trang">
 
 Cùng một bộ ở mọi nơi, canonical cho mỗi locale, các URL tuyệt đối, `x-default` được bao gồm.
@@ -233,7 +232,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="Hoặc di chuyển tất cả vào sitemap">
 
 Ở quy mô lớn, hãy loại bỏ hoàn toàn các annotation khỏi các trang của bạn. `generateSitemap` phát ra các alternate `xhtml:link` cho mỗi entry, đọc locales và routing mode từ config của bạn:
@@ -256,7 +254,6 @@ Hai tùy chọn đáng chú ý:
 - `entryPerLocale` (default `false`) — theo mặc định một mục `<url>` mang tất cả các alternates. Cả hai hình thức đều hợp lệ, nhưng chỉ một URL được liệt kê dưới dạng `<loc>` mới được tính là _submitted_ trong Search Console; các locale chỉ có alternate vẫn có thể khám phá được nhưng không được ghi vào sitemap. Bật tùy chọn này sẽ cho mỗi URL đã định địa phương một mục riêng với toàn bộ tập hợp alternate được lặp lại. Nó nhân các mục theo số lượng locale, vì vậy hãy chú ý đến giới hạn 50 000 URL / 50 MB và chia thành một sitemap index nếu vượt quá.
 
 </Step>
-
 <Step number={3} title="Xác minh những gì crawler nhận được">
 
 `hreflang` thất bại im lặng, vì vậy hãy kiểm tra nó thay vì giả định.

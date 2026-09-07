@@ -68,7 +68,6 @@ Ce guide vous montre comment tirer parti du système supérieur de déclaration 
 ## Guide étape par étape pour configurer Intlayer avec i18next
 
 <Steps>
-
 <Step number={1} title="Installer les dépendances">
 
 Installez les packages nécessaires :
@@ -115,7 +114,6 @@ bun add intlayer @intlayer/sync-json-plugin --dev
 - **@intlayer/sync-json-plugin** : Plugin pour exporter les déclarations de contenu Intlayer au format JSON compatible avec i18next
 
 </Step>
-
 <Step number={2} title="Implémenter le plugin Intlayer pour envelopper le JSON">
 
 Créez un fichier de configuration Intlayer pour définir vos locales supportées :

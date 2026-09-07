@@ -144,7 +144,6 @@ A única estrutura a evitar: servir diferentes idiomas na **mesma URL** com base
 Escrever essas tags manualmente não sobrevive ao contato com um segundo locale. Derive-as da sua lista de locales em vez disso.
 
 <Steps>
-
 <Step number={1} title="Emitir o cluster em cada página">
 
 Mesmo conjunto em todos os lugares, canonical por locale, URLs absolutas, `x-default` incluído.
@@ -233,7 +232,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="Ou mova tudo para o sitemap">
 
 Em larga escala, mantenha as anotações fora de suas páginas completamente. `generateSitemap` emite alternates `xhtml:link` por entrada, lendo locales e modo de roteamento de sua config:
@@ -256,7 +254,6 @@ Duas opções que vale a pena conhecer:
 - `entryPerLocale` (padrão `false`) — por padrão uma entrada `<url>` carrega todos os alternates. Ambas as formas são válidas, mas apenas uma URL listada como `<loc>` conta como _enviada_ no Search Console; locales alternativas permanecem descobríveis mas atribuídas a nenhum sitemap. Ativar isso dá a cada URL localizada sua própria entrada com o conjunto completo de alternates repetido. Multiplica as entradas pela contagem de locale, então fique atento ao limite de 50 000 URLs / 50 MB e divida em um índice de sitemap se ultrapassar.
 
 </Step>
-
 <Step number={3} title="Verifique o que o crawler recebe">
 
 `hreflang` falha silenciosamente, então verifique-o em vez de assumir.

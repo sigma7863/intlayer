@@ -52,37 +52,31 @@ Intlayer, verimli işleme için **Sunucu Bileşenleri** ile çalışacak şekild
 > Uygulama Yönlendiricili Next.js 12, 13, 14 ve 15 için bu [kılavuz](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md) bakın.
 
 </Accordion>
-
 <Accordion header="Bundle boyutu">
 
 Sayfalarınıza çok büyük JSON dosyaları yüklemek yerine yalnızca gerekli içeriği yükleyin. Intlayer **bundle ve sayfa boyutlarınızı %50'ye kadar azaltmanıza** yardımcı olur.
 
 </Accordion>
-
 <Accordion header="Sürdürülebilirlik">
 
 Uygulamanızın içeriğinin kapsamını belirlemek, büyük ölçekli uygulamalar için **bakımı kolaylaştırır**. İçerik kod tabanınızın tamamını gözden geçirmenin zihinsel yükü olmadan, tek bir özellik klasörünü çoğaltabilir veya silebilirsiniz. Ayrıca Intlayer, içeriğinizin doğruluğunu sağlamak için **tamamen tiplendirilmiş (fully typed)tır**.
 
 </Accordion>
-
 <Accordion header="Yapay Zeka Temsilcisi">
 
 İçeriğin bir arada konumlandırılması **Büyük Dil Modellerinin (LLM'ler) ihtiyaç duyduğu bağlamı azaltır**. Intlayer ayrıca eksik çevirileri test etmek için **CLI** gibi bir araç paketiyle birlikte gelir**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** ve **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/agent_skills.md)**, geliştirici deneyimini (DX) yapay zeka için daha da sorunsuz hale getirmek için ajanlar.
 
 </Accordion>
-
 <Accordion header="Otomasyon">
 
 Maliyeti AI sağlayıcınıza ait olmak üzere seçtiğiniz LLM'yi kullanarak CI/CD işlem hattınızda çeviri yapmak için otomasyonu kullanın. Intlayer ayrıca içerik çıkarmayı otomatikleştirmek için bir **derleyici** ve **arka planda çeviri yapmaya** yardımcı olacak bir [web platformu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) sunar.
 
 </Accordion>
-
 <Accordion header="Performans">
 
 Büyük JSON dosyalarını bileşenlere bağlamak performans ve tepkime sorunlarına yol açabilir. Intlayer, içerik yüklemenizi derleme sırasında optimize eder.
 
 </Accordion>
-
 <Accordion header="Non-dev ile ölçeklendirme">
 
 Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barındırılan bir [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** ve **[tam CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** çok dilli içeriğinizi **gerçek zamanlı** olarak yönetmenize yardımcı olarak çevirmenler, metin yazarları ve diğer ekip üyeleriyle işbirliğini kusursuz hale getirir. İçerik yerel olarak ve/veya uzaktan depolanabilir.
@@ -90,9 +84,7 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
-## Ön Koşullar
-
-Bu kılavuzu takip etmek için aşağıdaki araçlara ihtiyacınız olacak:
+## Next.js Uygulamasında Intlayer'ı Ayarlamak İçin Adım Adım Kılavuz
 
 <Tabs defaultTab="code">
   <Tab label="Code" value="code">
@@ -119,12 +111,9 @@ Bu kılavuzu takip etmek için aşağıdaki araçlara ihtiyacınız olacak:
   </Tab>
 </Tabs>
 
-- Node.js 18 veya üzeri
-- npm, pnpm veya yarn paket yöneticisi
-- Next.js 14 projesi
+GitHub'daki [Uygulama Şablonu](https://github.com/aymericzip/intlayer-next-14-template)'na göz atın.
 
 <Steps>
-
 <Step number={1} title="Intlayer Paketlerini Kurma">
 
 İlk olarak, Intlayer paketlerini projenize kurun:
@@ -174,7 +163,6 @@ Internationalization araçlarını sağlayan core package'ı, konfigürasyon yö
 Intlayer'ı Next.js ile entegre eden paket. Next.js uluslararasılaştırması için context providers ve hooks'ları sağlar. Ayrıca, Intlayer'ı [Webpack](https://webpack.js.org/) veya [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack) ile entegre etmek için Next.js plugin'ini, ayrıca kullanıcının tercih ettiği dili algılamak, çerezleri yönetmek ve URL yeniden yönlendirmesini işlemek için middleware'i içerir.
 
 </Step>
-
 <Step number={2} title="Intlayer Yapılandırma Dosyası Oluşturma">
 
 Here is the final structure that we will make:
@@ -240,43 +228,31 @@ export default config;
 > Bu yapılandırma dosyası aracılığıyla, yerelleştirilmiş URL'ler, middleware yönlendirmesi, cookie adları, içerik bildirimlerinizin konumu ve uzantısı, Intlayer günlüklerini konsolda devre dışı bırakma ve daha fazlasını ayarlayabilirsiniz. Mevcut parametrelerin tam listesi için [yapılandırma belgelerine](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) başvurun.
 
 </Step>
-
 <Step number={3} title="Next.js Yapılandırmasını Güncelleme">
 
 Next.js yapılandırma dosyanızı Intlayer ile uyumlu hale getirin:
 
-```typescript fileName="next.config.mjs" codeFormat="esm"
-import { withIntlayer } from "next-intlayer/async";
+```typescript fileName="next.config.mjs"
+import { withIntlayer } from "next-intlayer/server";
 
-const config = {
-  // ... Mevcut Next.js yapılandırmanız
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
 
-export default withIntlayer(config);
+export default withIntlayer(nextConfig);
 ```
 
-```javascript fileName="next.config.js" codeFormat="esm"
-import { withIntlayer } from "next-intlayer/async";
+> `withIntlayer()` Next.js eklentisi, Intlayer'ı Next.js ile entegre etmek için kullanılır. İçerik bildirim dosyalarının oluşturulmasını sağlar ve bunları geliştirme modunda izler. Intlayer ortam değişkenlerini [Webpack](https://webpack.js.org/) veya [Turbopack](https://nextjs.org/docs/app/api-reference/turbopack) ortamlarında tanımlar. Ayrıca, performansı optimize etmek ve sunucu bileşenleriyle uyumluluğu sağlamak için takma adlar sağlar.
 
-const config = {
-  // ... Mevcut Next.js yapılandırmanız
-};
-
-export default withIntlayer(config);
-```
-
-```javascript fileName="next.config.cjs" codeFormat="commonjs"
-const { withIntlayer } = require("next-intlayer/async");
-
-const config = {
-  // ... Mevcut Next.js yapılandırmanız
-};
-
-module.exports = withIntlayer(config);
-```
+> `withIntlayer()` fonksiyonu bir promise fonksiyonudur. Diğer eklentilerle birlikte kullanmak isterseniz, onu `await` edebilirsiniz. Örnek:
+>
+> ```tsx
+> const nextConfig = await withIntlayer(nextConfig);
+> const nextConfigWithOtherPlugins = withOtherPlugins(nextConfig);
+>
+> export default nextConfigWithOtherPlugins;
+> ```
 
 </Step>
-
 <Step number={4} title="İçerik Bildirimi">
 
 İçerik dosyalarınızı oluşturun. Bu dosyalar, uygulamanızdaki çok dilli içeriği tanımlar.
@@ -329,7 +305,6 @@ export default homeContent;
 ```
 
 </Step>
-
 <Step number={5} title="İçerik Kullanımı">
 
 İçeriğinizi bileşenlerinizde kullanın:
@@ -352,9 +327,10 @@ export default function HomePage() {
 
 > `RootLayout` bileşenini boş tutmak, [`lang`](https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/lang) ve [`dir`](https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/dir) özniteliklerini `<html>` etiketine ayarlamaya izin verir.
 
-</Step>
+Dinamik yönlendirmeyi uygulamak için, `[locale]` dizininizde yeni bir düzen ekleyerek yerel ayar için yolu sağlayın:
 
-<Step number={6} title="Middleware Kurulumu">
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
 
 ```tsx fileName="src/app/[locale]/layout.tsx" codeFormat={["typescript", "esm"]}
 import { type Next14LayoutIntlayer } from "next-intlayer";
@@ -380,7 +356,8 @@ export default LocaleLayout;
 
 > Tek bir `IntlayerProvider`, ağacın her iki yarısını da kapsar: istek kapsamlı sunucu bağlamını tohumlandırır (sunucu hooks'ları tarafından okunur) ve istemci sağlayıcısını monte eder, böylece istemci bileşenleri aynı yerel ayarı alır.
 
-Next.js 14'te çok dilli yönlendirme için middleware kurun:
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
 
 ```tsx fileName="src/app/[locale]/layout.tsx" codeFormat={["typescript", "esm"]}
 import { type Next14LayoutIntlayer, IntlayerProvider } from "next-intlayer";
@@ -402,6 +379,9 @@ const LocaleLayout: Next14LayoutIntlayer = ({
 
 export default LocaleLayout;
 ```
+
+ </Tab>
+</Tabs>
 
 > `[locale]` yol segmenti, dili tanımlamak için kullanılır. Örneğin: `/en-US/about` `en-US` dilini ve `/fr/about` ise `fr` dilini ifade eder.
 
@@ -427,7 +407,6 @@ export const config = {
 > `generateStaticParams`, uygulamanızın tüm locales için gerekli sayfaları önceden oluşturmasını sağlayarak runtime hesaplamasını azaltır ve kullanıcı deneyimini iyileştirir. Daha fazla bilgi için [Next.js generateStaticParams belgesine](https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic-rendering#generate-static-params) bakın.
 
 </Step>
-
 <Step number={7} title="Düzen Dosyası (Layout)">
 
 Kök düzen dosyanızı çok dilli hale getirin:
@@ -521,7 +500,6 @@ export default function RootLayout({
 > Daha fazla bilgi için [içerik bildirimi belgelerine](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/content_file.md) başvurun.
 
 </Step>
-
 <Step number={8} title="Sayfa Yönlendirme">
 
 Sayfa yönlendirmelerini çok dilli hale getirin:
@@ -586,8 +564,6 @@ export default Page;
  </Tab>
 </Tabs>
 
-</Step>
-
 ```tsx {4,7} fileName="src/components/ClientComponentExample.tsx" codeFormat={["typescript", "esm"]}
 "use client";
 
@@ -606,7 +582,8 @@ const ClientComponentExample: FC = () => {
 };
 ```
 
-<Step number={9} title="Meta Verilerin Uluslararasılaştırılması">
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
 
 ```tsx {2} fileName="src/components/ServerComponentExample.tsx" codeFormat={["typescript", "esm"]}
 import type { FC } from "react";
@@ -626,46 +603,27 @@ const ServerComponentExample: FC = () => {
 
 > `next-intlayer` isomorphic import yoludur: `react-server` export koşulu sunucu bileşenlerine ambient-locale uygulamasını verirken, istemci bileşenleri context-backed olanı alır. Aynı çağrı her iki tarafta da çalışır.
 
-Sayfa meta verilerini uluslararasılaştırın:
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
 
-```tsx fileName="src/app/[locale]/page.tsx" codeFormat={["typescript", "esm"]}
-import { getIntlayer } from "next-intlayer/server";
-import { type Locales } from "intlayer";
-import { type Metadata } from "next/types";
+```tsx {2} fileName="src/components/ServerComponentExample.tsx" codeFormat={["typescript", "esm"]}
+import type { FC } from "react";
+import { useIntlayer } from "next-intlayer/server";
 
-export const generateMetadata = (params: {
-  params: { locale: Locales };
-}): Metadata => {
-  const { locale } = params.params;
-  const t = getIntlayer(locale);
-
-  return {
-    title: t({
-      en: "Home Page",
-      fr: "Page d'accueil",
-      es: "Página de inicio",
-      tr: "Ana Sayfa",
-    }),
-    description: t({
-      en: "Welcome to the home page",
-      fr: "Bienvenue sur la page d'accueil",
-      es: "Bienvenido a la página de inicio",
-      tr: "Ana sayfaya hoş geldiniz",
-    }),
-  };
-};
-
-export default function HomePage() {
-  const content = getIntlayer("home");
+const ServerComponentExample: FC = () => {
+  const content = useIntlayer("server-component-example"); // İlgili içerik bildirimini oluştur
 
   return (
     <div>
-      <h1>{content.title}</h1>
-      <p>{content.description}</p>
+      <h2>{content.title}</h2>
+      <p>{content.content}</p>
     </div>
   );
-}
+};
 ```
+
+ </Tab>
+</Tabs>
 
 > İçeriğinizi `alt`, `title`, `href`, `aria-label` gibi bir `string` özniteliğinde kullanmak istiyorsanız, fonksiyonun değerini şu şekilde kullanabilirsiniz:
 
@@ -678,7 +636,6 @@ export default function HomePage() {
 > `useIntlayer` hook hakkında daha fazla bilgi için [belgelere](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/next-intlayer/useIntlayer.md) bakınız.
 
 </Step>
-
 <Step number={10} title="Site Haritası ve Robots.txt Kurulumu">
 
 Site haritanızı ve robots.txt dosyanızı çok dilli hale getirin:
@@ -782,7 +739,6 @@ export const generateMetadata = ({
 > Metadata optimizasyonu hakkında daha fazla bilgi için [resmi Next.js dokumentasyonuna](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) bakın.
 
 </Step>
-
 <Step number={11} title="Yerel Anahtarlayıcı Bileşeni Oluşturma">
 
 `sitemap.xml` ve `robots.txt` dosyalarınızı uluslararasılaştırmak için Intlayer tarafından sağlanan `getMultilingualUrls` fonksiyonunu kullanabilirsiniz. Bu fonksiyon, sitemap'iniz için çok dilli URL'ler oluşturmanıza olanak tanır.
@@ -844,15 +800,12 @@ const robots = (): MetadataRoute.Robots => ({
 export default robots;
 ```
 
-Uygulamanızın mevcut yerel ayarı saygı göstermesini sağlamak için, bir yerel anahtarlayıcı bileşeni oluşturabilirsiniz. Bu bileşen, dahili URL'leri otomatik olarak mevcut dille önekler, böylece örneğin Fransızca konuşan bir kullanıcı "Hakkında" sayfasına bir bağlantıya tıkladığında, `/fr/hakkinda` yerine `/hakkinda`ya yönlendirilir.
+> Sitemap optimizasyonu hakkında daha fazla bilgi edinmek için resmi [Next.js dokümantasyonuna](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap). Robots.txt optimizasyonu hakkında daha fazla bilgi edinmek için resmi [Next.js dokümantasyonuna](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots) bakın.
 
-Bu davranış birkaç nedenden dolayı kullanışlıdır:
+</Step>
+<Step number={10} title="İçeriğinizin dilini değiştirme" isOptional={true}>
 
-- **SEO ve Kullanıcı Deneyimi**: Yerelleştirilmiş URL'ler, arama motorlarının dil özel sayfalarını doğru şekilde indekslemesine yardımcı olur ve kullanıcılara tercih ettikleri dilde içerik sağlar.
-- **Tutarlılık**: Uygulamanız boyunca yerelleştirilmiş bir bağlantı kullanarak, navigasyonun mevcut yerel ayar içinde kalmasını garanti edersiniz, beklenmedik dil anahtarlarını önlersiniz.
-- **Bakım Kolaylığı**: URL yönetim mantığını tek bir bileşende merkezileştirmek, kod tabanınızı yönetmeyi ve uygulamanız büyüdükçe genişletmeyi basitleştirir.
-
-Aşağıda, TypeScript'te yerelleştirilmiş bir `Link` bileşeninin uygulanması bulunmaktadır:
+Next.js'te içeriğinizin dilini değiştirmek için, kullanıcıları uygun yerelleştirilmiş sayfaya yönlendirmek için `Link` bileşenini kullanmak önerilen yoldur. `Link` bileşeni, sayfa ön yüklemesini etkinleştirir, bu da tam sayfa yeniden yüklemeden kaçınmaya yardımcı olur.
 
 ```tsx fileName="src/components/LocaleSwitcher.tsx" codeFormat={["typescript", "esm"]}
 "use client";
@@ -925,7 +878,6 @@ return (
 > - [`aria-current` özelliği](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
 
 </Step>
-
 <Step number={11} title="Yerelleştirilmiş Bağlantı Bileşeni Oluşturma" isOptional={true}>
 
 Uygulamanızın navigasyonunun mevcut yerel ayarı saygı göstermesini sağlamak için, özel bir `Link` bileşeni oluşturabilirsiniz. Bu bileşen, dahili URL'leri otomatik olarak mevcut dille önekler, böylece örneğin Fransızca konuşan bir kullanıcı "Hakkında" sayfasına bir bağlantıya tıkladığında, `/fr/hakkinda` yerine `/hakkinda`ya yönlendirilir.
@@ -996,7 +948,6 @@ Link.displayName = "Link";
 Bu `Link` bileşenini uygulamanız boyunca entegre ederek, tutarlı ve dil bilincine sahip bir kullanıcı deneyimi sürdürürsünüzken aynı zamanda gelişmiş SEO ve kullanılabilirlikten de yararlanırsınız.
 
 </Step>
-
 <Step number={12} title="Sunucu Eylemlerinde (Server Actions) geçerli yerel ayarı alın" isOptional={true}>
 
 Bir Sunucu Eylemi (Server Action) içinde aktif yerel ayara ihtiyacınız varsa (örneğin, e-postaları yerelleştirmek veya yerel ayara duyarlı mantık çalıştırmak için), `next-intlayer/server` üzerinden `getLocale` fonksiyonunu çağırın:
@@ -1023,7 +974,6 @@ export const myServerAction = async () => {
 > Bu, mevcut bağlama göre en uygun yerel ayarın seçilmesini sağlar.
 
 </Step>
-
 <Step number={13} title="bundle boyutunuzu Optimize Edin" isOptional={true}>
 
 `next-intlayer` kullanırken, sözlükler varsayılan olarak her sayfa için pakete dahil edilir. bundle boyutunu optimize etmek için, Intlayer isteğe bağlı bir SWC eklentisi sağlar ki bu, `useIntlayer` çağrılarını akıllıca makrolar kullanarak değiştirir. Bu, sözlüklerin sadece onları gerçekten kullanan sayfalar için paketlere dahil edilmesini sağlar.
@@ -1121,25 +1071,21 @@ Daha fazla ilerlemek için, [görsel düzenleyici](https://github.com/aymericzip
 Bileşen başına bildirim sayesinde sayfalar tüm kataloğu indirmek yerine yalnızca ihtiyaç duydukları çevirileri alır. Bkz. [neden Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/interest_of_intlayer.md) ve [kıyaslama](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/benchmark/index.md).
 
 </Question>
-
 <Question title="i18n Next.js paket (bundle) boyutuma ne kadar ekler?">
 
 Ad alanı (namespace) tabanlı çözümlere kıyasla çok daha az, çünkü bir sayfa render etmediği bir sözlüğü asla indirmez. Sunucu bileşenleri içeriği sunucuda çözümler, derleme zamanı derleyicisi ise `useIntlayer` çağrılarını yalnızca kullanılan kayıtlarla değiştirir. [Dinamik sözlükler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dynamic_dictionaries/index.md) geri kalanını yerel başına böler, paket boyutunu %50'ye kadar azaltır. Bkz. [paket optimizasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/bundle_optimization.md) ve [kıyaslama](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/benchmark/index.md).
 
 </Question>
-
 <Question title="next-intl, next-i18next veya i18next'ten bileşenlerimi yeniden yazmadan geçiş yapabilir miyim?">
 
 Evet, iki yol vardır. [i18next geçiş kılavuzu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/migration_from_i18next_to_intlayer.md) veya [next-intl geçiş kılavuzu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/migration_from_next-intl_to_intlayer.md) ile içeriği aşamalı taşıyabilirsiniz. Ya da mevcut API'nizi koruyabilirsiniz: [uyumluluk adaptörleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/compat/index.md), `next-intl` ve `i18next` ile birebir aynı API'yi Intlayer sözlükleri üzerinden sunar.
 
 </Question>
-
 <Question title="Mevcut JSON çeviri dosyalarımı koruyabilir miyim?">
 
 Evet. [sync JSON eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-json.md), `/messages/{locale}/{namespace}.json` dosyalarınızı doğruluk kaynağı olarak tutar ve her iki yönde Intlayer sözlükleri üretir. [sync PO eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/plugins/sync-po.md) gettext katalogları için aynısını yapar ve [yerel başına dosyalar](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/per_locale_file.md), yerelleri tek bir dosyada gruplamak yerine içeriği dile göre ayırmanıza olanak tanır.
 
 </Question>
-
 <Question title="İçeriğimi anahtar anahtar taşımak zorunda mıyım?">
 
 Hayır. `npx intlayer extract` komutunu çalıştırın; Intlayer kaynak dosyalarınızı okur, kullanıcıya dönük metinleri çıkarır ve her birinin yanına bir `.content` dosyası yazar, böylece dizeleri tek tek kopyalamak yerine bir diff incelersiniz. Bkz. [extract komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/extract.md).
@@ -1147,7 +1093,6 @@ Hayır. `npx intlayer extract` komutunu çalıştırın; Intlayer kaynak dosyala
 Tam otomatik bir akış için [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/compiler.md) derleme sırasında JSX, TSX, Vue ve Svelte kodunda aynı işlemi yapar ve sözlükleri her değişiklikte otomatik üretir, böylece elle anahtar yönetimi gerekmez. Statik analizle çalıştığından, yalnızca çalışma zamanında var olan dizeler kapsam dışı kalır.
 
 </Question>
-
 <Question title="Hangi editör ve AI aracı araçları mevcuttur?">
 
 Beş araç, hepsi isteğe bağlı:
@@ -1159,61 +1104,51 @@ Beş araç, hepsi isteğe bağlı:
 - **[ESLint eklentisi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/eslint.md)**: `no-raw-text` kuralı doğrudan kodlanmış metinleri işaretler.
 
 </Question>
-
 <Question title="Intlayer hangi Next.js sürümlerini destekler?">
 
 Next.js 12, 13, 14, 15 ve 16. App Router ve Pages Router mimarilerinin her ikisi de tam olarak desteklenir.
 
 </Question>
-
 <Question title="Intlayer React Server Components ile çalışır mı?">
 
 Evet. İçerik sunucuda Server Components içinde çözümlenir, böylece sunucuda render edilen metinler için istemciye hiçbir sözlük gönderilmez. Client Components ise sağlayıcı üzerinden aynı sözlükleri okur.
 
 </Question>
-
 <Question title="URL'ye /tr/about gibi yerel koymak zorunda mıyım?">
 
 Hayır. `routing.mode` ayarı `"prefix-no-default"` (varsayılan: varsayılan dilde `/about`, diğerlerinde `/tr/about`), `"prefix-all"`, `"no-prefix"` ve `"search-params"` değerlerini kabul eder. `routing.domains` ise her dili kendi alan adına eşler. Bkz. [yapılandırma belgeleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) ve [yerel yolu olmayan kılavuz](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_nextjs_no_locale_path.md).
 
 </Question>
-
 <Question title="SEO için hreflang etiketlerini ve yerelleştirilmiş meta verileri nasıl eklerim?">
 
 `generateMetadata` ve `sitemap.xml` adımları bunu kapsar. `getMultilingualUrls` işlevi, `x-default` dahil bildirilen her yerel için `alternates.languages` eşlemesini oluşturur, böylece arama motorları doğru sürümü dizine ekler.
 
 </Question>
-
 <Question title="Middleware'e ihtiyacım var mı?">
 
 Middleware ziyaretçinin dilini algılar ve uygun ön eke yönlendirir, bu nedenle yerel yönlendirmesini kendiniz yönetmiyorsanız önerilir. API rotaları ve statik varlıklar kural dışı bırakılır.
 
 </Question>
-
 <Question title="Yerelleştirilmiş bir Link bileşeni nasıl oluşturulur?">
 
 Bileşen Next.js `Link` bileşenini sarar ve href değerini `getLocalizedUrl` üzerinden geçirir, böylece `/about` olarak yazılan dahili bağlantı geçerli yerelde otomatik olarak `/tr/about` olur.
 
 </Question>
-
 <Question title="Uygulamayı AI ile otomatik olarak nasıl çevirebilirim?">
 
 `npx intlayer fill` komutunu çalıştırın. Eksik çevirileri seçtiğiniz LLM ile kendi sağlayıcınız ve API anahtarınızı kullanarak tamamlar. `--git-diff` bayrağı işlemi geçerli daldaki değiştirilmiş içerikle sınırlar. Bkz. [fill komutu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/fill.md) ve [CI/CD entegrasyonu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/CI_CD.md).
 
 </Question>
-
 <Question title="Intlayer çoğulları, cinsiyeti ve zengin metni (rich text) destekliyor mu?">
 
 Evet: [çoğul biçimleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/plurial.md), [cinsiyete dayalı içerik](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/gender.md), koşullar, [eklemeler (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/insertion.md), uzun metinler için [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/markdown.md) ve sayılar, tarihler ve para birimleri için [biçimlendiriciler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/formatters.md).
 
 </Question>
-
 <Question title="Çevirmenler koda dokunmadan içeriği nasıl düzenleyebilir?">
 
 Kendi altyapınızda çalışan ve herkesin metinleri çalışan uygulamada yerinde düzenlemesine olanak tanıyan [görsel düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) veya içeriği kod dağıtımı olmadan güncellenebilecek şekilde dışsallaştıran [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) aracılığıyla.
 
 </Question>
-
 <Question title="Intlayer ücretsiz ve açık kaynaklı mı?">
 
 Evet, ticari kullanım dahil Apache 2.0 lisansı altındadır. Barındırılan CMS isteğe bağlı ücretli bir hizmettir ve ayrıca [kendi sunucunuzda barındırılabilir (self-host)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/self_hosting.md).

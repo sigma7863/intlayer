@@ -144,7 +144,6 @@ Jedyna struktura do uniknięcia: serwowanie różnych języków pod **tym samym 
 Ręczne pisanie tych tagów nie przetrwa kontakt z drugim locale'em. Wyprowadź je z listy locale'a.
 
 <Steps>
-
 <Step number={1} title="Emituj klaster na każdej stronie">
 
 Ten sam zestaw wszędzie, canonical dla każdego locale'a, bezwzględne adresy URL, `x-default` włączony.
@@ -235,7 +234,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="Lub przenieś to wszystko do sitemapy">
 
 Na dużą skalę trzymaj adnotacje całkowicie z dala od swoich stron. `generateSitemap` emituje `xhtml:link` alternates dla każdego wpisu, czytając locales i tryb routingu z twojej konfiguracji:
@@ -258,7 +256,6 @@ Dwie warte poznania opcje:
 - `entryPerLocale` (domyślnie `false`) — domyślnie jeden wpis `<url>` zawiera wszystkie alternatywy. Obie formy są prawidłowe, ale tylko adres URL wymieniony jako `<loc>` liczy się jako _przesłany_ w Search Console; alternatywne ustawienia regionalne pozostają odkrywalne, ale nie są przypisane do żadnej mapy witryny. Włączenie tego ustawienia daje każdemu zlokalizowanemu adresowi URL własny wpis z pełnym zestawem alternatyw powtórzonym. Zwiększa to liczbę wpisów przez liczbę ustawień regionalnych, więc zwróć uwagę na limit 50 000 adresów URL / 50 MB i podziel na indeks mapy witryny po jego przekroczeniu.
 
 </Step>
-
 <Step number={3} title="Sprawdź, co otrzymuje crawler">
 
 `hreflang` zawodzi bezgłośnie, więc sprawdź go zamiast go zakładać.

@@ -71,7 +71,6 @@ Vì vậy, RAG không chỉ là một công cụ hỗ trợ. Nó còn là một 
 6. **Ghi lại truy vấn để phản hồi** Mỗi truy vấn của người dùng đều được lưu lại. Đây là nguồn dữ liệu quý giá để hiểu các điểm đau, tài liệu còn thiếu, hoặc cơ hội mới.
 
 <Steps>
-
 <Step number={1} title="Đọc tài liệu">
 
 Bước đầu tiên rất đơn giản: tôi cần một cách để quét thư mục docs/ để lấy tất cả các file .md. Sử dụng Node.js và glob, tôi đã lấy nội dung của từng file Markdown vào bộ nhớ.
@@ -79,7 +78,6 @@ Bước đầu tiên rất đơn giản: tôi cần một cách để quét thư
 Điều này giữ cho pipeline linh hoạt: thay vì Markdown, bạn có thể lấy tài liệu từ cơ sở dữ liệu, một CMS, hoặc thậm chí một API.
 
 </Step>
-
 <Step number={2} title="Chia nhỏ tài liệu">
 
 Tại sao phải chia nhỏ? Vì các mô hình ngôn ngữ có **giới hạn ngữ cảnh**. Cung cấp cho chúng một cuốn sách tài liệu toàn bộ sẽ không hiệu quả.
@@ -103,7 +101,6 @@ Sự đánh đổi này (kích thước đoạn so với phần chồng lấn) l
 - Quá lớn → bạn làm phình to kích thước ngữ cảnh.
 
 </Step>
-
 <Step number={3} title="Tạo Embeddings">
 
 Khi tài liệu đã được chia nhỏ, chúng ta tạo ra **embeddings**, các vector đa chiều đại diện cho mỗi đoạn.
@@ -123,7 +120,6 @@ Tôi đã sử dụng mô hình text-embedding-3-large của OpenAI, nhưng bạ
 Mỗi vector là một dấu vân tay toán học của văn bản, cho phép tìm kiếm tương đồng.
 
 </Step>
-
 <Step number={4} title="Lập chỉ mục & Lưu trữ Embeddings">
 
 Để tránh phải tạo lại embeddings nhiều lần, tôi đã lưu chúng trong file embeddings.json.
@@ -138,7 +134,6 @@ Trong môi trường sản xuất, bạn có thể muốn sử dụng một cơ 
 Các cơ sở dữ liệu vector xử lý việc lập chỉ mục, khả năng mở rộng và tìm kiếm nhanh. Nhưng với nguyên mẫu của tôi, một file JSON cục bộ là đủ.
 
 </Step>
-
 <Step number={5} title="Truy xuất với Cosine Similarity">
 
 Khi người dùng đặt câu hỏi:
@@ -152,7 +147,6 @@ Cosine similarity đo góc giữa hai vector. Một kết quả khớp hoàn h�
 Bằng cách này, hệ thống tìm được các đoạn tài liệu gần nhất với truy vấn.
 
 </Step>
-
 <Step number={6} title="Tăng cường + Tạo nội dung">
 
 Giờ đến phần kỳ diệu. Chúng ta lấy các đoạn tài liệu hàng đầu và chèn chúng vào **system prompt** cho ChatGPT.
@@ -162,7 +156,6 @@ Giờ đến phần kỳ diệu. Chúng ta lấy các đoạn tài liệu hàng 
 Kết quả: các câu trả lời chính xác, **dựa trên tài liệu**.
 
 </Step>
-
 <Step number={7} title="Ghi lại các truy vấn của người dùng">
 
 Đây là siêu năng lực ẩn.
@@ -177,7 +170,6 @@ Mỗi câu hỏi được hỏi đều được lưu lại. Theo thời gian, b�
 Điều này biến trợ lý RAG của bạn thành một **công cụ nghiên cứu người dùng liên tục**.
 
 </Step>
-
 <Step number={8} title="Chi Phí Là Bao Nhiêu?">
 
 Một phản đối phổ biến đối với RAG là chi phí. Trên thực tế, nó rẻ đến bất ngờ:
@@ -189,7 +181,6 @@ Một phản đối phổ biến đối với RAG là chi phí. Trên thực t�
 Ngoài ra, bạn có thể tính thêm chi phí lưu trữ.
 
 </Step>
-
 <Step number={9} title="Chi Tiết Triển Khai">
 
 Stack:
@@ -255,7 +246,6 @@ Chúng tôi đã thử nghiệm với gpt-5, nhưng độ trễ quá cao (đôi 
 👉 [Thử bản demo tại đây](https://intlayer.org/doc/why) 👉 [Xem mẫu mã nguồn trên GitHub](https://github.com/aymericzip/smart_doc_RAG)
 
 </Step>
-
 <Step number={10} title="Tiến xa hơn">
 
 Dự án này là một triển khai tối giản. Nhưng bạn có thể mở rộng nó theo nhiều cách:
@@ -269,7 +259,6 @@ Dự án này là một triển khai tối giản. Nhưng bạn có thể mở r
 - Cải thiện prompting → sắp xếp lại, lọc và tìm kiếm kết hợp (từ khóa + ngữ nghĩa)
 
 </Step>
-
 <Step number={11} title="Những Hạn Chế Chúng Tôi Gặp Phải">
 
 - Việc chia đoạn và chồng lấn là dựa trên kinh nghiệm thực nghiệm. Cân bằng đúng (kích thước đoạn, tỷ lệ chồng lấn, số đoạn được truy xuất) cần phải lặp lại và thử nghiệm.
@@ -277,7 +266,6 @@ Dự án này là một triển khai tối giản. Nhưng bạn có thể mở r
 - Trong nguyên mẫu này, embeddings được lưu trữ dưới dạng JSON. Điều này phù hợp cho các bản demo nhưng gây ô nhiễm Git. Trong môi trường sản xuất, sử dụng cơ sở dữ liệu hoặc kho vector chuyên dụng sẽ tốt hơn.
 
 </Step>
-
 <Step number={12} title="Tại Sao Điều Này Quan Trọng Ngoài Tài Liệu">
 
 Phần thú vị không chỉ là chatbot. Đó là **vòng phản hồi**.
@@ -299,7 +287,6 @@ Hãy tưởng tượng ra mắt một tính năng mới và ngay lập tức th�
 Đó chính là **trí tuệ sản phẩm** trực tiếp từ người dùng của bạn.
 
 </Step>
-
 <Step number={13} title="Kết luận">
 
 RAG là một trong những cách đơn giản nhất và mạnh mẽ nhất để làm cho LLM trở nên thực tiễn. Bằng cách kết hợp **truy xuất + tạo sinh**, bạn có thể biến tài liệu tĩnh thành một **trợ lý thông minh** và đồng thời thu được một dòng thông tin liên tục về sản phẩm.

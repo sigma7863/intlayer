@@ -434,25 +434,21 @@ Jika Anda mengalami masalah dengan CMS, periksa hal-hal berikut:
 [Editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md) mengedit file kamus lokal di codebase Anda. CMS mengelola konten dari jarak jauh di server, memungkinkan pembaruan teks tanpa memerlukan deployment ulang kode aplikasi.
 
 </Question>
-
 <Question title="Berapa banyak i18n menambah ukuran bundle saya?">
 
 Jauh lebih sedikit daripada pengaturan berbasis namespace, karena halaman tidak pernah mengunduh katalog yang tidak di-render. Markup yang dirender di server menyelesaikan kontennya di server, dan kompilator build time mengganti panggilan `useIntlayer` dengan entri kamus persis yang digunakan komponen, sehingga kunci dan bahasa yang tidak digunakan dibuang. [Kamus dinamis](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md) membagi sisanya per locale. Dibandingkan dengan alternatif konvensional, Intlayer mengurangi ukuran bundle dan halaman hingga 50%. Lihat [optimasi bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) dan [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/benchmark/index.md).
 
 </Question>
-
 <Question title="Bisakah saya bermigrasi dari i18next, next-intl atau react-i18next tanpa menulis ulang komponen saya?">
 
 Ya, dan ada dua jalur. Anda dapat memigrasikan konten secara bertahap dengan [panduan migrasi i18next](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_i18next_to_intlayer.md) atau [panduan migrasi next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/migration_from_next-intl_to_intlayer.md). Atau Anda dapat mempertahankan API Anda saat ini sepenuhnya: [adapter kompatibilitas](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/compat/index.md) mengekspos API yang sama persis dengan `i18next`, `react-i18next`, `next-intl`, `next-i18next`, `react-intl`, `use-intl`, `vue-i18n` dan `Lingui`, tetapi ditenagai oleh kamus Intlayer, sehingga hanya import yang berubah dan kode komponen tetap sama.
 
 </Question>
-
 <Question title="Bisakah saya menyimpan file terjemahan JSON yang sudah ada?">
 
 Ya. Plugin [sync JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-json.md) menjaga file `/messages/{locale}/{namespace}.json` Anda sebagai sumber kebenaran dan menghasilkan kamus Intlayer darinya, di kedua arah. Plugin [sync PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/plugins/sync-po.md) melakukan hal yang sama untuk katalog gettext, dan [file per locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/per_locale_file.md) memungkinkan Anda membagi konten berdasarkan bahasa daripada mengelompokkan lokal dalam satu file.
 
 </Question>
-
 <Question title="Apakah saya harus memindahkan konten saya key by key?">
 
 Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file sumber Anda, mengeluarkan string yang dihadapi pengguna, dan menulis file `.content` di sebelah masing-masing, sehingga Anda meninjau diff alih-alih menyalin string ke dalam katalog satu per satu. Lihat [perintah extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/extract.md).
@@ -460,7 +456,6 @@ Tidak. Jalankan `npx intlayer extract` dan Intlayer membaca file sumber Anda, me
 Untuk alur kerja yang sepenuhnya otomatis, [Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/compiler.md) melakukan hal yang sama saat build time pada kode JSX, TSX, Vue dan Svelte, menghasilkan kamus pada setiap perubahan sehingga tidak ada kunci yang perlu dikelola secara manual. Karena bekerja melalui analisis statis, string yang hanya ada di runtime berada di luar jangkauannya.
 
 </Question>
-
 <Question title="Apa tooling editor dan agen AI yang tersedia?">
 
 Lima bagian, semuanya opsional:
@@ -472,43 +467,36 @@ Lima bagian, semuanya opsional:
 - **[Plugin ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/eslint.md)**: aturan `no-raw-text` menandai string hardcoded.
 
 </Question>
-
 <Question title="Konten apa yang sebaiknya dipindahkan ke CMS?">
 
 Konten yang sering berubah dan tidak terikat dengan siklus rilis kode: teks landing page, harga, pengumuman, banner promosi, dan artikel blog.
 
 </Question>
-
 <Question title="Apa yang terjadi jika CMS tidak dapat dihubungi?">
 
 Aplikasi secara otomatis beralih ke deklarasi kamus lokal di codebase, sehingga gangguan jaringan tidak akan menampilkan halaman kosong kepada pengguna.
 
 </Question>
-
 <Question title="Bisakah saya meng-host CMS sendiri?">
 
 Ya. CMS dapat dijalankan di infrastruktur Anda sendiri untuk kebutuhan di mana konten tidak boleh keluar dari jaringan internal Anda. Lihat [panduan self-hosting](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).
 
 </Question>
-
 <Question title="Apakah editor konten memerlukan developer untuk mempublikasikan perubahan?">
 
 Tidak. Itulah tujuan utama kamus remote: editor mengubah teks di CMS dan berkat fitur sinkronisasi langsung (live sync), situs langsung menampilkan pembaruan tersebut.
 
 </Question>
-
 <Question title="Bisakah saya mengotomatiskan CMS alih-alih menggunakan antarmuka?">
 
 Ya. SDK `@intlayer/api` mengekspos endpoint yang sama dengan antarmuka, memungkinkan Anda mengambil project, membaca kamus, dan mengotomatiskan publikasi melalui skrip.
 
 </Question>
-
 <Question title="Apakah CMS mendukung pengujian A/B untuk terjemahan?">
 
 Ya. Kamus remote mendukung [varian konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md), memungkinkan Anda menguji berbagai versi teks pada kelompok audiens yang berbeda.
 
 </Question>
-
 <Question title="Apakah CMS gratis?">
 
 Library Intlayer, CLI, compiler, dan editor visual gratis dan open source di bawah lisensi Apache 2.0. CMS cloud adalah layanan berbayar, tetapi versi self-host dapat dijalankan secara gratis di server Anda sendiri.

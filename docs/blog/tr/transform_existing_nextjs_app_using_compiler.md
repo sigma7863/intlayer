@@ -275,19 +275,16 @@ Mevcut Next.js uygulamanızı 2026'da dönüştürmenin temellerini öğrendiniz
 Evet. Intlayer `search-params` modu ve çerez tabanlı dil algılamayı destekler, klasör yapınızı korur.
 
 </Question>
-
 <Question title="Kodumdaki tüm metinleri tek tek manuel değiştirmeli miyim?">
 
 Hayır. `npx intlayer extract` komutu veya Intlayer derleyicisi metinleri otomatik olarak ayıklar.
 
 </Question>
-
 <Question title="Intlayer paket boyutunu next-intl'e kıyasla nasıl küçültür?">
 
 Bileşen bazlı sözlük yapısı ve derleme zamanı makro optimizasyonu sayesinde yalnızca kullanılan veriler paketlenir.
 
 </Question>
-
 <Question title="Mevcut bileşenlerimi yapay zeka ile otomatik çevirebilir miyim?">
 
 Evet. `npx intlayer fill` komutu popüler LLM'ler ile entegre çalışarak bağlama uygun çeviriler üretir.

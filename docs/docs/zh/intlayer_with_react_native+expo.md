@@ -73,37 +73,31 @@ author: aymericzip
 Intlayer 经过优化，可与 React Native 和 Expo 完美配合，提供**组件级内容作用域**、**TypeScript 支持**以及在移动应用中扩展国际化 (i18n) 所需的所有功能。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 将应用内容限定作用域**有助于维护**大规模应用程序。您可以复制或删除单个功能文件夹，而无需承受审查整个内容代码库的心理负担。此外，Intlayer **具有完整的类型支持**，确保内容的准确性。
 
 </Accordion>
-
 <Accordion header="AI 代理">
 
 内容共置**减少了大型语言模型 (LLM) 所需的上下文**。Intlayer 还附带了一套工具，例如用于检测缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 代理的开发者体验 (DX) 更加顺畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用您选择的 LLM，以 AI 提供商的成本在 CI/CD 管道中自动进行翻译。Intlayer 还提供**编译器**来自动提取内容，以及[网络平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)来帮助**在后台进行翻译**。
 
 </Accordion>
-
 <Accordion header="性能">
 
 将大型 JSON 文件连接到组件可能会导致性能和响应性问题。Intlayer 在构建时优化内容加载。
 
 </Accordion>
-
 <Accordion header="非开发者扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，它还提供**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)**和**[完整 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)**，帮助您**实时**管理多语言内容，使翻译人员、文案人员和其他团队成员的协作更加无缝。内容可以本地和/或远程存储。
 
 </Accordion>
-
 <Accordion header="包体积">
 
 无需将大型 JSON 文件加载到页面中，只需加载必要的内容。Intlayer 帮助**将包体积和视图大小减少多达 50%**。
@@ -112,7 +106,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，它还提供**自托管的[可�
 </AccordionGroup>
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 请参阅 GitHub 上的[应用模板](https://github.com/aymericzip/intlayer-react-native-template)。
@@ -164,7 +157,6 @@ bun add intlayer react-native-intlayer
   React Native 集成，提供您将用于获取和切换语言环境的上下文 provider 和 React hook、React Native polyfill，以及将 Intlayer 与 React Native 打包器集成的 Metro 插件。它重新导出 `react-intlayer` 的所有内容，因此在 React Native 应用中只需要这一个包。
 
 </Step>
-
 <Step number={2} title="创建 Intlayer 配置">
 
 在您的项目根目录（或任何方便的位置）创建一个 **Intlayer 配置**文件。它可能如下所示：
@@ -198,7 +190,6 @@ export default config;
 - 请参阅 [Intlayer 配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md) 了解更多信息。
 
 </Step>
-
 <Step number={3} title="添加 Metro 插件">
 
 Metro 是 React Native 的打包器。它是使用 `react-native init` 命令创建的 React Native 项目的默认打包器。要在 Metro 中使用 Intlayer，您需要将插件添加到 `metro.config.js` 文件中：
@@ -218,7 +209,6 @@ module.exports = (async () => {
 > 注意：`configMetroIntlayerSync` 不允许在服务器启动时构建 intlayer 字典
 
 </Step>
-
 <Step number={4} title="添加 Intlayer provider">
 
 为了在您的应用程序中保持用户语言的同步，您需要使用来自 `react-native-intlayer` 的 `IntlayerProvider` 组件包裹您的根组件。
@@ -249,7 +239,6 @@ export default RootLayout;
 ```
 
 </Step>
-
 <Step number={5} title="声明您的内容">
 
 在项目中任意位置（通常在 `src/` 目录中）创建**内容声明**文件，使用 Intlayer 支持的任何扩展格式：
@@ -323,7 +312,6 @@ export default homeScreenContent;
 > 有关内容声明的详细信息，请参阅 [Intlayer 内容文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={6} title="在组件中使用 Intlayer">
 
 在子组件中使用 `useIntlayer` hook 获取本地化内容。
@@ -376,7 +364,6 @@ export default HomeScreen;
 > 如果您的应用程序已经存在，您可以结合使用 [Intlayer 编译器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compiler.md) 和 [提取命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md) 在一秒钟内转换数千个组件。
 
 </Step>
-
 <Step number={7} title="更改应用程序语言环境" isOptional={true}>
 
 要在组件内部切换语言环境，可以使用 `useLocale` hook 的 `setLocale` 方法：
@@ -526,25 +513,21 @@ import "@formatjs/intl-datetimeformat/polyfill";
 在移动端，包体积的优势比在 Web 端更加显著，因为所有资源都会被打包进应用安装包中，而不是按页面请求动态加载。按组件编译内容可以确保未使用的语言和未使用的键完全不会进入应用包。请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md)。
 
 </Question>
-
 <Question title="i18n 会给我的应用安装包体积增加多少？">
 
 远少于运行时目录方案，这一点在移动端比 Web 端更为关键，因为所有内容都直接打包进应用本身。Metro 插件将 `useIntlayer` 调用解析为组件使用的确切条目，因此未使用的键和未使用的语言永远不会打入二进制包。与常规替代方案相比，Intlayer 可将包体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md)。
 
 </Question>
-
 <Question title="我可以从 i18n-js 或 react-i18next 迁移而无需重写组件吗？">
 
 可以，有两条迁移路径。您可以使用 [i18n-js 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/i18n-js.md) 或 [react-i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_react-i18next_to_intlayer.md) 逐步迁移内容。或者，您可以完全保留当前的 API：[兼容性适配器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compat/index.md) 公开与 `react-i18next` 和 `react-intl` 完全相同的 API，但底层由 Intlayer 字典驱动，因此只需更改导入语句，组件代码无需修改。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的源码文件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。请参阅 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md)。
@@ -552,7 +535,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 如需全自动流程，[Intlayer Compiler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/compiler.md) 可以在构建时对 JSX、TSX、Vue 和 Svelte 源码执行相同操作，在每次更改时自动生成字典，完全无需手动维护键名。它通过静态分析工作，因此仅在运行时存在的字符串无法被捕获，并且需要少量注解以区分用户文本和应用程序逻辑。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -564,49 +546,41 @@ import "@formatjs/intl-datetimeformat/polyfill";
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="Intlayer 是否支持 Expo 和 Metro 打包器？">
 
 支持。第 3 步添加了 Metro 插件，该插件负责编译您的 `.content.ts` 文件并在保存时重新生成类型，因此 Fast Refresh 会像检测其他源码更改一样实时捕获内容修改。它在 Expo Go 和开发构建版本中均可正常使用。
 
 </Question>
-
 <Question title="如何检测设备系统语言？">
 
 从 `expo-localization` 中读取系统语言并作为初始语言环境传递给 Intlayer Provider，随后持久化用户的明确选择。当设备语言不在已声明的语言列表中时，Intlayer 会自动回退到您的默认语言环境，因此应用程序绝不会渲染空字符串。
 
 </Question>
-
 <Question title="如何在运行时更改应用语言？">
 
 第 7 步对此进行了介绍。`useLocale` 公开活动语言环境、声明的语言环境以及设置函数，读取内容的组件会立即重新渲染，因此无需重启应用程序即可生效。
 
 </Question>
-
 <Question title="如何支持阿拉伯语或希伯来语等从右到左 (RTL) 的语言？">
 
 使用 `getHTMLTextDir` 判断当前活动语言环境是否为 RTL，并通过 React Native 的 `I18nManager` 进行应用。需要注意的是，React Native 需要重新加载才能完整翻转 RTL 布局，因此大多数应用会在用户选择 RTL 语言时提示一次重启。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译应用？">
 
 运行 `npx intlayer fill`，它会使用您选择的 LLM、您自己的提供商和 API 密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、用于长文本的 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

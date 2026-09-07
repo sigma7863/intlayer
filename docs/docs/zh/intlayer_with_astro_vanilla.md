@@ -69,37 +69,31 @@ author: aymericzip
 Intlayer 经过优化，可与 Astro 完美配合，提供**多语言路由**、**站点地图**以及扩展国际化 (i18n) 所需的所有功能。
 
 </Accordion>
-
 <Accordion header="捆绑尺寸">
 
 不要将大量 JSON 文件加载到页面中，而只需加载必要的内容。 Intlayer 有助于**将捆绑包和页面大小减少多达 50%**。
 
 </Accordion>
-
 <Accordion header="可维护性">
 
 确定应用程序内容的范围**有利于大型应用程序的维护**。您可以复制或删除单个功能文件夹，而无需承担检查整个内容代码库的精神负担。此外，Intlayer 具有**完全类型化 (fully typed)**，以确保您的内容的准确性。
 
 </Accordion>
-
 <Accordion header="人工智能代理">
 
 共置内容**减少大型语言模型 (LLM) 所需的上下文**。 Intlayer 还附带了一套工具，例如用于测试缺失翻译的 **CLI**、**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**、**[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** 和 **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/agent_skills.md)**，使 AI 代理的开发者体验 (DX) 更加流畅。
 
 </Accordion>
-
 <Accordion header="自动化">
 
 使用您选择的法学硕士，通过自动化在 CI/CD 管道中进行翻译，而费用由您的 AI 提供商承担。 Intlayer 还提供了一个**编译器**来自动提取内容，以及一个[网络平台](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)来帮助**在后台翻译**。
 
 </Accordion>
-
 <Accordion header="表现">
 
 将大量 JSON 文件连接到组件可能会导致性能和反应性问题。 Intlayer 可在构建时 (build time)优化您的内容加载。
 
 </Accordion>
-
 <Accordion header="无需开发即可扩展">
 
 Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)**和一个**[完整的 CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** 来帮助您管理多语言内容**实时**，与译员、文案人员和其他团队成员无缝协作。内容可以本地和/或远程存储。
@@ -112,7 +106,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 在 GitHub 上查看[应用程序模板](https://github.com/aymericzip/intlayer-astro-template)。
 
 <Steps>
-
 <Step number={1} title="安装依赖">
 
 使用您喜欢的包管理器安装所需的软件包：
@@ -163,7 +156,6 @@ bun add intlayer astro-intlayer vanilla-intlayer
   将 Intlayer 与 Vanilla JavaScript / TypeScript 应用程序集成的软件包。它提供了一个发布/订阅单例 (`IntlayerClient`) 和基于回调的辅助函数 (`useIntlayer`, `useLocale` 等)，允许 Astro 的 `<script>` 标签内的任何部分在不使用框架的情况下响应语言更改。
 
 </Step>
-
 <Step number={2} title="配置您的项目">
 
 创建一个配置文件来定义您的应用程序语言：
@@ -189,7 +181,6 @@ export default config;
 > 通过此配置文件，您可以配置本地化 URL、中间件重定向、Cookie 名称、内容声明的位置和扩展名、在控制台中禁用 Intlayer 日志等。有关可用参数的完整列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Step>
-
 <Step number={3} title="在 Astro 配置中集成 Intlayer">
 
 将 intlayer 插件添加到您的 Astro 配置中。对于 Vanilla JS，不需要额外的 UI 框架集成。
@@ -209,7 +200,6 @@ export default defineConfig({
 > `intlayer()` 集成插件用于将 Intlayer 与 Astro 集成。它确保内容声明文件的构建并在开发模式下进行监视。它在 Astro 应用程序中定义 Intlayer 环境变量，并提供别名以优化性能。
 
 </Step>
-
 <Step number={4} title="声明您的内容">
 
 创建并管理您的内容声明以存储翻译：
@@ -249,7 +239,6 @@ export default appContent;
 > 有关更多信息，请参阅[内容声明文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
 </Step>
-
 <Step number={5} title="在 Astro 中使用内容">
 
 对于 Vanilla JS，所有服务端渲染都是通过直接在 `.astro` 文件中使用 `getIntlayer` 完成的。随后，`<script>` 块在客户端初始化 `vanilla-intlayer` 以处理语言切换。
@@ -360,7 +349,6 @@ const { greeting, description, switchLocale } = getIntlayer("app", locale);
 > - **`search-param` 或 `no-prefix`**：不需要语言文件夹。语言通过查询参数或 Cookie 处理。
 
 </Step>
-
 <Step number={6} title="添加语言切换功能">
 
 在带有 Vanilla JS 的 Astro 中，语言切换器在服务端渲染为普通链接，并通过 `<script>` 块在客户端进行激活。当用户点击语言链接时，`vanilla-intlayer` 会在导航到本地化 URL 之前通过 `setLocale` 设置语言 Cookie。
@@ -403,7 +391,6 @@ const { greeting, description, switchLocale } = getIntlayer("app", locale);
 > 即使没有 JavaScript，语言切换链接也会作为标准的 `<a>` 标签工作。如果 JS 可用，调用 `setLocale` 会在导航前更新 Cookie，允许中间件执行正确的重定向。
 
 </Step>
-
 <Step number={7} title="站点地图和 Robots.txt">
 
 Intlayer 提供了实用工具来动态创建您的本地化站点地图和 robots.txt 文件。
@@ -465,7 +452,6 @@ export const GET: APIRoute = ({ site }) => {
 ```
 
 </Step>
-
 <Step number={15} title="提取组件中的内容（可选）" isOptional={true}>
 
 如果您有现有的代码库，转换数千个文件可能会非常耗时。
@@ -632,25 +618,21 @@ Astro 内置的 `i18n` 选项仅处理语言前缀和重定向，内容层由您
 在不使用 UI 框架的情况下，您最希望避免的是引入 i18n 库的运行时开销。Intlayer 在构建时解析内容，因此静态 Astro 页面输出的是已翻译的纯 HTML，完全不包含字典数据。请参阅 [为什么选择 Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/interest_of_intlayer.md)。
 
 </Question>
-
 <Question title="i18n 会给我的 Astro bundle 体积增加多少？">
 
 远少于基于命名空间的方案，因为页面永远不会下载它不渲染的语言目录。Astro 页面是在构建时渲染的，因此它们输出的是纯 HTML，完全不包含字典；只有孤岛才会接收字典。构建时编译器将内容调用解析为组件使用的确切条目，并且 [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md) 会按语言环境拆分剩余内容。与常规替代方案相比，Intlayer 可将 bundle 和页面体积减少高达 50%。请参阅 [Bundle 体积优化](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md) 和 [性能基准](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/benchmark/index.md)。
 
 </Question>
-
 <Question title="我可以从 i18next 或手写字典迁移而无需重写组件吗？">
 
 基本可以。请按照 [i18next 迁移指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/migration_from_i18next_to_intlayer.md) 迁移内容。您也可以逐步迁移：[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将现有的 JSON 目录作为单一真实来源（source of truth），并生成 Intlayer 字典，使两个层在逐个组件迁移时保持同步。
 
 </Question>
-
 <Question title="我可以保留现有的 JSON 翻译文件吗？">
 
 可以。[JSON 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-json.md) 将您的 `/messages/{locale}/{namespace}.json` 文件作为单一真实来源（source of truth），并双向生成 Intlayer 字典。[PO 同步插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/plugins/sync-po.md) 对 gettext 目录执行相同的操作，而 [按语言环境组织的文件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/per_locale_file.md) 允许您按语言拆分内容，而不是将所有语言打包到一个文件中。
 
 </Question>
-
 <Question title="我必须逐个键迁移我的内容吗？">
 
 不需要。运行 `npx intlayer extract`，Intlayer 会读取您的组件，提取面向用户的字符串，并在每个组件旁边生成 `.content` 文件，这样您只需审查 diff，而无需手动逐一复制字符串到语言目录中。本指南的第 15 步详细介绍了此过程。
@@ -660,7 +642,6 @@ Astro 内置的 `i18n` 选项仅处理语言前缀和重定向，内容层由您
 开启编译器前有两个限制值得了解：它通过静态分析工作，因此仅在运行时存在的字符串（如 API 错误代码或 CMS 字段）无法被捕获；此外它需要区分用户文本和应用程序逻辑（如 `className="active"` 或状态代码），在大型代码库中需要少量注解。而 [extract 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/extract.md) 则通过让您参与审查避免了这两个问题。
 
 </Question>
-
 <Question title="有哪些可用的编辑器和 AI 代理工具？">
 
 共有 5 个工具，均为可选：
@@ -672,49 +653,41 @@ Astro 内置的 `i18n` 选项仅处理语言前缀和重定向，内容层由您
 - **[ESLint 插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/eslint.md)**：`no-raw-text` 规则标记硬编码字符串，并提供针对静态字典键和未使用内容的额外规则。
 
 </Question>
-
 <Question title="页面上是否需要 JavaScript 才能使翻译生效？">
 
 不需要。Astro 在构建时渲染页面，Intlayer 在该渲染过程中直接解析内容，因此生成的 HTML 已经包含了翻译好的文本。`vanilla-intlayer` 仅在您于浏览器中实现交互的部分才需要引入。
 
 </Question>
-
 <Question title="后续如果添加交互式孤岛，是否需要更改现有内容？">
 
 不需要，这正是统一内容层的优势所在。无论是后续引入 [React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_astro_react.md)、[Vue](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_astro_vue.md)、[Svelte](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_astro_svelte.md)、[Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_astro_solid.md)、[Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_astro_preact.md) 还是 [Lit](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_astro_lit.md)，页面上的 `astro-intlayer` 与孤岛组件中的框架绑定均直接读取完全相同的内容声明。
 
 </Question>
-
 <Question title="如何设置支持语言环境的路由和语言切换器？">
 
 第 6 步介绍了切换器。`routing.mode` 决定 URL 方案：`"prefix-no-default"`（默认）、`"prefix-all"`、`"no-prefix"` 或 `"search-params"`，而 `routing.domains` 可将语言环境映射到其独立域名。`getLocalizedUrl` 会重写当前路径，使切换语言时读者保留在同一页面。请参阅 [配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
 </Question>
-
 <Question title="如何生成本地化站点地图和 hreflang 标签？">
 
 第 7 步涵盖了 `sitemap.xml` 和 `robots.txt`。`getMultilingualUrls` 为每个声明的语言环境构建备用链接（包括 `x-default`），搜索引擎以此为不同受众提供对应语言版本。
 
 </Question>
-
 <Question title="如何使用 AI 自动翻译站点？">
 
 运行 `npx intlayer fill`。它会使用您选择的 LLM、您自己的提供商和 API 密钥填充缺失的翻译，并且 `--git-diff` 参数可将处理范围限制在当前分支修改的内容。请参阅 [fill 命令](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/fill.md) 和 [CI/CD 集成](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/CI_CD.md)。
 
 </Question>
-
 <Question title="Intlayer 是否支持复数、性别和富文本？">
 
 支持：包括 [复数形式](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/plurial.md)、[基于性别的内容](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/gender.md)、条件渲染、插值用的 [插入内容 (insertions)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/insertion.md)、长文本使用的 [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/markdown.md)，以及用于数字、日期和货币的 [格式化工具](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/formatters.md)。
 
 </Question>
-
 <Question title="翻译人员如何无需接触代码即可编辑内容？">
 
 可以通过自托管的 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)（任何人都可以直接在运行中的应用上就地修改文案），或通过 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 进行无需重新部署的内容外部化更新。
 
 </Question>
-
 <Question title="Intlayer 是免费且开源的吗？">
 
 是的，基于 Apache 2.0 许可证开源，包含商业用途。托管版 CMS 是可选的付费服务，同时完全支持 [自托管](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。

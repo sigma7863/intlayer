@@ -27,47 +27,46 @@ author: aymericzip
 
 ## Определение переводов
 
-With `react-intlayer`, you can use translations in React components. Here's an example:
+Функция `t` в `intlayer` позволяет объявлять контент на нескольких языках. Эта функция обеспечивает типобезопасность, вызывая ошибку при отсутствии каких-либо переводов, что особенно полезно в средах TypeScript.
 
-  <Tab label="Next.js" value="nextjs">
+Вот пример того, как объявлять контент с переводами.
 
-```tsx fileName="**/*.tsx" codeFormat={["typescript", "esm"]}
-"use client";
+```typescript fileName="**/*.content.ts" contentDeclarationFormat={["typescript", "esm", "commonjs"]}
+import { t, type Dictionary } from "intlayer";
 
-import type { FC } from "react";
-import { useIntlayer } from "next-intlayer";
+interface Content {
+  welcomeMessage: string;
+}
 
-const MyComponent: FC = () => {
-  const content = useIntlayer("multi_lang");
-
-  return (
-    <div>
-      <p>{content.welcomeMessage}</p>
-    </div>
-  );
-};
-
-export default MyComponent;
+export default {
+  key: "multi_lang",
+  content: {
+    welcomeMessage: t({
+      en: "Welcome to our application",
+      fr: "Bienvenue dans notre application",
+      es: "Bienvenido a nuestra aplicación",
+    }),
+  },
+} satisfies Dictionary<Content>;
 ```
 
-```tsx fileName="**/*.tsx" codeFormat={["typescript", "esm"]}
-import type { Component } from "solid-js";
-import { useIntlayer } from "solid-intlayer";
-
-const MyComponent: Component = () => {
-  const content = useIntlayer("multi_lang");
-
-  return (
-    <div>
-      <p>{content.welcomeMessage}</p>
-    </div>
-  );
-};
-
-export default MyComponent;
+```json fileName="**/*.content.json" contentDeclarationFormat="json"
+{
+  "$schema": "https://intlayer.org/schema.json",
+  "key": "multi_lang",
+  "content": {
+    "welcomeMessage": {
+      "nodeType": "translation",
+      "translation": {
+        "en": "Welcome to our application",
+        "fr": "Bienvenue dans notre application",
+        "es": "Bienvenido a nuestra aplicación"
+      }
+    }
+  }
+}
 ```
 
-  </Tab>
 ## Конфигурация локалей
 
 Для обеспечения правильной обработки переводов вы можете настроить поддерживаемые локали в файле `intlayer.config.ts`. Эта конфигурация позволяет определить языки, которые поддерживает ваше приложение:

@@ -144,7 +144,6 @@ Subdirectories अधिकांश projects के लिए सही default
 इन टैग्स को हाथ से लिखना दूसरे locale के साथ संपर्क में नहीं टिकता। इसके बजाय उन्हें अपनी locale सूची से प्राप्त करें।
 
 <Steps>
-
 <Step number={1} title="हर पेज पर cluster emit करें">
 
 हर जगह एक ही सेट, हर locale के लिए canonical, absolute URLs, `x-default` शामिल।
@@ -242,7 +241,6 @@ export const Route = createFileRoute("/{-$locale}/about")({
 </Tabs>
 
 </Step>
-
 <Step number={2} title="या इसे सभी को sitemap में स्थानांतरित करें">
 
 बड़े पैमाने पर, annotations को अपने pages से पूरी तरह बाहर रखें। `generateSitemap` प्रत्येक entry के लिए `xhtml:link` alternates emit करता है, अपने config से locales और routing mode को पढ़ता है:
@@ -265,7 +263,6 @@ const sitemap = generateSitemap(
 - `entryPerLocale` (default `false`) — डिफ़ॉल्ट रूप से एक `<url>` entry सभी alternates को ले जाता है। दोनों forms वैध हैं, लेकिन केवल एक URL जो `<loc>` के रूप में listed है वह Search Console में _submitted_ के रूप में गिना जाता है; alternate-only locales discoverable रहते हैं लेकिन किसी भी sitemap को attributed नहीं होते। इसे चालू करने से हर localized URL को अपना entry मिलता है जिसमें पूरा alternate set दोहराया जाता है। यह entries को locale count से गुणा करता है, इसलिए 50,000 URL / 50 MB limit को देखें और इससे आगे sitemap index में विभाजित करें।
 
 </Step>
-
 <Step number={3} title="Verify करें कि crawler क्या प्राप्त करता है">
 
 `hreflang` silently fail होता है, इसलिए इसे assume करने की बजाय check करें।

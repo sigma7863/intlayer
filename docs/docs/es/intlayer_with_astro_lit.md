@@ -70,37 +70,31 @@ En comparación con soluciones principales como `astro-i18n` o `i18next`, Intlay
 Intlayer está optimizado para funcionar perfectamente con Astro al ofrecer **enrutamiento multilingüe**, **mapa del sitio** y todas las funciones necesarias para escalar la internacionalización (i18n).
 
 </Accordion>
-
 <Accordion header="Tamaño del bundle">
 
 En lugar de cargar archivos JSON masivos en sus páginas, cargue solo el contenido necesario. Intlayer ayuda a **reducir el tamaño de su bundle y de sus páginas hasta en un 50%**.
 
 </Accordion>
-
 <Accordion header="Mantenibilidad">
 
 Determinar el alcance del contenido de su aplicación **facilita el mantenimiento** para aplicaciones a gran escala. Puede duplicar o eliminar una sola carpeta de funciones sin la carga mental de revisar todo el código base de contenido. Además, Intlayer está **completamente escrito** para garantizar la precisión de su contenido.
 
 </Accordion>
-
 <Accordion header="Agente de IA">
 
 La ubicación conjunta de contenido **reduce el contexto necesario** para los modelos de lenguajes grandes (LLM). Intlayer también viene con un conjunto de herramientas, como una **CLI** para comprobar si faltan traducciones,**[LSP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/lsp.md)**, **[MCP](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/mcp_server.md)** y **[agent skills](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/agent_skills.md)**, para que la experiencia del desarrollador (DX) sea aún más fluida para los agentes de IA.
 
 </Accordion>
-
 <Accordion header="Automatización">
 
 Utilice la automatización para traducir su canal de CI/CD utilizando el LLM de su elección al costo de su proveedor de IA. Intlayer también ofrece un **compilador** para automatizar la extracción de contenido, así como una [plataforma web](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) para ayudar a **traducir en segundo plano**.
 
 </Accordion>
-
 <Accordion header="Actuación">
 
 La conexión de archivos JSON masivos a componentes puede provocar problemas de rendimiento y reactividad. Intlayer optimiza la carga de su contenido en el momento de la compilación.
 
 </Accordion>
-
 <Accordion header="Escalando sin ningún desarrollador">
 
 Más que una simple solución i18n, Intlayer proporciona un **[editor visual] autohospedado(https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)** y un **[CMS completo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)** para ayudarle a administrar su contenido multilingüe en **tiempo real**, lo que facilita la colaboración con traductores, redactores y otros miembros del equipo. El contenido se puede almacenar de forma local y/o remota.
@@ -113,7 +107,6 @@ Más que una simple solución i18n, Intlayer proporciona un **[editor visual] au
 Consulta la [plantilla de aplicación](https://github.com/aymericzip/intlayer-astro-template) en GitHub.
 
 <Steps>
-
 <Step number={1} title="Instalar dependencias">
 
 Instala los paquetes necesarios utilizando tu gestor de paquetes preferido:
@@ -170,7 +163,6 @@ bun add intlayer astro-intlayer lit lit-intlayer @astrojs/lit
   Integración oficial de Astro que permite el uso de elementos personalizados de Lit en las páginas de Astro.
 
 </Step>
-
 <Step number={2} title="Configurar tu proyecto">
 
 Crea un archivo de configuración para definir los idiomas de tu aplicación:
@@ -196,7 +188,6 @@ export default config;
 > A través de este archivo de configuración, puedes configurar URLs localizadas, redirecciones de middleware, nombres de cookies, ubicación y extensiones de las declaraciones de contenido, desactivar los logs de Intlayer en la consola, y más. Para una lista completa de los parámetros disponibles, consulta la [documentación de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
 
 </Step>
-
 <Step number={3} title="Integrar Intlayer en tu configuración de Astro">
 
 Añade el plugin `intlayer` y la integración de Lit a tu configuración de Astro.
@@ -219,7 +210,6 @@ export default defineConfig({
 > La integración `lit()` permite usar elementos personalizados de Lit dentro de las páginas de Astro.
 
 </Step>
-
 <Step number={4} title="Declarar tu contenido">
 
 Crea y gestiona tus declaraciones de contenido para almacenar traducciones:
@@ -251,7 +241,6 @@ export default litDemoContent;
 > Para más información, consulta la [documentación de declaración de contenido](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/content_file.md).
 
 </Step>
-
 <Step number={5} title="Usar el contenido en Astro">
 
 Puedes consumir los diccionarios directamente en tus archivos `.astro` utilizando los helpers core exportados por `intlayer`. También deberías añadir metadatos SEO (como hreflang y enlaces canónicos) a cada página. Los elementos personalizados de Lit se importan mediante un `<script>` del cliente y se colocan en el body.
@@ -343,7 +332,6 @@ const { greeting } = getIntlayer("lit-demo", locale);
 > - **`search-param` o `no-prefix`:** no se necesitan directorios de idioma. El idioma se maneja a través de parámetros de consulta o cookies.
 
 </Step>
-
 <Step number={6} title="Crear un elemento personalizado de Lit">
 
 Crea un elemento personalizado de Lit. Llama a `installIntlayer` en el `connectedCallback` utilizando el atributo `locale` del servidor para inicializar el singleton de traducciones en el cliente.
@@ -424,7 +412,6 @@ customElements.define("lit-demo", LitDemo);
 > `useIntlayer` se registra como un `ReactiveController`. Automáticamente solicita un repintado del elemento cuando el idioma cambia, por lo que no hace falta lógica de suscripción adicional.
 
 </Step>
-
 <Step number={7} title="Añadir un selector de idioma">
 
 La funcionalidad del cambio de idioma se integra directamente en el método `render()` del elemento personalizado de Lit (véase el Paso 6 anterior). Utiliza `useLocale` de `lit-intlayer` y navega a la URL localizada cuando el usuario selecciona un nuevo idioma:
@@ -472,7 +459,6 @@ override render() {
 > Usar `onLocaleChange` para redirigir mediante `window.location.href` asegura que se visite la nueva URL del idioma, lo que permite al middleware de Intlayer establecer la cookie de idioma e informar la preferencia del usuario en futuras visitas.
 
 </Step>
-
 <Step number={8} title="Sitemap y Robots.txt">
 
 Intlayer ofrece utilidades para crear dinámicamente tu sitemap localizado y tus archivos robots.txt.
@@ -534,7 +520,6 @@ export const GET: APIRoute = ({ site }) => {
 ```
 
 </Step>
-
 <Step number={15} title="Extraer el contenido de tus componentes" isOptional={true}>
 
 Si tienes una base de código existente, transformar miles de archivos puede llevar mucho tiempo.
@@ -705,25 +690,21 @@ La opción `i18n` integrada de Astro gestiona los prefijos de idioma y las redir
 Declarar una etiqueta una sola vez y usarla tanto en una página estática como en una isla interactiva es el motivo para elegir aquí una única capa de contenido. Consulta [por qué Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/interest_of_intlayer.md).
 
 </Question>
-
 <Question title="¿Cuánto añade la i18n al tamaño del bundle de mi sitio Astro?">
 
 Mucho menos que una configuración basada en espacios de nombres, porque una página nunca descarga un catálogo que no renderiza. Las páginas de Astro se renderizan en tiempo de compilación, así que entregan HTML traducido y ningún diccionario; solo las islas reciben uno. El compilador de tiempo de compilación resuelve las llamadas de contenido a las entradas exactas que usa un componente, y los [diccionarios dinámicos](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dynamic_dictionaries/index.md) reparten el resto por idioma. Frente a las alternativas habituales, Intlayer reduce el tamaño del bundle y de la página hasta en un 50%. Consulta la [optimización del bundle](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/bundle_optimization.md) y el [benchmark](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/benchmark/index.md).
 
 </Question>
-
 <Question title="¿Puedo migrar desde `@lit/localize` sin reescribir mis componentes?">
 
 En gran medida. Sigue el [resumen de los adaptadores de compatibilidad](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/compat/index.md) para trasladar el contenido. También puedes migrar de forma gradual: el [plugin de sincronización JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-json.md) mantiene tus catálogos JSON existentes como fuente de verdad y genera diccionarios de Intlayer a partir de ellos, de modo que ambas capas se mantienen sincronizadas mientras trasladas los componentes uno a uno.
 
 </Question>
-
 <Question title="¿Puedo conservar mis archivos de traducción JSON existentes?">
 
 Sí. El [plugin de sincronización JSON](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-json.md) mantiene tus archivos `/messages/{locale}/{namespace}.json` como fuente de verdad y genera diccionarios de Intlayer a partir de ellos, en ambas direcciones. Un [plugin de sincronización PO](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/plugins/sync-po.md) hace lo mismo para los catálogos gettext, y los [archivos por idioma](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/per_locale_file.md) te permiten dividir el contenido por idioma en lugar de agrupar los idiomas en un solo archivo.
 
 </Question>
-
 <Question title="¿Tengo que trasladar mi contenido clave por clave?">
 
 No. Ejecuta `npx intlayer extract` e Intlayer lee tus componentes, extrae las cadenas visibles para el usuario y escribe un archivo `.content` junto a cada uno, así que revisas un diff en lugar de copiar cadenas a un catálogo una por una. El paso 15 de esta guía lo explica paso a paso.
@@ -733,7 +714,6 @@ Para una canalización totalmente automatizada, el [compilador de Intlayer](http
 Conviene conocer dos límites antes de activar el compilador. Funciona por análisis estático, así que las cadenas que solo existen en tiempo de ejecución, como los códigos de error de la API o los campos del CMS, quedan fuera de su alcance. Y tiene que distinguir el texto visible para el usuario de la lógica de la aplicación, como `className="active"` o un código de estado, lo que requiere unas pocas anotaciones en una base de código grande. El [comando extract](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/extract.md) evita ambos manteniéndote en el proceso.
 
 </Question>
-
 <Question title="¿Qué herramientas para editores y agentes de IA están disponibles?">
 
 Cinco piezas, todas opcionales:
@@ -745,55 +725,46 @@ Cinco piezas, todas opcionales:
 - **[Plugin de ESLint](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/eslint.md)**: `no-raw-text` marca las cadenas codificadas de forma fija, con reglas adicionales para claves de diccionario estáticas y contenido sin usar.
 
 </Question>
-
 <Question title="¿Necesito una biblioteca de i18n aparte dentro de mi isla de Lit?">
 
 No. `lit-intlayer` lee los mismos diccionarios que el lado de Astro, así que no instalas `@lit/localize` junto a él. El paso 6 muestra el componente de la isla recibiendo el idioma activo desde la página en lugar de volver a resolverlo.
 
 </Question>
-
 <Question title="¿Cómo sabe la isla qué idioma está renderizando la página?">
 
 La página de Astro lo pasa hacia abajo como una prop y el proveedor de Intlayer de la isla lo recoge, así que la isla se hidrata en el mismo idioma que renderizó el servidor. Esto es lo que evita el parpadeo del idioma por defecto que se produce cuando una isla detecta el idioma por su cuenta en el navegador.
 
 </Question>
-
 <Question title="¿El contenido traducido se entrega como HTML estático?">
 
 Sí para las partes de Astro, que se renderizan en tiempo de compilación, así que las páginas localizadas son HTML estático simple que los rastreadores leen sin ejecutar JavaScript. Solo las islas reciben un diccionario, y solo para el idioma que renderizan.
 
 </Question>
-
 <Question title="¿Cómo configuro el enrutamiento localizado y un selector de idioma?">
 
 El paso 7 cubre el selector. `routing.mode` decide el esquema de URL: `"prefix-no-default"` (el valor por defecto, `/about` y `/fr/about`), `"prefix-all"`, `"no-prefix"` o `"search-params"`, y `routing.domains` asigna un idioma a su propio dominio. `getLocalizedUrl` reescribe la ruta actual para que cambiar de idioma mantenga al lector en la misma página. Consulta la [referencia de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
 
 </Question>
-
 <Question title="¿Cómo genero un sitemap localizado y etiquetas hreflang?">
 
 El paso 8 cubre `sitemap.xml` y `robots.txt`. `getMultilingualUrls` construye las alternativas para cada idioma declarado, incluida `x-default`, que es lo que usan los motores de búsqueda para servir la versión de idioma correcta.
 
 </Question>
-
 <Question title="¿Cómo traduzco el sitio automáticamente con IA?">
 
 Ejecuta `npx intlayer fill`. Rellena las traducciones que faltan con el LLM de tu elección, usando tu propio proveedor y tu clave de API, y `--git-diff` limita la ejecución al contenido modificado en la rama. Consulta el [comando fill](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/fill.md) y la [integración de CI/CD](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/CI_CD.md).
 
 </Question>
-
 <Question title="¿Intlayer admite plurales, género y texto enriquecido?">
 
 Sí: [formas plurales](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/plurial.md), [contenido según el género](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/gender.md), condiciones, [inserciones](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/insertion.md), [Markdown](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/dictionary/markdown.md) para texto extenso, y [formateadores](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/formatters.md) para números, fechas y monedas.
 
 </Question>
-
 <Question title="¿Cómo pueden los traductores editar el contenido sin tocar el código?">
 
 A través del [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_visual_editor.md), que se ejecuta en tu propia infraestructura y permite que cualquiera edite texto en su sitio en la aplicación en ejecución, o del [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md), que externaliza el contenido para que pueda cambiar sin un despliegue.
 
 </Question>
-
 <Question title="¿Es Intlayer gratuito y de código abierto?">
 
 Sí, bajo la licencia Apache 2.0, uso comercial incluido. El CMS alojado es un servicio de pago opcional que también puede [autoalojarse](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/self_hosting.md).

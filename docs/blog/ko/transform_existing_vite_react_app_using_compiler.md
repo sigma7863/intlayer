@@ -334,19 +334,16 @@ console.log("SEO 파일이 성공적으로 생성되었습니다.");
 네. `npx intlayer extract`를 실행하여 하드코딩된 텍스트를 지역화된 콘텐츠 선언 파일로 자동 추출하거나, Intlayer 컴파일러를 사용하여 빌드 시 컴포넌트를 자동 변환하면서 표준 JSX를 작성할 수 있습니다.
 
 </Question>
-
 <Question title="react-i18next나 react-intl에 비해 Intlayer는 어떻게 Vite 번들 크기를 줄이나요?">
 
 Intlayer는 컴포넌트별 딕셔너리 정의와 빌드 타임 매크로 최적화를 사용합니다. 거대한 JSON 파일을 한 번에 불러오는 대신 현재 화면에 렌더링되는 컴포넌트에 필요한 데이터만 번들에 포함됩니다. 동적 딕셔너리를 통해 언어별 지연 로딩도 가능합니다.
 
 </Question>
-
 <Question title="AI를 사용하여 기존 컴포넌트를 여러 언어로 자동 번역할 수 있나요?">
 
 네. Intlayer CLI의 `npx intlayer fill` 명령어를 사용하면 설정된 AI 제공자(OpenAI, Anthropic, Mistral, DeepSeek)와 연동하여 프로젝트 전체에서 누락된 언어 번역을 문맥에 맞게 생성할 수 있습니다.
 
 </Question>
-
 <Question title="컴포넌트를 다시 작성하지 않고 react-i18next나 react-intl에서 마이그레이션할 수 있나요?">
 
 네. Intlayer는 `react-i18next` 및 `react-intl`을 위한 호환 어댑터를 제공하며, 기존 JSON 번역 파일을 동기화할 수 있는 전용 플러그인(`sync-json`)도 제공합니다.
