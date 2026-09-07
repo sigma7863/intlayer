@@ -1,4 +1,3 @@
-import { createLocalAccountIssuer } from '@better-auth/core/db';
 import { logger } from '@logger';
 import { AccountModel } from '@schemas/account.schema';
 import { OrganizationModel } from '@schemas/organization.schema';
@@ -10,9 +9,6 @@ import { getAuthSingleton } from '@utils/auth/getAuth';
 import { hashPassword } from 'better-auth/crypto';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { Types } from 'mongoose';
-
-/** Issuer better-auth expects on an email/password account. */
-const CREDENTIAL_ISSUER = createLocalAccountIssuer('credential');
 
 type DemoResources = {
   demoOrgId: string;
@@ -59,9 +55,10 @@ const bootstrapDemoResources = async (): Promise<DemoResources> => {
     });
   }
 
-  // better-auth resolves the credential account by `providerId` + `issuer` +
-  // `accountId`, so all three must be written here — an account missing
-  // `issuer` is invisible to `signInEmail` and yields INVALID_EMAIL_OR_PASSWORD.
+  // better-auth resolves the credential account by `providerId` + `accountId`,
+  // so both must be written here — an account whose `accountId` does not match
+  // the user id is invisible to `signInEmail` and yields
+  // INVALID_EMAIL_OR_PASSWORD.
   const hashedPassword = await hashPassword(DEMO_PASSWORD);
   await AccountModel.findOneAndUpdate(
     { userId: String(demoUser._id), providerId: 'credential' },
@@ -69,7 +66,6 @@ const bootstrapDemoResources = async (): Promise<DemoResources> => {
       userId: String(demoUser._id),
       accountId: String(demoUser._id),
       providerId: 'credential',
-      issuer: CREDENTIAL_ISSUER,
       password: hashedPassword,
     },
     { upsert: true }

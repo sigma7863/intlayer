@@ -16,10 +16,6 @@ export const accountSchema: Schema<AccountSchema> = new Schema<AccountSchema>(
       type: String,
       required: true,
     },
-    issuer: {
-      type: String,
-      required: false,
-    },
     accessToken: {
       type: String,
       required: false,
