@@ -122,13 +122,9 @@ author: aymericzip
 
 Intlayer-Konfigurationsdateien ermöglichen die Anpassung verschiedener Aspekte des Plugins, wie Internationalisierung, Middleware und Inhaltsverarbeitung. Dieses Dokument bietet eine detaillierte Beschreibung jeder Eigenschaft in der Konfiguration.
 
----
-
 ## Inhaltsverzeichnis
 
 <TOC/>
-
----
 
 ## Unterstützung von Konfigurationsdateien
 
@@ -142,8 +138,6 @@ Intlayer akzeptiert die Konfigurationsdateiformate JSON, JS, MJS und TS:
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## Beispiel-Konfigurationsdatei
 
@@ -698,13 +692,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## Konfigurationsreferenz
 
 Die folgenden Abschnitte beschreiben die verschiedenen für Intlayer verfügbaren Konfigurationseinstellungen.
-
----
 
 ### Internationalisierungskonfiguration
 
@@ -716,8 +706,6 @@ Definiert Einstellungen zur Internationalisierung, einschließlich der verfügba
 | `requiredLocales` | Die Liste der erforderlichen Sprachen in der Anwendung.                                                  | `string[]` | `[]`                | `[]`                 | • Wenn leer, sind alle Sprachen im `strict` Modus erforderlich.<br/>• Stellen Sie sicher, dass erforderliche Sprachen auch im `locales` Feld definiert sind.                                                                                                                                                                 |
 | `strictMode`      | Gewährleistet eine starke Implementierung von internationalisierten Inhalten mittels TypeScript.         | `string`   | `'inclusive'`       |                      | • Wenn `"strict"`: Die `t`-Funktion erfordert, dass jede deklarierte Sprache definiert ist - wirft einen Fehler, wenn eine fehlt oder nicht deklariert ist.<br/>• Wenn `"inclusive"`: Warnt vor fehlenden Sprachen, akzeptiert aber vorhandene, nicht deklarierte.<br/>• Wenn `"loose"`: Akzeptiert jede vorhandene Sprache. |
 | `defaultLocale`   | Die Standardsprache, die als Fallback verwendet wird, wenn die angeforderte Sprache nicht gefunden wird. | `string`   | `Locales.ENGLISH`   | `'en'`               | Wird verwendet, um die Sprache zu bestimmen, wenn keine in der URL, im Cookie oder im Header angegeben ist.                                                                                                                                                                                                                  |
-
----
 
 ### Editorkonfiguration
 
@@ -749,8 +737,6 @@ Analytics ist Opt-out: Es ist standardmäßig aktiviert und beginnt zu erfassen,
 | `enabled`       | Aktiviert die Analytics-Erfassung (Seitenaufrufe, Content-Expositionen, A/B-Ereignisse). | `boolean` | `true`   | `false`  | Erfordert, dass `@intlayer/analytics` installiert und `editor.clientId` für die Zuordnung gesetzt ist; andernfalls bleibt Analytics deaktiviert, selbst wenn `enabled` auf `true` steht. |
 | `flushInterval` | Millisekunden zwischen automatischen gebündelten Übertragungen an das Backend.           | `number`  | `20000`  | `10000`  |                                                                                                                                                                                          |
 | `sampleRate`    | Anteil der zu erfassenden Sitzungen, von `0` (keine) bis `1` (alle).                     | `number`  | `1`      | `0.5`    | Das Sampling ist pro Sitzung deterministisch, sodass eine erfasste Sitzung alle ihre Ereignisse meldet (keine unvollständigen Funnels).                                                  |
-
----
 
 ### Routing-Konfiguration
 
@@ -953,8 +939,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### Inhaltskonfiguration
 
 Einstellungen für die Inhaltsbehandlung in der Anwendung, einschließlich Verzeichnisnamen, Dateierweiterungen und abgeleiteter Konfigurationen.
@@ -967,8 +951,6 @@ Einstellungen für die Inhaltsbehandlung in der Anwendung, einschließlich Verze
 | `codeDir`        | Der Verzeichnispfad, in dem der Code gespeichert ist, relativ zum Basisverzeichnis.                              | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • Wird verwendet, um nach Codedateien für die Transformation (Pruning, Optimierung) zu suchen.<br/>• Die Trennung von `contentDir` kann die Leistung verbessern. |
 | `excludedPath`   | Verzeichnisse, die vom Scannen nach Inhalten ausgeschlossen werden sollen.                                       | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | Wird noch nicht verwendet; für zukünftige Implementierung vorgesehen.                                                                                            |
 | `formatCommand`  | Befehl zum Formatieren von Inhaltsdateien, wenn Intlayer sie lokal schreibt.                                     | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` wird durch den Dateipfad ersetzt.<br/>• Wenn nicht definiert, erkennt Intlayer dies automatisch (testet Prettier, Biome, ESLint).                   |
-
----
 
 ### Systemkonfiguration
 
@@ -1023,8 +1005,6 @@ dictionary: {
   },
 };
 ```
-
----
 
 ### Logger-Konfiguration
 
@@ -1096,8 +1076,6 @@ Die Build-Optionen gelten für die Plugins `@intlayer/babel` und `@intlayer/swc`
 | `outputFormat`        | Steuert das Ausgabeformat der Wörterbücher.                                                                                                      | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `traversePattern`     | Muster, die definieren, welche Dateien während der Optimierung durchlaufen werden sollen.                                                        | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • Begrenzen Sie die Optimierung auf relevante Dateien, um die Build-Leistung zu verbessern.<br/>• Wird ignoriert, wenn `optimize` deaktiviert ist.<br/>• Verwendet Glob-Muster.                                                                                                                                                                                                                                                                                                                                                                                   |
 
----
-
 ### Compiler-Konfiguration
 
 Einstellungen, die den Intlayer-Compiler steuern, der Wörterbücher direkt aus Ihren Komponenten extrahiert.
@@ -1116,8 +1094,6 @@ Einstellungen, die den Intlayer-Compiler steuern, der Wörterbücher direkt aus 
 | Feld      | Beschreibung                                                                             | Typ                         |
 | --------- | ---------------------------------------------------------------------------------------- | --------------------------- |
 | `schemas` | Erlaubt die Definition von Zod-Schemata zur Validierung der Struktur Ihrer Wörterbücher. | `Record<string, ZodSchema>` |
-
----
 
 ### Plugins
 

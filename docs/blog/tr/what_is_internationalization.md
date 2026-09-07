@@ -101,8 +101,6 @@ Bu kısa genel bakış, bir web sitesinde uluslararasılaştırılması gereken 
 - **Kültürel Hassasiyetler**  
   Simgeler, renkler ve simgeler kültürler arasında farklı anlamlar taşıyabilir. Yerel kültürel nüanslara saygı göstermek için görsel ve metinsel içeriği uyarlamak önemlidir.
 
----
-
 ## i18n Uygulaması İçin En İyi Uygulamalar
 
 - **Erken Planla**  
@@ -116,8 +114,6 @@ Bu kısa genel bakış, bir web sitesinde uluslararasılaştırılması gereken 
 
 - **Çevirilerin Yeniden Kullanılabilirliği**  
   Çeviri dosyalarınızı birden fazla web sitesi veya uygulama arasında yeniden kullanılabilir olacak şekilde organize edin. Örneğin, çok dilli bir altbilgi veya başlık varsa, ortak unsurların tüm projelere kolayca uygulanabilmesi için özel çeviri dosyaları ayarlayın.
-
----
 
 ## Yerel Sözlük vs. CMS İçerik Dışa Aktarma
 
@@ -136,8 +132,6 @@ Bu zorluklar göz önüne alındığında, içeriği dışa aktarmak ve çeviri 
 
 İhtiyaçlarınıza uygun doğru aracı seçmek ve uluslararasılaştırma stratejinizi baştan planlamak önemlidir. **Intlayer, yerel içerik beyanını sıkı bir şekilde entegre edilmiş bir başsız CMS ile birleştirerek her iki dünyanın en iyisini sunan cazip bir çözüm sunar.**
 
----
-
 ### Teknoloji başına i18n Kütüphaneleri ve araç listesine bakın
 
 Teknoloji başına i18n kütüphaneleri ve araçlarının bir listesini arıyorsanız, aşağıdaki kaynaklara göz atın:
@@ -155,8 +149,6 @@ Teknoloji başına i18n kütüphaneleri ve araçlarının bir listesini arıyors
 - Vue: [i18n Kütüphaneleri ve araç listesine bakın](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [i18n Kütüphaneleri ve araç listesine bakın](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/list_i18n_technologies/frameworks/svelte.md)
 - React Native : [i18n Kütüphaneleri ve araç listesine bakın](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Sonuç
 

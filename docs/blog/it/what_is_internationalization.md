@@ -101,8 +101,6 @@ Questa panoramica concisa copre gli elementi principali che dovrebbero essere in
 - **Sensibilità culturale**  
   Icone, colori e simboli potrebbero avere significati diversi tra le culture. È importante adattare i contenuti visivi e testuali per rispettare le sfumature culturali locali.
 
----
-
 ## Migliori pratiche per implementare l'i18n
 
 - **Pianifica in anticipo**  
@@ -116,8 +114,6 @@ Questa panoramica concisa copre gli elementi principali che dovrebbero essere in
 
 - **Riutilizzabilità delle traduzioni**  
   Organizza i tuoi file di traduzione in modo da poter essere riutilizzati tra più siti web o applicazioni. Ad esempio, se hai un piè di pagina o un'intestazione multilingue, imposta file di traduzione dedicati affinché gli elementi comuni possano essere facilmente applicati a tutti i progetti.
-
----
 
 ## Dichiarazione del contenuto della localizzazione vs. Esternalizzazione del contenuto CMS
 
@@ -136,8 +132,6 @@ Data queste sfide, è comune optare per un CMS headless per esternalizzare i con
 
 È importante scegliere lo strumento giusto per le tue esigenze e pianificare la tua strategia di internazionalizzazione fin dall'inizio. **Intlayer offre una soluzione convincente combinando la dichiarazione dei contenuti di localizzazione con un CMS headless che è strettamente integrato, fornendo il meglio di entrambi i mondi.**
 
----
-
 ### Consulta l'elenco di librerie e strumenti i18n per tecnologia
 
 Se stai cercando un elenco di librerie e strumenti i18n per tecnologia, dai un'occhiata alle seguenti risorse:
@@ -154,8 +148,6 @@ Se stai cercando un elenco di librerie e strumenti i18n per tecnologia, dai un'o
 - Vue: [Vedi l'elenco di librerie e strumenti i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/it/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Vedi l'elenco di librerie e strumenti i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/it/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [Vedi l'elenco di librerie e strumenti i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/it/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Conclusione
 

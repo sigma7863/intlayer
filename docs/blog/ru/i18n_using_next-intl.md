@@ -62,8 +62,6 @@ author: aymericzip
 
 > См. нашу документацию, в которой перечислено все, что нужно знать об интернационализации и SEO: [Интернационализация (i18n) с next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ru/internationalization_and_SEO.md).
 
----
-
 ## Пошаговое руководство по настройке next-intl в приложении Next.js
 
 <iframe

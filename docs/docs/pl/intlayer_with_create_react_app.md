@@ -94,8 +94,6 @@ Użyj automatyzacji do tłumaczenia w swoim potoku CI/CD, używając wybranego p
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku, jak skonfigurować Intlayer w aplikacji React
 
 <Steps>

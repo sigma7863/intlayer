@@ -23,15 +23,11 @@ author: aymericzip
 
 À medida que a web continua a conectar pessoas ao redor do mundo, fornecer conteúdo em múltiplas línguas se torna cada vez mais importante. Para desenvolvedores que trabalham com **Svelte**, implementar i18n é essencial para gerenciar traduções de forma eficiente, manter um código limpo e preservar boas práticas de SEO. Neste artigo, mergulhamos em várias soluções e fluxos de trabalho de i18n para Svelte, ajudando você a escolher a que melhor se adapta às necessidades do seu projeto.
 
----
-
 ## O que é Internacionalização (i18n)?
 
 Internacionalização, comumente abreviada como i18n, é o processo de projetar e construir sua aplicação para que possa se adaptar facilmente a várias línguas, regiões e convenções culturais. Em Svelte, isso normalmente significa configurar strings de tradução, localizando datas, horários e números, e garantindo que a interface do usuário possa alternar dinamicamente entre diferentes locais sem grandes reescritas de código.
 
 Para saber mais sobre os fundamentos de i18n, leia nosso artigo: [O que é Internacionalização (i18n)? Definição e Desafios](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pt/o_que_e_internacionalizacao.md).
-
----
 
 ## O Desafio da Tradução para Aplicações Svelte
 
@@ -42,8 +38,6 @@ Traduzir uma aplicação Svelte pode apresentar vários obstáculos:
 - **Considerações de SEO**: Se você estiver usando **SvelteKit** para renderização do lado do servidor (SSR), configurar URLs localizadas, tags meta e sitemaps para um SEO eficaz requer cuidados adicionais.
 - **Estado e Roteamento**: Manter o idioma correto em várias rotas e páginas dinâmicas muitas vezes envolve orquestrar estado global, guardas de rotas ou hooks personalizados no SvelteKit.
 - **Manutenibilidade**: À medida que seu código e arquivos de tradução crescem, manter tudo bem organizado e sincronizado torna-se um esforço contínuo.
-
----
 
 ## Principais Soluções de i18n para Svelte
 
@@ -69,8 +63,6 @@ Svelte não fornece uma solução i18n nativa e integrada (como o Angular), mas 
 
 - **Comunidade & Ecossistema**: Embora esteja crescendo, o ecossistema é mais novo, então plugins e ferramentas orientados pela comunidade podem ser mais limitados em comparação com soluções mais estabelecidas.
 
----
-
 ### 2. svelte-i18n
 
 Repositório: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaisermann/svelte-i18n)
@@ -90,8 +82,6 @@ Repositório: [https://github.com/kaisermann/svelte-i18n](https://github.com/kai
 - **Organização do Projeto**: Você precisará estruturar seus arquivos de tradução logicamente à medida que o projeto cresce.
 - **Configuração do SSR**: A configuração do SSR para SEO pode exigir etapas adicionais para garantir a detecção correta do local no lado do servidor.
 - **Desempenho**: Embora flexível em tempo de execução, um grande número de traduções carregadas de uma vez pode impactar os tempos de carregamento iniciais, considere estratégias de carregamento preguiçoso ou cache.
-
----
 
 ### 3. svelte-intl-precompile
 
@@ -113,8 +103,6 @@ Repositório: [https://github.com/cibernox/svelte-intl-precompile](https://githu
 - **Conteúdo Dinâmico**: Se você precisar de traduções instantâneas para conteúdo gerado pelo usuário, esta abordagem pode exigir etapas extras para atualizações em tempo de execução.
 - **Curva de Aprendizado**: A combinação de extração de mensagens e pré-compilação pode ser ligeiramente mais complexa para iniciantes.
 
----
-
 ### 4. i18next com Svelte / SvelteKit
 
 Website: [https://www.i18next.com/](https://www.i18next.com/)
@@ -134,8 +122,6 @@ Embora **i18next** seja mais comumente associado a React ou Vue, também é poss
 - **Configuração Manual**: O i18next não possui uma integração dedicada ao Svelte fora da caixa, portanto, você precisará configurá-lo por conta própria.
 - **Sobrecarga**: O i18next é robusto, mas para projetos Svelte menores, alguns de seus recursos podem ser excessivos.
 - **Roteamento e Estado**: Lidar com o roteamento de idiomas provavelmente envolverá hooks ou middlewares personalizados do SvelteKit.
-
----
 
 ### Considerações Finais
 

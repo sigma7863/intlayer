@@ -79,6 +79,4 @@ Là người dùng, bạn có quyền:
 
 Chúng tôi có thể cập nhật thông báo bảo mật này theo thời gian. Người dùng được khuyến nghị thường xuyên kiểm tra trang này để cập nhật các thay đổi.
 
----
-
 Hãy cho chúng tôi biết nếu bạn muốn sử dụng giọng điệu trang trọng hơn, thêm các đề cập về GDPR/CCPA, hoặc điều chỉnh cho trang pháp lý trên trang web của bạn.

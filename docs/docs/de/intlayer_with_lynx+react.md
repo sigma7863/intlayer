@@ -89,8 +89,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="Abhängigkeiten installieren">
@@ -462,8 +460,6 @@ Dies ermöglicht Funktionen wie:
 - **Autovervollständigung** für Ihre Wörterbuchschlüssel.
 - **Typprüfung**, die warnt, wenn Sie auf einen nicht existierenden Schlüssel zugreifen oder den Typ nicht übereinstimmen.
 
----
-
 ## Git-Konfiguration
 
 Um zu vermeiden, dass von Intlayer automatisch generierte Dateien committed werden, fügen Sie Folgendes zu Ihrer `.gitignore` hinzu:
@@ -472,8 +468,6 @@ Um zu vermeiden, dass von Intlayer automatisch generierte Dateien committed werd
 # Von Intlayer generierte Dateien ignorieren
 .intlayer
 ```
-
----
 
 ### VS Code Erweiterung
 
@@ -493,8 +487,6 @@ Diese Erweiterung bietet:
 - **Inline-Vorschauen** des übersetzten Inhalts.
 - **Schnellaktionen**, um Übersetzungen einfach zu erstellen und zu aktualisieren.
   Für weitere Details zur Verwendung der Erweiterung lesen Sie bitte die [Intlayer VS Code Extension Dokumentation](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ## Weiterführende Schritte
 

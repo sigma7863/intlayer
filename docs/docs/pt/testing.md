@@ -24,15 +24,11 @@ author: aymericzip
 
 Este guia mostra como verificar automaticamente se seus dicionários estão completos, detectar traduções faltantes antes do lançamento e testar a interface localizada em seu aplicativo.
 
----
-
 ## O que você pode testar
 
 - **Traduções faltantes**: falhar no CI se algum idioma obrigatório estiver faltando em qualquer dicionário.
 - **Renderização da interface localizada**: renderizar componentes com um provedor de idioma específico e verificar textos/atributos visíveis.
 - **Auditorias em tempo de build**: executar uma auditoria rápida localmente via CLI.
-
----
 
 ## Início rápido: auditoria via CLI
 
@@ -63,8 +59,6 @@ Flags úteis:
 - `--prefix [rótulo]`: prefixa as linhas de log.
 
 Nota: o CLI imprime um relatório detalhado, mas não retorna código de erro em caso de falhas. Para controle em CI, adicione um teste unitário (abaixo) que assegure que não há locais obrigatórios faltando.
-
----
 
 ## Teste programático (Vitest/Jest)
 
@@ -112,8 +106,6 @@ Como funciona:
   - `missingLocales`: união de todos os locais faltantes.
   - `missingRequiredLocales`: subconjunto limitado a `requiredLocales` (ou todos os locais se `requiredLocales` não estiver definido).
 
----
-
 ## Testando UI localizada (React / Next.js)
 
 Renderize componentes dentro de um provedor Intlayer e faça asserções no conteúdo visível.
@@ -159,8 +151,6 @@ Dicas:
 
 - Quando precisar dos valores brutos das strings para atributos (ex.: `aria-label`), acesse o campo `.value` retornado por `useIntlayer` no React.
 - Mantenha os dicionários localizados junto com os componentes para facilitar os testes unitários e a limpeza.
-
----
 
 ## Integração Contínua
 
@@ -210,8 +200,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## Solução de Problemas
 

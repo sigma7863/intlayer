@@ -105,8 +105,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 在 Analog 应用中设置 Intlayer 的分步指南
 
 请参阅 GitHub 上的 [Application Template](https://github.com/aymericzip/intlayer-analog-template)。
@@ -403,8 +401,6 @@ Intlayer 使用模块扩充 (module augmentation) 来利用 TypeScript 的优势
 - 轻松创建和更新翻译的**快速操作**。
 
 有关如何使用该扩展的更多详细信息，请参考 [Intlayer VS Code 扩展文档](https://intlayer.org/doc/vs-code-extension)。
-
----
 
 ### 进一步探索
 

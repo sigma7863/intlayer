@@ -104,7 +104,7 @@ export default defineConfig({
 
 > 独立的 `intlayerCompiler()` 插件仍然为高级设置导出。与 `intlayer()` 一起注册是安全的——编译器会自行去重并且只运行一次。
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react.md)
 
 #### 框架支持
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 此配置确保在构建过程中，组件中声明的内容会被自动提取并用于生成字典。
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

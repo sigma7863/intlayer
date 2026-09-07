@@ -105,8 +105,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении Analog
 
 См. [Шаблон приложения](https://github.com/aymericzip/intlayer-analog-template) на GitHub.
@@ -403,8 +401,6 @@ Intlayer использует расширение модулей (module augmen
 - **Быстрые действия** для легкого создания и обновления переводов.
 
 Для получения более подробной информации о том, как использовать расширение, см. [документацию по расширению Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Идите дальше
 

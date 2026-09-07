@@ -80,8 +80,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Neden Storybook ile Intlayer Kullanmalısınız?
 
 Storybook, UI bileşenlerini izole bir şekilde geliştirmek ve belgelemek için endüstri standardı bir araçtır. Intlayer ile birleştirmek şunları yapmanızı sağlar:
@@ -89,8 +87,6 @@ Storybook, UI bileşenlerini izole bir şekilde geliştirmek ve belgelemek için
 - **Her dili önizleyin** doğrudan Storybook tuvali içinde bir araç çubuğu değiştiricisi kullanarak.
 - **Eksik çevirileri yakalayın** üretime ulaşmadan önce.
 - **Çok dilli bileşenleri belgeleyin** sabit kodlanmış dizeler yerine gerçek, tür açısından güvenli (type-safe) içeriklerle.
-
----
 
 ## Adım Adım Kurulum
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > Daha fazla içerik bildirimi formatı ve özelliği için [içerik bildirimi dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dictionary/content_file.md) bakın.
 
----
-
 ## Bir Bileşende `useIntlayer` Kullanımı
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer`, en yakın `IntlayerProvider` tarafından sağlanan geçerli dil için derlenmiş sözlüğü döndürür. Storybook araç çubuğunda dili değiştirmek, hikayeyi güncellenmiş çevirilerle otomatik olarak yeniden oluşturur.
-
----
 
 ## Uluslararasılaştırılmış Bileşenler İçin Hikayeler Yazma
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > Her hikaye araç çubuğundan `locale` küreselini devralır, böylece herhangi bir hikaye kodunu değiştirmeden her dili doğrulayabilirsiniz.
 
----
-
 ## Hikayelerde Çevirileri Test Etme
 
 Belirli bir dil için doğru çevrilmiş metnin oluşturulduğunu iddia etmek için Storybook'un `play` işlevlerini kullanın:
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Ek Kaynaklar
 

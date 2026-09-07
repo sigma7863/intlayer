@@ -35,14 +35,10 @@ Kami fokus pada tooling Vue modern (Vite, Composition API) dan mengevaluasi:
 
 > **ringkasan**: Keduanya dapat melokalkan aplikasi Vue. Jika Anda menginginkan **konten yang dibatasi pada komponen**, **tipe TypeScript yang ketat**, **pemeriksaan kunci hilang saat build-time**, **kamus yang di-tree-shake**, dan **bantuan router/SEO yang sudah termasuk** serta **Editor Visual & terjemahan AI**, **Intlayer** adalah pilihan yang lebih lengkap dan modern.
 
----
-
 ## Posisi tingkat tinggi
 
 - **vue-i18n** - Perpustakaan i18n de-facto untuk Vue. Format pesan yang fleksibel (gaya ICU), blok SFC `<i18n>` untuk pesan lokal, dan ekosistem besar. Keamanan dan pemeliharaan skala besar sebagian besar menjadi tanggung jawab Anda.
 - **Intlayer** - Model konten yang berfokus pada komponen untuk Vue/Vite/Nuxt dengan **pengetikan TS yang ketat**, **pemeriksaan saat build-time**, **tree-shaking**, **bantuan router & SEO**, **Editor Visual/CMS** opsional, dan **terjemahan dibantu AI**.
-
----
 
 ## Perbandingan Fitur Berdampingan (Fokus pada Vue)
 
@@ -67,8 +63,6 @@ Kami fokus pada tooling Vue modern (Vite, Composition API) dan mengevaluasi:
 | **Maintainabilitas proyek besar**                       | ✅ Mendorong struktur modular yang ramah sistem desain                                         | ✅ Mungkin, tapi membutuhkan disiplin file/namespace yang kuat                         |
 | **Ekosistem / komunitas**                               | ⚠️ Lebih kecil tapi tumbuh cepat                                                               | ✅ Besar dan matang dalam ekosistem Vue                                                |
 
----
-
 ## Perbandingan mendalam
 
 ### 1) Arsitektur & skalabilitas
@@ -78,16 +72,12 @@ Kami fokus pada tooling Vue modern (Vite, Composition API) dan mengevaluasi:
 
 **Mengapa ini penting:** Dalam aplikasi Vue besar atau sistem desain, **konten modular** lebih mudah diskalakan dibandingkan katalog monolitik.
 
----
-
 ### 2) TypeScript & keamanan
 
 - **vue-i18n**: Dukungan TS yang baik; **pengetikan kunci ketat** biasanya membutuhkan skema/generik khusus dan konvensi yang hati-hati.
 - **Intlayer**: **Menghasilkan tipe yang ketat** dari konten Anda, memberikan **autocompletion IDE** dan **error saat kompilasi** untuk kesalahan ketik/kunci yang hilang.
 
 **Mengapa ini penting:** Pengetikan yang kuat menangkap masalah **sebelum** runtime.
-
----
 
 ### 3) Penanganan terjemahan yang hilang
 
@@ -96,16 +86,12 @@ Kami fokus pada tooling Vue modern (Vite, Composition API) dan mengevaluasi:
 
 **Mengapa ini penting:** Penegakan saat build menjaga UI produksi tetap bersih dan konsisten.
 
----
-
 ### 4) Strategi Routing & URL (Vue Router/Nuxt)
 
 - **Keduanya** dapat bekerja dengan rute yang dilokalkan.
 - **Intlayer** menyediakan helper untuk **menghasilkan path yang dilokalkan**, **mengelola prefix locale**, dan mengeluarkan **`<link rel="alternate" hreflang>`** untuk SEO. Dengan Nuxt, ini melengkapi routing framework.
 
 **Mengapa ini penting:** Lebih sedikit lapisan penghubung kustom dan **SEO yang lebih bersih** di berbagai locale.
-
----
 
 ### 5) Performa & perilaku pemuatan
 
@@ -114,8 +100,6 @@ Kami fokus pada tooling Vue modern (Vite, Composition API) dan mengevaluasi:
 
 **Mengapa ini penting:** Bundle yang lebih kecil dan startup lebih cepat untuk aplikasi Vue multi-locale.
 
----
-
 ### 6) Pengalaman pengembang & tooling
 
 - **vue-i18n**: Dokumentasi dan komunitas yang matang; Anda biasanya akan mengandalkan **platform lokalisasi eksternal** untuk alur kerja editorial.
@@ -123,16 +107,12 @@ Kami fokus pada tooling Vue modern (Vite, Composition API) dan mengevaluasi:
 
 **Mengapa ini penting:** Biaya operasional lebih rendah dan siklus dev–konten yang lebih singkat.
 
----
-
 ### 7) SEO, SSR & SSG
 
 - **Keduanya** bekerja dengan Vue SSR dan Nuxt.
 - **Intlayer**: Menambahkan **helper SEO** (sitemap/metadata/`hreflang`) yang tidak tergantung pada framework dan bekerja dengan baik pada build Vue/Nuxt.
 
 **Mengapa ini penting:** SEO internasional tanpa pengaturan khusus.
-
----
 
 ## Mengapa Intlayer? (Masalah & pendekatan)
 
@@ -223,8 +203,6 @@ Pendekatan ini:
 - **Menghindari dead keys** (komponen yang tidak digunakan tidak mengimpor konten).
 - **Mengoptimalkan pemuatan** (komponen yang dimuat secara malas membawa kontennya sendiri).
 
----
-
 ## Fitur tambahan Intlayer (relevan untuk Vue)
 
 - **Dukungan lintas-framework**: Bekerja dengan Vue, Nuxt, Vite, React, Express, dan lainnya.
@@ -242,14 +220,10 @@ Pendekatan ini:
 - **Server MCP & ekstensi VSCode**: Otomatiskan alur kerja i18n dan penulisan konten di dalam IDE Anda.
 - **Interoperabilitas**: Menghubungkan dengan **vue-i18n**, **react-i18next**, dan **react-intl** saat diperlukan.
 
----
-
 ## Kapan memilih yang mana?
 
 - **Pilih vue-i18n** jika Anda menginginkan **pendekatan Vue standar**, nyaman mengelola katalog/namespace sendiri, dan aplikasi Anda berukuran **kecil hingga menengah** (atau Anda sudah menggunakan Nuxt i18n).
 - **Pilih Intlayer** jika Anda menghargai **konten yang dibatasi pada komponen**, **TypeScript yang ketat**, **jaminan waktu build**, **tree-shaking**, dan alat routing/SEO/editor yang **lengkap**, terutama untuk **codebase Vue/Nuxt yang besar dan modular**, sistem desain, dll.
-
----
 
 ## Interoperabilitas dengan vue-i18n
 
@@ -257,15 +231,11 @@ Pendekatan ini:
 
 Dengan menggunakan `intlayer`, Anda dapat mendeklarasikan konten Anda dalam format perpustakaan i18n favorit Anda, dan intlayer akan menghasilkan namespace Anda di lokasi pilihan Anda (contoh: `/messages/{{locale}}/{{namespace}}.json`).
 
----
-
 ## GitHub STARs
 
 Bintang GitHub adalah indikator kuat dari popularitas proyek, kepercayaan komunitas, dan relevansi jangka panjang. Meskipun bukan ukuran langsung dari kualitas teknis, bintang mencerminkan berapa banyak pengembang yang menganggap proyek tersebut berguna, mengikuti perkembangannya, dan kemungkinan akan mengadopsinya. Untuk memperkirakan nilai sebuah proyek, bintang membantu membandingkan daya tarik di antara alternatif dan memberikan wawasan tentang pertumbuhan ekosistem.
 
 [![Grafik Riwayat Bintang](https://api.star-history.com/svg?repos=intlify/vue-i18n&repos=aymericzip/intlayer&type=Date)](https://www.star-history.com/#intlify/vue-i18n&aymericzip/intlayer)
-
----
 
 ## Kesimpulan
 

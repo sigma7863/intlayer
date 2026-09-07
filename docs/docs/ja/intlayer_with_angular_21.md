@@ -85,8 +85,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## AngularアプリケーションでIntlayerをセットアップするためのステップバイステップガイド
 
 <Tabs defaultTab="code">
@@ -473,13 +471,9 @@ Intlayerでの開発エクスペリエンスを向上させるために、公式
 
 拡張機能の使い方の詳細については、[Intlayer VS Code拡張機能のドキュメント](https://intlayer.org/doc/vs-code-extension)を参照してください。
 
----
-
 ### さらに進む
 
 さらに進むには、[ビジュアルエディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)を実装したり、[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)を使用してコンテンツを外部化したりできます。
-
----
 
 ## よくある質問
 

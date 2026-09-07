@@ -23,16 +23,12 @@ author: aymericzip
 
 점점 더 커지는 글로벌 시장에서 React Native 앱을 다국어로 제공하는 것은 접근성을 크게 높이고 사용자 만족도를 개선할 수 있습니다. 국제화(i18n)는 번역을 효율적으로 관리하는 데 핵심적인 역할을 하며, 코드베이스를 복잡하게 만들지 않고도 언어별 텍스트, 날짜 및 시간 형식, 통화 등을 표시할 수 있게 해줍니다. 이 글에서는 전용 라이브러리부터 보다 일반적인 솔루션에 이르기까지 다양한 i18n 접근 방식을 살펴보고, 귀하의 React Native 프로젝트에 가장 적합한 라이브러리를 찾는 데 도움을 드리고자 합니다.
 
----
-
 ## 국제화(i18n)란 무엇인가요?
 
 국제화(i18n)는 애플리케이션을 다양한 언어, 지역 형식 및 문화적 관습에 쉽게 적응할 수 있도록 구조화하는 것을 포함합니다. React Native에서 i18n은 버튼과 라벨의 문자열을 처리하는 것뿐만 아니라 사용자의 로케일에 따라 날짜, 시간, 통화 등을 형식화하는 것을 포함합니다. 적절하게 준비된 React Native 앱을 사용하면 대대적인 리팩토링 없이도 나중에 추가 언어와 로케일별 동작을 원활하게 통합할 수 있습니다.
 
 국제화 개념에 대해 더 자세히 알아보려면 다음 기사를 확인하세요:  
 [What is Internationalization (i18n)? Definition and Challenges](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/what_is_internationalization.md).
-
----
 
 ## React Native 애플리케이션을 위한 번역 도전 과제
 
@@ -52,8 +48,6 @@ React Native에서 번역 작업을 수행할 때는 몇 가지 고유한 고려
 
 - **앱 업데이트 및 OTA(Over-the-Air)**  
   CodePush 또는 다른 OTA 업데이트 메커니즘을 사용하는 경우, 전체 앱 스토어 출시 없이 번역 업데이트나 새로운 언어가 어떻게 전달될지 계획해야 합니다.
-
----
 
 ## React Native를 위한 주요 i18n 솔루션
 
@@ -88,8 +82,6 @@ React Native에서 번역 작업을 수행할 때는 몇 가지 고유한 고려
 - **Community & Ecosystem**  
   상대적으로 새로운 솔루션이므로, 오랜 역사를 가진 라이브러리에 비해 커뮤니티 중심의 예제나 준비된 플러그인이 적을 수 있습니다.
 
----
-
 ### 2. React-i18next
 
 > Website: [https://react.i18next.com/](https://react.i18next.com/)
@@ -121,8 +113,6 @@ React Native에서 번역 작업을 수행할 때는 몇 가지 고유한 고려
 
 - **Performance**  
   React-i18next는 일반적으로 성능이 뛰어나지만, 모바일 장치에서 오버헤드를 피하기 위해 번역 리소스를 구조화하고 로드하는 방법에 주의해야 합니다.
-
----
 
 ### 3. React Intl (from FormatJS)
 
@@ -156,8 +146,6 @@ React Native에서 번역 작업을 수행할 때는 몇 가지 고유한 고려
 - **Community Examples**  
   널리 사용되지만, React 웹에 비해 React Native 전용 사용 예제가 적을 수 있습니다. 기존 문서와 패턴을 네이티브 환경에 맞게 조정해야 합니다.
 
----
-
 ### 4. LinguiJS
 
 > Website: [https://lingui.js.org/](https://lingui.js.org/)
@@ -189,8 +177,6 @@ React Native에서 번역 작업을 수행할 때는 몇 가지 고유한 고려
 
 - **Code Organization**  
   메시지 카탈로그를 어떻게 나누는지(스크린, 기능 또는 언어별로) 결정하는 것은 더 큰 앱에서 명확성을 유지하는 데 중요합니다.
-
----
 
 ## 최종 생각
 

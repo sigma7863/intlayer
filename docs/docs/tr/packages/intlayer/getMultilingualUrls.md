@@ -39,13 +39,9 @@ author: aymericzip
 - Birden fazla yönlendirme modunu destekler: `prefix-no-default`, `prefix-all`, `no-prefix` ve `search-params`
 - Tüm yerel dilleri anahtar olarak ve karşılık gelen URL'leri değer olarak içeren bir harita nesnesi döndürür
 
----
-
 ## Açıklama
 
 `getMultilingualUrls` fonksiyonu, verilen URL'yi her desteklenen yerel ayar ile öneklendirerek çok dilli URL'lerin bir eşlemesini oluşturur. Hem mutlak hem de göreli URL'leri işleyebilir ve sağlanan yapılandırma veya varsayılanlara göre uygun yerel ayar önekini uygular.
-
----
 
 ## Parametreler
 
@@ -87,8 +83,6 @@ author: aymericzip
 
 - **Tür**: `IConfigLocales<string>`
 - **Açıklama**: Her yerel ayarı karşılık gelen çok dilli URL'sine eşleyen bir nesne.
-
----
 
 ## Kullanım Örneği
 
@@ -190,8 +184,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## Kenar Durumları
 
 - **Yerel Ayar Segmenti Yok:**
@@ -208,8 +200,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: Tüm yerel ayarların önekleri vardır (örn. `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: URL'lerde yerel ayar öneki yoktur (tüm yerel ayarlar aynı URL'yi döndürür)
   - `'search-params'`: Yerel ayar sorgu parametresi aracılığıyla belirtilir (örn. `/dashboard?locale=fr`)
-
----
 
 ## Uygulamalarda Kullanım
 

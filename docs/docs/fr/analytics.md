@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Ce qu'il suit
 
 `@intlayer/analytics` regroupe trois types d'événements anonymes en lots :

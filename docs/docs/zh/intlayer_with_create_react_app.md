@@ -89,8 +89,6 @@ Intlayer 不仅是一个 i18n 解决方案，还提供 **自托管 [可视化编
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 在 React 应用中设置 Intlayer 的分步指南
 
 <Steps>

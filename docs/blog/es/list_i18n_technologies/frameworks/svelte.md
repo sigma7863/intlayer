@@ -23,15 +23,11 @@ author: aymericzip
 
 A medida que la web sigue conectando a las personas de todo el mundo, proporcionar contenido en múltiples idiomas es cada vez más importante. Para los desarrolladores que trabajan con **Svelte**, implementar i18n es esencial para gestionar traducciones de manera eficiente, mantener un código limpio y cumplir con buenas prácticas de SEO. En este artículo, nos adentramos en varias soluciones y flujos de trabajo de i18n para Svelte, ayudándote a elegir la que mejor se adapte a las necesidades de tu proyecto.
 
----
-
 ## ¿Qué es la Internacionalización (i18n)?
 
 La internacionalización, comúnmente abreviada como i18n, es el proceso de diseñar y construir tu aplicación para que pueda adaptarse fácilmente a varios idiomas, regiones y convenciones culturales. En Svelte, esto generalmente significa configurar cadenas de traducción, localizar fechas, horas y números, y asegurar que la interfaz de usuario pueda cambiar dinámicamente entre diferentes locales sin grandes reescrituras de código.
 
 Para aprender más sobre los fundamentos de i18n, lee nuestro artículo: [¿Qué es la Internacionalización (i18n)? Definición y Desafíos](https://github.com/aymericzip/intlayer/blob/main/docs/blog/es/what_is_internationalization.md).
-
----
 
 ## El Desafío de la Traducción para Aplicaciones Svelte
 
@@ -42,8 +38,6 @@ Traducir una aplicación Svelte puede presentar varios obstáculos:
 - **Consideraciones de SEO**: Si usas **SvelteKit** para renderizado del lado del servidor (SSR), configurar URLs localizadas, etiquetas meta y sitemaps para un SEO efectivo requiere un cuidado extra.
 - **Estado y Enrutamiento**: Mantener el idioma correcto en múltiples rutas y páginas dinámicas a menudo implica orquestar estado global, guardias de ruta o hooks personalizados en SvelteKit.
 - **Mantenibilidad**: A medida que crece tu base de código y los archivos de traducción, mantener todo bien organizado y sincronizado se convierte en un esfuerzo continuo.
-
----
 
 ## Principales Soluciones i18n para Svelte
 
@@ -69,8 +63,6 @@ Svelte no proporciona una solución de i18n nativa e incorporada (como Angular),
 
 - **Comunidad y Ecosistema**: Aunque está en crecimiento, el ecosistema es más nuevo, por lo que los plugins y herramientas impulsados por la comunidad pueden ser más limitados en comparación con soluciones más establecidas.
 
----
-
 ### 2. svelte-i18n
 
 Repositorio: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaisermann/svelte-i18n)
@@ -90,8 +82,6 @@ Repositorio: [https://github.com/kaisermann/svelte-i18n](https://github.com/kais
 - **Organización del Proyecto**: Necesitarás estructurar tus archivos de traducción lógicamente a medida que crezca el proyecto.
 - **Configuración de SSR**: La configuración de SSR para SEO puede requerir pasos adicionales para asegurar la correcta detección de locales en el lado del servidor.
 - **Rendimiento**: Aunque es flexible en tiempo de ejecución, un gran número de traducciones cargadas a la vez puede afectar los tiempos de carga inicial; considera estrategias de carga diferida o caché.
-
----
 
 ### 3. svelte-intl-precompile
 
@@ -113,8 +103,6 @@ Repositorio: [https://github.com/cibernox/svelte-intl-precompile](https://github
 - **Contenido Dinámico**: Si necesitas traducciones al vuelo para contenido generado por el usuario, este enfoque puede requerir pasos adicionales para actualizaciones en tiempo de ejecución.
 - **Curva de Aprendizaje**: La combinación de extracción de mensajes y precompilación puede ser ligeramente más compleja para los recién llegados.
 
----
-
 ### 4. i18next con Svelte / SvelteKit
 
 Sitio web: [https://www.i18next.com/](https://www.i18next.com/)
@@ -134,8 +122,6 @@ Aunque **i18next** se asocia más comúnmente con React o Vue, también es posib
 - **Configuración Manual**: i18next no tiene una integración dedicada de Svelte lista para usar, por lo que necesitarás configurarlo tú mismo.
 - **Sobrecarga**: i18next es robusto, pero para proyectos Svelte más pequeños, algunas de sus características pueden ser excesivas.
 - **Enrutamiento y Estado**: Manejar el enrutamiento de idiomas probablemente involucrará hooks o middleware personalizados de SvelteKit.
-
----
 
 ### Pensamientos Finales
 

@@ -35,15 +35,11 @@ Wir bewerten:
 
 > **Kurzfassung**: Alle drei können eine React-App lokalisieren. Wenn Sie **komponentenbezogenen Inhalt**, **strenge TypeScript-Typen**, **Build-Zeit-Prüfungen auf fehlende Schlüssel**, **baumgeschüttelte Wörterbücher** und integrierte redaktionelle Werkzeuge (Visueller Editor/CMS + optionale KI-Übersetzung) wünschen, ist **Intlayer** die vollständigste Wahl für modulare React-Codebasen.
 
----
-
 ## Übergeordnete Positionierung
 
 - **react-intl** - ICU-first, standardkonforme Formatierung (Datum/Zahlen/Pluralformen) mit einer ausgereiften API. Kataloge sind typischerweise zentralisiert; Schlüssel-Sicherheit und Build-Zeit-Validierung liegen größtenteils bei Ihnen.
 - **react-i18next** - Extrem beliebt und flexibel; Namespaces, Detektoren und viele Plugins (ICU, Backends). Leistungsstark, aber die Konfiguration kann mit wachsendem Projektumfang umfangreich werden.
 - **Intlayer** - Komponentenorientiertes Inhaltsmodell für React, **strenge TS-Typisierung**, **Build-Zeit-Prüfungen**, **Tree-Shaking**, plus **Visueller Editor/CMS** und **KI-unterstützte Übersetzungen**. Funktioniert mit React Router, Vite, CRA usw.
-
----
 
 ## Funktionsmatrix (React-Fokus)
 
@@ -69,8 +65,6 @@ Wir bewerten:
 | **Bereinigung ungenutzter Inhalte**                | ✅ Ja, pro Wörterbuch zur Build-Zeit                                                                                                              | ❌ Nein, nur durch manuelle Namespace-Segmentierung                                                                                | ❌ Nein, alle deklarierten Nachrichten werden gebündelt                                                             |
 | **Verwaltung großer Projekte**                     | ✅ Fördert Modularität, geeignet für Design-Systeme                                                                                               | ⚠️ Benötigt gute Dateidisziplin                                                                                                    | ⚠️ Zentrale Kataloge können sehr groß werden                                                                        |
 
----
-
 ## Tiefgehender Vergleich
 
 ### 1) Architektur & Skalierbarkeit
@@ -80,8 +74,6 @@ Wir bewerten:
 
 **Warum das wichtig ist:** Modularer Inhalt spiegelt modulare UI wider. Große React-Codebasen bleiben sauberer, wenn Übersetzungen bei den Komponenten leben, zu denen sie gehören.
 
----
-
 ### 2) TypeScript & Sicherheit
 
 - **react-intl**: Solide Typisierung, aber **keine automatische Schlüsseltypisierung**; Sicherheitsmuster müssen selbst durchgesetzt werden.
@@ -90,16 +82,12 @@ Wir bewerten:
 
 **Warum das wichtig ist:** Das Verschieben von Fehlern nach **links** (zum Build/CI) reduziert Produktionsprobleme und beschleunigt die Feedback-Schleifen für Entwickler.
 
----
-
 ### 3) Umgang mit fehlenden Übersetzungen
 
 - **react-intl / react-i18next**: Standardmäßig **Laufzeit-Fallbacks** (Schlüssel-Echo oder Standardsprache). Sie können Linting/Plugins hinzufügen, aber es ist nicht garantiert, dass dies beim Build passiert.
 - **Intlayer**: **Build-Zeit-Erkennung** mit Warnungen oder Fehlern, wenn erforderliche Sprachen/Schlüssel fehlen.
 
 **Warum das wichtig ist:** Ein fehlschlagender CI-Prozess bei fehlenden Strings verhindert, dass „mysteriöses Englisch“ in nicht-englische UIs gelangt.
-
----
 
 ### 4) Reichhaltiger Inhalt & Formatierung
 
@@ -109,16 +97,12 @@ Wir bewerten:
 
 **Warum das wichtig ist:** Komplexe UI-Texte (Links, fettgedruckte Teile, Inline-Komponenten) sind einfacher zu handhaben, wenn die Bibliothek React-Knoten sauber unterstützt.
 
----
-
 ### 5) Leistung & Ladeverhalten
 
 - **react-intl / react-i18next**: Sie verwalten typischerweise **Katalogaufteilung** und **Lazy Loading** manuell (Namespaces/dynamische Importe). Effektiv, erfordert aber Disziplin.
 - **Intlayer**: **Entfernt ungenutzte Wörterbücher** automatisch (Tree-shaking) und unterstützt **Lazy Loading pro Wörterbuch/pro Sprache** direkt out-of-the-box.
 
 **Warum das wichtig ist:** Kleinere Bundles und weniger ungenutzte Strings verbessern die Start- und Navigationsleistung.
-
----
 
 ### 6) DX, Tooling & Wartung
 
@@ -127,15 +111,11 @@ Wir bewerten:
 
 **Warum das wichtig ist:** Eingebaute Werkzeuge verkürzen den Kreislauf zwischen Entwicklern und Inhaltserstellern - weniger Klebecode, weniger Abhängigkeiten von Drittanbietern.
 
----
-
 ## Wann welches wählen?
 
 - **Wählen Sie react-intl**, wenn Sie eine **ICU-first** Nachrichtenformatierung mit einer einfachen, standardkonformen API wünschen und Ihr Team damit vertraut ist, Kataloge und Sicherheitsprüfungen manuell zu pflegen.
 - **Wählen Sie react-i18next**, wenn Sie die **Vielfalt des i18next-Ökosystems** (Detektoren, Backends, ICU-Plugin, Integrationen) benötigen und mehr Konfiguration für mehr Flexibilität akzeptieren.
 - **Wählen Sie Intlayer**, wenn Sie **komponentenbezogenen Inhalt**, **striktes TypeScript**, **Build-Zeit-Garantien**, **Tree-Shaking** und **inklusive redaktionelle Werkzeuge** schätzen – besonders für **große, modulare** React-Anwendungen.
-
----
 
 ## Interoperabilität mit `react-intl` und `react-i18next`
 
@@ -143,16 +123,12 @@ Wir bewerten:
 
 Mit `intlayer` kannst du deine Inhalte im Format deiner bevorzugten i18n-Bibliothek deklarieren, und intlayer wird deine Namespaces am Ort deiner Wahl generieren (Beispiel: `/messages/{{locale}}/{{namespace}}.json`).
 
----
-
 ## Praktische Migrationshinweise (react-intl / react-i18next → Intlayer)
 
 - **Schrittweise migrieren**: Beginnen Sie mit einer Funktion oder Route; behalten Sie während der Umstellung die alten Kataloge parallel bei.
 - **Pro-Komponenten-Wörterbücher übernehmen**: Platzieren Sie Inhalte zusammen mit den Komponenten, um die Kopplung zu reduzieren.
 - **Strenge Prüfungen aktivieren**: Lassen Sie Build-Zeit-Fehler fehlende Schlüssel/Locales frühzeitig in der CI anzeigen.
 - **Bundles messen**: Erwarten Sie Reduzierungen, da ungenutzte Strings entfernt werden.
-
----
 
 ## Fazit
 

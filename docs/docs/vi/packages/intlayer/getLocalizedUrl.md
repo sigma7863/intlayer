@@ -38,8 +38,6 @@ Hàm `getLocalizedUrl` tạo ra một URL có địa phương hóa bằng cách 
 - Sử dụng cấu hình quốc tế hóa của dự án bạn làm mặc định
 - Có thể dùng với tham số tối thiểu cho các trường hợp đơn giản hoặc tùy chỉnh đầy đủ cho các trường hợp phức tạp
 
----
-
 ## Chữ ký hàm
 
 ```typescript
@@ -51,8 +49,6 @@ getLocalizedUrl(
   prefixDefault?: boolean        // Tùy chọn
 ): string
 ```
-
----
 
 ## Tham số
 
@@ -97,8 +93,6 @@ getLocalizedUrl(
 
 - **Kiểu**: `string`
 - **Mô tả**: URL đã được địa phương hóa cho locale được chỉ định.
-
----
 
 ## Ví dụ sử dụng
 
@@ -205,8 +199,6 @@ getLocalizedUrl(
 ); // Kết quả: "/about" (không áp dụng tiền tố cho locale không hỗ trợ)
 ```
 
----
-
 ## Các Trường Hợp Biên
 
 - **Không Có Phân Đoạn Locale:**
@@ -223,8 +215,6 @@ getLocalizedUrl(
   - `'prefix-all'`: Tất cả các locale đều có tiền tố (ví dụ: `/en/about`, `/fr/about`)
   - `'no-prefix'`: Không có tiền tố locale trong URL (locale được xử lý ở nơi khác)
   - `'search-params'`: Locale được chỉ định qua tham số truy vấn (ví dụ: `/about?locale=fr`)
-
----
 
 ## Sử Dụng Trong Ứng Dụng
 

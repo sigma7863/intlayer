@@ -26,8 +26,6 @@ Se o seu app Next.js multilíngue não informar aos motores de busca como rastre
 
 Neste blog, vamos explorar **por que a i18n é uma superpotência do SEO** e como implementá-la corretamente no Next.js com `next-intl`, `next-i18next` e `Intlayer`.
 
----
-
 ## Por que SEO e i18n
 
 Adicionar idiomas não é apenas sobre UX. É também uma alavanca poderosa para a **visibilidade orgânica**. Eis o porquê:
@@ -36,8 +34,6 @@ Adicionar idiomas não é apenas sobre UX. É também uma alavanca poderosa para
 2. **Evitar conteúdo duplicado:** Tags canônicas e alternadas adequadas indicam aos rastreadores qual página pertence a qual localidade.
 3. **Melhor UX:** Os visitantes chegam imediatamente à versão correta do seu site.
 4. **Vantagem competitiva:** Poucos sites implementam SEO multilíngue corretamente, o que significa que você pode se destacar.
-
----
 
 ## Melhores práticas para SEO multilíngue no Next.js
 
@@ -56,8 +52,6 @@ Aqui está uma lista de verificação que todo app multilíngue deve implementar
   Exemplo: `<a href="/fr/about">À propos</a>` em vez de linkar para o padrão `/about`.
 
 Estes são passos simples, mas ignorá-los pode custar sua visibilidade.
-
----
 
 ## Exemplos de Implementação
 
@@ -343,13 +337,9 @@ export default robots;
   </Tab>
 </Tabs>
 
----
-
 ## Audite seu site com o Intlayer SEO Scanner
 
 Para garantir que seu aplicativo multilíngue esteja perfeitamente otimizado, recomendamos o uso do [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner). É uma ferramenta especializada em verificação de sites multilíngues, ajudando você a identificar tags hreflang ausentes, links quebrados e outros problemas de SEO em todas as suas páginas localizadas.
-
----
 
 ## Conclusão
 

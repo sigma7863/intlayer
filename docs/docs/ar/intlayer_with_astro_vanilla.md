@@ -107,8 +107,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لتهيئة Intlayer في Astro + Vanilla JS
 
 تحقق من [نموذج التطبيق](https://github.com/aymericzip/intlayer-astro-template) على GitHub.
@@ -620,8 +618,6 @@ bun run build # Or bun run dev
 - **إجراءات سريعة** لإنشاء وتحديث الترجمات بسهولة.
 
 لمزيد من المعلومات حول استخدام الإضافة، راجع [توثيق إضافة VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### تعمق أكثر
 

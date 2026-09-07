@@ -40,8 +40,6 @@ author: aymericzip
 > 참고: next-i18next는 i18next 위에 구축되었습니다. 이 가이드는 App Router에서 next-i18next와 호환되는 i18next 기본 기능을 사용하며, 아키텍처를 간단하고 프로덕션 준비 상태로 유지합니다.
 > 더 넓은 비교는 [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ko/next-i18next_vs_next-intl_vs_intlayer.md)를 참조하세요.
 
----
-
 ## 1) 프로젝트 구조
 
 next-i18next 의존성을 설치하세요:
@@ -93,8 +91,6 @@ bun add next-i18next i18next react-i18next i18next-resources-to-backend
 - 메시지를 과도하게 중앙집중화하지 마세요; 작은 페이지/기능 범위의 namespace를 사용하세요
 - 모든 locale을 한 번에 임포트하지 마세요; 필요한 것만 로드하세요
 
----
-
 ## 2) 의존성 설치
 
 ```bash
@@ -106,8 +102,6 @@ next-i18next API 또는 설정 연동을 사용할 계획이라면, 다음도 �
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) 핵심 i18n 설정
 
@@ -134,8 +128,6 @@ export function abs(locale: string, path: string) {
 ```
 
 시니어 노트: `next-i18next.config.js`를 사용하는 경우, `i18n.config.ts`와 일치하도록 유지하여 불일치를 방지하세요.
-
----
 
 ## 4) 서버 사이드 i18n 초기화
 
@@ -174,8 +166,6 @@ export async function initI18next(
 ```
 
 중간 노트: 페이로드를 제한하기 위해 페이지별 네임스페이스 목록을 짧게 유지하세요. 전역 “catch-all” 번들은 피하세요.
-
----
 
 ## 5) React 컴포넌트를 위한 클라이언트 프로바이더
 
@@ -233,8 +223,6 @@ export default function I18nProvider({
 
 초급 팁: 모든 메시지를 클라이언트에 전달할 필요가 없습니다. 페이지의 네임스페이스만 전달하는 것으로 시작하세요.
 
----
-
 ## 6) 지역화된 레이아웃과 라우트
 
 언어와 방향을 설정하고, 정적 렌더링을 우선시하기 위해 로케일별 라우트를 미리 생성합니다.
@@ -269,8 +257,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) 서버 + 클라이언트 사용 예제 페이지
 
@@ -387,8 +373,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: 메타데이터, Hreflang, 사이트맵, 로봇
 
 콘텐츠 번역은 도달 범위를 확장하는 수단입니다. 다국어 SEO를 철저히 구성하세요.
@@ -482,8 +466,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) 로케일 라우팅을 위한 미들웨어
 
 로케일을 감지하고 누락된 경우 로컬라이즈된 경로로 리디렉션합니다.
@@ -526,8 +508,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) 성능 및 개발자 경험(DX) 모범 사례
 
 - **html `lang` 및 `dir` 설정**: `src/app/[locale]/layout.tsx`에서 완료됨.
@@ -538,8 +518,6 @@ export const config = {
 - **무거운 연산 메모이제이션**: 특히 구버전 React 클라이언트 코드에서 중요.
 - **캐시 및 헤더**: 가능하면 동적 렌더링보다 정적 또는 `revalidate` 사용 선호.
 
----
-
 ## 11) 테스트 및 CI
 
 - `t`를 사용하는 컴포넌트에 대해 키 존재 여부를 확인하는 단위 테스트 추가.
@@ -547,8 +525,6 @@ export const config = {
 - 배포 전에 CI 과정에서 누락된 키를 표시합니다.
 
 Intlayer가 이 작업의 대부분을 자동화해줍니다 (다음 섹션 참조).
-
----
 
 ## 12) Intlayer 추가하기 (자동화)
 
@@ -635,8 +611,6 @@ export default config;
 
 > CLI 인수를 제공할 수 있습니다; 자세한 내용은 [Intlayer CLI 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/cli/index.md)를 참조하세요.
 
----
-
 ## 13) 문제 해결
 
 - **키를 찾을 수 없음**: 페이지/프로바이더가 올바른 네임스페이스를 나열하고 JSON 파일이 `src/locales/<locale>/<namespace>.json` 경로에 존재하는지 확인하세요.
@@ -644,8 +618,6 @@ export default config;
 - **RTL 레이아웃 문제**: `dir`이 `isRtl(locale)`에서 파생되었는지, 그리고 CSS가 `[dir="rtl"]`을 준수하는지 확인하세요.
 - **SEO 대체 언어 누락**: `alternates.languages`에 모든 로케일과 `x-default`가 포함되어 있는지 확인하세요.
 - **번들 크기 과다**: 네임스페이스를 더 세분화하고 클라이언트에서 전체 `locales` 트리를 임포트하지 않도록 하세요.
-
----
 
 ## 14) 다음 단계
 

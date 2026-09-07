@@ -33,14 +33,10 @@ Focamos nas ferramentas modernas do Vue (Vite, Composition API) e avaliamos:
 
 > **resumo**: Ambos podem localizar apps Vue. Se você deseja **conteúdo com escopo de componente**, **tipos TypeScript rigorosos**, **verificações de chaves faltantes em tempo de build**, **dicionários otimizados por tree-shaking**, e **helpers integrados para roteamento/SEO** além de **Editor Visual & traduções com IA**, **Intlayer** é a escolha mais completa e moderna.
 
----
-
 ## Posicionamento em alto nível
 
 - **vue-i18n** - A biblioteca i18n padrão para Vue. Formatação flexível de mensagens (estilo ICU), blocos SFC `<i18n>` para mensagens locais, e um grande ecossistema. Segurança e manutenção em larga escala ficam principalmente por sua conta.
 - **Intlayer** - Modelo de conteúdo centrado em componentes para Vue/Vite/Nuxt com **tipagem TS rigorosa**, **verificações em tempo de build**, **tree-shaking**, **helpers para roteador e SEO**, **Editor Visual/CMS** opcional e **traduções assistidas por IA**.
-
----
 
 ## Comparação de Recursos Lado a Lado (focada em Vue)
 
@@ -65,8 +61,6 @@ Focamos nas ferramentas modernas do Vue (Vite, Composition API) e avaliamos:
 | **Manutenção em projetos grandes**                 | ✅ Incentiva estrutura modular, amigável a design systems                             | ✅ Possível, mas requer disciplina rigorosa de arquivos/namespace                            |
 | **Ecossistema / comunidade**                       | ⚠️ Menor, mas crescendo rapidamente                                                   | ✅ Grande e madura no ecossistema Vue                                                        |
 
----
-
 ## Comparação detalhada
 
 ### 1) Arquitetura e escalabilidade
@@ -76,16 +70,12 @@ Focamos nas ferramentas modernas do Vue (Vite, Composition API) e avaliamos:
 
 **Por que isso importa:** Em grandes aplicativos Vue ou sistemas de design, **conteúdo modular** escala melhor do que catálogos monolíticos.
 
----
-
 ### 2) TypeScript & segurança
 
 - **vue-i18n**: Bom suporte a TS; **tipagem estrita de chaves** normalmente requer esquemas/genéricos personalizados e convenções cuidadosas.
 - **Intlayer**: **Gera tipos estritos** a partir do seu conteúdo, oferecendo **autocompletar no IDE** e **erros em tempo de compilação** para erros de digitação/chaves ausentes.
 
 **Por que isso importa:** Tipagem forte detecta problemas **antes** da execução.
-
----
 
 ### 3) Tratamento de traduções ausentes
 
@@ -94,16 +84,12 @@ Focamos nas ferramentas modernas do Vue (Vite, Composition API) e avaliamos:
 
 **Por que isso importa:** Aplicação em tempo de build mantém a interface de produção limpa e consistente.
 
----
-
 ### 4) Estratégia de roteamento e URLs (Vue Router/Nuxt)
 
 - **Ambos** podem funcionar com rotas localizadas.
 - **Intlayer** fornece auxiliares para **gerar caminhos localizados**, **gerenciar prefixos de localidade** e emitir **`<link rel="alternate" hreflang>`** para SEO. Com Nuxt, complementa o roteamento do framework.
 
 **Por que isso importa:** Menos camadas personalizadas e **SEO mais limpo** entre localidades.
-
----
 
 ### 5) Desempenho e comportamento de carregamento
 
@@ -112,8 +98,6 @@ Focamos nas ferramentas modernas do Vue (Vite, Composition API) e avaliamos:
 
 **Por que isso importa:** Pacotes menores e inicialização mais rápida para apps Vue multilíngues.
 
----
-
 ### 6) Experiência do desenvolvedor e ferramentas
 
 - **vue-i18n**: Documentação madura e comunidade consolidada; normalmente você dependerá de **plataformas externas de localização** para fluxos editoriais.
@@ -121,16 +105,12 @@ Focamos nas ferramentas modernas do Vue (Vite, Composition API) e avaliamos:
 
 **Por que isso importa:** Menor custo operacional e um ciclo de desenvolvimento–conteúdo mais curto.
 
----
-
 ### 7) SEO, SSR & SSG
 
 - **Ambos** funcionam com Vue SSR e Nuxt.
 - **Intlayer**: Adiciona **auxiliares de SEO** (sitemaps/metadados/`hreflang`) que são independentes de framework e funcionam bem com builds Vue/Nuxt.
 
 **Por que isso importa:** SEO internacional sem configurações personalizadas complexas.
-
----
 
 ## Por que Intlayer? (Problema & abordagem)
 
@@ -221,8 +201,6 @@ Esta abordagem:
 - **Evita chaves mortas** (componentes não usados não importam conteúdo).
 - **Otimiza o carregamento** (componentes carregados sob demanda trazem seu conteúdo junto).
 
----
-
 ## Funcionalidades adicionais do Intlayer (relevantes para Vue)
 
 - **Suporte multiplataforma**: Funciona com Vue, Nuxt, Vite, React, Express e mais.
@@ -240,22 +218,16 @@ Esta abordagem:
 - **Servidor MCP & extensão VSCode**: Automatize fluxos de trabalho i18n e autoria dentro do seu IDE.
 - **Interoperabilidade**: Integrações com **vue-i18n**, **react-i18next** e **react-intl** quando necessário.
 
----
-
 ## Quando escolher qual?
 
 - **Escolha vue-i18n** se você quiser a **abordagem padrão do Vue**, estiver confortável gerenciando catálogos/namespace por conta própria, e seu app for **pequeno a médio porte** (ou já depender do Nuxt i18n).
 - **Escolha Intlayer** se você valoriza **conteúdo escopado por componente**, **TypeScript rigoroso**, **garantias em tempo de build**, **tree-shaking**, e ferramentas completas para roteamento/SEO/editor - especialmente para **códigos Vue/Nuxt grandes e modulares**.
-
----
 
 ## Interoperabilidade com vue-i18n
 
 `intlayer` também pode ajudar a gerenciar seus namespaces `vue-i18n`.
 
 Usando `intlayer`, você pode declarar seu conteúdo no formato de sua biblioteca i18n favorita, e intlayer gerará seus namespaces no local de sua escolha (exemplo: `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## Notas práticas de migração (vue-i18n → Intlayer)
 
@@ -264,8 +236,6 @@ Usando `intlayer`, você pode declarar seu conteúdo no formato de sua bibliotec
 - **Ative verificações rigorosas**: Permita que a detecção em tempo de compilação identifique cedo chaves/locais ausentes.
 - **Adote auxiliares de roteador/SEO**: Padronize a detecção de localidade e as tags `hreflang`.
 - **Meça os pacotes**: Espere **reduções no tamanho dos pacotes** à medida que o conteúdo não utilizado é excluído.
-
----
 
 ## Conclusão
 

@@ -106,8 +106,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku konfiguracji Intlayer w aplikacji Vanilla JS
 
 <Steps>
@@ -475,8 +473,6 @@ To rozszerzenie zapewnia:
 - **Szybkie akcje**, aby łatwo tworzyć i aktualizować tłumaczenia.
 
 Więcej szczegółów na temat korzystania z rozszerzenia znajdziesz w [dokumentacji rozszerzenia Intlayer dla VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Idź dalej
 

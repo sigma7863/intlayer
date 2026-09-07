@@ -26,8 +26,6 @@ Jika aplikasi Next.js multibahasa Anda tidak memberi tahu mesin pencari bagaiman
 
 Dalam blog ini, kita akan mengeksplorasi **mengapa i18n adalah kekuatan super SEO** dan bagaimana mengimplementasikannya dengan benar di Next.js menggunakan `next-intl`, `next-i18next`, dan `Intlayer`.
 
----
-
 ## Mengapa SEO dan i18n
 
 Menambahkan bahasa bukan hanya tentang UX. Ini juga merupakan tuas yang kuat untuk **visibilitas organik**. Berikut alasannya:
@@ -36,8 +34,6 @@ Menambahkan bahasa bukan hanya tentang UX. Ini juga merupakan tuas yang kuat unt
 2. **Menghindari konten duplikat:** Tag kanonik dan alternatif yang tepat memberi tahu crawler halaman mana yang milik locale mana.
 3. **UX yang lebih baik:** Pengunjung langsung mendarat di versi situs Anda yang tepat.
 4. **Keunggulan kompetitif:** Sedikit situs yang mengimplementasikan SEO multibahasa dengan baik yang berarti Anda bisa menonjol.
-
----
 
 ## Praktik Terbaik untuk SEO Multibahasa di Next.js
 
@@ -56,8 +52,6 @@ Berikut adalah daftar periksa yang harus diimplementasikan setiap aplikasi multi
   Contoh: `<a href="/fr/about">À propos</a>` daripada menautkan ke `/about` default.
 
 Ini adalah langkah sederhana, tetapi melewatkannya dapat mengurangi visibilitas Anda.
-
----
 
 ## Contoh Implementasi
 
@@ -342,13 +336,9 @@ export default robots;
   </Tab>
 </Tabs>
 
----
-
 ## Audit situs web Anda dengan Intlayer SEO Scanner
 
 Untuk memastikan aplikasi multibahasa Anda dioptimalkan dengan sempurna, kami sarankan untuk menggunakan [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner). Ini adalah alat khusus untuk pengecekan situs web multibahasa, membantu Anda mengidentifikasi tag hreflang yang hilang, tautan rusak, dan masalah SEO lainnya di semua halaman lokal Anda.
-
----
 
 ## Kesimpulan
 

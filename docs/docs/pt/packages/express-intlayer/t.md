@@ -28,13 +28,9 @@ author: aymericzip
 
 A função `t` no pacote `express-intlayer` é a utilidade principal para fornecer respostas localizadas na sua aplicação Express. Ela simplifica a internacionalização (i18n) ao selecionar dinamicamente o conteúdo com base na língua preferida do usuário.
 
----
-
 ## Visão Geral
 
 A função `t` é usada para definir e recuperar traduções para um conjunto específico de idiomas. Ela determina automaticamente a língua apropriada a ser retornada com base nas configurações da requisição do cliente, como o cabeçalho `Accept-Language`. Se a língua preferida não estiver disponível, ela recorre de forma elegante ao locale padrão especificado na sua configuração.
-
----
 
 ## Principais Características
 
@@ -42,8 +38,6 @@ A função `t` é usada para definir e recuperar traduções para um conjunto es
 - **Recurso de Retorno ao Locale Padrão**: Retorna a um locale padrão caso a língua preferida do cliente não esteja disponível, garantindo continuidade na experiência do usuário.
 - **Leve e Rápido**: Projetado para aplicações de alto desempenho, garantindo sobrecarga mínima.
 - **Suporte ao Modo Estrito**: Impõe aderência rigorosa aos locales declarados para comportamento confiável.
-
----
 
 ## Assinatura da Função
 
@@ -58,8 +52,6 @@ t(translations: Record<string, string>): string;
 ### Retorno
 
 - Uma string representando o conteúdo na língua preferida do cliente.
-
----
 
 ## Carregando o Manipulador de Requisição de Internacionalização
 
@@ -93,8 +85,6 @@ app.get("/", (_req, res) => {
 - **Detecção de Localidade**: O middleware `intlayer` processa as requisições recebidas para detectar a localidade preferida do usuário com base nos cabeçalhos, cookies ou outros métodos configurados.
 - **Contexto de Tradução**: Configura o contexto necessário para que a função `t` opere corretamente, garantindo que as traduções sejam retornadas no idioma correto.
 - **Prevenção de Erros**: Sem este middleware, usar a função `t` resultará em erros de tempo de execução porque as informações necessárias sobre a localidade não estarão disponíveis.
-
----
 
 ## Exemplos de Uso
 
@@ -135,8 +125,6 @@ app.get("/error", (_req, res) => {
   );
 });
 ```
-
----
 
 ### Usando Variantes de Localidade
 
@@ -184,8 +172,6 @@ app.get("/greet", (_req, res) => {
 });
 ```
 
----
-
 ## Tópicos Avançados
 
 ### Mecanismo de Fallback
@@ -209,8 +195,6 @@ Por exemplo:
 
 - Se `defaultLocale` for `Locales.CHINESE` e um cliente solicitar `Locales.DUTCH`, a tradução retornada será o valor padrão de `Locales.CHINESE`.
 - Se `defaultLocale` não estiver definido, a função `t` usará como fallback o valor de `Locales.ENGLISH`.
-
----
 
 ### Aplicação do Modo Estrito
 
@@ -238,8 +222,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Integração com TypeScript
 
 A função `t` é segura em termos de tipos quando usada com TypeScript. Defina um objeto de traduções com segurança de tipos:
@@ -258,8 +240,6 @@ app.get("/morning", (_req, res) => {
 });
 ```
 
----
-
 ### Erros Comuns e Solução de Problemas
 
 | Problema                   | Causa                                         | Solução                                                                     |
@@ -267,16 +247,12 @@ app.get("/morning", (_req, res) => {
 | Função `t` não funcionando | Middleware não carregado                      | Certifique-se de que `app.use(intlayer())` está adicionado antes das rotas. |
 | Erro de traduções faltando | Modo estrito ativado sem todas as localidades | Forneça todas as traduções necessárias.                                     |
 
----
-
 ## Dicas para Uso Eficaz
 
 1. **Centralize as Traduções**: Use um módulo centralizado ou arquivos JSON para gerenciar as traduções e melhorar a manutenção.
 2. **Valide as Traduções**: Garanta que cada variante de idioma tenha uma tradução correspondente para evitar retornos desnecessários.
 3. **Combine com i18n no Frontend**: Sincronize com a internacionalização do frontend para uma experiência de usuário fluida em todo o aplicativo.
 4. **Avalie o Desempenho**: Teste os tempos de resposta do seu aplicativo ao adicionar traduções para garantir impacto mínimo.
-
----
 
 ## Conclusão
 

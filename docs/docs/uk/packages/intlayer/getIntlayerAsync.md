@@ -46,8 +46,6 @@ author: aymericzip
 - Одночасні виклики для одного й того ж фрагмента діляться одним завантаженням
 - Безпечна для використання в асинхронних конструкторах метаданих, лодерах та серверних функціях
 
----
-
 ## Function Signature
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // Необов'язковий
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Параметри
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **Тип**: `Promise<Content>` — promise, що розв'язується в інтерпретований вміст словника, типізований на основі вашої декларації.
 
----
-
 ## Приклад використання
 
 ### Базове використання
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` vs `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 Обидві функції приймають однакові аргументи та повертають один і той же вміст: перемикання між ними змінює лише **коли** та **скільки** завантажується.
 
----
-
 ## Пов'язані функції
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/intlayer/getIntlayer.md): Синхронний еквівалент, який читає об'єднаний словник.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/intlayer/getDictionaryAsync.md): Низькорівнева функція, яку переписують плагіни збірки.
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/intlayer/getLocale.md): Визначає локаль вхідного запиту.
-
----
 
 ## TypeScript
 

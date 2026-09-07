@@ -76,8 +76,6 @@ Uzak sunucunun CLI araçlarını, AI otomatik tamamlama vb. entegre etmediğini 
 
 > Sunucu barındırma maliyetleri nedeniyle, uzak sunucunun kullanılabilirliği garanti edilemez. Eşzamanlı bağlantı sayısını sınırlıyoruz. En güvenilir deneyim için yerel sunucu (stdio) aktarım yöntemini kullanmanızı öneririz.
 
----
-
 ## Intlayer CLI aracılığıyla kurulum (önerilen)
 
 Intlayer, projenizde MCP sunucusunu otomatik olarak yapılandırmak için bir CLI komutu sağlar.
@@ -104,8 +102,6 @@ Bu komut şunları yapacaktır:
 2. Hangi taşıma yöntemini kullanmak istediğinizi soracaktır (Yerel sunucu (stdio) veya Uzak sunucu (Streamable HTTP)).
 3. Yapılandırma dosyanızı otomatik olarak güncelleyecektir (örneğin, `.cursor/mcp.json`, `.vscode/mcp.json` veya genel Claude Desktop yapılandırması).
 
----
-
 ## Setup via Intlayer VS Code extension
 
 1. Komut Paletini açın (Ctrl+Shift+P veya Cmd+Shift+P).
@@ -113,8 +109,6 @@ Bu komut şunları yapacaktır:
 3. Kullandığınız platformu seçin (örn. `VS Code`, `Cursor`, `Windsurf`, `OpenCode`, `Claude Code`, `GitHub Copilot Workspace` vb.).
 4. Kurulacak MCP'yi seçin (stdio, Streamable HTTP)
 5. Enter'a basın.
-
----
 
 ## Manuel kurulum
 
@@ -282,8 +276,6 @@ claude mcp add intlayer https://mcp.intlayer.org -t http
 
   </Tab>
 </Tabs>
-
----
 
 ## CLI aracılığıyla MCP Sunucusunu Kullanma
 

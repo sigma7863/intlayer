@@ -40,8 +40,6 @@ author: aymericzip
 > 注意: next-i18next は i18next の上に構築されています。このガイドでは、App Router で next-i18next と互換性のある i18next のプリミティブを使用しつつ、アーキテクチャをシンプルかつ本番環境向けに保っています。  
 > より広範な比較については、[next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ja/next-i18next_vs_next-intl_vs_intlayer.md) を参照してください。
 
----
-
 ## 1) プロジェクト構成
 
 next-i18next の依存関係をインストールします:
@@ -93,8 +91,6 @@ bun add next-i18next i18next react-i18next i18next-resources-to-backend
 - メッセージを過度に集中管理しない。小さなページや機能単位のネームスペースを使う
 - すべてのロケールを一度にインポートしない。必要なものだけをロードする
 
----
-
 ## 2) 依存関係のインストール
 
 ```bash
@@ -106,8 +102,6 @@ next-i18next の API や設定の相互運用を使用する予定がある場�
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) コア i18n 設定
 
@@ -134,8 +128,6 @@ export function abs(locale: string, path: string) {
 ```
 
 シニアノート: `next-i18next.config.js` を使用する場合は、`i18n.config.ts` と整合性を保ち、ズレが生じないようにしてください。
-
----
 
 ## 4) サーバーサイドのi18n初期化
 
@@ -174,8 +166,6 @@ export async function initI18next(
 ```
 
 中間メモ: ペイロードを制限するために、ページごとのnamespaceリストは短く保ってください。グローバルな「キャッチオール」バンドルは避けてください。
-
----
 
 ## 5) Reactコンポーネント用クライアントプロバイダー
 
@@ -233,8 +223,6 @@ export default function I18nProvider({
 
 ジュニア向けのヒント: クライアントにすべてのメッセージを渡す必要はありません。ページの名前空間だけから始めましょう。
 
----
-
 ## 6) ローカライズされたレイアウトとルート
 
 言語と方向を設定し、ロケールごとにルートを事前生成して静的レンダリングを促進します。
@@ -269,8 +257,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) サーバー＋クライアント使用例ページ
 
@@ -387,8 +373,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: メタデータ、Hreflang、サイトマップ、ロボット
 
 コンテンツの翻訳はリーチを拡大する手段です。多言語SEOを徹底的に設定しましょう。
@@ -482,8 +466,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) ロケールルーティングのためのミドルウェア
 
 ロケールを検出し、ロケールがない場合はローカライズされたルートにリダイレクトします。
@@ -526,8 +508,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) パフォーマンスと開発者体験（DX）のベストプラクティス
 
 - **htmlの`lang`と`dir`を設定する**: `src/app/[locale]/layout.tsx`で実施済み。
@@ -538,8 +518,6 @@ export const config = {
 - **重い処理をメモ化する**: 特に古いReactバージョンのクライアントコードで重要。
 - **キャッシュとヘッダー**: 可能な場合は動的レンダリングよりも静的または`revalidate`を優先する。
 
----
-
 ## 11) テストとCI
 
 - `t`を使用するコンポーネントに対してユニットテストを追加し、キーが存在することを確認する。
@@ -547,8 +525,6 @@ export const config = {
 - デプロイ前にCIで不足しているキーを検出します。
 
 Intlayerはこれらの多くを自動化します（次のセクションを参照）。
-
----
 
 ## 12) Intlayerを導入する（自動化）
 
@@ -635,8 +611,6 @@ export default config;
 
 > CLI引数を指定することも可能です。詳細は[Intlayer CLIドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/index.md)をご覧ください。
 
----
-
 ## 13) トラブルシューティング
 
 - **キーが見つからない**: ページやプロバイダーが正しいnamespaceをリストしていること、そしてJSONファイルが`src/locales/<locale>/<namespace>.json`に存在することを確認してください。
@@ -644,8 +618,6 @@ export default config;
 - **RTLレイアウトの問題**: `dir`が`isRtl(locale)`から正しく取得されているか、またCSSが`[dir="rtl"]`に対応しているかを確認してください。
 - **SEOのalternateが不足している**: `alternates.languages`にすべてのロケールと`x-default`が含まれていることを確認してください。
 - **バンドルサイズが大きすぎる**: namespaceをさらに分割し、クライアント側で`locales`ツリー全体をインポートしないようにしてください。
-
----
 
 ## 14) 次にやること
 

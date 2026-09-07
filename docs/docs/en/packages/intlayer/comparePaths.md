@@ -45,8 +45,6 @@ The package also exports the underlying [`normalizePath`](#normalizepath) helper
 - Tolerates missing leading slashes and empty values (normalized to `/`)
 - Lightweight — built on top of `getPathWithoutLocale`
 
----
-
 ## Function Signature
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // Optional
 ): string
 ```
-
----
 
 ## Parameters
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Type**: `boolean`
 - **Description**: `true` when both inputs resolve to the same locale-agnostic path, otherwise `false`.
-
----
 
 ## Example Usage
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` returns the canonical, locale-agnostic pathname used by `comparePaths`. It strips the locale segment, the protocol/host, the query string and the hash, ensures a single leading slash, removes any trailing slash (except for the root) and falls back to `/` for empty values.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## Related Functions
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/intlayer/getPathWithoutLocale.md): Removes the locale segment from a URL or pathname.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/intlayer/getPrefix.md): Determines the URL prefix for a given locale.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/intlayer/getLocalizedUrl.md): Generates a localized URL for a specific locale.
-
----
 
 ## TypeScript
 

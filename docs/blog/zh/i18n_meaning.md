@@ -92,8 +92,6 @@ i18n 的含义不仅限于语言。真正的国际化支持：
 - **抽象所有面向用户的文本：** 确保你的 UI 组件中不存在硬编码文本。
 - **采用强大的翻译管理系统：** 像 **Intlayer** 这样的工具弥合了开发人员和翻译人员之间的鸿沟。Intlayer 作为一个与你的代码库紧密集成的 Headless CMS，允许内容管理人员在视觉上更新翻译，而无需开发人员触发新的构建。
 
----
-
 ### 查看按技术分类的 i18n 库和工具列表
 
 如果你正在寻找按技术分类的 i18n 库和工具列表，请查看以下资源：
@@ -111,8 +109,6 @@ i18n 的含义不仅限于语言。真正的国际化支持：
 - Vue：[查看 i18n 库和工具列表](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/list_i18n_technologies/frameworks/vue.md)
 - Svelte：[查看 i18n 库和工具列表](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/list_i18n_technologies/frameworks/svelte.md)
 - React Native：[查看 i18n 库和工具列表](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## 结论
 

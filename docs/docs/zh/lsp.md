@@ -31,8 +31,6 @@ author: aymericzip
 
 **Intlayer 语言服务器**是 [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) 的一个实现，它让你的 IDE —— 以及你的 AI 智能体 —— 理解 Intlayer。它把 `useIntlayer("home")` 这样的调用与声明它的 `.content.ts` 文件双向关联起来。
 
----
-
 ## 功能
 
 | 功能             | 快捷键              | 说明                                                              |
@@ -65,8 +63,6 @@ author: aymericzip
 
 > 字典读取自构建产物，因此请运行 `npx intlayer build`，或保持开发服务器运行，好让服务器有内容可解析。
 
----
-
 ## 安装
 
 服务器以 `@intlayer/lsp` 中的 `intlayer-lsp` 可执行文件形式发布：
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 如果你的编辑器需要在 `PATH` 中找到 `intlayer-lsp`，请改为全局安装（`npm install -g @intlayer/lsp`）—— Claude Code 插件以及下文中直接调用该可执行文件的配置都属于这种情况。
-
----
 
 ## 配置
 
@@ -255,15 +249,11 @@ language-servers = ["intlayer-lsp", "typescript-language-server"]
   </Tab>
 </Tabs>
 
----
-
 ## 关于终端 AI 智能体的说明
 
 **Claude Code** 是一个真正的 LSP 客户端 —— 参见上面的标签页。
 
 **OpenAI Codex** 及大多数其他终端工具并不是 LSP 客户端：它们直接读写文件。单独运行服务器对它们没有帮助；真正的价值在于服务器在一个配套编辑器中处于活跃状态，而智能体可以查询该编辑器的索引（Cursor Composer、Windsurf Cascade、Copilot Chat）。
-
----
 
 ## 工作原理
 
@@ -274,8 +264,6 @@ language-servers = ["intlayer-lsp", "typescript-language-server"]
 1. **位于键字符串上**（`useIntlayer("home")`）→ 返回声明该键的每个内容文件，并定位到其 `key:` 所在行。
 2. **位于字段使用处**（`content.title`、解构出的属性、`t('path.to.field')`、`<Trans>` 等）→ 将变量回溯到其字典，并返回内容文件中对应的字段。
 3. **从内容文件出发** → 执行反向查找，扫描项目源码以寻找该键或字段的调用点。
-
----
 
 ## 故障排查
 

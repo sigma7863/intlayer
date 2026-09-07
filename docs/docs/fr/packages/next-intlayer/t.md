@@ -29,13 +29,9 @@ author: aymericzip
 
 La fonction `t` dans le package `next-intlayer` est un outil fondamental pour l'internationalisation en ligne dans votre application Next.js. Elle vous permet de définir des traductions directement dans vos composants, facilitant ainsi l'affichage de contenu localisé en fonction de la locale courante.
 
----
-
 ## Vue d'ensemble
 
 La fonction `t` est utilisée pour fournir des traductions pour différentes locales directement dans vos composants. En passant un objet contenant les traductions pour chaque locale prise en charge, `t` renvoie la traduction appropriée en fonction du contexte de la locale courante dans votre application Next.js.
-
----
 
 ## Fonctionnalités clés
 
@@ -43,8 +39,6 @@ La fonction `t` est utilisée pour fournir des traductions pour différentes loc
 - **Sélection automatique de la locale** : Renvoie automatiquement la traduction correspondant à la locale courante.
 - **Support TypeScript** : Offre une sécurité de type et l'autocomplétion lorsqu'il est utilisé avec TypeScript.
 - **Intégration facile** : Fonctionne parfaitement dans les composants clients et serveurs de Next.js.
-
----
 
 ## Signature de la fonction
 
@@ -59,8 +53,6 @@ t<T extends string>(content: Record<LocalesValues, T>, locale?: Locales): string
 ### Retour
 
 - Une chaîne représentant le contenu traduit pour la locale courante.
-
----
 
 ## Exemples d'utilisation
 
@@ -131,8 +123,6 @@ Lors de la localisation d'attributs tels que `alt`, `title`, `href` ou `aria-lab
 </button>
 ```
 
----
-
 ## Sujets Avancés
 
 ### Intégration TypeScript
@@ -193,8 +183,6 @@ const Page: FC<{ locale: Locales }> = ({ locale }) => (
  </Tab>
 </Tabs>
 
----
-
 ## Erreurs courantes et dépannage
 
 ### `t` Renvoie Indéfini ou une Traduction Incorrecte
@@ -219,8 +207,6 @@ const translations: IConfigLocales<string> = {
 const text = t(translations);
 ```
 
----
-
 ## Conseils pour une Utilisation Efficace
 
 1. **Utilisez `t` pour des Traductions Simples en Ligne** : Idéal pour traduire de petits morceaux de texte directement dans vos composants.
@@ -228,14 +214,10 @@ const text = t(translations);
 3. **Fourniture cohérente de la locale** : Assurez-vous que votre locale est fournie de manière cohérente dans toute votre application via les fournisseurs appropriés.
 4. **Exploitez TypeScript** : Utilisez les types TypeScript pour détecter les traductions manquantes et garantir la sécurité des types.
 
----
-
 ## Conclusion
 
 La fonction `t` dans `next-intlayer` est un outil puissant et pratique pour gérer les traductions en ligne dans vos applications Next.js. En l'intégrant efficacement, vous améliorez les capacités d'internationalisation de votre application, offrant une meilleure expérience aux utilisateurs du monde entier.
 
 Pour une utilisation plus détaillée et des fonctionnalités avancées, consultez la [documentation next-intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_visual_editor.md).
-
----
 
 **Note** : N'oubliez pas de configurer correctement vos `IntlayerClientProvider` et `IntlayerServerProvider` afin de garantir que la locale courante soit bien transmise à vos composants. Ceci est crucial pour que la fonction `t` retourne les bonnes traductions.

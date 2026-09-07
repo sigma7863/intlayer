@@ -458,8 +458,6 @@ C'est ce qui permet des fonctionnalités telles que :
 - **Autocomplétion** pour vos clés de dictionnaire.
 - **Vérification de type** qui avertit si vous accédez à une clé inexistante ou si le type ne correspond pas.
 
----
-
 ## Configuration Git
 
 Pour éviter de committer les fichiers générés automatiquement par Intlayer, ajoutez ce qui suit à votre `.gitignore` :
@@ -468,8 +466,6 @@ Pour éviter de committer les fichiers générés automatiquement par Intlayer, 
 #  Ignorer les fichiers générés par Intlayer
 .intlayer
 ```
-
----
 
 ### Extension VS Code
 
@@ -486,8 +482,6 @@ Cette extension offre :
 
 Pour plus de détails sur l'utilisation de l'extension, consultez la [documentation de l'extension VS Code Intlayer](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Aller plus loin
 
 - **Éditeur Visuel** : Utilisez le [Éditeur Visuel Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) pour gérer les traductions visuellement.
@@ -495,8 +489,6 @@ Pour plus de détails sur l'utilisation de l'extension, consultez la [documentat
 - **Commandes CLI** : Explorez le [CLI Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/index.md) pour des tâches telles que **l'extraction des traductions** ou **la vérification des clés manquantes**.
 
 Profitez de la création de vos applications **React Native** avec une i18n pleinement optimisée grâce à **Intlayer** !
-
----
 
 ### Débogage
 
@@ -523,8 +515,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - Vérifiez votre configuration Metro (resolver aliases, asset plugins, chemins `tsconfig`) si les modules ne se résolvent pas.
-
----
 
 ## Questions fréquentes
 

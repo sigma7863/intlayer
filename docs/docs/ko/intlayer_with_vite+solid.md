@@ -112,8 +112,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite 및 Solid 애플리케이션에서 Intlayer 설정 단계별 가이드
 
 ## 목차
@@ -714,8 +712,6 @@ Intlayer에서 생성된 파일을 무시하는 것이 권장됩니다. 이렇�
 Intlayer를 사용한 개발 경험을 개선하기 위해 공식 **Intlayer VS Code Extension**을 설치할 수 있습니다.
 
 [VS Code Marketplace에서 설치](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### 더 나아가기
 

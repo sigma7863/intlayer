@@ -80,8 +80,6 @@ Mais do que apenas uma solução i18n, o Intlayer fornece um **[editor visual] a
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Porquê usar o Intlayer com o Storybook?
 
 O Storybook é a ferramenta padrão da indústria para desenvolver e documentar componentes de UI isoladamente. Combiná-lo com o Intlayer permite-lhe:
@@ -89,8 +87,6 @@ O Storybook é a ferramenta padrão da indústria para desenvolver e documentar 
 - **Visualizar cada local** diretamente dentro do canvas do Storybook usando um seletor na barra de ferramentas.
 - **Detetar traduções em falta** antes de chegarem à produção.
 - **Documentar componentes multilíngues** com conteúdo real e seguro em termos de tipos, em vez de strings codificadas rigidamente.
-
----
 
 ## Configuração Passo a Passo
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > Para mais formatos e funcionalidades de declaração de conteúdo, consulte a [documentação de declaração de conteúdo](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/dictionary/content_file.md).
 
----
-
 ## Usar `useIntlayer` num Componente
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 O `useIntlayer` retorna o dicionário compilado para o local atual fornecido pelo `IntlayerProvider` mais próximo. Alterar o local na barra de ferramentas do Storybook volta a renderizar automaticamente a story com as traduzioni atualizadas.
-
----
 
 ## Escrever Stories para Componentes Internacionalizados
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > Cada story herda a variável global `locale` da barra de ferramentas, para que possa verificar cada local sem alterar qualquer código da story.
 
----
-
 ## Testar Traduções em Stories
 
 Use as funções `play` do Storybook para garantir que o texto traduzido corretamente é renderizado para um determinado local:
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Recursos Adicionais
 

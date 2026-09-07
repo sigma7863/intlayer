@@ -83,8 +83,6 @@ Intlayer оптимізовано для ідеальної роботи з Angu
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник із налаштування Intlayer у додатку Angular
 
 <Tabs defaultTab="code">
@@ -457,13 +455,9 @@ Intlayer використовує розширення модулів (module au
 
 Для отримання додаткової інформації про те, як користуватися розширенням, дивіться [документацію розширення Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Йти далі
 
 Щоб йти далі, ви можете впровадити [візуальний редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) або винести свій вміст у зовнішню систему за допомогою [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md).
-
----
 
 ## Часто задавані запитання
 

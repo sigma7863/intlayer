@@ -24,15 +24,11 @@ author: aymericzip
 
 Bu rehber, sözlüklerinizin eksiksiz olduğunu otomatik olarak nasıl doğrulayacağınızı, gönderim öncesi eksik çevirileri nasıl yakalayacağınızı ve uygulamanızda yerelleştirilmiş kullanıcı arayüzünü nasıl test edeceğinizi gösterir.
 
----
-
 ## Test edebilecekleriniz
 
 - **Eksik çeviriler**: Herhangi bir sözlük için gerekli yerel ayarlardan herhangi biri eksikse CI başarısız olur.
 - **Yerelleştirilmiş UI renderı**: Belirli bir yerel sağlayıcı ile bileşenleri render edin ve görünen metin/özellikler üzerinde doğrulama yapın.
 - **Derleme zamanı denetimleri**: CLI üzerinden yerel olarak hızlı bir denetim çalıştırın.
-
----
 
 ## Hızlı başlangıç: CLI ile denetim
 
@@ -63,8 +59,6 @@ Faydalı bayraklar:
 - `--prefix [label]`: günlük satırlarına önek ekler.
 
 Not: CLI ayrıntılı bir rapor yazdırır ancak başarısızlıklarda sıfır olmayan bir çıkış kodu vermez. CI kontrolü için, eksik gerekli yerel ayarların sıfır olduğunu doğrulayan bir birim testi (aşağıda) ekleyin.
-
----
 
 ## Programatik test (Vitest/Jest)
 
@@ -112,8 +106,6 @@ Nasıl çalışır:
   - `missingLocales`: tüm eksik yerel ayarların birleşimi.
   - `missingRequiredLocales`: `requiredLocales` ile sınırlı alt küme (veya `requiredLocales` ayarlanmadıysa tüm yerel ayarlar).
 
----
-
 ## Yerelleştirilmiş UI testi (React / Next.js)
 
 Bileşenleri bir Intlayer sağlayıcısı altında render edin ve görünür içerik üzerinde doğrulama yapın.
@@ -159,8 +151,6 @@ test("Fransızca yerelleştirilmiş başlık render edilir", () => {
 
 - Özellikler için ham string değerlerine ihtiyacınız olduğunda (örneğin, `aria-label`), React'te `useIntlayer` tarafından döndürülen `.value` alanına erişin.
 - Daha kolay birim testi ve temizlik için sözlükleri bileşenlerle aynı yerde tutun.
-
----
 
 ## Sürekli Entegrasyon
 
@@ -210,8 +200,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## Sorun Giderme
 

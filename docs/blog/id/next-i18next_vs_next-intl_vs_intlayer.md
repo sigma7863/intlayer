@@ -34,15 +34,11 @@ Kami fokus pada **Next.js 13+ App Router** (dengan **React Server Components**) 
 
 > Salah satu kebingungan yang sering dibuat oleh pengembang adalah mengira bahwa `next-intl` adalah versi Next.js dari `react-intl`. Itu tidak benar, `next-intl` dikelola oleh [Amann](https://github.com/amannn), sementara `react-intl` dikelola oleh [FormatJS](https://github.com/formatjs/formatjs).
 
----
-
 ## Singkatnya
 
 - **next-intl** - Format pesan yang ringan dan sederhana dengan dukungan Next.js yang solid. Katalog terpusat umum digunakan; DX sederhana, tetapi keamanan dan pemeliharaan skala besar sebagian besar menjadi tanggung jawab Anda.
 - **next-i18next** - i18next dalam balutan Next.js. Ekosistem matang dan fitur melalui plugin (misalnya, ICU), tetapi konfigurasi bisa verbose dan katalog cenderung terpusat seiring pertumbuhan proyek.
 - **Intlayer** - Model konten berfokus pada komponen untuk Next.js, **pengetikan TS yang ketat**, **pemeriksaan saat build-time**, **tree-shaking**, **middleware & pembantu SEO bawaan**, **Visual Editor/CMS** opsional, dan **terjemahan dibantu AI**.
-
----
 
 | Library                | GitHub Stars                                                                                                                                                                     | Total Commits                                                                                                                                                                        | Last Commit                                                                                                                                           | First Version | NPM Version                                                                                                         | NPM Downloads                                                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -52,8 +48,6 @@ Kami fokus pada **Next.js 13+ App Router** (dengan **React Server Components**) 
 | `i18next/next-i18next` | [![GitHub Repo stars](https://img.shields.io/github/stars/i18next/next-i18next?style=for-the-badge&label=%E2%AD%90%20stars)](https://github.com/i18next/next-i18next/stargazers) | [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/i18next/next-i18next?style=for-the-badge&label=commits)](https://github.com/i18next/next-i18next/commits) | [![Last Commit](https://img.shields.io/github/last-commit/i18next/next-i18next?style=for-the-badge)](https://github.com/i18next/next-i18next/commits) | Nov 2018      | [![npm](https://img.shields.io/npm/v/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) | [![npm downloads](https://img.shields.io/npm/dm/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) |
 
 > Lencana diperbarui secara otomatis. Snapshot akan bervariasi seiring waktu.
-
----
 
 ## Perbandingan Fitur Berdampingan (Fokus pada Next.js)
 
@@ -80,15 +74,11 @@ Kami fokus pada **Next.js 13+ App Router** (dengan **React Server Components**) 
 | **Manajemen Proyek Besar**                            | ✅ Mendorong modular, cocok untuk design-system                                                                                                 | ✅ Modular dengan setup                                                                                          | ✅ Modular dengan setup                                                                                          |
 | **Pengujian Terjemahan yang Hilang (CLI/CI)**         | ✅ CLI: `npx intlayer content test` (audit ramah CI)                                                                                            | ⚠️ Tidak bawaan; dokumentasi menyarankan `npx @lingual/i18n-check`                                               | ⚠️ Tidak bawaan; mengandalkan alat i18next / runtime `saveMissing`                                               |
 
----
-
 ## Pendahuluan
 
 Next.js memberikan dukungan bawaan untuk routing internasionalisasi (misalnya segmen locale). Namun fitur tersebut tidak melakukan terjemahan secara otomatis. Anda masih memerlukan pustaka untuk menampilkan konten yang dilokalisasi kepada pengguna Anda.
 
 Banyak pustaka i18n yang ada, tetapi di dunia Next.js saat ini, tiga yang sedang naik daun: next-i18next, next-intl, dan Intlayer.
-
----
 
 ## Arsitektur & skalabilitas
 
@@ -96,8 +86,6 @@ Banyak pustaka i18n yang ada, tetapi di dunia Next.js saat ini, tiga yang sedang
 - **Intlayer**: Mendorong kamus **per-komponen** (atau per-fitur) yang **berada bersama** dengan kode yang mereka layani. Ini mengurangi beban kognitif, mempermudah duplikasi/migrasi bagian UI, dan mengurangi konflik antar tim. Konten yang tidak digunakan secara alami lebih mudah dikenali dan dihapus.
 
 **Mengapa ini penting:** Dalam basis kode besar atau pengaturan sistem desain, **konten modular** lebih mudah diskalakan dibandingkan katalog monolitik.
-
----
 
 ## Ukuran bundle & dependensi
 
@@ -166,8 +154,6 @@ Berikut adalah contoh dampak optimasi ukuran bundle menggunakan `intlayer` dalam
 | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | ![bundle yang dioptimalkan](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle.png?raw=true) | ![bundle yang tidak dioptimalkan](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle_no_optimization.png?raw=true) |
 
----
-
 ## TypeScript & keamanan
 
 <Columns>
@@ -192,11 +178,10 @@ Berikut adalah contoh dampak optimasi ukuran bundle menggunakan `intlayer` dalam
 - **Menghasilkan tipe yang ketat** dari konten Anda. **Autocompletion IDE** dan **kesalahan saat kompilasi** menangkap kesalahan ketik dan kunci yang hilang sebelum deploy.
 
   </Column>
+
 </Columns>
 
 **Mengapa ini penting:** Pengetikan yang kuat memindahkan kegagalan ke **kiri** (CI/build) daripada ke **kanan** (runtime).
-
----
 
 ## Penanganan terjemahan yang hilang
 
@@ -222,11 +207,10 @@ Berikut adalah contoh dampak optimasi ukuran bundle menggunakan `intlayer` dalam
 - **Deteksi saat build** dengan **peringatan/eror** untuk locale atau kunci yang hilang.
 
   </Column>
+
 </Columns>
 
 **Mengapa ini penting:** Menangkap kekurangan saat build mencegah string 'undefined' muncul di produksi.
-
----
 
 ## Routing, middleware & strategi URL
 
@@ -254,11 +238,10 @@ Berikut adalah contoh dampak optimasi ukuran bundle menggunakan `intlayer` dalam
 - Menyediakan middleware.
 
   </Column>
+
 </Columns>
 
 **Mengapa ini penting:** Membantu SEO dan penemuan, serta pengalaman pengguna.
-
----
 
 ## Kesesuaian Server Components (RSC)
 
@@ -287,11 +270,10 @@ Berikut adalah contoh dampak optimasi ukuran bundle menggunakan `intlayer` dalam
 - Menyediakan API sinkron untuk komponen server anak.
 
   </Column>
+
 </Columns>
 
 **Mengapa ini penting:** Dukungan komponen server adalah fitur utama Next.js 13+, membantu meningkatkan performa. Meneruskan props locale atau fungsi `t` dari komponen induk ke komponen server anak membuat komponen Anda kurang dapat digunakan ulang.
-
----
 
 ## Integrasi dengan platform lokalisasi (TMS)
 
@@ -311,8 +293,6 @@ Organisasi besar sering mengandalkan Sistem Manajemen Terjemahan (TMS) seperti *
   - Intlayer menyediakan alternatif: **terjemahan berbantuan AI** (menggunakan kunci penyedia Anda sendiri), **Editor Visual/CMS**, dan alur kerja **CLI/CI** untuk menangkap dan mengisi celah.
 
 > Catatan: `next-intl` dan `i18next` juga menerima katalog TypeScript. Jika tim Anda menyimpan pesan dalam file `.ts` atau mendesentralisasikannya berdasarkan fitur, Anda bisa menghadapi gesekan TMS yang serupa. Namun, banyak pengaturan `next-intl` tetap terpusat di folder `locales/`, yang sedikit lebih mudah untuk direfaktor ke JSON untuk TMS.
-
----
 
 ## Pengalaman Pengembang
 
@@ -947,8 +927,6 @@ const ClientComponentExample = () => {
   - **next-intl** fleksibel; muat pesan sesuai konfigurasi Anda.
   - **Intlayer** menyimpan konten dalam kamus TS/JS dan menyelesaikan berdasarkan kunci.
 
----
-
 ### Penggunaan dalam komponen server
 
 Kita akan mengambil kasus sebuah komponen UI. Komponen ini adalah komponen server, dan harus dapat dimasukkan sebagai anak dari komponen klien. (halaman (komponen server) -> komponen klien -> komponen server). Karena komponen ini dapat dimasukkan sebagai anak dari komponen klien, maka tidak boleh bersifat async.
@@ -1061,7 +1039,7 @@ Berikut adalah daftar praktik terbaik terkait SEO multibahasa.
 Pengembang sering lupa untuk mereferensikan halaman mereka dengan benar di berbagai locale.
 
 <Tabs defaultTab="next-intl" group='techno'>
- 
+
   <Tab label="next-i18next" value="next-i18next">
 
 ```ts fileName="i18n.config.ts"
@@ -1443,9 +1421,8 @@ Pengaturan middleware dipusatkan dalam file `intlayer.config.ts`.
 - **Alat terintegrasi**: Manfaatkan routing bawaan, pembantu SEO, dan dukungan editor visual.
 
   </Tab>
-</Tabs>
 
----
+</Tabs>
 
 ## Dan pemenangnya adalah…
 
@@ -1473,6 +1450,7 @@ Ini tidak sederhana. Setiap opsi memiliki kelebihan dan kekurangan. Berikut pand
 - dibangun untuk Next.js modern, dengan konten modular, keamanan tipe, tooling, dan lebih sedikit boilerplate. Jika Anda menghargai **konten yang terfokus pada komponen**, **TypeScript yang ketat**, **jaminan waktu build**, **tree-shaking**, dan tooling routing/SEO/editor yang **lengkap** - terutama untuk **Next.js App Router**, sistem desain, dan **codebase besar yang modular**.
 
   </Column>
+
 </Columns>
 
 Jika Anda lebih memilih pengaturan minimal dan menerima beberapa penyambungan manual, next-intl adalah pilihan yang baik. Jika Anda membutuhkan semua fitur dan tidak keberatan dengan kompleksitas, next-i18next bisa digunakan. Namun jika Anda menginginkan solusi modern, skalabel, modular dengan alat bawaan, Intlayer bertujuan memberikan itu langsung dari kotak.
@@ -1486,8 +1464,6 @@ Jika Anda lebih memilih pengaturan minimal dan menerima beberapa penyambungan ma
 Bintang GitHub adalah indikator kuat dari popularitas sebuah proyek, kepercayaan komunitas, dan relevansi jangka panjang. Meskipun bukan ukuran langsung dari kualitas teknis, bintang tersebut mencerminkan berapa banyak pengembang yang menganggap proyek tersebut berguna, mengikuti perkembangannya, dan kemungkinan akan mengadopsinya. Untuk memperkirakan nilai sebuah proyek, bintang membantu membandingkan daya tarik antar alternatif dan memberikan wawasan tentang pertumbuhan ekosistem.
 
 [![Grafik Sejarah Bintang](https://api.star-history.com/chart?repos=i18next/next-i18next%2Camannn/next-intl%2Caymericzip/intlayer&type=date&legend=top-left)](https://www.star-history.com/#i18next/next-i18next&amannn/next-intl&aymericzip/intlayer)
-
----
 
 ## Kesimpulan
 

@@ -107,8 +107,6 @@ Más que una simple solución i18n, Intlayer proporciona un **[editor visual] au
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guía paso a paso para configurar Intlayer en Astro + Vanilla JS
 
 Consulta la [plantilla de aplicación](https://github.com/aymericzip/intlayer-astro-template) en GitHub.
@@ -612,8 +610,6 @@ Esta extensión proporciona:
 - **Acciones rápidas** para crear y actualizar traducciones fácilmente.
 
 Para más información sobre el uso de la extensión, consulta la [documentación de la extensión para VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Profundiza más
 

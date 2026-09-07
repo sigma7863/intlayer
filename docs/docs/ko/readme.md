@@ -68,8 +68,6 @@ Intlayer는 웹 및 모바일 애플리케이션을 위한 **최신 i18n 솔루�
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Feature" width="700">                    | **상호 운용성**<br><br>react-i18next, next-i18next, next-intl, react-intl, vue-i18n과의 상호 운용성을 허용합니다. <br><br> - [Intlayer 및 react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer 및 next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer 및 next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer 및 vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [Intlayer 호환 어댑터](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Feature" width="700">                           | **성능 및 벤치마크**<br><br>고급 트리 쉐이킹(tree-shaking) 및 동적 로딩을 사용하여 성능을 높이고 솔루션을 가능한 한 가볍게 유지합니다. <br><br> - [성능 및 벤치마크](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                                                                                  |
 
----
-
 ## 📦 설치
 
 오늘 바로 Intlayer와 함께 여정을 시작하고 더 원활하고 강력한 국제화 접근 방식을 경험해 보세요.

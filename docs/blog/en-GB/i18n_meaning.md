@@ -92,8 +92,6 @@ Now that we have established the true **i18n meaning**, how do you apply it?
 - **Abstract all user-facing text:** Ensure that zero hardcoded text exists in your UI components.
 - **Employ a robust translation management system:** Tools like **Intlayer** bridge the gap between developers and translators. Intlayer acts as a headless CMS that is tightly integrated with your codebase, allowing content managers to update translations visually without requiring a developer to trigger a new build.
 
----
-
 ### View List of i18n Libraries and Tools per Technology
 
 If you are looking for a list of i18n libraries and tools per technology, check the following resources:
@@ -111,8 +109,6 @@ If you are looking for a list of i18n libraries and tools per technology, check 
 - Vue: [View list of i18n libraries and tools](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en-GB/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [View list of i18n libraries and tools](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en-GB/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [View list of i18n libraries and tools](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en-GB/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Conclusion
 

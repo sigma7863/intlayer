@@ -108,8 +108,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Schritt-für-Schritt-Anleitung zur Einrichtung von Intlayer in einer SvelteKit-Anwendung
 
 Siehe [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template) auf GitHub.
@@ -773,8 +771,6 @@ Es wird empfohlen, die von Intlayer generierten Dateien zu ignorieren.
 # Ignoriere die von Intlayer generierten Dateien
 .intlayer
 ```
-
----
 
 ### Weiterführende Informationen
 

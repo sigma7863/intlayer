@@ -112,8 +112,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，它还提供 **自托管 [visual
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite 和 Solid 应用程序中 Intlayer 的分步设置指南
 
 ## 目录
@@ -821,8 +819,6 @@ console.log("SEO files generated successfully.");
 为了提升您使用 Intlayer 的开发体验，您可以安装官方的 **Intlayer VS Code 扩展**。
 
 [从 VS Code 市场安装](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### 深入了解
 

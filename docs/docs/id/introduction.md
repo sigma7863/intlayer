@@ -1,6 +1,6 @@
 ---
 createdAt: 2025-08-23
-updatedAt: 2026-09-05
+updatedAt: 2026-09-06
 title: Pengenalan
 description: Temukan bagaimana Intlayer bekerja. Lihat langkah-langkah yang digunakan oleh Intlayer di aplikasi Anda. Temukan apa yang dilakukan oleh berbagai paket yang ada.
 keywords:
@@ -180,12 +180,9 @@ Kami membangun Intlayer dengan mempertimbangkan fleksibilitas, menawarkan integr
 - **[Intlayer dengan Next.js 15](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_nextjs_15.md)**
 - **[Intlayer dengan Next.js 14 (App Router)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_nextjs_14.md)**
 - **[Intlayer dengan Next.js Page Router](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_nextjs_page_router.md)**
-- **[Intlayer dengan Next.js tanpa locale di URL](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_nextjs_no_locale_path.md)**
-- **[Intlayer dengan Next.js (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_nextjs_compiler.md)**
 - **[Intlayer dengan Tanstack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_tanstack.md)**
 - **[Intlayer dengan Tanstack Start + Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_tanstack+solid.md)**
 - **[Intlayer dengan Vite + React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_vite+react.md)**
-- **[Intlayer dengan Vite + React (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_vite+react_compiler.md)**
 - **[Intlayer dengan React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_react_router_v7.md)**
 - **[Intlayer dengan React Router v7 (fs-routes)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_react_router_v7_fs_routes.md)**
 - **[Intlayer dengan React CRA](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_create_react_app.md)**

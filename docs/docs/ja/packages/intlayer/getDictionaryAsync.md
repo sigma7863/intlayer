@@ -44,8 +44,6 @@ author: aymericzip
 - 同じチャンクの同時読み込みを重複排除し、解決されたコンテンツをキャッシュします
 - 失敗した読み込みはキャッシュから削除されるため、後の呼び出しがチャンクを再試行します
 
----
-
 ## 関数シグネチャ
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // オプション
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## パラメータ
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — 読み込まれたチャンクの解釈されたコンテンツに解決されるプロミス。
 - **Description**: マップが要求されたロケール、またはそのフォールバックのいずれに対してもチャンクを出さない場合、`null` に解決されます。これは、欠落した適格な座標がどのように解決されるかを反映しています。
-
----
 
 ## 使用例
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## 動作に関する注釈
 
 ### キャッシングと重複排除
@@ -135,15 +127,11 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 
 プレーンローダーマップは、同期モードと同じフォールバックチェーンに従って処理されます。リクエストされたロケールが最初に処理され、次にそのフォールバック、そしてどのフォールバックもチャンクを出力しなかった場合は `null` が処理されます。
 
----
-
 ## 関連する関数
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getIntlayerAsync.md): アプリケーションが呼び出す関数。ビルドプラグインはこれを `getDictionaryAsync` に書き換えます。
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getDictionary.md): 完全な辞書を取得する同期的な対応関数。
 - [Dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dynamic_dictionaries/index.md): コレクションとバリアント、およびそれらが生成するローダーマップ。
-
----
 
 ## TypeScript
 

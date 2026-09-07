@@ -33,14 +33,10 @@ Nos enfocamos en las herramientas modernas de Vue (Vite, Composition API) y eval
 
 > **resumen**: Ambos pueden localizar aplicaciones Vue. Si deseas **contenido con alcance por componente**, **tipos estrictos en TypeScript**, **verificaciones de claves faltantes en tiempo de compilación**, **diccionarios optimizados por tree-shaking**, y **helpers integrados para router/SEO** además de **Editor Visual y traducciones asistidas por IA**, **Intlayer** es la opción más completa y moderna.
 
----
-
 ## Posicionamiento a alto nivel
 
 - **vue-i18n** - La biblioteca de i18n por excelencia para Vue. Formateo flexible de mensajes (estilo ICU), bloques SFC `<i18n>` para mensajes locales y un gran ecosistema. La seguridad y el mantenimiento a gran escala dependen principalmente de ti.
 - **Intlayer** - Modelo de contenido centrado en componentes para Vue/Vite/Nuxt con **tipado estricto en TS**, **verificaciones en tiempo de compilación**, **tree-shaking**, **helpers para router y SEO**, **Editor Visual/CMS** opcional y **traducciones asistidas por IA**.
-
----
 
 ## Comparación de características lado a lado (enfocado en Vue)
 
@@ -65,8 +61,6 @@ Nos enfocamos en las herramientas modernas de Vue (Vite, Composition API) y eval
 | **Mantenibilidad en proyectos grandes**          | ✅ Fomenta una estructura modular y amigable con sistemas de diseño               | ✅ Posible, pero requiere una fuerte disciplina en archivos/espacios de nombres                 |
 | **Ecosistema / comunidad**                       | ⚠️ Más pequeño pero en rápido crecimiento                                         | ✅ Grande y maduro en el ecosistema Vue                                                         |
 
----
-
 ## Comparación en profundidad
 
 ### 1) Arquitectura y escalabilidad
@@ -76,16 +70,12 @@ Nos enfocamos en las herramientas modernas de Vue (Vite, Composition API) y eval
 
 **Por qué es importante:** En aplicaciones Vue grandes o sistemas de diseño, el **contenido modular** escala mejor que los catálogos monolíticos.
 
----
-
 ### 2) TypeScript y seguridad
 
 - **vue-i18n**: Buen soporte para TS; la **tipificación estricta de claves** generalmente requiere esquemas/generics personalizados y convenciones cuidadosas.
 - **Intlayer**: **Genera tipos estrictos** a partir de tu contenido, proporcionando **autocompletado en el IDE** y **errores en tiempo de compilación** por errores tipográficos o claves faltantes.
 
 **Por qué es importante:** La tipificación fuerte detecta problemas **antes** de la ejecución.
-
----
 
 ### 3) Manejo de traducciones faltantes
 
@@ -94,16 +84,12 @@ Nos enfocamos en las herramientas modernas de Vue (Vite, Composition API) y eval
 
 **Por qué es importante:** La aplicación de reglas en tiempo de compilación mantiene la interfaz de producción limpia y consistente.
 
----
-
 ### 4) Estrategia de rutas y URLs (Vue Router/Nuxt)
 
 - **Ambos** pueden trabajar con rutas localizadas.
 - **Intlayer** proporciona ayudas para **generar rutas localizadas**, **gestionar prefijos de locales** y emitir **`<link rel="alternate" hreflang>`** para SEO. Con Nuxt, complementa el enrutamiento del framework.
 
 **Por qué es importante:** Menos capas personalizadas y un **SEO más limpio** entre locales.
-
----
 
 ### 5) Rendimiento y comportamiento de carga
 
@@ -112,8 +98,6 @@ Nos enfocamos en las herramientas modernas de Vue (Vite, Composition API) y eval
 
 **Por qué es importante:** Paquetes más pequeños y un inicio más rápido para aplicaciones Vue multilingües.
 
----
-
 ### 6) Experiencia del desarrollador y herramientas
 
 - **vue-i18n**: Documentación y comunidad maduras; normalmente dependerás de **plataformas de localización externas** para los flujos editoriales.
@@ -121,16 +105,12 @@ Nos enfocamos en las herramientas modernas de Vue (Vite, Composition API) y eval
 
 **Por qué importa:** Menores costos operativos y un ciclo de desarrollo–contenido más corto.
 
----
-
 ### 7) SEO, SSR y SSG
 
 - **Ambos** funcionan con Vue SSR y Nuxt.
 - **Intlayer**: Añade **ayudas SEO** (sitemaps/metadata/`hreflang`) que son independientes del framework y funcionan bien con las compilaciones de Vue/Nuxt.
 
 **Por qué importa:** SEO internacional sin configuraciones personalizadas.
-
----
 
 ## ¿Por qué Intlayer? (Problema y enfoque)
 
@@ -221,8 +201,6 @@ Este enfoque:
 - **Evita claves muertas** (los componentes no usados no importan contenido).
 - **Optimiza la carga** (los componentes cargados perezosamente traen su contenido consigo).
 
----
-
 ## Características adicionales de Intlayer (relevantes para Vue)
 
 - **Soporte multiplataforma**: Funciona con Vue, Nuxt, Vite, React, Express y más.
@@ -240,22 +218,16 @@ Este enfoque:
 - **Servidor MCP y extensión para VSCode**: Automatiza los flujos de trabajo de i18n y la creación de contenido dentro de tu IDE.
 - **Interoperabilidad**: Puentes con **vue-i18n**, **react-i18next** y **react-intl** cuando sea necesario.
 
----
-
 ## ¿Cuándo elegir cuál?
 
 - **Elige vue-i18n** si quieres el **enfoque estándar de Vue**, te sientes cómodo gestionando catálogos/espacios de nombres tú mismo, y tu aplicación es de **tamaño pequeño a mediano** (o ya dependes de Nuxt i18n).
 - **Elige Intlayer** si valoras el **contenido con alcance por componente**, **TypeScript estricto**, **garantías en tiempo de compilación**, **tree-shaking**, y herramientas integradas para enrutamiento/SEO/editor-especialmente para **códigos grandes y modulares en Vue/Nuxt**.
-
----
 
 ## Interoperabilidad con vue-i18n
 
 `intlayer` también puede ayudarte a gestionar tus namespaces de `vue-i18n`.
 
 Usando `intlayer`, puedes declarar tu contenido en el formato de tu librería i18n favorita, e intlayer generará tus namespaces en la ubicación de tu elección (ejemplo: `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## Notas prácticas para la migración (vue-i18n → Intlayer)
 
@@ -264,8 +236,6 @@ Usando `intlayer`, puedes declarar tu contenido en el formato de tu librería i1
 - **Active verificaciones estrictas**: Permita que la detección en tiempo de compilación identifique temprano claves/idiomas faltantes.
 - **Adopte los ayudantes de router/SEO**: Estandarice la detección de idioma y las etiquetas `hreflang`.
 - **Mida los paquetes**: Espere **reducciones en el tamaño del paquete** a medida que se excluye contenido no utilizado.
-
----
 
 ## Conclusión
 

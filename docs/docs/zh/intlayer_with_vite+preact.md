@@ -83,8 +83,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 在 Vite 和 Preact 应用中设置 Intlayer 的分步指南
 
 <Tabs defaultTab="video">
@@ -1064,13 +1062,9 @@ Intlayer 使用模块增强来利用 TypeScript 的优势，使您的代码库�
 
 有关如何使用该扩展的更多详细信息，请参考 [Intlayer VS Code 扩展文档](https://intlayer.org/doc/vs-code-extension)。
 
----
-
 ### 深入了解
 
 要进一步了解，您可以实现 [可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md) 或使用 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 将内容外部化。
-
----
 
 ## 常见问题
 

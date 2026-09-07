@@ -84,8 +84,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении Nuxt
 
 <Tabs defaultTab="video">
@@ -677,8 +675,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 - **Быстрые действия** для лёгкого создания и обновления переводов.
 
 Для получения дополнительной информации о том, как использовать расширение, обратитесь к [документации Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Продвинуться дальше
 

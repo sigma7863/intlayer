@@ -52,8 +52,6 @@ Bunun için, Intlayer, JSON çevirilerinizi CLI veya CI/CD boru hatlarında otom
 
 Bu rehber, Intlayer'ın üstün içerik beyan sistemi avantajlarından yararlanırken next-i18next ile uyumluluğu nasıl koruyacağınızı gösterir.
 
----
-
 ## Intlayer'ı next-i18next ile Kurmak İçin Adım Adım Rehber
 
 <Steps>

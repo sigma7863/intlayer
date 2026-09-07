@@ -39,8 +39,6 @@ author: aymericzip
 - シンプルなケースでは最小限のパラメータで使用でき、複雑なシナリオでは完全にカスタマイズ可能
 - 複数のルーティングモードをサポート: `prefix-no-default`、`prefix-all`、`no-prefix`、`search-params`
 
----
-
 ## 関数署名
 
 ```typescript
@@ -54,8 +52,6 @@ getLocalizedUrl(
   }
 ): string
 ```
-
----
 
 ## パラメータ
 
@@ -102,8 +98,6 @@ getLocalizedUrl(
 
 - **型**: `string`
 - **説明**: 指定されたロケールに対応するローカライズされた URL。
-
----
 
 ## 使用例
 
@@ -206,8 +200,6 @@ getLocalizedUrl(
 ); // 出力: "/about"（サポートされていないロケールにはプレフィックスが適用されません）
 ```
 
----
-
 ## エッジケース
 
 - **ロケールセグメントがない場合:**
@@ -224,8 +216,6 @@ getLocalizedUrl(
   - `'prefix-all'`: すべてのロケールにプレフィックスがある (例: `/en/about`, `/fr/about`)
   - `'no-prefix'`: URLにロケールプレフィックスがない (ロケールは他の場所で処理される)
   - `'search-params'`: ロケールはクエリパラメータで指定される (例: `/about?locale=fr`)
-
----
 
 ## アプリケーションでの使用方法
 

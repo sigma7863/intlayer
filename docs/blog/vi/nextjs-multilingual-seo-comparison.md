@@ -26,8 +26,6 @@ Nếu ứng dụng Next.js đa ngôn ngữ của bạn không cho các công c�
 
 Trong bài blog này, chúng ta sẽ khám phá **tại sao i18n là một siêu năng lực SEO** và cách triển khai đúng trong Next.js với `next-intl`, `next-i18next`, và `Intlayer`.
 
----
-
 ## Tại sao SEO và i18n
 
 Thêm ngôn ngữ không chỉ là về trải nghiệm người dùng (UX). Nó còn là một đòn bẩy mạnh mẽ cho **tầm nhìn hữu cơ**. Đây là lý do:
@@ -36,8 +34,6 @@ Thêm ngôn ngữ không chỉ là về trải nghiệm người dùng (UX). Nó
 2. **Tránh nội dung trùng lặp:** Các thẻ canonical và alternate đúng cách giúp trình thu thập dữ liệu biết trang nào thuộc ngôn ngữ nào.
 3. **Trải nghiệm người dùng tốt hơn:** Khách truy cập sẽ được đưa đến đúng phiên bản của trang web ngay lập tức.
 4. **Lợi thế cạnh tranh:** Ít trang web triển khai SEO đa ngôn ngữ tốt, điều này có nghĩa là bạn có thể nổi bật hơn.
-
----
 
 ## Các thực hành tốt nhất cho SEO đa ngôn ngữ trong Next.js
 
@@ -56,8 +52,6 @@ Dưới đây là danh sách kiểm tra mà mọi ứng dụng đa ngôn ngữ n
   Ví dụ: `<a href="/fr/about">À propos</a>` thay vì liên kết đến trang mặc định `/about`.
 
 Đây là những bước đơn giản, nhưng bỏ qua chúng có thể khiến bạn mất đi khả năng hiển thị.
-
----
 
 ## Ví dụ về triển khai
 
@@ -343,13 +337,9 @@ export default robots;
   </Tab>
 </Tabs>
 
----
-
 ## Kiểm tra trang web của bạn bằng Intlayer SEO Scanner
 
 Để đảm bảo ứng dụng đa ngôn ngữ của bạn được tối ưu hóa hoàn hảo, chúng tôi khuyên bạn nên sử dụng [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner). Đây là một công cụ chuyên dụng để kiểm tra trang web đa ngôn ngữ, giúp bạn xác định các thẻ hreflang bị thiếu, liên kết bị hỏng và các vấn đề SEO khác trên tất cả các trang được bản địa hóa của bạn.
-
----
 
 ## Kết luận
 

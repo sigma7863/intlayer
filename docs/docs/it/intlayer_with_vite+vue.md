@@ -81,8 +81,6 @@ Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](http
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guida passo-passo per configurare Intlayer in un'applicazione Vite e Vue
 
 <Tabs defaultTab="video">
@@ -1129,13 +1127,9 @@ Questa estensione fornisce:
 
 Per maggiori dettagli su come utilizzare l'estensione, consulta la [documentazione dell'estensione Intlayer VS Code](https://intlayer.org/it/doc/vs-code-extension).
 
----
-
 ### Approfondimenti
 
 Per approfondire, puoi implementare l'[editor visuale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/intlayer_visual_editor.md) o esternalizzare i tuoi contenuti utilizzando il [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/intlayer_CMS.md).
-
----
 
 ## Domande frequenti
 

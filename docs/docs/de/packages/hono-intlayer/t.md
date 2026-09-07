@@ -27,13 +27,9 @@ author: aymericzip
 
 Die `t`-Funktion im Paket `hono-intlayer` ist das zentrale Werkzeug zur Bereitstellung lokalisierter Antworten in Ihrer Hono-Anwendung. Sie vereinfacht die Internationalisierung (i18n), indem sie Inhalte dynamisch basierend auf der bevorzugten Sprache des Benutzers auswählt.
 
----
-
 ## Übersicht
 
 Die `t`-Funktion wird verwendet, um Übersetzungen für einen bestimmten Satz von Sprachen zu definieren und abzurufen. Sie bestimmt automatisch die passende Sprache, die zurückgegeben werden soll, basierend auf den Anfrageeinstellungen des Clients, wie dem `Accept-Language`-Header. Wenn die bevorzugte Sprache nicht verfügbar ist, fällt sie elegant auf die in Ihrer Konfiguration angegebene Standardsprache zurück.
-
----
 
 ## Hauptmerkmale
 
@@ -41,8 +37,6 @@ Die `t`-Funktion wird verwendet, um Übersetzungen für einen bestimmten Satz vo
 - **Fallback zur Standardsprache**: Fällt auf eine Standardsprache zurück, wenn die bevorzugte Sprache des Clients nicht verfügbar ist, um die Kontinuität der Benutzererfahrung zu gewährleisten.
 - **Leichtgewichtig und schnell**: Entwickelt für Hochleistungsanwendungen, um minimalen Overhead zu gewährleisten.
 - **Unterstützung des strikten Modus**: Erzwingt die strikte Einhaltung deklarierter Locales für ein zuverlässiges Verhalten.
-
----
 
 ## Funktionssignatur
 
@@ -57,8 +51,6 @@ t(translations: Record<string, string>): string;
 ### Rückgabewert
 
 - Eine Zeichenfolge, die den Inhalt in der bevorzugten Sprache des Clients darstellt.
-
----
 
 ## Laden des Internationalisierungs-Request-Handlers
 
@@ -92,8 +84,6 @@ app.get("/", (c) => {
 - **Locale-Erkennung**: Die `intlayer`-Middleware verarbeitet eingehende Anfragen, um das bevorzugte Locale des Benutzers basierend auf Headern, Cookies oder anderen konfigurierten Methoden zu erkennen.
 - **Übersetzungskontext**: Richtet den erforderlichen Kontext ein, damit die `t`-Funktion ordnungsgemäß funktioniert und sichergestellt wird, dass Übersetzungen in der richtigen Sprache zurückgegeben werden.
 - **Fehlervermeidung**: Ohne diese Middleware führt die Verwendung der `t`-Funktion zu Laufzeitfehlern, da die erforderlichen Locale-Informationen nicht verfügbar sind.
-
----
 
 ## Nutzungsbeispiele
 
@@ -136,8 +126,6 @@ app.get("/error", (c) => {
 });
 ```
 
----
-
 ### Verwendung von Locale-Varianten
 
 Spezifizieren Sie Übersetzungen für länderspezifische Varianten:
@@ -155,8 +143,6 @@ app.get("/greet", (c) => {
   );
 });
 ```
-
----
 
 ## Fortgeschrittene Themen
 
@@ -177,8 +163,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Erzwingen des strikten Modus
 
 Konfigurieren Sie die `t`-Funktion so, dass die strikte Einhaltung deklarierter Locales erzwungen wird:
@@ -188,8 +172,6 @@ Konfigurieren Sie die `t`-Funktion so, dass die strikte Einhaltung deklarierter 
 | `strict`    | Alle deklarierten Locales müssen Übersetzungen bereitstellen. Fehlende Locales führen zu Fehlern.             |
 | `inclusive` | Deklarierte Locales müssen Übersetzungen haben. Fehlende Locales lösen Warnungen aus, werden aber akzeptiert. |
 | `loose`     | Jedes vorhandene Locale wird akzeptiert, auch wenn es nicht deklariert ist.                                   |
-
----
 
 ### TypeScript-Integration
 
@@ -209,16 +191,12 @@ app.get("/morning", (c) => {
 });
 ```
 
----
-
 ### Häufige Fehler und Fehlerbehebung
 
 | Problem                            | Ursache                                    | Lösung                                                                               |
 | ---------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------ |
 | `t`-Funktion funktioniert nicht    | Middleware nicht geladen                   | Stellen Sie sicher, dass `app.use("*", intlayer())` vor den Routen hinzugefügt wird. |
 | Fehler bei fehlenden Übersetzungen | Strikter Modus ohne alle Locales aktiviert | Stellen Sie alle erforderlichen Übersetzungen bereit.                                |
-
----
 
 ## Fazit
 

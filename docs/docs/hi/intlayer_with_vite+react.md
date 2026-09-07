@@ -85,8 +85,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite और React एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 <Tabs defaultTab="video">
@@ -986,8 +984,6 @@ Intlayer द्वारा जेनरेट की गई फ़ाइलो�
 - Translations को आसानी से बनाने और अपडेट करने के लिए **Quick actions**।
 
 Extension का उपयोग कैसे करें, इस पर अधिक विवरण के लिए, [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension) को देखें।
-
----
 
 ### आगे बढ़ें
 

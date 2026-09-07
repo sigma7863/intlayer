@@ -35,8 +35,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 <TOC/>
 
----
-
 ## आर्किटेक्चर
 
 ```
@@ -56,8 +54,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 क्रोमियम (Puppeteer स्क्रीनशॉट जनरेशन के लिए उपयोग किया जाता है) बैकएंड इमेज के अंदर बंडल किया गया है - किसी अलग कंटेनर की आवश्यकता नहीं है।
 
----
-
 ## त्वरित शुरुआत
 
 1.  जांचता है कि `docker` और `docker compose` मौजूद हैं या नहीं।
@@ -67,8 +63,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 5.  URL प्रिंट करता है: डैशबोर्ड `:3000`, API `:3100`, ईमेल UI `:8025`, MinIO कंसोल `:9001`।
 
 स्टैक के चालू होने के बाद, **http://localhost:3000** खोलें और अपना पहला अकाउंट बनाएँ।
-
----
 
 ## क्विक स्टार्ट
 
@@ -138,8 +132,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > चार port variables केवल `docker run` command में printed mapping के **host** side को बदलते हैं। प्रकाशित image में `http://localhost:3000`, `http://localhost:3100` और `http://localhost:9000` build time पर dashboard bundle में compiled हैं, इसलिए उन्हें remapping करने से browser पुराने ports की ओर इशारा करता है। जब तक आप अपना खुद का image बिल्ड नहीं कर रहे हैं, तब तक defaults को रखें — [Limitations](#limitations) देखें।
 
----
-
 ## पहली बार सेटअप
 
 एक नए instance (खाली डेटाबेस) पर, डैशबोर्ड खोलने से आप **`/init`** पृष्ठ पर रीडायरेक्ट हो जाते हैं:
@@ -149,8 +141,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 3. ईमेल में लिंक पर क्लिक करें, फिर साइन इन करें।
 
 एक बार admin मौजूद हो जाने पर, `/init` मानक साइन-इन पृष्ठ पर रीडायरेक्ट करता है।
-
----
 
 ## सेवाएँ
 
@@ -164,8 +154,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 | **mailpit** | `axllent/mailpit`                    | `1025` (SMTP), `8025` (वेब UI) | लोकल ट्रांजैक्शनल ईमेल सिंक                         |
 
 > MinIO पोर्ट `9000` ब्राउज़र द्वारा पहुँच योग्य होना चाहिए क्योंकि अपलोड किए गए एसेट (अवतार, स्क्रीनशॉट) सीधे `S3_PUBLIC_URL=http://localhost:9000/intlayer` से लोड होते हैं।
-
----
 
 ## Environment variables
 
@@ -235,8 +223,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > प्राधिकार: एक संगठन का अपना mailer (**Organization** dashboard से कॉन्फ़िगर किया गया) global mailer को प्राथमिकता देता है, जो बदले में default Resend key को प्राथमिकता देता है।
 
----
-
 ## अपने इंटलेयर प्रोजेक्ट को कनेक्ट करना
 
 एक बार जब स्टैक चल रहा हो, तो अपने प्रोजेक्ट को `intlayer.org` के बजाय सेल्फ-होस्टेड बैकएंड और डैशबोर्ड पर पॉइंट करें।
@@ -298,8 +284,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## अपग्रेड करना
 
 `./intlayer/` डायरेक्टरी के अंदर से मैन्युअल रूप से अपग्रेड करने के लिए:
@@ -308,8 +292,6 @@ const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## बैकअप और रीस्टोर
 
@@ -345,15 +327,11 @@ docker run --rm \
 # redis-data और minio-data के लिए दोहराएँ
 ```
 
----
-
 ## सीमाएं
 
 - **MongoDB बाहरी (Atlas) होना चाहिए।** बैकएंड केवल `mongodb+srv://` पर कनेक्ट करता है (जो `DB_ID` / `DB_MDP` / `DB_CLUSTER` से बनाया गया है), इसलिए एक सादा `mongodb://host:27017` — कंटेनर के अपने बंडल किए गए `mongod` सहित — का उपयोग नहीं किया जा सकता है। एक MongoDB Atlas क्लस्टर प्रदान करें।
 - **कोई कस्टम डोमेन नहीं।** सभी ब्राउज़र-सामने वाले `VITE_*` URLs बिल्ड टाइम पर ऐप में इनलाइन किए जाते हैं, और प्रकाशित इमेज `localhost` मानों के साथ आती है। डैशबोर्ड को `http://localhost:3000` पर एक्सेस किया जाना चाहिए; इसे एक सार्वजनिक डोमेन पर सर्व करने के लिए इमेज को लक्ष्य URLs के साथत: फिर से बनाने की आवश्यकता होगी और इसे तुरंत समर्थित नहीं किया जाता है।
 - **ईमेल को एक काम करने वाले मेलर की आवश्यकता है।** पहली बार सेटअप ईमेल सत्यापन को लागू करता है, इसलिए या तो `RESEND_API_KEY` या एक [global SMTP mailer](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`) को कॉन्फ़िगर किया जाना चाहिए। पहले एडमिन साइन इन करने के बाद, प्रत्येक संगठन डैशबोर्ड से अपना स्वयं का SMTP या Resend मेलर भी कॉन्फ़िगर कर सकता है।
-
----
 
 ## समस्या निवारण
 
@@ -380,8 +358,6 @@ docker compose logs redis
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## उपयोगी लिंक
 

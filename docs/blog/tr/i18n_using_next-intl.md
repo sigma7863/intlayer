@@ -64,8 +64,6 @@ Uygulamaya başlamadan önce, takip etmeniz gereken bazı uygulamalar şunlardı
 
 > Uluslararasılaştırma ve SEO hakkında bilmeniz gereken her şeyi listeleyen dokümanımıza bakın: [next-intl ile Uluslararasılaştırma (i18n)](https://github.com/aymericzip/intlayer/blob/main/docs/blog/tr/internationalization_and_SEO.md).
 
----
-
 ## Next.js Uygulamasında next-intl Kurulumuna Adım Adım Rehber
 
 <iframe  

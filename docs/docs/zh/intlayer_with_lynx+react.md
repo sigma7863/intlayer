@@ -91,8 +91,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="安装依赖">
@@ -467,8 +465,6 @@ Intlayer 在一个隐藏文件夹中生成类型定义（默认是 `.intlayer`�
 - **自动补全** 您的字典键。
 - **类型检查** 如果您访问不存在的键或类型不匹配，将发出警告。
 
----
-
 ## Git 配置
 
 为了避免提交由 Intlayer 自动生成的文件，请将以下内容添加到您的 `.gitignore` 中：
@@ -477,8 +473,6 @@ Intlayer 在一个隐藏文件夹中生成类型定义（默认是 `.intlayer`�
 #  忽略由 Intlayer 生成的文件
 .intlayer
 ```
-
----
 
 ### VS Code 扩展
 
@@ -495,8 +489,6 @@ Intlayer 在一个隐藏文件夹中生成类型定义（默认是 `.intlayer`�
 - **内联预览**已翻译的内容。
 - **快速操作**，轻松创建和更新翻译。
   有关如何使用该扩展的更多详细信息，请参阅[Intlayer VS Code 扩展文档](https://intlayer.org/doc/vs-code-extension)。
-
----
 
 ## 深入了解
 

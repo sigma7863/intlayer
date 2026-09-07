@@ -50,8 +50,6 @@ Per questo, Intlayer introduce il concetto di 'dizionari remoti'.
 
 <TOC/>
 
----
-
 ## Comprendere i dizionari remoti
 
 Intlayer distingue tra dizionari 'locali' e 'remoti'.
@@ -419,8 +417,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 Per la guida di configurazione completa, il riferimento delle variabili di ambiente, le istruzioni di aggiornamento e le procedure di backup/restore, consulta la [Guida Self-Hosting](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/self_hosting.md).
-
----
 
 ## Debug
 

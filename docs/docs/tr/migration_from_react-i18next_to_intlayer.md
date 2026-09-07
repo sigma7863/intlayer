@@ -69,8 +69,6 @@ Basit bir i18n çözümünden çok daha fazlası olan Intlayer, çok dilli içer
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Geçiş Stratejileri
 
 `react-i18next` / `i18next`'ten Intlayer'a geçiş yapmak için birbirini tamamlayan iki strateji vardır:
@@ -81,13 +79,9 @@ Basit bir i18n çözümünden çok daha fazlası olan Intlayer, çok dilli içer
 
 Bu kılavuz, öncelikle **Strateji 1'i** (doğrudan eklenebilir uyumluluk adaptörü) kapsar ve ardından isteğe bağlı tam geçişten bahseder.
 
----
-
 ## İçindekiler
 
 <TOC/>
-
----
 
 ## Hızlı Geçiş
 
@@ -234,8 +228,6 @@ Hızlı geçiş bu kadar. Uygulamanız artık `react-i18next` içe aktarmaların
 > tAbout("counter.label"); // ✓ tür güvenli (typed)
 > ```
 
----
-
 ## Tam Geçiş
 
 Aşağıdaki adımlar isteğe bağlıdır ve kademeli olarak yapılabilir. Bunlar, görsel editör, CMS, türetilmiş (typed) içerik dosyaları, AI çeviri otomasyonu gibi Intlayer özelliklerinin tam kapsamlı kullanımını sağlar.
@@ -328,8 +320,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Geçişten Sonra Silinebilecekler
 
 Uyumluluk adaptörü kullanılmaya başlandığında, aşağıdaki standart `react-i18next` / `i18next` tekrarlayan kodları (boilerplate) kaldırılabilir:
@@ -341,8 +331,6 @@ Uyumluluk adaptörü kullanılmaya başlandığında, aşağıdaki standart `rea
 | JSON dil paketleri (`locales/*.json`)  | JSON paketleri yalnızca `syncJSON` eklentisini kullanmaya devam etmeniz durumunda gereklidir. `.content.ts` dosyalarına geçtikten sonra JSON klasörünü kaldırabilirsiniz. |
 
 Bir adım öteye geçmeye hazır olduğunuzda, Intlayer **kod tabanınızın herhangi bir yerindeki (varsayılan olarak `./src` altındaki herhangi bir yerde) tüm `.content.ts` ve `.content.json` dosyalarını otomatik olarak keşfeder**. Sadece `MyComponent.tsx`'in yanına bir `my-component.content.ts` dosyası bırakın, Intlayer onu ek bir yapılandırma olmadan derleme (build) sırasında yakalayacaktır. Ne içe aktarmaya, ne kayda, ne de merkezi bir indeks dosyasına ihtiyaç vardır. Bu sayede çeviriler sayfalar ve bileşenlerinizle en kolay şekilde bir arada tutulur (colocation).
-
----
 
 ## TypeScript Kurulumu
 
@@ -358,8 +346,6 @@ Intlayer, çeviri anahtarlarınız için kapsamlı TypeScript IntelliSense'i (ot
 }
 ```
 
----
-
 ## Git Yapılandırması
 
 Intlayer tarafından oluşturulan dizini `.gitignore` dosyanıza ekleyin:
@@ -368,8 +354,6 @@ Intlayer tarafından oluşturulan dizini `.gitignore` dosyanıza ekleyin:
 # Intlayer tarafından oluşturulan dosyaları yoksay
 .intlayer
 ```
-
----
 
 ## Daha Fazlasını Keşfedin
 

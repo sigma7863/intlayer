@@ -94,8 +94,6 @@ Intlayer — это не просто решение i18n, оно предост
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в React-приложении
 
 <Steps>

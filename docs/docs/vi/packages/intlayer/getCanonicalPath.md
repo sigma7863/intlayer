@@ -37,8 +37,6 @@ Hàm `getCanonicalPath` giải quyết một đường dẫn URL đã bản đ�
 - Khớp các đường dẫn đã bản địa hóa với các quy tắc rewrite tùy chỉnh được định nghĩa trong cấu hình của bạn.
 - Trả về đường dẫn gốc nếu không tìm thấy quy tắc rewrite phù hợp.
 
----
-
 ## Chữ ký hàm
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // Tùy chọn
 ): string
 ```
-
----
 
 ## Tham số
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **Kiểu**: `RoutingConfig['rewrite']`
   - **Mặc định**: `configuration.routing.rewrite`
 
----
-
 ## Trả về
 
 - **Kiểu**: `string`
 - **Mô tả**: Đường dẫn canonical nội bộ.
-
----
 
 ## Ví dụ Sử dụng
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // Output: "/contact"
 ```
-
----
 
 ## Hàm liên quan
 

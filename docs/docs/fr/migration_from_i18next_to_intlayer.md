@@ -66,8 +66,6 @@ Plus qu'une simple solution i18n, Intlayer fournit un **[éditeur visuel](https:
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Stratégies de migration
 
 Il existe deux stratégies complémentaires pour migrer de `i18next` à Intlayer :
@@ -78,13 +76,9 @@ Il existe deux stratégies complémentaires pour migrer de `i18next` à Intlayer
 
 Ce guide couvre d'abord la **Stratégie 1** (adaptateur de compatibilité prêt à l'emploi), puis passe en revue la migration complète optionnelle.
 
----
-
 ## Table des Matières
 
 <TOC/>
-
----
 
 ## Migration rapide
 
@@ -194,8 +188,6 @@ export default defineConfig({
 
 C'est tout pour la migration rapide. Votre application fonctionne désormais sur Intlayer tout en conservant chaque import et API `i18next` intacts.
 
----
-
 ## Migration complète
 
 Les étapes ci-dessous sont facultatives et peuvent être effectuées de manière incrémentielle. Elles débloquent l'ensemble des fonctionnalités d'Intlayer : éditeur visuel, CMS, fichiers de contenu typés, traduction alimentée par l'IA, et plus encore.
@@ -277,8 +269,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Ce que vous pouvez supprimer après la migration
 
 Une fois l'adaptateur de compatibilité en place, le code standard `i18next` suivant peut être supprimé :
@@ -290,8 +280,6 @@ Une fois l'adaptateur de compatibilité en place, le code standard `i18next` sui
 | Bundles de langue JSON (`locales/*.json`) | Les bundles JSON ne sont nécessaires que si vous utilisez encore le plugin `syncJSON`. Une fois que vous migrez vers des fichiers `.content.ts`, vous pouvez supprimer le dossier JSON. |
 
 Lorsque vous êtes prêt à aller plus loin, Intlayer **découvre automatiquement tous les fichiers `.content.ts` et `.content.json` n'importe où dans votre base de code** (par défaut, n'importe où dans `./src`). Vous pouvez placer un fichier `my-component.content.ts` juste à côté de votre logique et Intlayer le détectera au moment de la construction sans configuration supplémentaire — pas d'imports, pas d'enregistrement, pas besoin de fichier d'index centralisé. Cela rend la colocalisation des traductions complètement transparente.
-
----
 
 ## Configurer TypeScript
 
@@ -307,8 +295,6 @@ Intlayer utilise l'augmentation de module pour fournir une intellisense TypeScri
 }
 ```
 
----
-
 ## Configuration Git
 
 Ajoutez le répertoire généré par Intlayer à votre `.gitignore` :
@@ -317,8 +303,6 @@ Ajoutez le répertoire généré par Intlayer à votre `.gitignore` :
 # Ignorer les fichiers générés par Intlayer
 .intlayer
 ```
-
----
 
 ## Aller plus loin
 

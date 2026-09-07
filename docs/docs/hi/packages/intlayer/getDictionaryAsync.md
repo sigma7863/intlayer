@@ -44,8 +44,6 @@ author: aymericzip
 - एक ही chunk के concurrent loads को deduplicate करता है, और resolved content को cache करता है
 - Failed loads को cache से evict किया जाता है ताकि बाद की call chunk को retry कर सके
 
----
-
 ## फ़ंक्शन सिग्नेचर
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // वैकल्पिक
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## पैरामीटर
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — a promise resolving to the interpreted content of the loaded chunk.
 - **Description**: Resolves to `null` when the map emits no chunk for the requested locale nor for any of its fallbacks, mirroring how a missing qualified coordinate resolves.
-
----
 
 ## उदाहरण उपयोग
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## व्यवहार नोट्स
 
 ### कैशिंग और डीडुप्लिकेशन
@@ -135,15 +127,11 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 
 एक सादा loader map को synchronous mode के समान fallback chain के अनुसार walk किया जाता है: पहले अनुरोधित locale, फिर इसके fallbacks, फिर `null` अगर कोई भी chunk emit नहीं करता है।
 
----
-
 ## संबंधित फंक्शन
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getIntlayerAsync.md): वह फंक्शन जिसे एप्लिकेशन कॉल करती हैं; बिल्ड प्लगइन इसे `getDictionaryAsync` में फिर से लिखते हैं।
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getDictionary.md): सिंक्रोनस समकक्ष जो पूरी dictionary लेता है।
 - [Dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/dynamic_dictionaries/index.md): संग्रह और variants, और loader maps जो वे जेनरेट करते हैं।
-
----
 
 ## TypeScript
 

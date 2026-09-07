@@ -86,8 +86,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Angular एप्लिकेशन में Intlayer सेट करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 <Tabs defaultTab="code">
@@ -457,13 +455,9 @@ Intlayer के साथ अपने विकास अनुभव को �
 
 एक्सटेंशन का उपयोग करने के तरीके के बारे में अधिक विवरण के लिए, [Intlayer VS Code एक्सटेंशन दस्तावेज़](https://intlayer.org/doc/vs-code-extension) देखें।
 
----
-
 ### आगे बढ़ें
 
 आगे बढ़ने के लिए, आप [विजुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) लागू कर सकते हैं या [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) का उपयोग करके अपनी सामग्री को बाहरी बना सकते हैं।
-
----
 
 ## अक्सर पूछे जाने वाले प्रश्न
 

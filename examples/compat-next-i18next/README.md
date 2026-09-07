@@ -43,8 +43,6 @@ Before we dive into the implementation, here are some practices you should follo
 
 > See our doc listing everything you need to know about internationalization and SEO: [Internationalization (i18n) with next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/internationalization_and_SEO.md).
 
----
-
 ## Step-by-Step Guide to Set Up i18next in a Next.js Application
 
 <iframe
@@ -622,8 +620,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 
 export default ServerComponent;
 ```
-
----
 
 ### (Optional) Step 12: Change the language of your content
 

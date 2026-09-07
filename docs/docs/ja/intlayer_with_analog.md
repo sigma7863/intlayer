@@ -105,8 +105,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## AnalogアプリケーションへのIntlayerセットアップ手順
 
 GitHubで[アプリケーションテンプレート](https://github.com/aymericzip/intlayer-analog-template)を確認する。
@@ -403,8 +401,6 @@ Intlayerでの開発体験を向上させるために、公式の**Intlayer VS C
 - 翻訳を簡単に作成・更新するための**クイックアクション**。
 
 拡張機能の使用方法の詳細については、[Intlayer VS Code Extensionのドキュメント](https://intlayer.org/doc/vs-code-extension)を参照してください。
-
----
 
 ### さらに進める
 

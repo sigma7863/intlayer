@@ -23,15 +23,11 @@ author: aymericzip
 
 Trong bối cảnh kỹ thuật số ngày càng toàn cầu hóa, việc mở rộng phạm vi tiếp cận trang web Vue.js của bạn đến người dùng với nhiều ngôn ngữ không còn là một “điều tốt để có” mà đã trở thành một yêu cầu cạnh tranh thiết yếu. Quốc tế hóa (i18n) cho phép các nhà phát triển quản lý bản dịch và điều chỉnh ứng dụng của họ cho các vùng địa lý khác nhau đồng thời giữ nguyên giá trị SEO, trải nghiệm người dùng và cấu trúc mã dễ bảo trì. Trong bài viết này, chúng ta sẽ khám phá các phương pháp khác nhau, từ các thư viện chuyên dụng đến các giải pháp mã hóa tùy chỉnh giúp bạn tích hợp i18n vào dự án Vue.js một cách mượt mà.
 
----
-
 ## Quốc tế hóa (i18n) là gì?
 
 Quốc tế hóa (i18n) là thực hành chuẩn bị một ứng dụng phần mềm (hoặc trang web) cho nhiều ngôn ngữ và các quy ước văn hóa khác nhau. Trong hệ sinh thái Vue.js, điều này bao gồm việc thiết lập cách thức văn bản, ngày tháng, số liệu, tiền tệ và các yếu tố có thể địa phương hóa khác có thể được điều chỉnh cho các vùng địa lý khác nhau. Bằng cách thiết lập i18n ngay từ đầu, bạn đảm bảo một cấu trúc có tổ chức, có thể mở rộng để thêm ngôn ngữ mới và xử lý các nhu cầu địa phương hóa trong tương lai.
 
 Để tìm hiểu thêm về các kiến thức cơ bản của i18n, hãy xem tài liệu tham khảo của chúng tôi: [Quốc tế hóa (i18n) là gì? Định nghĩa và những thách thức](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/what_is_internationalization.md).
-
----
 
 ## Thách thức dịch thuật cho các ứng dụng Vue
 
@@ -43,13 +39,9 @@ Việc dịch một ứng dụng Vue.js mang đến những thách thức riêng
 - **Trạng thái và ngữ cảnh phản ứng:** Đảm bảo rằng vùng miền hiện tại được duy trì xuyên suốt các tuyến đường và các thành phần cập nhật văn bản và định dạng một cách phản ứng đòi hỏi một cách tiếp cận cẩn thận, đặc biệt khi làm việc với Vuex hoặc Pinia để quản lý trạng thái.
 - **Chi phí phát triển:** Việc giữ cho các tệp dịch được tổ chức, nhất quán và cập nhật có thể nhanh chóng trở thành một nhiệm vụ lớn nếu không được quản lý cẩn thận.
 
----
-
 ## Các giải pháp i18n hàng đầu cho Vue.js
 
 Dưới đây là một số thư viện và phương pháp phổ biến mà bạn có thể sử dụng để tích hợp quốc tế hóa vào các ứng dụng Vue của mình. Mỗi giải pháp nhằm mục đích đơn giản hóa việc dịch thuật, SEO và các cân nhắc về hiệu suất theo những cách khác nhau.
-
----
 
 ### 1. Intlayer
 
@@ -94,8 +86,6 @@ Dưới đây là một số thư viện và phương pháp phổ biến mà b�
 - **Hệ sinh thái Plugin**  
   Mặc dù mạnh mẽ, bạn có thể cần lựa chọn kỹ lưỡng giữa nhiều plugin hoặc module (Nuxt I18n, Vue I18n, v.v.) để xây dựng một thiết lập hoàn hảo.
 
----
-
 ### 3. LinguiJS (Tích hợp Vue)
 
 > Trang web: [https://lingui.js.org/](https://lingui.js.org/)
@@ -122,8 +112,6 @@ Ban đầu nổi tiếng với tích hợp React, **LinguiJS** cũng cung cấp 
   Mặc dù LinguiJS có hỗ trợ chính thức cho Vue, tài liệu của nó chủ yếu tập trung vào React; bạn có thể cần dựa vào các ví dụ từ cộng đồng.
 - **Cộng đồng nhỏ hơn**  
   So với Vue I18n, hệ sinh thái của LinguiJS tương đối nhỏ hơn. Các plugin được duy trì chính thức và các tiện ích bổ sung của bên thứ ba có thể bị hạn chế hơn.
-
----
 
 ## Suy nghĩ cuối cùng
 

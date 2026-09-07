@@ -56,8 +56,6 @@ Ein übersetzter Wert, der in ein Fragment interpoliert wird, ist Markup. Escape
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Schritt-für-Schritt-Anleitung
 
 <iframe
@@ -672,8 +670,6 @@ Diese Erweiterung bietet:
 - **Schnellaktionen** zur einfachen Erstellung und Aktualisierung von Übersetzungen.
 
 Weitere Informationen zur Verwendung der Erweiterung finden Sie in der [Intlayer VS Code Extension-Dokumentation](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Noch weiter gehen
 

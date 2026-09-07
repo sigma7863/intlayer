@@ -39,8 +39,6 @@ author: aymericzip
 - 支持多种路由模式：`prefix-no-default`、`prefix-all`、`no-prefix` 和 `search-params`
 - 返回一个映射对象，其中所有语言区域作为键，对应的 URL 作为值
 
----
-
 ## 函数签名
 
 ```typescript
@@ -53,8 +51,6 @@ getMultilingualUrls(
   }
 ): StrictModeLocaleMap<string>
 ```
-
----
 
 ## 参数
 
@@ -96,8 +92,6 @@ getMultilingualUrls(
 
 - **类型**：`IConfigLocales<string>`
 - **描述**：一个对象，将每个语言环境映射到其对应的多语言 URL。
-
----
 
 ## 示例用法
 
@@ -199,8 +193,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## 边界情况
 
 - **无语言段：**
@@ -217,8 +209,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`：所有语言都有前缀（例如 `/en/dashboard`、`/fr/dashboard`）
   - `'no-prefix'`：URL 中没有语言前缀（所有语言返回相同 URL）
   - `'search-params'`：通过查询参数指定语言（例如 `/dashboard?locale=fr`）
-
----
 
 ## 在应用中的使用
 

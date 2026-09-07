@@ -56,8 +56,6 @@ Nilai yang diterjemahkan dan diinterpolasi ke dalam fragmen adalah markup. Escap
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah demi Langkah
 
 <iframe
@@ -663,8 +661,6 @@ Ekstensi ini menyediakan:
 - **Aksi cepat** untuk dengan mudah membuat dan memperbarui terjemahan.
 
 Untuk detail lebih lanjut tentang cara menggunakan ekstensi, lihat [dokumentasi Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Lanjutkan Lebih Jauh
 

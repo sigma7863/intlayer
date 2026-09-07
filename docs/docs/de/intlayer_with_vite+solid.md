@@ -112,8 +112,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Schritt-für-Schritt-Anleitung zur Einrichtung von Intlayer in einer Vite- und Solid-Anwendung
 
 ## Inhaltsverzeichnis
@@ -737,8 +735,6 @@ Dazu können Sie die folgenden Anweisungen zu Ihrer `.gitignore`-Datei hinzufüg
 Um dein Entwicklungserlebnis mit Intlayer zu verbessern, kannst du die offizielle **Intlayer VS Code Extension** installieren.
 
 [Installation vom VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Weiterführende Schritte
 

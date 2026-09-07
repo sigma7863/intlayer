@@ -67,8 +67,6 @@ Hơn chỉ là một giải pháp i18n, Intlayer cung cấp một **[trình ch�
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Chiến lược di chuyển
 
 Cách tiếp cận được khuyến nghị cho các ứng dụng hiện có là **compat adapter**: cài đặt `@intlayer/next-intl`, cái mà hiển thị **chính xác cùng API** như `next-intl` nhưng ủy quyền tất cả công việc dịch cho Intlayer ở phía sau.
@@ -77,13 +75,9 @@ Bạn giữ lại `useTranslations`, `getTranslations`, `NextIntlClientProvider`
 
 Theo thời gian, bạn có thể tùy chọn di chuyển các tệp riêng lẻ sang định dạng `.content.ts` phong phú hơn của Intlayer để mở khóa trình chỉnh sửa trực quan, CMS, và phạm vi nội dung cho từng thành phần — nhưng bước đó hoàn toàn tùy chọn và có thể được thực hiện từng bước.
 
----
-
 ## Mục Lục
 
 <TOC/>
-
----
 
 ## Quá trình migration nhanh
 
@@ -212,8 +206,6 @@ export default withIntlayer(nextConfig);
 > t("counter.label"); // ✓ được gõ
 > ```
 
----
-
 ## Hoàn thành migration
 
 Các bước dưới đây là tùy chọn và có thể được thực hiện theo từng bước. Chúng mở khóa bộ tính năng đầy đủ của Intlayer: trình chỉnh sửa trực quan, CMS, các tệp nội dung được định kiểu, dịch thuật được hỗ trợ bởi AI, và hơn thế nữa.
@@ -308,8 +300,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Những gì bạn có thể xóa sau khi migrate
 
 Once `@intlayer/next-intl` is in place, the following `next-intl` boilerplate can be removed:
@@ -321,8 +311,6 @@ Once `@intlayer/next-intl` is in place, the following `next-intl` boilerplate ca
 | `locales/{locale}/*.json` imports in layout       | JSON bundles are only needed if you still use the `syncJSON` plugin. Once you migrate to `.content.ts` files you can delete the JSON folder.                     |
 
 When you are ready to go further, Intlayer **automatically discovers all `.content.ts` and `.content.json` files anywhere in your codebase** (by default, anywhere inside `./src`). You can place an `about.content.ts` file right next to your `about/page.tsx` and Intlayer will pick it up at build time with no additional configuration — no imports, no registration, no centralized index file needed. This makes co-locating translations with pages and components completely frictionless.
-
----
 
 ## Cấu hình TypeScript
 
@@ -338,8 +326,6 @@ Intlayer sử dụng module augmentation để cung cấp đầy đủ intellise
 }
 ```
 
----
-
 ## Cấu hình Git
 
 Thêm thư mục được tạo bởi Intlayer vào `.gitignore` của bạn:
@@ -348,8 +334,6 @@ Thêm thư mục được tạo bởi Intlayer vào `.gitignore` của bạn:
 # Bỏ qua các tệp được tạo bởi Intlayer
 .intlayer
 ```
-
----
 
 ## Đi Xa Hơn
 

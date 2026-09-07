@@ -122,13 +122,9 @@ author: aymericzip
 
 Các tệp cấu hình Intlayer cho phép bạn tùy chỉnh các khía cạnh khác nhau của plugin, chẳng hạn như quốc tế hóa (i18n), middleware và quản lý nội dung. Tài liệu này cung cấp mô tả chi tiết về từng thuộc tính trong cấu hình.
 
----
-
 ## Mục lục
 
 <TOC/>
-
----
 
 ## Hỗ trợ Tệp Cấu hình
 
@@ -142,8 +138,6 @@ Intlayer chấp nhận các định dạng tệp cấu hình JSON, JS, MJS và T
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## Ví dụ Tệp Cấu hình
 
@@ -693,13 +687,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## Hướng dẫn Tham khảo Cấu hình
 
 Dưới đây là mô tả chi tiết về các tham số cấu hình khác nhau có sẵn trong Intlayer.
-
----
 
 ### Cấu hình Quốc tế hóa (Internationalization)
 
@@ -711,8 +701,6 @@ Xác định các cài đặt liên quan đến quốc tế hóa, bao gồm các
 | `requiredLocales` | Danh sách các locale bắt buộc trong ứng dụng.                                     | `string[]`   | `[]`                | `[]`                 | • Nếu để trống, tất cả các locale đều bắt buộc trong chế độ `strict`.<br/>• Đảm bảo rằng các locale bắt buộc cũng được định nghĩa trong trường `locales`.                                                                                                                                                 |
 | `strictMode`      | Đảm bảo thực thi mạnh mẽ các nội dung quốc tế hóa bằng TypeScript.                | `string`     | `'inclusive'`       |                      | • Nếu `"strict"`: Việc định nghĩa mọi locale đã khai báo là bắt buộc cho hàm `t` - báo lỗi nếu thiếu hoặc nếu chưa khai báo.<br/>• Nếu `"inclusive"`: Cảnh báo cho các locale bị thiếu nhưng cho phép sử dụng các locale hiện có chưa khai báo.<br/>• Nếu `"loose"`: Chấp nhận bất kỳ locale nào hiện có. |
 | `defaultLocale`   | Locale mặc định được sử dụng làm dự phòng nếu locale được yêu cầu không khả dụng. | `string`     | `Locales.ENGLISH`   | `'en'`               | Được sử dụng để xác định locale nếu không được chỉ định trong URL, cookie hoặc header.                                                                                                                                                                                                                    |
-
----
 
 ### Cấu hình Editor (Editor)
 
@@ -744,8 +732,6 @@ Tính năng phân tích là tùy chọn từ chối (opt-out): nó được bậ
 | `enabled`       | Bật thu thập dữ liệu phân tích (lượt xem trang, hiển thị nội dung, sự kiện A/B). | `boolean` | `true`   | `false` | Yêu cầu đã cài đặt `@intlayer/analytics` và thiết lập `editor.clientId` để phục vụ việc quy kết; nếu không, phân tích vẫn bị vô hiệu hóa ngay cả khi `enabled` là `true`. |
 | `flushInterval` | Số mili giây giữa các lần gửi hàng loạt tự động đến backend.                     | `number`  | `20000`  | `10000` |                                                                                                                                                                           |
 | `sampleRate`    | Tỷ lệ phiên được ghi lại, từ `0` (không có) đến `1` (tất cả).                    | `number`  | `1`      | `0.5`   | Việc lấy mẫu là xác định theo từng phiên, vì vậy một phiên được ghi lại sẽ báo cáo tất cả các sự kiện của nó (không có phễu một phần).                                    |
-
----
 
 ### Cấu hình Routing (Routing)
 
@@ -948,8 +934,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### Cấu hình Nội dung (Content)
 
 Các cài đặt về cách nội dung được quản lý trong ứng dụng, bao gồm tên thư mục, phần mở rộng tệp và các cấu hình phái sinh khác.
@@ -962,8 +946,6 @@ Các cài đặt về cách nội dung được quản lý trong ứng dụng, b
 | `codeDir`        | Thư mục đường dẫn nơi đặt mã nguồn, tương đối với thư mục cơ sở.                                                     | `string[]`   | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • Được sử dụng để theo dõi tệp mã nguồn để phục vụ việc chuyển đổi (loại bỏ các phần không cần thiết, tối ưu hóa).<br/>• Tách khỏi `contentDir` có thể cải thiện hiệu suất. |
 | `excludedPath`   | Các thư mục cần loại bỏ khỏi quá trình quét nội dung.                                                                | `string[]`   | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | Hiện tại chưa được sử dụng; được lên kế hoạch cho tương lai.                                                                                                                |
 | `formatCommand`  | Lệnh định dạng các tệp nội dung khi Intlayer ghi chúng cục bộ.                                                       | `string`     | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` sẽ được thay thế bằng đường dẫn tệp.<br/>• Nếu chưa được định nghĩa, Intlayer sẽ cố gắng suy luận (thử nghiệm prettier, biome, eslint).                        |
-
----
 
 ### Cấu hình Hệ thống
 
@@ -1018,8 +1000,6 @@ dictionary: {
   },
 };
 ```
-
----
 
 ### Cấu hình Logger (Log)
 
@@ -1091,8 +1071,6 @@ Các tùy chọn build được áp dụng cho các plugin `@intlayer/babel` và
 | `outputFormat`        | Kiểm soát định dạng đầu ra cho các dictionary.                                                                     | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `traversePattern`     | Pattern chỉ rõ các tệp cần quét trong quá trình tối ưu hóa.                                                        | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • Hạn chế tối ưu hóa cho các tệp có liên quan để cải thiện hiệu suất build.<br/>• Bị bỏ qua nếu `optimize` tắt.<br/>• Sử dụng các pattern glob.                                                                                                                                                                                                                                                                                                                                                       |
 
----
-
 ### Cấu hình Compiler (Compiler)
 
 Trình kiểm soát trình biên dịch Intlayer, thu thập các bộ từ điển trực tiếp từ các component của bạn.
@@ -1111,8 +1089,6 @@ Trình kiểm soát trình biên dịch Intlayer, thu thập các bộ từ đi�
 | Trường    | Mô tả                                                                           | Kiểu dữ liệu                |
 | --------- | ------------------------------------------------------------------------------- | --------------------------- |
 | `schemas` | Cho phép bạn định nghĩa các Zod schema để xác thực cấu trúc bộ từ điển của bạn. | `Record<string, ZodSchema>` |
-
----
 
 ### Plugin (Plugins)
 

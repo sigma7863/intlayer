@@ -56,8 +56,6 @@ A translated value interpolated into a fragment is markup. Escape it, exactly as
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Step-by-Step Guide
 
 <iframe
@@ -656,8 +654,6 @@ This extension provides:
 - **Quick actions** to easily create and update translations.
 
 For more details on how to use the extension, refer to the [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Go Further
 

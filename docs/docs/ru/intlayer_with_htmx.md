@@ -56,8 +56,6 @@ Middleware Intlayer разрешает locale из самого запроса, 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство
 
 <iframe
@@ -669,8 +667,6 @@ export default config;
 - **Быстрые действия** для легкого создания и обновления переводов.
 
 Для получения дополнительной информации об использовании расширения см. [документацию расширения Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Идите дальше
 

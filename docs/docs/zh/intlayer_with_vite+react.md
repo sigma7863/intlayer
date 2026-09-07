@@ -82,8 +82,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 在 Vite 和 React 应用中分步设置 Intlayer 指南
 
 <Tabs defaultTab="video">
@@ -986,8 +984,6 @@ Intlayer 使用模块扩展 (module augmentation) 来利用 TypeScript 的优势
 - 轻松创建和更新翻译的**快速操作**。
 
 有关如何使用该扩展的更多详细信息，请参阅 [Intlayer VS Code 扩展文档](https://intlayer.org/zh/doc/vs-code-extension)。
-
----
 
 ### 深入了解
 

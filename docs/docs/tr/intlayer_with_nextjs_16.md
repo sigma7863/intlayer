@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-06-23
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - Uygulamanızı çevirmek için eksiksiz kılavuz"
 description: "Artık i18next yok. 2026 yılı için çok dilli (i18n) Next.js 16 uygulaması oluşturma kılavuzu. Yapay zeka ajanlarıyla çevirin ve bundle boyutu, SEO ve performansı optimize edin."
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="Next.js için en iyi i18n çözümü mü? Intlayer'ı keşfedin" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="Kod" value="code">
+  <Tab label="Kod (locale yolları)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="Demo" value="demo">
+  <Tab label="Kod (locale yolu olmadan)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - Intlayer kullanarak uygulamanızı nasıl uluslararasılaştırırsınız"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="Demo (locale yolları)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="Demo - intlayer-next-16-template"
+  title="Demo Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-GitHub'daki [Uygulama Şablonuna](https://github.com/aymericzip/intlayer-next-16-template) bakın.
+GitHub'daki [Uygulama Şablonuna](https://github.com/aymericzip/intlayer-next-16-template) ve [Yerel ayar yolu olmayan Uygulama Şablonu](https://github.com/aymericzip/intlayer-next-no-lolale-path-template) bakın.
 
 ## İçindekiler
 
@@ -81,7 +92,7 @@ GitHub'daki [Uygulama Şablonuna](https://github.com/aymericzip/intlayer-next-16
 Intlayer, verimli işleme için **Sunucu Bileşenleri** ile çalışacak şekilde optimize edilmiştir ve [**Turbopack**](https://nextjs.org/docs/architecture/turbopack) ile tamamen uyumludur. Statik oluşturmayı engellemez ve ara yazılımların yanı sıra uluslararasılaştırmayı (i18n) ölçeklendirmek için gereken tüm özellikleri sunar.
 
 > Intlayer, Next.js 12, 13, 14, 15 ve 16 ile uyumludur. Next.js Pages Router kullanıyorsanız bu [rehbere](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md) başvurabilirsiniz.
-> Yerel yönlendirme SEO, bundle boyutu ve performans açısından faydalıdır. İhtiyacınız yoksa bu [rehbere](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md) başvurabilirsiniz.
+> Yerel ayar yönlendirmesi SEO, paket boyutu ve performans için faydalıdır. Hem yerel ayar yolu olan hem de olmayan yapılandırmalar desteklenir ve bu kılavuzda ele alınmıştır.
 > Uygulama Yönlendiricili Next.js 12, 13, 14 ve 15 için bu [kılavuz](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md) bakın.
 
 </Accordion>
@@ -122,8 +133,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Next.js Uygulamasında Intlayer Kurulumu Adım Adım Rehber
 
@@ -181,7 +190,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="Projenizi Yapılandırın">
 
-İşte yapacağımız nihai yapı:
+Uygulamanızın yerelleştirilmiş URL yollarını mı (örn. `/tr/about`, `/en/about`) kullanacağını yoksa yolda bir locale segmenti olmadan mı içerik sunacağını (örn. `/about`, yerel ayarı çerezler, başlıklar veya arama parametreleri aracılığıyla tespit ederek) seçin.
+
+<Tabs group="routing-mode">
+<Tab label="Locale yolu ile" value="with-locale-path">
+
+### Mimari
+
+Bu mimaride, tüm yerelleştirilmiş sayfalar `[locale]` dinamik rota segmenti altında yer alır. Her dil için özel bir URL sunduğundan SEO ve statik oluşturma için bu yaklaşım önerilir:
 
 ```bash
 .
@@ -207,9 +223,9 @@ bun add intlayer next-intlayer
 └── tsconfig.json
 ```
 
-> Yerel ayar yönlendirmesi (locale routing) istemiyorsanız, intlayer basit bir sağlayıcı / kanca olarak kullanılabilir. Daha fazla ayrıntı için [bu kılavuza](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_nextjs_no_locale_path.md) bakın.
+### Yapılandırma
 
-Uygulamanızın dillerini yapılandırmak için bir yapılandırma dosyası oluşturun:
+Uygulamanızın desteklediği dilleri bildirmek için bir `intlayer.config.ts` yapılandırma dosyası oluşturun:
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -224,10 +240,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // veya `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="Locale yolu olmadan" value="without-locale-path">
+
+### Mimari
+
+Bu mimaride, rotalar URL yolunda dinamik bir `[locale]` segmenti içermez. Tüm sayfalar doğrudan `src/app/` altında yer alır ve yerel ayar çerezler, başlıklar veya arama parametreleri aracılığıyla belirlenir. Bu, gösterge panelleri, dahili araçlar veya kimlik doğrulaması arkasındaki uygulamalar için idealdir:
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### Yapılandırma
+
+İçeriği yol öneki olmadan sunmak için `routing.mode` özelliğini `"search-params"` (örn. `/about?locale=tr`) veya `"no-prefix"` olarak ayarlayın:
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // Diğer yereller (locales)
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // veya `no-prefix` - middleware tespiti için kullanışlı
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > Bu yapılandırma dosyası aracılığıyla yerelleştirilmiş URL'ler, proxy yönlendirmesi, çerez adları, içerik bildirimlerinizin konumu ve uzantısı, konsoldaki Intlayer günlüklerini devre dışı bırakma ve daha fazlasını ayarlayabilirsiniz. Mevcut parametrelerin tam listesi için [yapılandırma dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) bakın.
 
@@ -277,6 +355,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="Dinamik Yerel Ayar Rotalarını Tanımlayın">
+
+<Tabs group="routing-mode">
+<Tab label="Locale yolu ile" value="with-locale-path">
 
 `RootLayout` içindeki her şeyi kaldırın ve aşağıdaki kodla değiştirin:
 
@@ -372,6 +453,102 @@ export default LocaleLayout;
 
 > Intlayer, sayfaların tüm yerel ayarlar için önceden oluşturulmasını sağlamak amacıyla `export const dynamic = 'force-static';` ile çalışır.
 
+</Tab>
+<Tab label="Locale yolu olmadan" value="without-locale-path">
+
+Locale yolları olmayan bir mimaride `[locale]` dizini yoktur. İstek bağlamından yerel ayarı okumak ve uygulamanızı `IntlayerProvider` ile sarmak için doğrudan `src/app/layout.tsx` dosyasını yapılandırın:
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+> Tek bir `IntlayerProvider` ağacın her iki yarısını da kapsar: istek kapsamlı sunucu bağlamını tohumlar ve sunucu hook'ları tarafından okunur, istemci sağlayıcısını monte eder, böylece istemci bileşenleri aynı yerel ayarı alır.
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+</Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
+
 </Step>
 
 <Step number={5} title="İçeriğinizi Bildirin">
@@ -459,7 +636,7 @@ export default Page;
 ```
 
 - **`IntlayerProvider`** yerel ayar düzeninde bir kez bağlanır. Sunucu ve istemci bileşenlerine yerel ayarı sağlar, bu nedenle sayfalar artık kendilerini sarmalamaz.
-- Sunucu kancaları yerel ayarı şu sırayla çözümler: çağrı sitesinde geçirilen yerel ayar, sağlayıcı tarafından seeded edilen sunucu bağlamı, ardından istek tarafından taşınan yerel ayar (Intlayer proxy'si tarafından ayarlanan `x-intlayer-locale` başlığı, ardından yerel ayar çerezi). Son adım, yalnızca sayfa segmentini yeniden render eden istemci tarafı navigasyonunda içeriğin doğru kalmasını sağlar; burada düzen — ve onunla birlikte sağlayıcı — yeniden çalışmaz.
+- Sunucu kancaları yerel ayarı şu sırayla çözümler: çağrı sitesinde geçirilen yerel ayar, sağlayıcı tarafından seeded edilen sunucu bağlamı, ardından istek tarafından taşınan yerel ayar (Intlayer proxy'si tarafından ayarlanan `x-intlayer-locale` başlığı, ardından yerel ayar çerezi). Son adım, yalnızca sayfa segmentini yeniden render eden istemci tarafı navigasyonunda içeriğin doğru kalmasını sağlar; burada düzen , ve onunla birlikte sağlayıcı , yeniden çalışmaz.
 
  </Tab>
  <Tab label='Intlayer <9.4' value='<9.4'>
@@ -1056,7 +1233,7 @@ bun x intlayer extract
  </Tab>
  <Tab value='Babel derleyicisi'>
 
-> Since v9, the `intlayerCompiler` is included in the `intlayer` plugin. So you don't need to add it manually.
+> v9'dan beri, `intlayerCompiler` `intlayer` eklentisine dahil edilmiştir. Bu yüzden manuel olarak eklemenize gerek yoktur.
 
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
@@ -1256,7 +1433,7 @@ Hayır. URL şeması bir yapılandırma seçeneğidir, bir kısıtlama değildir
 - `"no-prefix"`: yolda yerel ayar yoktur, çerezden, başlıktan veya etki alanından çözümlenir.
 - `"search-params"`: `/about?locale=fr`.
 
-Ayrıca `routing.domains` ile her yerel ayarı kendi etki alanına eşleyebilirsiniz. Bkz. [yapılandırma referansı](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) ve [yerel ayar yolu olmayan kılavuz](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_nextjs_no_locale_path.md).
+Ayrıca `routing.domains` ile her yerel ayarı kendi etki alanına eşleyebilirsiniz. Bkz. [yapılandırma referansı](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) ve yönlendirme modu seçenekleri için [Adım 2](#step-2-configure-your-project).
 
 </Question>
 

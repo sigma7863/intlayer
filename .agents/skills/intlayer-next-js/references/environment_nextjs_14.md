@@ -57,8 +57,6 @@ With Intlayer, you can:
 
 > Intlayer is compatible with Next.js 12, 13, 14, and 15. If you are using Next.js Page Router, you can refer to this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md). For Next.js 15 with or without turbopack, refer to this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_15.md).
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a Next.js Application
 
 <iframe

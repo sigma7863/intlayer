@@ -112,8 +112,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении на Vite и Solid
 
 ## Table of Contents
@@ -723,8 +721,6 @@ console.log("SEO files generated successfully.");
 Чтобы улучшить опыт разработки с Intlayer, вы можете установить официальное **расширение Intlayer для VS Code**.
 
 [Установить из VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Продвинутые возможности
 

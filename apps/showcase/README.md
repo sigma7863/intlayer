@@ -36,8 +36,6 @@ Url: [showcase.intlayer.org](https://showcase.intlayer.org)
 
 A community-driven platform where developers can submit and showcase their projects built with **Intlayer**. This application serves as both a live demonstration of Intlayer's i18n capabilities and a hub for gaining visibility through free backlinks.
 
----
-
 ## Key Features
 
 - **Project Submission**: Easily submit your Intlayer-powered project to be featured.
@@ -45,8 +43,6 @@ A community-driven platform where developers can submit and showcase their proje
 - **Live i18n Showcase**: Explore how different teams implement internationalization using the Intlayer ecosystem (React, Vite, TanStack Router).
 - **Built-in Localization Analyzer**: Tools to scan and verify the localization health of submitted projects.
 - **Multi-language Support**: The showcase itself is fully localized, demonstrating seamless language switching.
-
----
 
 ## Tech Stack
 
@@ -59,8 +55,6 @@ This project is built using modern web technologies to ensure high performance a
 - **Database**: [MongoDB](https://www.mongodb.com/) (Mongoose)
 - **Storage**: AWS S3 (for project screenshots)
 - **Analysis**: [Puppeteer](https://pptr.dev/) (for automated project scanning)
-
----
 
 ## Getting Started
 
@@ -98,8 +92,6 @@ bun dev
 
 Access the app at `http://localhost:3000`.
 
----
-
 ## 🤝 Contributing
 
 We welcome contributions! If you want to improve the showcase or fix a bug:
@@ -114,8 +106,6 @@ bun check
 ```
 
 4. Open a Pull Request.
-
----
 
 ## 📄 License
 

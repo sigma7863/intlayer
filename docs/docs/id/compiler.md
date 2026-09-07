@@ -104,7 +104,7 @@ export default defineConfig({
 
 > Plugin `intlayerCompiler()` standalone masih diekspor untuk setup lanjutan. Mendaftarkannya bersama `intlayer()` aman — compiler melakukan deduplikasi dirinya sendiri dan berjalan hanya sekali.
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react.md)
 
 #### Dukungan Framework
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 Konfigurasi ini memastikan bahwa konten yang dideklarasikan dalam komponen Anda secara otomatis diekstraksi dan digunakan untuk menghasilkan kamus selama proses build Anda.
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

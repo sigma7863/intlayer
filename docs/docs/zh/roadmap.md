@@ -27,13 +27,9 @@ author: aymericzip
 
 Intlayer 是一个内容管理和国际化解决方案，旨在简化您在应用程序中声明、管理和更新内容的方式。它提供了强大的功能，例如集中式或分布式内容声明、广泛的国际化选项、Markdown 支持、条件渲染、TypeScript/JavaScript/JSON 集成等。以下是 Intlayer 当前提供的功能的全面概述，以及即将推出的路线图功能。
 
----
-
 ## 目录
 
 <TOC/>
-
----
 
 ## 当前功能
 
@@ -146,8 +142,6 @@ Intlayer 支持使用 **TypeScript**（也支持 JavaScript）和 **JSON** 来�
 >
 > - [构建配置](https://intlayer.org/doc/concept/configuration#build-configuration)
 
----
-
 ## 与框架和环境的集成
 
 ### 1. Next.js
@@ -234,8 +228,6 @@ Intlayer 支持使用 **TypeScript**（也支持 JavaScript）和 **JSON** 来�
 >
 > - [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_preact.md)
 
----
-
 ## 可视化编辑器和 CMS
 
 ### 1. 本地可视化编辑器
@@ -261,20 +253,14 @@ Intlayer 支持使用 **TypeScript**（也支持 JavaScript）和 **JSON** 来�
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)
 
----
-
 ## IDE 扩展
 
 - 为主流 IDE 提供的扩展，提供用于管理本地和远程翻译的**图形界面**。
 - 功能可能包括自动生成组件内容声明文件、与 Intlayer CMS 的直接集成以及实时校验。
 
----
-
 ## MCP 服务器
 
 - 一个**MCP 服务器**，允许你使用集成在 IDE 中的工具来管理内容和翻译。
-
----
 
 ## Intlayer CLI
 
@@ -286,14 +272,10 @@ Intlayer 支持使用 **TypeScript**（也支持 JavaScript）和 **JSON** 来�
 >
 > - [CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/index.md)
 
----
-
 ## 环境配置
 
 - 使用 **环境变量** 来针对生产、测试和本地环境不同地配置 Intlayer。
 - 根据您的环境定义要使用的可视化编辑器或远程 CMS 项目。
-
----
 
 ## 热内容更新
 
@@ -302,8 +284,6 @@ Intlayer 支持使用 **TypeScript**（也支持 JavaScript）和 **JSON** 来�
 > 资源：
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md)
-
----
 
 ## 即将推出的功能
 
@@ -332,8 +312,6 @@ Intlayer 支持使用 **TypeScript**（也支持 JavaScript）和 **JSON** 来�
 
 - 正在努力支持**Solid、Svelte、Angular**等框架。
 - 目标是使 Intlayer 兼容**任何基于 JavaScript 的应用程序**。
-
----
 
 ## 结论
 

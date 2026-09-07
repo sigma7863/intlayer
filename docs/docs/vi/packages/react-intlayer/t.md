@@ -28,13 +28,9 @@ author: aymericzip
 
 Hàm `t` trong gói `react-intlayer` là một công cụ cơ bản cho việc quốc tế hóa nội tuyến trong ứng dụng React của bạn. Nó cho phép bạn định nghĩa các bản dịch trực tiếp trong các component, giúp hiển thị nội dung được bản địa hóa dựa trên locale hiện tại một cách đơn giản.
 
----
-
 ## Tổng quan
 
 Hàm `t` được sử dụng để cung cấp các bản dịch cho các locale khác nhau trực tiếp trong các component của bạn. Bằng cách truyền một đối tượng chứa các bản dịch cho từng locale được hỗ trợ, `t` sẽ trả về bản dịch phù hợp dựa trên ngữ cảnh locale hiện tại trong ứng dụng React của bạn.
-
----
 
 ## Các tính năng chính
 
@@ -42,8 +38,6 @@ Hàm `t` được sử dụng để cung cấp các bản dịch cho các locale
 - **Tự động chọn locale**: Tự động trả về bản dịch tương ứng với locale hiện tại.
 - **Hỗ trợ TypeScript**: Cung cấp an toàn kiểu và tự động hoàn thành khi sử dụng với TypeScript.
 - **Dễ dàng tích hợp**: Hoạt động mượt mà trong các component React.
-
----
 
 ## Chữ ký hàm
 
@@ -58,8 +52,6 @@ t<T extends string>(content: Record<LocalesValues, T>, locale?: Locales): string
 ### Trả về
 
 - Một chuỗi đại diện cho nội dung đã được dịch cho locale hiện tại.
-
----
 
 ## Ví dụ sử dụng
 
@@ -112,8 +104,6 @@ Hàm `t` đặc biệt hữu ích cho việc dịch nội tuyến trong các thu
 </button>
 ```
 
----
-
 ## Các chủ đề nâng cao
 
 ### Tích hợp TypeScript
@@ -150,8 +140,6 @@ const App: FC<{ locale: Locales }> = ({ locale }) => (
 );
 ```
 
----
-
 ## Các lỗi phổ biến và cách khắc phục
 
 ### `t` Trả về giá trị Undefined hoặc bản dịch không chính xác
@@ -176,8 +164,6 @@ const translations: IConfigLocales<string> = {
 const text = t(translations);
 ```
 
----
-
 ## Mẹo Sử Dụng Hiệu Quả
 
 1. **Sử dụng `t` cho các bản dịch nội tuyến đơn giản**: Phù hợp để dịch các đoạn văn bản nhỏ trực tiếp trong các component của bạn.
@@ -185,14 +171,10 @@ const text = t(translations);
 3. **Cung cấp locale nhất quán**: Đảm bảo locale của bạn được cung cấp một cách nhất quán trên toàn bộ ứng dụng thông qua `IntlayerProvider`.
 4. **Tận dụng TypeScript**: Sử dụng các kiểu TypeScript để phát hiện các bản dịch còn thiếu và đảm bảo an toàn kiểu.
 
----
-
 ## Kết Luận
 
 Hàm `t` trong `react-intlayer` là một công cụ mạnh mẽ và tiện lợi để quản lý các bản dịch nội tuyến trong các ứng dụng React của bạn. Bằng cách tích hợp hiệu quả, bạn nâng cao khả năng quốc tế hóa của ứng dụng, mang lại trải nghiệm tốt hơn cho người dùng trên toàn thế giới.
 
 Để biết thêm chi tiết về cách sử dụng và các tính năng nâng cao, hãy tham khảo [tài liệu react-intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md).
-
----
 
 **Lưu ý**: Hãy nhớ thiết lập `IntlayerProvider` đúng cách để đảm bảo locale hiện tại được truyền chính xác đến các component của bạn. Điều này rất quan trọng để hàm `t` trả về các bản dịch chính xác.

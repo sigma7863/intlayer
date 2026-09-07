@@ -2,8 +2,6 @@
 
 Thank you for contributing to the project! Please make sure your pull request follows these guidelines before submission.
 
----
-
 ## Requirements
 
 - **AI-generated code must be reviewed.**  
@@ -17,8 +15,6 @@ Thank you for contributing to the project! Please make sure your pull request fo
 - **Commits must follow the [Conventional Commit](https://www.conventionalcommits.org/) format.**
 
 - **The [`CONTRIBUTING.md`](./CONTRIBUTING.md)** file must be read before submitting a PR.
-
----
 
 ## Codebase Conventions
 

@@ -88,8 +88,6 @@ Das Verbinden großer JSON-Dateien mit Komponenten kann zu Leistungs- und Reakti
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Schritt-für-Schritt-Anleitung zur Einrichtung von Intlayer in einer React-Anwendung
 
 <Steps>

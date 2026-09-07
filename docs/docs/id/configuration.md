@@ -122,13 +122,9 @@ author: aymericzip
 
 File konfigurasi Intlayer memungkinkan kustomisasi berbagai aspek plugin, seperti internasionalisasi (i18n), middleware, dan penanganan konten. Dokumen ini memberikan deskripsi mendetail tentang setiap properti dalam konfigurasi.
 
----
-
 ## Daftar Isi
 
 <TOC/>
-
----
 
 ## Dukungan File Konfigurasi
 
@@ -142,8 +138,6 @@ Intlayer menerima format file konfigurasi JSON, JS, MJS, dan TS:
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## Contoh file konfigurasi
 
@@ -696,13 +690,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## Referensi Konfigurasi
 
 Bagian berikut mendeskripsikan berbagai pengaturan konfigurasi yang tersedia untuk Intlayer.
-
----
 
 ### Konfigurasi Internasionalisasi (Internationalization)
 
@@ -714,8 +704,6 @@ Mendefinisikan pengaturan yang terkait dengan internasionalisasi, termasuk local
 | `requiredLocales` | Daftar locale wajib dalam aplikasi.                                                                 | `string[]` | `[]`                | `[]`                 | • Jika kosong, semua locale wajib dalam mode `strict`.<br/>• Pastikan locale wajib juga didefinisikan dalam bidang `locales`.                                                                                                                                                                                                      |
 | `strictMode`      | Memastikan implementasi konten yang diinternasionalisasi yang kuat menggunakan TypeScript.          | `string`   | `'inclusive'`       |                      | • Jika `"strict"`: fungsi `t` mengharuskan setiap locale yang dideklarasikan ditentukan - memunculkan error jika ada yang hilang atau tidak dideklarasikan.<br/>• Jika `"inclusive"`: memperingatkan tentang locale yang hilang tetapi menerima yang tidak dideklarasikan.<br/>• Jika `"loose"`: menerima locale apa pun yang ada. |
 | `defaultLocale`   | Locale default yang digunakan sebagai cadangan (fallback) jika locale yang diminta tidak ditemukan. | `string`   | `Locales.ENGLISH`   | `'en'`               | Digunakan untuk menentukan locale saat tidak ada yang ditentukan di URL, cookie, atau header.                                                                                                                                                                                                                                      |
-
----
 
 ### Konfigurasi Editor (Editor)
 
@@ -747,8 +735,6 @@ Analitik bersifat opt-out: aktif secara default dan mulai mengumpulkan data begi
 | `enabled`       | Mengaktifkan pengumpulan analitik (tampilan halaman, eksposur konten, peristiwa A/B). | `boolean` | `true`  | `false` | Membutuhkan `@intlayer/analytics` terpasang dan `editor.clientId` diatur agar atribusi berfungsi; jika tidak, analitik tetap nonaktif meskipun `enabled` bernilai `true`. |
 | `flushInterval` | Milidetik antara pengiriman batch otomatis ke backend.                                | `number`  | `20000` | `10000` |                                                                                                                                                                           |
 | `sampleRate`    | Fraksi sesi yang direkam, dari `0` (tidak ada) hingga `1` (semua).                    | `number`  | `1`     | `0.5`   | Sampling bersifat deterministik per sesi, sehingga sesi yang direkam melaporkan semua peristiwanya (tidak ada funnel parsial).                                            |
-
----
 
 ### Konfigurasi Routing (Routing)
 
@@ -951,8 +937,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### Konfigurasi Konten (Content)
 
 Pengaturan yang terkait dengan penanganan konten dalam aplikasi, termasuk nama direktori, ekstensi file, dan konfigurasi turunan.
@@ -965,8 +949,6 @@ Pengaturan yang terkait dengan penanganan konten dalam aplikasi, termasuk nama d
 | `codeDir`        | Path direktori tempat kode sumber berada, relatif terhadap direktori dasar.                                    | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • Digunakan untuk melacak transformasi file kode (pruning bagian yang tidak perlu, optimasi).<br/>• Pemisahan dari `contentDir` meningkatkan performa.  |
 | `excludedPath`   | Direktori yang akan dikecualikan dari pemindaian konten.                                                       | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | Saat ini tidak digunakan; direncanakan untuk masa mendatang.                                                                                            |
 | `formatCommand`  | Perintah untuk memformat file konten saat Intlayer menulisnya secara lokal.                                    | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` diganti dengan path file.<br/>• Jika tidak ditentukan, Intlayer akan mencoba mendeteksi secara otomatis (menguji prettier, biome, eslint). |
-
----
 
 ### Konfigurasi Sistem
 
@@ -1021,8 +1003,6 @@ dictionary: {
   },
 };
 ```
-
----
 
 ### Konfigurasi Logger (Log)
 
@@ -1094,8 +1074,6 @@ Pengaturan build berlaku untuk plugin `@intlayer/babel` dan `@intlayer/swc`.
 | `outputFormat`        | Mengontrol format output kamus.                                                                                                  | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `traversePattern`     | Pola untuk file yang akan dipindai selama optimasi.                                                                              | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • Meningkatkan performa build dengan membatasi optimasi ke file yang relevan.<br/>• Diabaikan jika `optimize` dinonaktifkan.<br/>• Menggunakan pola glob.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
----
-
 ### Konfigurasi Kompiler (Compiler)
 
 Mengontrol pengaturan kompiler Intlayer yang mengumpulkan kamus langsung dari komponen Anda.
@@ -1114,8 +1092,6 @@ Mengontrol pengaturan kompiler Intlayer yang mengumpulkan kamus langsung dari ko
 | Bidang    | Deskripsi                                                                     | Tipe                        |
 | --------- | ----------------------------------------------------------------------------- | --------------------------- |
 | `schemas` | Memungkinkan Anda menentukan skema Zod untuk memvalidasi struktur kamus Anda. | `Record<string, ZodSchema>` |
-
----
 
 ### Plugin (Plugins)
 

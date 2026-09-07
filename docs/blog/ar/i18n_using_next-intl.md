@@ -65,8 +65,6 @@ author: aymericzip
 
 > راجع وثيقتنا التي تسرد كل ما تحتاج لمعرفته حول التعريب وتحسين محركات البحث: [التعريب (i18n) مع next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ar/internationalization_and_SEO.md).
 
----
-
 ## دليل خطوة بخطوة لإعداد next-intl في تطبيق Next.js
 
 <iframe  

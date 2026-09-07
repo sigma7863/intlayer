@@ -25,8 +25,6 @@ author: aymericzip
 
 翻译很容易。困难的一半是告诉搜索引擎这些页面是**同一页面的其他语言版本**，而不是三个相互竞争的文档。这就是 `hreflang` 的作用，也是大多数多语言网站悄悄失去流量的地方。
 
----
-
 ## hreflang 实际上是什么
 
 一个页面上的注释，说：_这个 URL 在那里有等效的版本，适用于那些语言。_
@@ -42,8 +40,6 @@ author: aymericzip
 
 需要明确的是它不是什么。它**不是重定向**——它是一个提示，Google 可能会覆盖它。它**不是排名提升**——它改变的是_哪个_版本排名，而不是_是否_排名。而且 Bing 完全忽略它，而是依赖 `content-language` 和地理定位。
 
----
-
 ## 在哪里声明它
 
 三种放置方式，都有效。选择一种并坚持——同一个集群在两个地方声明是集合漂移的原因。
@@ -53,8 +49,6 @@ author: aymericzip
 **XML sitemap** 在大规模使用中更有优势。十个语言版本跨越 5,000 页面意味着需要向浏览器发送 50,000 个 `<link>` 元素，而这些元素对页面毫无用处；在 sitemap 中它不会占用页面的任何字节。
 
 **HTTP `Link` header** 是唯一适用于 PDF 等非 HTML 文件的选项。
-
----
 
 ## 规则
 
@@ -107,8 +101,6 @@ ISO 639-1 用于语言，ISO 3166-1 Alpha 2 用于可选的地区：`fr`、`fr-C
 
 两件事需要区分清楚：`x-default` 是该集合中的一个额外条目，而不是自引用条目的替代品，而且像其他每个条目一样，它必须在集群中的每个页面上完全相同地出现。
 
----
-
 ## canonical 陷阱
 
 每个本地化页面必须**是它自己的 canonical**：
@@ -131,8 +123,6 @@ ISO 639-1 用于语言，ISO 3166-1 Alpha 2 用于可选的地区：`fr`、`fr-C
 
 **Canonical 在每个语言版本中是自引用的。`hreflang` 描述的是整个集群。**
 
----
-
 ## 选择 URL 结构
 
 `hreflang` 对 URL 进行注释，所以结构应该优先考虑。
@@ -148,8 +138,6 @@ ISO 639-1 用于语言，ISO 3166-1 Alpha 2 用于可选的地区：`fr`、`fr-C
 应该避免的一个结构是：基于 `Accept-Language` 或 IP 在**同一 URL** 上提供不同的语言。爬虫会看到一个版本并索引一个版本；其他所有内容都是不可见的。
 
 > Intlayer 通过 `routing.mode` 和 `routing.domains` 支持这三种方式。参见[自定义域名](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/custom_domains.md)和[配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
-
----
 
 ## 实现
 
@@ -281,8 +269,6 @@ const sitemap = generateSitemap(
 
 </Steps>
 
----
-
 ## 检查清单
 
 - [ ] 每个地区都有一个独特的、可爬取的 URL
@@ -295,8 +281,6 @@ const sitemap = generateSitemap(
 - [ ] 标签是服务端渲染的，不是 hydration 后注入的
 - [ ] 在恰好一个位置声明
 - [ ] 没有跨 locale 的重定向
-
----
 
 ## 总结
 

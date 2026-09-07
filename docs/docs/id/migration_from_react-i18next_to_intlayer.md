@@ -68,8 +68,6 @@ Lebih dari sekadar solusi i18n, Intlayer menyediakan **self-hosted [visual edito
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Strategi Migrasi
 
 Ada dua strategi komplementer untuk bermigrasi dari `react-i18next` / `i18next` ke Intlayer:
@@ -80,13 +78,9 @@ Ada dua strategi komplementer untuk bermigrasi dari `react-i18next` / `i18next` 
 
 Panduan ini mencakup **Strategi 1** terlebih dahulu (drop-in compat adapter), kemudian menjelaskan migrasi penuh yang opsional.
 
----
-
 ## Daftar Isi
 
 <TOC/>
-
----
 
 ## Migrasi Cepat
 
@@ -233,8 +227,6 @@ Itu saja untuk migrasi cepat. Aplikasi Anda sekarang berjalan di Intlayer sambil
 > tAbout("counter.label"); // ✓ diketik
 > ```
 
----
-
 ## Migrasi lengkap
 
 Langkah-langkah di bawah ini bersifat opsional dan dapat dilakukan secara bertahap. Langkah-langkah ini membuka set fitur Intlayer yang lengkap: editor visual, CMS, file konten yang diketik, terjemahan bertenaga AI, dan lainnya.
@@ -327,8 +319,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Yang dapat Anda hapus setelah migrasi
 
 Setelah adapter kompatibilitas berada di tempat, boilerplate `react-i18next` / `i18next` berikut dapat dihapus:
@@ -340,8 +330,6 @@ Setelah adapter kompatibilitas berada di tempat, boilerplate `react-i18next` / `
 | JSON language bundles (`locales/*.json`) | Bundle JSON hanya diperlukan jika Anda masih menggunakan plugin `syncJSON`. Setelah Anda migrasi ke file `.content.ts` Anda dapat menghapus folder JSON. |
 
 Ketika Anda siap untuk melangkah lebih jauh, Intlayer **secara otomatis menemukan semua file `.content.ts` dan `.content.json` di mana saja dalam codebase Anda** (secara default, di mana saja di dalam `./src`). Anda dapat menempatkan file `my-component.content.ts` tepat di sebelah `MyComponent.tsx` Anda dan Intlayer akan mengambilnya pada waktu build tanpa konfigurasi tambahan — tidak ada imports, tidak ada registrasi, tidak ada file indeks terpusat yang diperlukan. Ini membuat co-locating translations dengan halaman dan komponen sepenuhnya tanpa hambatan.
-
----
 
 ## Konfigurasi TypeScript
 
@@ -357,8 +345,6 @@ Intlayer menggunakan module augmentation untuk memberikan intellisense TypeScrip
 }
 ```
 
----
-
 ## Konfigurasi Git
 
 Tambahkan direktori yang dihasilkan oleh Intlayer ke `.gitignore` Anda:
@@ -367,8 +353,6 @@ Tambahkan direktori yang dihasilkan oleh Intlayer ke `.gitignore` Anda:
 # Abaikan file yang dihasilkan oleh Intlayer
 .intlayer
 ```
-
----
 
 ## Pelajari Lebih Lanjut
 

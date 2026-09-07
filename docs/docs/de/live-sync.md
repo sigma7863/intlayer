@@ -38,8 +38,6 @@ Live Sync ermöglicht es Ihrer App, CMS-Inhaltsänderungen zur Laufzeit widerzus
 
 <TOC/>
 
----
-
 ## Live-Synchronisation aktivieren
 
 Aktivieren Sie Live Sync, indem Sie Ihre Intlayer-Konfiguration aktualisieren:

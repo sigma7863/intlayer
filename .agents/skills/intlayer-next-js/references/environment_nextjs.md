@@ -71,8 +71,6 @@ With Intlayer, you can:
 > Locale routing is useful for SEO, bundle size, and performance. If you don't need it, you can refer to this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md).
 > For Next.js 12, 13, 14 with App Router, refer to this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a Next.js Application
 
 ### Step 1: Install Dependencies

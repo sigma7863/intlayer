@@ -23,16 +23,12 @@ author: aymericzip
 
 In an increasingly global market, delivering your React Native app in multiple languages can significantly enhance accessibility and user satisfaction. Internationalization (i18n) is central to managing translations effectively, allowing you to display language-specific text, date and time formats, currency, and more without complicating your codebase. In this article, we’ll dive into various i18n approaches, ranging from dedicated libraries to more general solutions, and help you find the one that best fits your React Native project.
 
----
-
 ## What is Internationalization (i18n)?
 
 Internationalization, or i18n, involves structuring an application so it can easily adapt to different languages, regional formats, and cultural norms. In React Native, i18n includes handling strings for buttons and labels, as well as formatting dates, times, currencies, and more according to a user’s locale. Properly prepared React Native apps let you seamlessly integrate additional languages and locale-specific behaviour later on, without massive refactors.
 
 For a deeper dive into internationalization concepts, check out our article:  
 [What is Internationalization (i18n)? Definition and Challenges](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/what_is_internationalization.md).
-
----
 
 ## The Translation Challenge for React Native Applications
 
@@ -52,8 +48,6 @@ Working with translations in React Native introduces its own unique consideratio
 
 - **App Updates & Over-the-Air (OTA)**  
   If you use CodePush or another OTA update mechanism, you need to plan how translation updates or new languages will be delivered without requiring a full app store release.
-
----
 
 ## Leading i18n Solutions for React Native
 
@@ -88,8 +82,6 @@ Below are several popular approaches to managing multilingual content in React N
 - **Community & Ecosystem**  
   Still a relatively new solution, so you may find fewer community-driven examples or ready-made plugins compared to long-established libraries.
 
----
-
 ### 2. React-i18next
 
 > Website: [https://react.i18next.com/](https://react.i18next.com/)
@@ -121,8 +113,6 @@ Below are several popular approaches to managing multilingual content in React N
 
 - **Performance**  
   While React-i18next generally performs well, you’ll want to pay attention to how you organise and load translation resources to avoid overhead on mobile devices.
-
----
 
 ### 3. React Intl (from FormatJS)
 
@@ -156,8 +146,6 @@ Below are several popular approaches to managing multilingual content in React N
 - **Community Examples**  
   While widely used, React Native-specific usage examples may be fewer than for React web. You’ll likely adapt existing docs and patterns to a native environment.
 
----
-
 ### 4. LinguiJS
 
 > Website: [https://lingui.js.org/](https://lingui.js.org/)
@@ -189,8 +177,6 @@ Below are several popular approaches to managing multilingual content in React N
 
 - **Code Organisation**  
   Deciding how to break up your message catalogs (by screen, feature, or language) is vital to maintain clarity in larger apps.
-
----
 
 ## Final Thoughts
 

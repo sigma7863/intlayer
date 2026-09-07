@@ -29,8 +29,6 @@ L'internazionalizzazione, comunemente abbreviata come i18n, è il processo di pr
 
 Per saperne di più sui fondamenti dell’i18n, leggi il nostro articolo: [Cos'è l'internazionalizzazione (i18n)? Definizione e Sfide](https://github.com/aymericzip/intlayer/blob/main/docs/blog/it/what_is_internationalization.md).
 
----
-
 ## La sfida della traduzione per le applicazioni Svelte
 
 Tradurre un'applicazione Svelte può presentare diversi ostacoli:
@@ -40,8 +38,6 @@ Tradurre un'applicazione Svelte può presentare diversi ostacoli:
 - **Considerazioni SEO**: Se stai utilizzando **SvelteKit** per il rendering sul lato server (SSR), configurare URL localizzati, meta tag e sitemap per una SEO efficace richiede un’attenzione particolare.
 - **Stato e Routing**: Mantenere la lingua corretta tra più percorsi e pagine dinamiche richiede spesso di orchestrare lo stato globale, le protezioni delle rotte o hook personalizzati in SvelteKit.
 - **Manutenibilità**: Man mano che il tuo codice e i file di traduzione crescono, mantenere tutto ben organizzato e sincronizzato diventa uno sforzo continuo.
-
----
 
 ## Le principali soluzioni i18n per Svelte
 
@@ -67,8 +63,6 @@ Svelte non fornisce una soluzione i18n integrata nativa (come fa Angular), ma la
 
 - **Comunità ed Ecosistema**: Anche se in crescita, l'ecosistema è più recente, quindi i plugin e gli strumenti guidati dalla comunità potrebbero essere più limitati rispetto a soluzioni più consolidate.
 
----
-
 ### 2. svelte-i18n
 
 Repository: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaisermann/svelte-i18n)
@@ -88,8 +82,6 @@ Repository: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaise
 - **Organizzazione del progetto**: Dovrai strutturare i tuoi file di traduzione in modo logico man mano che il progetto cresce.
 - **Impostazione SSR**: Configurare SSR per SEO potrebbe richiedere passaggi aggiuntivi per garantire un rilevamento corretto della lingua sul lato server.
 - **Prestazioni**: Sebbene sia flessibile a runtime, un numero elevato di traduzioni caricate tutte insieme può influire sui tempi di caricamento iniziali, considera strategie di lazy loading o caching.
-
----
 
 ### 3. svelte-intl-precompile
 
@@ -111,8 +103,6 @@ Repository: [https://github.com/cibernox/svelte-intl-precompile](https://github.
 - **Contenuto dinamico**: Se hai bisogno di traduzioni al volo per contenuti generati dagli utenti, questo approccio potrebbe richiedere passaggi extra per aggiornamenti a runtime.
 - **Curva di apprendimento**: La combinazione di estrazione dei messaggi e precompilazione può essere leggermente più complessa per i neofiti.
 
----
-
 ### 4. i18next con Svelte / SvelteKit
 
 Sito web: [https://www.i18next.com/](https://www.i18next.com/)
@@ -132,8 +122,6 @@ Sebbene **i18next** sia più comunemente associato a React o Vue, è possibile i
 - **Impostazione manuale**: i18next non ha un’integrazione dedicata per Svelte fuori dalla scatola, quindi dovrai configurarlo da solo.
 - **Sovraccarico**: i18next è robusto, ma per progetti Svelte più piccoli, alcune delle sue funzionalità potrebbero risultare superflue.
 - **Routing e Stato**: Gestire il routing delle lingue comporterà probabilmente l'uso di hook o middleware personalizzati di SvelteKit.
-
----
 
 ### Considerazioni finali
 

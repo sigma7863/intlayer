@@ -45,8 +45,6 @@ author: aymericzip
 - تتسامح مع غياب الشرطات المائلة البادئة والقيم الفارغة (يتم تسويتها إلى `/`)
 - خفيفة الوزن — مبنية على `getPathWithoutLocale`
 
----
-
 ## توقيع الدالة
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // اختياري
 ): string
 ```
-
----
 
 ## المعلمات (Parameters)
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **النوع**: `boolean`
 - **الوصف**: `true` عندما يتم حل كلا الإدخالين إلى نفس المسار المستقل عن اللغة، وإلا `false`.
-
----
 
 ## مثال على الاستخدام
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 تقوم `normalizePath` بإرجاع المسار القياسي والمستقل عن اللغة الذي تستخدمه `comparePaths`. تقوم بإزالة جزء اللغة، البروتوكول/المضيف، سلسلة الاستعلام، والتجزئة، وتضمن وجود شرطة مائلة بادئة واحدة، وتزيل أي شرطات مائلة ختامية (باستثناء الجذر)، وتستخدم `/` كقيمة احتياطية للقيم الفارغة.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## دوال ذات صلة
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getPathWithoutLocale.md): يزيل جزء اللغة من عنوان URL أو مسار.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getPrefix.md): يحدد بادئة URL للغة معينة.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getLocalizedUrl.md): يولد عنوان URL محلي للغة معينة.
-
----
 
 ## TypeScript
 

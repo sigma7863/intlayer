@@ -89,8 +89,6 @@ More than just an i18n solution, Intlayer provides a **self-hosted [visual edito
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a React Application
 
 <Steps>

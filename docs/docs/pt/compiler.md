@@ -104,7 +104,7 @@ export default defineConfig({
 
 > O plugin `intlayerCompiler()` independente ainda é exportado para configurações avançadas. Registrá-lo junto com `intlayer()` é seguro — o compilador se deduplica e é executado apenas uma vez.
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_with_vite+react.md)
 
 #### Suporte a Frameworks
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 Esta configuração garante que o conteúdo declarado em seus componentes seja automaticamente extraído e usado para gerar dicionários durante o processo de build.
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

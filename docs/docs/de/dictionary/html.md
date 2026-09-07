@@ -119,8 +119,6 @@ const myContent = html(
 
 Wenn Sie die Methode `.use()` auf einem HTML-Knoten verwenden, werden die von Ihnen bereitgestellten Komponenten gegen die in der `html()`-Funktion bereitgestellte Definition (falls verfügbar) geprüft.
 
----
-
 ## HTML rendern
 
 Das Rendern kann automatisch durch das Inhaltssystem von Intlayer oder manuell mit spezialisierten Tools erfolgen.
@@ -474,8 +472,6 @@ Sie können das HTML-Rendering global für Ihre gesamte Anwendung konfigurieren.
   </Tab>
 </Tabs>
 
----
-
 ### Manuelles Rendering & Erweiterte Tools
 
 Wenn Sie rohe HTML-Strings rendern müssen oder mehr Kontrolle über die Komponentenzuordnung benötigen, verwenden Sie die folgenden Tools.
@@ -647,8 +643,6 @@ Wenn Sie rohe HTML-Strings rendern müssen oder mehr Kontrolle über die Kompone
 
   </Tab>
 </Tabs>
-
----
 
 ## Optionen-Referenz
 

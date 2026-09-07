@@ -45,8 +45,6 @@ Paket ayrıca, karşılaştırma için kullanılan standartlaştırılmış, dil
 - Eksik baştaki eğik çizgileri ve boş değerleri tolere eder (`/` olarak normalleştirilir)
 - Hafif — `getPathWithoutLocale` üzerine inşa edilmiştir
 
----
-
 ## Fonksiyon İmzası
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // İsteğe Bağlı
 ): string
 ```
-
----
 
 ## Parametreler
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Tip**: `boolean`
 - **Açıklama**: Her iki giriş de aynı dilden bağımsız yola çözümlenirse `true`, aksi takdirde `false` döner.
-
----
 
 ## Örnek Kullanım
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath`, `comparePaths` tarafından kullanılan standartlaştırılmış, dilden bağımsız yolu döndürür. Locale segmentini, protokolü/sunucuyu, sorgu dizesini ve karmayı kaldırır, tek bir baştaki eğik çizgi sağlar, herhangi bir sondaki eğik çizgiyi kaldırır (kök dizin hariç) ve boş değerler için `/`'a geri döner.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## İlgili Fonksiyonlar
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getPathWithoutLocale.md): Bir URL'den veya yoldan locale segmentini kaldırır.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getPrefix.md): Verilen bir locale için URL önekini belirler.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getLocalizedUrl.md): Belirli bir locale için yerelleştirilmiş bir URL oluşturur.
-
----
 
 ## TypeScript
 

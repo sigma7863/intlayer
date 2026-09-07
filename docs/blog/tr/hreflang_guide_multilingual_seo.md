@@ -25,8 +25,6 @@ Uygulamanızı çevirdniz. `/en`, `/fr`, `/es` yayınladınız. Ve Fransız kull
 
 Çevirisi yapmak kolay kısım. Zor kısım, arama motorlarına bu sayfaların **başka bir dildeki aynı sayfa** olduğunu, birbirleriyle rekabet eden üç belge olmadığını söylemektir. İşte `hreflang` bunu yapar ve çoğu çok dilli site sessiz sedasız trafik kaybettiği yerdir.
 
----
-
 ## Hreflang aslında nedir
 
 Bir sayfadaki bir ek açıklama şöyle der: _bu URL'nin orada, bu diller için eşdeğer versiyonları vardır._
@@ -42,8 +40,6 @@ Bir sayfadaki bir ek açıklama şöyle der: _bu URL'nin orada, bu diller için 
 
 Ne olmadığını açık olmak gerekir. Bu **bir yönlendirme değildir** — bu bir ipuçudur ve Google bunu geçersiz kılabilir. Bu **bir sıralama artışı değildir** — hangi sürümün sıralandığını değiştirir, _sıralanıp sıralanmayacağını_ değil. Ve Bing bunu tamamen görmezden gelir, bunun yerine `content-language` ve coğrafi hedeflemesine güvenir.
 
----
-
 ## Nerede Beyan Etmeli
 
 Üç yerleştirme, hepsi geçerli. Birini seçin ve orada kalın — aynı küme iki yerde beyan edilirse setler farklılaşır.
@@ -53,8 +49,6 @@ Ne olmadığını açık olmak gerekir. Bu **bir yönlendirme değildir** — bu
 **XML sitemap**, daha geniş ölçekte daha iyidir. 10 dil ve 5.000 sayfa, tarayıcılara hiçbir işe yaramayan 50.000 `<link>` öğesi gönderilmesi anlamına gelir; bir sitemap'te sayfalarınıza sıfır bayt maliyeti vardır.
 
 **HTTP `Link` başlığı**, PDF'ler gibi HTML olmayan dosyalar için tek seçenektir.
-
----
 
 ## Kurallar
 
@@ -107,8 +101,6 @@ Dili hiçbir girişinizle eşleşmeyen kullanıcılar için geri dönüş mekani
 
 İki şeyi net bir şekilde ayırt etmek gerekir: `x-default` seti içinde kendine referans veren girişin yerine geçen bir şey değil, ek bir giriştir ve diğer her giriş gibi kümedeki her sayfada aynı şekilde görünmelidir.
 
----
-
 ## Canonical tuzağı
 
 Her yerelleştirilmiş sayfa **kendi canonical'ı** olmalıdır:
@@ -131,8 +123,6 @@ Fransız sayfasının dizine alınmaması gereken bir kopya olduğunu söylerken
 
 **Canonical, bölge başına kendi kendine referanslıdır. `hreflang` kümeyi tanımlar.**
 
----
-
 ## URL yapısını seçme
 
 `hreflang` URL'leri açıklama ekler, bu nedenle yapı ilk gelir.
@@ -148,8 +138,6 @@ Subdirectories, çoğu proje için doğru varsayılandır. ccTLDs'ye sadece ger�
 Kaçınılması gereken tek yapı: `Accept-Language` veya IP'ye göre **aynı URL**'de farklı diller sunmak. Crawlers bir sürümü görür ve bir sürümü indexler; diğer her şey görünmez.
 
 > Intlayer, `routing.mode` ve `routing.domains` aracılığıyla üçünü de kapsar. [Özel domainleri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/custom_domains.md) ve [konfigürasyon referansını](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/configuration.md) görmek için.
-
----
 
 ## Uygulama
 
@@ -281,8 +269,6 @@ Kaynağı okuyun, inspector'ı değil — `curl https://example.com/fr/about | g
 
 </Steps>
 
----
-
 ## Kontrol Listesi
 
 - [ ] Her locale'in farklı, crawlable bir URL'si vardır
@@ -295,8 +281,6 @@ Kaynağı okuyun, inspector'ı değil — `curl https://example.com/fr/about | g
 - [ ] Etiketler server-render edilmiş, hydration sonrasında enjekte edilmemiştir
 - [ ] Tam olarak bir yerde tanımlanmıştır
 - [ ] Hiçbir alternate redirect yoktur
-
----
 
 ## Sonuç
 

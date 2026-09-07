@@ -79,6 +79,4 @@ Para qualquer solicitação relacionada aos seus dados, entre em contato conosco
 
 Podemos atualizar este aviso de privacidade periodicamente. Recomendamos que os usuários verifiquem esta página regularmente para se manterem informados sobre quaisquer mudanças.
 
----
-
 Informe-nos se desejar um tom mais formal, incluir menções ao GDPR/CCPA ou adaptar este texto para uma página legal em seu site.

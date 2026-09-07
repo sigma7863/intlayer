@@ -109,8 +109,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## AstroへのIntlayer設定ステップバイステップガイド
 
 GitHubで[アプリケーションテンプレート](https://github.com/aymericzip/intlayer-astro-template)を表示。
@@ -623,8 +621,6 @@ Intlayerを使用した開発体験を向上させるために、**公式のIntl
 - 翻訳を簡単に作成・更新するための**クイックアクション**。
 
 拡張機能の使用方法の詳細については、[Intlayer VS Code拡張機能のドキュメント](https://intlayer.org/doc/vs-code-extension)を参照してください。
-
----
 
 ### さらに詳しく
 

@@ -40,8 +40,6 @@ author: aymericzip
 > Note : next-i18next est construit sur i18next. Ce guide utilise les primitives i18next compatibles avec next-i18next dans l’App Router, tout en gardant une architecture simple et prête pour la production.
 > Pour une comparaison plus large, voir [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/fr/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Structure du projet
 
 Installez les dépendances next-i18next :
@@ -93,8 +91,6 @@ Checklist (intermédiaire/senior) :
 - Ne centralisez pas trop les messages ; utilisez des namespaces petits, spécifiques à une page ou une fonctionnalité
 - Évitez d’importer toutes les locales en même temps ; chargez uniquement ce dont vous avez besoin
 
----
-
 ## 2) Installer les dépendances
 
 ```bash
@@ -107,8 +103,6 @@ Si vous prévoyez d'utiliser les APIs ou la configuration interop de next-i18nex
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Configuration i18n principale
 
@@ -135,8 +129,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Note importante : Si vous utilisez `next-i18next.config.js`, assurez-vous qu'il soit aligné avec `i18n.config.ts` pour éviter toute dérive.
-
----
 
 ## 4) Initialisation i18n côté serveur
 
@@ -175,8 +167,6 @@ export async function initI18next(
 ```
 
 Note intermédiaire : Gardez la liste des namespaces courte par page pour limiter la charge. Évitez les bundles globaux « attrape-tout ».
-
----
 
 ## 5) Fournisseur client pour les composants React
 
@@ -234,8 +224,6 @@ export default function I18nProvider({
 
 Astuce pour débutant : Vous n'avez pas besoin de transmettre tous les messages au client. Commencez uniquement avec les namespaces de la page.
 
----
-
 ## 6) Mise en page et routes localisées
 
 Définissez la langue et la direction, et pré-générez les routes par locale pour favoriser le rendu statique.
@@ -270,8 +258,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Exemple de page avec utilisation serveur + client
 
@@ -388,8 +374,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO : Métadonnées, Hreflang, Sitemap, Robots
 
 La traduction du contenu est un moyen d'améliorer la portée. Configurez soigneusement le SEO multilingue.
@@ -483,8 +467,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Middleware pour le routage des locales
 
 Détecte la locale et redirige vers une route localisée si elle est manquante.
@@ -527,8 +509,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Performance et bonnes pratiques DX
 
 - **Définir les attributs html `lang` et `dir`** : Fait dans `src/app/[locale]/layout.tsx`.
@@ -539,8 +519,6 @@ export const config = {
 - **Mémoriser les opérations lourdes** : Surtout dans le code client pour les anciennes versions de React.
 - **Cache et headers** : Préférer le statique ou `revalidate` plutôt que le rendu dynamique quand c'est possible.
 
----
-
 ## 11) Tests et CI
 
 - Ajouter des tests unitaires pour les composants utilisant `t` afin de garantir que les clés existent.
@@ -548,8 +526,6 @@ export const config = {
 - Remonter les clés manquantes lors du CI avant le déploiement.
 
 Intlayer automatisera une grande partie de cela (voir section suivante).
-
----
 
 ## 12) Ajouter Intlayer par-dessus (automatisation)
 
@@ -636,8 +612,6 @@ Flux courants :
 
 > Vous pouvez fournir des arguments CLI ; consultez la [documentation CLI d'Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/cli/index.md).
 
----
-
 ## 13) Dépannage
 
 - **Clés introuvables** : Assurez-vous que la page/le provider liste les bons namespaces et que le fichier JSON existe sous `src/locales/<locale>/<namespace>.json`.
@@ -645,8 +619,6 @@ Flux courants :
 - **Problèmes de mise en page RTL** : Vérifiez que `dir` est dérivé de `isRtl(locale)` et que votre CSS respecte `[dir="rtl"]`.
 - **Alternatives SEO manquantes** : Confirmez que `alternates.languages` inclut toutes les locales ainsi que `x-default`.
 - **Bundles trop volumineux** : Scindez davantage les namespaces et évitez d’importer l’arborescence complète des `locales` côté client.
-
----
 
 ## 14) Et ensuite
 

@@ -39,8 +39,6 @@ La función `getMultilingualUrls` genera un mapeo de URLs multilingües anteponi
 - Soporta múltiples modos de enrutamiento: `prefix-no-default`, `prefix-all`, `no-prefix`, y `search-params`
 - Devuelve un objeto de mapeo con todas las locales como claves y sus URLs correspondientes como valores
 
----
-
 ## Firma de función
 
 ```typescript
@@ -53,8 +51,6 @@ getMultilingualUrls(
   }
 ): StrictModeLocaleMap<string>
 ```
-
----
 
 ## Parámetros
 
@@ -96,8 +92,6 @@ getMultilingualUrls(
 
 - **Tipo**: `IConfigLocales<string>`
 - **Descripción**: Un objeto que mapea cada localización a su URL multilingüe correspondiente.
-
----
 
 ## Ejemplo de Uso
 
@@ -199,8 +193,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## Casos Especiales
 
 - **Sin Segmento de Localización:**
@@ -217,8 +209,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: Todas las locales tienen prefijos (p. ej., `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: Sin prefijos de locale en URLs (todas las locales devuelven la misma URL)
   - `'search-params'`: Locale especificada mediante parámetro de consulta (p. ej., `/dashboard?locale=fr`)
-
----
 
 ## Uso en Aplicaciones
 

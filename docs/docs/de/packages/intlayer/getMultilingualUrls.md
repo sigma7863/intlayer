@@ -39,13 +39,9 @@ Die `getMultilingualUrls`-Funktion generiert eine Zuordnung mehrsprachiger URLs,
 - Unterstützt mehrere Routing-Modi: `prefix-no-default`, `prefix-all`, `no-prefix` und `search-params`
 - Gibt ein Zuordnungsobjekt mit allen Locales als Schlüssel und ihren entsprechenden URLs als Werte zurück
 
----
-
 ## Beschreibung
 
 Die Funktion `getMultilingualUrls` erzeugt eine Zuordnung mehrsprachiger URLs, indem sie die gegebene URL mit jedem unterstützten Gebietsschema (Locale) voranstellt. Sie kann sowohl absolute als auch relative URLs verarbeiten und wendet das entsprechende Gebietsschema-Präfix basierend auf der bereitgestellten Konfiguration oder den Standardwerten an.
-
----
 
 ## Parameter
 
@@ -87,8 +83,6 @@ Die Funktion `getMultilingualUrls` erzeugt eine Zuordnung mehrsprachiger URLs, i
 
 - **Typ**: `IConfigLocales<string>`
 - **Beschreibung**: Ein Objekt, das jedes Gebietsschema seiner entsprechenden mehrsprachigen URL zuordnet.
-
----
 
 ## Beispielhafte Verwendung
 
@@ -190,8 +184,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## Randfälle
 
 - **Kein Gebietsschema-Segment:**
@@ -208,8 +200,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: Alle Lokalitäten haben Präfixe (z. B. `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: Keine Lokalpräfixe in URLs (alle Lokalitäten geben die gleiche URL zurück)
   - `'search-params'`: Lokalität wird über Abfrageparameter angegeben (z. B. `/dashboard?locale=fr`)
-
----
 
 ## Verwendung in Anwendungen
 

@@ -114,8 +114,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a Next.js Application Using the Page Router
 
 <Steps>

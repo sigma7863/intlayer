@@ -83,8 +83,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng Angular
 
 <Tabs defaultTab="code">
@@ -452,13 +450,9 @@ Tiện ích mở rộng này cung cấp:
 
 Để biết thêm chi tiết về cách sử dụng tiện ích mở rộng, hãy tham khảo [tài liệu Tiện ích mở rộng Intlayer cho VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Đi xa hơn
 
 Để tìm hiểu thêm, bạn có thể triển khai [trình chỉnh sửa trực quan (visual editor)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) hoặc xuất nội dung của bạn bằng cách sử dụng [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md).
-
----
 
 ## Các Câu Hỏi Thường Gặp
 

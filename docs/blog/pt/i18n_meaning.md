@@ -92,8 +92,6 @@ Agora que estabelecemos o verdadeiro **significado de i18n**, como você o aplic
 - **Abstraia todo o texto voltado para o usuário:** Certifique-se de que não exista texto codificado em seus componentes de interface do usuário.
 - **Empregue um sistema robusto de gestão de traduções:** Ferramentas como o **Intlayer** eliminam a lacuna entre desenvolvedores e tradutores. O Intlayer atua como um CMS headless que é estritamente integrado à sua base de código, permitindo que os gerentes de conteúdo atualizem as traduções visualmente sem exigir que um desenvolvedor acione um novo build.
 
----
-
 ### Ver a lista de bibliotecas e ferramentas de i18n por tecnologia
 
 Se você estiver procurando por uma lista de bibliotecas e ferramentas de i18n por tecnologia, consulte os seguintes recursos:
@@ -111,8 +109,6 @@ Se você estiver procurando por uma lista de bibliotecas e ferramentas de i18n p
 - Vue: [Ver lista de bibliotecas e ferramentas de i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pt/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Ver lista de bibliotecas e ferramentas de i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pt/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [Ver lista de bibliotecas e ferramentas de i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pt/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Conclusão
 

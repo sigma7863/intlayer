@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-08-30
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - あなたのアプリを翻訳する完全ガイド"
 description: "i18nextはもう不要。2026年に多言語（i18n）Next.js 16アプリを構築するためのガイド。AIエージェントで翻訳し、バンドルサイズ、SEO、パフォーマンスを最適化します。"
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="Next.jsに最適なi18nソリューション？Intlayerを発見" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="コード" value="code">
+  <Tab label="コード (ロケールパスあり)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="デモ" value="demo">
+  <Tab label="コード (ロケールパスなし)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="デモ CodeSandbox - Intlayerを使用してアプリケーションを国際化する方法"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="デモ (ロケールパスあり)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="デモ - intlayer-next-16-template"
+  title="デモ Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-GitHubの[アプリケーションテンプレート](https://github.com/aymericzip/intlayer-next-16-template)をご覧ください。
+GitHubの[アプリケーションテンプレート](https://github.com/aymericzip/intlayer-next-16-template) および [ロケールパスなしのアプリケーションテンプレート](https://github.com/aymericzip/intlayer-next-no-lolale-path-template)をご覧ください。
 
 ## 目次
 
@@ -81,7 +92,7 @@ GitHubの[アプリケーションテンプレート](https://github.com/aymeric
 Intlayer は、効率的なレンダリングのために **サーバー コンポーネント** と連携するように最適化されており、[**Turbopack**](https://nextjs.org/docs/architecture/turbopack) と完全に互換性があります。静的レンダリングをブロックせず、ミドルウェアとスケーリング国際化 (i18n) に必要なすべての機能を提供します。
 
 > Intlayer は Next.js 12、13、14、15、および 16 と互換性があります。 Next.js Pages Router を使用している場合は、この [ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md) を参照してください。
-> ロケール ルーティングは、SEO、バンドル サイズ、パフォーマンスに役立ちます。必要ない場合は、この[ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md)を参照してください。
+> ロケールルーティングはSEO、バンドルサイズ、パフォーマンスに役立ちます。ロケールパスありとロケールパスなしの両方の構成がサポートされており、このガイドで説明されています。
 > App Router を使用した Next.js 12、13、14、および 15 については、この [ガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md) を参照してください。
 
 </Accordion>
@@ -122,8 +133,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Next.jsアプリケーションでIntlayerをセットアップするステップバイステップガイド
 
@@ -181,7 +190,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="プロジェクトの設定">
 
-最終的な構成は以下のようになります：
+ローカライズされたURLパス（例: `/ja/about`, `/en/about`）を使用するか、パスにロケールセグメントを含めずにコンテンツを配信するか（例: `/about`、Cookieやヘッダー、検索パラメータでロケールを検出）を選択してください。
+
+<Tabs group="routing-mode">
+<Tab label="ロケールパスあり" value="with-locale-path">
+
+### アーキテクチャ
+
+このアーキテクチャでは、ローカライズされたすべてのページが動的ルートセグメント `[locale]` の下に配置されます。各言語に固有のURLが割り当てられるため、SEOおよび静的レンダリングに推奨されます:
 
 ```bash
 .
@@ -207,9 +223,9 @@ bun add intlayer next-intlayer
 └── tsconfig.json
 ```
 
-> ロケールルーティングが不要な場合、intlayerはシンプルなプロバイダー/フックとして使用できます。詳細は[このガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_nextjs_no_locale_path.md)を参照してください。
+### 設定
 
-アプリケーションの言語を設定するための設定ファイルを作成します：
+アプリケーションでサポートされる言語を宣言するために、`intlayer.config.ts` 設定ファイルを作成します:
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -224,10 +240,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // または `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="ロケールパスなし" value="without-locale-path">
+
+### アーキテクチャ
+
+このアーキテクチャでは、URLパスに動的な `[locale]` セグメントが含まれません。すべてのページは `src/app/` の直下に配置され、Cookie、ヘッダー、またはクエリパラメータを介してロケールが決定されます。ダッシュボードや社内ツール、認証が必要なアプリに最適です:
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### 設定
+
+パスプレフィックスなしでコンテンツを提供するには、`routing.mode` プロパティを `"search-params"`（例: `/about?locale=ja`）または `"no-prefix"` に設定します:
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // 他のロケール
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // または `no-prefix` - ミドルウェア検出に便利
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > この設定ファイルを通じて、ローカライズされたURLの設定、プロキシリダイレクト、クッキー名、コンテンツ宣言の場所と拡張子の指定、コンソールでのIntlayerログの無効化などが行えます。利用可能なパラメータの完全なリストについては、[設定ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
 
@@ -277,6 +355,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="動的ロケールルートの定義">
+
+<Tabs group="routing-mode">
+<Tab label="ロケールパスあり" value="with-locale-path">
 
 `RootLayout` の内容をすべて削除し、以下のコードに置き換えます：
 
@@ -371,6 +452,102 @@ export default LocaleLayout;
 > `generateStaticParams` は、アプリケーションがすべてのロケールに対して必要なページを事前にビルドすることを保証し、実行時の計算を減らしユーザー体験を向上させます。詳細は [Next.js の generateStaticParams に関するドキュメント](https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic-rendering#generate-static-params) を参照してください。
 
 > Intlayer は `export const dynamic = 'force-static';` と連携して、すべてのロケールのページが事前にビルドされることを保証します。
+
+</Tab>
+<Tab label="ロケールパスなし" value="without-locale-path">
+
+ロケールパスのないアーキテクチャでは、`[locale]` ディレクトリは不要です。`src/app/layout.tsx` を直接構成してリクエストコンテキストからロケールを読み取り、`IntlayerProvider` でアプリケーションをラップします:
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+単一の `IntlayerProvider` はツリーの両方の半分をカバーしています。リクエストスコープのサーバーコンテキストをシードし、サーバーフックで読み込まれ、クライアントプロバイダーをマウントして、クライアントコンポーネントが同じロケールを受け取るようにします。
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+</Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
 
 </Step>
 
@@ -1055,7 +1232,7 @@ bun x intlayer extract
  </Tab>
  <Tab value='Babelコンパイラ'>
 
-> Since v9, the `intlayerCompiler` is included in the `intlayer` plugin. So you don't need to add it manually.
+> v9以降、`intlayerCompiler`は`intlayer`プラグインに含まれています。そのため、手動で追加する必要はありません。
 
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
@@ -1256,7 +1433,7 @@ Intlayer は Next.js 12、13、14、15 および 16 をサポートしていま�
 - `"no-prefix"`：パスにロケールなし、cookie、header またはドメインから解決。
 - `"search-params"`：`/about?locale=fr`。
 
-`routing.domains` を使用して各ロケールを独自のドメインにマップすることもできます。[設定リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)と[ロケールパスなしのガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_nextjs_no_locale_path.md)を参照してください。
+`routing.domains` を使用して各ロケールを独自のドメインにマップすることもできます。[設定リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)およびルーティングモードのオプションについては[ステップ 2](#step-2-configure-your-project)を参照してください。
 
 </Question>
 

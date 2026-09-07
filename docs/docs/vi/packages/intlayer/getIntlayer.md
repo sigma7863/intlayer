@@ -42,8 +42,6 @@ Nó đọc các từ điển được tạo bởi Intlayer trong `.intlayer/`, v
 - Kết quả được ghi nhớ mỗi `key + locale + selector`
 - Quay lại một proxy an toàn trong quá trình phát triển khi một từ điển bị thiếu, thay vì gặp lỗi
 
----
-
 ## Function Signature
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // Tùy chọn
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Tham số
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: Nội dung được diễn giải của từ điển, được gõ từ khai báo của bạn.
 - **Description**: Một plain object phản ánh trường `content` của từ điển của bạn, trong đó mỗi nút Intlayer đã được giải quyết thành giá trị cuối cùng cho ngôn ngữ được yêu cầu.
-
----
 
 ## Ví dụ sử dụng
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## Ghi chú về Hành vi
 
 ### Caching
@@ -169,15 +161,11 @@ Trong quá trình phát triển, yêu cầu một khóa không có từ điển 
 
 `getIntlayer` đọc từ từ điển hợp nhất, chứa **mọi** locale. Trong client bundles, các [build plugins](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/bundle_optimization.md) viết lại cuộc gọi để chỉ nội dung cần thiết được gửi đi. Khi bạn đọc nội dung bên ngoài rendering (metadata, loaders, server functions) và muốn một locale duy nhất được tải theo yêu cầu, hãy sử dụng [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getIntlayerAsync.md) thay thế.
 
----
-
 ## Các Hàm Liên Quan
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getIntlayerAsync.md): Phiên bản async tải một chunk locale duy nhất.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getDictionary.md): Diễn giải một đối tượng dictionary mà bạn truyền vào, thay vì tìm kiếm theo khóa.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/react-intlayer/useIntlayer.md): Hook React tương đương, đọc locale từ provider.
-
----
 
 ## TypeScript
 

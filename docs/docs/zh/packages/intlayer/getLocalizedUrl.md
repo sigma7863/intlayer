@@ -42,8 +42,6 @@ author: aymericzip
 - 可以用最少的参数用于简单情况，或完全自定义用于复杂场景
 - 支持多种路由模式：`prefix-no-default`、`prefix-all`、`no-prefix` 和 `search-params`
 
----
-
 ## 函数签名
 
 ```typescript
@@ -57,8 +55,6 @@ getLocalizedUrl(
   }
 ): string
 ```
-
----
 
 ## 参数
 
@@ -105,8 +101,6 @@ getLocalizedUrl(
 
 - **类型**: `string`
 - **描述**: 指定语言环境的本地化 URL。
-
----
 
 ## 示例用法
 
@@ -209,8 +203,6 @@ getLocalizedUrl(
 ); // 输出: "/about"（对于不支持的语言环境不添加前缀）
 ```
 
----
-
 ## 边缘情况
 
 - **无语言环境段：**
@@ -227,8 +219,6 @@ getLocalizedUrl(
   - `'prefix-all'`: 所有语言都有前缀 (例如, `/en/about`, `/fr/about`)
   - `'no-prefix'`: URL 中没有语言前缀（语言在其他地方处理）
   - `'search-params'`: 通过查询参数指定语言 (例如, `/about?locale=fr`)
-
----
 
 ## 在应用中的使用
 

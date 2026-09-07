@@ -23,15 +23,11 @@ author: aymericzip
 
 Khi mạng web tiếp tục kết nối mọi người trên toàn cầu, việc cung cấp nội dung bằng nhiều ngôn ngữ trở nên ngày càng quan trọng. Đối với các nhà phát triển làm việc với **Svelte**, việc triển khai i18n là cần thiết để quản lý bản dịch một cách hiệu quả, duy trì mã nguồn sạch sẽ và đảm bảo các thực hành SEO tốt. Trong bài viết này, chúng tôi sẽ khám phá các giải pháp và quy trình làm việc i18n khác nhau cho Svelte, giúp bạn chọn ra giải pháp phù hợp nhất với nhu cầu dự án của mình.
 
----
-
 ## Quốc tế hóa (i18n) là gì?
 
 Quốc tế hóa, thường được viết tắt là i18n, là quá trình thiết kế và xây dựng ứng dụng của bạn sao cho có thể dễ dàng thích ứng với nhiều ngôn ngữ, vùng miền và các quy ước văn hóa khác nhau. Trong Svelte, điều này thường có nghĩa là thiết lập các chuỗi bản dịch, địa phương hóa ngày tháng, thời gian và số liệu, đồng thời đảm bảo giao diện người dùng có thể chuyển đổi động giữa các locale khác nhau mà không cần viết lại mã lớn.
 
 Để tìm hiểu thêm về các kiến thức cơ bản của i18n, hãy đọc bài viết của chúng tôi: [Quốc tế hóa (i18n) là gì? Định nghĩa và những thách thức](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/what_is_internationalization.md).
-
----
 
 ## Thách thức dịch thuật cho các ứng dụng Svelte
 
@@ -42,8 +38,6 @@ Việc dịch một ứng dụng Svelte có thể gặp phải một số khó k
 - **Cân Nhắc SEO**: Nếu bạn sử dụng **SvelteKit** cho server-side rendering (SSR), việc cấu hình URL địa phương hóa, thẻ meta và sitemap để SEO hiệu quả đòi hỏi sự chú ý đặc biệt.
 - **Trạng Thái & Định Tuyến**: Giữ ngôn ngữ chính xác trên nhiều route và trang động thường liên quan đến việc điều phối trạng thái toàn cục, route guard hoặc custom hook trong SvelteKit.
 - **Dễ Bảo Trì**: Khi codebase và các file dịch của bạn phát triển, việc giữ mọi thứ được tổ chức tốt và đồng bộ trở thành một nỗ lực liên tục.
-
----
 
 ## Các Giải Pháp i18n Hàng Đầu cho Svelte
 
@@ -69,8 +63,6 @@ Svelte không cung cấp giải pháp i18n tích hợp sẵn (như Angular), nh�
 
 - **Cộng đồng và Hệ sinh thái**: Mặc dù đang phát triển, hệ sinh thái vẫn còn mới, vì vậy các plugin và công cụ do cộng đồng thúc đẩy có thể hạn chế hơn so với các giải pháp lâu đời hơn.
 
----
-
 ### 2. svelte-i18n
 
 Kho lưu trữ: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaisermann/svelte-i18n)
@@ -90,8 +82,6 @@ Kho lưu trữ: [https://github.com/kaisermann/svelte-i18n](https://github.com/k
 - **Tổ chức dự án**: Bạn sẽ cần cấu trúc các file dịch một cách hợp lý khi dự án phát triển.
 - **Cấu hình SSR**: Việc cấu hình SSR cho SEO có thể yêu cầu các bước bổ sung để đảm bảo phát hiện đúng locale phía máy chủ.
 - **Hiệu suất**: Mặc dù linh hoạt tại runtime, việc tải một lượng lớn bản dịch cùng lúc có thể ảnh hưởng đến thời gian tải ban đầu, hãy cân nhắc sử dụng tải lười hoặc các chiến lược lưu cache.
-
----
 
 ### 3. svelte-intl-precompile
 
@@ -113,8 +103,6 @@ Kho lưu trữ: [https://github.com/cibernox/svelte-intl-precompile](https://git
 - **Nội dung động**: Nếu bạn cần bản dịch ngay lập tức cho nội dung do người dùng tạo, phương pháp này có thể yêu cầu thêm các bước cập nhật tại runtime.
 - **Đường cong học tập**: Sự kết hợp giữa trích xuất thông điệp và biên dịch trước có thể hơi phức tạp đối với người mới bắt đầu.
 
----
-
 ### 4. i18next với Svelte / SvelteKit
 
 Website: [https://www.i18next.com/](https://www.i18next.com/)
@@ -134,8 +122,6 @@ Mặc dù **i18next** thường được liên kết nhiều hơn với React ho
 - **Cấu hình thủ công**: i18next không có tích hợp riêng dành cho Svelte sẵn có, vì vậy bạn sẽ cần tự cấu hình.
 - **Chi phí tài nguyên**: i18next rất mạnh mẽ, nhưng đối với các dự án Svelte nhỏ hơn, một số tính năng của nó có thể là quá mức cần thiết.
 - **Định tuyến & Trạng thái**: Việc xử lý định tuyến ngôn ngữ có thể sẽ liên quan đến các hook hoặc middleware tùy chỉnh của SvelteKit.
-
----
 
 ### Những suy nghĩ cuối cùng
 

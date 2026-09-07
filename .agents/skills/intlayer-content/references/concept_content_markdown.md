@@ -88,8 +88,6 @@ You can declare Markdown content using the `md` function or simply as a string (
   </Tab>
 </Tabs>
 
----
-
 ## Rendering Markdown
 
 Rendering can be handled automatically by Intlayer's content system or manually using specialized tools.
@@ -207,7 +205,7 @@ If you need to render raw Markdown strings or have more control over the renderi
 
 <Tabs group="framework">
   <Tab label="React / Next.js" value="react">
-  
+
     #### `<MarkdownRenderer />` Component
 
     Render a Markdown string with specific options.
@@ -373,8 +371,6 @@ If you need to render raw Markdown strings or have more control over the renderi
   </Tab>
 </Tabs>
 
----
-
 ## Global Configuration with `MarkdownProvider`
 
 You can configure Markdown rendering globally for your entire application. This avoids passing the same props to every renderer.
@@ -492,8 +488,6 @@ You can configure Markdown rendering globally for your entire application. This 
 
   </Tab>
 </Tabs>
-
----
 
 ## Options Reference
 

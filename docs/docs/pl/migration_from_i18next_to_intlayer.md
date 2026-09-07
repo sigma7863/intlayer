@@ -66,8 +66,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia samodzielnie hostowany *
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Strategie migracji
 
 Istnieją dwie komplementarne strategie migracji z `i18next` do Intlayer:
@@ -78,13 +76,9 @@ Istnieją dwie komplementarne strategie migracji z `i18next` do Intlayer:
 
 Ten przewodnik obejmuje **Strategię 1** najpierw (adapter compat drop-in), a następnie przechodzi przez opcjonalną pełną migrację.
 
----
-
 ## Spis treści
 
 <TOC/>
-
----
 
 ## Szybka migracja
 
@@ -197,8 +191,6 @@ export default defineConfig({
 
 To jest szybka migracja. Twoja aplikacja teraz działa na Intlayer, zachowując wszystkie `i18next` importy i API w niezmienionej formie.
 
----
-
 ## Pełna migracja
 
 Poniższe kroki są opcjonalne i można je wykonywać stopniowo. Odblokowują one pełny zestaw funkcji Intlayer: edytor wizualny, CMS, pliki zawartości z typami, automatyczne tłumaczenie oparte na AI i wiele więcej.
@@ -280,8 +272,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Co możesz usunąć po migracji
 
 Po umieszczeniu adaptera kompatybilności można usunąć poniższe boilerplate'y `i18next`:
@@ -293,8 +283,6 @@ Po umieszczeniu adaptera kompatybilności można usunąć poniższe boilerplate'
 | JSON language bundles (`locales/*.json`) | Pakiety JSON są potrzebne tylko jeśli nadal używasz pluginu `syncJSON`. Po migracji do plików `.content.ts` możesz usunąć folder JSON. |
 
 Gdy będziesz gotów do dalszych kroków, Intlayer **automatycznie odkrywa wszystkie pliki `.content.ts` i `.content.json` znajdujące się wszędzie w twojej bazie kodu** (domyślnie wszędzie wewnątrz `./src`). Możesz umieścić plik `my-component.content.ts` obok swojej logiki, a Intlayer podejmie go podczas kompilacji bez dodatkowej konfiguracji — bez importów, rejestracji ani scentralizowanego pliku indeksu. To sprawia, że współlokowanie tłumaczeń jest całkowicie bezproblemowe.
-
----
 
 ## Konfiguracja TypeScript
 
@@ -310,8 +298,6 @@ Intlayer wykorzystuje module augmentation, aby zapewnić pełną intellisense Ty
 }
 ```
 
----
-
 ## Konfiguracja Git
 
 Dodaj wygenerowany katalog Intlayer do `.gitignore`:
@@ -320,8 +306,6 @@ Dodaj wygenerowany katalog Intlayer do `.gitignore`:
 # Ignoruj pliki wygenerowane przez Intlayer
 .intlayer
 ```
-
----
 
 ## Idź dalej
 

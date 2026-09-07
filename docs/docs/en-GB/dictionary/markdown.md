@@ -1175,8 +1175,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## Server-Side Rendering (SSR) and Hydration
 
 In comparison of other Markdown parser such as remark / rehype, the Intlayer Markdown is dependency free and run on client as server side.

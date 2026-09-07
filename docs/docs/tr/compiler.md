@@ -104,7 +104,7 @@ export default defineConfig({
 
 > Bağımsız `intlayerCompiler()` eklentisi, gelişmiş kurulumlar için hala dışa aktarılmaktadır. `intlayer()` ile birlikte kaydetmek güvenlidir — derleyici kendisini çoğaltmaz ve yalnızca bir kez çalışır.
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react.md)
 
 #### Framework Desteği
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 Bu yapılandırma, bileşenlerinizde beyan edilen içeriğin otomatik olarak çıkarılmasını ve derleme süreciniz sırasında sözlüklerin oluşturulmasında kullanılmasını sağlar.
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

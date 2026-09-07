@@ -107,8 +107,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng Vite và Vanilla JS
 
 <Steps>
@@ -763,8 +761,6 @@ Extension này cung cấp:
 - **Quick actions** để dễ dàng tạo và cập nhật các bản dịch.
 
 Để biết thêm chi tiết về cách sử dụng extension, hãy tham khảo [tài liệu Extension Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Đi xa hơn
 

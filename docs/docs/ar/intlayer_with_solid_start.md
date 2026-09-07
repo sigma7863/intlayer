@@ -112,8 +112,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق SolidStart
 
 <Steps>
@@ -1016,8 +1014,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## التحقق من الإعداد الخاص بك
 
 قم ببناء الخادم وتشغيله، ثم تحقق من أن هذه الطلبات تعمل كما هو متوقع:
@@ -1043,8 +1039,6 @@ node .output/server/index.mjs
 
 > قم بتشغيل خادم التطوير على Node (`vite dev`) بدلاً من Bun (`bun --bun vite dev`): يفشل SSR الخاص بـ SolidStart حاليًا تحت بيئة تشغيل Bun مع الخطأ `Expected a Response object, but received 'NodeResponse'`. هذا غير مرتبط بـ Intlayer — يتم تكراره في القالب العادي — ويؤثر فقط على خادم التطوير، وليس على `vite build`.
 
----
-
 ## تكوين Git
 
 يُوصى بتجاهل الملفات التي تم إنشاؤها بواسطة Intlayer. يتيح لك ذلك تجنب إرسالها إلى مستودع Git الخاص بك.
@@ -1055,8 +1049,6 @@ node .output/server/index.mjs
 # تجاهل الملفات المنشأة بواسطة Intlayer
 .intlayer
 ```
-
----
 
 ## إضافة VS Code
 
@@ -1071,13 +1063,9 @@ node .output/server/index.mjs
 - **معاينات مضمنة (inline)** للمحتوى المترجم.
 - **إجراءات سريعة** لإنشاء الترجمات وتحديثها بسهولة.
 
----
-
 ## التعمق أكثر
 
 للتعمق أكثر، يمكنك تطبيق [المحرر المرئي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) أو إخراج محتواك إلى الخارج باستخدام [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md).
-
----
 
 ## مراجع التوثيق
 

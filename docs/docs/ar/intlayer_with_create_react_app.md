@@ -94,8 +94,6 @@ Intlayer مُحسَّن للعمل بشكل مثالي مع React من خلال 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق React
 
 <Steps>

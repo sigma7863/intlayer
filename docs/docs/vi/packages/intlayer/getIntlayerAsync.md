@@ -46,8 +46,6 @@ Nếu không có các plugins này — một build chưa được tối ưu hóa
 - Các cuộc gọi đồng thời cho cùng một chunk chia sẻ một lần tải
 - An toàn để sử dụng trong `async` metadata builders, loaders và server functions
 
----
-
 ## Function Signature
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // Tùy chọn
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Tham số
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **Type**: `Promise<Content>` — a promise resolving to the interpreted content of the dictionary, typed from your declaration.
 
----
-
 ## Ví dụ Sử dụng
 
 ### Cách sử dụng cơ bản
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` vs `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 Cả hai chấp nhận các đối số giống nhau và trả về nội dung giống nhau: chuyển đổi từ cái này sang cái khác chỉ thay đổi **khi** và **bao nhiêu** được tải.
 
----
-
 ## Các Hàm Liên Quan
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getIntlayer.md): Tương đương đồng bộ đọc từ điển đã hợp nhất.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getDictionaryAsync.md): Hàm cấp thấp hơn mà các build plugins viết lại cuộc gọi này thành.
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getLocale.md): Phát hiện locale của một yêu cầu đến.
-
----
 
 ## TypeScript
 

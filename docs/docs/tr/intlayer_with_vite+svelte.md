@@ -111,8 +111,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite ve Svelte Uygulamasında Intlayer Kurulum Adım Adım Rehberi
 
 GitHub'da [Uygulama Şablonuna](https://github.com/aymericzip/intlayer-vite-svelte-template) bakın.
@@ -723,8 +721,6 @@ Bu eklenti şunları sağlar:
 - Çevirileri kolayca oluşturup güncellemek için **Hızlı işlemler**.
 
 Eklentinin nasıl kullanılacağı hakkında daha fazla bilgi için [Intlayer VS Code Eklentisi dokümantasyonuna](https://intlayer.org/doc/vs-code-extension) bakabilirsiniz.
-
----
 
 ### Daha İleri Gitmek
 

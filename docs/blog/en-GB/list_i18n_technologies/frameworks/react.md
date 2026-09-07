@@ -23,15 +23,11 @@ author: aymericzip
 
 In today's digital landscape, expanding your website’s reach to cater to a global audience is essential. For developers building with React, implementing internationalization (i18n) is key to managing translations efficiently while preserving application structure, SEO value, and user experience. In this article, we explore various i18n approaches, from dedicated libraries to custom-coded solutions, helping you decide which one best suits your project needs.
 
----
-
 ## What is Internationalization (i18n)?
 
 Internationalization, abbreviated as i18n, is the process of designing and preparing your website to support multiple languages and cultural contexts. In React, this means setting up your app so that strings, date formats, number formats, and even the layout can be adapted easily for users from different regions. Preparing your React app for i18n lays the groundwork for cleanly integrating translations and other localization features.
 
 Learn more about i18n by reading our article: [What is Internationalization (i18n)? Definition and Challenges](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/what_is_internationalization.md).
-
----
 
 ## The Translation Challenge for React Applications
 
@@ -42,8 +38,6 @@ Translating a React website presents several challenges:
 - **SEO Considerations:** For server-side rendered React apps (using frameworks like Next.js), ensuring that translations contribute positively to SEO involves managing localized URLs, metadata, and sitemaps.
 - **State and Context Management:** Ensuring that the correct language is maintained across routes and components requires thoughtful state management.
 - **Development Overhead:** Maintaining translation files, ensuring context accuracy, and keeping your application scalable are ongoing considerations.
-
----
 
 ## Leading i18n Solutions for React
 
@@ -69,8 +63,6 @@ Below are several popular approaches to managing multilingual content in React a
 
 - **Community & Ecosystem**: Though growing, the ecosystem is newer, so community-driven plugins and tooling may be more limited compared to more established solutions.
 
----
-
 ### 2. React-i18next
 
 Website: [https://react.i18next.com/](https://react.i18next.com/)
@@ -92,8 +84,6 @@ Website: [https://react.i18next.com/](https://react.i18next.com/)
 - **Maintainability**: Configuration can become complex, especially for large or multi-team projects; careful structuring of translation files is essential.
 - **Plugin Ecosystem**: A broad ecosystem of plugins and middlewares is available, which also means you’ll need to sift through various packages to find the right tools.
 - **Server Components**: Requires additional setup to ensure server components pick up the correct locales, especially if using frameworks other than Next.js.
-
----
 
 ### 3. React Intl (from FormatJS)
 
@@ -136,8 +126,6 @@ Website: [https://lingui.js.org/](https://lingui.js.org/)
 - **Maintainability**: Automatic extraction helps keep code clean, but structuring multiple translation files for large apps requires disciplined organization.
 - **Community & Plugins**: The ecosystem is growing but still smaller compared to i18next or FormatJS.
 - **Server Components**: May need more explicit configuration to ensure that server components receive the correct locale data.
-
----
 
 ### Final Thoughts
 

@@ -38,8 +38,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## 启用实时同步
 
 通过更新你的 Intlayer 配置来启用 Live Sync：

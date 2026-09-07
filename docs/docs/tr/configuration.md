@@ -122,13 +122,9 @@ author: aymericzip
 
 Intlayer yapılandırma dosyaları, uluslararasılaştırma, ara yazılım (middleware) ve içerik yönetimi gibi eklentinin çeşitli yönlerini özelleştirmenize olanak tanır. Bu belge, yapılandırmadaki her özelliğin ayrıntılı bir açıklamasını sunar.
 
----
-
 ## İçindekiler
 
 <TOC/>
-
----
 
 ## Yapılandırma Dosyası Desteği
 
@@ -142,8 +138,6 @@ Intlayer, JSON, JS, MJS ve TS yapılandırma dosyası formatlarını kabul eder:
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## Örnek Yapılandırma Dosyası
 
@@ -694,13 +688,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## Yapılandırma Referansı
 
 Aşağıdaki bölümler Intlayer için mevcut olan çeşitli yapılandırma ayarlarını açıklamaktadır.
-
----
 
 ### Uluslararasılaştırma Yapılandırması
 
@@ -712,8 +702,6 @@ Mevcut diller ve uygulama için varsayılan dil de dahil olmak üzere uluslarara
 | `requiredLocales` | Uygulamada gerekli olan dillerin listesi.                                            | `string[]` | `[]`                | `[]`                 | • Boşsa, `strict` modda tüm diller gereklidir.<br/>• Gerekli dillerin `locales` alanında da tanımlandığından emin olun.                                                                                                                                                                            |
 | `strictMode`      | TypeScript kullanarak uluslararasılaştırılmış içeriğin sağlam uygulamalarını sağlar. | `string`   | `'inclusive'`       |                      | • `"strict"` ise: `t` fonksiyonu bildirilen her dilin tanımlanmış olmasını gerektirir - eksikse veya bildirilmemişse hata verir.<br/>• `"inclusive"` ise: Eksik diller için uyarı verir ancak bildirilmeyenlerin kullanımına izin verir.<br/>• `"loose"` ise: Mevcut herhangi bir dili kabul eder. |
 | `defaultLocale`   | İstenen dil bulunamadığında geri dönüş olarak kullanılan varsayılan dil.             | `string`   | `Locales.ENGLISH`   | `'en'`               | URL'de, tanımlama bilgisinde (cookie) veya üstbilgide (header) belirtilmediğinde dili belirlemek için kullanılır.                                                                                                                                                                                  |
-
----
 
 ### Editör Yapılandırması
 
@@ -745,8 +733,6 @@ Analitik opt-out'tur: varsayılan olarak etkindir ve `@intlayer/analytics` paket
 | `enabled`       | Analitik toplamayı etkinleştirir (sayfa görüntülemeleri, içerik gösterimleri, A/B olayları). | `boolean` | `true`     | `false` | `@intlayer/analytics` paketinin kurulu olması ve atıflandırma için `editor.clientId` ayarlanmış olması gerekir; aksi takdirde `enabled` `true` olsa bile analitik devre dışı kalır. |
 | `flushInterval` | Backend'e otomatik toplu gönderimler arasındaki milisaniye.                                  | `number`  | `20000`    | `10000` |                                                                                                                                                                                     |
 | `sampleRate`    | Kaydedilecek oturumların oranı, `0` (hiçbiri) ile `1` (tümü) arasında.                       | `number`  | `1`        | `0.5`   | Örnekleme oturum başına belirlenimlidir, bu nedenle kaydedilen bir oturum tüm olaylarını raporlar (kısmi huniler olmaz).                                                            |
-
----
 
 ### Yönlendirme Yapılandırması
 
@@ -949,8 +935,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### İçerik Yapılandırması
 
 Dizin adları, dosya uzantıları ve türetilmiş yapılandırmalar dahil olmak üzere uygulama içindeki içeriğin nasıl yönetileceği ile ilgili ayarlar.
@@ -963,8 +947,6 @@ Dizin adları, dosya uzantıları ve türetilmiş yapılandırmalar dahil olmak 
 | `codeDir`        | Kodun saklandığı temel dizine göre dizin yolu.                                                                     | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • Dönüşüm (budama, optimizasyon) için kod dosyalarını izlemek için kullanılır.<br/>• `contentDir`den ayırmak performansı artırabilir.            |
 | `excludedPath`   | İçerik taramasından hariç tutulan dizinler.                                                                        | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | Henüz kullanılmıyor; gelecekteki uygulama için planlandı.                                                                                        |
 | `formatCommand`  | Intlayer onları yerel olarak yazarken içerik dosyalarını biçimlendirme komutu.                                     | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` dosya yolu ile değiştirilecektir.<br/>• Tanımlanmazsa, Intlayer bunu otomatik olarak algılar (prettier, biome, eslint'i test eder). |
-
----
 
 ### Sistem Yapılandırması
 
@@ -1019,8 +1001,6 @@ dictionary: {
   },
 };
 ```
-
----
 
 ### Logger Yapılandırması
 
@@ -1092,8 +1072,6 @@ Derleme seçenekleri `@intlayer/babel` ve `@intlayer/swc` eklentileri için geç
 | `outputFormat`        | Sözlüklerin çıktı formatını kontrol eder.                                                                                          | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `traversePattern`     | Optimizasyon sırasında hangi dosyaların taranacağını tanımlayan kalıplar.                                                          | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • Derleme performansını artırmak için optimizasyonu ilgili dosyalarla sınırlayın.<br/>• `optimize` kapalıysa yok sayılır.<br/>• Glob kalıplarını kullanır.                                                                                                                                                                                                                                                                                                                                                                                                      |
 
----
-
 ### Derleyici Yapılandırması
 
 Sözlükleri doğrudan bileşenlerinizden çıkaran Intlayer derleyicisini kontrol eden ayarlar.
@@ -1112,8 +1090,6 @@ Sözlükleri doğrudan bileşenlerinizden çıkaran Intlayer derleyicisini kontr
 | Alan      | Açıklama                                                                          | Tür                         |
 | --------- | --------------------------------------------------------------------------------- | --------------------------- |
 | `schemas` | Sözlüklerinizin yapısını doğrulamak için Zod şemaları tanımlamanıza olanak tanır. | `Record<string, ZodSchema>` |
-
----
 
 ### Eklentiler (Plugins)
 

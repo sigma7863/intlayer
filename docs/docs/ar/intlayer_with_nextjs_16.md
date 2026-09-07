@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-06-23
+updatedAt: 2026-09-06
 title: "تدويل Next.js 16 - الدليل الكامل لترجمة تطبيقك"
 description: "لا مزيد من i18next. دليل 2026 لبناء تطبيق Next.js 16 متعدد اللغات (i18n). ترجم باستخدام وكلاء الذكاء الاصطناعي وحسّن حجم الحزمة وتحسين محركات البحث والأداء."
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="أفضل حل i18n لـ Next.js؟ اكتشف Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="كود" value="code">
+  <Tab label="كود (مسارات اللغة)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="تجربة" value="demo">
+  <Tab label="كود (بدون مسار اللغة)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - كيفية تدويل تطبيقك باستخدام Intlayer"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="تجربة (مسارات اللغة)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="تجربة - intlayer-next-16-template"
+  title="تجربة Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-شاهد [قالب التطبيق](https://github.com/aymericzip/intlayer-next-16-template) على GitHub.
+شاهد [قالب التطبيق](https://github.com/aymericzip/intlayer-next-16-template) و [قالب التطبيق بدون مسار لغة](https://github.com/aymericzip/intlayer-next-no-lolale-path-template) على GitHub.
 
 ## جدول المحتويات
 
@@ -81,7 +92,7 @@ author: aymericzip
 تم تحسين Intlayer للعمل مع **مكونات الخادم** من أجل العرض الفعال وهو متوافق تمامًا مع [**Turbopack**](https://nextjs.org/docs/architecture/turbopack). إنه لا يمنع العرض الثابت ويوفر برامج وسيطة بالإضافة إلى جميع الميزات اللازمة لتوسيع نطاق التدويل (i18n).
 
 > يتوافق Intlayer مع Next.js 12 و13 و14 و15 و16. إذا كنت تستخدم جهاز توجيه الصفحات Next.js، فيمكنك الرجوع إلى هذا [الدليل](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md).
-> يعد التوجيه المحلي مفيدًا لتحسين محركات البحث وحجم البندل والأداء. إذا لم تكن بحاجة إليه، يمكنك الرجوع إلى هذا [الدليل](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md).
+> يعد توجيه اللغة مفيدًا لتحسين محركات البحث وحجم الحزمة والأداء. كلا الإعدادين، مع وبدون توجيه مسار اللغة، مدعومان وموضحان في هذا الدليل.
 > بالنسبة إلى Next.js 12 و13 و14 و15 مع جهاز توجيه التطبيقات، راجع هذا [الدليل](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
 </Accordion>
@@ -122,8 +133,6 @@ author: aymericzip
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Next.js
 
@@ -181,7 +190,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="تكوين مشروعك">
 
-إليك الهيكل النهائي الذي سنقوم بإنشائه:
+اختر ما إذا كان يجب على تطبيقك استخدام مسارات URL المترجمة (مثل `/ar/about`، `/en/about`) أو تقديم المحتوى بدون مقطع لغة في المسار (مثل `/about`، عبر اكتشاف اللغة بواسطة ملفات تعريف الارتباط أو الرؤوس أو معلمات البحث).
+
+<Tabs group="routing-mode">
+<Tab label="مع مسار اللغة" value="with-locale-path">
+
+### البنية
+
+في هذه البنية، يتم وضع جميع الصفحات المترجمة ضمن مقطع المسار الديناميكي `[locale]`. يوصى بهذا النهج لمحركات البحث (SEO) والعرض الثابت لأن كل لغة لها عنوان URL مخصص:
 
 ```bash
 .
@@ -207,9 +223,9 @@ bun add intlayer next-intlayer
 └── tsconfig.json
 ```
 
-> إذا كنت لا ترغب في توجيه اللغة، يمكن استخدام intlayer كمزود / خطاف بسيط. راجع [هذا الدليل](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_with_nextjs_no_locale_path.md) لمزيد من التفاصيل.
+### التكوين
 
-أنشئ ملف تكوين لتحديد لغات تطبيقك:
+أنشئ ملف تكوين `intlayer.config.ts` للإعلان عن اللغات المدعومة في تطبيقك:
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -224,10 +240,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // أو `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="بدون مسار اللغة" value="without-locale-path">
+
+### البنية
+
+في هذه البنية، لا تتضمن المسارات مقطع `[locale]` ديناميكي في مسار URL. توجد جميع الصفحات مباشرة تحت `src/app/`، ويتم تحديد اللغة عبر ملفات تعريف الارتباط أو الرؤوس أو معلمات البحث. هذا مثالي للوحات التحكم أو الأدوات الداخلية أو التطبيقات المحمية بتسجيل الدخول:
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### التكوين
+
+اضبط خاصية `routing.mode` على `"search-params"` (مثل `/about?locale=ar`) أو `"no-prefix"` لتقديم المحتوى بدون بادئة مسار:
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // بقية اللغات الخاصة بك
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // أو `no-prefix` - مفيد لاكتشاف الوسيط (middleware)
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > من خلال ملف التهيئة هذا، يمكنك إعداد عناوين URL محلية، إعادة توجيه البروكسي، أسماء ملفات تعريف الارتباط، موقع وامتداد إعلانات المحتوى الخاصة بك، تعطيل سجلات Intlayer في وحدة التحكم، والمزيد. للحصول على قائمة كاملة بالمعلمات المتاحة، راجع [توثيق التهيئة](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md).
 
@@ -277,6 +355,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="تعريف مسارات اللغة الديناميكية">
+
+<Tabs group="routing-mode">
+<Tab label="مع مسار اللغة" value="with-locale-path">
 
 قم بإزالة كل شيء من `RootLayout` واستبداله بالكود التالي:
 
@@ -372,6 +453,102 @@ export default LocaleLayout;
 
 > يعمل Intlayer مع `export const dynamic = 'force-static';` لضمان بناء الصفحات مسبقًا لجميع اللغات.
 
+</Tab>
+<Tab label="بدون مسار اللغة" value="without-locale-path">
+
+في البنية التي لا تحتوي على مسارات لغة، لا يوجد مجلد `[locale]`. قم بتكوين `src/app/layout.tsx` مباشرة لقراءة اللغة من سياق الطلب وتغليف تطبيقك بـ `IntlayerProvider`:
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+> يغطي `IntlayerProvider` الواحد كلا نصفي الشجرة: فهو يُهيئ سياق الخادم ذي النطاق المحدد بالطلب والذي تقرأه hooks الخادم، ويُحمّل مزود العميل بحيث تتلقى مكونات العميل نفس اللغة.
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+ </Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
+
 </Step>
 
 <Step number={5} title="إعلان المحتوى الخاص بك">
@@ -459,7 +636,7 @@ export default Page;
 ```
 
 - **`IntlayerProvider`** يتم تثبيته مرة واحدة، في تخطيط المنطقة الجغرافية. يوفر المنطقة الجغرافية لمكونات الخادم والعميل، لذلك لا تحتاج الصفحات إلى تغليف نفسها.
-- تحل hooks الخادم المنطقة الجغرافية بالترتيب التالي: المنطقة الجغرافية المُمررة في موقع الاستدعاء، ثم سياق الخادم المزروع بواسطة المزود، ثم المنطقة الجغرافية المحمولة بواسطة الطلب (رأس `x-intlayer-locale` الذي يعيّنه وكيل Intlayer، ثم ملف تعريف الارتباط للمنطقة الجغرافية). تلك الخطوة الأخيرة هي ما يحافظ على صحة المحتوى أثناء التنقل من جانب العميل الذي يعيد تصيير مقطع الصفحة فقط، حيث لا يعاد تشغيل التخطيط — وبالتالي المزود —.
+- تحل hooks الخادم المنطقة الجغرافية بالترتيب التالي: المنطقة الجغرافية المُمررة في موقع الاستدعاء، ثم سياق الخادم المزروع بواسطة المزود، ثم المنطقة الجغرافية المحمولة بواسطة الطلب (رأس `x-intlayer-locale` الذي يعيّنه وكيل Intlayer، ثم ملف تعريف الارتباط للمنطقة الجغرافية). تلك الخطوة الأخيرة هي ما يحافظ على صحة المحتوى أثناء التنقل من جانب العميل الذي يعيد تصيير مقطع الصفحة فقط، حيث لا يعاد تشغيل التخطيط , وبالتالي المزود , .
 
 </Tab>
 <Tab label='Intlayer <9.4' value='<9.4'>
@@ -1262,7 +1439,7 @@ Next.js 12 و 13 و 14 و 15 و 16. يتم دعم كل من App Router و Pages 
 - `"no-prefix"`: لا توجد لغة في المسار، ويتم تحديدها من ملفات تعريف الارتباط أو الترويسة أو النطاق.
 - `"search-params"`: `/about?locale=fr`.
 
-يمكنك أيضًا تعيين كل لغة لنطاق خاص بها باستخدام `routing.domains`. راجع [مرجع التكوين](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md) و [دليل بدون مسار لغة](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_with_nextjs_no_locale_path.md).
+يمكنك أيضًا تعيين كل لغة لنطاق خاص بها باستخدام `routing.domains`. راجع [مرجع التكوين](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/configuration.md) و [الخطوة 2](#step-2-configure-your-project) لخيارات وضع التوجيه.
 
 </Question>
 

@@ -45,8 +45,6 @@ author: aymericzip
 - 容許缺少前導斜線和空值（正規化為 `/`）
 - 輕量級 — 建構在 `getPathWithoutLocale` 之上
 
----
-
 ## 函式簽名
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // 選填
 ): string
 ```
-
----
 
 ## 參數
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **型別**: `boolean`
 - **描述**: 當兩個輸入都解析為相同的與語言設定無關的路徑時回傳 `true`，否則回傳 `false`。
-
----
 
 ## 範例用法
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` 回傳由 `comparePaths` 使用的、與語言設定無關的正規路徑名稱。它移除了語言設定區段、通訊協定/主機、查詢字串和雜湊，確保單個前導斜線，刪除任何結尾斜線（根目錄除外），對於空值則回退為 `/`。
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## 相關函式
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/packages/intlayer/getPathWithoutLocale.md): 從 URL 或路徑中刪除語言設定區段。
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/packages/intlayer/getPrefix.md): 取得給定語言設定的 URL 前綴。
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/packages/intlayer/getLocalizedUrl.md): 為特定語言設定生成本地化 URL。
-
----
 
 ## TypeScript
 

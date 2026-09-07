@@ -35,8 +35,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 <TOC/>
 
----
-
 ## アーキテクチャ
 
 ```
@@ -56,8 +54,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 Chromium (Puppeteerのスクリーンショット生成に使用) はバックエンドイメージ内にバンドルされており、別のコンテナは必要ありません。
 
----
-
 ## 前提条件
 
 - **Docker** ≥ 24 および **Docker Compose** ≥ v2。いずれかが不足している場合、インストーラーはインストールリンクを表示して終了します。
@@ -65,8 +61,6 @@ Chromium (Puppeteerのスクリーンショット生成に使用) はバック�
 - LinuxまたはmacOSホスト（またはWindows上のWSL2）。
 
 その他すべて — Bun、Redis、MinIO、Chromium — はイメージ内に含まれています。
-
----
 
 ## クイックスタート
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > 4 つのポート変数は、`docker run` コマンドで出力されるマッピングの**ホスト**側のみを変更します。公開されたイメージには、`http://localhost:3000`、`http://localhost:3100`、`http://localhost:9000` がビルド時にダッシュボード bundle にコンパイルされているため、これらをリマップするとブラウザーが古いポートを指し続けます。独自のイメージをビルドしていない限り、デフォルトを保持してください — [制限事項](#limitations)を参照してください。
 
----
-
 ## 初回セットアップ
 
 新規インスタンス（空のデータベース）でダッシュボードを開くと、**`/init`** ページにリダイレクトされます：
@@ -147,8 +139,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 3. メール内のリンクをクリックしてサインインします。
 
 管理者が存在すると、`/init` は標準的なサインインページにリダイレクトされます。
-
----
 
 ## サービス
 
@@ -162,8 +152,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 | **mailpit** | `axllent/mailpit`                    | `1025` (SMTP), `8025` (ウェブUI) | ローカルトランザクションメールシンク                         |
 
 > MinIOポート `9000` は、アップロードされたアセット (アバター、スクリーンショット) が `S3_PUBLIC_URL=http://localhost:9000/intlayer` から直接読み込まれるため、ブラウザから到達可能である必要があります。
-
----
 
 ## 環境変数
 
@@ -234,8 +222,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > 優先順位: 組織独自のメーラー (**Organization** ダッシュボードから設定) が優先され、次にグローバルメーラーが優先され、最後にデフォルトの Resend キーが優先されます。
 
----
-
 ## Intlayerプロジェクトの接続
 
 スタックが稼働したら、`intlayer.org` の代わりに自己ホスト型のバックエンドとダッシュボードを指すようにプロジェクトを設定します。
@@ -297,8 +283,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## アップグレード
 
 これにより、最新のイメージがプルされ、`docker compose pull && docker compose up -d` でコンテナが再起動されます。既存のボリューム (`mongo-data`、`redis-data`、`minio-data`) は保持され、データ損失はありません。
@@ -307,8 +291,6 @@ const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## バックアップと復元
 
@@ -344,15 +326,11 @@ docker run --rm \
 # redis-data と minio-data についても同様に繰り返します
 ```
 
----
-
 ## 制限事項
 
 - **MongoDB は外部 (Atlas) である必要があります。** バックエンドは `mongodb+srv://` 経由でのみ接続します (`DB_ID` / `DB_MDP` / `DB_CLUSTER` から構築)。したがって、プレーンな `mongodb://host:27017` — コンテナにバンドルされた `mongod` を含む — は使用できません。MongoDB Atlas クラスタを提供してください。
 - **カスタムドメインはサポートされていません。** すべてのブラウザ向け `VITE_*` URL はビルド時にアプリにインラインされ、公開されたイメージには `localhost` の値が付属します。ダッシュボードには `http://localhost:3000` でアクセスする必要があります。パブリックドメインでサービスするには、イメージをターゲット URL を焼き込んで再構築する必要があり、そのままではサポートされていません。
 - **メールは機能するメーラーが必要です。** 初回実行セットアップではメール検証が強制されるため、`RESEND_API_KEY` または [グローバル SMTP メーラー](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`) を設定する必要があります。最初の管理者がサインインした後、各組織はダッシュボードから独自の SMTP または Resend メーラーを設定することもできます。
-
----
 
 ## トラブルシューティング
 
@@ -379,8 +357,6 @@ docker compose logs redis
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## 役立つリンク
 

@@ -53,8 +53,6 @@ Intlayer mükemmel bir bağımsız i18n çözümü sunarken (bkz. [Vue.js entegr
 
 Bu rehber, Intlayer'ın üstün içerik beyan sistemi avantajlarından yararlanırken vue-i18n ile uyumluluğu nasıl koruyacağınızı gösterir.
 
----
-
 ## Intlayer'ı vue-i18n ile Kurmak İçin Adım Adım Rehber
 
 <Steps>

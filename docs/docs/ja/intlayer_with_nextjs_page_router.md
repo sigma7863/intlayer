@@ -114,8 +114,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Page Router を使用した Next.js アプリケーションでの Intlayer セットアップ手順
 
 <Steps>

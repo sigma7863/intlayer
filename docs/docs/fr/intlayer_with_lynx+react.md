@@ -89,8 +89,6 @@ Bien plus qu'une simple solution i18n, Intlayer propose un **[éditeur visuel](h
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="Installer les dépendances">
@@ -457,8 +455,6 @@ Cela permet des fonctionnalités comme :
 - **Autocomplétion** pour les clés de votre dictionnaire.
 - **Vérification des types** qui avertit si vous accédez à une clé inexistante ou si le type ne correspond pas.
 
----
-
 ## Configuration Git
 
 Pour éviter de commettre les fichiers générés automatiquement par Intlayer, ajoutez ce qui suit à votre `.gitignore` :
@@ -467,8 +463,6 @@ Pour éviter de commettre les fichiers générés automatiquement par Intlayer, 
 #  Ignorer les fichiers générés par Intlayer
 .intlayer
 ```
-
----
 
 ### Extension VS Code
 
@@ -488,8 +482,6 @@ Cette extension offre :
 - **Aperçus en ligne** du contenu traduit.
 - **Actions rapides** pour créer et mettre à jour facilement les traductions.
   Pour plus de détails sur l'utilisation de l'extension, consultez la [documentation de l'extension Intlayer pour VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ## Aller plus loin
 

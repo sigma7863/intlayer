@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Neleri İzler
 
 `@intlayer/analytics` üç tür anonim olayı toplu olarak işler (batch):

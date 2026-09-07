@@ -89,8 +89,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="Instalacja zależności">
@@ -458,8 +456,6 @@ To umożliwia funkcje takie jak:
 - **Autouzupełnianie** dla kluczy słownika.
 - **Sprawdzanie typów**, które ostrzega, jeśli odwołujesz się do nieistniejącego klucza lub niezgodności typu.
 
----
-
 ## Konfiguracja Git
 
 Aby uniknąć zatwierdzania automatycznie generowanych plików przez Intlayer, dodaj następujące do swojego `.gitignore`:
@@ -468,8 +464,6 @@ Aby uniknąć zatwierdzania automatycznie generowanych plików przez Intlayer, d
 #  Ignoruj pliki generowane przez Intlayer
 .intlayer
 ```
-
----
 
 ### Rozszerzenie VS Code
 
@@ -485,8 +479,6 @@ To rozszerzenie oferuje:
 - **Szybkie akcje** umożliwiające łatwe tworzenie i aktualizowanie tłumaczeń.
 
 Aby uzyskać więcej informacji na temat korzystania z rozszerzenia, zapoznaj się z [dokumentacją rozszerzenia Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ## Idź dalej
 

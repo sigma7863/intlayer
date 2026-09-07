@@ -30,13 +30,9 @@ author: aymericzip
 
 Intlayer to rozwiązanie do zarządzania treścią i internacjonalizacji, zaprojektowane tak, aby usprawnić sposób deklarowania, zarządzania i aktualizacji treści w Twoich aplikacjach. Oferuje potężne funkcje, takie jak scentralizowana lub rozproszona deklaracja treści, rozbudowane opcje internacjonalizacji, wsparcie dla Markdown, renderowanie warunkowe, integrację z TypeScript/JavaScript/JSON i wiele więcej. Poniżej znajduje się kompleksowy przegląd tego, co Intlayer obecnie oferuje, a także nadchodzące funkcje w planie rozwoju.
 
----
-
 ## Spis treści
 
 <TOC/>
-
----
 
 ## Obecne funkcje
 
@@ -149,8 +145,6 @@ Intlayer obsługuje **TypeScript** (również JavaScript) oraz **JSON** do dekla
 >
 > - [Konfiguracja budowania](https://intlayer.org/doc/concept/configuration#build-configuration)
 
----
-
 ## Integracja z Frameworkami i Środowiskami
 
 ### 1. Next.js
@@ -237,8 +231,6 @@ Intlayer obsługuje **TypeScript** (również JavaScript) oraz **JSON** do dekla
 >
 > - [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_with_preact.md)
 
----
-
 ## Edytory wizualne i CMS
 
 ### 1. Lokalny edytor wizualny
@@ -264,20 +256,14 @@ Intlayer obsługuje **TypeScript** (również JavaScript) oraz **JSON** do dekla
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_CMS.md)
 
----
-
 ## Rozszerzenia IDE
 
 - Rozszerzenia dla głównych IDE, które zapewniają **graficzny interfejs** do zarządzania lokalnymi i zdalnymi tłumaczeniami.
 - Funkcje mogą obejmować automatyczne generowanie plików deklaracji treści dla komponentów, bezpośrednią integrację z Intlayer CMS oraz walidację w czasie rzeczywistym.
 
----
-
 ## Serwer MCP
 
 - **Serwer MCP**, który pozwala zarządzać treścią i tłumaczeniami za pomocą zintegrowanego narzędzia w Twoim IDE.
-
----
 
 ## Intlayer CLI
 
@@ -289,14 +275,10 @@ Intlayer obsługuje **TypeScript** (również JavaScript) oraz **JSON** do dekla
 >
 > - [CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/cli/index.md)
 
----
-
 ## Środowiska
 
 - Używaj **zmiennych środowiskowych**, aby konfigurować Intlayer inaczej w środowiskach produkcyjnych, testowych i lokalnych.
 - Określ, który edytor wizualny lub zdalny projekt CMS ma być używany w zależności od środowiska.
-
----
 
 ## Gorące aktualizacje treści
 
@@ -305,8 +287,6 @@ Intlayer obsługuje **TypeScript** (również JavaScript) oraz **JSON** do dekla
 > Zasoby:
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_CMS.md)
-
----
 
 ## Nadchodzące funkcje
 
@@ -335,8 +315,6 @@ Intlayer obsługuje **TypeScript** (również JavaScript) oraz **JSON** do dekla
 
 - Trwają prace nad wsparciem dla **Solid, Svelte, Angular** i innych.
 - Celem jest uczynienie Intlayer kompatybilnym z **każdą aplikacją opartą na JavaScript**.
-
----
 
 ## Podsumowanie
 

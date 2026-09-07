@@ -458,8 +458,6 @@ Intlayer ऑटोकम्प्लीशन को बेहतर बना�
 - **ऑटोकम्प्लीशन** आपके शब्दकोश की कुंजियों के लिए।
 - **टाइप जांच** जो चेतावनी देता है यदि आप किसी अस्तित्वहीन कुंजी तक पहुँचते हैं या प्रकार मेल नहीं खाते हैं।
 
----
-
 ## गिट कॉन्फ़िगरेशन
 
 Intlayer द्वारा स्वचालित रूप से उत्पन्न फ़ाइलों को कमिट करने से बचने के लिए, अपनी `.gitignore` में निम्नलिखित जोड़ें:
@@ -468,8 +466,6 @@ Intlayer द्वारा स्वचालित रूप से उत्�
 #  Intlayer द्वारा उत्पन्न फ़ाइलों को अनदेखा करें
 .intlayer
 ```
-
----
 
 ### VS कोड एक्सटेंशन
 
@@ -486,8 +482,6 @@ Intlayer के साथ अपने विकास अनुभव को �
 
 एक्सटेंशन का उपयोग कैसे करें, इसके लिए अधिक जानकारी के लिए देखें [Intlayer VS कोड एक्सटेंशन दस्तावेज़](https://intlayer.org/doc/vs-code-extension)।
 
----
-
 ## आगे बढ़ें
 
 - **विज़ुअल एडिटर**: अनुवादों को दृश्य रूप से प्रबंधित करने के लिए [Intlayer विज़ुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) का उपयोग करें।
@@ -495,8 +489,6 @@ Intlayer के साथ अपने विकास अनुभव को �
 - **CLI कमांड्स**: ऐसे कार्यों के लिए [Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/index.md) का अन्वेषण करें जैसे **अनुवाद निकालना** या **गुम हुए कुंजियों की जांच करना**।
 
 **Intlayer** के माध्यम से पूरी तरह से सशक्त i18n के साथ अपने **React Native** ऐप्स का निर्माण करें!
-
----
 
 ### Debug
 
@@ -523,8 +515,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - यदि modules resolve करने में विफल हों तो अपने Metro configuration (resolver aliases, asset plugins, `tsconfig` paths) को verify करें।
-
----
 
 ## अक्सर पूछे जाने वाले प्रश्न
 

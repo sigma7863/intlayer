@@ -44,8 +44,6 @@ It is the relative counterpart of [`getLocalizedUrl`](https://github.com/aymeric
 - Automatically handles fallback to the canonical path if no rewrite rule is found for the specified locale.
 - Narrows its return type: a literal path resolves to the localized string literal at compile time.
 
----
-
 ## Function Signature
 
 ```typescript
@@ -60,8 +58,6 @@ getLocalizedPath(
   }
 ): string
 ```
-
----
 
 ## Parameters
 
@@ -87,8 +83,6 @@ getLocalizedPath(
   - `options.defaultLocale?: Locales` — the default locale. **Default**: `configuration.internationalization.defaultLocale`
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — how the locale appears in the path. **Default**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — custom rewrite rules. **Default**: `configuration.routing.rewrite`
-
----
 
 ## Returns
 
@@ -116,8 +110,6 @@ Two cases stay widened to `string`, because they cannot be resolved at compile t
 
 - a path that is not a string literal (e.g. one built from a variable);
 - a path matched by a rule using a multi-segment or optional parameter (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Example Usage
 
@@ -176,8 +168,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Output: "/about"
 ```
-
----
 
 ## Related Functions
 

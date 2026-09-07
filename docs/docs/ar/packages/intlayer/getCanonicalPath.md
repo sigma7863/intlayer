@@ -37,8 +37,6 @@ author: aymericzip
 - تطابق المسارات المموّلة حسب اللغة مع قواعد إعادة الكتابة المخصصة المعرفة في إعداداتك.
 - تعيد المسار الأصلي إذا لم يتم العثور على قاعدة إعادة كتابة مطابقة.
 
----
-
 ## توقيع الدالة
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // اختياري
 ): string
 ```
-
----
 
 ## المعلمات
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **النوع**: `RoutingConfig['rewrite']`
   - **الافتراضي**: `configuration.routing.rewrite`
 
----
-
 ## القيمة المرجعة
 
 - **النوع**: `string`
 - **الوصف**: المسار الرسمي الداخلي.
-
----
 
 ## مثال على الاستخدام
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // الناتج: "/contact"
 ```
-
----
 
 ## الدوال ذات الصلة
 

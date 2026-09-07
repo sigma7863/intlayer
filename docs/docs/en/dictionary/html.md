@@ -119,8 +119,6 @@ const myContent = html(
 
 When using the `.use()` method on an HTML node, the components you provide will be checked against the definition provided in the `html()` function (if available).
 
----
-
 ## Rendering HTML
 
 Rendering can be handled automatically by Intlayer's content system or manually using specialized tools.
@@ -474,8 +472,6 @@ You can configure HTML rendering globally for your entire application. This is i
   </Tab>
 </Tabs>
 
----
-
 ### Manual Rendering & Advanced Tools
 
 If you need to render raw HTML strings or have more control over the component mapping, use the following tools.
@@ -647,8 +643,6 @@ If you need to render raw HTML strings or have more control over the component m
 
   </Tab>
 </Tabs>
-
----
 
 ## Options Reference
 

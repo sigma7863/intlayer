@@ -45,8 +45,6 @@ Het pakket exporteert ook de onderliggende hulpmethode [`normalizePath`](#normal
 - Tolereert ontbrekende voorloopstrepen en lege waarden (genormaliseerd naar `/`)
 - Lichtgewicht — gebouwd bovenop `getPathWithoutLocale`
 
----
-
 ## Functiesignatuur
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // Optioneel
 ): string
 ```
-
----
 
 ## Parameters
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Type**: `boolean`
 - **Beschrijving**: `true` wanneer beide invoeren leiden tot hetzelfde locale-onafhankelijke pad, anders `false`.
-
----
 
 ## Voorbeeldgebruik
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` retourneert het canonieke, locale-onafhankelijke pad dat wordt gebruikt door `comparePaths`. Het verwijdert het locale-segment, het protocol/host, de query-string en de hash, zorgt voor een enkele voorloopstreep, verwijdert eventuele afsluitende schuine strepen (behalve voor de root) en valt terug op `/` voor lege waarden.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## Gerelateerde functies
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/nl/packages/intlayer/getPathWithoutLocale.md): Verwijdert het locale-segment van een URL of pad.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/nl/packages/intlayer/getPrefix.md): Bepaalt de URL-prefix voor een gegeven locale.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/nl/packages/intlayer/getLocalizedUrl.md): Genereert een gelokaliseerde URL voor een specifieke locale.
-
----
 
 ## TypeScript
 

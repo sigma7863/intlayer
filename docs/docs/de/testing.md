@@ -24,15 +24,11 @@ author: aymericzip
 
 Dieser Leitfaden zeigt, wie Sie automatisch überprüfen können, ob Ihre Wörterbücher vollständig sind, fehlende Übersetzungen vor der Veröffentlichung erkennen und die lokalisierte Benutzeroberfläche in Ihrer App testen.
 
----
-
 ## Was Sie testen können
 
 - **Fehlende Übersetzungen**: CI schlägt fehl, wenn für ein Wörterbuch erforderliche Sprachversionen fehlen.
 - **Lokalisierte UI-Darstellung**: Komponenten mit einem bestimmten Sprachprovider rendern und sichtbaren Text/Attribute überprüfen.
 - **Build-Zeit Prüfungen**: Führen Sie lokal eine schnelle Prüfung über die CLI durch.
-
----
 
 ## Schnellstart: Prüfung über CLI
 
@@ -63,8 +59,6 @@ Nützliche Optionen:
 - `--prefix [Label]`: fügt den Protokollzeilen ein Präfix hinzu.
 
 Hinweis: Die CLI gibt einen detaillierten Bericht aus, beendet sich jedoch bei Fehlern nicht mit einem Fehlercode. Für CI-Gates fügen Sie einen Unit-Test (siehe unten) hinzu, der sicherstellt, dass keine erforderlichen Sprachversionen fehlen.
-
----
 
 ## Programmatischer Test (Vitest/Jest)
 
@@ -112,8 +106,6 @@ Wie es funktioniert:
   - `missingLocales`: Vereinigung aller fehlenden Sprachversionen.
   - `missingRequiredLocales`: Teilmenge beschränkt auf `requiredLocales` (oder alle Sprachversionen, wenn `requiredLocales` nicht gesetzt ist).
 
----
-
 ## Testen der lokalisierten Benutzeroberfläche (React / Next.js)
 
 Rendern Sie Komponenten unter einem Intlayer-Provider und prüfen Sie den sichtbaren Inhalt.
@@ -159,8 +151,6 @@ Tipps:
 
 - Wenn Sie rohe Zeichenkettenwerte für Attribute benötigen (z. B. `aria-label`), greifen Sie auf das `.value`-Feld zu, das von `useIntlayer` in React zurückgegeben wird.
 - Behalten Sie Wörterbücher in der Nähe der Komponenten für einfachere Unit-Tests und Bereinigung bei.
-
----
 
 ## Kontinuierliche Integration
 
@@ -210,8 +200,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## Fehlerbehebung
 

@@ -107,8 +107,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Vite و Vanilla JS
 
 <Steps>
@@ -763,8 +761,6 @@ console.log("SEO files generated successfully.");
 - **إجراءات سريعة** لإنشاء وتحديث الترجمات بسهولة.
 
 لمزيد من التفاصيل حول كيفية استخدام الملحق، ارجع إلى [توثيق ملحق Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### اذهب أبعد من ذلك
 

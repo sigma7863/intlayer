@@ -39,8 +39,6 @@ author: aymericzip
 - 모든 라우팅 모드 지원: `prefix-no-default`, `prefix-all`, `no-prefix`, `search-params`
 - 로케일 접두사를 추가할 시점을 결정하는 가벼운 유틸리티
 
----
-
 ## 함수 시그니처
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // 예: 'fr' 또는 undefined
 }
 ```
-
----
 
 ## 매개변수
 
@@ -92,8 +88,6 @@ type GetPrefixResult = {
 - **설명**: 세 가지 다른 접두사 형식을 포함하는 객체:
   - `prefix`: 후행 슬래시가 포함된 경로 접두사 (예: `'fr/'`, `''`)
   - `localePrefix`: 슬래시가 없는 로케일 식별자 (예: `'fr'`, `undefined`)
-
----
 
 ## 사용 예제
 
@@ -174,14 +168,10 @@ console.log(`현재 로케일: ${localePrefix}`);
 // 출력: "현재 로케일: fr"
 ```
 
----
-
 ## 관련 함수
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getLocalizedUrl.md): 특정 로케일에 대한 현지화된 URL 생성
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getMultilingualUrls.md): 구성된 모든 로케일에 대한 URL 생성
-
----
 
 ## TypeScript
 

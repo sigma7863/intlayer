@@ -38,8 +38,6 @@ Funkcja `getLocalizedUrl` generuje zlokalizowany URL, poprzedzając podany URL o
 - Używa konfiguracji internacjonalizacji Twojego projektu jako wartości domyślnych
 - Może być używana z minimalną liczbą parametrów dla prostych przypadków lub w pełni dostosowana do złożonych scenariuszy
 
----
-
 ## Sygnatura funkcji
 
 ```typescript
@@ -51,8 +49,6 @@ getLocalizedUrl(
   prefixDefault?: boolean        // Opcjonalny
 ): string
 ```
-
----
 
 ## Parametry
 
@@ -97,8 +93,6 @@ getLocalizedUrl(
 
 - **Typ**: `string`
 - **Opis**: Lokalizowany URL dla określonego języka.
-
----
 
 ## Przykład użycia
 
@@ -197,8 +191,6 @@ getLocalizedUrl(
 ); // Output: "/about" (brak prefiksu dla nieobsługiwanej lokalizacji)
 ```
 
----
-
 ## Przypadki brzegowe
 
 - **Brak segmentu lokalizacji:**
@@ -215,8 +207,6 @@ getLocalizedUrl(
   - `'prefix-all'`: Wszystkie locale z prefiksami (np. `/en/about`, `/fr/about`)
   - `'no-prefix'`: Brak prefiksów locale w URL-ach (locale obsługiwana w innym miejscu)
   - `'search-params'`: Locale określona przez parametr zapytania (np. `/about?locale=fr`)
-
----
 
 ## Użycie w aplikacjach
 

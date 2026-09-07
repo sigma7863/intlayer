@@ -45,8 +45,6 @@ Balíček také exportuje základní pomocnou funkci [`normalizePath`](#normaliz
 - Toleruje chybějící úvodní lomítka a prázdné hodnoty (normalizuje je na `/`)
 - Odlehčená (lightweight) — postavena nad funkcí `getPathWithoutLocale`
 
----
-
 ## Signatura funkce
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // Volitelné
 ): string
 ```
-
----
 
 ## Parametry
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Typ**: `boolean`
 - **Popis**: `true`, když se oba vstupy přeloží na stejnou cestu nezávislou na jazyce, jinak `false`.
-
----
 
 ## Příklady použití
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 Funkce `normalizePath` vrací kanonickou cestu nezávislou na jazyce, kterou využívá `comparePaths`. Odstraní segment jazyka, protokol/hostitele, dotazovací řetězec i hash, zajistí jedno úvodní lomítko, odstraní veškerá koncová lomítka (s výjimkou kořenové složky) a u prázdnných hodnot se vrátí na `/`.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## Související funkce
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/packages/intlayer/getPathWithoutLocale.md): Odstraní segment jazyka z URL nebo cesty.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/packages/intlayer/getPrefix.md): Získá URL prefix pro daný jazyk (locale).
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/packages/intlayer/getLocalizedUrl.md): Vygeneruje lokalizovanou URL pro konkrétní jazyk.
-
----
 
 ## TypeScript
 

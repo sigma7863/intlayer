@@ -41,8 +41,6 @@ Oluşturulan kayıt defterinde bir sözlüğü anahtara göre arayan [`getIntlay
 - Tam olarak tipli: döndürülen nesne, geçtiğiniz `content`'i yansıtır
 - Özel yorumlayıcı eklentilerini kabul eder
 
----
-
 ## Fonksiyon İmzası
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // İsteğe Bağlı
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parametreler
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Tür**: Sözlüğün yorumlanan içeriği.
 - **Açıklama**: Geçirdiğiniz `content`, istenen yerel ayar için çözümlenen her Intlayer düğümü ile. `item` seçici olmayan bir koleksiyon grubu için, yorumlanan girdilerin sıralı bir dizisi döndürülür; seçici hiçbir şeyi hedeflediğinde `null` döndürülür.
-
----
 
 ## Örnek Kullanım
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## İlgili Fonksiyonlar
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getIntlayer.md): Aynı yorum, ancak sözlük oluşturulan kayıt defterinde anahtar tarafından aranır.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getDictionaryAsync.md): Her locale yükleyici haritaları için karşılık gelen fonksiyon.
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/react-intlayer/useDictionary.md): React hook eşdeğeri, sağlayıcıdan locale'i okur.
-
----
 
 ## TypeScript
 

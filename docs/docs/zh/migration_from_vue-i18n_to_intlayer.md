@@ -67,8 +67,6 @@ Intlayer 也是 i18n 生态中**开发最活跃的**解决方案 —— 问题�
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 迁移策略
 
 从 `vue-i18n` 迁移到 Intlayer 有两种互补的策略：
@@ -79,13 +77,9 @@ Intlayer 也是 i18n 生态中**开发最活跃的**解决方案 —— 问题�
 
 本指南首先介绍**策略 1**（即插即用兼容适配器），然后演练可选的完整迁移。
 
----
-
 ## 目录
 
 <TOC/>
-
----
 
 ## 快速迁移
 
@@ -222,8 +216,6 @@ export default defineNuxtConfig({
 > t("does.not.exist"); // ✗ TypeScript 错误
 > ```
 
----
-
 ## 完整迁移
 
 下面的步骤是可选的，可以逐步完成。它们解锁完整的 Intlayer 功能集：visual editor、CMS、类型化内容文件、AI 驱动的翻译等。
@@ -304,8 +296,6 @@ export default config;
 
 </Steps>
 
----
-
 ## 迁移后可以删除的内容
 
 兼容适配器就位后，可以删除以下 `vue-i18n` 样板代码：
@@ -317,8 +307,6 @@ export default config;
 | JSON 语言 bundle（`locales/*.json`） | JSON bundle 只有在仍使用 `syncJSON` plugin 时才需要。迁移到 `.content.ts` 文件后，可以删除 JSON 文件夹。 |
 
 当您准备进一步进行时，Intlayer **自动发现代码库中任何地方的所有 `.content.ts` 和 `.content.json` 文件**（默认在 `./src` 内的任何地方）。您可以将 `my-component.content.ts` 文件放在 `MyComponent.vue` 旁边，Intlayer 会在构建时选中它，无需额外配置 —— 无需 import、无需注册、无需集中索引文件。这使得与页面和组件共同定位翻译完全无摩擦。
-
----
 
 ## 配置 TypeScript
 
@@ -334,8 +322,6 @@ Intlayer 使用 module augmentation 为您的 translation key 提供完整的 Ty
 }
 ```
 
----
-
 ## Git 配置
 
 将 Intlayer 的生成目录添加到您的 `.gitignore`：
@@ -344,8 +330,6 @@ Intlayer 使用 module augmentation 为您的 translation key 提供完整的 Ty
 # 忽略 Intlayer 生成的文件
 .intlayer
 ```
-
----
 
 ## 更进一步
 

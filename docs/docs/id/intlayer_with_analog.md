@@ -105,8 +105,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah demi Langkah untuk Menyiapkan Intlayer dalam Aplikasi Analog
 
 Lihat [Templat Aplikasi](https://github.com/aymericzip/intlayer-analog-template) di GitHub.
@@ -403,8 +401,6 @@ Ekstensi ini menyediakan:
 - **Tindakan cepat** untuk membuat dan memperbarui terjemahan dengan mudah.
 
 Untuk detail lebih lanjut tentang cara menggunakan ekstensi ini, lihat [dokumentasi Ekstensi VS Code Intlayer](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Melangkah Lebih Jauh
 

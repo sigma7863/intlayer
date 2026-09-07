@@ -65,8 +65,6 @@ This guide explains how to leverage Intlayer as an **adapter for i18next**, allo
 - Automate your JSON translations in CLI or CI/CD pipelines.
 - Test, sync, and manage translations more effectively.
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer with next-i18next
 
 <Steps>

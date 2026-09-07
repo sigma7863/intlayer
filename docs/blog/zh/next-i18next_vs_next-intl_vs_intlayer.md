@@ -42,15 +42,11 @@ author: aymericzip
 
 > 开发者常犯的一个误解是认为 `next-intl` 是 `react-intl` 的 Next.js 版本。事实并非如此, `next-intl` 由 [Amann](https://github.com/amannn) 维护，而 `react-intl` 由 [FormatJS](https://github.com/formatjs/formatjs) 维护。
 
----
-
 ## 简而言之
 
 - **next-intl** - 轻量级、直接的消息格式化，具有扎实的 Next.js 支持。通常采用集中式目录；开发体验简单，但安全性和大规模维护主要依赖于你自己。
 - **next-i18next** - i18next 的 Next.js 版本。生态系统成熟，支持通过插件（例如 ICU）扩展功能，但配置可能较为冗长，且随着项目增长目录趋向集中化。
 - **Intlayer** - 面向组件的 Next.js 内容模型，**严格的 TS 类型检查**，**构建时校验**，**摇树优化**，**内置中间件和 SEO 辅助工具**，可选的**可视化编辑器/CMS**，以及**AI 辅助翻译**。
-
----
 
 | Library                | GitHub Stars                                                                                                                                                                     | Total Commits                                                                                                                                                                        | Last Commit                                                                                                                                           | First Version | NPM Version                                                                                                         | NPM Downloads                                                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -60,8 +56,6 @@ author: aymericzip
 | `i18next/next-i18next` | [![GitHub Repo stars](https://img.shields.io/github/stars/i18next/next-i18next?style=for-the-badge&label=%E2%AD%90%20stars)](https://github.com/i18next/next-i18next/stargazers) | [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/i18next/next-i18next?style=for-the-badge&label=commits)](https://github.com/i18next/next-i18next/commits) | [![Last Commit](https://img.shields.io/github/last-commit/i18next/next-i18next?style=for-the-badge)](https://github.com/i18next/next-i18next/commits) | Nov 2018      | [![npm](https://img.shields.io/npm/v/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) | [![npm downloads](https://img.shields.io/npm/dm/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) |
 
 > 徽章会自动更新。快照会随时间变化。
-
----
 
 ## 并排功能对比（以 Next.js 为重点）
 
@@ -88,15 +82,11 @@ author: aymericzip
 | **大型项目管理**                       | ✅ 鼓励模块化，适合设计系统                                                    | ✅ 通过配置实现模块化                                        | ✅ 通过配置实现模块化                                        |
 | **测试缺失的翻译（CLI/CI）**           | ✅ CLI: `npx intlayer content test`（适合CI的审计）                            | ⚠️ 非内置；文档建议使用 `npx @lingual/i18n-check`            | ⚠️ 非内置；依赖 i18next 工具 / 运行时 `saveMissing`          |
 
----
-
 ## 介绍
 
 Next.js 为你内置了国际化路由支持（例如区域段）。但该功能本身并不进行翻译。你仍然需要一个库来向用户呈现本地化内容。
 
 市面上有许多 i18n 库，但在 Next.js 领域，当前有三个正在获得关注：next-i18next、next-intl 和 Intlayer。
-
----
 
 ## 架构与可扩展性
 
@@ -104,8 +94,6 @@ Next.js 为你内置了国际化路由支持（例如区域段）。但该功能
 - **Intlayer**：鼓励采用与其服务代码**共置**的**每组件**（或每功能）字典。这降低了认知负担，简化了 UI 组件的复制/迁移，并减少了跨团队冲突。未使用的内容也更容易被发现和清理。
 
 **重要原因：** 在大型代码库或设计系统架构中，**模块化内容**比单体目录更具扩展性。
-
----
 
 ## 包大小与依赖
 
@@ -172,8 +160,6 @@ Next.js 为你内置了国际化路由支持（例如区域段）。但该功能
 | ----------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | ![优化后的包](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle.png?raw=true) | ![未优化的包](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle_no_optimization.png?raw=true) |
 
----
-
 ## TypeScript 与安全性
 
 <Columns>
@@ -198,11 +184,10 @@ Next.js 为你内置了国际化路由支持（例如区域段）。但该功能
 - **从你的内容生成严格类型**。**IDE 自动补全**和**编译时错误**能在部署前捕获拼写错误和缺失的键。
 
   </Column>
+
 </Columns>
 
 **重要原因：** 强类型将失败提前到**左侧**（CI/构建阶段），而非**右侧**（运行时）。
-
----
 
 ## 路由、中间件与 URL 策略
 
@@ -228,11 +213,10 @@ Next.js 为你内置了国际化路由支持（例如区域段）。但该功能
 - 包含上述所有功能，外加 **i18n 中间件**（通过请求头/Cookies 进行语言环境检测）和用于生成本地化 URL 及 `<link rel="alternate" hreflang="…">` 标签的 **辅助工具**。
 
   </Column>
+
 </Columns>
 
 **重要性说明：** 减少自定义粘合层；实现跨语言环境的 **一致用户体验** 和 **干净的 SEO**。
-
----
 
 ## 服务器组件（RSC）对齐
 
@@ -258,11 +242,10 @@ Next.js 为你内置了国际化路由支持（例如区域段）。但该功能
 - 支持 Next.js 13+，并通过一致的 API 和面向 RSC 的提供者平滑处理**服务器/客户端边界**，避免来回传递格式化器或 t 函数。
 
   </Column>
+
 </Columns>
 
 **重要原因：** 更清晰的思维模型，减少混合树中的边缘情况。
-
----
 
 ## 开发体验（DX）、工具链与维护
 
@@ -288,6 +271,7 @@ Next.js 为你内置了国际化路由支持（例如区域段）。但该功能
 - 提供一个**免费的可视化编辑器**和**可选的CMS**（支持Git友好或外部化），以及一个**VSCode扩展**和使用您自己的提供商密钥的**AI辅助翻译**。
 
   </Column>
+
 </Columns>
 
 **重要原因：** 降低运营成本，缩短开发者与内容作者之间的反馈周期。
@@ -798,8 +782,6 @@ const ClientComponentExample = () => {
   - **next-intl** 灵活；根据配置加载消息。
   - **Intlayer** 将内容存储在 TS/JS 字典中，并通过键解析。
 
----
-
 ### 在服务器组件中的使用
 
 我们以一个 UI 组件为例。该组件是一个服务器组件，并且应该能够作为客户端组件的子组件插入。（页面（服务器组件）-> 客户端组件 -> 服务器组件）。由于该组件可以作为客户端组件的子组件插入，因此它不能是异步的。
@@ -897,7 +879,7 @@ const ServerComponent = ({ count }: { count: number }) => {
 开发者经常忘记正确地在不同语言环境中引用他们的页面。
 
 <Tabs defaultTab="next-intl" group='techno'>
- 
+
   <Tab label="next-i18next" value="next-i18next">
 
 ```ts fileName="i18n.config.ts"
@@ -1158,8 +1140,6 @@ export default robots;
 
 > Intlayer 提供了一个 `getMultilingualUrls` 函数，用于为您的站点地图生成多语言 URL。
 
----
-
 ### 本地化路由的中间件
 
 <Tabs defaultTab="next-intl" group='techno'>
@@ -1277,9 +1257,8 @@ export const config = {
 - **集成工具**：利用内置的路由、SEO 辅助工具和可视化编辑器支持。
 
   </Tab>
-</Tabs>
 
----
+</Tabs>
 
 ## 胜者是…
 
@@ -1307,6 +1286,7 @@ export const config = {
 - 为现代 Next.js 构建，具有模块化内容、类型安全、工具支持和更少的样板代码。如果你重视**组件范围的内容**、**严格的 TypeScript**、**构建时保证**、**摇树优化**，以及**内置的**路由/SEO/编辑器工具, 尤其是针对**Next.js 应用路由器**、设计系统和**大型模块化代码库**。
 
   </Column>
+
 </Columns>
 
 如果你偏好最小化设置并且能接受一些手动连接，next-intl 是一个不错的选择。如果你需要所有功能且不介意复杂性，next-i18next 也适用。但如果你想要一个现代、可扩展、模块化且带有内置工具的解决方案，Intlayer 旨在为你开箱即用提供这些功能。
@@ -1320,8 +1300,6 @@ export const config = {
 GitHub 星标是衡量项目受欢迎程度、社区信任度和长期相关性的有力指标。虽然它们不是技术质量的直接衡量标准，但反映了有多少开发者认为该项目有用、关注其进展并可能采用它。对于评估项目价值，星标有助于比较不同选项的吸引力，并提供生态系统增长的洞察。
 
 [![星标历史图表](https://api.star-history.com/chart?repos=i18next/next-i18next%2Camannn/next-intl%2Caymericzip/intlayer&type=date&legend=top-left)](https://www.star-history.com/#i18next/next-i18next&amannn/next-intl&aymericzip/intlayer)
-
----
 
 ## 结论
 

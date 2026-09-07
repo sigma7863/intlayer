@@ -111,8 +111,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku, jak skonfigurować Intlayer w aplikacji Vite i Svelte
 
 Zobacz [Szablon aplikacji](https://github.com/aymericzip/intlayer-vite-svelte-template) na GitHub.
@@ -722,8 +720,6 @@ To rozszerzenie zapewnia:
 - **Szybkie akcje** do łatwego tworzenia i aktualizacji tłumaczeń.
 
 Aby uzyskać więcej szczegółów na temat korzystania z rozszerzenia, zapoznaj się z [dokumentacją Rozszerzenia Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Idź dalej
 

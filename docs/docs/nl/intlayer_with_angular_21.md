@@ -48,8 +48,6 @@ Met Intlayer kunt u:
 - **TypeScript-ondersteuning garanderen** met automatisch gegenereerde types, wat de automatische aanvulling en foutdetectie verbetert.
 - **Profiteren van geavanceerde functies**, zoals dynamische taaldetectie en -wisseling.
 
----
-
 ## Stapsgewijze handleiding om Intlayer in te stellen in een Angular-applicatie
 
 <Tabs defaultTab="code">
@@ -435,8 +433,6 @@ Deze extensie biedt:
 - **Snelle acties** om gemakkelijk vertalingen te maken en bij te werken.
 
 Voor meer informatie over hoe u de extensie kunt gebruiken, zie de [Intlayer VS Code Extensie documentatie](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Verder Gaan
 

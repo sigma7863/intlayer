@@ -35,8 +35,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 <TOC/>
 
----
-
 ## Архітектура
 
 ```
@@ -56,8 +54,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 Chromium (використовується для генерації скріншотів Puppeteer) вбудований в образ бекенду — окремий контейнер не потрібен.
 
----
-
 ## Передумови
 
 - **Docker** ≥ 24 та **Docker Compose** ≥ v2. Якщо чогось бракує, інсталятор виводить посилання на встановлення та завершує роботу.
@@ -65,8 +61,6 @@ Chromium (використовується для генерації скрін�
 - Хост Linux або macOS (або WSL2 на Windows).
 
 Все інше — Bun, Redis, MinIO, Chromium — поставляється всередині образу.
-
----
 
 ## Швидкий старт
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > Чотири змінні портів змінюють лише сторону **host** у відображенні, надрукованому в команді `docker run`. Опублікований image має `http://localhost:3000`, `http://localhost:3100` і `http://localhost:9000` скомпільовані в bundle dashboard під час збірки, тому їх переназначення залишає браузер, спрямований на старі порти. Зберігайте значення за замовчуванням, якщо ви не будуєте власний image — див. [Обмеження](#limitations).
 
----
-
 ## Швидкий старт
 
 Що робить інсталятор:
@@ -149,8 +141,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 5.  Виводить URL-адреси: дашборд `:3000`, API `:3100`, інтерфейс електронної пошти `:8025`, консоль MinIO `:9001`.
 
 Після запуску стека відкрийте **http://localhost:3000** та створіть свій перший обліковий запис.
-
----
 
 ## Сервіси
 
@@ -164,8 +154,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 | **mailpit** | `axllent/mailpit`                   | `1025` (SMTP), `8025` (веб-інтерфейс) | Локальний приймач транзакційних електронних листів         |
 
 > Порт MinIO `9000` має бути доступним для браузера, оскільки завантажені ресурси (аватари, скріншоти) завантажуються безпосередньо з `S3_PUBLIC_URL=http://localhost:9000/intlayer`.
-
----
 
 ## Змінні середовища
 
@@ -236,8 +224,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > Пріоритет: власний поштовик організації (налаштований з панелі керування **Organization**) має пріоритет над глобальним поштовиком, який у свою чергу має пріоритет над ключем Resend за замовчуванням.
 
----
-
 ## Підключення вашого проекту Intlayer
 
 Після запуску стека направте свій проект на самостійно розгорнутий бекенд та дашборд замість `intlayer.org`.
@@ -299,8 +285,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## Оновлення
 
 Це завантажує останні образи та перезапускає контейнери за допомогою `docker compose pull && docker compose up -d`. Існуючі томи (`mongo-data`, `redis-data`, `minio-data`) зберігаються — без втрати даних.
@@ -309,8 +293,6 @@ const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## Резервне копіювання та відновлення
 
@@ -346,15 +328,11 @@ docker run --rm \
 # Повторіть для redis-data та minio-data
 ```
 
----
-
 ## Обмеження
 
 - **MongoDB має бути зовнішньою (Atlas).** Backend підключається лише через `mongodb+srv://` (побудований на основі `DB_ID` / `DB_MDP` / `DB_CLUSTER`), тому звичайний `mongodb://host:27017` — включаючи вбудований `mongod` контейнера — не може бути використаний. Надайте кластер MongoDB Atlas.
 - **Немає користувацького домену.** Усі `VITE_*` URL-адреси, видимі браузером, вбудовуються в додаток під час збирання, а опублікований образ поставляється зі значеннями `localhost`. Доступ до панелі керування має здійснюватися через `http://localhost:3000`; обслуговування її на публічному домені потребувало б перебудови образу з цільовими URL-адресами вбудованими та не підтримується з коробки.
 - **Email вимагає працюючого mailer.** Перша установка примушує перевірку електронної пошти, тому має бути налаштований або `RESEND_API_KEY`, або [глобальний SMTP mailer](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`). Після того як перший адміністратор увійде, кожна організація також може налаштувати власний SMTP або Resend mailer з панелі керування.
-
----
 
 ## Усунення несправностей
 
@@ -381,8 +359,6 @@ docker compose logs redis
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## Корисні посилання
 

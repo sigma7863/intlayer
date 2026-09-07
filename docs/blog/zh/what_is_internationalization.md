@@ -101,8 +101,6 @@ author: aymericzip
 - **文化敏感性**  
   图标、颜色和符号在不同文化之间可能具有不同的含义。重要的是调整视觉和文本内容以尊重当地文化细微差别。
 
----
-
 ## 实施国际化的最佳实践
 
 - **提前规划**  
@@ -116,8 +114,6 @@ author: aymericzip
 
 - **翻译重用性**  
   组织翻译文件，使其能够在多个网站或应用程序中重用。例如，如果您有一个多语言的页脚或页头，设置专用翻译文件，以便通用元素可以轻松应用于所有项目。
-
----
 
 ## 本地内容声明与CMS内容外部化
 
@@ -136,8 +132,6 @@ author: aymericzip
 
 选择合适的工具以满足您的需求并从一开始规划您的国际化策略至关重要。**Intlayer通过结合区域内容声明与紧密集成的无头CMS提供了一个引人注目的解决方案，提供了两者的最佳组合。**
 
----
-
 ### 按技术查看国际化库和工具列表
 
 如果您希望查看按技术划分的国际化库和工具列表，请查看以下资源：
@@ -154,8 +148,6 @@ author: aymericzip
 - Vue: [查看国际化库和工具列表](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [查看国际化库和工具列表](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [查看国际化库和工具列表](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## 结论
 

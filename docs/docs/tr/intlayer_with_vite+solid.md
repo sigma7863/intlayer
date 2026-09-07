@@ -112,8 +112,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite ve Solid Uygulamasında Intlayer Kurulumu İçin Adım Adım Kılavuz
 
 ## Table of Contents
@@ -723,8 +721,6 @@ Bunu yapmak için, `.gitignore` dosyanıza aşağıdaki talimatları ekleyebilir
 Intlayer ile geliştirme deneyiminizi iyileştirmek için resmi **Intlayer VS Code Extension**'ı yükleyebilirsiniz.
 
 [VS Code Marketplace'ten Yükle](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Daha Fazla İlerle
 

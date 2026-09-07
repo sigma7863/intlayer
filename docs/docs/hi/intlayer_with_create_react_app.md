@@ -88,8 +88,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## रिएक्ट एप्लिकेशन में इंटलेयर सेट अप करने के लिए चरण-दर-चरण गाइड
 
 <Steps>

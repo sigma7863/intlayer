@@ -39,8 +39,6 @@ A função `getLocalizedPath` converte um caminho canônico (caminho interno da 
 - Resolve caminhos de acordo com regras de reescrita personalizadas definidas na sua configuração.
 - Lida automaticamente com fallback para o caminho canônico se nenhuma regra de reescrita for encontrada para o locale especificado.
 
----
-
 ## Assinatura da função
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opcional
 ): string
 ```
-
----
 
 ## Parâmetros
 
@@ -79,8 +75,6 @@ getLocalizedPath(
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — como o locale aparece no caminho. **Padrão**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — regras de reescrita personalizadas. **Padrão**: `configuration.routing.rewrite`
 
----
-
 ## Retorna
 
 - **Tipo**: `string`
@@ -107,8 +101,6 @@ Dois casos permanecem ampliados para `string`, porque não podem ser resolvidos 
 
 - um caminho que não é um string literal (por exemplo, um construído a partir de uma variável);
 - um caminho correspondido por uma regra usando um parâmetro multi-segmento ou opcional (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Exemplo de Uso
 
@@ -166,8 +158,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Saída: "/about"
 ```
-
----
 
 ## Funções Relacionadas
 

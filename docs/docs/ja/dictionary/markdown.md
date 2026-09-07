@@ -51,7 +51,7 @@ Intlayerは、Markdown構文を使用して定義されたリッチテキスト�
 
 <Tabs>
   <Tab label=".content.md" value=".content.md">
-  
+
     バージョン`8.10.0`以降、`.content.md`ファイルでMarkdownコンテンツを直接宣言できます。Intlayerは
     Markdownコンテンツを自動的に検出して解析します。
 
@@ -497,7 +497,7 @@ Markdown レンダリングは **MDX** をサポートしています — Markdo
 
 <Tabs group="framework">
   <Tab label="React" value="react">
-  
+
     #### `<MarkdownRenderer />` コンポーネント
 
     特定のオプションで Markdown 文字列をレンダリングします。
@@ -536,7 +536,7 @@ Markdown レンダリングは **MDX** をサポートしています — Markdo
 
   </Tab>
   <Tab label="Next.js" value="nextjs">
-  
+
     #### `<MarkdownRenderer />` コンポーネント
 
     特定のオプションを使用して Markdown 文字列をレンダリングします。
@@ -1069,7 +1069,7 @@ const MyComponent = () => {
 ```
 
   </Tab>
- 
+
   <Tab label="Vue" value="vue">
 
 Vue には組み込みの `<Suspense>` コンポーネントがあります。Markdown コンテンツをレンダリングするコンポーネントを `<Suspense>` 境界でラップします。
@@ -1172,8 +1172,6 @@ export class MyComponent {
 
   </Tab>
 </Tabs>
-
----
 
 ## Server-Side Rendering (SSR) と Hydration
 

@@ -46,8 +46,6 @@ author: aymericzip
 - 针对同一块的并发调用共享单个加载
 - 可安全用于 `async` 元数据构建器、加载器和服务器函数
 
----
-
 ## 函数签名
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // 可选
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## 参数
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **类型**: `Promise<Content>` — 一个 promise，解析为字典的解释内容，类型由你的声明决定。
 
----
-
 ## 使用示例
 
 ### 基本用法
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` vs `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 两者接受相同的参数并返回相同的内容：在两者之间切换只会改变**何时**加载和**加载多少**。
 
----
-
 ## 相关函数
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getIntlayer.md): 同步等效函数，读取合并的字典。
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getDictionaryAsync.md): 构建插件重写此调用的较低级函数。
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getLocale.md): 检测传入请求的语言环境。
-
----
 
 ## TypeScript
 

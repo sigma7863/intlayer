@@ -69,8 +69,6 @@ Mehr als nur eine i18n-Lösung bietet Intlayer einen selbst gehosteten **[visuel
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Migrationsstrategien
 
 Da `next-i18next` unter der Haube `react-i18next` und `i18next` kapselt, gibt es zwei ergänzende Strategien für die Migration zu Intlayer:
@@ -81,13 +79,9 @@ Da `next-i18next` unter der Haube `react-i18next` und `i18next` kapselt, gibt es
 
 Dieser Leitfaden behandelt zuerst **Strategie 1** (schneller Kompatibilitätsadapter) und geht dann auf die optionale vollständige Migration ein.
 
----
-
 ## Inhaltsverzeichnis
 
 <TOC/>
-
----
 
 ## Schnelle Migration
 
@@ -217,8 +211,6 @@ Das war's für die schnelle Migration. Ihre Next.js-App läuft nun auf Intlayer,
 > tAbout("counter.label"); // ✓ typisiert
 > ```
 
----
-
 ## Vollständige Migration
 
 Die folgenden Schritte sind optional und können inkrementell durchgeführt werden. Sie schalten die volle Funktionalität von Intlayer frei: visueller Editor, CMS, typisierte Inhaltsdateien, KI-gestützte Übersetzung und mehr.
@@ -301,8 +293,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Was Sie nach der Migration löschen können
 
 Sobald der Kompatibilitätsadapter vorhanden ist, kann der folgende Standard-`next-i18next`-Code gelöscht werden:
@@ -314,8 +304,6 @@ Sobald der Kompatibilitätsadapter vorhanden ist, kann der folgende Standard-`ne
 | JSON-Sprachpakete (`public/locales/*.json`) | JSON-Pakete werden nur benötigt, wenn Sie weiterhin das `syncJSON`-Plugin verwenden. Sobald Sie zu `.content.ts`-Dateien migrieren, können Sie den JSON-Ordner löschen. |
 
 Wenn Sie bereit sind, weiterzugehen, **erkennt Intlayer automatisch alle `.content.ts`- und `.content.json`-Dateien überall in Ihrer Codebasis** (standardmäßig überall innerhalb von `./src`). Sie können eine Datei `my-component.content.ts` direkt neben Ihrer `MyComponent.tsx` platzieren, und Intlayer wird sie zur Build-Zeit ohne zusätzliche Konfiguration erkennen — keine Importe, keine Registrierung, keine zentrale Index-Datei erforderlich. Dies macht die Kollokation von Übersetzungen mit Seiten und Komponenten völlig nahtlos.
-
----
 
 ## TypeScript einrichten
 
@@ -331,8 +319,6 @@ Intlayer nutzt Modul-Erweiterungen, um volles TypeScript-Intellisense für Ihre 
 }
 ```
 
----
-
 ## Git-Konfiguration
 
 Fügen Sie das von Intlayer generierte Verzeichnis zu Ihrer `.gitignore` hinzu:
@@ -341,8 +327,6 @@ Fügen Sie das von Intlayer generierte Verzeichnis zu Ihrer `.gitignore` hinzu:
 # Intlayer-generierte Dateien ignorieren
 .intlayer
 ```
-
----
 
 ## Weiterführende Themen
 

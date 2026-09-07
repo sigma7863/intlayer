@@ -23,15 +23,11 @@ author: aymericzip
 
 As the web continues to connect people across the globe, providing content in multiple languages is increasingly important. For developers working with **Svelte**, implementing i18n is essential to efficiently manage translations, maintain clean code, and uphold good SEO practices. In this article, we dive into various i18n solutions and workflows for Svelte, helping you choose the one that best suits your project’s needs.
 
----
-
 ## What is Internationalization (i18n)?
 
 Internationalization, commonly abbreviated as i18n, is the process of designing and building your application so it can easily adapt to various languages, regions, and cultural conventions. In Svelte, this typically means setting up translation strings, localizing dates, times, and numbers, and ensuring the user interface can dynamically switch among different locales without major code rewrites.
 
 To learn more about i18n fundamentals, read our article: [What is Internationalization (i18n)? Definition and Challenges](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/what_is_internationalization.md).
-
----
 
 ## The Translation Challenge for Svelte Applications
 
@@ -42,8 +38,6 @@ Translating a Svelte application can present several hurdles:
 - **SEO Considerations**: If you’re using **SvelteKit** for server-side rendering (SSR), configuring localised URLs, meta tags, and sitemaps for effective SEO requires extra care.
 - **State & Routing**: Retaining the correct language across multiple routes and dynamic pages often involves orchestrating global state, route guards, or custom hooks in SvelteKit.
 - **Maintainability**: As your codebase and translation files grow, keeping everything well-organised and synchronised becomes a continuous effort.
-
----
 
 ## Leading i18n Solutions for Svelte
 
@@ -69,8 +63,6 @@ Svelte doesn’t provide a native, built-in i18n solution (as Angular does), but
 
 - **Community & Ecosystem**: Though growing, the ecosystem is newer, so community-driven plugins and tooling may be more limited compared to more established solutions.
 
----
-
 ### 2. svelte-i18n
 
 Repository: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaisermann/svelte-i18n)
@@ -90,8 +82,6 @@ Repository: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaise
 - **Project Organisation**: You’ll need to structure your translation files logically as the project grows.
 - **SSR Setup**: Configuring SSR for SEO might require additional steps to ensure correct locale detection on the server side.
 - **Performance**: While flexible at runtime, a large number of translations loaded at once can impact initial load times, consider lazy loading or caching strategies.
-
----
 
 ### 3. svelte-intl-precompile
 
@@ -113,8 +103,6 @@ Repository: [https://github.com/cibernox/svelte-intl-precompile](https://github.
 - **Dynamic Content**: If you need on-the-fly translations for user-generated content, this approach may require extra steps for updates at runtime.
 - **Learning Curve**: The combination of message extraction and precompilation can be slightly more complex for newcomers.
 
----
-
 ### 4. i18next with Svelte / SvelteKit
 
 Website: [https://www.i18next.com/](https://www.i18next.com/)
@@ -134,8 +122,6 @@ Although **i18next** is more commonly associated with React or Vue, it’s also 
 - **Manual Setup**: i18next doesn’t have a dedicated Svelte integration out of the box, so you’ll need to configure it yourself.
 - **Overhead**: i18next is robust, but for smaller Svelte projects, some of its features might be overkill.
 - **Routing & State**: Handling language routing will likely involve custom SvelteKit hooks or middlewares.
-
----
 
 ### Final Thoughts
 

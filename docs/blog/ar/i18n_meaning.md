@@ -92,8 +92,6 @@ author: aymericzip
 - **جرد جميع النصوص المواجهة للمستخدم:** تأكد من عدم وجود نصوص مكتوبة مباشرة في مكونات واجهة المستخدم الخاصة بك.
 - **استخدم نظام إدارة ترجمة قوي:** أدوات مثل **Intlayer** تسد الفجوة بين المطورين والمترجمين. يعمل Intlayer كـ CMS بدون رأس مدمج تمامًا مع قاعدة الكود الخاصة بك، مما يسمح لمديري المحتوى بتحديث الترجمات مرئيًا دون مطالبة المطور بتشغيل بناء جديد.
 
----
-
 ### عرض قائمة مكتبات وأدوات i18n لكل تكنولوجيا
 
 إذا كنت تبحث عن قائمة بمكتبات وأدوات i18n لكل تكنولوجيا، فراجع الموارد التالية:
@@ -111,8 +109,6 @@ author: aymericzip
 - فيو: [عرض قائمة مكتبات وأدوات i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ar/list_i18n_technologies/frameworks/vue.md)
 - سفيلت: [عرض قائمة مكتبات وأدوات i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ar/list_i18n_technologies/frameworks/svelte.md)
 - ريأكت نيتيف: [عرض قائمة مكتبات وأدوات i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ar/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## الخاتمة
 

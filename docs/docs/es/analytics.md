@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Qué rastrea
 
 `@intlayer/analytics` agrupa tres tipos de eventos anónimos:

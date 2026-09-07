@@ -45,8 +45,6 @@ Paket ini juga mengekspor helper pendukung [`normalizePath`](#normalizepath), ya
 - Mentolerir ketiadaan garis miring awal dan nilai kosong (dinormalisasi menjadi `/`)
 - Ringan — dibangun di atas `getPathWithoutLocale`
 
----
-
 ## Tanda Tangan Fungsi
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // Opsional
 ): string
 ```
-
----
 
 ## Parameter
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Tipe**: `boolean`
 - **Deskripsi**: `true` ketika kedua input mengarah ke path yang sama yang tidak bergantung pada locale, jika tidak `false`.
-
----
 
 ## Contoh Penggunaan
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` mengembalikan path kanonik yang tidak bergantung pada locale yang digunakan oleh `comparePaths`. Fungsi ini menghapus segmen locale, protokol/host, query string, dan hash, memastikan adanya satu garis miring di awal, menghapus garis miring di akhir (kecuali untuk root), dan kembali ke `/` untuk nilai yang kosong.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## Fungsi Terkait
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getPathWithoutLocale.md): Menghapus segmen locale dari URL atau path.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getPrefix.md): Menentukan awalan URL untuk locale tertentu.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getLocalizedUrl.md): Menghasilkan URL yang dilokalkan untuk locale tertentu.
-
----
 
 ## TypeScript
 

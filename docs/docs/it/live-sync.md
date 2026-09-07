@@ -38,8 +38,6 @@ La Sincronizzazione Live consente alla tua app di riflettere le modifiche ai con
 
 <TOC/>
 
----
-
 ## Attivare la sincronizzazione live
 
 Abilita Live Sync aggiornando la configurazione di Intlayer:

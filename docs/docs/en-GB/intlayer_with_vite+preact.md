@@ -83,8 +83,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a Vite and Preact Application
 
 <Tabs defaultTab="video">
@@ -1028,13 +1026,9 @@ This extension provides:
 
 For more details on how to use the extension, refer to the [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Go Further
 
 To go further, you can implement the [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_visual_editor.md) or externalise your content using the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_CMS.md).
-
----
 
 ## Frequently Asked Questions
 

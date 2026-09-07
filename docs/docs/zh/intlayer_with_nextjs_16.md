@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-08-30
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - 翻译你的应用的完整指南"
 description: "告别 i18next。2026 年构建多语言 (i18n) Next.js 16 应用的完整指南。使用 AI 代理翻译并优化包体积、SEO 和性能。"
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="Next.js 最佳 i18n 解决方案？探索 Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="代码" value="code">
+  <Tab label="代码 (带语言路径)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="演示" value="demo">
+  <Tab label="代码 (无语言路径)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - 如何使用 Intlayer 国际化您的应用程序"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="演示 (带语言路径)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="演示 - intlayer-next-16-template"
+  title="演示 Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-请参阅 GitHub 上的[应用模板](https://github.com/aymericzip/intlayer-next-16-template)。
+请参阅 GitHub 上的[应用模板](https://github.com/aymericzip/intlayer-next-16-template) 以及 [无语言路径的应用模板](https://github.com/aymericzip/intlayer-next-no-lolale-path-template)。
 
 ## 目录
 
@@ -83,7 +94,7 @@ author: aymericzip
 Intlayer 经过优化，可以与 **服务器组件** 配合使用，以实现高效渲染，并且与 [**Turbopack**](https://nextjs.org/docs/architecture/turbopack) 完全兼容。它不会阻止静态渲染，并提供中间件以及扩展国际化 (i18n) 所需的所有功能。
 
 > Intlayer 兼容 Next.js 12、13、14、15 和 16。如果您使用 Next.js Pages Router，可以参考此[指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md)。
-> 区域设置路由对于 SEO、Bundle 大小和性能很有用。如果不需要，可以参考这个[指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md)。
+> 语言路由对 SEO、打包体积和性能非常有用。本指南同时支持并介绍了带语言路径和不带语言路径的两种配置。
 > 对于带有 App Router 的 Next.js 12、13、14 和 15，请参阅此[指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md)。
 
 </Accordion>
@@ -124,8 +135,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## 在 Next.js 应用程序中设置 Intlayer 的分步指南
 
@@ -183,7 +192,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="配置您的项目">
 
-这是我们将创建的最终结构：
+选择您的应用程序是使用本地化 URL 路径（例如 `/zh/about`、`/en/about`），还是在路径中不包含语言段的情况下提供内容（例如 `/about`，通过 Cookie、请求头或查询参数检测语言）。
+
+<Tabs group="routing-mode">
+<Tab label="带语言路径" value="with-locale-path">
+
+### 架构
+
+在此架构中，所有本地化页面都嵌套在 `[locale]` 动态路由段下。推荐将此方法用于 SEO 和静态渲染，因为每种语言都有专用的独立 URL：
 
 ```bash
 .
@@ -209,9 +225,9 @@ bun add intlayer next-intlayer
 └── tsconfig.json
 ```
 
-> 如果您不需要语言环境路由，intlayer 可以用作简单的提供者/钩子。有关更多详细信息，请参见[此指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_nextjs_no_locale_path.md)。
+### 配置
 
-创建一个配置文件来配置您的应用程序语言：
+创建 `intlayer.config.ts` 配置文件以声明您的应用程序支持的语言：
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -226,10 +242,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // 或 `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="不带语言路径" value="without-locale-path">
+
+### 架构
+
+在此架构中，路由在 URL 路径中不包含动态 `[locale]` 段。所有页面直接位于 `src/app/` 下，并通过 Cookie、请求头或查询参数确定语言。这非常适合仪表板、内部工具或身份验证后的应用程序：
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### 配置
+
+将 `routing.mode` 属性设置为 `"search-params"`（例如 `/about?locale=zh`）或 `"no-prefix"`，以在没有路径前缀的情况下提供内容：
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // 你的其他语言
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // 或 `no-prefix` - 用于中间件检测
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > 通过此配置文件，您可以设置本地化 URL、代理重定向、cookie 名称、内容声明的位置和扩展名、禁用控制台中的 Intlayer 日志等。有关可用参数的完整列表，请参阅[配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
 
@@ -279,6 +357,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="定义动态语言环境路由">
+
+<Tabs group="routing-mode">
+<Tab label="带语言路径" value="with-locale-path">
 
 从 `RootLayout` 中删除所有内容，并将其替换为以下代码：
 
@@ -374,6 +455,102 @@ export default LocaleLayout;
 
 > Intlayer 与 `export const dynamic = 'force-static';` 配合使用，以确保为所有语言环境预构建页面。
 
+</Tab>
+<Tab label="不带语言路径" value="without-locale-path">
+
+在没有语言路径的架构中，不存在 `[locale]` 目录。直接配置 `src/app/layout.tsx` 从请求上下文中读取语言，并使用 `IntlayerProvider` 包裹您的应用程序：
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+> 单个 `IntlayerProvider` 覆盖树的两个部分：它为服务器钩子读取的请求作用域服务器上下文提供种子，并挂载客户端提供程序，以便客户端组件接收相同的区域设置。
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+ </Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
+
 </Step>
 
 <Step number={5} title="声明您的内容">
@@ -461,7 +638,7 @@ export default Page;
 ```
 
 - **`IntlayerProvider`** 在 locale layout 中挂载一次。它向服务器和客户端组件提供 locale，因此页面不再需要自己包装。
-- 服务器 hooks 按以下顺序解析 locale：调用站点传递的 locale，然后是由提供者种子化的服务器上下文，然后是请求携带的 locale（由 Intlayer 代理设置的 `x-intlayer-locale` header，然后是 locale cookie）。最后一步是保持内容在客户端导航中正确的原因，在客户端导航中只重新渲染页面段，而 layout——以及它的 provider——不会重新运行。
+- 服务器 hooks 按以下顺序解析 locale：调用站点传递的 locale，然后是由提供者种子化的服务器上下文，然后是请求携带的 locale（由 Intlayer 代理设置的 `x-intlayer-locale` header，然后是 locale cookie）。最后一步是保持内容在客户端导航中正确的原因，在客户端导航中只重新渲染页面段，而 layout, , 以及它的 provider, , 不会重新运行。
 
 在整个应用程序中访问您的内容字典：
 
@@ -1055,7 +1232,7 @@ bun x intlayer extract
  </Tab>
  <Tab value='Babel 编译器'>
 
-> Since v9, the `intlayerCompiler` is included in the `intlayer` plugin. So you don't need to add it manually.
+> 从 v9 开始，`intlayerCompiler` 已包含在 `intlayer` 插件中。因此，您不需要手动添加它。
 
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
@@ -1255,7 +1432,7 @@ Intlayer 支持 Next.js 12、13、14、15 和 16。本指南涵盖 Next.js 16。
 - `"no-prefix"`：路径中无语言环境，从 Cookie、Header 或域名解析。
 - `"search-params"`：`/about?locale=fr`。
 
-您还可以通过 `routing.domains` 将每个语言环境映射到其独立的域名。请参阅 [配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md) 和 [无语言路径指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_with_nextjs_no_locale_path.md)。
+您还可以通过 `routing.domains` 将每个语言环境映射到其独立的域名。请参阅 [配置参考](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md) 和 [步骤 2](#step-2-configure-your-project) 了解路由模式选项。
 
 </Question>
 

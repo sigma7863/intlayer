@@ -20,8 +20,6 @@ author: aymericzip
 
 # Intlayer CLI Login-Befehl
 
----
-
 ## Beschreibung
 
 Der `login`-Befehl der Intlayer-CLI ermöglicht es Ihnen, sich beim Intlayer CMS zu authentifizieren. Dieser Befehl öffnet automatisch Ihren Standardbrowser, um den Authentifizierungsprozess abzuschließen und die notwendigen Zugangsdaten (Client ID und Client Secret) zu erhalten, um die Intlayer-Dienste zu nutzen.

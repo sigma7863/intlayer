@@ -40,8 +40,6 @@ author: aymericzip
 > Note: next-i18next is built on top of i18next. This guide uses the i18next primitives compatible with next-i18next in the App Router, while keeping the architecture simple and production-ready.
 > For a broader comparison, see [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Project structure
 
 Install the next-i18next dependencies:
@@ -93,8 +91,6 @@ Checklist (mid/senior):
 - Do not over-centralize messages; use small, page/feature-scoped namespaces
 - Avoid importing all locales at once; load only what you need
 
----
-
 ## 2) Install dependencies
 
 ```bash
@@ -106,8 +102,6 @@ If you plan to use next-i18next APIs or config interop, also:
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Core i18n config
 
@@ -134,8 +128,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Senior note: If you use `next-i18next.config.js`, keep it aligned with `i18n.config.ts` to avoid drift.
-
----
 
 ## 4) Server-side i18n initialization
 
@@ -174,8 +166,6 @@ export async function initI18next(
 ```
 
 Mid note: Keep the namespace list short per page to limit payload. Avoid global “catch-all” bundles.
-
----
 
 ## 5) Client provider for React components
 
@@ -233,8 +223,6 @@ export default function I18nProvider({
 
 Junior tip: You don’t need to pass all messages to the client. Start with the page’s namespaces only.
 
----
-
 ## 6) Localized layout and routes
 
 Set language and direction, and pre-generate routes per locale to favor static rendering.
@@ -269,8 +257,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Example page with server + client usage
 
@@ -387,8 +373,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: Metadata, Hreflang, Sitemap, Robots
 
 Translating content is a means to improve reach. Wire up multilingual SEO thoroughly.
@@ -482,8 +466,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Middleware for locale routing
 
 Detect locale and redirect to a localized route if missing.
@@ -526,8 +508,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Performance and DX best practices
 
 - **Set html `lang` and `dir`**: Done in `src/app/[locale]/layout.tsx`.
@@ -538,8 +518,6 @@ export const config = {
 - **Memoize heavy operations**: Especially in client code for older React versions.
 - **Cache and headers**: Prefer static or `revalidate` over dynamic rendering when feasible.
 
----
-
 ## 11) Testing and CI
 
 - Add unit tests for components using `t` to ensure keys exist.
@@ -547,8 +525,6 @@ export const config = {
 - Surface missing keys during CI before deploy.
 
 Intlayer will automate much of this (see next section).
-
----
 
 ## 12) Add Intlayer on top (automation)
 
@@ -635,8 +611,6 @@ Common flows:
 
 > You can provide CLI arguments; see the [Intlayer CLI docs](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/index.md).
 
----
-
 ## 13) Troubleshooting
 
 - **Keys not found**: Ensure the page/provider lists the correct namespaces and the JSON file exists under `src/locales/<locale>/<namespace>.json`.
@@ -644,8 +618,6 @@ Common flows:
 - **RTL layout issues**: Verify `dir` is derived from `isRtl(locale)` and that your CSS respects `[dir="rtl"]`.
 - **SEO alternates missing**: Confirm `alternates.languages` includes all locales and `x-default`.
 - **Bundles too large**: Split namespaces further and avoid importing entire `locales` trees on the client.
-
----
 
 ## 14) What’s next
 

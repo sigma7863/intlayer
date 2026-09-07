@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - आपकी बहुभाषी वेबसाइट के लिए सभी Intlayer CLI कमांड
 
----
-
 ## विषय-सूची
 
 <TOC/>
-
----
 
 ## पैकेज स्थापित करना
 

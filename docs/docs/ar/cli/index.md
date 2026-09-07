@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - جميع أوامر Intlayer CLI لموقعك متعدد اللغات
 
----
-
 ## جدول المحتويات
 
 <TOC/>
-
----
 
 ## تثبيت الحزمة
 

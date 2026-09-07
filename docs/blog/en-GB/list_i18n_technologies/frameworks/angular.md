@@ -23,15 +23,11 @@ author: aymericzip
 
 In today's interconnected world, offering your website in multiple languages can significantly expand your reach and improve user experience. For developers working with Angular, implementing internationalization (i18n) is crucial for efficiently managing translations while preserving application structure, SEO, and performance. In this article, we'll explore various i18n approaches from Angular's built-in solutions to popular third-party libraries to help you determine the best fit for your project.
 
----
-
 ## What is Internationalization (i18n)?
 
 Internationalization, often referred to as i18n, is the process of designing and preparing your application to support multiple languages and cultural contexts. In Angular, it entails configuring your app so that text, dates, numbers, and even UI layouts can adapt seamlessly to different locales. Laying this groundwork properly ensures that integrating future translations remains organized and efficient.
 
 Learn more about i18n basics by reading our article: [What is Internationalization (i18n)? Definition and Challenges](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/what_is_internationalization.md).
-
----
 
 ## The Translation Challenge for Angular Applications
 
@@ -42,8 +38,6 @@ Translating an Angular application introduces several challenges:
 - **SEO Considerations**: If you're using Angular Universal for server-side rendering, you'll need to set up localized URLs, meta tags, and sitemaps to make your multilingual pages search-engine-friendly.
 - **Routing and State**: Ensuring the correct language is maintained while navigating between routes involves state management and possibly custom route guards or interceptors.
 - **Scalability & Maintenance**: Translation files can grow quickly, and keeping them organized, versioned, and in sync with your application's evolution can be an ongoing task.
-
----
 
 ## Leading i18n Solutions for Angular
 
@@ -69,8 +63,6 @@ Angular offers a built-in i18n framework, and there are several third-party libr
 
 - **Community & Ecosystem**: Though growing, the ecosystem is newer, so community-driven plugins and tooling may be more limited compared to more established solutions.
 
----
-
 ### 2. Angular's Built-In i18n
 
 **Overview**  
@@ -88,8 +80,6 @@ Angular ships with a **built-in i18n** system that includes tooling for extracti
 - **Multiple Builds**: Each language requires its own build, which can lead to more complex deployment scenarios.
 - **Dynamic Content**: Handling real-time or user-driven content may require custom logic since Angular's built-in solution focuses heavily on compile-time translations.
 - **Limited Runtime Flexibility**: Switching languages on the fly (without reloading the app) can be challenging because translations are baked in at build time.
-
----
 
 ### 3. ngx-translate
 
@@ -110,8 +100,6 @@ Website: [https://github.com/ngx-translate/core](https://github.com/ngx-translat
 - **State & Complexity**: Managing many translation files can become complex in larger applications.
 - **SEO & SSR**: If you need server-side rendering with Angular Universal, ngx-translate requires extra setup to ensure correct translations are served to crawlers and browsers on the first load.
 - **Performance**: While flexible at runtime, handling many translations on large pages can have performance implications, so caching strategies are recommended.
-
----
 
 ### 4. Transloco
 

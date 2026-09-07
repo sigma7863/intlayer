@@ -50,8 +50,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## فهم القواميس البعيدة
 
 يفرق Intlayer بين القواميس "المحلية" و"البعيدة".
@@ -414,8 +412,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 للاطلاع على دليل الإعداد الكامل، ومرجع متغيرات البيئة، وتعليمات الترقية، وإجراءات النسخ الاحتياطي والاستعادة، راجع [دليل الاستضافة الذاتية](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/self_hosting.md).
-
----
 
 ## تصحيح الأخطاء
 

@@ -86,8 +86,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dalam Aplikasi Vite dan Preact
 
 <Tabs defaultTab="video">
@@ -1025,13 +1023,9 @@ Extension ini menyediakan:
 
 Untuk detail lebih lanjut tentang cara menggunakan extension, lihat [dokumentasi Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Melangkah Lebih Jauh
 
 Để đi xa hơn, bạn có thể triển khai [trình soạn thảo trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_visual_editor.md) hoặc mengeksternalisasi konten Anda menggunakan [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md).
-
----
 
 ## Pertanyaan yang Sering Diajukan
 

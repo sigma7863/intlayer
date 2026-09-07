@@ -35,8 +35,6 @@ La única dependencia externa es **MongoDB**: el backend se conecta a un cluster
 
 <TOC/>
 
----
-
 ## Arquitectura
 
 ```
@@ -56,8 +54,6 @@ La única dependencia externa es **MongoDB**: el backend se conecta a un cluster
 
 Chromium (utilizado para la generación de capturas de pantalla de Puppeteer) se incluye dentro de la imagen del backend, no se necesita un contenedor separado.
 
----
-
 ## Requisitos previos
 
 - **Docker** ≥ 24 y **Docker Compose** ≥ v2. Si falta alguno, el instalador imprimirá el enlace de instalación y saldrá.
@@ -65,8 +61,6 @@ Chromium (utilizado para la generación de capturas de pantalla de Puppeteer) se
 - Un host Linux o macOS (o WSL2 en Windows).
 
 Todo lo demás — Bun, Redis, MinIO, Chromium — se incluye dentro de la imagen.
-
----
 
 ## Inicio rápido
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > Las cuatro variables de puerto solo cambian el lado del **host** del mapeo impreso en el comando `docker run`. La imagen publicada tiene `http://localhost:3000`, `http://localhost:3100` y `http://localhost:9000` compilados en el bundle del dashboard en el momento de la compilación, por lo que reasignarlos deja el navegador apuntando a los puertos antiguos. Mantén los valores predeterminados a menos que estés construyendo tu propia imagen — consulta [Limitaciones](#limitations).
 
----
-
 ## Configuración inicial
 
 En una instancia nueva (base de datos vacía), abrir el dashboard te redirige a la página **`/init`**:
@@ -147,8 +139,6 @@ En una instancia nueva (base de datos vacía), abrir el dashboard te redirige a 
 3. Haz clic en el enlace del email e inicia sesión.
 
 Una vez que existe un admin, `/init` redirige a la página estándar de inicio de sesión.
-
----
 
 ## Servicios
 
@@ -162,8 +152,6 @@ Una vez que existe un admin, `/init` redirige a la página estándar de inicio d
 | **mailpit** | `axllent/mailpit`                          | `1025` (SMTP), `8025` (interfaz web) | Receptor local de correos electrónicos transaccionales                           |
 
 > El puerto `9000` de MinIO debe ser accesible desde el navegador porque los activos cargados (avatares, capturas de pantalla) se cargan directamente desde `S3_PUBLIC_URL=http://localhost:9000/intlayer`.
-
----
 
 ## Variables de entorno
 
@@ -234,8 +222,6 @@ Establece `MAIL_PROVIDER` para activarlo. Cuando no está configurado, se utiliz
 
 > Precedencia: el servicio de correo propio de una organización (configurado desde el panel de control de **Organization**) tiene prioridad sobre el servicio de correo global, que a su vez tiene prioridad sobre la clave Resend predeterminada.
 
----
-
 ## Conectando tu proyecto Intlayer
 
 Una vez que la pila esté en funcionamiento, apunta tu proyecto al backend y dashboard autoalojados en lugar de `intlayer.org`.
@@ -297,8 +283,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## Actualización
 
 Esto descarga las últimas imágenes y reinicia los contenedores con `docker compose pull && docker compose up -d`. Los volúmenes existentes (`mongo-data`, `redis-data`, `minio-data`) se conservan, sin pérdida de datos.
@@ -307,8 +291,6 @@ Esto descarga las últimas imágenes y reinicia los contenedores con `docker com
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## Copia de seguridad y restauración
 
@@ -344,15 +326,11 @@ docker run --rm \
 # Repetir para redis-data y minio-data
 ```
 
----
-
 ## Limitaciones
 
 - **MongoDB debe ser externo (Atlas).** El backend se conecta solo a través de `mongodb+srv://` (construido desde `DB_ID` / `DB_MDP` / `DB_CLUSTER`), por lo que un simple `mongodb://host:27017` — incluyendo el `mongod` incluido en el contenedor — no se puede usar. Proporciona un cluster de MongoDB Atlas.
 - **Sin dominio personalizado.** Todas las URLs `VITE_*` que enfrenta el navegador se insertan en línea en la aplicación en tiempo de compilación, y la imagen publicada se envía con valores de `localhost`. El dashboard debe accederse en `http://localhost:3000`; servirlo en un dominio público requeriría reconstruir la imagen con las URLs de destino incorporadas y no es compatible de forma predeterminada.
 - **El correo electrónico requiere un mailer que funcione.** La configuración de primera ejecución obliga a la verificación de correo electrónico, por lo que se debe configurar `RESEND_API_KEY` o un [mailer SMTP global](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`). Después de que el primer administrador inicie sesión, cada organización también puede configurar su propio mailer SMTP o Resend desde el dashboard.
-
----
 
 ## Solución de problemas
 
@@ -379,8 +357,6 @@ Si el servicio de un solo uso `minio-init` no se ejecutó (o se ejecutó antes d
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## Enlaces útiles
 

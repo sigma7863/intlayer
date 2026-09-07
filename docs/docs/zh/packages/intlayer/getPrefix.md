@@ -39,8 +39,6 @@ author: aymericzip
 - 支持所有路由模式：`prefix-no-default`、`prefix-all`、`no-prefix` 和 `search-params`
 - 轻量级工具，用于确定何时添加 locale 前缀
 
----
-
 ## 函数签名
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // 例如 'fr' 或 undefined
 }
 ```
-
----
 
 ## 参数
 
@@ -92,8 +88,6 @@ type GetPrefixResult = {
 - **描述**：包含三种不同前缀格式的对象：
   - `prefix`：带有尾部斜杠的路径前缀（例如，`'fr/'`，`''`）
   - `localePrefix`：不带斜杠的语言标识符（例如，`'fr'`，`undefined`）
-
----
 
 ## 示例用法
 
@@ -174,14 +168,10 @@ console.log(`当前语言环境: ${localePrefix}`);
 // 输出: "当前语言环境: fr"
 ```
 
----
-
 ## 相关函数
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getLocalizedUrl.md): 为特定语言环境生成本地化 URL
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getMultilingualUrls.md): 为所有配置的语言环境生成 URL
-
----
 
 ## TypeScript
 

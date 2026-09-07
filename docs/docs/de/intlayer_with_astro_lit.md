@@ -108,8 +108,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Schritt-für-Schritt-Anleitung zur Konfiguration von Intlayer in Astro + Lit
 
 Sehen Sie sich das [Anwendungstemplate](https://github.com/aymericzip/intlayer-astro-template) auf GitHub an.
@@ -691,8 +689,6 @@ Diese Erweiterung bietet:
 - **Schnelle Aktionen** zum einfachen Erstellen und Aktualisieren von Übersetzungen.
 
 Weitere Informationen zur Verwendung der Erweiterung finden Sie in der [Dokumentation zur VS Code Erweiterung](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Vertiefen Sie Ihr Wissen
 

@@ -20,8 +20,6 @@ author: aymericzip
 
 Welcome to our blog dedicated to all things **internationalization** for JavaScript applications! Here, we explore the best practices, strategies, and tools to help developers expand their digital products across the globe.
 
----
-
 ## Why Internationalization (i18n) Matters
 
 In today’s interconnected world, users expect seamless, localized experiences. Internationalization (i18n) ensures that your web application can adapt to different languages and cultural nuances. By incorporating i18n practices right from the start, you unlock numerous benefits, such as:
@@ -30,8 +28,6 @@ In today’s interconnected world, users expect seamless, localized experiences.
 2. **Broader Market Reach:** Offering multiple languages helps you tap into new regions and grow your user base.
 3. **Improved Accessibility:** Well-structured i18n often aligns with accessibility standards, making your app more inclusive.
 4. **Better SEO Performance:** Localized content can boost your visibility in region-specific search results.
-
----
 
 ## Open-Source Internationalization Solutions
 
@@ -43,8 +39,6 @@ Building an internationalized application doesn’t have to be complicated. The 
 - **Cost Savings:** No licence fees, making it simpler to test or scale your application.
 - **Community Support:** Large communities often mean more tutorials, documentation, and ready-made plugins.
 
----
-
 ## Announcements and What’s Next
 
 We’re excited to announce upcoming tutorials, best practices, and **case studies** on how to optimize your JavaScript applications for global audiences. Here’s a sneak peek:
@@ -55,8 +49,6 @@ We’re excited to announce upcoming tutorials, best practices, and **case studi
 
 Stay tuned for these updates and more!
 
----
-
 ## Contribute to Our Blog!
 
 We believe in community-driven knowledge sharing. If you have a great idea for a blog post related to internationalization, **SEO**, or any other relevant topic, we’d love to hear from you. You can submit a Pull Request by adding your proposed blog post to our GitHub repository:
@@ -64,7 +56,5 @@ We believe in community-driven knowledge sharing. If you have a great idea for a
 [**Submit your post here**](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/blog)
 
 Your contributions help us enrich this platform and empower developers worldwide. Let’s build a community of global-first applications, together.
-
----
 
 **Thank you for reading, and welcome to our i18n community!** Stay tuned for more insights, tips, and best practices on how to take your JavaScript applications to international success.

@@ -23,15 +23,11 @@ author: aymericzip
 
 In an increasingly globalized digital landscape, extending your Vue.js website’s reach to users in multiple languages is no longer a “nice-to-have”, it’s a competitive necessity. Internationalization (i18n) enables developers to manage translations and adapt their applications for various locales while preserving SEO value, user experience, and maintainable code structures. In this article, we’ll explore different approaches, ranging from dedicated libraries to custom-coded solutions, that help you integrate i18n into your Vue.js project smoothly.
 
----
-
 ## What is Internationalization (i18n)?
 
 Internationalization (i18n) is the practice of preparing a software application (or website) for multiple languages and cultural conventions. Within the Vue.js ecosystem, this includes establishing how text, dates, numbers, currency, and other localizable elements can be adapted to various locales. By setting up i18n from the start, you ensure an organized, scalable structure for adding new languages and handling future localization needs.
 
 To learn more about i18n basics, check out our reference: [What is Internationalization (i18n)? Definition and Challenges](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en-GB/what_is_internationalization.md).
-
----
 
 ## The Translation Challenge for Vue Applications
 
@@ -43,13 +39,9 @@ Translating a Vue.js application brings its own set of challenges:
 - **State and Reactive Context:** Ensuring that the current locale is maintained across routes and components, reactively updating texts and formats, requires a thoughtful approach, especially when dealing with Vuex or Pinia for state management.
 - **Development Overhead:** Keeping translation files organized, consistent, and up to date can quickly become a major task if not managed carefully.
 
----
-
 ## Leading i18n Solutions for Vue.js
 
 Below are several popular libraries and approaches you can use to incorporate internationalization into your Vue applications. Each aims to streamline translation, SEO, and performance considerations in different ways.
-
----
 
 ### 1. Intlayer
 
@@ -94,8 +86,6 @@ Below are several popular libraries and approaches you can use to incorporate in
 - **Plugin Ecosystem**  
   While robust, you may need to carefully select from multiple plugins or modules (Nuxt I18n, Vue I18n, etc.) to build a perfect setup.
 
----
-
 ### 3. LinguiJS (Vue Integration)
 
 > Website: [https://lingui.js.org/](https://lingui.js.org/)
@@ -122,8 +112,6 @@ Originally known for its React integration, **LinguiJS** also offers a Vue plugi
   While LinguiJS has official support for Vue, its documentation primarily focuses on React; you may need to rely on community examples.
 - **Smaller Community**  
   Compared to Vue I18n, there’s a relatively smaller ecosystem. Officially maintained plugins and third-party add-ons can be more limited.
-
----
 
 ## Final Thoughts
 

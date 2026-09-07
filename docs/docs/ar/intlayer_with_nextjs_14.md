@@ -82,8 +82,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Next.js
 
 <Tabs defaultTab="code">

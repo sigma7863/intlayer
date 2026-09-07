@@ -112,8 +112,6 @@ Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](http
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guida passo-passo per configurare Intlayer in un'applicazione Vite e Solid
 
 ## Indice
@@ -721,8 +719,6 @@ Per fare questo, puoi aggiungere le seguenti istruzioni al tuo file `.gitignore`
 Per migliorare la tua esperienza di sviluppo con Intlayer, puoi installare l'**Estensione Intlayer ufficiale per VS Code**.
 
 [Installa da VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Approfondimenti
 

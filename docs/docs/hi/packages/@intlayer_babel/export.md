@@ -43,8 +43,6 @@ npm install @intlayer/babel
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### प्लगइन्स
 
 | फ़ंक्शन / वर्ग                 | विवरण                                                                                                                                                                                                             |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | फ़ैक्टरी फ़ंक्शन जो स्रोत कोड में `useIntlayer` / `getIntlayer` के उपयोग का विश्लेषण करने और साझा `PruneContext` में फ़ील्ड उपयोग डेटा एकत्र करने के लिए एक Babel प्लगइन उत्पन्न करता है।                         |
 | `getSharedPruneContext`        | सहायक फ़ंक्शन जो निर्दिष्ट आधार निर्देशिका के लिए साझा `PruneContext` ऑब्जेक्ट लौटाता है, या यदि यह अभी तक आरंभ नहीं हुआ है तो `null` लौटाता है।                                                                  |
 
----
-
 ### प्लगइन कॉन्फ़िगरेशन उपयोगिताएँ
 
 | फ़ंक्शन                    | विवरण                                                                                                                                                   |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Intlayer कॉन्फ़िगरेशन और संकलित शब्दकोशों को लोड करता है, और `intlayerOptimizeBabelPlugin` के साथ उपयोग के लिए तैयार `OptimizePluginOptions` लौटाता है। |
 | `getPurgePluginOptions`    | Intlayer कॉन्फ़िगरेशन लोड करता है और `intlayerPurgeBabelPlugin` के साथ उपयोग के लिए तैयार `PurgePluginOptions` लौटाता है।                               |
 | `getMinifyPluginOptions`   | Intlayer कॉन्फ़िगरेशन लोड करता है और `intlayerMinifyBabelPlugin` के साथ उपयोग के लिए तैयार `MinifyPluginOptions` लौटाता है।                             |
-
----
 
 ### प्रकार
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | `compat-adapter` पैकेजों के लिए एक संगत उपयोग विश्लेषक कॉन्फ़िगरेशन (कॉल करने वाले का नाम और प्रसंस्करण विकल्प)। |
 | `ScriptBlock`           | एक SFC फ़ाइल (Vue या Svelte) से निकाली गई स्क्रिप्ट ब्लॉक: सामग्री, प्रारंभ ऑफ़सेट और अंत ऑफ़सेट।                |
 
----
-
 ### उपयोगिता फ़ंक्शन
 
 | फ़ंक्शन                           | विवरण                                                                                                                                                     |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | बाद के Babel विश्लेषण के लिए SFC फ़ाइलों (Vue / Svelte) से `<script>` ब्लॉक निकालता है।                                                                   |
 | `BABEL_PARSER_OPTIONS`            | स्थिरांक जो समर्थित फ्रेमवर्क (React/Vue/Svelte/Angular/...) को कवर करने वाले Babel पार्सर विकल्पों का प्रतिनिधित्व करता है।                              |
 | `INTLAYER_CALLER_NAMES`           | मूल Intlayer कॉल करने वाले नामों की स्थिर सूची: `['useIntlayer', 'getIntlayer']`।                                                                         |
-
----
 
 ## उपयोग का उदाहरण
 

@@ -31,8 +31,6 @@ author: aymericzip
 
 O **servidor de linguagem do Intlayer** é uma implementação do [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) que torna o seu IDE — e o seu agente de IA — cientes do Intlayer. Ele conecta uma chamada como `useIntlayer("home")` ao arquivo `.content.ts` que a declara, nos dois sentidos.
 
----
-
 ## Funcionalidades
 
 | Funcionalidade                     | Atalho               | O que faz                                                                                                              |
@@ -65,8 +63,6 @@ Isso funciona para todos os pacotes `*-intlayer` (`next-intlayer`, `react-intlay
 
 > Os dicionários são lidos da saída de build, então execute `npx intlayer build` — ou mantenha o seu servidor de desenvolvimento rodando — para dar ao servidor algo para resolver.
 
----
-
 ## Instalação
 
 O servidor é distribuído como o binário `intlayer-lsp` em `@intlayer/lsp`:
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 Instale-o globalmente (`npm install -g @intlayer/lsp`) se o seu editor precisar do `intlayer-lsp` no `PATH` — é o caso do plugin do Claude Code e de qualquer configuração abaixo que chame o binário diretamente.
-
----
 
 ## Configuração
 
@@ -255,15 +249,11 @@ Consulte a documentação de LSP do seu editor para o formato exato de configura
   </Tab>
 </Tabs>
 
----
-
 ## Nota sobre agentes de IA em terminal
 
 O **Claude Code** atua como um cliente LSP de verdade — veja a aba acima.
 
 O **OpenAI Codex** e a maioria das outras ferramentas de terminal não são clientes LSP: elas leem e escrevem arquivos diretamente. Rodar o servidor sozinho não as ajuda; o valor vem de tê-lo ativo em um editor complementar cujo índice o agente possa consultar (Cursor Composer, Windsurf Cascade, Copilot Chat).
-
----
 
 ## Como funciona
 
@@ -274,8 +264,6 @@ A cada requisição, o servidor analisa o documento (via [oxc](https://oxc.rs/))
 1. **Sobre uma string de chave** (`useIntlayer("home")`) → retorna todos os arquivos de conteúdo que declaram essa chave, posicionados na sua linha `key:`.
 2. **Sobre o uso de um campo** (`content.title`, uma propriedade desestruturada, `t('path.to.field')`, `<Trans>`, …) → resolve a variável de volta até o seu dicionário e retorna o campo correspondente dentro dos arquivos de conteúdo.
 3. **A partir de um arquivo de conteúdo** → executa a busca inversa, varrendo os fontes do projeto em busca dos pontos de chamada dessa chave ou campo.
-
----
 
 ## Solução de problemas
 

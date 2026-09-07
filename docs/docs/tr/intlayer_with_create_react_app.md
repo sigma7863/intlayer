@@ -94,8 +94,6 @@ Sadece bir i18n çözümünden fazlası olan Intlayer, **kendi barındırılan [
 </Accordion>
 </AccordionGroup>
 
----
-
 ## React Uygulamasında Intlayer'ı Kurmak İçin Adım Adım Kılavuz
 
 <Steps>

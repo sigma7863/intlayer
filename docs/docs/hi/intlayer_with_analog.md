@@ -105,8 +105,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Analog एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 GitHub पर [एप्लिकेशन टेम्पलेट](https://github.com/aymericzip/intlayer-analog-template) देखें।
@@ -403,8 +401,6 @@ Intlayer के साथ अपने विकास के अनुभव �
 - अनुवादों को आसानी से बनाने और अपडेट करने के लिए **त्वरित क्रियाएं**।
 
 एक्सटेंशन का उपयोग करने के तरीके के बारे में अधिक विवरण के लिए, [Intlayer VS Code एक्सटेंशन दस्तावेज़](https://intlayer.org/doc/vs-code-extension) देखें।
-
----
 
 ### आगे बढ़ें
 

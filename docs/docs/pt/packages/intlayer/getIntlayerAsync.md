@@ -46,8 +46,6 @@ Sem esses plugins — uma build não otimizada — a chamada é resolvida atrav�
 - Chamadas simultâneas para o mesmo chunk compartilham um único carregamento
 - Seguro de usar em construtores de metadados `async`, loaders e funções de servidor
 
----
-
 ## Function Signature
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // Opcional
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Parâmetros
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **Type**: `Promise<Content>` — uma promessa que resolve para o conteúdo interpretado do dicionário, tipado a partir da sua declaração.
 
----
-
 ## Exemplo de Uso
 
 ### Uso Básico
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` vs `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 Both accept the same arguments and return the same content: switching from one to the other only changes **when** and **how much** is loaded.
 
----
-
 ## Funções Relacionadas
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/packages/intlayer/getIntlayer.md): Equivalente síncrono que lê o dicionário mesclado.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/packages/intlayer/getDictionaryAsync.md): A função de nível inferior que os plugins de build reescrevem esta chamada em.
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/packages/intlayer/getLocale.md): Detecta o locale de uma requisição de entrada.
-
----
 
 ## TypeScript
 

@@ -114,8 +114,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Next.js باستخدام Page Router
 
 <Steps>

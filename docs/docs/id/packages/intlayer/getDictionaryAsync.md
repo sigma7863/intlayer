@@ -44,8 +44,6 @@ Ini adalah padanan dari [`getDictionary`](https://github.com/aymericzip/intlayer
 - Menghilangkan duplikasi concurrent loads dari chunk yang sama, dan menyimpan konten yang sudah direspon dalam cache
 - Failed loads dihapus dari cache sehingga panggilan nanti mencoba ulang chunk
 
----
-
 ## Signature Fungsi
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // Opsional
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Parameter
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — a promise resolving to the interpreted content of the loaded chunk.
 - **Description**: Resolves to `null` when the map emits no chunk for the requested locale nor for any of its fallbacks, mirroring how a missing qualified coordinate resolves.
-
----
 
 ## Contoh Penggunaan
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## Catatan Perilaku
 
 ### Caching and deduplication
@@ -135,15 +127,11 @@ The cache stores the **promise** of each `key + locale + selector` triple, so co
 
 Peta loader biasa berjalan sepanjang rantai fallback yang sama seperti mode sinkron: lokal yang diminta terlebih dahulu, kemudian fallback-nya, kemudian `null` jika tidak ada yang memancarkan chunk.
 
----
-
 ## Fungsi Terkait
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getIntlayerAsync.md): Fungsi yang dipanggil aplikasi; plugin build menulisnya kembali menjadi `getDictionaryAsync`.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getDictionary.md): Rekan sinkron yang menerima kamus lengkap.
 - [Dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dynamic_dictionaries/index.md): Koleksi dan varian, serta peta loader yang mereka hasilkan.
-
----
 
 ## TypeScript
 

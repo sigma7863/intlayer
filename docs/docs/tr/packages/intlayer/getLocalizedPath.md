@@ -39,8 +39,6 @@ getLocalizedPath fonksiyonu, verilen locale ve yeniden yazma (rewrite) kurallar�
 - Yapılandırmanızda tanımlı özel rewrite kurallarına göre yolları çözer.
 - Belirtilen locale için herhangi bir rewrite kuralı bulunmazsa otomatik olarak canonical path'e geri dönüşü (fallback) yönetir.
 
----
-
 ## Fonksiyon İmzası
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // İsteğe bağlı
 ): string
 ```
-
----
 
 ## Parametreler
 
@@ -79,8 +75,6 @@ getLocalizedPath(
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — locale'nin yolda nasıl göründüğü. **Varsayılan**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — özel rewrite kuralları. **Varsayılan**: `configuration.routing.rewrite`
 
----
-
 ## Dönüş Değeri
 
 - **Tür**: `string`
@@ -107,8 +101,6 @@ Aynı daraltma [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/m
 
 - string literal olmayan bir yol (örneğin bir değişkenden oluşturulan);
 - çok segmentli veya isteğe bağlı bir parametre kullanan bir kuralla eşleşen bir yol (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Örnek Kullanım
 
@@ -166,8 +158,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Çıktı: "/about"
 ```
-
----
 
 ## İlgili Fonksiyonlar
 

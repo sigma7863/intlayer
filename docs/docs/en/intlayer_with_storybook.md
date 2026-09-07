@@ -80,8 +80,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Why use Intlayer with Storybook?
 
 Storybook is the industry-standard tool for developing and documenting UI components in isolation. Combining it with Intlayer lets you:
@@ -89,8 +87,6 @@ Storybook is the industry-standard tool for developing and documenting UI compon
 - **Preview every locale** directly inside the Storybook canvas using a toolbar switcher.
 - **Catch missing translations** before they reach production.
 - **Document multilingual components** with real, type-safe content rather than hard-coded strings.
-
----
 
 ## Step-by-Step Setup
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > For more content declaration formats and features see the [content declaration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dictionary/content_file.md).
 
----
-
 ## Using `useIntlayer` in a Component
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` returns the compiled dictionary for the current locale provided by the nearest `IntlayerProvider`. Switching the locale in the Storybook toolbar automatically re-renders the story with updated translations.
-
----
 
 ## Writing Stories for Internationalized Components
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > Each story inherits the `locale` global from the toolbar, so you can verify every locale without changing any story code.
 
----
-
 ## Testing Translations in Stories
 
 Use Storybook's `play` functions to assert that the correct translated text is rendered for a given locale:
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Additional Resources
 

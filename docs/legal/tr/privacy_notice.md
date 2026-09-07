@@ -79,6 +79,4 @@ Verilerinizle ilgili herhangi bir talebiniz için [contact@intlayer.org](mailto:
 
 Bu gizlilik bildirimi zaman zaman güncellenebilir. Kullanıcıların değişikliklerden haberdar olmak için bu sayfayı düzenli olarak kontrol etmeleri önerilir.
 
----
-
 Daha resmi bir dil, GDPR/CCPA eklemeleri veya yasal sayfa için uyarlama isterseniz lütfen belirtin.

@@ -42,8 +42,6 @@ author: aymericzip
 - 결과는 `key + locale + selector`당 메모이제이션됨
 - 개발 중 딕셔너리가 누락된 경우 충돌하는 대신 안전한 프록시로 폴백
 
----
-
 ## 함수 시그니처
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // 선택사항
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parameters
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: 선언된 타입으로 입력된 사전의 해석된 콘텐츠.
 - **Description**: 사전의 `content` 필드를 반영하는 일반 객체로, 모든 Intlayer 노드가 요청된 로케일에 대한 최종 값으로 해석됩니다.
-
----
 
 ## 사용 예시
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## 동작 참고 사항
 
 ### Caching
@@ -169,15 +161,11 @@ const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 
 `getIntlayer`는 **모든** locale을 포함하는 병합된 사전을 읽습니다. 클라이언트 번들에서 [build plugins](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/bundle_optimization.md)는 필요한 콘텐츠만 배송되도록 호출을 다시 작성합니다. 렌더링 외부에서 콘텐츠를 읽을 때(metadata, loaders, server functions) 단일 locale을 요청 시 로드하려면 [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getIntlayerAsync.md)를 대신 사용하세요.
 
----
-
 ## 관련 함수
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getIntlayerAsync.md): 단일 locale 청크를 로드하는 비동기 counterpart입니다.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getDictionary.md): 키로 조회되는 대신 직접 전달하는 dictionary 객체를 해석합니다.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/react-intlayer/useIntlayer.md): provider에서 locale을 읽는 React hook의 동등물입니다.
-
----
 
 ## TypeScript
 

@@ -43,8 +43,6 @@ npm install @intlayer/babel
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### Плагіни
 
 | Функція / Класс                | Опис                                                                                                                                                                                                         |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | Фабрична функция, що створює плагін Babel для аналізу використання `useIntlayer` / `getIntlayer` у вихідному коді та агрегування даних про використання полів у спільному `PruneContext`.                    |
 | `getSharedPruneContext`        | Допоміжна функція, яка повертає спільний об'єкт `PruneContext` для вказаного базового каталогу або `null`, якщо він ще не був ініціалізований.                                                               |
 
----
-
 ### Утиліти налаштування плагінів
 
 | Функція                    | Опис                                                                                                                                                     |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Завантажує конфігурацію Intlayer та зкомпільовані словники, і повертає `OptimizePluginOptions`, готові для використання з `intlayerOptimizeBabelPlugin`. |
 | `getPurgePluginOptions`    | Завантажує конфігурацію Intlayer і повертає `PurgePluginOptions`, готові для використання з `intlayerPurgeBabelPlugin`.                                  |
 | `getMinifyPluginOptions`   | Завантажує конфігурацію Intlayer і повертає `MinifyPluginOptions`, готові для використання з `intlayerMinifyBabelPlugin`.                                |
-
----
 
 ### Типи
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | Конфігурація сумісного аналізатора використання для пакетів `compat-adapter` (ім'я викликаючого модуля та параметри обробки).    |
 | `ScriptBlock`           | Блок скрипта, вилучений із SFC-файлу (Vue або Svelte): вміст, зміщення початку та зміщення кінця.                                |
 
----
-
 ### Допоміжні функції
 
 | Функція                           | Опис                                                                                                                                                         |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | Вилучає блоки `<script>` із SFC-файлів (Vue / Svelte) для подальшого аналізу в Babel.                                                                        |
 | `BABEL_PARSER_OPTIONS`            | Константа, що представляє параметри парсера Babel, які охоплюють підтримувані фреймворки (React/Vue/Svelte/Angular/...).                                     |
 | `INTLAYER_CALLER_NAMES`           | Константний список оригінальних імен викликаючих модулів Intlayer: `['useIntlayer', 'getIntlayer']`.                                                         |
-
----
 
 ## Приклад використання
 

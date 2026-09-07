@@ -37,8 +37,6 @@ author: aymericzip
 - Порівнює локалізовані шляхи з користувацькими правилами перезапису, визначеними у вашій конфігурації.
 - Повертає оригінальний шлях, якщо відповідне правило перезапису не знайдено.
 
----
-
 ## Підпис функції
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // Необов'язково
 ): string
 ```
-
----
 
 ## Параметри
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **Тип**: `RoutingConfig['rewrite']`
   - **За замовчуванням**: `configuration.routing.rewrite`
 
----
-
 ## Повертає
 
 - **Тип**: `string`
 - **Опис**: Внутрішній канонічний шлях.
-
----
 
 ## Приклад використання
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // Output: "/contact"
 ```
-
----
 
 ## Пов'язані функції
 

@@ -68,8 +68,6 @@ Intlayer वेब और मोबाइल एप्लिकेशन के 
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Feature" width="700">                    | **इंटरऑबरेबिलिटी**<br><br>react-i18next, next-i18next, next-intl, react-intl, vue-i18n के साथ इंटरऑपरेबिलिटी की अनुमति देता है। <br><br> - [Intlayer और react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer और next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer और next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer और vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [Intlayer compat adapters](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Feature" width="700">                           | **प्रदर्शन और बेंचमार्क**<br><br>प्रदर्शन को बढ़ावा देने और समाधान को यथासंभव हल्का रखने के लिए उन्नत ट्री-शेकिंग और डायनेमिक लोडिंग का उपयोग करता है। <br><br> - [प्रदर्शन और बेंचमार्क](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                                                                               |
 
----
-
 ## 📦 स्थापना
 
 आज ही Intlayer के साथ अपनी यात्रा शुरू करें और अंतरराष्ट्रीयकरण के लिए अधिक सहज, अधिक शक्तिशाली दृष्टिकोण का अनुभव करें।

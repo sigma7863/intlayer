@@ -35,8 +35,6 @@ Satu-satunya dependensi eksternal adalah **MongoDB**: backend terhubung ke clust
 
 <TOC/>
 
----
-
 ## Arsitektur
 
 ```
@@ -56,8 +54,6 @@ Satu-satunya dependensi eksternal adalah **MongoDB**: backend terhubung ke clust
 
 Chromium (digunakan untuk pembuatan screenshot Puppeteer) dibundel di dalam image backend — tidak diperlukan kontainer terpisah.
 
----
-
 ## Prasyarat
 
 - **Docker** ≥ 24 dan **Docker Compose** ≥ v2. Jika salah satunya tidak ada, installer akan mencetak tautan instalasi dan keluar.
@@ -65,8 +61,6 @@ Chromium (digunakan untuk pembuatan screenshot Puppeteer) dibundel di dalam imag
 - Host Linux atau macOS (atau WSL2 di Windows).
 
 Semuanya — Bun, Redis, MinIO, Chromium — dikirimkan di dalam image.
-
----
 
 ## Memulai dengan cepat
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > Keempat variabel port hanya mengubah sisi **host** dari mapping yang dicetak dalam perintah `docker run`. Image yang dipublikasikan memiliki `http://localhost:3000`, `http://localhost:3100` dan `http://localhost:9000` dikompilasi ke dalam bundle dashboard pada saat build, jadi remapping mereka membuat browser tetap menunjuk ke port lama. Pertahankan default kecuali Anda membangun image Anda sendiri — lihat [Limitations](#limitations).
 
----
-
 ## Memulai Cepat
 
 Apa yang dilakukan installer:
@@ -149,8 +141,6 @@ Apa yang dilakukan installer:
 5.  Mencetak URL: dashboard `:3000`, API `:3100`, UI email `:8025`, konsol MinIO `:9001`.
 
 Setelah stack aktif, buka **http://localhost:3000** dan buat akun pertama Anda.
-
----
 
 ## Layanan
 
@@ -164,8 +154,6 @@ Setelah stack aktif, buka **http://localhost:3000** dan buat akun pertama Anda.
 | **mailpit** | `axllent/mailpit`                     | `1025` (SMTP), `8025` (UI web) | Sink email transaksional lokal                                          |
 
 > Port MinIO `9000` harus dapat dijangkau oleh browser karena aset yang diunggah (avatar, screenshot) dimuat langsung dari `S3_PUBLIC_URL=http://localhost:9000/intlayer`.
-
----
 
 ## Variabel lingkungan
 
@@ -236,8 +224,6 @@ Atur `MAIL_PROVIDER` untuk mengaktifkannya. Ketika tidak diatur, mailer Resend d
 
 > Precedence: mailer milik organisasi sendiri (dikonfigurasi dari dashboard **Organization**) mengambil prioritas atas global mailer, yang pada gilirannya mengambil prioritas atas kunci Resend default.
 
----
-
 ## Menghubungkan proyek Intlayer Anda
 
 Setelah stack berjalan, arahkan proyek Anda ke backend dan dashboard yang di-self-host, bukan ke `intlayer.org`.
@@ -299,8 +285,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## Peningkatan
 
 Ini menarik image terbaru dan memulai ulang kontainer dengan `docker compose pull && docker compose up -d`. Volume yang sudah ada (`mongo-data`, `redis-data`, `minio-data`) dipertahankan — tidak ada kehilangan data.
@@ -309,8 +293,6 @@ Ini menarik image terbaru dan memulai ulang kontainer dengan `docker compose pul
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## Cadangkan dan pulihkan
 
@@ -346,15 +328,11 @@ docker run --rm \
 # Ulangi untuk redis-data dan minio-data
 ```
 
----
-
 ## Keterbatasan
 
 - **MongoDB harus external (Atlas).** Backend terhubung hanya melalui `mongodb+srv://` (dibangun dari `DB_ID` / `DB_MDP` / `DB_CLUSTER`), jadi plain `mongodb://host:27017` — termasuk `mongod` bundled container sendiri — tidak dapat digunakan. Sediakan cluster MongoDB Atlas.
 - **Tidak ada custom domain.** Semua URL `VITE_*` yang dihadapi browser di-inline ke dalam app pada saat build, dan image yang dipublikasikan dilengkapi dengan nilai `localhost`. Dashboard harus diakses di `http://localhost:3000`; melayaninya di domain publik memerlukan rebuilding image dengan target URLs yang tertanam dan tidak didukung out of the box.
 - **Email memerlukan mailer yang berfungsi.** Setup first-run menerapkan verifikasi email, jadi baik `RESEND_API_KEY` atau [global SMTP mailer](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`) harus dikonfigurasi. Setelah admin pertama masuk, setiap organisasi juga dapat mengonfigurasi SMTP atau Resend mailer-nya sendiri dari dashboard.
-
----
 
 ## Pemecahan Masalah
 
@@ -381,8 +359,6 @@ Jika layanan one-shot `minio-init` tidak berjalan (atau berjalan sebelum MinIO s
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## Tautan Berguna
 

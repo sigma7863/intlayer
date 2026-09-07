@@ -112,8 +112,6 @@ Không chỉ là một giải pháp i18n, Intlayer cung cấp một **[trình ch
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng SolidStart
 
 <Steps>
@@ -1016,8 +1014,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## Xác minh thiết lập của bạn
 
 Build và khởi chạy server, sau đó kiểm tra xem các yêu cầu này có hoạt động như mong đợi hay không:
@@ -1043,8 +1039,6 @@ Các hàng render một trang hoạt động tương tự dưới `vite dev`. Ba
 
 > Chạy dev server trên Node (`vite dev`) thay vì trên Bun (`bun --bun vite dev`): SSR của SolidStart hiện tại thất bại dưới Bun runtime với `Expected a Response object, but received 'NodeResponse'`. Điều này không liên quan đến Intlayer — nó lặp lại trên template thông thường — và chỉ ảnh hưởng đến dev server, không ảnh hưởng đến `vite build`.
 
----
-
 ## Cấu hình Git
 
 Khuyến nghị bỏ qua các tệp được tạo bởi Intlayer. Điều này cho phép bạn tránh commit chúng vào kho lưu trữ Git của mình.
@@ -1055,8 +1049,6 @@ Khuyến nghị bỏ qua các tệp được tạo bởi Intlayer. Điều này 
 # Bỏ qua các tệp được tạo bởi Intlayer
 .intlayer
 ```
-
----
 
 ## Tiện ích mở rộng VS Code
 
@@ -1071,13 +1063,9 @@ Tiện ích mở rộng này cung cấp:
 - **Xem trước trực tiếp (inline)** nội dung đã dịch.
 - **Thao tác nhanh** để dễ dàng tạo và cập nhật các bản dịch.
 
----
-
 ## Đi xa hơn
 
 Để đi xa hơn, bạn có thể triển khai [trình chỉnh sửa trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) hoặc xuất nội dung của bạn ra bên ngoài bằng cách sử dụng [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md).
-
----
 
 ## Tài liệu tham khảo
 

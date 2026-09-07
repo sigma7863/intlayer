@@ -39,8 +39,6 @@ Hàm `getLocalizedPath` chuyển đổi một canonical path (đường dẫn n�
 - Phân giải đường dẫn theo các quy tắc rewrite tùy chỉnh được định nghĩa trong cấu hình của bạn.
 - Tự động dự phòng về đường dẫn canonical nếu không tìm thấy quy tắc rewrite cho locale được chỉ định.
 
----
-
 ## Chữ ký hàm
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // Tùy chọn
 ): string
 ```
-
----
 
 ## Tham số
 
@@ -79,8 +75,6 @@ getLocalizedPath(
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — cách locale xuất hiện trong đường dẫn. **Default**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — các quy tắc rewrite tùy chỉnh. **Default**: `configuration.routing.rewrite`
 
----
-
 ## Trả về
 
 - **Kiểu**: `string`
@@ -107,8 +101,6 @@ Hai trường hợp vẫn được mở rộng thành `string`, vì chúng khôn
 
 - a path that is not a string literal (e.g. one built from a variable);
 - a path matched by a rule using a multi-segment or optional parameter (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Ví dụ sử dụng
 
@@ -166,8 +158,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Output: "/about"
 ```
-
----
 
 ## Các hàm liên quan
 

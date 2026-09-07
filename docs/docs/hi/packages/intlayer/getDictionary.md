@@ -41,8 +41,6 @@ author: aymericzip
 - पूरी तरह typed: returned object आपके द्वारा pass किए गए `content` को reflect करता है
 - Custom interpreter plugins को accept करता है
 
----
-
 ## फ़ंक्शन सिग्नेचर
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // वैकल्पिक
 ): DeepTransformContent<...>
 ```
-
----
 
 ## पैरामीटर
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Type**: डिक्शनरी की व्याख्या की गई सामग्री।
 - **Description**: आपके द्वारा पास की गई `content`, अनुरोधित लोकेल के लिए प्रत्येक Intlayer नोड को हल किया गया। एक संग्रह समूह के लिए जिसमें कोई `item` चयनकर्ता नहीं है, व्याख्या किए गए प्रविष्टियों का एक क्रमबद्ध array रिटर्न किया जाता है; `null` तब रिटर्न किया जाता है जब चयनकर्ता कुछ भी लक्षित नहीं करता है।
-
----
 
 ## उदाहरण उपयोग
 
@@ -128,15 +122,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## संबंधित फ़ंक्शन
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getIntlayer.md): समान interpretation, लेकिन dictionary को generated registry में key के आधार पर देखा जाता है।
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getDictionaryAsync.md): per-locale loader maps के लिए counterpart।
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/react-intlayer/useDictionary.md): React hook equivalent, जो provider से locale को पढ़ता है।
-
----
 
 ## TypeScript
 

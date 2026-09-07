@@ -42,8 +42,6 @@ Intlayer tarafından `.intlayer/` içinde oluşturulan sözlükleri okur, bu ned
 - Sonuçlar `key + locale + selector` başına bellekte tutulur
 - Geliştirme sırasında sözlük eksik olduğunda, kilitlenmek yerine güvenli bir proxy'ye geri döner
 
----
-
 ## Fonksiyon İmzası
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // İsteğe bağlı
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parametreler
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: Sözlüğünüzün deklarasyonundan yazılan, yorumlanan içerik.
 - **Description**: Sözlüğünüzün `content` alanını yansıtan düz bir nesne; burada her Intlayer düğümü, istenen locale için nihai değerine çözülmüştür.
-
----
 
 ## Örnek Kullanım
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## Davranış Notları
 
 ### Önbellekleme
@@ -169,15 +161,11 @@ Geliştirme sırasında, oluşturulmuş bir sözlüğü olmayan bir anahtarı is
 
 `getIntlayer` birleştirilmiş sözlüğü okur; bu sözlük **her** locale'i içerir. İstemci bundle'larında, [build eklentileri](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/bundle_optimization.md) çağrıyı yeniden yazarak yalnızca gerekli içeriğin gönderilmesini sağlar. Rendering dışında içerik okuyorsanız (metadata, loaders, server functions) ve talep üzerine tek bir locale yüklenmesini istiyorsanız, bunun yerine [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getIntlayerAsync.md) kullanın.
 
----
-
 ## İlgili Fonksiyonlar
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getIntlayerAsync.md): Tek bir locale chunk yükleyen async eşdeğeri.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getDictionary.md): Anahtarla arama yapılan bir sözlük yerine, kendiniz geçtiğiniz bir sözlük nesnesini yorumlar.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/react-intlayer/useIntlayer.md): React hook eşdeğeri, provider'dan locale'i okur.
-
----
 
 ## TypeScript
 

@@ -39,8 +39,6 @@ author: aymericzip
 - تدعم جميع أوضاع التوجيه: `prefix-no-default`، `prefix-all`، `no-prefix`، و `search-params`
 - أداة خفيفة لتحديد متى يجب إضافة بادئات اللغة
 
----
-
 ## توقيع الدالة
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // مثال: 'fr' أو undefined
 }
 ```
-
----
 
 ## المعاملات
 
@@ -93,8 +89,6 @@ type GetPrefixResult = {
 - **الوصف**: كائن يحتوي على ثلاثة تنسيقات مختلفة للبادئة:
   - `prefix`: بادئة المسار مع شرطة مائلة في النهاية (مثال: `'fr/'`، `''`)
   - `localePrefix`: معرف اللغة بدون شرطات مائلة (مثال: `'fr'`، `undefined`)
-
----
 
 ## مثال على الاستخدام
 
@@ -173,14 +167,10 @@ console.log(`Current locale: ${localePrefix}`);
 // المخرجات: "Current locale: fr"
 ```
 
----
-
 ## الدوال المرتبطة
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getLocalizedUrl.md): ينشئ عنوان URL محلي للغة معينة
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getMultilingualUrls.md): ينشئ عناوين URL لجميع اللغات المكونة
-
----
 
 ## TypeScript
 

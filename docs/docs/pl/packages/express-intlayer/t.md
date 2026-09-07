@@ -28,13 +28,9 @@ author: aymericzip
 
 Funkcja `t` w pakiecie `express-intlayer` jest podstawowym narzędziem do dostarczania zlokalizowanych odpowiedzi w Twojej aplikacji Express. Upraszcza internacjonalizację (i18n) poprzez dynamiczny wybór treści na podstawie preferowanego języka użytkownika.
 
----
-
 ## Przegląd
 
 Funkcja `t` służy do definiowania i pobierania tłumaczeń dla określonego zestawu języków. Automatycznie ustala odpowiedni język do zwrócenia na podstawie ustawień żądania klienta, takich jak nagłówek `Accept-Language`. Jeśli preferowany język nie jest dostępny, funkcja płynnie przełącza się na domyślną lokalizację określoną w Twojej konfiguracji.
-
----
 
 ## Kluczowe cechy
 
@@ -42,8 +38,6 @@ Funkcja `t` służy do definiowania i pobierania tłumaczeń dla określonego ze
 - **Powrót do domyślnej lokalizacji**: W przypadku braku preferowanego języka klienta, następuje powrót do domyślnej lokalizacji, zapewniając ciągłość doświadczenia użytkownika.
 - **Lekka i szybka**: Zaprojektowana z myślą o aplikacjach o wysokiej wydajności, zapewniając minimalne obciążenie.
 - **Obsługa trybu ścisłego**: Wymuszanie ścisłego przestrzegania zadeklarowanych lokalizacji dla niezawodnego działania.
-
----
 
 ## Sygnatura funkcji
 
@@ -58,8 +52,6 @@ t(translations: Record<string, string>): string;
 ### Zwraca
 
 - Ciąg znaków reprezentujący zawartość w preferowanym języku klienta.
-
----
 
 ## Ładowanie obsługi żądań internacjonalizacji
 
@@ -93,8 +85,6 @@ app.get("/", (_req, res) => {
 - **Wykrywanie lokalizacji**: Middleware `intlayer` przetwarza przychodzące żądania, aby wykryć preferowaną lokalizację użytkownika na podstawie nagłówków, ciasteczek lub innych skonfigurowanych metod.
 - **Kontekst tłumaczenia**: Ustawia niezbędny kontekst dla funkcji `t`, aby działała poprawnie, zapewniając zwracanie tłumaczeń w odpowiednim języku.
 - **Zapobieganie błędom**: Bez tego middleware użycie funkcji `t` spowoduje błędy w czasie wykonywania, ponieważ nie będzie dostępna niezbędna informacja o lokalizacji.
-
----
 
 ## Przykłady użycia
 
@@ -136,8 +126,6 @@ app.get("/error", (_req, res) => {
   );
 });
 ```
-
----
 
 ### Używanie wariantów lokalizacyjnych
 
@@ -185,8 +173,6 @@ app.get("/greet", (_req, res) => {
 });
 ```
 
----
-
 ## Zaawansowane tematy
 
 ### Mechanizm zapasowy (Fallback)
@@ -210,8 +196,6 @@ Na przykład:
 
 - Jeśli `defaultLocale` to `Locales.CHINESE`, a klient zażąda `Locales.DUTCH`, zwrócone tłumaczenie będzie domyślnie wartością `Locales.CHINESE`.
 - Jeśli `defaultLocale` nie jest zdefiniowane, funkcja `t` automatycznie użyje wartości `Locales.ENGLISH`.
-
----
 
 ### Wymuszanie trybu ścisłego
 
@@ -239,8 +223,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Integracja z TypeScript
 
 Funkcja `t` jest bezpieczna typowo, gdy używana jest z TypeScript. Zdefiniuj typowo bezpieczny obiekt tłumaczeń:
@@ -259,8 +241,6 @@ app.get("/morning", (_req, res) => {
 });
 ```
 
----
-
 ### Typowe błędy i rozwiązywanie problemów
 
 | Problem                    | Przyczyna                                       | Rozwiązanie                                                      |
@@ -268,16 +248,12 @@ app.get("/morning", (_req, res) => {
 | Funkcja `t` nie działa     | Middleware nie został załadowany                | Upewnij się, że `app.use(intlayer())` jest dodane przed trasami. |
 | Błąd brakujących tłumaczeń | Włączony tryb ścisły bez wszystkich lokalizacji | Dostarcz wszystkie wymagane tłumaczenia.                         |
 
----
-
 ## Wskazówki dotyczące efektywnego użycia
 
 1. **Centralizuj tłumaczenia**: Używaj scentralizowanego modułu lub plików JSON do zarządzania tłumaczeniami, aby poprawić łatwość utrzymania.
 2. **Weryfikuj tłumaczenia**: Upewnij się, że każda wersja językowa ma odpowiadające tłumaczenie, aby uniknąć niepotrzebnego cofania się do domyślnego języka.
 3. **Łącz z i18n frontendowym**: Synchronizuj z międzynarodowymi ustawieniami frontendu, aby zapewnić spójne doświadczenie użytkownika w całej aplikacji.
 4. **Testuj wydajność**: Sprawdzaj czasy odpowiedzi aplikacji po dodaniu tłumaczeń, aby zapewnić minimalny wpływ na wydajność.
-
----
 
 ## Podsumowanie
 

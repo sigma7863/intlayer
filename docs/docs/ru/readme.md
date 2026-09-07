@@ -68,8 +68,6 @@ Intlayer, это **современное решение i18n** для веб- �
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Feature" width="700">                    | **Взаимодействие**<br><br>Обеспечивает взаимодействие с react-i18next, next-i18next, next-intl, react-intl, vue-i18n. <br><br> - [Intlayer и react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer и next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer и next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer и vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [Адаптеры совместимости Intlayer](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Feature" width="700">                           | **Производительность и бенчмарк**<br><br>Использует передовое разделение кода (tree-shaking) и динамическую загрузку для повышения производительности и сохранения максимальной легкости решения. <br><br> - [Производительность и бенчмарк](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                     |
 
----
-
 ## 📦 Установка
 
 Начните свое путешествие с Intlayer уже сегодня и ощутите более плавный и мощный подход к интернационализации.

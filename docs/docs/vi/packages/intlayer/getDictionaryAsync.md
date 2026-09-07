@@ -44,8 +44,6 @@ Hàm `getDictionaryAsync` tải một **single locale chunk** của một từ �
 - Khử trùng các lần tải đồng thời của cùng một chunk và cache nội dung đã giải quyết
 - Các tải thất bại được xóa khỏi cache để một lệnh gọi sau có thể thử lại chunk
 
----
-
 ## Chữ Ký Hàm
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // Tùy chọn
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Tham số
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — a promise resolving to the interpreted content of the loaded chunk.
 - **Description**: Resolves to `null` when the map emits no chunk for the requested locale nor for any of its fallbacks, mirroring how a missing qualified coordinate resolves.
-
----
 
 ## Ví dụ sử dụng
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## Các Ghi Chú về Hành Vi
 
 ### Caching và deduplication
@@ -135,15 +127,11 @@ Bộ nhớ cache lưu trữ **promise** của mỗi bộ ba `key + locale + sele
 
 Một plain loader map được duyệt dọc theo cùng một chuỗi dự phòng như ở chế độ đồng bộ: locale được yêu cầu trước tiên, sau đó là các dự phòng của nó, sau đó là `null` nếu không có chunk nào được phát ra.
 
----
-
 ## Các Hàm Liên Quan
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getIntlayerAsync.md): Hàm mà các ứng dụng gọi; build plugins viết lại nó thành `getDictionaryAsync`.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getDictionary.md): Đối tác đồng bộ lấy một từ điển đầy đủ.
 - [Dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dynamic_dictionaries/index.md): Các bộ sưu tập và biến thể, cũng như các bản đồ loader mà chúng tạo ra.
-
----
 
 ## TypeScript
 

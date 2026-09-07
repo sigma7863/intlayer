@@ -455,8 +455,6 @@ Intlayer は、補完機能を向上させ、翻訳エラーを検出するた�
 - 辞書キーの**オートコンプリート**。
 - 存在しないキーにアクセスしたり型が不一致の場合に警告する**型チェック**。
 
----
-
 ## Git 設定
 
 Intlayer によって自動生成されたファイルをコミットしないように、`.gitignore` に以下を追加してください：
@@ -465,8 +463,6 @@ Intlayer によって自動生成されたファイルをコミットしない�
 # Intlayer によって生成されたファイルを無視
 .intlayer
 ```
-
----
 
 ### VS Code 拡張機能
 
@@ -483,8 +479,6 @@ Intlayer の開発体験を向上させるために、公式の **Intlayer VS Co
 
 拡張機能の使い方の詳細については、[Intlayer VS Code 拡張機能のドキュメント](https://intlayer.org/doc/vs-code-extension) を参照してください。
 
----
-
 ## さらに進む
 
 - **ビジュアルエディター**：翻訳を視覚的に管理するために、[Intlayer ビジュアルエディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md) を使用してください。
@@ -492,8 +486,6 @@ Intlayer の開発体験を向上させるために、公式の **Intlayer VS Co
 - **CLI コマンド**: 翻訳の**抽出**や**欠落キーの確認**などのタスクには、[Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/index.md) を活用してください。
 
 **Intlayer** を通じて、完全な i18n 機能を備えた **React Native** アプリの開発をお楽しみください！
-
----
 
 ### Debug
 
@@ -520,8 +512,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - モジュールの解決に失敗した場合は、Metro 設定（resolver aliases、asset plugins、`tsconfig` paths）を確認してください。
-
----
 
 ## よくある質問
 

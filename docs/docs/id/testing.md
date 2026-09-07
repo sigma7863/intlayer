@@ -27,15 +27,11 @@ author: aymericzip
 
 Panduan ini menunjukkan cara memverifikasi secara otomatis bahwa kamus Anda lengkap, menangkap terjemahan yang hilang sebelum pengiriman, dan menguji UI yang dilokalisasi dalam aplikasi Anda.
 
----
-
 ## Apa yang bisa Anda uji
 
 - **Terjemahan yang hilang**: gagal CI jika ada locale yang diperlukan hilang untuk kamus apa pun.
 - **Rendering UI yang dilokalisasi**: render komponen dengan penyedia locale tertentu dan pastikan teks/atribut yang terlihat.
 - **Audit saat build**: jalankan audit cepat secara lokal melalui CLI.
-
----
 
 ## Mulai cepat: audit melalui CLI
 
@@ -67,8 +63,6 @@ Flag yang berguna:
 - `--build [build]`: membangun kamus sebelum pengujian untuk memastikan konten terbaru. True akan memaksa build, false akan melewati build, undefined akan menggunakan cache build.
 
 Catatan: CLI mencetak laporan terperinci tetapi tidak keluar dengan kode non-zero saat terjadi kegagalan. Untuk pengujian CI, tambahkan unit test (di bawah) yang memastikan tidak ada locale wajib yang hilang.
-
----
 
 ## Pengujian programatik (Vitest/Jest)
 
@@ -117,8 +111,6 @@ Cara kerjanya:
   - `missingLocales`: gabungan dari semua locale yang hilang.
   - `missingRequiredLocales`: subset terbatas pada `requiredLocales` (atau semua locales jika `requiredLocales` tidak disetel).
 
----
-
 ## Menguji UI yang dilokalkan (React / Next.js)
 
 Render komponen di bawah penyedia Intlayer dan lakukan assert pada konten yang terlihat.
@@ -164,8 +156,6 @@ Tips:
 
 - Saat Anda membutuhkan nilai string mentah untuk atribut (misalnya, `aria-label`), akses field `.value` yang dikembalikan oleh `useIntlayer` di React.
 - Simpan kamus berdekatan dengan komponen untuk memudahkan pengujian unit dan pembersihan.
-
----
 
 ## Integrasi Berkelanjutan
 
@@ -215,8 +205,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## Pemecahan Masalah
 

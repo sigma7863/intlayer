@@ -47,8 +47,6 @@ Intlayer CMS 是一个应用程序，允许您将 Intlayer 项目的内容外部
 
 <TOC/>
 
----
-
 ## 理解远程字典
 
 Intlayer 区分“本地”字典和“远程”字典。
@@ -411,8 +409,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 有关完整的设置指南、环境变量参考、升级说明和备份/恢复过程，请参阅[自托管指南](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/self_hosting.md)。
-
----
 
 ## 调试
 

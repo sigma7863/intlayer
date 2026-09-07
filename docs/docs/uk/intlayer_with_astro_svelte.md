@@ -107,8 +107,6 @@ Intlayer оптимізовано для ідеальної роботи з Astr
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покрокова інструкція з налаштування Intlayer в Astro + Svelte
 
 Перегляньте [шаблон додатка](https://github.com/aymericzip/intlayer-astro-template) на GitHub.
@@ -642,8 +640,6 @@ Intlayer використовує розширення модулів (module au
 - **Швидкі дії** для легкого створення та оновлення перекладів.
 
 Для отримання додаткової інформації про використання розширення дивіться [документацію розширення VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Поглиблюйте свої знання
 

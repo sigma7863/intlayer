@@ -68,8 +68,6 @@ Basit bir i18n çözümünden çok daha fazlası olan Intlayer, çok dilli içer
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Geçiş Stratejisi
 
 Mevcut uygulamalar için önerilen yaklaşım, **uyumluluk adaptörünü** kullanmaktır: `@intlayer/next-intl` paketini kurun. Bu paket, arka planda tüm çeviri işini Intlayer'a devrederek `next-intl` ile **tamamen aynı API'yi** sunar.
@@ -78,13 +76,9 @@ Mevcut uygulamalar için önerilen yaklaşım, **uyumluluk adaptörünü** kulla
 
 Zamanla, görsel editör, CMS ve bileşen düzeyi bağlamından (scoping) yararlanmak için bağımsız dosyaları yavaş yavaş Intlayer'ın daha güçlü `.content.ts` biçimine dönüştürebilirsiniz—fakat bu adım tamamen isteğe bağlıdır ve adım adım uygulanabilir.
 
----
-
 ## İçindekiler
 
 <TOC/>
-
----
 
 ## Hızlı Geçiş
 
@@ -213,8 +207,6 @@ Hızlı geçiş bu kadar. Uygulamanız artık `next-intl` içe aktarmalarınız 
 > t("counter.label"); // ✓ tür güvenli (typed)
 > ```
 
----
-
 ## Tam Geçiş
 
 Aşağıdaki adımlar isteğe bağlıdır ve kademeli olarak yapılabilir. Bunlar, görsel editör, CMS, türetilmiş (typed) içerik dosyaları, AI çeviri otomasyonu gibi Intlayer özelliklerinin tam kapsamlı kullanımını sağlar.
@@ -309,8 +301,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Geçişten Sonra Silinebilecekler
 
 `@intlayer/next-intl` kullanılmaya başlandığında, aşağıdaki standart `next-intl` tekrarlayan kodları (boilerplate) kaldırılabilir:
@@ -322,8 +312,6 @@ export default config;
 | JSON paket yükleyicileri (`messages/*.json`)                            | JSON paketleri yalnızca `syncJSON` eklentisini kullanmaya devam etmeniz durumunda gereklidir. `.content.ts` dosyalarına geçtikten sonra JSON klasörünü kaldırabilirsiniz.          |
 
 Bir adım öteye geçmeye hazır olduğunuzda, Intlayer **kod tabanınızın herhangi bir yerindeki (varsayılan olarak `./src` altındaki herhangi bir yerde) tüm `.content.ts` ve `.content.json` dosyalarını otomatik olarak keşfeder**. Sadece `about/page.tsx`'in yanına bir `about.content.ts` dosyası bırakın, Intlayer onu ek bir yapılandırma olmadan derleme (build) sırasında yakalayacaktır. Ne içe aktarmaya, ne kayda, ne de merkezi bir indeks dosyasına ihtiyaç vardır. Bu sayede çeviriler sayfalar ve bileşenlerinizle en kolay şekilde bir arada tutulur (colocation).
-
----
 
 ## TypeScript Kurulumu
 
@@ -339,8 +327,6 @@ Intlayer, çeviri anahtarlarınız için kapsamlı TypeScript IntelliSense'i (ot
 }
 ```
 
----
-
 ## Git Yapılandırması
 
 Intlayer tarafından oluşturulan dizini `.gitignore` dosyanıza ekleyin:
@@ -349,8 +335,6 @@ Intlayer tarafından oluşturulan dizini `.gitignore` dosyanıza ekleyin:
 # Intlayer tarafından oluşturulan dosyaları yoksay
 .intlayer
 ```
-
----
 
 ## Daha Fazlasını Keşfedin
 

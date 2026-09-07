@@ -64,8 +64,6 @@ Localize os Links usando o componente `Link` para redirecionar o usuário para a
 
 > Veja nossa documentação listando tudo que você precisa saber sobre internacionalização e SEO: [Internationalization (i18n) with next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pt/internationalization_and_SEO.md).
 
----
-
 ## Guia Passo a Passo para Configurar o next-intl em uma Aplicação Next.js
 
 <iframe

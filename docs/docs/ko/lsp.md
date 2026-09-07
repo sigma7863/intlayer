@@ -31,8 +31,6 @@ author: aymericzip
 
 **Intlayer 언어 서버**는 IDE와 AI 에이전트가 Intlayer를 인식하도록 만드는 [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) 구현입니다. `useIntlayer("home")` 같은 호출과 이를 선언하는 `.content.ts` 파일을 양방향으로 연결합니다.
 
----
-
 ## 기능
 
 | 기능               | 단축키              | 설명                                                                            |
@@ -65,8 +63,6 @@ author: aymericzip
 
 > 사전은 빌드 결과물에서 읽으므로, 서버가 해석할 대상이 있도록 `npx intlayer build`를 실행하거나 개발 서버를 계속 켜 두세요.
 
----
-
 ## 설치
 
 서버는 `@intlayer/lsp`에 포함된 `intlayer-lsp` 바이너리로 배포됩니다.
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 에디터가 `PATH`의 `intlayer-lsp`를 필요로 한다면 대신 전역으로 설치하세요(`npm install -g @intlayer/lsp`). Claude Code 플러그인과 아래에서 바이너리를 직접 호출하는 모든 설정이 여기에 해당합니다.
-
----
 
 ## 설정
 
@@ -255,15 +249,11 @@ LSP를 지원하는 모든 에디터에서 `@intlayer/lsp`를 실행할 수 있�
   </Tab>
 </Tabs>
 
----
-
 ## 터미널 AI 에이전트에 대한 참고
 
 **Claude Code**는 실제 LSP 클라이언트로 동작합니다 — 위 탭을 참고하세요.
 
 **OpenAI Codex**를 비롯한 대부분의 터미널 도구는 LSP 클라이언트가 아니며 파일을 직접 읽고 씁니다. 서버만 단독으로 실행해도 도움이 되지 않습니다. 에이전트가 색인을 조회할 수 있는 보조 에디터(Cursor Composer, Windsurf Cascade, Copilot Chat)에서 서버가 활성화되어 있을 때 가치가 생깁니다.
-
----
 
 ## 동작 방식
 
@@ -274,8 +264,6 @@ LSP를 지원하는 모든 에디터에서 `@intlayer/lsp`를 실행할 수 있�
 1. **키 문자열 위**(`useIntlayer("home")`) → 해당 키를 선언한 모든 콘텐츠 파일을 `key:` 줄에 위치시켜 반환합니다.
 2. **필드 사용처 위**(`content.title`, 구조 분해된 속성, `t('path.to.field')`, `<Trans>` 등) → 변수를 사전까지 거슬러 해석하고 콘텐츠 파일 내의 해당 필드를 반환합니다.
 3. **콘텐츠 파일에서** → 역방향 조회를 수행하여 해당 키나 필드의 호출 지점을 프로젝트 소스에서 찾습니다.
-
----
 
 ## 문제 해결
 

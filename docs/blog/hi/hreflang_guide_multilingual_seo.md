@@ -25,8 +25,6 @@ author: aymericzip
 
 अनुवाद करना आसान आधा है। कठिन आधा यह है कि सर्च इंजन को बताया जाए कि ये पेज **दूसरी भाषा में एक ही पेज हैं**, तीन दस्तावेज़ जो एक-दूसरे के साथ प्रतिस्पर्धा कर रहे हैं। यह वही है जो `hreflang` करता है, और यह वह जगह है जहां ज्यादातर बहुभाषी साइटें चुप-चाप अपनी ट्रैफिक खो देती हैं।
 
----
-
 ## Hreflang वास्तव में क्या है
 
 एक पेज पर एक एनोटेशन जो कहता है: _इस URL के उन भाषाओं के लिए समान संस्करण हैं।_
@@ -42,8 +40,6 @@ author: aymericzip
 
 यह स्पष्ट होना महत्वपूर्ण है कि यह क्या नहीं है। यह **redirect नहीं है** — यह एक hint है, और Google इसे override कर सकता है। यह **ranking boost नहीं है** — यह बदलता है _कौन सा_ version ranks करता है, न कि _क्या_ आप rank करते हैं। और Bing इसे पूरी तरह ignore करता है, इसके बजाय `content-language` और geo-targeting पर भरोसा करता है।
 
----
-
 ## इसे कहाँ declare करें
 
 तीन placements, सभी valid हैं। एक चुनें और वहीं रहें — एक ही cluster को दो जगहों पर declare करना यह है कि sets कैसे अलग हो जाते हैं।
@@ -53,8 +49,6 @@ author: aymericzip
 **XML sitemap** बड़े पैमाने पर बेहतर है। दस locales को 5,000 pages में फैलाने का मतलब है 50,000 `<link>` elements को browsers में बेकार भेजना; एक sitemap में इसकी कीमत आपकी pages से शून्य bytes है।
 
 **HTTP `Link` header** PDFs जैसी गैर-HTML files के लिए एकमात्र विकल्प है।
-
----
 
 ## नियम
 
@@ -107,8 +101,6 @@ ISO 639-1 भाषा के लिए, ISO 3166-1 Alpha 2 optional region क�
 
 दो चीजें स्पष्ट रखने के लिए: `x-default` सेट में एक अतिरिक्त entry है, self-referencing वाले की जगह नहीं, और हर दूसरी entry की तरह इसे cluster के हर पेज पर identically दिखना चाहिए।
 
----
-
 ## कैनोनिकल ट्रैप
 
 प्रत्येक localized पेज **अपना खुद का canonical** होना चाहिए:
@@ -131,8 +123,6 @@ ISO 639-1 भाषा के लिए, ISO 3166-1 Alpha 2 optional region क�
 
 **Canonical स्व-संदर्भी है प्रति लोकेल। `hreflang` क्लस्टर का वर्णन करता है।**
 
----
-
 ## URL संरचना चुनना
 
 `hreflang` URLs को एनोटेट करता है, इसलिए संरचना पहले आती है।
@@ -148,8 +138,6 @@ Subdirectories अधिकांश projects के लिए सही default
 एक structure जिससे बचना है: **same URL** पर विभिन्न languages को `Accept-Language` या IP के आधार पर serve करना। Crawlers एक version देखते हैं और एक version को index करते हैं; बाकी सब अदृश्य है।
 
 > Intlayer तीनों को `routing.mode` और `routing.domains` के माध्यम से cover करता है। [custom domains](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/custom_domains.md) और [configuration reference](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/configuration.md) देखें।
-
----
 
 ## Implementation
 
@@ -290,8 +278,6 @@ const sitemap = generateSitemap(
 
 </Steps>
 
----
-
 ## Checklist
 
 - [ ] प्रत्येक locale के पास एक distinct, crawlable URL है
@@ -304,8 +290,6 @@ const sitemap = generateSitemap(
 - [ ] Tags server-rendered हैं, hydration के बाद inject नहीं किए गए
 - [ ] बिल्कुल एक जगह declared हैं
 - [ ] कोई alternate redirects नहीं
-
----
 
 ## निष्कर्ष
 

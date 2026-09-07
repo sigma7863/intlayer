@@ -20,8 +20,6 @@ author: aymericzip
 
 # Perintah Login CLI Intlayer
 
----
-
 ## Deskripsi
 
 Perintah `login` dari Intlayer CLI memungkinkan Anda untuk mengautentikasi dengan Intlayer CMS. Perintah ini secara otomatis membuka browser default Anda untuk menyelesaikan proses autentikasi dan menerima kredensial yang diperlukan (Client ID dan Client Secret) untuk menggunakan layanan Intlayer.

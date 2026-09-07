@@ -26,8 +26,6 @@ Jeśli Twoja wielojęzyczna aplikacja Next.js nie informuje wyszukiwarek, jak in
 
 W tym wpisie na blogu omówimy, **dlaczego i18n to supermoc SEO** oraz jak poprawnie zaimplementować ją w Next.js za pomocą `next-intl`, `next-i18next` i `Intlayer`.
 
----
-
 ## Dlaczego SEO i i18n
 
 Dodanie języków to nie tylko kwestia UX. To także potężny dźwignia dla **organicznej widoczności**. Oto dlaczego:
@@ -36,8 +34,6 @@ Dodanie języków to nie tylko kwestia UX. To także potężny dźwignia dla **o
 2. **Unikanie duplikatów treści:** Poprawne tagi kanoniczne i alternatywne informują roboty, która strona należy do którego języka.
 3. **Lepsze UX:** Odwiedzający trafiają od razu na właściwą wersję Twojej strony.
 4. **Przewaga konkurencyjna:** Niewiele stron dobrze wdraża wielojęzyczne SEO, co oznacza, że możesz się wyróżnić.
-
----
 
 ## Najlepsze praktyki dla wielojęzycznego SEO w Next.js
 
@@ -56,8 +52,6 @@ Oto lista kontrolna, którą powinna wdrożyć każda wielojęzyczna aplikacja:
   Przykład: `<a href="/fr/about">À propos</a>` zamiast linkować do domyślnego `/about`.
 
 To proste kroki, ale ich pominięcie może kosztować Cię widoczność.
-
----
 
 ## Przykłady implementacji
 
@@ -343,13 +337,9 @@ export default robots;
   </Tab>
 </Tabs>
 
----
-
 ## Przeprowadź audyt swojej witryny za pomocą Intlayer SEO Scanner
 
 Aby upewnić się, że Twoja wielojęzyczna aplikacja jest idealnie zoptymalizowana, zalecamy skorzystanie z [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner). Jest to specjalistyczne narzędzie do sprawdzania wielojęzycznych witryn, pomagające zidentyfikować brakujące tagi hreflang, uszkodzone linki i inne problemy związane z SEO na wszystkich zlokalizowanych stronach.
-
----
 
 ## Podsumowanie
 

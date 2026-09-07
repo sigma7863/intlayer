@@ -27,13 +27,9 @@ author: aymericzip
 
 Hàm `t` trong gói `hono-intlayer` là công cụ cốt lõi để cung cấp các phản hồi được bản địa hóa trong ứng dụng Hono của bạn. Nó đơn giản hóa việc quốc tế hóa (i18n) bằng cách tự động chọn nội dung dựa trên ngôn ngữ ưu tiên của người dùng.
 
----
-
 ## Tổng quan
 
 Hàm `t` được sử dụng để định nghĩa và lấy bản dịch cho một tập hợp các ngôn ngữ nhất định. Nó tự động xác định ngôn ngữ phù hợp để trả về dựa trên cài đặt yêu cầu của ứng dụng khách, chẳng hạn như tiêu đề `Accept-Language`. Nếu ngôn ngữ ưu tiên không có sẵn, nó sẽ chuyển sang ngôn ngữ mặc định được chỉ định trong cấu hình của bạn.
-
----
 
 ## Các tính năng chính
 
@@ -41,8 +37,6 @@ Hàm `t` được sử dụng để định nghĩa và lấy bản dịch cho m�
 - **Chuyển sang ngôn ngữ mặc định**: Chuyển sang ngôn ngữ mặc định nếu ngôn ngữ ưu tiên của ứng dụng khách không có sẵn, đảm bảo tính liên tục trong trải nghiệm người dùng.
 - **Nhẹ và nhanh**: Được thiết kế cho các ứng dụng hiệu suất cao, đảm bảo chi phí tối thiểu.
 - **Hỗ trợ chế độ nghiêm ngặt**: Thực thi việc tuân thủ nghiêm ngặt các ngôn ngữ đã khai báo để có hành vi đáng tin cậy.
-
----
 
 ## Chữ ký hàm
 
@@ -57,8 +51,6 @@ t(translations: Record<string, string>): string;
 ### Trả về
 
 - Một chuỗi đại diện cho nội dung bằng ngôn ngữ ưu tiên của ứng dụng khách.
-
----
 
 ## Tải Trình xử lý yêu cầu quốc tế hóa
 
@@ -93,8 +85,6 @@ app.get("/", (c) => {
 - **Phát hiện ngôn ngữ**: Middleware `intlayer` xử lý các yêu cầu đến để phát hiện ngôn ngữ ưu tiên của người dùng dựa trên tiêu đề, cookie hoặc các phương pháp cấu hình khác.
 - **Ngữ cảnh dịch thuật**: Thiết lập ngữ cảnh cần thiết để hàm `t` hoạt động chính xác, đảm bảo rằng các bản dịch được trả về đúng ngôn ngữ.
 - **Ngăn ngừa lỗi**: Nếu không có middleware này, việc sử dụng hàm `t` sẽ dẫn đến lỗi thời gian chạy vì thông tin ngôn ngữ cần thiết sẽ không có sẵn.
-
----
 
 ## Ví dụ sử dụng
 
@@ -137,8 +127,6 @@ app.get("/error", (c) => {
 });
 ```
 
----
-
 ### Sử dụng các biến thể ngôn ngữ
 
 Chỉ định bản dịch cho các biến thể ngôn ngữ cụ thể:
@@ -155,8 +143,6 @@ app.get("/greet", (c) => {
   );
 });
 ```
-
----
 
 ## Các chủ đề nâng cao
 
@@ -177,8 +163,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Thực thi chế độ nghiêm ngặt
 
 Cấu hình hàm `t` để thực thi việc tuân thủ nghiêm ngặt các ngôn ngữ đã khai báo:
@@ -188,8 +172,6 @@ Cấu hình hàm `t` để thực thi việc tuân thủ nghiêm ngặt các ng�
 | `strict`    | Tất cả các ngôn ngữ đã khai báo phải có bản dịch được cung cấp. Ngôn ngữ thiếu sẽ gây lỗi.                |
 | `inclusive` | Các ngôn ngữ đã khai báo phải có bản dịch. Ngôn ngữ thiếu sẽ kích hoạt cảnh báo nhưng vẫn được chấp nhận. |
 | `loose`     | Bất kỳ ngôn ngữ hiện có nào cũng được chấp nhận, ngay cả khi không được khai báo.                         |
-
----
 
 ### Tích hợp TypeScript
 
@@ -209,16 +191,12 @@ app.get("/morning", (c) => {
 });
 ```
 
----
-
 ### Các lỗi thường gặp và cách khắc phục
 
 | Vấn đề                  | Nguyên nhân                                         | Giải pháp                                                           |
 | ----------------------- | --------------------------------------------------- | ------------------------------------------------------------------- |
 | Hàm `t` không hoạt động | Middleware chưa được tải                            | Đảm bảo `app.use("*", intlayer())` được thêm trước các tuyến đường. |
 | Lỗi thiếu bản dịch      | Chế độ nghiêm ngặt được bật mà không có đủ ngôn ngữ | Cung cấp tất cả các bản dịch được yêu cầu.                          |
-
----
 
 ## Kết luận
 

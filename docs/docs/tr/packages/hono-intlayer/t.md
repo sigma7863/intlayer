@@ -27,13 +27,9 @@ author: aymericzip
 
 `hono-intlayer` paketindeki `t` fonksiyonu, Hono uygulamanızda yerelleştirilmiş yanıtlar sağlamak için temel yardımcı araçtır. Kullanıcının tercih ettiği dile göre içeriği dinamik olarak seçerek uluslararasılaştırmayı (i18n) basitleştirir.
 
----
-
 ## Genel Bakış
 
 `t` fonksiyonu, belirli bir dil seti için çevirileri tanımlamak ve almak için kullanılır. `Accept-Language` başlığı gibi istemcinin istek ayarlarına bağlı olarak döndürülecek uygun dili otomatik olarak belirler. Tercih edilen dil mevcut değilse, yapılandırmanızda belirtilen varsayılan yerel ayara zarif bir şekilde geri döner.
-
----
 
 ## Temel Özellikler
 
@@ -41,8 +37,6 @@ author: aymericzip
 - **Varsayılan Yerel Ayara Geri Dönme**: İstemcinin tercih ettiği dil mevcut değilse varsayılan bir yerel ayara geri dönerek kullanıcı deneyiminde süreklilik sağlar.
 - **Hafif ve Hızlı**: Yüksek performanslı uygulamalar için tasarlanmıştır ve minimum ek yük sağlar.
 - **Katı Mod Desteği**: Güvenilir davranış için beyan edilen yerel ayarlara sıkı sıkıya bağlılığı zorunlu kılar.
-
----
 
 ## Fonksiyon İmzası
 
@@ -57,8 +51,6 @@ t(translations: Record<string, string>): string;
 ### Geri Dönüş Değeri
 
 - İstemcinin tercih ettiği dildeki içeriği temsil eden bir dize.
-
----
 
 ## Uluslararasılaştırma İstek İşleyicisini Yükleme
 
@@ -93,8 +85,6 @@ app.get("/", (c) => {
 - **Yerel Ayar Algılama**: `intlayer` ara yazılımı, başlıklar, çerezler veya diğer yapılandırılmış yöntemlere dayalı olarak kullanıcının tercih ettiği yerel ayarı algılamak için gelen istekleri işler.
 - **Çeviri Bağlamı**: `t` fonksiyonunun doğru çalışması için gerekli bağlamı kurarak çevirilerin doğru dilde döndürülmesini sağlar.
 - **Hata Önleme**: Bu ara yazılım olmadan, `t` fonksiyonunu kullanmak, gerekli yerel ayar bilgileri mevcut olmayacağı için çalışma zamanı hatalarına neden olur.
-
----
 
 ## Kullanım Örnekleri
 
@@ -137,8 +127,6 @@ app.get("/error", (c) => {
 });
 ```
 
----
-
 ### Yerel Ayar Varyantlarını Kullanma
 
 Yerel ayara özgü varyantlar için çeviriler belirtin:
@@ -155,8 +143,6 @@ app.get("/greet", (c) => {
   );
 });
 ```
-
----
 
 ## Gelişmiş Konular
 
@@ -177,8 +163,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Katı Mod Zorunluluğu
 
 `t` fonksiyonunu beyan edilen yerel ayarlara sıkı sıkıya bağlılığı zorunlu kılacak şekilde yapılandırın:
@@ -188,8 +172,6 @@ export default config;
 | `strict`    | Beyan edilen tüm yerel ayarlar için çeviri sağlanmalıdır. Eksik yerel ayarlar hata fırlatır.      |
 | `inclusive` | Beyan edilen yerel ayarların çevirileri olmalıdır. Eksik olanlar uyarı tetikler ama kabul edilir. |
 | `loose`     | Beyan edilmemiş olsa bile mevcut herhangi bir yerel ayar kabul edilir.                            |
-
----
 
 ### TypeScript Entegrasyonu
 
@@ -209,16 +191,12 @@ app.get("/morning", (c) => {
 });
 ```
 
----
-
 ### Yaygın Hatalar ve Sorun Giderme
 
 | Sorun                     | Neden                                    | Çözüm                                                               |
 | ------------------------- | ---------------------------------------- | ------------------------------------------------------------------- |
 | `t` fonksiyonu çalışmıyor | Ara yazılım yüklenmemiş                  | Rotalardan önce `app.use("*", intlayer())` eklendiğinden emin olun. |
 | Eksik çeviri hatası       | Tüm yerel ayarlar olmadan katı mod etkin | Gerekli tüm çevirileri sağlayın.                                    |
-
----
 
 ## Sonuç
 

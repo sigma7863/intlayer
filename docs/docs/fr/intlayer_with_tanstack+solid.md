@@ -90,8 +90,6 @@ Bien plus qu'une simple solution i18n, Intlayer propose un **[éditeur visuel](h
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guide étape par étape pour configurer Intlayer dans une application Tanstack Start
 
 <Tabs defaultTab="video">
@@ -1127,8 +1125,6 @@ Pour ce faire, vous pouvez ajouter les instructions suivantes à votre fichier `
 .intlayer
 ```
 
----
-
 ## Extension VS Code
 
 Pour améliorer votre expérience de développement avec Intlayer, vous pouvez installer l'**extension officielle Intlayer VS Code**.
@@ -1144,13 +1140,9 @@ Cette extension fournit :
 
 Pour plus de détails sur l'utilisation de l'extension, reportez-vous à la [documentation de l'extension Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Aller plus loin
 
 Pour aller plus loin, vous pouvez implémenter l'[éditeur visuel](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_visual_editor.md) ou externaliser votre contenu en utilisant le [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/fr/intlayer_CMS.md).
-
----
 
 ## Références de la documentation
 

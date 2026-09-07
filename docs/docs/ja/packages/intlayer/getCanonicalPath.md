@@ -37,8 +37,6 @@ The `getCanonicalPath` 関数は、ローカライズされた URL パス（例�
 - 設定で定義されたカスタムリライトルールに対してローカライズされたパスを照合します。
 - 一致するリライトルールが見つからない場合、元のパスを返します。
 
----
-
 ## 関数シグネチャ
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // 任意
 ): string
 ```
-
----
 
 ## パラメータ
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **型**: `RoutingConfig['rewrite']`
   - **デフォルト**: `configuration.routing.rewrite`
 
----
-
 ## 戻り値
 
 - **型**: `string`
 - **説明**: 内部の正規パス。
-
----
 
 ## 使用例
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // 出力: "/contact"
 ```
-
----
 
 ## 関連関数
 

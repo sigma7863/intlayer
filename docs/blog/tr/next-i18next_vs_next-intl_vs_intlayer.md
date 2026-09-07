@@ -37,15 +37,11 @@ Bu rehber, **Next.js** için yaygın olarak kullanılan üç i18n seçeneğini k
 
 > **tl;dr**: Üçü de bir Next.js uygulamasını yerelleştirebilir. **Bileşen kapsamlı içerik**, **katı TypeScript türleri**, **derleme zamanı eksik anahtar kontrolleri**, **ağaç sallanan sözlükler** ve **birinci sınıf App Router + SEO yardımcıları** istiyorsanız, **Intlayer** en kapsamlı, modern seçimdir.
 
----
-
 ## Yüksek düzey konumlandırma
 
 - **next-intl** - Hafif, doğrudan mesaj formatlaması ile sağlam Next.js desteği. Merkezi kataloglar yaygındır; DX basittir, ancak güvenlik ve büyük ölçekli bakım çoğunlukla sizin sorumluluğunuzdur.
 - **next-i18next** - Next.js'te i18next. Eklentiler aracılığıyla olgun ekosistem ve özellikler (örneğin, ICU), ancak yapılandırma ayrıntılı olabilir ve kataloglar projeler büyüdükçe merkezi olmaya eğilimlidir.
 - **Intlayer** - Next.js için bileşen merkezli içerik modeli, **katı TS yazımı**, **derleme zamanı kontrolleri**, **ağaç sallama**, **yerleşik ara yazılım ve SEO yardımcıları**, isteğe bağlı **Görsel Düzenleyici/CMS** ve **AI destekli çeviriler**.
-
----
 
 ## Yan Yana Özellik Karşılaştırması (Next.js odaklı)
 
@@ -71,15 +67,11 @@ Bu rehber, **Next.js** için yaygın olarak kullanılan üç i18n seçeneğini k
 | **Kullanılmayan içeriği temizle**                    | ✅ Evet, derleme zamanında sözlük başına                                                                                                                        | ❌ Hayır, ad alanı yönetimi ile manuel olarak yönetilebilir                                                          | ❌ Hayır, ad alanı yönetimi ile manuel olarak yönetilebilir                                                          |
 | **Büyük Projelerin Yönetimi**                        | ✅ Modüler teşvik eder, tasarım sistemi için uygundur                                                                                                           | ✅ Kurulumla modüler                                                                                                 | ✅ Kurulumla modüler                                                                                                 |
 
----
-
 ## Giriş
 
 Next.js, uluslararasılaştırılmış routing (örneğin, locale segmentleri) için yerleşik destek sağlar. Ancak bu özellik kendi başına çeviriler yapmaz. Yine de kullanıcılarınıza yerelleştirilmiş içerik sunmak için bir kütüphaneye ihtiyacınız vardır.
 
 Birçok i18n kütüphanesi mevcuttur, ancak günümüzde Next.js dünyasında üçü popüler hale gelmektedir: next-i18next, next-intl ve Intlayer.
-
----
 
 ## Mimari & ölçeklenebilirlik
 
@@ -87,8 +79,6 @@ Birçok i18n kütüphanesi mevcuttur, ancak günümüzde Next.js dünyasında ü
 - **Intlayer**: **bileşen başına** (veya özellik başına) sözlükleri **hizmet ettikleri kod ile birlikte** yerleştirmeyi teşvik eder. Bu, bilişsel yükü azaltır, UI parçalarının çoğaltılmasını/göç edilmesini kolaylaştırır ve takımlar arası çatışmaları azaltır. Kullanılmayan içerik doğal olarak tanımlanması ve kaldırılması daha kolaydır.
 
 **Neden önemli:** Büyük codebases veya design-system kurulumlarında, **modüler içerik** monolitik kataloğlardan daha iyi ölçeklenir.
-
----
 
 ## Bundle boyutları & bağımlılıkları
 
@@ -157,8 +147,6 @@ Kütüphanenin fallback'leri nasıl işlediği de önemlidir. Uygulamanın varsa
 | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | ![optimized bundle](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle.png?raw=true) | ![no optimized bundle](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle_no_optimization.png?raw=true) |
 
----
-
 ## TypeScript & güvenlik
 
 <Columns>
@@ -188,8 +176,6 @@ Kütüphanenin fallback'leri nasıl işlediği de önemlidir. Uygulamanın varsa
 
 **Neden önemli:** Güçlü typing hataları **sola** (CI/build) kaydırır, **sağa** (runtime) değil.
 
----
-
 ## Eksik çeviri işleme
 
 <Columns>
@@ -218,8 +204,6 @@ Kütüphanenin fallback'leri nasıl işlediği de önemlidir. Uygulamanın varsa
 </Columns>
 
 **Neden önemlidir:** Build sırasındaki boşlukları yakalamak, üretimde 'undefined' stringleri önler.
-
----
 
 ## Yönlendirme, middleware & URL stratejisi
 
@@ -251,8 +235,6 @@ Kütüphanenin fallback'leri nasıl işlediği de önemlidir. Uygulamanın varsa
 </Columns>
 
 **Neden önemli:** SEO ve keşif için, ayrıca kullanıcı deneyimi için yardımcı olur.
-
----
 
 ## Server Components (RSC) hizalaması
 
@@ -286,8 +268,6 @@ Kütüphanenin fallback'leri nasıl işlediği de önemlidir. Uygulamanın varsa
 
 **Neden önemlidir:** Server component desteği Next.js 13+ sürümünün önemli bir özelliğidir ve performans için yardımcıdır. Ebeveyn server bileşenlerinden çocuk server bileşenlerine locale veya `t` fonksiyonunu props olarak geçirmek, bileşenlerinizi daha az yeniden kullanılabilir hale getirir.
 
----
-
 ## Lokalizasyon platformları (TMS) ile entegrasyon
 
 Büyük kuruluşlar genellikle **Crowdin**, **Phrase**, **Lokalise**, **Localizely** veya **Localazy** gibi Çeviri Yönetim Sistemlerine (TMS) güvenir.
@@ -306,8 +286,6 @@ Büyük kuruluşlar genellikle **Crowdin**, **Phrase**, **Lokalise**, **Localize
   - Intlayer alternatifler sağlar: **AI destekli çeviriler** (kendi sağlayıcı anahtarlarınızı kullanarak), **Görsel Editör/CMS** ve **CLI/CI** iş akışları boşlukları yakalamak ve önceden doldurmak için.
 
 > Not: `next-intl` ve `i18next` ayrıca TypeScript kataloglarını kabul eder. Ekibiniz mesajları `.ts` dosyalarında depoluyorsa veya bunları özelliğe göre merkezi olmayan hale getirirse, benzer TMS sürtünme yaşayabilirsiniz. Ancak, birçok `next-intl` kurulumu `locales/` klasöründe merkezi kalır ve bu, TMS için JSON'a yeniden düzenlemek biraz daha kolaydır.
-
----
 
 ## Geliştirici Deneyimi
 
@@ -941,8 +919,6 @@ const ClientComponentExample = () => {
   - **next-intl** esnek; mesajları nasıl yapılandırdığınıza göre yükleyin.
   - **Intlayer** içeriği TS/JS sözlüklerinde depolar ve anahtara göre çözer.
 
----
-
 ### Bir sunucu bileşeninde kullanım
 
 Bir UI bileşeninin durumunu ele alacağız. Bu bileşen bir sunucu bileşenidir ve bir istemci bileşeninin alt öğesi olarak eklenebilir olmalıdır. (sayfa (sunucu bileşeni) -> istemci bileşeni -> sunucu bileşeni). Bu bileşen bir istemci bileşeninin alt öğesi olarak eklenebileceğinden, asenkron olamaz.
@@ -1440,8 +1416,6 @@ Middleware'in kurulumu `intlayer.config.ts` dosyasında merkezileştirilmiştir.
 
 </Tabs>
 
----
-
 ## Ve kazanan…
 
 Basit değil. Her seçeneğin avantaj ve dezavantajları var. İşte benim görüşüm:
@@ -1482,8 +1456,6 @@ Minimal kurulumu tercih ederseniz ve bazı manuel bağlantıları kabul ederseni
 GitHub yıldızları, bir projenin popülaritesinin, topluluk güveninin ve uzun vadeli öneminin güçlü bir göstergesidir. Teknik kalitenin doğrudan bir ölçüsü olmasa da, kaç geliştiricinin projeyi yararlı bulduğunu, ilerlemesini takip ettiğini ve muhtemelen benimsediğini yansıtır. Bir projenin değerini tahmin etmek için yıldızlar, alternatifler arasındaki çekişmeyi karşılaştırmaya ve ekosistem büyümesine ilişkin içgörüler sağlamaya yardımcı olur.
 
 [![Yıldız Geçmişi Grafiği](https://api.star-history.com/chart?repos=i18next/next-i18next%2Camannn/next-intl%2Caymericzip/intlayer&type=date&legend=top-left)](https://www.star-history.com/#i18next/next-i18next&amannn/next-intl&aymericzip/intlayer)
-
----
 
 ## Sonuç
 

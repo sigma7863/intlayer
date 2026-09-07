@@ -31,8 +31,6 @@ author: aymericzip
 
 `getConfiguration` fonksiyonu, ortam değişkenlerini çıkararak `intlayer` uygulaması için tüm yapılandırmayı alır. Bu fonksiyon, aynı yapılandırmayı hem istemci hem de sunucu tarafında kullanma esnekliği sağlar ve uygulamanın genelinde tutarlılığı garanti eder.
 
----
-
 ## Parametreler
 
 Fonksiyon herhangi bir parametre almaz. Bunun yerine, yapılandırma için ortam değişkenlerini kullanır.
@@ -47,8 +45,6 @@ Fonksiyon herhangi bir parametre almaz. Bunun yerine, yapılandırma için ortam
   - `editor`: Düzenleyiciye özel yapılandırmalar.
 
 Daha fazla detay için [Intlayer yapılandırma dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md) bakın.
-
----
 
 ## Kullanım Örneği
 

@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## トラッキング対象
 
 `@intlayer/analytics`は、3種類の匿名イベントをバッチ処理します：

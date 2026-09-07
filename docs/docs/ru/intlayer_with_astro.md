@@ -109,8 +109,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в Astro
 
 Посмотреть [Шаблон приложения](https://github.com/aymericzip/intlayer-astro-template) на GitHub.
@@ -619,8 +617,6 @@ Intlayer использует расширение модулей (module augmen
 - **Быстрые действия** для легкого создания и обновления переводов.
 
 Более подробную информацию об использовании расширения см. в [документации по расширению Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Дальнейшие шаги
 

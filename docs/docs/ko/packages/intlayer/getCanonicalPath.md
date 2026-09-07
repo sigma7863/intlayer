@@ -37,8 +37,6 @@ author: aymericzip
 - 프로젝트 설정에 정의된 커스텀 리라이트 규칙과 로컬라이즈된 경로를 매칭합니다.
 - 일치하는 리라이트 규칙이 없으면 원래 경로를 반환합니다.
 
----
-
 ## 함수 시그니처
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // 선택적
 ): string
 ```
-
----
 
 ## 매개변수
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **유형**: `RoutingConfig['rewrite']`
   - **기본값**: `configuration.routing.rewrite`
 
----
-
 ## 반환값
 
 - **유형**: `string`
 - **설명**: 내부 canonical 경로.
-
----
 
 ## 예제 사용법
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // 출력: "/contact"
 ```
-
----
 
 ## 관련 함수
 

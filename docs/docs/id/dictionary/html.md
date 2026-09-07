@@ -119,8 +119,6 @@ const myContent = html(
 
 Saat menggunakan metode `.use()` pada node HTML, komponen yang Anda berikan akan diperiksa terhadap definisi yang diberikan dalam fungsi `html()` (jika tersedia).
 
----
-
 ## Merender HTML
 
 Proses merender dapat ditangani secara otomatis oleh sistem konten Intlayer atau secara manual menggunakan alat khusus.
@@ -474,8 +472,6 @@ Anda dapat mengonfigurasi rendering HTML secara global untuk seluruh aplikasi An
   </Tab>
 </Tabs>
 
----
-
 ### Merender Manual & Alat Lanjutan
 
 Jika Anda perlu merender string HTML mentah atau memiliki kontrol lebih atas pemetaan komponen, gunakan alat berikut.
@@ -647,8 +643,6 @@ Jika Anda perlu merender string HTML mentah atau memiliki kontrol lebih atas pem
 
   </Tab>
 </Tabs>
-
----
 
 ## Referensi Opsi
 

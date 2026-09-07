@@ -68,8 +68,6 @@ Mit **lokalspezifischen Inhaltsdateien**, **TypeScript-Autovervollständigung**,
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Feature" width="700">                    | **Interoperabilität**<br><br>Ermöglicht Interoperabilität mit react-i18next, next-i18next, next-intl, react-intl, vue-i18n. <br><br> - [Intlayer und react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer und next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer und next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer und vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [Intlayer Compat-Adapter](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Feature" width="700">                           | **Leistung & Benchmark**<br><br>Verwendet fortschrittliches Tree-Shaking und dynamisches Laden, um die Leistung zu steigern und die Lösung so schlank wie möglich zu halten. <br><br> - [Leistung & Benchmark](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                                                         |
 
----
-
 ## 📦 Installation
 
 Beginnen Sie noch heute Ihre Reise mit Intlayer und erleben Sie einen reibungsloseren, leistungsstärkeren Ansatz zur Internationalisierung.

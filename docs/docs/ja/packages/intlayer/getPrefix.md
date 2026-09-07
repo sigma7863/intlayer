@@ -39,8 +39,6 @@ author: aymericzip
 - すべてのルーティングモードをサポート：`prefix-no-default`、`prefix-all`、`no-prefix`、および `search-params`
 - ロケールプレフィックスを追加するタイミングを判断する軽量ユーティリティ
 
----
-
 ## 関数シグネチャ
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // 例: 'fr' または undefined
 }
 ```
-
----
 
 ## パラメータ
 
@@ -92,8 +88,6 @@ type GetPrefixResult = {
 - **説明**: 3つの異なるプレフィックス形式を含むオブジェクト:
   - `prefix`: 後続のスラッシュを含むパスのプレフィックス（例: `'fr/'`, `''`）
   - `localePrefix`: スラッシュなしのロケール識別子（例: `'fr'`, `undefined`）
-
----
 
 ## 使用例
 
@@ -173,14 +167,10 @@ console.log(`現在のロケール: ${localePrefix}`);
 // 出力: "現在のロケール: fr"
 ```
 
----
-
 ## 関連関数
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getLocalizedUrl.md): 特定のロケール用のローカライズされたURLを生成
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getMultilingualUrls.md): 設定されたすべてのロケール用のURLを生成
-
----
 
 ## TypeScript
 

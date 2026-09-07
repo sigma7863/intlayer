@@ -29,13 +29,9 @@ author: aymericzip
 
 `next-intlayer` 패키지의 `t` 함수는 Next.js 애플리케이션 내에서 인라인 국제화를 위한 기본 도구입니다. 이 함수는 컴포넌트 내에서 직접 번역을 정의할 수 있게 하여, 현재 로케일에 따라 현지화된 콘텐츠를 간단하게 표시할 수 있도록 합니다.
 
----
-
 ## 개요
 
 `t` 함수는 컴포넌트 내에서 다양한 로케일에 대한 번역을 직접 제공하는 데 사용됩니다. 지원되는 각 로케일에 대한 번역을 포함하는 객체를 전달하면, `t`는 Next.js 애플리케이션의 현재 로케일 컨텍스트에 따라 적절한 번역을 반환합니다.
-
----
 
 ## 주요 기능
 
@@ -43,8 +39,6 @@ author: aymericzip
 - **자동 로케일 선택**: 현재 로케일에 해당하는 번역을 자동으로 반환합니다.
 - **TypeScript 지원**: TypeScript 사용 시 타입 안전성과 자동 완성 기능을 제공합니다.
 - **간편한 통합**: Next.js의 클라이언트 및 서버 컴포넌트 모두에서 원활하게 작동합니다.
-
----
 
 ## 함수 시그니처
 
@@ -59,8 +53,6 @@ t<T extends string>(content: Record<LocalesValues, T>, locale?: Locales): string
 ### 반환값
 
 - 현재 로케일에 대한 번역된 콘텐츠를 나타내는 문자열입니다.
-
----
 
 ## 사용 예시
 
@@ -134,8 +126,6 @@ export const ServerComponentExample: FC = () => (
 </button>
 ```
 
----
-
 ## 고급 주제
 
 ### TypeScript 통합
@@ -196,8 +186,6 @@ const Page: FC<{ locale: Locales }> = ({ locale }) => (
  </Tab>
 </Tabs>
 
----
-
 ## 일반적인 오류 및 문제 해결
 
 ### `t`가 정의되지 않거나 잘못된 번역을 반환하는 경우
@@ -222,8 +210,6 @@ const translations: IConfigLocales<string> = {
 const text = t(translations);
 ```
 
----
-
 ## 효과적인 사용을 위한 팁
 
 1. **간단한 인라인 번역에는 `t` 사용**: 컴포넌트 내에서 작은 텍스트 조각을 직접 번역할 때 이상적입니다.
@@ -231,14 +217,10 @@ const text = t(translations);
 3. **일관된 로케일 제공**: 애플리케이션 전반에 걸쳐 적절한 프로바이더를 통해 로케일이 일관되게 제공되도록 하세요.
 4. **TypeScript 활용**: TypeScript 타입을 사용하여 누락된 번역을 잡아내고 타입 안전성을 보장하세요.
 
----
-
 ## 결론
 
 `next-intlayer`의 `t` 함수는 Next.js 애플리케이션에서 인라인 번역을 관리하기 위한 강력하고 편리한 도구입니다. 이를 효과적으로 통합함으로써 앱의 국제화 기능을 향상시키고 전 세계 사용자에게 더 나은 경험을 제공합니다.
 
 더 자세한 사용법과 고급 기능에 대해서는 [next-intlayer 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_visual_editor.md)를 참조하세요.
-
----
 
 **참고**: 현재 로케일이 컴포넌트에 올바르게 전달되도록 `IntlayerClientProvider`와 `IntlayerServerProvider`를 적절히 설정하는 것을 잊지 마세요. 이는 `t` 함수가 올바른 번역을 반환하는 데 매우 중요합니다.

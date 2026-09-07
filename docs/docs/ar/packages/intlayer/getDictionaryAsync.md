@@ -44,8 +44,6 @@ author: aymericzip
 - تلغي التكرار للأحمال المتزامنة للجزء ذاته، وتخزن مؤقتاً المحتوى المحل
 - الأحمال الفاشلة يتم حذفها من الذاكرة المؤقتة حتى تحاول استدعاء لاحقة تحميل الجزء مجدداً
 
----
-
 ## توقيع الدالة
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // اختياري
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## المعاملات
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **النوع**: `Promise<Content>` — وعد يحل إلى المحتوى المفسَّر للـ chunk المُحمَّل.
 - **الوصف**: يحل إلى `null` عندما لا ينبعث الـ map أي chunk للـ locale المطلوب أو لأي من fallbacks الخاصة به، مما يعكس كيفية حل الإحداثيات المؤهلة المفقودة.
-
----
 
 ## مثال الاستخدام
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## ملاحظات السلوك
 
 ### التخزين المؤقت وإزالة التكرار
@@ -135,15 +127,11 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 
 يتم المرور عبر خريطة محمل عادية بنفس سلسلة الرجوع كما هو الحال في الوضع المتزامن: اللغة المطلوبة أولاً، ثم بدائلها، ثم `null` إذا لم ينشئ أي منها chunk.
 
----
-
 ## الدوال ذات الصلة
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getIntlayerAsync.md): الدالة التي تستدعيها التطبيقات؛ تعيد كتابتها بواسطة مكونات البناء إلى `getDictionaryAsync`.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getDictionary.md): نظير متزامن يأخذ قاموس كامل.
 - [القواميس الديناميكية](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dynamic_dictionaries/index.md): المجموعات والمتغيرات، وخرائط المحملات التي تولدها.
-
----
 
 ## TypeScript
 

@@ -40,8 +40,6 @@ author: aymericzip
 > Hinweis: next-i18next basiert auf i18next. Diese Anleitung verwendet die i18next-Primitiven, die mit next-i18next im App Router kompatibel sind, und hält dabei die Architektur einfach und produktionsbereit.
 > Für einen umfassenderen Vergleich siehe [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/de/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Projektstruktur
 
 Installieren Sie die next-i18next-Abhängigkeiten:
@@ -93,8 +91,6 @@ Checkliste (mittel/erfahren):
 - Zentralisieren Sie Nachrichten nicht zu stark; verwenden Sie kleine, seiten-/feature-spezifische Namespaces
 - Vermeiden Sie es, alle Locales auf einmal zu importieren; laden Sie nur, was Sie benötigen
 
----
-
 ## 2) Abhängigkeiten installieren
 
 ```bash
@@ -106,8 +102,6 @@ Wenn Sie vorhaben, next-i18next APIs oder Konfigurations-Interop zu verwenden, d
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Kern-i18n-Konfiguration
 
@@ -134,8 +128,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Senior-Hinweis: Wenn Sie `next-i18next.config.js` verwenden, halten Sie es synchron mit `i18n.config.ts`, um Abweichungen zu vermeiden.
-
----
 
 ## 4) Serverseitige i18n-Initialisierung
 
@@ -174,8 +166,6 @@ export async function initI18next(
 ```
 
 Zwischenhinweis: Halten Sie die Namespace-Liste pro Seite kurz, um die Payload zu begrenzen. Vermeiden Sie globale „Catch-all“-Bundles.
-
----
 
 ## 5) Client-Provider für React-Komponenten
 
@@ -233,8 +223,6 @@ export default function I18nProvider({
 
 Junior-Tipp: Sie müssen nicht alle Nachrichten an den Client übergeben. Beginnen Sie nur mit den Namespaces der jeweiligen Seite.
 
----
-
 ## 6) Lokalisierte Layouts und Routen
 
 Legen Sie Sprache und Schreibrichtung fest und generieren Sie Routen pro Locale vor, um statisches Rendering zu bevorzugen.
@@ -269,8 +257,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Beispielseite mit Server- und Client-Nutzung
 
@@ -387,8 +373,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: Metadaten, Hreflang, Sitemap, Robots
 
 Die Übersetzung von Inhalten ist ein Mittel, um die Reichweite zu verbessern. Implementieren Sie mehrsprachiges SEO gründlich.
@@ -482,8 +466,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Middleware für Locale-Routing
 
 Erkennt die Locale und leitet bei Fehlen auf eine lokalisierte Route weiter.
@@ -526,8 +508,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Performance- und DX-Best Practices
 
 - **Setze html `lang` und `dir`**: Erledigt in `src/app/[locale]/layout.tsx`.
@@ -538,8 +518,6 @@ export const config = {
 - **Memoisiere aufwändige Operationen**: Besonders im Client-Code für ältere React-Versionen.
 - **Cache und Header**: Bevorzuge statisches oder `revalidate` Rendering gegenüber dynamischem Rendering, wenn möglich.
 
----
-
 ## 11) Testing und CI
 
 - Füge Unit-Tests für Komponenten hinzu, die `t` verwenden, um sicherzustellen, dass Schlüssel existieren.
@@ -547,8 +525,6 @@ export const config = {
 - Fehlende Schlüssel während der CI vor der Bereitstellung anzeigen.
 
 Intlayer automatisiert einen Großteil davon (siehe nächsten Abschnitt).
-
----
 
 ## 12) Intlayer oben drauf hinzufügen (Automatisierung)
 
@@ -635,8 +611,6 @@ Fügen Sie Paketskripte hinzu:
 
 > Sie können CLI-Argumente angeben; siehe die [Intlayer CLI-Dokumentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/index.md).
 
----
-
 ## 13) Fehlerbehebung
 
 - **Schlüssel nicht gefunden**: Stellen Sie sicher, dass die Seite/der Provider die korrekten Namespaces auflistet und die JSON-Datei unter `src/locales/<locale>/<namespace>.json` existiert.
@@ -644,8 +618,6 @@ Fügen Sie Paketskripte hinzu:
 - **Probleme mit RTL-Layout**: Vergewissern Sie sich, dass `dir` von `isRtl(locale)` abgeleitet wird und dass Ihr CSS `[dir="rtl"]` berücksichtigt.
 - **SEO-Alternativen fehlen**: Bestätigen Sie, dass `alternates.languages` alle Locales und `x-default` enthält.
 - **Bundles zu groß**: Teilen Sie Namespaces weiter auf und vermeiden Sie das Importieren ganzer `locales`-Bäume auf der Client-Seite.
-
----
 
 ## 14) Was kommt als Nächstes
 

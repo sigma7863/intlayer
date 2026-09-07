@@ -114,8 +114,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении Next.js с использованием Page Router
 
 <Steps>

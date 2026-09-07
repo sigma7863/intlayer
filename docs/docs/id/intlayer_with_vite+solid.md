@@ -112,8 +112,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dalam Aplikasi Vite dan Solid
 
 ## Daftar Isi
@@ -723,8 +721,6 @@ Untuk melakukan ini, Anda dapat menambahkan instruksi berikut ke file `.gitignor
 Untuk meningkatkan pengalaman pengembangan Anda dengan Intlayer, Anda dapat menginstal **Intlayer VS Code Extension** resmi.
 
 [Instal dari VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Melangkah Lebih Jauh
 

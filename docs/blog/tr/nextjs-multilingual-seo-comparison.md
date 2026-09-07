@@ -26,8 +26,6 @@ Eğer çok dilli Next.js uygulamanız, arama motorlarına farklı dil versiyonla
 
 Bu blogda, **neden i18n'in bir SEO süper gücü olduğunu** ve `next-intl`, `next-i18next` ve `Intlayer` ile Next.js'te bunu nasıl doğru şekilde uygulayacağımızı keşfedeceğiz.
 
----
-
 ## Neden SEO ve i18n
 
 Dil eklemek sadece kullanıcı deneyimi (UX) ile ilgili değildir. Aynı zamanda **organik görünürlük** için güçlü bir kaldıraçtır. İşte nedenleri:
@@ -36,8 +34,6 @@ Dil eklemek sadece kullanıcı deneyimi (UX) ile ilgili değildir. Aynı zamanda
 2. **Yinelenen içerikten kaçınma:** Doğru canonical ve alternatif etiketler, tarayıcılara hangi sayfanın hangi dil versiyonuna ait olduğunu bildirir.
 3. **Daha iyi kullanıcı deneyimi:** Ziyaretçiler sitenizin doğru versiyonuna hemen ulaşır.
 4. **Rekabet avantajı:** Çok az site çok dilli SEO'yu iyi uygular, bu da sizin öne çıkmanızı sağlar.
-
----
 
 ## Next.js'te Çok Dilli SEO için En İyi Uygulamalar
 
@@ -56,8 +52,6 @@ Her çok dilli uygulamanın uygulaması gereken kontrol listesi:
   Örnek: Varsayılan `/about` yerine `<a href="/fr/about">À propos</a>` kullanın.
 
 Bunlar basit adımlar, ancak atlanmaları görünürlüğünüzü kaybetmenize neden olabilir.
-
----
 
 ## Uygulama Örnekleri
 
@@ -343,13 +337,9 @@ export default robots;
   </Tab>
 </Tabs>
 
----
-
 ## Intlayer SEO Scanner ile web sitenizi denetleyin
 
 Çok dilli uygulamanızın mükemmel şekilde optimize edildiğinden emin olmak için [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner) kullanmanızı öneririz. Çok dilli web sitesi kontrolü için özel bir araçtır; tüm yerelleştirilmiş sayfalarınızda eksik hreflang etiketlerini, bozuk bağlantıları ve diğer SEO sorunlarını belirlemenize yardımcı olur.
-
----
 
 ## Sonuç
 

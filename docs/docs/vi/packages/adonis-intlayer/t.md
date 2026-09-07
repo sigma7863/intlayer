@@ -27,13 +27,9 @@ author: aymericzip
 
 Hàm `t` trong gói `adonis-intlayer` là tiện ích cốt lõi để cung cấp các phản hồi được bản địa hóa trong ứng dụng AdonisJS của bạn. Nó đơn giản hóa việc quốc tế hóa (i18n) bằng cách tự động chọn nội dung dựa trên ngôn ngữ ưa thích của người dùng.
 
----
-
 ## Tổng quan
 
 Hàm `t` được sử dụng để định nghĩa và truy xuất bản dịch cho một tập hợp ngôn ngữ nhất định. Nó tự động xác định ngôn ngữ thích hợp để trả về dựa trên cài đặt yêu cầu của khách hàng, chẳng hạn như tiêu đề `Accept-Language`. Nếu ngôn ngữ ưa thích không có sẵn, nó sẽ tự động chuyển về ngôn ngữ mặc định được chỉ định trong cấu hình của bạn.
-
----
 
 ## Các tính năng chính
 
@@ -41,8 +37,6 @@ Hàm `t` được sử dụng để định nghĩa và truy xuất bản dịch 
 - **Chuyển về ngôn ngữ mặc định (Fallback)**: Chuyển về ngôn ngữ mặc định nếu ngôn ngữ ưa thích của khách hàng không có sẵn, đảm bảo tính liên tục trong trải nghiệm người dùng.
 - **Ngữ cảnh bất đồng bộ**: Hoạt động liền mạch trong vòng đời yêu cầu AdonisJS bằng cách sử dụng Async Local Storage.
 - **Hỗ trợ TypeScript**: Áp dụng an toàn kiểu cho các bản dịch của bạn.
-
----
 
 ## Chữ ký hàm
 
@@ -58,8 +52,6 @@ t(translations: Record<string, any>): any;
 
 - Nội dung đại diện cho ngôn ngữ ưa thích của khách hàng.
 
----
-
 ## Tải Middleware
 
 Để đảm bảo rằng hàm `t` hoạt động chính xác, bạn **phải** đăng ký middleware `intlayer` trong ứng dụng AdonisJS của mình.
@@ -67,8 +59,6 @@ t(translations: Record<string, any>): any;
 ```typescript fileName="start/kernel.ts"
 router.use([() => import("adonis-intlayer/middleware")]);
 ```
-
----
 
 ## Ví dụ sử dụng
 
@@ -104,8 +94,6 @@ export default class ExampleController {
   }
 }
 ```
-
----
 
 ## Chủ đề nâng cao
 

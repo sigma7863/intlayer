@@ -106,8 +106,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 انظر إلى [نموذج التطبيق](https://github.com/aymericzip/intlayer-vite-lit-template) على GitHub.
 
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Vite و Lit
@@ -719,8 +717,6 @@ console.log("SEO files generated successfully.");
 - **إجراءات سريعة** لإنشاء وتحديث الترجمات بسهولة.
 
 لمزيد من التفاصيل حول كيفية استخدام الإضافة، ارجع إلى [توثيق إضافة Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### اذهب أبعد من ذلك
 

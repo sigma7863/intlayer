@@ -39,8 +39,6 @@ Fungsi `getPrefix` menentukan prefix URL untuk locale tertentu berdasarkan konfi
 - Mendukung semua mode routing: `prefix-no-default`, `prefix-all`, `no-prefix`, dan `search-params`
 - Utilitas ringan untuk menentukan kapan menambahkan prefix locale
 
----
-
 ## Tanda Tangan Fungsi
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // misalnya, 'fr' atau undefined
 }
 ```
-
----
 
 ## Parameter
 
@@ -93,8 +89,6 @@ type GetPrefixResult = {
 - **Deskripsi**: Objek yang berisi tiga format prefix yang berbeda:
   - `prefix`: Prefix path dengan slash di akhir (misalnya, `'fr/'`, `''`)
   - `localePrefix`: Identifier locale tanpa slash (misalnya, `'fr'`, `undefined`)
-
----
 
 ## Contoh Penggunaan
 
@@ -173,14 +167,10 @@ console.log(`Current locale: ${localePrefix}`);
 // Output: "Current locale: fr"
 ```
 
----
-
 ## Fungsi Terkait
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getLocalizedUrl.md): Menghasilkan URL yang dilokalkan untuk locale tertentu
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getMultilingualUrls.md): Menghasilkan URL untuk semua locale yang dikonfigurasi
-
----
 
 ## TypeScript
 

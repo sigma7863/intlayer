@@ -26,8 +26,6 @@ author: aymericzip
 
 이 블로그에서는 **왜 i18n이 SEO의 강력한 무기인지**와 `next-intl`, `next-i18next`, 그리고 `Intlayer`를 사용해 Next.js에서 이를 올바르게 구현하는 방법을 살펴보겠습니다.
 
----
-
 ## 왜 SEO와 i18n인가
 
 언어를 추가하는 것은 단순히 사용자 경험(UX)에 관한 것이 아닙니다. 이는 **유기적 가시성**을 위한 강력한 수단이기도 합니다. 이유는 다음과 같습니다:
@@ -36,8 +34,6 @@ author: aymericzip
 2. **중복 콘텐츠 방지:** 적절한 정식(canonical) 및 대체(alternate) 태그가 크롤러에게 어떤 페이지가 어떤 로케일에 속하는지 알려줍니다.
 3. **더 나은 UX:** 방문자는 즉시 사이트의 올바른 버전에 도착합니다.
 4. **경쟁 우위:** 다국어 SEO를 잘 구현하는 사이트가 적기 때문에 돋보일 수 있습니다.
-
----
 
 ## Next.js에서 다국어 SEO를 위한 모범 사례
 
@@ -56,8 +52,6 @@ author: aymericzip
   예: 기본 `/about` 대신 `<a href="/fr/about">À propos</a>` 사용.
 
 이것들은 간단한 단계이지만, 건너뛰면 가시성에 큰 영향을 줄 수 있습니다.
-
----
 
 ## 구현 예제
 
@@ -343,13 +337,9 @@ export default robots;
   </Tab>
 </Tabs>
 
----
-
 ## Intlayer SEO Scanner로 웹사이트 감사하기
 
 다국어 앱이 완벽하게 최적화되도록 하려면 [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner)를 사용하는 것이 좋습니다. 다국어 웹사이트 검사에 특화된 도구로, 모든 현지화된 페이지에서 누락된 hreflang 태그, 끊어진 링크 및 기타 SEO 문제를 식별하는 데 도움이 됩니다.
-
----
 
 ## 결론
 

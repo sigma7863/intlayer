@@ -108,8 +108,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## SvelteKitアプリケーションでIntlayerをセットアップするステップバイステップガイド
 
 [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template) を GitHub で参照してください。
@@ -780,8 +778,6 @@ Intlayerによって生成されたファイルを無視することをお勧め
 # Intlayerによって生成されたファイルを無視する
 .intlayer
 ```
-
----
 
 ### さらに進む
 

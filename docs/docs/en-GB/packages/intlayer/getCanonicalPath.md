@@ -37,8 +37,6 @@ The `getCanonicalPath` function resolves a localised URL path (e.g., `/a-propos`
 - Matches localised paths against custom rewrite rules defined in your configuration.
 - Returns the original path if no matching rewrite rule is found.
 
----
-
 ## Function Signature
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // Optional
 ): string
 ```
-
----
 
 ## Parameters
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **Type**: `RoutingConfig['rewrite']`
   - **Default**: `configuration.routing.rewrite`
 
----
-
 ## Returns
 
 - **Type**: `string`
 - **Description**: The internal canonical path.
-
----
 
 ## Example Usage
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // Output: "/contact"
 ```
-
----
 
 ## Related Functions
 

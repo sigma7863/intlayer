@@ -39,8 +39,6 @@ author: aymericzip
 - सभी रूटिंग मोड का समर्थन करता है: `prefix-no-default`, `prefix-all`, `no-prefix`, और `search-params`
 - locale प्रीफ़िक्स जोड़ने के समय निर्धारित करने के लिए हल्का उपयोगिता
 
----
-
 ## फ़ंक्शन सिग्नेचर
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // उदाहरण के लिए, 'fr' या undefined
 }
 ```
-
----
 
 ## पैरामीटर
 
@@ -93,8 +89,6 @@ type GetPrefixResult = {
 - **विवरण**: एक ऑब्जेक्ट जिसमें तीन अलग-अलग prefix फॉर्मेट शामिल हैं:
   - `prefix`: ट्रेलिंग स्लैश के साथ पाथ प्रीफिक्स (जैसे, `'fr/'`, `''`)
   - `localePrefix`: स्लैश के बिना locale पहचानकर्ता (जैसे, `'fr'`, `undefined`)
-
----
 
 ## उदाहरण उपयोग
 
@@ -173,14 +167,10 @@ console.log(`वर्तमान locale: ${localePrefix}`);
 // आउटपुट: "वर्तमान locale: fr"
 ```
 
----
-
 ## संबंधित फ़ंक्शन
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getLocalizedUrl.md): एक विशिष्ट locale के लिए स्थानीयकृत URL उत्पन्न करता है
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getMultilingualUrls.md): सभी कॉन्फ़िगर किए गए locales के लिए URLs उत्पन्न करता है
-
----
 
 ## TypeScript
 

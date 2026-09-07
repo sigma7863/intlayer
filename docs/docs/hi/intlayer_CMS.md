@@ -50,8 +50,6 @@ Intlayer CMS एक एप्लिकेशन है जो आपको Intla
 
 <TOC/>
 
----
-
 ## दूरस्थ शब्दकोश को समझना
 
 Intlayer 'स्थानीय' (local) और 'दूरस्थ' (distant) शब्दकोश के बीच अंतर करता है।
@@ -414,8 +412,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 पूर्ण सेटअप गाइड, एनवायरनमेंट वेरिएबल रेफरेंस, अपग्रेड निर्देश, और बैकअप/रिस्टोर प्रक्रियाओं के लिए, [स्व-होस्टिंग गाइड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/self_hosting.md) देखें।
-
----
 
 ## डिबग
 

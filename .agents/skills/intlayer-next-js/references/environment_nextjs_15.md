@@ -67,8 +67,6 @@ With Intlayer, you can:
 
 > Intlayer is compatible with Next.js 12, 13, 14, and 15. If you are using Next.js Page Router, you can refer to this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md). For Next.js 12, 13, 14 with App Router, refer to this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a Next.js Application
 
 <Tabs defaultTab="video">

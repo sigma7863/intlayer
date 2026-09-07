@@ -458,8 +458,6 @@ Intlayer tạo ra các định nghĩa kiểu trong một thư mục ẩn (mặc 
 - **Tự động hoàn thành** cho các khóa từ điển của bạn.
 - **Kiểm tra kiểu** cảnh báo nếu bạn truy cập khóa không tồn tại hoặc sai kiểu.
 
----
-
 ## Cấu hình Git
 
 Để tránh commit các file được Intlayer tự động tạo, hãy thêm đoạn sau vào `.gitignore` của bạn:
@@ -468,8 +466,6 @@ Intlayer tạo ra các định nghĩa kiểu trong một thư mục ẩn (mặc 
 #  Bỏ qua các file do Intlayer tạo ra
 .intlayer
 ```
-
----
 
 ### Tiện ích mở rộng VS Code
 
@@ -486,8 +482,6 @@ Tiện ích mở rộng này cung cấp:
 
 Để biết thêm chi tiết về cách sử dụng tiện ích mở rộng, tham khảo [Tài liệu Tiện ích mở rộng Intlayer cho VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Đi xa hơn
 
 - **Trình chỉnh sửa trực quan**: Sử dụng [Trình chỉnh sửa trực quan Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md) để quản lý bản dịch một cách trực quan.
@@ -495,8 +489,6 @@ Tiện ích mở rộng này cung cấp:
 - **Lệnh CLI**: Khám phá [Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/index.md) cho các tác vụ như **trích xuất bản dịch** hoặc **kiểm tra các khóa bị thiếu**.
 
 Chúc bạn xây dựng các ứng dụng **React Native** với i18n đầy đủ sức mạnh thông qua **Intlayer**!
-
----
 
 ### Gỡ lỗi
 
@@ -523,8 +515,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - Kiểm tra cấu hình Metro của bạn (bí danh resolver, plugin tài sản, đường dẫn `tsconfig`) nếu các module không thể được giải quyết.
-
----
 
 ## Các Câu Hỏi Thường Gặp
 

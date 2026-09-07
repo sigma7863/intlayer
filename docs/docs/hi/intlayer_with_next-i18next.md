@@ -40,8 +40,6 @@ author: aymericzip
 > नोट: next-i18next, i18next के ऊपर बनाया गया है। यह गाइड App Router में next-i18next के साथ संगत i18next प्रिमिटिव्स का उपयोग करता है, जबकि आर्किटेक्चर को सरल और प्रोडक्शन-रेडी बनाए रखता है।
 > एक व्यापक तुलना के लिए, देखें [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/hi/next-i18next_vs_next-intl_vs_intlayer.md)।
 
----
-
 ## 1) प्रोजेक्ट संरचना
 
 next-i18next डिपेंडेंसीज़ इंस्टॉल करें:
@@ -93,8 +91,6 @@ bun add next-i18next i18next react-i18next i18next-resources-to-backend
 - संदेशों को अधिक केंद्रीकृत न करें; छोटे, पेज/फीचर-स्कोप्ड namespace का उपयोग करें
 - सभी locales को एक साथ इम्पोर्ट करने से बचें; केवल आवश्यक चीज़ें लोड करें
 
----
-
 ## 2) डिपेंडेंसीज़ इंस्टॉल करें
 
 ```bash
@@ -107,8 +103,6 @@ pnpm add i18next react-i18next i18next-resources-to-backend
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) कोर i18n कॉन्फ़िगरेशन
 
@@ -135,8 +129,6 @@ export function abs(locale: string, path: string) {
 ```
 
 सीनियर नोट: यदि आप `next-i18next.config.js` का उपयोग करते हैं, तो इसे `i18n.config.ts` के साथ संरेखित रखें ताकि विसंगति न हो।
-
----
 
 ## 4) सर्वर-साइड i18n प्रारंभिककरण
 
@@ -175,8 +167,6 @@ export async function initI18next(
 ```
 
 मध्य नोट: पेलोड को सीमित करने के लिए प्रति पेज namespace सूची को छोटा रखें। वैश्विक "catch-all" बंडलों से बचें।
-
----
 
 ## 5) React कंपोनेंट्स के लिए क्लाइंट प्रदाता
 
@@ -234,8 +224,6 @@ export default function I18nProvider({
 
 जूनियर टिप: आपको क्लाइंट को सभी संदेश भेजने की आवश्यकता नहीं है। केवल पृष्ठ के namespaces से शुरू करें।
 
----
-
 ## 6) स्थानीयकृत लेआउट और रूट्स
 
 भाषा और दिशा सेट करें, और स्थैतिक रेंडरिंग को प्राथमिकता देने के लिए प्रति locale रूट्स को पूर्व-जनरेट करें।
@@ -273,8 +261,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) सर्वर + क्लाइंट उपयोग के साथ उदाहरण पृष्ठ
 
@@ -391,8 +377,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: मेटाडेटा, Hreflang, साइटमैप, रोबोट्स
 
 सामग्री का अनुवाद पहुंच बढ़ाने का एक तरीका है। बहुभाषी SEO को पूरी तरह से कनेक्ट करें।
@@ -504,8 +488,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) लोकल रूटिंग के लिए मिडलवेयर
 
 लोकल का पता लगाएं और यदि गायब हो तो लोकलाइज्ड रूट पर रीडायरेक्ट करें।
@@ -548,8 +530,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) प्रदर्शन और DX सर्वोत्तम प्रथाएँ
 
 - **html `lang` और `dir` सेट करें**: `src/app/[locale]/layout.tsx` में किया गया है।
@@ -560,8 +540,6 @@ export const config = {
 - **भारी ऑपरेशंस को मेमोइज़ करें**: विशेष रूप से पुराने React संस्करणों के लिए क्लाइंट कोड में।
 - **कैश और हेडर**: जब संभव हो, डायनामिक रेंडरिंग की तुलना में स्थैतिक या `revalidate` को प्राथमिकता दें।
 
----
-
 ## 11) परीक्षण और CI
 
 - `t` का उपयोग करने वाले कंपोनेंट्स के लिए यूनिट टेस्ट जोड़ें ताकि यह सुनिश्चित किया जा सके कि keys मौजूद हैं।
@@ -569,8 +547,6 @@ export const config = {
 - डिप्लॉय से पहले CI के दौरान गायब keys को प्रदर्शित करें।
 
 Intlayer इन कार्यों का अधिकांश भाग स्वचालित करेगा (अगले अनुभाग को देखें)।
-
----
 
 ## 12) Intlayer को ऊपर जोड़ें (स्वचालन)
 
@@ -657,8 +633,6 @@ export default config;
 
 > आप CLI आर्गुमेंट्स प्रदान कर सकते हैं; देखें [Intlayer CLI दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/cli/index.md)।
 
----
-
 ## 13) समस्या निवारण
 
 - **कुंजियाँ नहीं मिलीं**: सुनिश्चित करें कि पृष्ठ/प्रदाता सही namespaces सूचीबद्ध करता है और JSON फ़ाइल `src/locales/<locale>/<namespace>.json` के अंतर्गत मौजूद है।
@@ -666,8 +640,6 @@ export default config;
 - **RTL लेआउट समस्याएँ**: सत्यापित करें कि `dir` `isRtl(locale)` से प्राप्त होता है और आपकी CSS `[dir="rtl"]` का सम्मान करती है।
 - **SEO वैकल्पिक भाषाएँ गायब**: पुष्टि करें कि `alternates.languages` में सभी locales और `x-default` शामिल हैं।
 - **बंडल बहुत बड़े हैं**: namespaces को और विभाजित करें और क्लाइंट पर पूरे `locales` ट्री को इम्पोर्ट करने से बचें।
-
----
 
 ## 14) आगे क्या है
 

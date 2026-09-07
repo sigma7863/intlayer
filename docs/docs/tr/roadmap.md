@@ -30,13 +30,9 @@ author: aymericzip
 
 Intlayer, uygulamalarınızda içeriği bildirme, yönetme ve güncelleme şeklinizi kolaylaştırmak için tasarlanmış bir içerik yönetimi ve uluslararasılaştırma çözümüdür. Merkezi veya dağıtılmış içerik bildirimi, kapsamlı uluslararasılaştırma seçenekleri, Markdown desteği, koşullu oluşturma, TypeScript/JavaScript/JSON entegrasyonu ve daha fazlası gibi güçlü özellikler sunar. Aşağıda Intlayer'ın şu anda sağladığı kapsamlı bir genel bakış, ardından yaklaşan yol haritası özellikleri bulunmaktadır.
 
----
-
 ## İçindekiler
 
 <TOC/>
-
----
 
 ## Mevcut Özellikler
 
@@ -149,8 +145,6 @@ Intlayer içerik bildirmek için **TypeScript** (ayrıca JavaScript) ve **JSON**
 >
 > - [Oluşturma Yapılandırması](https://intlayer.org/doc/concept/configuration#build-configuration)
 
----
-
 ## Çerçeveler & Ortamlarla Entegrasyon
 
 ### 1. Next.js
@@ -237,8 +231,6 @@ Intlayer içerik bildirmek için **TypeScript** (ayrıca JavaScript) ve **JSON**
 >
 > - [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_preact.md)
 
----
-
 ## Görsel Düzenleyiciler ve CMS
 
 ### 1. Yerel Görsel Düzenleyici
@@ -264,20 +256,14 @@ Intlayer içerik bildirmek için **TypeScript** (ayrıca JavaScript) ve **JSON**
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)
 
----
-
 ## IDE Uzantıları
 
 - Yerel ve uzak çevirileri yönetmek için ana IDE'ler için **grafiksel arayüz** sağlayan uzantılar.
 - Özellikler bileşenler için içerik bildirim dosyaları otomatik oluşturma, Intlayer CMS ile doğrudan entegrasyon ve gerçek zamanlı doğrulamayı içerebilir.
 
----
-
 ## MCP Sunucusu
 
 - IDE'nizde entegre bir araç kullanarak içeriğinizi ve çevirilerinizi yönetmenizi sağlayan bir **MCP sunucusu**.
-
----
 
 ## Intlayer CLI
 
@@ -289,14 +275,10 @@ Intlayer içerik bildirmek için **TypeScript** (ayrıca JavaScript) ve **JSON**
 >
 > - [CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/index.md)
 
----
-
 ## Ortamlar
 
 - Intlayer'ı üretim, test ve yerel ortamlar arasında farklı şekilde yapılandırmak için **ortam değişkenleri** kullanın.
 - Ortamınıza bağlı olarak hangi görsel düzenleyiciyi veya uzak CMS projesini hedefleyeceğinizi tanımlayın.
-
----
 
 ## Sıcak İçerik Güncellemeleri
 
@@ -305,8 +287,6 @@ Intlayer içerik bildirmek için **TypeScript** (ayrıca JavaScript) ve **JSON**
 > Kaynaklar:
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)
-
----
 
 ## Yaklaşan Özellikler
 
@@ -335,8 +315,6 @@ Intlayer içerik bildirmek için **TypeScript** (ayrıca JavaScript) ve **JSON**
 
 - **Solid, Svelte, Angular** ve daha fazlasını destekleme çabaları devam ediyor.
 - Intlayer'ı **herhangi bir JavaScript destekli uygulama** ile uyumlu hale getirme hedefi.
-
----
 
 ## Sonuç
 

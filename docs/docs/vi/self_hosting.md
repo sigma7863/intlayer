@@ -35,8 +35,6 @@ Sự phụ thuộc duy nhất bên ngoài là **MongoDB**: backend kết nối v
 
 <TOC/>
 
----
-
 ## Kiến trúc
 
 ```
@@ -56,8 +54,6 @@ Sự phụ thuộc duy nhất bên ngoài là **MongoDB**: backend kết nối v
 
 Chromium (được sử dụng để tạo ảnh chụp màn hình Puppeteer) được đóng gói bên trong image backend — không cần container riêng.
 
----
-
 ## Điều kiện tiên quyết
 
 - **Docker** ≥ 24 và **Docker Compose** ≥ v2. Nếu thiếu một trong hai, trình cài đặt sẽ in liên kết cài đặt và thoát.
@@ -65,8 +61,6 @@ Chromium (được sử dụng để tạo ảnh chụp màn hình Puppeteer) đ
 - Host chạy Linux hoặc macOS (hoặc WSL2 trên Windows).
 
 Mọi thứ khác — Bun, Redis, MinIO, Chromium — đều được đóng gói trong image.
-
----
 
 ## Bắt đầu nhanh
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > Bốn biến port chỉ thay đổi phía **host** của mapping được in trong lệnh `docker run`. Image được công bố có `http://localhost:3000`, `http://localhost:3100` và `http://localhost:9000` được biên dịch vào dashboard bundle tại thời điểm build, vì vậy việc ánh xạ lại chúng làm cho trình duyệt chỉ đến các port cũ. Giữ các giá trị mặc định trừ khi bạn đang xây dựng image của riêng mình — xem [Limitations](#limitations).
 
----
-
 ## Bắt đầu nhanh
 
 Những gì trình cài đặt thực hiện:
@@ -149,8 +141,6 @@ Những gì trình cài đặt thực hiện:
 5.  In các URL: dashboard `:3000`, API `:3100`, UI email `:8025`, console MinIO `:9001`.
 
 Sau khi stack hoạt động, mở **http://localhost:3000** và tạo tài khoản đầu tiên của bạn.
-
----
 
 ## Các dịch vụ
 
@@ -164,8 +154,6 @@ Sau khi stack hoạt động, mở **http://localhost:3000** và tạo tài kho�
 | **mailpit** | `axllent/mailpit`                          | `1025` (SMTP), `8025` (web UI) | Nơi nhận email giao dịch cục bộ                                  |
 
 > Cổng MinIO `9000` phải có thể truy cập được bởi trình duyệt vì các tài sản được tải lên (avatars, ảnh chụp màn hình) được tải trực tiếp từ `S3_PUBLIC_URL=http://localhost:9000/intlayer`.
-
----
 
 ## Biến môi trường
 
@@ -236,8 +224,6 @@ Theo mặc định, tất cả các email giao dịch được gửi qua Resend 
 
 > Thứ tự ưu tiên: mailer riêng của một tổ chức (được định cấu hình từ bảng điều khiển **Organization**) có ưu tiên hơn mailer toàn cầu, cái này lần lượt có ưu tiên hơn khóa Resend mặc định.
 
----
-
 ## Kết nối dự án Intlayer của bạn
 
 Khi stack đang chạy, hãy trỏ dự án của bạn đến backend và dashboard được tự host thay vì `intlayer.org`.
@@ -299,8 +285,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## Nâng cấp
 
 Thao tác này sẽ kéo các image mới nhất và khởi động lại các container với `docker compose pull && docker compose up -d`. Các volume hiện có (`mongo-data`, `redis-data`, `minio-data`) được bảo toàn — không mất dữ liệu.
@@ -309,8 +293,6 @@ Thao tác này sẽ kéo các image mới nhất và khởi động lại các c
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## Sao lưu và phục hồi
 
@@ -346,15 +328,11 @@ docker run --rm \
 # Lặp lại cho redis-data và minio-data
 ```
 
----
-
 ## Hạn chế
 
 - **MongoDB phải là external (Atlas).** Backend chỉ kết nối qua `mongodb+srv://` (được xây dựng từ `DB_ID` / `DB_MDP` / `DB_CLUSTER`), do đó `mongodb://host:27017` đơn giản — bao gồm cả `mongod` được bao gồm của container — không thể được sử dụng. Cung cấp một cluster MongoDB Atlas.
 - **Không có tên miền tùy chỉnh.** Tất cả các `VITE_*` URLs hướng tới trình duyệt được nhúng inline vào ứng dụng tại thời điểm xây dựng, và hình ảnh được xuất bản có các giá trị `localhost`. Dashboard phải được truy cập tại `http://localhost:3000`; phục vụ nó trên một tên miền công khai sẽ yêu cầu xây dựng lại hình ảnh với các URL mục tiêu được xây dựng sẵn và không được hỗ trợ ra khỏi hộp.
 - **Email yêu cầu một mailer hoạt động.** Thiết lập lần chạy đầu tiên thực thi xác minh email, do đó `RESEND_API_KEY` hoặc một [mailer SMTP toàn cục](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`) phải được cấu hình. Sau khi admin đầu tiên đăng nhập, mỗi tổ chức cũng có thể cấu hình mailer SMTP hoặc Resend riêng của nó từ dashboard.
-
----
 
 ## Khắc phục sự cố
 
@@ -381,8 +359,6 @@ Nếu dịch vụ một lần chạy `minio-init` không chạy (hoặc chạy t
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## Các liên kết hữu ích
 

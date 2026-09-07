@@ -1,6 +1,6 @@
 ---
 createdAt: 2025-08-23
-updatedAt: 2026-09-05
+updatedAt: 2026-09-06
 title: Giới thiệu
 description: Khám phá cách Intlayer hoạt động. Xem các bước mà Intlayer sử dụng trong ứng dụng của bạn. Khám phá những gì các gói khác nhau thực hiện.
 keywords:
@@ -180,12 +180,9 @@ Chúng tôi đã xây dựng Intlayer với tính linh hoạt cao, cung cấp kh
 - **[Intlayer với Next.js 15](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_nextjs_15.md)**
 - **[Intlayer với Next.js 14 (App Router)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_nextjs_14.md)**
 - **[Intlayer với Next.js Page Router](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_nextjs_page_router.md)**
-- **[Intlayer với Next.js không có locale trong URL](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_nextjs_no_locale_path.md)**
-- **[Intlayer với Next.js (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_nextjs_compiler.md)**
 - **[Intlayer với Tanstack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_tanstack.md)**
 - **[Intlayer với Tanstack Start + Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_tanstack+solid.md)**
 - **[Intlayer với Vite + React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_vite+react.md)**
-- **[Intlayer với Vite + React (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_vite+react_compiler.md)**
 - **[Intlayer với React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_react_router_v7.md)**
 - **[Intlayer với React Router v7 (fs-routes)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_react_router_v7_fs_routes.md)**
 - **[Intlayer với React CRA](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_create_react_app.md)**

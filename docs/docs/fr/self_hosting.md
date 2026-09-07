@@ -35,8 +35,6 @@ La seule dépendance externe est **MongoDB** : le backend se connecte à un clus
 
 <TOC/>
 
----
-
 ## Architecture
 
 ```
@@ -56,8 +54,6 @@ La seule dépendance externe est **MongoDB** : le backend se connecte à un clus
 
 Chromium (utilisé pour la génération de captures d'écran Puppeteer) est intégré à l'image du backend — aucun conteneur séparé n'est nécessaire.
 
----
-
 ## Prérequis
 
 - **Docker** ≥ 24 et **Docker Compose** ≥ v2. Si l'un des deux est manquant, l'installateur affiche le lien d'installation et quitte.
@@ -65,8 +61,6 @@ Chromium (utilisé pour la génération de captures d'écran Puppeteer) est int�
 - Un hôte Linux ou macOS (ou WSL2 sur Windows).
 
 Tout le reste — Bun, Redis, MinIO, Chromium — est fourni dans l'image.
-
----
 
 ## Démarrage rapide
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > Les quatre variables de port ne modifient que le côté **hôte** du mappage imprimé dans la commande `docker run`. L'image publiée a `http://localhost:3000`, `http://localhost:3100` et `http://localhost:9000` compilés dans le bundle du tableau de bord au moment de la compilation, donc les remapper laisse le navigateur pointant vers les anciens ports. Conservez les valeurs par défaut sauf si vous construisez votre propre image — voir [Limitations](#limitations).
 
----
-
 ## Configuration initiale
 
 Sur une instance vierge (base de données vide), l'ouverture du dashboard vous redirige vers la page **`/init`** :
@@ -147,8 +139,6 @@ Sur une instance vierge (base de données vide), l'ouverture du dashboard vous r
 3. Cliquez sur le lien dans l'email, puis connectez-vous.
 
 Une fois qu'un admin existe, `/init` redirige vers la page de connexion standard.
-
----
 
 ## Services
 
@@ -162,8 +152,6 @@ Une fois qu'un admin existe, `/init` redirige vers la page de connexion standard
 | **mailpit** | `axllent/mailpit`                               | `1025` (SMTP), `8025` (web UI) | Réceptacle local d'e-mails transactionnels                               |
 
 > Le port `9000` de MinIO doit être accessible par le navigateur car les assets téléchargés (avatars, captures d'écran) sont chargés directement depuis `S3_PUBLIC_URL=http://localhost:9000/intlayer`.
-
----
 
 ## Variables d'environnement
 
@@ -234,8 +222,6 @@ Définissez `MAIL_PROVIDER` pour l'activer. S'il n'est pas défini, le mailer Re
 
 > Priorité : le mailer propre d'une organisation (configuré depuis le tableau de bord **Organization**) a priorité sur le mailer global, qui a lui-même priorité sur la clé Resend par défaut.
 
----
-
 ## Connexion de votre projet Intlayer
 
 Une fois la stack en cours d'exécution, pointez votre projet vers le backend et le tableau de bord auto-hébergés au lieu de `intlayer.org`.
@@ -297,8 +283,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## Mise à niveau
 
 Ceci télécharge les dernières images et redémarre les conteneurs avec `docker compose pull && docker compose up -d`. Les volumes existants (`mongo-data`, `redis-data`, `minio-data`) sont préservés — aucune perte de données.
@@ -307,8 +291,6 @@ Ceci télécharge les dernières images et redémarre les conteneurs avec `docke
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## Sauvegarde et restauration
 
@@ -344,15 +326,11 @@ docker run --rm \
 # Répétez pour redis-data et minio-data
 ```
 
----
-
 ## Limitations
 
 - **MongoDB must be external (Atlas).** The backend connects only over `mongodb+srv://` (built from `DB_ID` / `DB_MDP` / `DB_CLUSTER`), so a plain `mongodb://host:27017` — including the container's own bundled `mongod` — cannot be used. Provide a MongoDB Atlas cluster.
 - **No custom domain.** All browser-facing `VITE_*` URLs are inlined into the app at build time, and the published image ships with `localhost` values. The dashboard must be accessed at `http://localhost:3000`; serving it on a public domain would require rebuilding the image with the target URLs baked in and is not supported out of the box.
 - **Email requires a working mailer.** First-run setup enforces email verification, so either `RESEND_API_KEY` or a [global SMTP mailer](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`) must be configured. After the first admin signs in, each organization can also configure its own SMTP or Resend mailer from the dashboard.
-
----
 
 ## Dépannage
 
@@ -379,8 +357,6 @@ Si le service ponctuel `minio-init` n'a pas fonctionné (ou a fonctionné avant 
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## Liens utiles
 

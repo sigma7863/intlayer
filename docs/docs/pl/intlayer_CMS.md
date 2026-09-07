@@ -50,8 +50,6 @@ W tym celu Intlayer wprowadza koncepcję „zdalnych słowników”.
 
 <TOC/>
 
----
-
 ## Zrozumienie zdalnych słowników
 
 Intlayer rozróżnia „lokalne” i „zdalne” słowniki.
@@ -414,8 +412,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 Pełny przewodnik konfiguracji, dokumentację zmiennych środowiskowych, instrukcje aktualizacji oraz procedury tworzenia kopii zapasowych i przywracania znajdziesz w [Przewodniku po samodzielnym hostowaniu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/self_hosting.md).
-
----
 
 ## Debug
 

@@ -24,15 +24,11 @@ author: aymericzip
 
 本指南展示了如何自动验证您的字典是否完整，在发布前捕获缺失的翻译，并测试您应用中的本地化 UI。
 
----
-
 ## 您可以测试的内容
 
 - **缺失的翻译**：如果任何字典缺少必需的语言环境，则使 CI 失败。
 - **本地化 UI 渲染**：使用特定的语言环境提供者渲染组件，并断言可见的文本/属性。
 - **构建时审计**：通过 CLI 在本地运行快速审计。
-
----
 
 ## 快速开始：通过 CLI 审计
 
@@ -63,8 +59,6 @@ bun x intlayer content test
 - `--prefix [标签]`：为日志行添加前缀。
 
 注意：CLI 会打印详细报告，但在失败时不会以非零状态退出。对于 CI 门控，请添加下面的单元测试，断言没有缺失的必需语言环境。
-
----
 
 ## 编程测试（Vitest/Jest）
 
@@ -112,8 +106,6 @@ test("没有缺失的必需语言环境", () => {
   - `missingLocales`：所有缺失语言的合集。
   - `missingRequiredLocales`：限制为 `requiredLocales` 的子集（如果未设置 `requiredLocales`，则为所有语言）。
 
----
-
 ## 测试本地化 UI（React / Next.js）
 
 在 Intlayer 提供者下渲染组件，并断言可见内容。
@@ -157,8 +149,6 @@ test("渲染法语本地化标题", () => {
 
 - 当你需要属性的原始字符串值（例如 `aria-label`）时，可以访问 React 中 `useIntlayer` 返回的 `.value` 字段。
 - 将字典与组件放在一起，便于单元测试和清理。
-
----
 
 ## 持续集成
 
@@ -208,8 +198,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## 故障排除
 

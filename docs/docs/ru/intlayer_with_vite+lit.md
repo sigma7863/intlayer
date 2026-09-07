@@ -106,8 +106,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 See [Application Template](https://github.com/aymericzip/intlayer-vite-lit-template) on GitHub.
 
 ## Пошаговое руководство по настройке Intlayer в приложении на Vite и Lit
@@ -725,8 +723,6 @@ console.log("SEO files generated successfully.");
 - **Быстрые действия** для легкого создания и обновления переводов.
 
 Подробнее о том, как использовать расширение, см. в [документации расширения Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Идти дальше
 

@@ -105,8 +105,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Analog Uygulamasında Intlayer'ı Kurmak İçin Adım Adım Kılavuz
 
 GitHub üzerindeki [Uygulama Şablonuna](https://github.com/aymericzip/intlayer-analog-template) bakın.
@@ -403,8 +401,6 @@ Bu eklenti şunları sağlar:
 - Kolayca çeviri oluşturmak ve güncellemek için **hızlı eylemler**.
 
 Eklentinin nasıl kullanılacağına dair daha fazla ayrıntı için [Intlayer VS Code Eklentisi dokümantasyonuna](https://intlayer.org/doc/vs-code-extension) bakın.
-
----
 
 ### Daha Fazlasını Öğrenin
 

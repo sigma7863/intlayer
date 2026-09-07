@@ -28,13 +28,9 @@ author: aymericzip
 
 `react-intlayer` paketindeki `t` fonksiyonu, React uygulamanızda satır içi uluslararasılaştırma için temel bir araçtır. Bileşenlerinizde doğrudan yerelleştirilmiş içerik görüntülemeyi kolaylaştırır.
 
----
-
 ## Genel Bakış
 
 `t` fonksiyonu, mevcut yerel ayara göre çevirileri döndürmek için bileşenlerinizde doğrudan yerel ayar kodları (örneğin, `en`, `fr`, `es`) ile çeviriler içeren bir nesne geçirerek kullanılır.
-
----
 
 ## Temel Özellikler
 
@@ -42,8 +38,6 @@ author: aymericzip
 - **Otomatik Yerel Ayar Seçimi**: Mevcut yerel ayara karşılık gelen çeviriyi otomatik olarak döndürür.
 - **TypeScript Desteği**: TypeScript ile kullanıldığında tür güvenliği ve otomatik tamamlama sağlar.
 - **Kolay Entegrasyon**: React bileşenlerinde sorunsuz çalışır.
-
----
 
 ## Fonksiyon İmzası
 
@@ -58,8 +52,6 @@ t<T extends string>(content: Record<LocalesValues, T>, locale?: Locales): string
 ### Döndürür
 
 - Mevcut yerel ayar için çevrilmiş içeriği temsil eden bir dize.
-
----
 
 ## Kullanım Örnekleri
 
@@ -112,8 +104,6 @@ export const ComponentExample: FC = () => {
 </button>
 ```
 
----
-
 ## Gelişmiş Konular
 
 ### TypeScript Entegrasyonu
@@ -150,8 +140,6 @@ const App: FC<{ locale: Locales }> = ({ locale }) => (
 );
 ```
 
----
-
 ## Yaygın Hatalar ve Sorun Giderme
 
 ### `t` Tanımsız veya Yanlış Çeviri Döndürüyor
@@ -176,8 +164,6 @@ const translations: IConfigLocales<string> = {
 const text = t(translations);
 ```
 
----
-
 ## Etkili Kullanım İçin İpuçları
 
 1. **Basit Satır İçi Çeviriler İçin `t` Kullanın**: Bileşenlerinizde küçük metin parçalarını çevirmek için idealdir.
@@ -185,14 +171,10 @@ const text = t(translations);
 3. **Tutarlı Yerel Ayar Sağlama**: Uygulamanız genelinde yerel ayarınızın `IntlayerProvider` aracılığıyla tutarlı şekilde sağlandığından emin olun.
 4. **TypeScript'ten Yararlanın**: Eksik çevirileri yakalamak ve tür güvenliğini sağlamak için TypeScript türlerini kullanın.
 
----
-
 ## Sonuç
 
 `react-intlayer`'daki `t` fonksiyonu, React uygulamalarınızda satır içi çevirileri yönetmek için güçlü ve kullanışlı bir araçtır. Etkili bir şekilde entegre ederek, uygulamanızın uluslararasılaştırma yeteneklerini geliştirir, dünya çapındaki kullanıcılara daha iyi bir deneyim sağlar.
 
 Daha detaylı kullanım ve gelişmiş özellikler için [react-intlayer dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) bakın.
-
----
 
 **Not**: `t` fonksiyonunun doğru çevirileri döndürmesi için `IntlayerProvider`'ınızı doğru şekilde ayarladığınızdan emin olun. Bu, bileşenlerinize mevcut yerel ayarın doğru geçirilmesi için çok önemlidir.

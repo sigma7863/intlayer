@@ -56,8 +56,6 @@ Przetłumaczona wartość interpolowana do fragmentu to markup. Uciekaj przed ni
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik Krok po Kroku
 
 <iframe
@@ -669,8 +667,6 @@ To rozszerzenie zapewnia:
 - **Szybkie akcje** do łatwego tworzenia i aktualizacji tłumaczeń.
 
 Aby uzyskać więcej szczegółów na temat korzystania z rozszerzenia, zapoznaj się z [dokumentacją rozszerzenia Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Idź dalej
 

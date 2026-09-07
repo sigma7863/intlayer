@@ -94,8 +94,6 @@ Plus qu'une simple solution i18n, Intlayer fournit un **[éditeur visuel](https:
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guide étape par étape pour configurer Intlayer dans une application React
 
 <Steps>

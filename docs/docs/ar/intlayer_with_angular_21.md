@@ -85,8 +85,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Angular
 
 <Tabs defaultTab="code">
@@ -473,13 +471,9 @@ export class AppComponent {
 
 لمزيد من التفاصيل حول كيفية استخدام الإضافة، راجع [وثائق إضافة Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### اذهب أبعد من ذلك
 
 للذهاب إلى أبعد من ذلك، يمكنك تنفيذ [المحرر المرئي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_visual_editor.md) أو الاستعانة بمصادر خارجية لمحتواك باستخدام [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_CMS.md).
-
----
 
 ## الأسئلة الشائعة
 

@@ -79,6 +79,4 @@ Für Anfragen bezüglich Ihrer Daten kontaktieren Sie uns bitte unter [contact@i
 
 Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Nutzer werden empfohlen, diese Seite regelmäßig zu überprüfen, um über Änderungen informiert zu bleiben.
 
----
-
 Lassen Sie mich wissen, wenn Sie einen formelleren Ton wünschen, GDPR/CCPA-Erwähnungen hinzufügen möchten oder die Seite für eine rechtliche Seite auf Ihrer Website anpassen wollen.

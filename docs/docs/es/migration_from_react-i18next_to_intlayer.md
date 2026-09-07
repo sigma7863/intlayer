@@ -68,8 +68,6 @@ Más que una simple solución de i18n, Intlayer proporciona un **[editor visual]
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Estrategias de migración
 
 Existen dos estrategias complementarias para migrar de `react-i18next` / `i18next` a Intlayer:
@@ -80,13 +78,9 @@ Existen dos estrategias complementarias para migrar de `react-i18next` / `i18nex
 
 Esta guía cubre primero la **Estrategia 1** (adaptador de compatibilidad de fácil uso), y luego revisa la migración completa opcional.
 
----
-
 ## Tabla de Contenidos
 
 <TOC/>
-
----
 
 ## Migración rápida
 
@@ -233,8 +227,6 @@ Eso es todo para la migración rápida. Tu aplicación ahora funciona sobre Intl
 > tAbout("counter.label"); // ✓ tipado
 > ```
 
----
-
 ## Migración completa
 
 Los pasos a continuación son opcionales y pueden hacerse incrementalmente. Desbloquean todas las funcionalidades de Intlayer: editor visual, CMS, archivos de contenido tipados, automatización de traducción con IA y más.
@@ -327,8 +319,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Qué puedes eliminar tras la migración
 
 Una vez que los adaptadores de compatibilidad estén en su lugar, el siguiente código repetitivo de `react-i18next` / `i18next` se puede eliminar:
@@ -340,8 +330,6 @@ Una vez que los adaptadores de compatibilidad estén en su lugar, el siguiente c
 | Bundles de idiomas JSON (`locales/*.json`) | Los bundles JSON solo son necesarios si aún utilizas el plugin `syncJSON`. Una vez que migres a archivos `.content.ts`, puedes borrar la carpeta JSON. |
 
 Cuando estés listo para ir más allá, Intlayer **descubre automáticamente todos los archivos `.content.ts` y `.content.json` en cualquier lugar de tu código base** (por defecto, en cualquier lugar dentro de `./src`). Puedes colocar un archivo `my-component.content.ts` directamente junto a tu `MyComponent.tsx` e Intlayer lo tomará al momento de compilación sin configuración adicional — sin importaciones, sin registro, sin necesidad de un archivo índice centralizado. Esto hace que la co-localización de traducciones con páginas y componentes sea completamente fluida.
-
----
 
 ## Configurar TypeScript
 
@@ -357,8 +345,6 @@ Intlayer usa el aumento de módulos para ofrecer autocompletado completo de Type
 }
 ```
 
----
-
 ## Configuración de Git
 
 Añade el directorio generado por Intlayer a tu `.gitignore`:
@@ -367,8 +353,6 @@ Añade el directorio generado por Intlayer a tu `.gitignore`:
 # Ignorar los archivos generados por Intlayer
 .intlayer
 ```
-
----
 
 ## Profundizar Más
 

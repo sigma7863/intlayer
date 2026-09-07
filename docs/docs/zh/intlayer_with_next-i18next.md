@@ -40,8 +40,6 @@ author: aymericzip
 > 注意：next-i18next 是构建在 i18next 之上的。本指南使用与 next-i18next 在 App Router 中兼容的 i18next 原语，同时保持架构简单且适合生产环境。
 > 如需更全面的比较，请参见 [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/next-i18next_vs_next-intl_vs_intlayer.md)。
 
----
-
 ## 1) 项目结构
 
 安装 next-i18next 依赖：
@@ -93,8 +91,6 @@ bun add next-i18next i18next react-i18next i18next-resources-to-backend
 - 不要过度集中消息；使用小型的页面/功能范围命名空间
 - 避免一次导入所有语言环境；只加载你需要的
 
----
-
 ## 2) 安装依赖
 
 ```bash
@@ -107,8 +103,6 @@ pnpm add i18next react-i18next i18next-resources-to-backend
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) 核心 i18n 配置
 
@@ -135,8 +129,6 @@ export function abs(locale: string, path: string) {
 ```
 
 高级提示：如果你使用 `next-i18next.config.js`，请确保它与 `i18n.config.ts` 保持一致，以避免偏差。
-
----
 
 ## 4) 服务器端 i18n 初始化
 
@@ -175,8 +167,6 @@ export async function initI18next(
 ```
 
 中间提示：保持每页的命名空间列表简短以限制负载。避免使用全局的“捕获所有”包。
-
----
 
 ## 5) React 组件的客户端提供者
 
@@ -234,8 +224,6 @@ export default function I18nProvider({
 
 初级提示：您不需要将所有消息传递给客户端。只需从页面的命名空间开始。
 
----
-
 ## 6) 本地化布局和路由
 
 设置语言和方向，并为每个语言预生成路由，以支持静态渲染。
@@ -270,8 +258,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) 服务器端 + 客户端使用示例页面
 
@@ -388,8 +374,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO：元数据，Hreflang，站点地图，Robots
 
 翻译内容是提升覆盖范围的一种手段。请彻底配置多语言SEO。
@@ -483,8 +467,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) 用于本地化路由的中间件
 
 检测语言环境，如果缺失则重定向到本地化路由。
@@ -527,8 +509,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) 性能和开发体验最佳实践
 
 - **设置 html 的 `lang` 和 `dir` 属性**：已在 `src/app/[locale]/layout.tsx` 中完成。
@@ -539,8 +519,6 @@ export const config = {
 - **对重操作进行记忆化**：尤其是在旧版本 React 的客户端代码中。
 - **缓存和头部设置**：尽可能优先使用静态或 `revalidate`，而非动态渲染。
 
----
-
 ## 11) 测试和持续集成（CI）
 
 - 为使用 `t` 的组件添加单元测试，确保键存在。
@@ -548,8 +526,6 @@ export const config = {
 - 在 CI 过程中部署前显示缺失的键。
 
 Intlayer 将自动化完成大部分这些工作（见下一节）。
-
----
 
 ## 12) 在顶部添加 Intlayer（自动化）
 
@@ -636,8 +612,6 @@ export default config;
 
 > 你可以提供 CLI 参数；请参阅[Intlayer CLI 文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/index.md)。
 
----
-
 ## 13) 故障排除
 
 - **找不到键**：确保页面/提供者列出了正确的命名空间，并且 JSON 文件存在于 `src/locales/<locale>/<namespace>.json` 目录下。
@@ -645,8 +619,6 @@ export default config;
 - **RTL 布局问题**：确认 `dir` 是由 `isRtl(locale)` 得出，并且你的 CSS 支持 `[dir="rtl"]`。
 - **SEO 替代语言缺失**：确认 `alternates.languages` 包含所有语言环境和 `x-default`。
 - **包体积过大**：进一步拆分命名空间，避免在客户端导入整个 `locales` 目录树。
-
----
 
 ## 14) 接下来做什么
 

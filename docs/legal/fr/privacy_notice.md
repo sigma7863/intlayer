@@ -79,6 +79,4 @@ Pour toute demande concernant vos données, contactez-nous à [contact@intlayer.
 
 Nous pouvons mettre à jour cette notice de confidentialité de temps à autre. Il est conseillé aux utilisateurs de consulter régulièrement cette page pour rester informés de toute modification.
 
----
-
 Faites-nous savoir si vous souhaitez un ton plus formel, ajouter des mentions GDPR/CCPA, ou l'adapter pour une page légale sur votre site.

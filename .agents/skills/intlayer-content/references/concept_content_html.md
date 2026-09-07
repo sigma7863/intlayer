@@ -112,8 +112,6 @@ const myContent = html(
 
 When using the `.use()` method on an HTML node, the components you provide will be checked against the definition provided in the `html()` function (if available).
 
----
-
 ## Rendering HTML
 
 Rendering can be handled automatically by Intlayer's content system or manually using specialized tools.
@@ -238,7 +236,7 @@ You can configure HTML rendering globally for your entire application. This is i
 
 <Tabs group="framework">
   <Tab label="React / Next.js" value="react">
-  
+
     ```tsx fileName="AppProvider.tsx"
     import { HTMLProvider } from "react-intlayer/html";
 
@@ -256,7 +254,7 @@ You can configure HTML rendering globally for your entire application. This is i
 
   </Tab>
   <Tab label="Vue" value="vue">
-  
+
     ```typescript fileName="main.ts"
     import { createApp, h } from "vue";
     import { intlayer } from "vue-intlayer";
@@ -278,7 +276,7 @@ You can configure HTML rendering globally for your entire application. This is i
 
   </Tab>
   <Tab label="Svelte" value="svelte">
-   
+
     ```svelte fileName="App.svelte"
     <script lang="ts">
       import { HTMLProvider } from "svelte-intlayer";
@@ -296,7 +294,7 @@ You can configure HTML rendering globally for your entire application. This is i
 
   </Tab>
   <Tab label="Preact" value="preact">
-   
+
     ```tsx fileName="AppProvider.tsx"
     import { HTMLProvider } from "preact-intlayer/html";
 
@@ -313,7 +311,7 @@ You can configure HTML rendering globally for your entire application. This is i
 
   </Tab>
   <Tab label="Solid" value="solid">
-   
+
     ```tsx fileName="AppProvider.tsx"
     import { HTMLProvider } from "solid-intlayer/html";
 
@@ -348,8 +346,6 @@ You can configure HTML rendering globally for your entire application. This is i
 
   </Tab>
 </Tabs>
-
----
 
 ### Manual Rendering & Advanced Tools
 
@@ -394,9 +390,9 @@ If you need to render raw HTML strings or have more control over the component m
 
   </Tab>
   <Tab label="Vue" value="vue">
-   
+
     #### `<HTMLRenderer />` Component
-   
+
     ```vue
     <script setup>
     import { HTMLRenderer } from "vue-intlayer";
@@ -409,9 +405,9 @@ If you need to render raw HTML strings or have more control over the component m
 
   </Tab>
   <Tab label="Svelte" value="svelte">
-  
+
     #### `<HTMLRenderer />` Component
-   
+
     ```svelte
     <script lang="ts">
     import { HTMLRenderer } from "svelte-intlayer/html";
@@ -443,9 +439,9 @@ If you need to render raw HTML strings or have more control over the component m
 
   </Tab>
   <Tab label="Preact" value="preact">
-   
+
     #### `<HTMLRenderer />` Component
-   
+
     ```tsx
     import { HTMLRenderer } from "preact-intlayer/html";
 
@@ -474,9 +470,9 @@ If you need to render raw HTML strings or have more control over the component m
 
   </Tab>
   <Tab label="Solid" value="solid">
-   
+
     #### `<HTMLRenderer />` Component
-   
+
     ```tsx
     import { HTMLRenderer } from "solid-intlayer/html";
 
@@ -522,8 +518,6 @@ If you need to render raw HTML strings or have more control over the component m
 
   </Tab>
 </Tabs>
-
----
 
 ## Options Reference
 

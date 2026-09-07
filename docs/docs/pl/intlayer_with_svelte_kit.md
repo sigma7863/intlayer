@@ -108,8 +108,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku: konfiguracja Intlayer w aplikacji SvelteKit
 
 Zobacz [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template) na GitHub.
@@ -773,8 +771,6 @@ Zaleca się ignorowanie plików generowanych przez Intlayer.
 # Ignoruj pliki generowane przez Intlayer
 .intlayer
 ```
-
----
 
 ### Idź dalej
 

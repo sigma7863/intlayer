@@ -106,8 +106,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## TanStack Start एप्लिकेशन में Intlayer सेट अप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 <Tabs defaultTab="video">
@@ -1202,8 +1200,6 @@ Intlayer द्वारा उत्पन्न फ़ाइलों को �
 .intlayer
 ```
 
----
-
 ## VS Code Extension
 
 Intlayer के साथ अपने development experience को बेहतर बनाने के लिए, आप official **Intlayer VS Code Extension** को install कर सकते हैं।
@@ -1219,13 +1215,9 @@ Intlayer के साथ अपने development experience को बेह�
 
 Extension के उपयोग के बारे में अधिक विवरण के लिए, [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension) देखें।
 
----
-
 ## आगे बढ़ें
 
 आगे बढ़ने के लिए, आप [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_visual_editor.md) को लागू कर सकते हैं या [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md) का उपयोग करके अपनी सामग्री को बाहरीकृत कर सकते हैं।
-
----
 
 ## दस्तावेज़ संदर्भ
 

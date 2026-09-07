@@ -85,8 +85,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku, jak skonfigurować Intlayer w aplikacji Angular
 
 <Tabs defaultTab="code">
@@ -473,13 +471,9 @@ Rozszerzenie to zapewnia:
 
 Więcej informacji na temat korzystania z rozszerzenia można znaleźć w [Dokumentacji Rozszerzenia Intlayer dla VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Idź Dalej
 
 By osiągnąć jeszcze więcej, możesz zaimplementować [edytor wizualny](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_visual_editor.md) lub uzewnętrznić swoje treści przy pomocy [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/intlayer_CMS.md).
-
----
 
 ## Często Zadawane Pytania
 

@@ -52,8 +52,6 @@ author: aymericzip
 
 本指南将展示如何利用 Intlayer 优越的内容声明系统，同时保持与 next-i18next 的兼容性。
 
----
-
 ## 使用 next-i18next 设置 Intlayer 的分步指南
 
 <Steps>

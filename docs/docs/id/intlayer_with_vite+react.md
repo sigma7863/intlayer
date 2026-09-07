@@ -85,8 +85,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dalam Aplikasi Vite dan React
 
 <Tabs defaultTab="video">
@@ -974,8 +972,6 @@ Ekstensi ini menyediakan:
 - **Tindakan cepat** untuk membuat dan memperbarui terjemahan dengan mudah.
 
 Untuk detail lebih lanjut tentang cara menggunakan ekstensi ini, silakan merujuk ke [dokumentasi Ekstensi VS Code Intlayer](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Melangkah Lebih Jauh
 

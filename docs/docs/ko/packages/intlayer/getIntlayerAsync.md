@@ -46,8 +46,6 @@ author: aymericzip
 - 동일한 청크에 대한 동시 호출은 단일 로드를 공유합니다
 - `async` 메타데이터 빌더, 로더 및 서버 함수에서 안전하게 사용 가능
 
----
-
 ## 함수 서명
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // 선택사항
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## 매개변수
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **Type**: `Promise<Content>` — 선언에서 입력한 타입으로 지정된 dictionary의 해석된 내용으로 resolve되는 promise입니다.
 
----
-
 ## 사용 예시
 
 ### 기본 사용법
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` vs `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 둘 다 동일한 인수를 수용하고 동일한 컨텐츠를 반환합니다: 둘 중 하나에서 다른 하나로 전환하면 **언제**와 **얼마나 많은**이 로드되는지만 변경됩니다.
 
----
-
 ## 관련 함수
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getIntlayer.md): 병합된 딕셔너리를 읽는 동기 동등물.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getDictionaryAsync.md): 빌드 플러그인이 이 호출을 다시 작성하는 하위 수준 함수.
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getLocale.md): 들어오는 요청의 로케일을 감지합니다.
-
----
 
 ## TypeScript
 

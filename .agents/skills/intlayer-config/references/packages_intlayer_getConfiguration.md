@@ -30,8 +30,6 @@ history:
 
 The `getConfiguration` function retrieves the entire configuration for the `intlayer` application by extracting environment variables. This function provides the flexibility to use the same configuration on both the client and server sides, ensuring consistency across the application.
 
----
-
 ## Parameters
 
 The function does not take any parameters. Instead, it uses environment variables for configuration.
@@ -46,8 +44,6 @@ The function does not take any parameters. Instead, it uses environment variable
   - `editor`: Editor-specific configurations.
 
 See [Intlayer configuration documentation](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/configuration.md) for more details.
-
----
 
 ## Example Usage
 

@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## 跟踪内容
 
 `@intlayer/analytics` 会批处理三种类型的匿名事件：

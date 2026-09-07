@@ -27,15 +27,11 @@ author: aymericzip
 
 Ten przewodnik pokazuje, jak automatycznie weryfikować kompletność słowników, wykrywać brakujące tłumaczenia przed wdrożeniem oraz testować zlokalizowany interfejs użytkownika w Twojej aplikacji.
 
----
-
 ## Co możesz testować
 
 - **Brakujące tłumaczenia**: przerwij CI, jeśli w którymkolwiek słowniku brakuje wymaganych lokalizacji.
 - **Renderowanie zlokalizowanego UI**: renderuj komponenty z określonym dostawcą lokalizacji i sprawdzaj widoczny tekst/atrybuty.
 - **Audyt w czasie budowania**: uruchom szybki audyt lokalnie za pomocą CLI.
-
----
 
 ## Szybki start: audyt przez CLI
 
@@ -67,8 +63,6 @@ Przydatne flagi:
 - `--build [build]`: zbuduj słowniki przed testowaniem, aby upewnić się, że zawartość jest aktualna. True wymusi budowanie, false pominie budowanie, undefined pozwoli użyć cache budowania.
 
 Uwaga: CLI generuje szczegółowy raport, ale nie zwraca kodu błędu przy niepowodzeniach. Aby zabezpieczyć CI, dodaj test jednostkowy (poniżej), który sprawdza brak brakujących wymaganych lokalizacji.
-
----
 
 ## Test programowy (Vitest/Jest)
 
@@ -117,8 +111,6 @@ Jak to działa:
   - `missingLocales`: zbiór wszystkich brakujących lokalizacji.
   - `missingRequiredLocales`: podzbiór ograniczony do `requiredLocales` (lub wszystkich lokalizacji, jeśli `requiredLocales` nie jest ustawione).
 
----
-
 ## Testowanie lokalizowanego UI (React / Next.js)
 
 Renderuj komponenty w ramach providera Intlayer i sprawdzaj widoczną zawartość.
@@ -164,8 +156,6 @@ Wskazówki:
 
 - Gdy potrzebujesz surowych wartości tekstowych dla atrybutów (np. `aria-label`), uzyskaj dostęp do pola `.value` zwracanego przez `useIntlayer` w React.
 - Przechowuj słowniki razem z komponentami, aby ułatwić testy jednostkowe i sprzątanie.
-
----
 
 ## Continuous Integration
 
@@ -215,8 +205,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## Rozwiązywanie problemów
 

@@ -31,8 +31,6 @@ author: aymericzip
 
 **Máy chủ ngôn ngữ Intlayer** là một hiện thực của [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) giúp IDE — và tác nhân AI — của bạn hiểu Intlayer. Nó kết nối một lệnh gọi như `useIntlayer("home")` với tệp `.content.ts` khai báo nó, theo cả hai chiều.
 
----
-
 ## Tính năng
 
 | Tính năng                  | Phím tắt            | Mô tả                                                                                                     |
@@ -65,8 +63,6 @@ Khóa được đọc từ một đối số chuỗi theo vị trí, hoặc từ
 
 > Từ điển được đọc từ kết quả build, vì vậy hãy chạy `npx intlayer build` — hoặc giữ máy chủ phát triển đang chạy — để máy chủ có dữ liệu mà phân giải.
 
----
-
 ## Cài đặt
 
 Máy chủ được phát hành dưới dạng tệp nhị phân `intlayer-lsp` trong `@intlayer/lsp`:
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 Hãy cài đặt toàn cục (`npm install -g @intlayer/lsp`) nếu trình soạn thảo của bạn cần `intlayer-lsp` nằm trong `PATH` — đây là trường hợp của plugin Claude Code và của mọi cấu hình bên dưới gọi trực tiếp tệp nhị phân.
-
----
 
 ## Thiết lập
 
@@ -255,15 +249,11 @@ Hãy tham khảo tài liệu LSP của trình soạn thảo để biết định
   </Tab>
 </Tabs>
 
----
-
 ## Ghi chú về tác nhân AI trên terminal
 
 **Claude Code** hoạt động như một client LSP thực thụ — xem tab ở trên.
 
 **OpenAI Codex** và phần lớn công cụ terminal khác không phải là client LSP: chúng đọc và ghi tệp trực tiếp. Chạy riêng máy chủ không giúp ích cho chúng; giá trị đến từ việc máy chủ đang hoạt động trong một trình soạn thảo đi kèm mà tác nhân có thể truy vấn chỉ mục (Cursor Composer, Windsurf Cascade, Copilot Chat).
-
----
 
 ## Cách hoạt động
 
@@ -274,8 +264,6 @@ Khi có yêu cầu, máy chủ phân tích tài liệu (qua [oxc](https://oxc.rs
 1. **Trên một chuỗi khóa** (`useIntlayer("home")`) → trả về mọi tệp nội dung khai báo khóa đó, đặt con trỏ tại dòng `key:` của nó.
 2. **Trên một chỗ dùng trường** (`content.title`, một thuộc tính được phá cấu trúc, `t('path.to.field')`, `<Trans>`, …) → truy ngược biến về từ điển của nó và trả về trường tương ứng bên trong các tệp nội dung.
 3. **Từ một tệp nội dung** → chạy tra cứu ngược, quét mã nguồn dự án để tìm các vị trí gọi khóa hoặc trường đó.
-
----
 
 ## Khắc phục sự cố
 

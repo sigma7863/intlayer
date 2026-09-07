@@ -1,6 +1,6 @@
 ---
 createdAt: 2025-08-23
-updatedAt: 2026-09-05
+updatedAt: 2026-09-06
 title: Einführung
 description: Erfahren Sie, wie Intlayer funktioniert. Sehen Sie sich die Schritte an, die Intlayer in Ihrer Anwendung verwendet. Finden Sie heraus, was die verschiedenen Pakete tun.
 keywords:
@@ -180,12 +180,9 @@ Wir haben Intlayer mit Blick auf Flexibilität entwickelt und bieten eine nahtlo
 - **[Intlayer mit Next.js 15](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_nextjs_15.md)**
 - **[Intlayer mit Next.js 14 (App Router)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_nextjs_14.md)**
 - **[Intlayer mit Next.js Page Router](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_nextjs_page_router.md)**
-- **[Intlayer mit Next.js ohne Locale in der URL](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_nextjs_no_locale_path.md)**
-- **[Intlayer mit Next.js (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_nextjs_compiler.md)**
 - **[Intlayer mit Tanstack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_tanstack.md)**
 - **[Intlayer mit Tanstack Start + Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_tanstack+solid.md)**
 - **[Intlayer mit Vite + React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_vite+react.md)**
-- **[Intlayer mit Vite + React (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_vite+react_compiler.md)**
 - **[Intlayer mit React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_react_router_v7.md)**
 - **[Intlayer mit React Router v7 (fs-routes)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_react_router_v7_fs_routes.md)**
 - **[Intlayer mit React CRA](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_with_create_react_app.md)**

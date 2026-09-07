@@ -21,15 +21,11 @@ author: aymericzip
 
 Want to reach more users worldwide? Making your website multilingual is one of the best ways to expand your audience and improve your SEO (Search Engine Optimisation). In this blog post, we’ll break down the basics of international SEO, often referred to as **i18n** (short for “internationalisation”), in clear, understandable terms. You’ll learn about the key decisions you need to make, how to use technical elements like `hreflang`, and why tools like **Intlayer** can simplify your multilingual Next.js projects.
 
----
-
 ## 1. What Does It Mean to Make Your Website Multilingual?
 
 A multilingual website offers its content in more than one language. For example, you might have an English version (`example.com/en/`), a French version (`example.com/fr/`), and a Spanish version (`example.com/es/`). This approach lets search engines display the correct language version to users based on their preferences or geographic location.
 
 When you do this right, you’ll create a far more user-friendly experience for non-English speakers, leading to better engagement, higher conversion rates, and improved SEO in different regions.
-
----
 
 ## 2. Choosing the Right URL Structure
 
@@ -51,8 +47,6 @@ If you decide to have multiple language versions, you’ll need a clear, consist
    - **Cons:** Not as strong a local SEO signal as ccTLDs (though it’s still very effective if done properly).
 
 > **Tip:** If you have a global brand and want to keep things simpler, subdirectories often work best. If you’re only targeting one or two main countries and want to really emphasise each one, ccTLDs might be the way to go.
-
----
 
 ## 3. Mastering Language Targeting with Hreflang
 
@@ -84,8 +78,6 @@ In your HTML, you’ll add something like:
 
 > **Quick Note:** Make sure the URLs in these tags point directly to the final page, with **no** additional redirects.
 
----
-
 ## 4. Making Content Truly “Local” (Not Just Translated)
 
 ### 4.1. Localisation vs. Translation
@@ -96,8 +88,6 @@ In your HTML, you’ll add something like:
 ### 4.2. Avoiding Duplicate Content
 
 Even with good translations, search engines can flag your site for duplicate content if it appears too similar in structure. Hreflang helps clarify that these pages aren’t duplicates but are language variations.
-
----
 
 ## 5. Technical SEO Must-Haves
 
@@ -127,8 +117,6 @@ Canonical tags tell search engines which page is the “original” or primary v
 <link rel="canonical" href="https://example.com/fr/produits" />
 ```
 
----
-
 ## 6. On-Page SEO in Multiple Languages
 
 ### 6.1. Title & Meta Descriptions
@@ -144,8 +132,6 @@ Your headings should reflect each region’s **local phrases** or **keywords**. 
 
 - Localise alt text, captions, and filenames if needed.
 - Use visuals that resonate with the target culture.
-
----
 
 ## 7. Language Switching & User Experience
 
@@ -224,16 +210,12 @@ const LocaleSwitcher: FC = () => {
 - Save your user’s language choice in a **cookie** or **session**.
 - Next time they visit your site, you can automatically load their preferred language.
 
----
-
 ## 8. Building Local Backlinks
 
 **Backlinks** (links from external sites to yours) remain an important SEO factor. When you run a multilingual site, consider:
 
 - Reaching out to local news sites, blogs, or forums. For instance, a `.fr` domain pointing to your French subdirectory can boost your local French SEO.
 - Monitoring backlinks per language to see which regions need more PR/marketing efforts.
-
----
 
 ## 9. Monitoring & Maintaining Your Multilingual Site
 
@@ -246,8 +228,6 @@ const LocaleSwitcher: FC = () => {
 
 - Keep translations fresh. If you change a product description in English, update it in French, Spanish, etc.
 - Outdated translations can be confusing for customers and hurt user trust.
-
----
 
 ## 10. Common Pitfalls to Avoid
 
@@ -263,13 +243,9 @@ const LocaleSwitcher: FC = () => {
 4. **Ignoring Cultural Nuances**
    A joke or phrase that works in one country might be offensive or meaningless in another.
 
----
-
 ## Audit your website with the Intlayer SEO Scanner
 
 To ensure your multilingual app is perfectly optimised, we recommend using the [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner). It is a specialised tool for multilingual website checking, helping you identify missing hreflang tags, broken links, and other SEO issues across all your localised pages.
-
----
 
 ## Wrapping Up
 

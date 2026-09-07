@@ -37,8 +37,6 @@ author: aymericzip
 - 将本地化路径与配置中定义的自定义重写规则进行匹配。
 - 如果未找到匹配的重写规则，则返回原始路径。
 
----
-
 ## 函数签名
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // 可选
 ): string
 ```
-
----
 
 ## 参数
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **类型**：`RoutingConfig['rewrite']`
   - **默认值**：`configuration.routing.rewrite`
 
----
-
 ## 返回值
 
 - **类型**：`string`
 - **描述**：内部规范路径。
-
----
 
 ## 示例用法
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // 输出: "/contact"
 ```
-
----
 
 ## 相关函数
 

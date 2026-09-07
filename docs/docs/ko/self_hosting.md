@@ -35,8 +35,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 <TOC/>
 
----
-
 ## 아키텍처
 
 ```
@@ -56,8 +54,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 Chromium (Puppeteer 스크린샷 생성에 사용됨)은 백엔드 이미지 내부에 번들로 제공되므로 별도의 컨테이너가 필요하지 않습니다.
 
----
-
 ## 사전 요구 사항
 
 - **Docker** ≥ 24 및 **Docker Compose** ≥ v2. 둘 중 하나라도 없으면 설치 프로그램이 설치 링크를 출력하고 종료됩니다.
@@ -65,8 +61,6 @@ Chromium (Puppeteer 스크린샷 생성에 사용됨)은 백엔드 이미지 내
 - Linux 또는 macOS 호스트 (또는 Windows의 WSL2).
 
 나머지 모든 것 — Bun, Redis, MinIO, Chromium — 은 이미지 내에 포함되어 있습니다.
-
----
 
 ## 빠른 시작
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > 네 개의 포트 변수는 `docker run` 명령에 인쇄된 매핑의 **호스트** 측만 변경합니다. 발행된 이미지는 빌드 시간에 `http://localhost:3000`, `http://localhost:3100` 및 `http://localhost:9000`이 대시보드 번들에 컴파일되어 있으므로, 이들을 다시 매핑하면 브라우저가 이전 포트를 가리키게 됩니다. 자신의 이미지를 빌드하지 않는 한 기본값을 유지하세요 — [제한 사항](#limitations)을 참조하세요.
 
----
-
 ## 빠른 시작
 
 설치 프로그램의 기능:
@@ -149,8 +141,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 5.  다음 URL을 출력합니다: 대시보드 `:3000`, API `:3100`, 이메일 UI `:8025`, MinIO 콘솔 `:9001`.
 
 스택이 실행되면 **http://localhost:3000**을 열고 첫 번째 계정을 생성하세요.
-
----
 
 ## 서비스
 
@@ -164,8 +154,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 | **mailpit** | `axllent/mailpit`                  | `1025` (SMTP), `8025` (웹 UI) | 로컬 트랜잭션 이메일 싱크                       |
 
 > MinIO 포트 `9000`은 브라우저에서 접근할 수 있어야 합니다. 업로드된 자산(아바타, 스크린샷)은 `S3_PUBLIC_URL=http://localhost:9000/intlayer`에서 직접 로드되기 때문입니다.
-
----
 
 ## 환경 변수
 
@@ -236,8 +224,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > Precedence: 조직의 자체 mailer (**Organization** dashboard에서 구성)가 global mailer보다 우선하며, global mailer는 기본 Resend key보다 우선합니다.
 
----
-
 ## Intlayer 프로젝트 연결하기
 
 스택이 실행되면 프로젝트가 `intlayer.org` 대신 자체 호스팅된 백엔드 및 대시보드를 가리키도록 설정하세요.
@@ -299,8 +285,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## 업그레이드
 
 이는 최신 이미지를 가져오고 `docker compose pull && docker compose up -d`를 사용하여 컨테이너를 다시 시작합니다. 기존 볼륨(`mongo-data`, `redis-data`, `minio-data`)은 보존되므로 데이터 손실이 없습니다.
@@ -309,8 +293,6 @@ const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## 백업 및 복원
 
@@ -346,15 +328,11 @@ docker run --rm \
 # redis-data 및 minio-data에 대해서도 반복합니다.
 ```
 
----
-
 ## 제한 사항
 
 - **MongoDB는 외부(Atlas)여야 합니다.** 백엔드는 `mongodb+srv://`로만 연결되며(`DB_ID` / `DB_MDP` / `DB_CLUSTER`로 구성됨), 일반 `mongodb://host:27017` — 컨테이너의 자체 번들 `mongod` 포함 — 은 사용할 수 없습니다. MongoDB Atlas 클러스터를 제공하세요.
 - **사용자 정의 도메인 없음.** 모든 브라우저 대면 `VITE_*` URL은 빌드 시 앱에 인라인되며, 게시된 이미지는 `localhost` 값으로 제공됩니다. 대시보드는 `http://localhost:3000`에서 액세스해야 합니다. 공개 도메인에서 제공하려면 대상 URL을 포함하여 이미지를 다시 빌드해야 하며 기본적으로 지원되지 않습니다.
 - **이메일에는 작동하는 메일러가 필요합니다.** 초기 실행 설정은 이메일 확인을 강제하므로 `RESEND_API_KEY` 또는 [글로벌 SMTP 메일러](#global-mailer)(`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`)를 구성해야 합니다. 첫 번째 관리자가 로그인한 후 각 조직은 대시보드에서 자신의 SMTP 또는 Resend 메일러를 구성할 수도 있습니다.
-
----
 
 ## 문제 해결
 
@@ -381,8 +359,6 @@ docker compose logs redis
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## 유용한 링크
 

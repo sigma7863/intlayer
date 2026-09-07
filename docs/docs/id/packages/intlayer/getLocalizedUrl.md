@@ -38,8 +38,6 @@ Fungsi `getLocalizedUrl` menghasilkan URL yang dilokalisasi dengan menambahkan p
 - Menggunakan konfigurasi internasionalisasi proyek Anda sebagai default
 - Dapat digunakan dengan parameter minimal untuk kasus sederhana atau dikustomisasi sepenuhnya untuk skenario kompleks
 
----
-
 ## Tanda Tangan Fungsi
 
 ```typescript
@@ -51,8 +49,6 @@ getLocalizedUrl(
   prefixDefault?: boolean        // Opsional
 ): string
 ```
-
----
 
 ## Parameter
 
@@ -97,8 +93,6 @@ getLocalizedUrl(
 
 - **Tipe**: `string`
 - **Deskripsi**: URL yang sudah dilokalisasi untuk locale yang ditentukan.
-
----
 
 ## Contoh Penggunaan
 
@@ -205,8 +199,6 @@ getLocalizedUrl(
 ); // Output: "/about" (tidak ada prefix yang diterapkan untuk locale yang tidak didukung)
 ```
 
----
-
 ## Kasus Tepi
 
 - **Tidak Ada Segmen Locale:**
@@ -223,8 +215,6 @@ getLocalizedUrl(
   - `'prefix-all'`: Semua locale memiliki prefix (mis., `/en/about`, `/fr/about`)
   - `'no-prefix'`: Tidak ada prefix locale di URL (locale ditangani di tempat lain)
   - `'search-params'`: Locale ditentukan melalui parameter query (mis., `/about?locale=fr`)
-
----
 
 ## Penggunaan dalam Aplikasi
 

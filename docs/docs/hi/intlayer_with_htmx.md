@@ -56,8 +56,6 @@ htmx के साथ दो carriers काम करते हैं। एक
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Step-by-Step Guide
 
 <iframe
@@ -673,8 +671,6 @@ Intlayer के साथ अपने development experience को बेह�
 - **Quick actions** आसानी से अनुवाद बनाने और अपडेट करने के लिए।
 
 Extension का उपयोग कैसे करें इसके बारे में अधिक विवरण के लिए, [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension) देखें।
-
----
 
 ### आगे बढ़ें
 

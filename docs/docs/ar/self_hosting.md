@@ -35,8 +35,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 <TOC/>
 
----
-
 ## البنية المعمارية
 
 ```
@@ -56,8 +54,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 يتم تضمين Chromium (المستخدم لتوليد لقطات الشاشة عبر Puppeteer) داخل صورة الخادم الخلفي — لا حاجة لحاوية منفصلة.
 
----
-
 ## المتطلبات الأساسية
 
 - **Docker** ≥ 24 و**Docker Compose** ≥ v2. إذا كان أحدهما مفقوداً، يطبع المثبّت رابط التثبيت ويخرج.
@@ -65,8 +61,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 - مضيف Linux أو macOS (أو WSL2 على Windows).
 
 كل شيء آخر — Bun و Redis و MinIO و Chromium — يتم شحنه داخل الصورة.
-
----
 
 ## البدء السريع
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > متغيرات المنافذ الأربعة تغير فقط الجانب **المضيف** من التعيين المطبوع في أمر `docker run`. الصورة المنشورة لديها `http://localhost:3000` و `http://localhost:3100` و `http://localhost:9000` مدرجة في حزمة لوحة التحكم في وقت البناء، لذا فإن إعادة تعيينها تترك المتصفح يشير إلى المنافذ القديمة. احتفظ بالقيم الافتراضية إلا إذا كنت تقوم بإنشاء صورتك الخاصة — انظر [القيود](#limitations).
 
----
-
 ## إعداد التشغيل الأول
 
 على نسخة جديدة (قاعدة بيانات فارغة)، يعيد فتح لوحة التحكم توجيهك إلى صفحة **`/init`**:
@@ -147,8 +139,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 3. انقر على الرابط في البريد الإلكتروني، ثم قم بتسجيل الدخول.
 
 بمجرد وجود admin، يعيد `/init` التوجيه إلى صفحة تسجيل الدخول القياسية.
-
----
 
 ## الخدمات
 
@@ -162,8 +152,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 | **mailpit** | `axllent/mailpit`                    | `1025` (SMTP)، `8025` (واجهة الويب) | مجمّع بريد إلكتروني تفاعلي محلي                        |
 
 > يجب أن يكون منفذ MinIO `9000` قابلاً للوصول من المتصفح لأن الأصول المرفوعة (الصور الرمزية، لقطات الشاشة) تُحمَّل مباشرة من `S3_PUBLIC_URL=http://localhost:9000/intlayer`.
-
----
 
 ## متغيرات البيئة
 
@@ -234,8 +222,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > الأولوية: بريد المنظمة الخاص بها (المُعد من لوحة المعلومات **Organization**) له الأولوية على البريد العام، والذي له بدوره الأولوية على مفتاح Resend الافتراضي.
 
----
-
 ## ربط مشروعك بـ Intlayer
 
 بمجرد تشغيل المكدس، وجّه مشروعك نحو الخادم الخلفي ولوحة التحكم المستضافَين ذاتياً بدلاً من `intlayer.org`.
@@ -297,8 +283,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## الترقية
 
 يجلب هذا الأمر أحدث الصور ويعيد تشغيل الحاويات باستخدام `docker compose pull && docker compose up -d`. يتم الاحتفاظ بالأحجام الموجودة (`mongo-data`، `redis-data`، `minio-data`) — دون فقدان للبيانات.
@@ -307,8 +291,6 @@ const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## النسخ الاحتياطي والاستعادة
 
@@ -344,15 +326,11 @@ docker run --rm \
 # كرر لـ redis-data و minio-data
 ```
 
----
-
 ## القيود
 
 - **MongoDB يجب أن يكون خارجياً (Atlas).** يتصل الخادم الخلفي فقط عبر `mongodb+srv://` (مبني من `DB_ID` / `DB_MDP` / `DB_CLUSTER`)، لذا لا يمكن استخدام `mongodb://host:27017` العادي — بما في ذلك `mongod` المدمج في الحاوية الخاصة — لا يمكن استخدامه. قدم مجموعة MongoDB Atlas.
 - **لا توجد نطاقات مخصصة.** جميع عناوين URL الموجهة للمتصفح `VITE_*` مدرجة مباشرة في التطبيق وقت البناء، والصورة المنشورة تأتي مع قيم `localhost`. يجب الوصول إلى لوحة التحكم على `http://localhost:3000`؛ تقديمها على نطاق عام سيتطلب إعادة بناء الصورة مع عناوين URL المستهدفة المدمجة فيها وليس مدعوماً بشكل افتراضي.
 - **البريد الإلكتروني يتطلب خادم بريد يعمل.** إعداد التشغيل الأول يفرض التحقق من البريد الإلكتروني، لذا يجب تكوين إما `RESEND_API_KEY` أو [خادم SMTP عام](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`). بعد دخول المسؤول الأول، يمكن لكل منظمة أيضاً تكوين خادم SMTP أو Resend الخاص بها من لوحة التحكم.
-
----
 
 ## استكشاف الأخطاء وإصلاحها
 
@@ -379,8 +357,6 @@ docker compose logs redis
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## روابط مفيدة
 

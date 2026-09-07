@@ -42,8 +42,6 @@ author: aymericzip
 - Результати кешуються для кожної комбінації `key + locale + selector`
 - Під час розробки повертається до безпечного проксі, коли словник відсутній, замість краху
 
----
-
 ## Function Signature
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // Опціональний
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Параметри
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Тип**: Інтерпретований вміст словника, типізований з вашої декларації.
 - **Опис**: Простий об'єкт, що відображає поле `content` вашого словника, де кожен вузол Intlayer розв'язаний на його остаточне значення для запитуваної мови.
-
----
 
 ## Приклад використання
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## Примітки щодо поведінки
 
 ### Caching
@@ -169,15 +161,11 @@ const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 
 `getIntlayer` читає об'єднаний словник, який містить **кожну** локаль. У клієнтських bundle'ах [плагіни збірки](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/bundle_optimization.md) переписують виклик, щоб відправляється тільки необхідний контент. Коли ви читаєте контент поза рендерингом (метадані, loader'и, серверні функції) і хочете, щоб одна локаль завантажувалася за запитом, використовуйте замість цього [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/intlayer/getIntlayerAsync.md).
 
----
-
 ## Пов'язані функції
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/intlayer/getIntlayerAsync.md): Асинхронний аналог для завантаження одного chunk'у локалізації.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/intlayer/getDictionary.md): Інтерпретує об'єкт dictionary, який ви передаєте самі, замість пошуку за ключем.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/react-intlayer/useIntlayer.md): React hook еквівалент, який зчитує локаль від провайдера.
-
----
 
 ## TypeScript
 

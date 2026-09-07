@@ -107,8 +107,6 @@ Intlayer оптимізовано для ідеальної роботи з Vite
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник із налаштування Intlayer у додатку Vite та Vanilla JS
 
 <Steps>
@@ -763,8 +761,6 @@ console.log("SEO files generated successfully.");
 - **Швидкі дії** для легкого створення та оновлення перекладів.
 
 Докладніше про використання розширення див. у [документації розширення Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Йдіть далі
 

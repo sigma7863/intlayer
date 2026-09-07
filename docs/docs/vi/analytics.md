@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Những gì nó theo dõi
 
 `@intlayer/analytics` gom nhóm ba loại sự kiện ẩn danh thành các batch:

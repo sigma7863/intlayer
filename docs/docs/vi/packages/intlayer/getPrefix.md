@@ -39,8 +39,6 @@ Hàm `getPrefix` xác định tiền tố URL cho một locale nhất định d�
 - Hỗ trợ tất cả các chế độ định tuyến: `prefix-no-default`, `prefix-all`, `no-prefix`, và `search-params`
 - Công cụ nhẹ để xác định khi nào cần thêm tiền tố locale
 
----
-
 ## Chữ ký hàm
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // ví dụ: 'fr' hoặc undefined
 }
 ```
-
----
 
 ## Tham số
 
@@ -93,8 +89,6 @@ type GetPrefixResult = {
 - **Mô tả**: Một đối tượng chứa ba định dạng tiền tố khác nhau:
   - `prefix`: Tiền tố đường dẫn có dấu gạch chéo ở cuối (ví dụ: `'fr/'`, `''`)
   - `localePrefix`: Định danh locale không có dấu gạch chéo (ví dụ: `'fr'`, `undefined`)
-
----
 
 ## Ví dụ sử dụng
 
@@ -173,14 +167,10 @@ console.log(`Current locale: ${localePrefix}`);
 // Kết quả: "Current locale: fr"
 ```
 
----
-
 ## Các Hàm Liên Quan
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getLocalizedUrl.md): Tạo URL có địa phương hóa cho một locale cụ thể
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getMultilingualUrls.md): Tạo các URL cho tất cả các locale đã cấu hình
-
----
 
 ## TypeScript
 

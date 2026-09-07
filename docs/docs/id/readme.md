@@ -68,8 +68,6 @@ Dengan **file konten per-locale**, **autocompletion TypeScript**, **kamus tree-s
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Fitur" width="700">                    | **Interoperabilitas**<br><br>Memungkinkan interoperabilitas dengan react-i18next, next-i18next, next-intl, react-intl, vue-i18n. <br><br> - [Intlayer dan react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer dan next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer dan next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer dan vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [Compat adapter Intlayer](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Fitur" width="700">                           | **Performa & Benchmark**<br><br>Menggunakan tree-shaking tingkat lanjut dan pemuatan dinamis untuk meningkatkan performa dan menjaga solusi seringan mungkin. <br><br> - [Performa & Benchmark](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                                                                             |
 
----
-
 ## 📦 Instalasi
 
 Mulailah perjalanan Anda dengan Intlayer hari ini dan rasakan pendekatan internasionalisasi yang lebih lancar dan lebih kuat.

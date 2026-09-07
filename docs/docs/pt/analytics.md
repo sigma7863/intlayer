@@ -35,8 +35,6 @@ O `@intlayer/analytics` é um pacote complementar opcional que informa **qual co
 
 <TOC/>
 
----
-
 ## O que ele rastreia
 
 O `@intlayer/analytics` agrupa três tipos de eventos anônimos:

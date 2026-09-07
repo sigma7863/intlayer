@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - Všechny příkazy Intlayer CLI pro váš vícejazyčný web
 
----
-
 ## Obsah
 
 <TOC/>
-
----
 
 ## Instalace balíčku
 

@@ -46,8 +46,6 @@ author: aymericzip
 - एक ही chunk के लिए Concurrent calls एक single load share करती हैं
 - `async` metadata builders, loaders और server functions में उपयोग के लिए सुरक्षित
 
----
-
 ## Function Signature
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // वैकल्पिक
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## पैरामीटर
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **Type**: `Promise<Content>` — एक promise जो आपकी घोषणा से टाइप किए गए dictionary की interpreted content को resolve करता है।
 
----
-
 ## उदाहरण उपयोग
 
 ### बुनियादी उपयोग
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` vs `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 दोनों एक ही arguments स्वीकार करते हैं और एक ही सामग्री return करते हैं: एक से दूसरे में स्विच करने से केवल **कब** और **कितना** load होता है, यह बदलता है।
 
----
-
 ## संबंधित Functions
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getIntlayer.md): Synchronous equivalent जो merged dictionary को पढ़ता है।
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getDictionaryAsync.md): The lower-level function जिसे build plugins इस call को rewrite करते हैं।
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getLocale.md): Incoming request की locale को detect करता है।
-
----
 
 ## TypeScript
 

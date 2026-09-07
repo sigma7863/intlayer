@@ -39,8 +39,6 @@ author: aymericzip
 - Підтримує всі режими маршрутизації: `prefix-no-default`, `prefix-all`, `no-prefix` та `search-params`
 - Легка утиліта для визначення, коли додавати префікси локалі
 
----
-
 ## Підпис функції
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // напр., 'fr' або undefined
 }
 ```
-
----
 
 ## Параметри
 
@@ -93,8 +89,6 @@ type GetPrefixResult = {
 - **Опис**: Об'єкт, що містить три різні формати префіксів:
   - `prefix`: Префікс шляху з кінцевим слешем (наприклад, `'fr/'`, `''`)
   - `localePrefix`: Ідентифікатор локалі без слешів (наприклад, `'fr'`, `undefined`)
-
----
 
 ## Приклад використання
 
@@ -173,14 +167,10 @@ console.log(`Current locale: ${localePrefix}`);
 // Вивід: "Current locale: fr"
 ```
 
----
-
 ## Пов'язані функції
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/intlayer/getLocalizedUrl.md): Генерує локалізований URL для певної локалі
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/packages/intlayer/getMultilingualUrls.md): Генерує URL-адреси для всіх налаштованих локалей
-
----
 
 ## TypeScript
 

@@ -52,8 +52,6 @@ Aunque Intlayer ofrece una excelente solución i18n independiente (consulta nues
 
 Esta guía te muestra cómo aprovechar el superior sistema de declaración de contenido de Intlayer mientras mantienes la compatibilidad con next-i18next.
 
----
-
 ## Guía paso a paso para configurar Intlayer con next-i18next
 
 <Steps>

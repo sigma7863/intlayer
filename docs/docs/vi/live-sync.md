@@ -38,8 +38,6 @@ Live Sync cho phép ứng dụng của bạn phản ánh các thay đổi nội 
 
 <TOC/>
 
----
-
 ## Bật Đồng bộ trực tiếp
 
 Bật Live Sync bằng cách cập nhật cấu hình Intlayer của bạn:

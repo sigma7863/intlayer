@@ -94,8 +94,6 @@ Con Intlayer, puedes:
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guía paso a paso para configurar Intlayer en una aplicación React
 
 <Steps>

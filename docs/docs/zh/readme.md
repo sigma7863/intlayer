@@ -68,8 +68,6 @@ Intlayer 是面向 Web 和移动应用程序的**现代国际化解决方案**�
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Feature" width="700">                    | **互操作性**<br><br>允许与 react-i18next、next-i18next、next-intl、react-intl、vue-i18n 进行互操作。<br><br> - [Intlayer 与 react-intl](https://intlayer.cn/blog/intlayer-with-react-intl) <br> - [Intlayer 与 next-intl](https://intlayer.cn/blog/intlayer-with-next-intl) <br> - [Intlayer 与 next-i18next](https://intlayer.cn/blog/intlayer-with-next-i18next) <br> - [Intlayer 与 vue-i18n](https://intlayer.cn/blog/intlayer-with-vue-i18n) <br> - [Intlayer 兼容适配器](https://intlayer.cn/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Feature" width="700">                           | **性能与基准测试**<br><br>使用先进的摇树优化（tree-shaking）和动态加载来提高性能，并使解决方案保持尽可能轻量。 <br><br> - [性能与基准测试](https://intlayer.cn/doc/benchmark)                                                                                                                                                                                                                                                                                                                                         |
 
----
-
 ## 📦 安装
 
 今天就开始使用 Intlayer，体验更顺畅、更强大的国际化方式。

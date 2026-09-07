@@ -100,8 +100,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng Dẫn Từng Bước Để Cài Đặt Intlayer Trong Ứng Dụng Next.js
 
 <Tabs defaultTab="code">

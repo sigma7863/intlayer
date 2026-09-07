@@ -37,8 +37,6 @@ A função `getCanonicalPath` resolve um caminho de URL localizado (por exemplo,
 - Compara caminhos localizados com regras de reescrita personalizadas definidas na sua configuração.
 - Retorna o caminho original caso nenhuma regra de reescrita correspondente seja encontrada.
 
----
-
 ## Assinatura da Função
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opcional
 ): string
 ```
-
----
 
 ## Parâmetros
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **Tipo**: `RoutingConfig['rewrite']`
   - **Padrão**: `configuration.routing.rewrite`
 
----
-
 ## Retorno
 
 - **Tipo**: `string`
 - **Descrição**: O caminho canônico interno.
-
----
 
 ## Exemplo de Uso
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // Output: "/contact"
 ```
-
----
 
 ## Funções relacionadas
 

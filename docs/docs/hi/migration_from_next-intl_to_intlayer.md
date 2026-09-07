@@ -67,8 +67,6 @@ Intlayer भी i18n पारिस्थितिकी तंत्र मे
 </Accordion>
 </AccordionGroup>
 
----
-
 ## माइग्रेशन रणनीति
 
 मौजूदा ऐप्स के लिए अनुशंसित दृष्टिकोण **compat एडॉप्टर** है: `@intlayer/next-intl` स्थापित करें, जो `next-intl` के **बिल्कुल समान API** को उजागर करता है लेकिन सभी अनुवाद कार्य को हूड के तहत Intlayer को सौंपता है।
@@ -77,13 +75,9 @@ Intlayer भी i18n पारिस्थितिकी तंत्र मे
 
 समय के साथ आप optionally individual फाइलों को Intlayer के रicher `.content.ts` format में माइग्रेट कर सकते हैं visual editor, CMS, और per-component content scoping को अनलॉक करने के लिए — लेकिन वह चरण पूरी तरह से वैकल्पिक है और वृद्धिशील रूप से किया जा सकता है।
 
----
-
 ## विषय सूची
 
 <TOC/>
-
----
 
 ## त्वरित माइग्रेशन
 
@@ -212,8 +206,6 @@ export default withIntlayer(nextConfig);
 > t("counter.label"); // ✓ typed
 > ```
 
----
-
 ## पूर्ण माइग्रेशन
 
 नीचे दिए गए चरण वैकल्पिक हैं और वृद्धिशील रूप से किए जा सकते हैं। वे पूर्ण Intlayer फीचर सेट को अनलॉक करते हैं: visual editor, CMS, typed content फाइलें, AI-powered अनुवाद, और बहुत कुछ।
@@ -308,8 +300,6 @@ export default config;
 
 </Steps>
 
----
-
 ## माइग्रेशन के बाद आप क्या हटा सकते हैं
 
 एक बार `@intlayer/next-intl` मौजूद होने के बाद, निम्नलिखित `next-intl` boilerplate को हटाया जा सकता है:
@@ -321,8 +311,6 @@ export default config;
 | `locales/{locale}/*.json` imports in layout       | JSON bundles केवल तभी आवश्यक हैं जब आप अभी भी `syncJSON` प्लग-इन का उपयोग करते हैं। एक बार `.content.ts` फाइलों में माइग्रेट करने के बाद आप JSON फोल्डर को हटा सकते हैं।             |
 
 जब आप आगे बढ़ने के लिए तैयार हों, Intlayer **स्वचालित रूप से आपके कोडबेस में कहीं भी सभी `.content.ts` और `.content.json` फाइलों को खोजता है** (डिफ़ॉल्ट रूप से, `./src` के अंदर कहीं भी)। आप एक `about.content.ts` फाइल को अपने `about/page.tsx` के बगल में रख सकते हैं और Intlayer इसे बिल्ड समय पर किसी अतिरिक्त कॉन्फ़िगरेशन के बिना उठाएगा — कोई imports, कोई पंजीकरण, कोई केंद्रीकृत index फाइल आवश्यक नहीं है। यह अनुवाद को पेजों और घटकों के साथ सह-स्थित करना पूरी तरह से घर्षण रहित बनाता है।
-
----
 
 ## TypeScript को कॉन्फ़िगर करें
 
@@ -338,8 +326,6 @@ Intlayer module augmentation का उपयोग करता है आप�
 }
 ```
 
----
-
 ## Git कॉन्फ़िगरेशन
 
 Intlayer के generated directory को अपने `.gitignore` में जोड़ें:
@@ -348,8 +334,6 @@ Intlayer के generated directory को अपने `.gitignore` में �
 # Intlayer द्वारा जनरेट की गई फाइलों को अनदेखा करें
 .intlayer
 ```
-
----
 
 ## आगे बढ़ें
 

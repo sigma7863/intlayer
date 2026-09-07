@@ -56,8 +56,6 @@ Two carriers work with htmx. A cookie (`INTLAYER_LOCALE`) is sent by the browser
 </Accordion>
 </AccordionGroup>
 
----
-
 ## ステップバイステップガイド
 
 <iframe
@@ -671,8 +669,6 @@ Intlayer を使用した開発体験を向上させるために、公式の **In
 - **翻訳を簡単に作成・更新するクイックアクション**。
 
 エクステンションの使用方法の詳細については、[Intlayer VS Code エクステンションのドキュメント](https://intlayer.org/doc/vs-code-extension)を参照してください。
-
----
 
 ### さらに進める
 

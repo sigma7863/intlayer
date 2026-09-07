@@ -80,8 +80,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 왜 Storybook에서 Intlayer를 사용해야 하나요?
 
 Storybook은 UI 컴포넌트를 독립적으로 개발하고 문서화하기 위한 업계 표준 도구입니다. Intlayer와 결합하면 다음과 같은 이점이 있습니다:
@@ -89,8 +87,6 @@ Storybook은 UI 컴포넌트를 독립적으로 개발하고 문서화하기 위
 - **모든 로케일 미리보기**: 도구 모음 스위처를 사용하여 Storybook 캔버스 내부에서 직접 확인할 수 있습니다.
 - **누락된 번역 감지**: 프로덕션에 도달하기 전에 번역 누락을 확인할 수 있습니다.
 - **다국어 컴포넌트 문서화**: 하드코딩된 문자열 대신 실제 형식이 안전한(type-safe) 콘텐츠를 사용하여 문서화할 수 있습니다.
-
----
 
 ## 단계별 설정
 
@@ -405,8 +401,6 @@ export default copyButtonContent;
 
 > 더 많은 콘텐츠 선언 형식과 기능은 [콘텐츠 선언 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dictionary/content_file.md)를 참조하세요.
 
----
-
 ## 컴포넌트에서 `useIntlayer` 사용하기
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -435,8 +429,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer`는 가장 가까운 `IntlayerProvider`에서 제공하는 현재 로케일에 대한 컴파일된 사전을 반환합니다. Storybook 도구 모음에서 로케일을 전환하면 업데이트된 번역으로 스토리가 자동으로 다시 렌더링됩니다.
-
----
 
 ## 국제화된 컴포넌트를 위한 스토리 작성
 
@@ -486,8 +478,6 @@ export const InsideCodeBlock: Story = {
 
 > 각 스토리는 도구 모음에서 `locale` 전역 변수를 상속하므로 스토리 코드를 변경하지 않고도 모든 로케일을 확인할 수 있습니다.
 
----
-
 ## 스토리에서 번역 테스트하기
 
 Storybook의 `play` 기능을 사용하여 특정 로케일에 대해 올바른 번역 텍스트가 렌더링되었는지 확인하세요:
@@ -521,8 +511,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## 추가 리소스
 

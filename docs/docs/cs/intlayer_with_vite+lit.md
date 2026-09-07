@@ -69,8 +69,6 @@ S Intlayer můžete:
 - **Zajistit podporu TypeScriptu** s automaticky generovanými typy, což zlepšuje automatické doplňování a detekci chyb.
 - **Využívat pokročilé funkce**, jako je dynamická detekce a přepínání jazyka.
 
----
-
 ## Průvodce krok za krokem k nastavení Intlayer v aplikaci Vite a Lit
 
 <Steps>
@@ -678,8 +676,6 @@ Toto rozšíření poskytuje:
 - **Rychlé akce** pro snadné vytváření a aktualizaci překladů.
 
 Další podrobnosti o tom, jak rozšíření používat, najdete v [dokumentaci rozšíření Intlayer pro VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Jděte dále
 

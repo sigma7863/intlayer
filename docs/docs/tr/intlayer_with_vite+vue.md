@@ -84,8 +84,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite ve Vue Uygulamasında Intlayer Kurulumu İçin Adım Adım Kılavuz
 
 <Tabs defaultTab="video">
@@ -1122,13 +1120,9 @@ Bu uzantı şunları sağlar:
 
 Uzantının nasıl kullanılacağı hakkında daha fazla ayrıntı için [Intlayer VS Code Uzantısı belgelerine](https://intlayer.org/tr/doc/vs-code-extension) bakın.
 
----
-
 ### Daha Fazla İlerle
 
 Daha ileri gitmek için [görsel düzenleyiciyi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) uygulayabilir veya içeriğinizi [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) kullanarak dışa aktarabilirsiniz.
-
----
 
 ## Sıkça Sorulan Sorular
 

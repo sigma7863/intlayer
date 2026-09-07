@@ -35,14 +35,10 @@ Chúng tôi tập trung vào công cụ Vue hiện đại (Vite, Composition API
 
 > **tóm tắt**: Cả hai đều có thể địa phương hóa ứng dụng Vue. Nếu bạn muốn **nội dung giới hạn trong component**, **kiểu TypeScript nghiêm ngặt**, **kiểm tra khóa thiếu trong thời gian build**, **từ điển được tree-shaking**, và **bộ trợ giúp router/SEO tích hợp sẵn** cùng với **Trình chỉnh sửa trực quan & dịch thuật AI**, thì **Intlayer** là lựa chọn hiện đại và đầy đủ hơn.
 
----
-
 ## Vị trí tổng quan
 
 - **vue-i18n** - Thư viện i18n tiêu chuẩn cho Vue. Định dạng thông điệp linh hoạt (theo kiểu ICU), các khối SFC `<i18n>` cho thông điệp cục bộ, và hệ sinh thái rộng lớn. Việc đảm bảo an toàn và bảo trì quy mô lớn chủ yếu phụ thuộc vào bạn.
 - **Intlayer** - Mô hình nội dung tập trung vào component cho Vue/Vite/Nuxt với **kiểu TS nghiêm ngặt**, **kiểm tra trong thời gian build**, **tree-shaking**, **bộ trợ giúp router & SEO**, tùy chọn **Trình chỉnh sửa trực quan/CMS**, và **dịch thuật hỗ trợ AI**.
-
----
 
 ## So sánh tính năng song song (tập trung vào Vue)
 
@@ -67,8 +63,6 @@ Chúng tôi tập trung vào công cụ Vue hiện đại (Vite, Composition API
 | **Khả năng duy trì dự án lớn**                        | ✅ Khuyến khích cấu trúc mô-đun, thân thiện với hệ thống thiết kế                    | ✅ Có thể, nhưng cần kỷ luật nghiêm ngặt về file/namespace                 |
 | **Hệ sinh thái / cộng đồng**                          | ⚠️ Nhỏ hơn nhưng đang phát triển nhanh                                               | ✅ Lớn và trưởng thành trong hệ sinh thái Vue                              |
 
----
-
 ## So sánh chi tiết
 
 ### 1) Kiến trúc & khả năng mở rộng
@@ -78,16 +72,12 @@ Chúng tôi tập trung vào công cụ Vue hiện đại (Vite, Composition API
 
 **Tại sao điều này quan trọng:** Trong các ứng dụng Vue lớn hoặc hệ thống thiết kế, **nội dung mô-đun** mở rộng tốt hơn so với các danh mục đơn khối.
 
----
-
 ### 2) TypeScript & an toàn
 
 - **vue-i18n**: Hỗ trợ TS tốt; **kiểu khóa nghiêm ngặt** thường cần các schema/generic tùy chỉnh và quy ước cẩn thận.
 - **Intlayer**: **Tạo kiểu nghiêm ngặt** từ nội dung của bạn, cung cấp **tự động hoàn thành trong IDE** và **lỗi biên dịch** cho lỗi chính tả hoặc thiếu key.
 
 **Tại sao điều này quan trọng:** Kiểu dữ liệu mạnh giúp phát hiện lỗi **trước** khi chạy.
-
----
 
 ### 3) Xử lý dịch thiếu
 
@@ -96,16 +86,12 @@ Chúng tôi tập trung vào công cụ Vue hiện đại (Vite, Composition API
 
 **Tại sao điều này quan trọng:** Việc kiểm soát thời gian xây dựng giữ cho giao diện sản phẩm sạch và nhất quán.
 
----
-
 ### 4) Chiến lược định tuyến & URL (Vue Router/Nuxt)
 
 - **Cả hai** đều có thể làm việc với các route được địa phương hóa.
 - **Intlayer** cung cấp các trợ giúp để **tạo đường dẫn có địa phương hóa**, **quản lý tiền tố ngôn ngữ**, và phát ra **`<link rel="alternate" hreflang>`** cho SEO. Với Nuxt, nó bổ sung cho hệ thống định tuyến của framework.
 
 **Tại sao điều này quan trọng:** Ít lớp kết dính tùy chỉnh hơn và **SEO sạch hơn** trên các ngôn ngữ.
-
----
 
 ### 5) Hiệu năng & hành vi tải
 
@@ -114,8 +100,6 @@ Chúng tôi tập trung vào công cụ Vue hiện đại (Vite, Composition API
 
 **Tại sao điều này quan trọng:** Gói nhỏ hơn và khởi động nhanh hơn cho các ứng dụng Vue đa ngôn ngữ.
 
----
-
 ### 6) Trải nghiệm nhà phát triển & công cụ hỗ trợ
 
 - **vue-i18n**: Tài liệu và cộng đồng trưởng thành; bạn thường sẽ dựa vào **các nền tảng địa phương hóa bên ngoài** cho quy trình biên tập.
@@ -123,16 +107,12 @@ Chúng tôi tập trung vào công cụ Vue hiện đại (Vite, Composition API
 
 **Tại sao điều này quan trọng:** Giảm chi phí vận hành và rút ngắn vòng lặp phát triển – nội dung.
 
----
-
 ### 7) SEO, SSR & SSG
 
 - **Cả hai** đều hoạt động với Vue SSR và Nuxt.
 - **Intlayer**: Thêm các **trợ giúp SEO** (sơ đồ trang web/metadata/`hreflang`) không phụ thuộc vào framework và hoạt động tốt với các bản build Vue/Nuxt.
 
 **Tại sao điều này quan trọng:** SEO quốc tế mà không cần cấu hình phức tạp.
-
----
 
 ## Tại sao chọn Intlayer? (Vấn đề & cách tiếp cận)
 
@@ -223,8 +203,6 @@ Cách tiếp cận này:
 - **Tránh các khóa chết** (component không sử dụng sẽ không import nội dung).
 - **Tối ưu hóa tải** (component tải chậm sẽ mang theo nội dung của nó).
 
----
-
 ## Các tính năng bổ sung của Intlayer (liên quan đến Vue)
 
 - **Hỗ trợ đa framework**: Hoạt động với Vue, Nuxt, Vite, React, Express, và nhiều hơn nữa.
@@ -242,14 +220,10 @@ Cách tiếp cận này:
 - **Máy chủ MCP & tiện ích mở rộng VSCode**: Tự động hóa quy trình làm việc i18n và soạn thảo ngay trong IDE của bạn.
 - **Tương tác đa nền tảng**: Kết nối với **vue-i18n**, **react-i18next**, và **react-intl** khi cần thiết.
 
----
-
 ## Khi nào nên chọn cái nào?
 
 - **Chọn vue-i18n** nếu bạn muốn **phương pháp Vue tiêu chuẩn**, bạn thoải mái quản lý catalog/namespace tự mình, và ứng dụng của bạn có kích thước **nhỏ đến trung bình** (hoặc bạn đã sử dụng Nuxt i18n).
 - **Chọn Intlayer** nếu bạn đánh giá cao **nội dung theo phạm vi component**, **TypeScript nghiêm ngặt**, **đảm bảo thời gian build**, **tree-shaking**, và **công cụ routing/SEO/editor tích hợp sẵn** - đặc biệt dành cho **codebase Vue/Nuxt lớn, mô-đun**, hệ thống thiết kế, v.v.
-
----
 
 ## Tương tác với vue-i18n
 
@@ -257,15 +231,11 @@ Cách tiếp cận này:
 
 Sử dụng `intlayer`, bạn có thể khai báo nội dung theo định dạng của thư viện i18n yêu thích của bạn, và intlayer sẽ tạo ra các namespace tại vị trí bạn chọn (ví dụ: `/messages/{{locale}}/{{namespace}}.json`).
 
----
-
 ## Sao GitHub
 
 Sao trên GitHub là một chỉ số mạnh mẽ về độ phổ biến của dự án, sự tin tưởng của cộng đồng và tính liên quan lâu dài. Mặc dù không phải là thước đo trực tiếp về chất lượng kỹ thuật, chúng phản ánh số lượng nhà phát triển thấy dự án hữu ích, theo dõi tiến trình của nó và có khả năng áp dụng nó. Để ước tính giá trị của một dự án, sao giúp so sánh mức độ thu hút giữa các lựa chọn thay thế và cung cấp cái nhìn sâu sắc về sự phát triển của hệ sinh thái.
 
 [![Biểu đồ Lịch sử Sao](https://api.star-history.com/svg?repos=intlify/vue-i18n&repos=aymericzip/intlayer&type=Date)](https://www.star-history.com/#intlify/vue-i18n&aymericzip/intlayer)
-
----
 
 ## Kết luận
 

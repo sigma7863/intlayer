@@ -106,8 +106,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 GitHub の [Application Template](https://github.com/aymericzip/intlayer-vite-lit-template) を参照してください。
 
 ## ViteとLitアプリケーションでIntlayerをセットアップするためのステップバイステップガイド
@@ -725,8 +723,6 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 - 翻訳を簡単に作成および更新できる**クイックアクション**。
 
 詳細な使用方法については、[Intlayer VS Code Extensionドキュメント](https://intlayer.org/doc/vs-code-extension)を参照してください。
-
----
 
 ### さらに詳しく
 

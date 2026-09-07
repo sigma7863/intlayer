@@ -112,8 +112,6 @@ Bir i18n çözümünden daha fazlası olan Intlayer, çevirmenler, reklam yazarl
 </Accordion>
 </AccordionGroup>
 
----
-
 ## SolidStart Uygulamasında Intlayer Kurulumu İçin Adım Adım Kılavuz
 
 <Steps>
@@ -1016,8 +1014,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## Kurulumunuzu doğrulama
 
 Sunucuyu derleyin ve başlatın, ardından bu isteklerin beklendiği gibi davrandığını kontrol edin:
@@ -1043,8 +1039,6 @@ Bir sayfayı işleyen satırlar `vite dev` altında aynı şekilde davranır. Ü
 
 > Geliştirme sunucusunu Bun (`bun --bun vite dev`) yerine Node (`vite dev`) üzerinde çalıştırın: SolidStart'ın SSR'ı şu anda Bun çalışma zamanında `Expected a Response object, but received 'NodeResponse'` hatasıyla başarısız oluyor. Bu Intlayer ile ilgili değildir — düz şablonda da tekrarlanır — ve yalnızca geliştirme sunucusunu etkiler, `vite build` komutunu etkilemez.
 
----
-
 ## Git Yapılandırması
 
 Intlayer tarafından oluşturulan dosyaların yoksayılması önerilir. Bu, bunları Git depolamanıza (repository) taahhüt (commit) etmekten kaçınmanızı sağlar.
@@ -1055,8 +1049,6 @@ Bunu yapmak için `.gitignore` dosyanıza aşağıdaki talimatları ekleyebilirs
 # Intlayer tarafından oluşturulan dosyaları yoksay
 .intlayer
 ```
-
----
 
 ## VS Code Eklentisi
 
@@ -1071,13 +1063,9 @@ Bu eklenti şunları sağlar:
 - Çevrilmiş içeriğin **satır içi önizlemeleri**.
 - Çevirileri kolayca oluşturmak ve güncellemek için **hızlı eylemler**.
 
----
-
 ## Daha Fazlası
 
 Daha ileri gitmek için [görsel editör](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) uygulayabilir veya [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) kullanarak içeriğinizi dışa aktarabilirsiniz.
-
----
 
 ## Dokümantasyon Referansları
 

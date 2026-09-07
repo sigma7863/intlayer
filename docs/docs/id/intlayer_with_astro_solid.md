@@ -107,8 +107,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah-demi-Langkah untuk Mengonfigurasi Intlayer di Astro + Solid
 
 Lihat [templat aplikasi](https://github.com/aymericzip/intlayer-astro-template) di GitHub.
@@ -638,8 +636,6 @@ Ekstensi ini menyediakan:
 - **Tindakan cepat** untuk membuat dan memperbarui terjemahan dengan mudah.
 
 Untuk informasi selengkapnya tentang cara menggunakan ekstensi, lihat [dokumentasi ekstensi VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Perdalam Pengetahuan Anda
 

@@ -76,8 +76,6 @@ MCPサーバーはSSEトランスポート方式を使用してリモートで�
 
 > サーバーのホスティングコストのため、リモートサーバーの可用性は保証できません。同時接続数を制限しています。最も信頼性の高い体験のために、ローカルサーバー（stdio）トランスポート方式の使用を推奨します。
 
----
-
 ## Intlayer CLI経由のセットアップ（推奨）
 
 Intlayerは、プロジェクト内でMCPサーバーを自動的に構成するためのCLIコマンドを提供します。
@@ -104,8 +102,6 @@ bun x intlayer init mcp
 2. 使用するトランスポート方法（ローカルサーバー (stdio) またはリモートサーバー (Streamable HTTP)）を尋ねます。
 3. 構成ファイル（例：`.cursor/mcp.json`、`.vscode/mcp.json`、またはグローバルなClaude Desktop構成）を自動的に更新します。
 
----
-
 ## Setup via Intlayer VS Code extension
 
 1. コマンドパレットを開きます（Ctrl+Shift+P または Cmd+Shift+P）。
@@ -113,8 +109,6 @@ bun x intlayer init mcp
 3. 使用するプラットフォームを選択します（例：`VS Code`、`Cursor`、`Windsurf`、`OpenCode`、`Claude Code`、`GitHub Copilot Workspace` など）。
 4. インストールするMCPを選択します（stdio、Streamable HTTP）。
 5. Enterキーを押します。
-
----
 
 ## 手動セットアップ
 
@@ -282,8 +276,6 @@ claude mcp add intlayer https://mcp.intlayer.org -t http
 
   </Tab>
 </Tabs>
-
----
 
 ## CLI 経由で MCP サーバーを使用する
 

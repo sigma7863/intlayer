@@ -122,13 +122,9 @@ author: aymericzip
 
 Intlayer configuration files allow customization of various aspects of the plugin, such as internationalization, middleware, and content handling. This document provides a detailed description of each property in the configuration.
 
----
-
 ## Table of Contents
 
 <TOC/>
-
----
 
 ## Configuration File Support
 
@@ -142,8 +138,6 @@ Intlayer accepts JSON, JS, MJS, and TS configuration file formats:
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## Example config file
 
@@ -702,13 +696,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## Configuration Reference
 
 The following sections describe the various configuration settings available for Intlayer.
-
----
 
 ### Internationalization Configuration
 
@@ -720,8 +710,6 @@ Defines settings related to internationalization, including available locales an
 | `requiredLocales` | The list of required locales in the application.                             | `string[]` | `[]`                | `[]`                 | • If empty, all locales are required in `strict` mode.<br/>• Ensure required locales are also defined in the `locales` field.                                                                                                                                              |
 | `strictMode`      | Ensure strong implementations of internationalized content using TypeScript. | `string`   | `'inclusive'`       |                      | • If `"strict"`: the `t` function requires each declared locale to be defined - throws an error if one is missing or undeclared.<br/>• If `"inclusive"`: warns on missing locales but accepts undeclared ones that exist.<br/>• If `"loose"`: accepts any existing locale. |
 | `defaultLocale`   | The default locale used as a fallback if the requested locale is not found.  | `string`   | `Locales.ENGLISH`   | `'en'`               | Used to determine the locale when none is specified in the URL, cookie, or header.                                                                                                                                                                                         |
-
----
 
 ### Editor Configuration
 
@@ -753,8 +741,6 @@ Analytics is opt-out: it is enabled by default, and starts collecting as soon as
 | `enabled`       | Enables analytics collection (page views, content exposures, A/B events). | `boolean` | `true`  | `false` | Requires `@intlayer/analytics` to be installed and `editor.clientId` to be set for attribution; otherwise analytics stays disabled even if `enabled` is `true`. |
 | `flushInterval` | Milliseconds between automatic batched flushes to the backend.            | `number`  | `20000` | `10000` |                                                                                                                                                                 |
 | `sampleRate`    | Fraction of sessions to record, from `0` (none) to `1` (all).             | `number`  | `1`     | `0.5`   | Sampling is deterministic per session, so a recorded session reports all of its events (no partial funnels).                                                    |
-
----
 
 ### Routing Configuration
 
@@ -957,8 +943,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### Content Configuration
 
 Settings related to content handling within the application, including directory names, file extensions, and derived configurations.
@@ -971,8 +955,6 @@ Settings related to content handling within the application, including directory
 | `codeDir`        | Directory path where the code is stored, relative to the base directory.                             | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • Used to watch for code files to transform (prune, optimize).<br/>• Keeping separate from `contentDir` can improve build performance. |
 | `excludedPath`   | Directories excluded from content search.                                                            | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | Not yet used; planned for future implementation.                                                                                       |
 | `formatCommand`  | Command to format content files when Intlayer writes them locally.                                   | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` is replaced with the file path.<br/>• If not set, Intlayer auto-detects (tries prettier, biome, eslint).                  |
-
----
 
 ### System Configuration
 
@@ -1027,8 +1009,6 @@ dictionary: {
   }
 }
 ```
-
----
 
 ### Logger Configuration
 
@@ -1100,8 +1080,6 @@ Build options apply to the `@intlayer/babel` and `@intlayer/swc` plugins.
 | `outputFormat`        | Controls the output format of the dictionaries.                                                                          | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `traversePattern`     | Patterns defining which files to traverse during optimization.                                                           | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • Limit optimization to relevant files to improve build performance.<br/>• Ignored if `optimize` is disabled.<br/>• Uses glob pattern.                                                                                                                                                                                                                                                                                                                                                                                     |
 
----
-
 ### Compiler Configuration
 
 Settings that control the Intlayer compiler, which extracts dictionaries straight from your components.
@@ -1120,8 +1098,6 @@ Settings that control the Intlayer compiler, which extracts dictionaries straigh
 | Field     | Description                                                                       | Type                        |
 | --------- | --------------------------------------------------------------------------------- | --------------------------- |
 | `schemas` | Permet de définir des schémas Zod pour valider la structure de vos dictionnaires. | `Record<string, ZodSchema>` |
-
----
 
 ### Plugins
 

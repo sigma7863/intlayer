@@ -71,8 +71,6 @@ Trước khi đi vào triển khai, đây là một số thực hành bạn nên
 
 > Xem tài liệu của chúng tôi liệt kê mọi thứ bạn cần biết về quốc tế hóa và SEO: [Quốc tế hóa (i18n) với next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/internationalization_and_SEO.md).
 
----
-
 ## Hướng Dẫn Từng Bước Để Thiết Lập i18next Trong Ứng Dụng Next.js
 
 <iframe

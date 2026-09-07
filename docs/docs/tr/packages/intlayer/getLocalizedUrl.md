@@ -38,8 +38,6 @@ author: aymericzip
 - Varsayılan olarak projenizin uluslararasılaştırma yapılandırmasını kullanır
 - Basit durumlar için minimum parametrelerle veya karmaşık senaryolar için tamamen özelleştirilmiş olarak kullanılabilir
 
----
-
 ## Fonksiyon İmzası
 
 ```typescript
@@ -51,8 +49,6 @@ getLocalizedUrl(
   prefixDefault?: boolean        // İsteğe bağlı
 ): string
 ```
-
----
 
 ## Parametreler
 
@@ -97,8 +93,6 @@ getLocalizedUrl(
 
 - **Tür**: `string`
 - **Açıklama**: Belirtilen yerel ayar için yerelleştirilmiş URL.
-
----
 
 ## Kullanım Örneği
 
@@ -202,8 +196,6 @@ getLocalizedUrl(
 ); // Çıktı: "/about" (desteklenmeyen yerel ayar için önek uygulanmaz)
 ```
 
----
-
 ## Kenar Durumları
 
 - **Yerel Ayar Segmenti Yok:**
@@ -220,8 +212,6 @@ getLocalizedUrl(
   - `'prefix-all'`: Tüm yerel ayarların önekleri var (ör: `/en/about`, `/fr/about`)
   - `'no-prefix'`: URL'lerde yerel ayar öneki yoktur (yerel ayar başka yerde işlenir)
   - `'search-params'`: Sorgu parametresi aracılığıyla belirtilen yerel ayar (ör: `/about?locale=fr`)
-
----
 
 ## Uygulamalarda Kullanım
 

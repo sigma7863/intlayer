@@ -23,15 +23,11 @@ author: aymericzip
 
 Dans un paysage numérique de plus en plus mondialisé, étendre la portée de votre site Web Vue.js à des utilisateurs dans plusieurs langues n'est plus un "atout" , c'est une nécessité concurrentielle. L'internationalisation (i18n) permet aux développeurs de gérer les traductions et d'adapter leurs applications à différentes locales tout en préservant la valeur SEO, l'expérience utilisateur et les structures de code maintenables. Dans cet article, nous explorerons différentes approches , allant des bibliothèques dédiées aux solutions codées sur mesure , qui vous aideront à intégrer l'i18n dans votre projet Vue.js facilement.
 
----
-
 ## Qu'est-ce que l'internationalisation (i18n) ?
 
 L'internationalisation (i18n) est la pratique de préparer une application logicielle (ou un site Web) pour plusieurs langues et conventions culturelles. Dans l'écosystème Vue.js, cela inclut l'établissement de la manière dont le texte, les dates, les nombres, la monnaie et d'autres éléments localisables peuvent être adaptés à diverses locales. En configurant l'i18n depuis le début, vous assurez une structure organisée et évolutive pour ajouter de nouvelles langues et gérer les futurs besoins en localisation.
 
 Pour en savoir plus sur les bases de l'i18n, consultez notre référence : [Qu'est-ce que l'internationalisation (i18n) ? Définition et défis](https://github.com/aymericzip/intlayer/blob/main/docs/blog/fr/what_is_internationalization.md).
-
----
 
 ## Le défi de la traduction pour les applications Vue
 
@@ -43,13 +39,9 @@ Traduire une application Vue.js présente son propre ensemble de défis :
 - **État et contexte réactif :** S’assurer que la locale actuelle est maintenue à travers les routes et les composants , en mettant à jour réactivement les textes et les formats , nécessite une approche réfléchie, notamment lorsque vous utilisez Vuex ou Pinia pour la gestion de l'état.
 - **Surcharge de développement :** Garder les fichiers de traduction organisés, cohérents et à jour peut rapidement devenir une tâche majeure si cela n'est pas géré avec soin.
 
----
-
 ## Solutions i18n de pointe pour Vue.js
 
 Voici plusieurs bibliothèques et approches populaires que vous pouvez utiliser pour intégrer l'internationalisation dans vos applications Vue. Chacune vise à rationaliser la traduction, le SEO et les considérations de performance de différentes manières.
-
----
 
 ### 1. Intlayer
 
@@ -94,8 +86,6 @@ Voici plusieurs bibliothèques et approches populaires que vous pouvez utiliser 
 - **Écosystème de plugins**  
   Bien que robuste, vous devrez peut-être sélectionner soigneusement parmi plusieurs plugins ou modules (Nuxt I18n, Vue I18n, etc.) pour construire une configuration parfaite.
 
----
-
 ### 3. LinguiJS (Intégration Vue)
 
 > Site Web : [https://lingui.js.org/](https://lingui.js.org/)
@@ -122,8 +112,6 @@ Connu à l'origine pour son intégration React, **LinguiJS** propose également 
   Bien que LinguiJS ait un support officiel pour Vue, sa documentation se concentre principalement sur React ; vous devrez peut-être vous fier à des exemples de la communauté.
 - **Communauté plus petite**  
   Comparé à Vue I18n, l'écosystème est relativement plus petit. Les plugins officiellement maintenus et les add-ons tiers peuvent être plus limités.
-
----
 
 ## Dernières réflexions
 

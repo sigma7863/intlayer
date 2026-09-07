@@ -79,6 +79,4 @@ Untuk setiap permintaan terkait data Anda, hubungi kami di [contact@intlayer.org
 
 Kami dapat memperbarui pemberitahuan privasi ini dari waktu ke waktu. Pengguna disarankan untuk secara rutin memeriksa halaman ini agar tetap mendapatkan informasi tentang setiap perubahan.
 
----
-
 Beritahu kami jika Anda menginginkan nada yang lebih formal, menambahkan penyebutan GDPR/CCPA, atau menyesuaikannya untuk halaman hukum di situs Anda.

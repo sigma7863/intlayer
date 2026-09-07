@@ -67,8 +67,6 @@ Plus qu'une simple solution i18n, Intlayer fournit un **[éditeur visuel](https:
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Stratégie de migration
 
 L'approche recommandée pour les applications existantes est l'**adaptateur de compatibilité** : installez `@intlayer/next-intl`, qui expose **exactement la même API** que `next-intl` mais délègue tout le travail de traduction à Intlayer en coulisses.
@@ -77,13 +75,9 @@ Vous conservez vos `useTranslations`, `getTranslations`, `NextIntlClientProvider
 
 Au fil du temps, vous pouvez optionnellement migrer des fichiers individuels vers le format `.content.ts` plus riche d'Intlayer pour débloquer l'éditeur visuel, le CMS et la portée du contenu par composant — mais cette étape est entièrement facultative et peut être effectuée de manière incrémentielle.
 
----
-
 ## Table des Matières
 
 <TOC/>
-
----
 
 ## Migration rapide
 
@@ -212,8 +206,6 @@ C'est tout pour la migration rapide. Votre application fonctionne désormais sur
 > t("counter.label"); // ✓ typé
 > ```
 
----
-
 ## Migration complète
 
 Les étapes ci-dessous sont facultatives et peuvent être effectuées de manière incrémentielle. Elles débloquent l'ensemble des fonctionnalités d'Intlayer : éditeur visuel, CMS, fichiers de contenu typés, traduction alimentée par l'IA, et plus encore.
@@ -308,8 +300,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Ce que vous pouvez supprimer après la migration
 
 Une fois `@intlayer/next-intl` en place, le code standard `next-intl` suivant peut être supprimé :
@@ -321,8 +311,6 @@ Une fois `@intlayer/next-intl` en place, le code standard `next-intl` suivant pe
 | Imports de `locales/{locale}/*.json` dans la mise en page        | Les bundles JSON ne sont nécessaires que si vous utilisez encore le plugin `syncJSON`. Une fois que vous migrez vers des fichiers `.content.ts`, vous pouvez supprimer le dossier JSON.                              |
 
 Lorsque vous êtes prêt à aller plus loin, Intlayer **découvre automatiquement tous les fichiers `.content.ts` et `.content.json` n'importe où dans votre base de code** (par défaut, n'importe où dans `./src`). Vous pouvez placer un fichier `about.content.ts` juste à côté de votre `about/page.tsx` et Intlayer le détectera au moment de la construction sans configuration supplémentaire — pas d'imports, pas d'enregistrement, pas besoin de fichier d'index centralisé. Cela rend la colocalisation des traductions avec les pages et les composants complètement transparente.
-
----
 
 ## Configurer TypeScript
 
@@ -338,8 +326,6 @@ Intlayer utilise l'augmentation de module pour fournir une intellisense TypeScri
 }
 ```
 
----
-
 ## Configuration Git
 
 Ajoutez le répertoire généré par Intlayer à votre `.gitignore` :
@@ -348,8 +334,6 @@ Ajoutez le répertoire généré par Intlayer à votre `.gitignore` :
 # Ignorer les fichiers générés par Intlayer
 .intlayer
 ```
-
----
 
 ## Aller plus loin
 

@@ -45,8 +45,6 @@ author: aymericzip
 - गायब लीडिंग स्लैश और खाली मानों को सहन करता है (`/` में सामान्यीकृत)
 - हल्का (Lightweight) — `getPathWithoutLocale` के ऊपर बनाया गया
 
----
-
 ## फ़ंक्शन सिग्नेचर
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // वैकल्पिक
 ): string
 ```
-
----
 
 ## पैरामीटर्स
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **प्रकार**: `boolean`
 - **विवरण**: `true` जब दोनों इनपुट एक ही लोकेल-स्वतंत्र पाथ पर रिज़ॉल्व होते हैं, अन्यथा `false`।
-
----
 
 ## उदाहरण उपयोग
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` वह कैनोनिकल, लोकेल-स्वतंत्र पाथनेम लौटाता है जिसका उपयोग `comparePaths` द्वारा किया जाता है। यह लोकेल सेगमेंट, प्रोटोकॉल/होस्ट, क्वेरी स्ट्रिंग और हैश को हटा देता है, एक सिंगल लीडिंग स्लैश सुनिश्चित करता है, किसी भी ट्रेलिंग स्लैश को हटा देता है (रूट को छोड़कर) और खाली मानों के लिए `/` पर वापस आ जाता है।
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## संबंधित फ़ंक्शन्स
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getPathWithoutLocale.md): URL या पाथनेम से लोकेल सेगमेंट को हटाता है।
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getPrefix.md): किसी दिए गए लोकेल के लिए URL उपसर्ग (prefix) निर्धारित करता है।
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getLocalizedUrl.md): विशिष्ट लोकेल के लिए स्थानीयकृत (localized) URL जनरेट करता है।
-
----
 
 ## TypeScript
 

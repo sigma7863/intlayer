@@ -110,8 +110,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku po konfiguracji Intlayer w Astro + React
 
 Sprawdź [szablon aplikacji](https://github.com/aymericzip/intlayer-astro-template) na GitHubie.
@@ -638,8 +636,6 @@ To rozszerzenie zapewnia:
 - **Szybkie akcje** do łatwego tworzenia i aktualizowania tłumaczeń.
 
 Więcej informacji na temat korzystania z rozszerzenia znajdziesz w [dokumentacji rozszerzenia VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Pogłębiaj swoją wiedzę
 

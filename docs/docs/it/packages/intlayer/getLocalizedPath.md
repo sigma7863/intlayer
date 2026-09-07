@@ -39,8 +39,6 @@ La funzione `getLocalizedPath` risolve un percorso canonico (percorso interno de
 - Risolve i percorsi in base alle regole di riscrittura personalizzate definite nella tua configurazione.
 - Gestisce automaticamente il fallback al percorso canonico se non viene trovata una regola di riscrittura per la locale specificata.
 
----
-
 ## Firma della funzione
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opzionale
 ): string
 ```
-
----
 
 ## Parametri
 
@@ -79,8 +75,6 @@ getLocalizedPath(
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — come la locale appare nel percorso. **Default**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — regole di riscrittura personalizzate. **Default**: `configuration.routing.rewrite`
 
----
-
 ## Restituisce
 
 - **Tipo**: `string`
@@ -107,8 +101,6 @@ Due to que i casi rimangono allargati a `string`, perché non possono essere ris
 
 - un percorso che non è un string literal (ad es. uno costruito da una variabile);
 - un percorso che corrisponde a una regola usando un parametro multi-segmento o opzionale (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Esempio d'uso
 
@@ -166,8 +158,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Output: "/about"
 ```
-
----
 
 ## Funzioni correlate
 

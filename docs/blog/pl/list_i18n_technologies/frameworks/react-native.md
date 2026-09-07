@@ -23,16 +23,12 @@ author: aymericzip
 
 Na coraz bardziej globalnym rynku, dostarczanie aplikacji React Native w wielu językach może znacząco zwiększyć dostępność i satysfakcję użytkowników. Internacjonalizacja (i18n) jest kluczowa dla efektywnego zarządzania tłumaczeniami, pozwalając na wyświetlanie tekstów specyficznych dla danego języka, formatów daty i czasu, walut i innych elementów bez komplikowania bazy kodu. W tym artykule przyjrzymy się różnym podejściom do i18n, od dedykowanych bibliotek po bardziej ogólne rozwiązania, i pomożemy Ci znaleźć to, które najlepiej pasuje do Twojego projektu React Native.
 
----
-
 ## Czym jest internacjonalizacja (i18n)?
 
 Internacjonalizacja, czyli i18n, polega na takiej strukturze aplikacji, która umożliwia jej łatwe dostosowanie do różnych języków, formatów regionalnych i norm kulturowych. W React Native i18n obejmuje obsługę tekstów przycisków i etykiet, a także formatowanie dat, godzin, walut i innych elementów zgodnie z lokalizacją użytkownika. Odpowiednio przygotowane aplikacje React Native pozwalają na bezproblemową integrację dodatkowych języków i zachowań specyficznych dla danej lokalizacji bez konieczności przeprowadzania dużych refaktoryzacji.
 
 Aby zgłębić koncepcje internacjonalizacji, zapoznaj się z naszym artykułem:  
 [Co to jest internacjonalizacja (i18n)? Definicja i wyzwania](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/what_is_internationalization.md).
-
----
 
 ## Wyzwania związane z tłumaczeniami w aplikacjach React Native
 
@@ -52,8 +48,6 @@ Praca z tłumaczeniami w React Native wiąże się z unikalnymi wyzwaniami:
 
 - **Aktualizacje aplikacji i Over-the-Air (OTA)**  
   Jeśli korzystasz z CodePush lub innego mechanizmu aktualizacji OTA, musisz zaplanować, jak aktualizacje tłumaczeń lub nowe języki będą dostarczane bez konieczności pełnego wydania w sklepie z aplikacjami.
-
----
 
 ## Wiodące rozwiązania i18n dla React Native
 
@@ -88,8 +82,6 @@ Poniżej przedstawiono kilka popularnych podejść do zarządzania treściami wi
 - **Społeczność i ekosystem**  
   Wciąż stosunkowo nowe rozwiązanie, więc możesz napotkać mniej przykładów tworzonych przez społeczność lub gotowych wtyczek w porównaniu do długo istniejących bibliotek.
 
----
-
 ### 2. React-i18next
 
 > Strona: [https://react.i18next.com/](https://react.i18next.com/)
@@ -121,8 +113,6 @@ Poniżej przedstawiono kilka popularnych podejść do zarządzania treściami wi
 
 - **Wydajność**  
   Chociaż React-i18next generalnie działa dobrze, warto zwrócić uwagę na sposób organizacji i ładowania zasobów tłumaczeń, aby uniknąć nadmiernego obciążenia na urządzeniach mobilnych.
-
----
 
 ### 3. React Intl (z FormatJS)
 
@@ -156,8 +146,6 @@ Poniżej przedstawiono kilka popularnych podejść do zarządzania treściami wi
 - **Przykłady społeczności**  
   Mimo szerokiego zastosowania, przykłady użycia specyficzne dla React Native mogą być rzadsze niż dla React web. Prawdopodobnie będziesz musiał dostosować istniejącą dokumentację i wzorce do środowiska natywnego.
 
----
-
 ### 4. LinguiJS
 
 > Strona internetowa: [https://lingui.js.org/](https://lingui.js.org/)
@@ -189,8 +177,6 @@ Poniżej przedstawiono kilka popularnych podejść do zarządzania treściami wi
 
 - **Organizacja kodu**  
   Decyzja, jak podzielić katalogi wiadomości (według ekranu, funkcji lub języka), jest kluczowa dla utrzymania przejrzystości w większych aplikacjach.
-
----
 
 ## Ostateczne przemyślenia
 

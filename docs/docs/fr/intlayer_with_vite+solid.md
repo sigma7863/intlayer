@@ -112,8 +112,6 @@ Bien plus qu'une simple solution i18n, Intlayer propose un **[éditeur visuel](h
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guide étape par étape pour configurer Intlayer dans une application Vite et Solid
 
 ## Table des matières
@@ -723,8 +721,6 @@ Pour ce faire, vous pouvez ajouter les instructions suivantes à votre fichier `
 Pour améliorer votre expérience de développement avec Intlayer, vous pouvez installer l'extension officielle **Intlayer VS Code Extension**.
 
 [Installer depuis le Marketplace VS Code](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Aller plus loin
 

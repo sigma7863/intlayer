@@ -20,8 +20,6 @@ author: aymericzip
 
 # Intlayer CLI 로그인 명령
 
----
-
 ## 설명
 
 `login` 명령은 Intlayer CLI에서 Intlayer CMS에 인증할 수 있게 해줍니다. 이 명령은 기본 브라우저를 자동으로 열어 인증 절차를 완료하고 Intlayer 서비스를 사용하기 위한 필요한 자격증명(Client ID 및 Client Secret)을 수신합니다.

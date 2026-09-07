@@ -85,8 +85,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Schritt-für-Schritt-Anleitung zur Einrichtung von Intlayer in einer Vite- und React-Anwendung
 
 <Tabs defaultTab="video">
@@ -988,8 +986,6 @@ Diese Extension bietet:
 - **Quick Actions**, um Übersetzungen einfach zu erstellen und zu aktualisieren.
 
 Weitere Details zur Verwendung der Extension finden Sie in der [Intlayer VS Code Extension Dokumentation](https://intlayer.org/de/doc/vs-code-extension).
-
----
 
 ### Weiterführende Schritte
 

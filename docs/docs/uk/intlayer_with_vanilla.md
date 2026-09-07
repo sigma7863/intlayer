@@ -106,8 +106,6 @@ Intlayer оптимізовано для ідеальної роботи з Vani
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник із налаштування Intlayer у застосунку на Vanilla JS
 
 <Steps>
@@ -475,8 +473,6 @@ const unsubscribe = useDictionaryDynamic(
 - **Швидкі дії** для легкого створення та оновлення перекладів.
 
 Для отримання детальнішої інформації про використання розширення див. [документацію розширення Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Йдіть далі
 

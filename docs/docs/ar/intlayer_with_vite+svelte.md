@@ -111,8 +111,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Vite و Svelte
 
 راجع [قالب التطبيق](https://github.com/aymericzip/intlayer-vite-svelte-template) على GitHub.
@@ -733,8 +731,6 @@ console.log("SEO files generated successfully.");
 - **إجراءات سريعة** لإنشاء التراجم وتحديثها بسهولة.
 
 لمزيد من التفاصيل حول كيفية استخدام الامتداد، راجع [توثيق امتداد Intlayer لـ VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### التعمق أكثر
 

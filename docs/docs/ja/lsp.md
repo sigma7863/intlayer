@@ -31,8 +31,6 @@ author: aymericzip
 
 **Intlayer 言語サーバー**は、IDE と AI エージェントに Intlayer を理解させる [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) の実装です。`useIntlayer("home")` のような呼び出しと、それを宣言する `.content.ts` ファイルを双方向に結び付けます。
 
----
-
 ## 機能
 
 | 機能                   | ショートカット         | 説明                                                                                       |
@@ -65,8 +63,6 @@ author: aymericzip
 
 > 辞書はビルド出力から読み込まれます。サーバーが解決できるよう、`npx intlayer build` を実行するか、開発サーバーを起動したままにしてください。
 
----
-
 ## インストール
 
 サーバーは `@intlayer/lsp` 内の `intlayer-lsp` バイナリとして提供されます。
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 エディターが `PATH` 上の `intlayer-lsp` を必要とする場合は、代わりにグローバルインストール（`npm install -g @intlayer/lsp`）してください。Claude Code プラグインや、バイナリを直接呼び出す以下の設定がこれに該当します。
-
----
 
 ## セットアップ
 
@@ -255,15 +249,11 @@ LSP に対応したエディターであれば `@intlayer/lsp` を実行でき�
   </Tab>
 </Tabs>
 
----
-
 ## ターミナル AI エージェントについて
 
 **Claude Code** は本物の LSP クライアントとして動作します — 上のタブを参照してください。
 
 **OpenAI Codex** をはじめとするほとんどのターミナルツールは LSP クライアントではなく、ファイルを直接読み書きします。サーバーを単独で起動しても役に立ちません。価値が生まれるのは、エージェントがインデックスを照会できる併用エディター（Cursor Composer、Windsurf Cascade、Copilot Chat）でサーバーが有効になっている場合です。
-
----
 
 ## 仕組み
 
@@ -274,8 +264,6 @@ LSP に対応したエディターであれば `@intlayer/lsp` を実行でき�
 1. **キー文字列の上**（`useIntlayer("home")`）→ そのキーを宣言しているすべてのコンテンツファイルを、`key:` の行に位置づけて返します。
 2. **フィールド使用箇所の上**（`content.title`、分割代入したプロパティ、`t('path.to.field')`、`<Trans>` など）→ 変数を辞書までさかのぼって解決し、コンテンツファイル内の該当フィールドを返します。
 3. **コンテンツファイルから** → 逆引きを実行し、そのキーやフィールドの呼び出し箇所をプロジェクトのソースから探索します。
-
----
 
 ## トラブルシューティング
 

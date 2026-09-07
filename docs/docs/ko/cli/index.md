@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - 다국어 웹사이트를 위한 모든 Intlayer CLI 명령어
 
----
-
 ## 목차
 
 <TOC/>
-
----
 
 ## 패키지 설치
 

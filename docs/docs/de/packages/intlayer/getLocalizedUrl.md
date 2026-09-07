@@ -39,8 +39,6 @@ Die `getLocalizedUrl`-Funktion generiert eine lokalisierte URL, indem sie die ge
 - Kann mit minimalen Parametern für einfache Fälle oder vollständig angepasst für komplexe Szenarien verwendet werden
 - Unterstützt mehrere Routing-Modi: `prefix-no-default`, `prefix-all`, `no-prefix` und `search-params`
 
----
-
 ## Funktionssignatur
 
 ```typescript
@@ -54,8 +52,6 @@ getLocalizedUrl(
   }
 ): string
 ```
-
----
 
 ## Parameter
 
@@ -102,8 +98,6 @@ getLocalizedUrl(
 
 - **Typ**: `string`
 - **Beschreibung**: Die lokalisierte URL für das angegebene Locale.
-
----
 
 ## Beispielhafte Verwendung
 
@@ -206,8 +200,6 @@ getLocalizedUrl(
 ); // Ausgabe: "/about" (kein Präfix für nicht unterstütztes Locale angewendet)
 ```
 
----
-
 ## Randfälle
 
 - **Kein Locale-Segment:**
@@ -224,8 +216,6 @@ getLocalizedUrl(
   - `'prefix-all'`: Alle Gebietsschemata haben Präfixe (z. B. `/en/about`, `/fr/about`)
   - `'no-prefix'`: Keine Gebietsschema-Präfixe in URLs (Gebietsschema wird anderswo behandelt)
   - `'search-params'`: Gebietsschema wird über Abfrageparameter angegeben (z. B. `/about?locale=fr`)
-
----
 
 ## Verwendung in Anwendungen
 

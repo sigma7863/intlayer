@@ -68,8 +68,6 @@ With **per-locale content files**, **TypeScript autocompletion**, **tree-shakabl
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Feature" width="700">                    | **Interoperability**<br><br>Allow interoperability with react-i18next, next-i18next, next-intl, react-intl, vue-i18n. <br><br> - [Intlayer and react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer and next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer and next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer and vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [Intlayer compat adapters](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Feature" width="700">                           | **Performances & Benchmark**<br><br>Uses advanced tree-shaking and dynamic loading to boost performances and keep the solution as light as possible. <br><br> - [Performances & Benchmark](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                                                                        |
 
----
-
 ## 📦 Installation
 
 Start your journey with Intlayer today and experience a smoother, more powerful approach to internationalization.
@@ -195,12 +193,9 @@ Explore our comprehensive documentation to get started with Intlayer and learn h
       <li><a href="https://intlayer.org/doc/environment/nextjs/15" rel=''>Next.js 15</a></li>
       <li><a href="https://intlayer.org/doc/environment/nextjs/14" rel=''>Next.js 14 (App Router)</a></li>
       <li><a href="https://intlayer.org/doc/environment/nextjs/next-with-page-router" rel=''>Next.js Page Router</a></li>
-      <li><a href="https://intlayer.org/doc/environment/nextjs/compiler" rel=''>Next.js using Compiler</a></li>
     </ul>
   </li>
-  <li><a href="https://intlayer.org/doc/environment/create-react-app" rel=''>React CRA</a></li>
   <li><a href="https://intlayer.org/doc/environment/vite-and-react" rel=''>Vite + React</a></li>
-  <li><a href="https://intlayer.org/doc/environment/vite-and-react" rel=''>Vite + React using Compiler</a></li>
   <li><a href="https://intlayer.org/doc/environment/vite-and-react/compiler" rel=''>React-router-v7</a></li>
   <li><a href="https://intlayer.org/doc/environment/tanstack-start" rel=''>Tanstack start</a>
     <ul>

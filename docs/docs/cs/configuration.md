@@ -122,13 +122,9 @@ author: aymericzip
 
 Konfigurační soubory Intlayer umožňují přizpůsobit různé aspekty pluginu, jako je internacionalizace, middleware a správa obsahu. Tento dokument poskytuje podrobný popis každé vlastnosti v konfiguraci.
 
----
-
 ## Obsah
 
 <TOC/>
-
----
 
 ## Podpora konfiguračních souborů
 
@@ -142,8 +138,6 @@ Intlayer přijímá formáty konfiguračních souborů JSON, JS, MJS a TS:
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## Příklad konfiguračního souboru
 
@@ -694,13 +688,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## Referenční příručka ke konfiguraci
 
 Níže jsou popsány různé parametry konfigurace dostupné v Intlayer.
-
----
 
 ### Konfigurace internacionalizace (Internationalization)
 
@@ -712,8 +702,6 @@ Definuje nastavení související s internacionalizací, včetně dostupných lo
 | `requiredLocales` | Seznam povinných lokalit v aplikaci.                                              | `string[]` | `[]`                | `[]`                 | • Pokud je prázdný, jsou v režimu `strict` povinné všechny lokality.<br/>• Ujistěte se, že povinné lokality jsou definovány také v poli `locales`.                                                                                                                                                                     |
 | `strictMode`      | Zajišťuje robustní implementaci internacionalizovaného obsahu pomocí TypeScriptu. | `string`   | `'inclusive'`       |                      | • Pokud `"strict"`: funkce `t` vyžaduje definici každé deklarované lokality - vyvolá chybu, pokud některá chybí nebo není deklarována.<br/>• Pokud `"inclusive"`: varuje před chybějícími lokalitami, ale umožňuje použití existujících nedeklarovaných.<br/>• Pokud `"loose"`: přijímá jakoukoli existující lokalitu. |
 | `defaultLocale`   | Výchozí lokalita použitá jako záložní, pokud požadovaná lokalita není nalezena.   | `string`   | `Locales.ENGLISH`   | `'en'`               | Používá se k určení lokality, když není uvedena v URL, cookie nebo hlavičce.                                                                                                                                                                                                                                           |
-
----
 
 ### Konfigurace editoru (Editor)
 
@@ -734,8 +722,6 @@ Definuje nastavení pro vestavěný vizuální editor, včetně portu serveru a 
 | `liveSyncPort`               | Port serveru live sync.                                                                                                                                                   | `number`                          | `4000`                              | `4000`                                                                                          |                                                                                                                                                                                                                                 |
 | `liveSyncURL`                | URL serveru live sync.                                                                                                                                                    | `string`                          | `'http://localhost:{liveSyncPort}'` | `'https://example.com'`                                                                         | Ve výchozím nastavení ukazuje na localhost; lze změnit na vzdálený server live sync.                                                                                                                                            |
 
----
-
 ### Konfigurace analytiky (Analytics)
 
 Definuje nastavení související s analytikou Intlayer: shromažďování informací o tom, jaký obsah je uživatelům skutečně zobrazován (zobrazení stránek, expozice obsahu), a podporu A/B testování obsahu.
@@ -747,8 +733,6 @@ Analytika je ve výchozím stavu zapnutá (opt-out): sbírat začne, jakmile je 
 | `enabled`       | Povolí shromažďování analytiky (zobrazení stránek, expozice obsahu, A/B události). | `boolean` | `true`  | `false` | Vyžaduje nainstalovaný balíček `@intlayer/analytics` a nastavení `editor.clientId` pro atribuci; jinak analytika zůstává vypnutá, i když je `enabled` nastaveno na `true`. |
 | `flushInterval` | Milisekundy mezi automatickým dávkovým odesíláním na backend.                      | `number`  | `20000` | `10000` |                                                                                                                                                                            |
 | `sampleRate`    | Podíl relací k zaznamenání, od `0` (žádná) do `1` (všechny).                       | `number`  | `1`     | `0.5`   | Vzorkování je deterministické pro každou relaci, takže zaznamenaná relace hlásí všechny své události (žádné částečné trychtýře).                                           |
-
----
 
 ### Konfigurace routování (Routing)
 
@@ -951,8 +935,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### Konfigurace obsahu (Content)
 
 Nastavení související s tím, jak se obsah spravuje v aplikaci, včetně názvů adresářů, přípon souborů a odvozených konfigurací.
@@ -965,8 +947,6 @@ Nastavení související s tím, jak se obsah spravuje v aplikaci, včetně náz
 | `codeDir`        | Cesta k adresáři, kde je uložen kód, relativně k základnímu adresáři.                       | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • Používá se pro sledování souborů kódu pro transformaci (odstranění zbytečného, optimalizace).<br/>• Oddělení od `contentDir` může zvýšit výkon. |
 | `excludedPath`   | Adresáře vyloučené ze skenování obsahu.                                                     | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | Zatím se nepoužívá; plánováno pro budoucnost.                                                                                                     |
 | `formatCommand`  | Příkaz pro formátování souborů obsahu při jejich lokálním zápisu Intlayerem.                | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` bude nahrazeno cestou k souboru.<br/>• Pokud není definováno, Intlayer určí automaticky (testuje prettier, biome, eslint).           |
-
----
 
 ### Konfigurace slovníků (Dictionary)
 
@@ -1000,8 +980,6 @@ dictionary: {
 };
 ```
 
----
-
 ### Konfigurace logování (Log)
 
 Parametry pro přizpůsobení výstupu logování Intlayer.
@@ -1010,8 +988,6 @@ Parametry pro přizpůsobení výstupu logování Intlayer.
 | -------- | --------------------------------- | -------------------------------------------------------------- | --------------- | ---------------- | ------------------------------------------------------------------------------------------ |
 | `mode`   | Udává režim logování.             | `'default'` &#124; <br/> `'verbose'` &#124; <br/> `'disabled'` | `'default'`     | `'verbose'`      | • `'verbose'`: loguje více informací pro ladění.<br/>• `'disabled'`: úplně vypne logování. |
 | `prefix` | Prefix pro všechny zprávy v logu. | `string`                                                       | `'[intlayer] '` | `'[my prefix] '` |                                                                                            |
-
----
 
 ### Konfigurace AI (AI)
 
@@ -1052,8 +1028,6 @@ Intlayer podporuje několik AI poskytovatelů pro maximální flexibilitu. V sou
 | `baseURL`            | Základní URL pro AI API.                                                                                                     | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                             | Žádný       | `'https://api.openai.com/v1'` <br/> `'http://localhost:5000'` | Může ukazovat na lokální nebo vlastní endpoint AI API.                                                                                                                                |
 | `dataSerialization`  | Formát serializace dat pro AI funkce.                                                                                        | `'json'` &#124; <br/> `'toon'`                                                                                                                                                                                                                                                                                                                                                                                                                       | `undefined` | `'toon'`                                                      | • `'json'`: výchozí, spolehlivé; spotřebovává více tokenů.<br/>• `'toon'`: méně tokenů, méně stabilní.<br/>• Další parametry se předávají modelu jako kontext (úsilí uvažování atd.). |
 
----
-
 ### Konfigurace sestavení (Build)
 
 Parametry ovládající, jak Intlayer optimalizuje a kompiluje internacionalizaci vaší aplikace.
@@ -1076,8 +1050,6 @@ Volby sestavení se aplikují na pluginy `@intlayer/babel` a `@intlayer/swc`.
 | `outputFormat`        | Ovládá výstupní formát slovníků.                                                                                       | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `traversePattern`     | Vzory definující, které soubory skenovat během optimalizace.                                                           | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • Omezte optimalizaci na relevantní soubory pro zvýšení výkonu sestavení.<br/>• Ignorovalo by se, kdyby byl `optimize` vypnutý.<br/>• Používá vzory glob.                                                                                                                                                                                                                                                                                                                                                                   |
 
----
-
 ### Systémová konfigurace (System)
 
 Tato nastavení jsou určena pro pokročilé případy užití a vnitřní konfiguraci Intlayer.
@@ -1092,8 +1064,6 @@ Tato nastavení jsou určena pro pokročilé případy užití a vnitřní konfi
 | `configDir`               | Adresář zkompilovaných souborů konfigurace. | `string` | `'.intlayer/config'`              |         |          |
 | `cacheDir`                | Adresář souborů mezipaměti (cache).         | `string` | `'.intlayer/cache'`               |         |          |
 
----
-
 ### Konfigurace kompilátoru (Compiler)
 
 Nastavení ovládající kompilátor Intlayer, který extrahuje slovníky přímo z vašich komponent.
@@ -1107,15 +1077,11 @@ Nastavení ovládající kompilátor Intlayer, který extrahuje slovníky přím
 | `noMetadata`          | Pokud `true`, kompilátor vynechá metadata slovníku (klíč, obal obsahu) z výstupu.                                                                                                                                                                                                                                 | `boolean`                                                                                                       | `false`     | `false` → `{"key":"my-key","content":{"key":"value"}}` <br/> `true` → `{"key":"value"}`                                                                  | • Užitečné pro výstupy ve formátu i18next nebo ICU MessageFormat JSON.<br/>• Dobře funguje s pluginem `loadJSON`.                                                                                          |
 | `dictionaryKeyPrefix` | Prefix klíče slovníku                                                                                                                                                                                                                                                                                             | `string`                                                                                                        | `''`        |                                                                                                                                                          | Přidat volitelný prefix pro extrahované klíče slovníků                                                                                                                                                     |
 
----
-
 ### Vlastní schémata (Custom Schemas)
 
 | Pole      | Popis                                                                   | Typ                         |
 | --------- | ----------------------------------------------------------------------- | --------------------------- |
 | `schemas` | Umožňuje definovat schémata Zod pro validaci struktury vašich slovníků. | `Record<string, ZodSchema>` |
-
----
 
 ### Pluginy (Plugins)
 

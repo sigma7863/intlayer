@@ -83,8 +83,6 @@ Más que una simple solución i18n, Intlayer proporciona un **[editor visual] au
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guía paso a paso para configurar Intlayer en una aplicación Vite y Preact
 
 <Tabs defaultTab="video">
@@ -1024,13 +1022,9 @@ Esta extensión proporciona:
 
 Para más detalles sobre cómo usar la extensión, consulte la [documentación de la extensión de Intlayer para VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Ir Más Allá
 
 Para ir más allá, puede implementar el [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_visual_editor.md) o externalizar su contenido utilizando el [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/intlayer_CMS.md).
-
----
 
 ## Preguntas frecuentes
 

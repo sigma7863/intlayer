@@ -88,13 +88,9 @@ history:
 
 Intlayer configuration files allow customization of various aspects of the plugin, such as internationalization, middleware, and content handling. This document provides a detailed description of each property in the configuration.
 
----
-
 ## Table of Contents
 
 <TOC/>
-
----
 
 ## Configuration File Support
 
@@ -108,8 +104,6 @@ Intlayer accepts JSON, JS, MJS, and TS configuration file formats:
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## Example config file
 
@@ -501,13 +495,9 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ## Configuration Reference
 
 The following sections describe the various configuration settings available for Intlayer.
-
----
 
 ### Internationalization Configuration
 
@@ -542,8 +532,6 @@ Defines settings related to internationalization, including available locales an
   - _Description_: The default locale used as a fallback if the requested locale is not found.
   - _Example_: `'en'`
   - _Note_: This is used to determine the locale when none is specified in the URL, cookie, or header.
-
----
 
 ### Editor Configuration
 
@@ -881,8 +869,6 @@ export default config;,
 });
 ```
 
----
-
 ### Content Configuration
 
 Settings related to content handling within the application, including directory names, file extensions, and derived configurations.
@@ -937,8 +923,6 @@ Settings related to content handling within the application, including directory
   - _Example_: `'npx eslint --fix "{{file}}"  --quiet'` Using ESLint
   - _Note_: Intlayer will replace the {{file}} with the path of the file to format.
   - _Note_: If not set, Intlayer will try to detect the format command automatically. By trying to resolve the following commands: prettier, biome, eslint.
-
----
 
 ### System Configuration
 
@@ -1024,8 +1008,6 @@ For more information about content declaration files and how configuration value
 - **title**
 - **tags**
 - **version**
-
----
 
 ### Logger Configuration
 
@@ -1202,8 +1184,6 @@ Build options apply to the `@intlayer/babel` and `@intlayer/swc` plugins.
   - _Note_: Use this to limit optimization to relevant code files and improve build performance.
   - _Note_: This option will be ignored if `optimize` is disabled.
   - _Note_: Use glob pattern.
-
----
 
 ### Compiler Configuration
 

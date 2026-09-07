@@ -38,8 +38,6 @@ Canlı Senkronizasyon, uygulamanızın CMS içerik değişikliklerini çalışma
 
 <TOC/>
 
----
-
 ## Canlı senkronizasyonu etkinleştirme
 
 Intlayer yapılandırmanızı güncelleyerek Canlı Senkronizasyonu etkinleştirin:

@@ -79,6 +79,4 @@ For any request regarding your data, contact us at [contact@intlayer.org](mailto
 
 We may update this privacy notice from time to time. Users are advised to regularly check this page to stay informed of any changes.
 
----
-
 Let me know if you'd like a more formal tone, add GDPR/CCPA mentions, or adapt it for a legal page on your site.

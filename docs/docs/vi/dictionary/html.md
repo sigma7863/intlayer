@@ -119,8 +119,6 @@ const myContent = html(
 
 Khi sử dụng phương thức `.use()` trên một node HTML, các thành phần bạn cung cấp sẽ được kiểm tra so với định nghĩa được cung cấp trong hàm `html()` (nếu có).
 
----
-
 ## Kết xuất HTML
 
 Việc kết xuất có thể được xử lý tự động bởi hệ thống nội dung của Intlayer hoặc thực hiện thủ công bằng các công cụ chuyên dụng.
@@ -474,8 +472,6 @@ Bạn có thể cấu hình cách render HTML ở mức toàn cục cho toàn b�
   </Tab>
 </Tabs>
 
----
-
 ### Kết xuất Thủ công & Công cụ Nâng cao
 
 Nếu bạn cần kết xuất chuỗi HTML thô hoặc muốn kiểm soát nhiều hơn việc ánh xạ component, hãy sử dụng các công cụ sau.
@@ -647,8 +643,6 @@ Nếu bạn cần kết xuất chuỗi HTML thô hoặc muốn kiểm soát nhi�
 
   </Tab>
 </Tabs>
-
----
 
 ## Tham chiếu Tùy chọn
 

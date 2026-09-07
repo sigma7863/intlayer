@@ -43,8 +43,6 @@ npm install @intlayer/babel
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### الإضافات (Plugins)
 
 | الدالة / الفئة                 | الوصف                                                                                                                                                                           |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | دالة مُنشِئة تُنتج إضافة Babel تُحلِّل استخدام `useIntlayer` / `getIntlayer` في الكود المصدري وتُجمِّع بيانات استخدام الحقول في `PruneContext` المُشترك.                        |
 | `getSharedPruneContext`        | دالة مساعدة تُعيد كائن `PruneContext` المُشترك للمجلد الأساسي المُحدَّد، أو `null` إن لم يُهيَّأ بعد.                                                                           |
 
----
-
 ### دوال إعداد الإضافات
 
 | الدالة                     | الوصف                                                                                                                               |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | تُحمِّل إعداد Intlayer والقواميس المُجمَّعة وتُعيد خيارات `OptimizePluginOptions` جاهزة للاستخدام مع `intlayerOptimizeBabelPlugin`. |
 | `getPurgePluginOptions`    | تُحمِّل إعداد Intlayer وتُعيد خيارات `PurgePluginOptions` جاهزة للاستخدام مع `intlayerPurgeBabelPlugin`.                            |
 | `getMinifyPluginOptions`   | تُحمِّل إعداد Intlayer وتُعيد خيارات `MinifyPluginOptions` جاهزة للاستخدام مع `intlayerMinifyBabelPlugin`.                          |
-
----
 
 ### الأنواع
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | إعداد مُحلِّل استخدام مُتوافق لحزم الـ compat-adapter (اسم المُستدعي وخيارات المعالجة).                 |
 | `ScriptBlock`           | كتلة script مستخرجة من ملف SFC (Vue أو Svelte): المحتوى وإزاحتا البداية والنهاية.                       |
 
----
-
 ### الأدوات المساعدة
 
 | الدالة                            | الوصف                                                                                                                            |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | تستخرج كتل `<script>` من ملفات SFC (Vue / Svelte) للتحليل اللاحق بـ Babel.                                                       |
 | `BABEL_PARSER_OPTIONS`            | ثابت يُمثِّل خيارات مُحلِّل Babel تُغطي مجموعة الأُطر المدعومة (React/Vue/Svelte/Angular/…).                                     |
 | `INTLAYER_CALLER_NAMES`           | قائمة ثابتة بأسماء المُستدعِيين الأصلية لـ Intlayer: `['useIntlayer', 'getIntlayer']`.                                           |
-
----
 
 ## مثال على الاستخدام
 

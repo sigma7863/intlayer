@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-08-30
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - Guia completo para traduzir seu aplicativo"
 description: "Sem mais i18next. O guia 2026 para criar uma aplicação Next.js 16 multilíngue (i18n). Traduza com agentes de IA e otimize o tamanho do bundle, SEO e desempenho."
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="A melhor solução i18n para Next.js? Descubra o Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="Código" value="code">
+  <Tab label="Código (caminhos de localidade)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="Demo" value="demo">
+  <Tab label="Código (sem caminho de localidade)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - Como internacionalizar sua aplicação usando Intlayer"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="Demo (caminhos de localidade)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="Demo - intlayer-next-16-template"
+  title="Demo Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-Veja o [Modelo de Aplicação](https://github.com/aymericzip/intlayer-next-16-template) no GitHub.
+Veja o [Modelo de Aplicação](https://github.com/aymericzip/intlayer-next-16-template) e o [Modelo de Aplicação sem caminho de localidade](https://github.com/aymericzip/intlayer-next-no-lolale-path-template) no GitHub.
 
 ## Índice
 
@@ -81,7 +92,7 @@ Comparado com soluções principais como `next-intl` ou `i18next`, Intlayer é u
 O Intlayer é otimizado para funcionar com **Componentes de servidor** para renderização eficiente e é totalmente compatível com [**Turbopack**](https://nextjs.org/docs/architecture/turbopack). Ele não bloqueia a renderização estática e oferece middleware, bem como todos os recursos necessários para dimensionar a internacionalização (i18n).
 
 > Intlayer é compatível com Next.js 12, 13, 14, 15 e 16. Se você estiver usando o roteador de páginas Next.js, pode consultar este [guia] (https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_with_nextjs_page_router.md).
-> O roteamento por locale é útil para SEO, tamanho do bundle e desempenho. Se não precisar dele, você pode consultar este [guia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_with_nextjs_no_locale_path.md).
+> O roteamento por localidade é útil para SEO, tamanho do bundle e desempenho. Ambas as configurações, com e sem roteamento de caminho de localidade, são suportadas e abordadas neste guia.
 > Para Next.js 12, 13, 14 e 15 com o App Router, consulte este [guia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_with_nextjs_14.md).
 
 </Accordion>
@@ -122,8 +133,6 @@ Mais do que apenas uma solução i18n, o Intlayer fornece um **[editor visual] a
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Guia passo a passo para configurar o Intlayer em uma aplicação Next.js
 
@@ -181,7 +190,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="Configure Seu Projeto">
 
-Aqui está a estrutura final que criaremos:
+Escolha se a sua aplicação deve usar caminhos de URL localizados (por exemplo, `/pt/about`, `/en/about`) ou servir conteúdo sem um segmento de localidade no caminho (por exemplo, `/about`, detetando o locale através de cookies, cabeçalhos ou parâmetros de pesquisa).
+
+<Tabs group="routing-mode">
+<Tab label="Com caminho de localidade" value="with-locale-path">
+
+### Arquitetura
+
+Nesta arquitetura, todas as páginas localizadas são aninhadas sob um segmento de rota dinâmica `[locale]`. Esta abordagem é recomendada para SEO e renderização estática porque cada idioma tem um URL dedicado:
 
 ```bash
 .
@@ -207,9 +223,9 @@ Aqui está a estrutura final que criaremos:
 └── tsconfig.json
 ```
 
-> Se você não deseja roteamento de localidade, o intlayer pode ser usado como um simples provedor / hook. Veja [este guia](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_with_nextjs_no_locale_path.md) para mais detalhes.
+### Configuração
 
-Crie um arquivo de configuração para configurar os idiomas da sua aplicação:
+Crie um ficheiro de configuração `intlayer.config.ts` para declarar os idiomas suportados pela sua aplicação:
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -224,10 +240,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // ou `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="Sem caminho de localidade" value="without-locale-path">
+
+### Arquitetura
+
+Nesta arquitetura, as rotas não incluem um segmento dinâmico `[locale]` no caminho do URL. Todas as páginas ficam diretamente em `src/app/`, e o locale é determinado através de cookies, cabeçalhos ou parâmetros de consulta. É ideal para dashboards, ferramentas internas ou aplicações autenticadas onde prefixar cada URL não é necessário:
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### Configuração
+
+Defina a propriedade `routing.mode` como `"search-params"` (ex. `/about?locale=pt`) ou `"no-prefix"` para servir conteúdo sem prefixo de caminho:
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // Outros locales
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // ou `no-prefix` - Útil para detecção no middleware
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > Através deste arquivo de configuração, você pode configurar URLs localizadas, redirecionamento de proxy, nomes de cookies, a localização e extensão das suas declarações de conteúdo, desabilitar logs do Intlayer no console, e muito mais. Para uma lista completa dos parâmetros disponíveis, consulte a [documentação de configuração](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/configuration.md).
 
@@ -277,6 +355,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="Definir Rotas Dinâmicas de Localidade">
+
+<Tabs group="routing-mode">
+<Tab label="Com caminho de localidade" value="with-locale-path">
 
 Remova tudo de `RootLayout` e substitua pelo seguinte código:
 
@@ -372,6 +453,102 @@ export default LocaleLayout;
 
 > O Intlayer funciona com `export const dynamic = 'force-static';` para garantir que as páginas sejam pré-construídas para todas as localidades.
 
+</Tab>
+<Tab label="Sem caminho de localidade" value="without-locale-path">
+
+Numa arquitetura sem caminhos de localidade, não existe o diretório `[locale]`. Configure `src/app/layout.tsx` diretamente para ler o locale do contexto do pedido e envolva a sua aplicação com `IntlayerProvider`:
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+> Um único `IntlayerProvider` cobre ambas as metades da árvore: ele alimenta o contexto do servidor com escopo de requisição lido pelos hooks do servidor e monta o provedor do cliente para que os componentes do cliente recebam a mesma localidade.
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+</Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
+
 </Step>
 
 <Step number={5} title="Declare Seu Conteúdo">
@@ -459,7 +636,7 @@ export default Page;
 ```
 
 - **`IntlayerProvider`** é montado uma vez, no layout da localidade. Ele fornece a localidade tanto para componentes servidor quanto cliente, para que as páginas não se encapselem mais.
-- Os hooks do servidor resolvem a localidade nesta ordem: a localidade passada no local da chamada, depois o contexto do servidor inicializado pelo provedor, depois a localidade carregada pela requisição (o cabeçalho `x-intlayer-locale` definido pelo proxy Intlayer, depois o cookie de localidade). Este último passo é o que mantém o conteúdo correto em uma navegação do lado cliente que re-renderiza apenas o segmento da página, onde o layout — e com ele o provedor — não re-executa.
+- Os hooks do servidor resolvem a localidade nesta ordem: a localidade passada no local da chamada, depois o contexto do servidor inicializado pelo provedor, depois a localidade carregada pela requisição (o cabeçalho `x-intlayer-locale` definido pelo proxy Intlayer, depois o cookie de localidade). Este último passo é o que mantém o conteúdo correto em uma navegação do lado cliente que re-renderiza apenas o segmento da página, onde o layout , e com ele o provedor , não re-executa.
 
  </Tab>
  <Tab label='Intlayer <9.4' value='<9.4'>
@@ -1056,7 +1233,7 @@ bun x intlayer extract
  </Tab>
  <Tab value='Compilador Babel'>
 
-> Since v9, the `intlayerCompiler` is included in the `intlayer` plugin. So you don't need to add it manually.
+> Desde a v9, o `intlayerCompiler` está incluído no plugin `intlayer`. Portanto, você não precisa adicioná-lo manualmente.
 
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
@@ -1256,7 +1433,7 @@ Não. O esquema de URL é uma opção de configuração, não uma restrição. O
 - `"no-prefix"`: nenhum locale no caminho, sendo resolvido via cookie, header ou domínio.
 - `"search-params"`: `/about?locale=pt`.
 
-Você também pode mapear cada locale para seu próprio domínio com `routing.domains`. Consulte a [referência de configuração](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/configuration.md) e o [guia sem caminho de locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/intlayer_with_nextjs_no_locale_path.md).
+Você também pode mapear cada locale para seu próprio domínio com `routing.domains`. Consulte a [referência de configuração](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/configuration.md) e o [Passo 2](#step-2-configure-your-project) para opções de modo de roteamento.
 
 </Question>
 

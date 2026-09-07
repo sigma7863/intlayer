@@ -42,8 +42,6 @@ Odczytuje słowniki wygenerowane przez Intlayer w `.intlayer/`, więc argument `
 - Wyniki są zapamiętywane dla `key + locale + selector`
 - Spada do bezpiecznego proxy w trybie development, gdy słownik brakuje, zamiast się wysypać
 
----
-
 ## Sygnatura funkcji
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // Opcjonalne
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parametry
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: Zinterpretowana zawartość słownika, wpisana na podstawie Twojej deklaracji.
 - **Description**: Zwykły obiekt odzwierciedlający pole `content` słownika, gdzie każdy węzeł Intlayer został rozwiązany do jego ostatecznej wartości dla żądanego ustawienia regionalne.
-
----
 
 ## Przykład użycia
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## Notatki dotyczące zachowania
 
 ### Buforowanie
@@ -169,15 +161,11 @@ W trakcie rozwoju, żądanie klucza, który nie ma wygenerowanego słownika, log
 
 `getIntlayer` reads the merged dictionary, which holds **every** locale. In client bundles, the [build plugins](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/bundle_optimization.md) rewrite the call so only the required content is shipped. When you read content outside of rendering (metadata, loaders, server functions) and want a single locale loaded on demand, use [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/intlayer/getIntlayerAsync.md) instead.
 
----
-
 ## Powiązane funkcje
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/intlayer/getIntlayerAsync.md): Asynchroniczny odpowiednik ładujący pojedynczy chunk lokalizacji.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/intlayer/getDictionary.md): Interpretuje obiekt słownika, który sam przekazujesz, zamiast szukać go po kluczu.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/react-intlayer/useIntlayer.md): Równoważny hook React'a, odczytujący lokalizację od dostawcy.
-
----
 
 ## TypeScript
 

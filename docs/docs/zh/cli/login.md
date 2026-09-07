@@ -20,8 +20,6 @@ author: aymericzip
 
 # Intlayer CLI 登录命令
 
----
-
 ## 描述
 
 Intlayer CLI 的 `login` 命令允许您对 Intlayer CMS 进行身份验证。该命令会自动打开您的默认浏览器以完成身份验证流程，并接收使用 Intlayer 服务所需的凭证（Client ID 和 Client Secret）。

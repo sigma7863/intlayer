@@ -39,8 +39,6 @@ Ini adalah padanan relatif dari [`getLocalizedUrl`](https://github.com/aymericzi
 - Menyelesaikan path sesuai aturan rewrite kustom yang didefinisikan dalam konfigurasi proyek Anda.
 - Secara otomatis menangani fallback ke canonical path jika tidak ada aturan rewrite yang ditemukan untuk locale yang ditentukan.
 
----
-
 ## Tanda Tangan Fungsi
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opsional
 ): string
 ```
-
----
 
 ## Parameter
 
@@ -79,8 +75,6 @@ getLocalizedPath(
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — bagaimana locale muncul di path. **Default**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — custom rewrite rules. **Default**: `configuration.routing.rewrite`
 
----
-
 ## Pengembalian
 
 - **Tipe**: `string`
@@ -107,8 +101,6 @@ Dua kasus tetap meluas menjadi `string`, karena tidak dapat diselesaikan pada wa
 
 - sebuah path yang bukan string literal (misalnya, yang dibangun dari variabel);
 - sebuah path yang cocok dengan rule menggunakan parameter multi-segment atau opsional (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Contoh Penggunaan
 
@@ -166,8 +158,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Output: "/about"
 ```
-
----
 
 ## Fungsi Terkait
 

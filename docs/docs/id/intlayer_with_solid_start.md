@@ -112,8 +112,6 @@ Lebih dari sekadar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dalam Aplikasi SolidStart
 
 <Steps>
@@ -1016,8 +1014,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## Memverifikasi pengaturan Anda
 
 Build dan jalankan server, lalu periksa apakah permintaan ini berperilaku seperti yang diharapkan:
@@ -1043,8 +1039,6 @@ Baris yang merender halaman berperilaku secara identik di bawah `vite dev`. Tiga
 
 > Jalankan server pengembangan di Node (`vite dev`) daripada di Bun (`bun --bun vite dev`): SSR SolidStart saat ini gagal di bawah runtime Bun dengan `Expected a Response object, but received 'NodeResponse'`. Ini tidak terkait dengan Intlayer — ini mereproduksi pada templat biasa — dan hanya memengaruhi server pengembangan, bukan `vite build`.
 
----
-
 ## Konfigurasi Git
 
 Disarankan untuk mengabaikan file yang dihasilkan oleh Intlayer. Ini memungkinkan Anda untuk menghindari melakukan commit file tersebut ke repositori Git Anda.
@@ -1055,8 +1049,6 @@ Untuk melakukan ini, Anda dapat menambahkan instruksi berikut ke file `.gitignor
 # Abaikan file yang dihasilkan oleh Intlayer
 .intlayer
 ```
-
----
 
 ## Ekstensi VS Code
 
@@ -1071,13 +1063,9 @@ Ekstensi ini menyediakan:
 - **Pratinjau langsung** dari konten yang diterjemahkan.
 - **Tindakan cepat** untuk membuat dan memperbarui terjemahan dengan mudah.
 
----
-
 ## Melangkah Lebih Jauh
 
 Untuk melangkah lebih jauh, Anda dapat mengimplementasikan [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) atau mengeksternalisasi konten Anda menggunakan [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md).
-
----
 
 ## Referensi Dokumentasi
 

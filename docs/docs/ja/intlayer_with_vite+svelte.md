@@ -111,8 +111,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## ViteとSvelteアプリケーションでIntlayerをセットアップするステップバイステップガイド
 
 GitHubの[アプリケーションテンプレート](https://github.com/aymericzip/intlayer-vite-svelte-template)を参照してください。
@@ -733,8 +731,6 @@ Intlayer によって生成されたファイルは無視することを推奨�
 ```
 
 拡張機能の使用方法の詳細については、[Intlayer VS Code Extension ドキュメント](https://intlayer.org/doc/vs-code-extension)を参照してください。
-
----
 
 ### VS Code 拡張機能
 

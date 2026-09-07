@@ -71,8 +71,6 @@ author: aymericzip
 
 > راجع وثيقتنا التي تسرد كل ما تحتاج لمعرفته حول التدويل وتحسين محركات البحث: [التدويل (i18n) مع next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ar/internationalization_and_SEO.md).
 
----
-
 ## دليل خطوة بخطوة لإعداد i18next في تطبيق Next.js
 
 <iframe

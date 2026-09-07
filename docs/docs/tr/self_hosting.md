@@ -35,8 +35,6 @@ Tek dış bağımlılık **MongoDB**'dir: backend, sağladığınız bir MongoDB
 
 <TOC/>
 
----
-
 ## Mimari
 
 ```
@@ -56,8 +54,6 @@ Tek dış bağımlılık **MongoDB**'dir: backend, sağladığınız bir MongoDB
 
 Chromium (Puppeteer ekran görüntüsü oluşturma için kullanılır) backend görüntüsünün içine dahil edilmiştir; ayrı bir kapsayıcıya gerek yoktur.
 
----
-
 ## Önkoşullar
 
 - **Docker** ≥ 24 ve **Docker Compose** ≥ v2. Herhangi biri eksikse, yükleyici kurulum bağlantısını yazdırır ve çıkar.
@@ -65,8 +61,6 @@ Chromium (Puppeteer ekran görüntüsü oluşturma için kullanılır) backend g
 - Bir Linux veya macOS ana bilgisayarı (veya Windows'ta WSL2).
 
 Diğer her şey — Bun, Redis, MinIO, Chromium — image içinde gelir.
-
----
 
 ## Hızlı başlangıç
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > Dört port değişkeni yalnızca `docker run` komutunda yazdırılan eşlemenin **host** tarafını değiştirir. Yayınlanan image, derleme zamanında dashboard bundle'ına `http://localhost:3000`, `http://localhost:3100` ve `http://localhost:9000` derlenmiş olarak sahiptir, bu nedenle onları yeniden eşlemek tarayıcıyı eski portlara işaret ettirir. Kendi image'ınızı oluşturmıyorsanız varsayılanları tutun — [Sınırlamalar](#limitations)'a bakın.
 
----
-
 ## İlk çalıştırma kurulumu
 
 Yeni bir instance'ta (boş veritabanı), dashboard'u açmak sizi **`/init`** sayfasına yönlendirir:
@@ -147,8 +139,6 @@ Yeni bir instance'ta (boş veritabanı), dashboard'u açmak sizi **`/init`** say
 3. E-postadaki bağlantıyı tıklayın, ardından oturum açın.
 
 Bir admin mevcut olduğunda, `/init` standart oturum açma sayfasına yönlendirilir.
-
----
 
 ## Servisler
 
@@ -162,8 +152,6 @@ Bir admin mevcut olduğunda, `/init` standart oturum açma sayfasına yönlendir
 | **mailpit** | `axllent/mailpit`                                 | `1025` (SMTP), `8025` (web UI)        | Yerel işlem e-postası alıcısı                                |
 
 > MinIO bağlantı noktası `9000` tarayıcı tarafından erişilebilir olmalıdır çünkü yüklenen varlıklar (avatarlar, ekran görüntüleri) doğrudan `S3_PUBLIC_URL=http://localhost:9000/intlayer` adresinden yüklenir.
-
----
 
 ## Ortam değişkenleri
 
@@ -234,8 +222,6 @@ Etkinleştirmek için `MAIL_PROVIDER` ayarlayın. Ayarlanmadığında, varsayıl
 
 > Öncelik: bir organizasyonun kendi mailer'ı (**Organization** panosundan yapılandırılmış) global mailer'dan daha yüksek önceliğe sahiptir ve bu da varsayılan Resend anahtarından daha yüksek önceliğe sahiptir.
 
----
-
 ## Intlayer projenizi bağlama
 
 Yığın çalışmaya başladıktan sonra, projenizi `intlayer.org` yerine kendi barındırılan backend ve kontrol paneline yönlendirin.
@@ -297,8 +283,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## Yükseltme
 
 Bu, en son görüntüleri çeker ve kapsayıcıları `docker compose pull && docker compose up -d` ile yeniden başlatır. Mevcut birimler (`mongo-data`, `redis-data`, `minio-data`) korunur; veri kaybı olmaz.
@@ -307,8 +291,6 @@ Bu, en son görüntüleri çeker ve kapsayıcıları `docker compose pull && doc
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## Yedekleme ve Geri Yükleme
 
@@ -344,15 +326,11 @@ docker run --rm \
 # redis-data ve minio-data için tekrarlayın
 ```
 
----
-
 ## Sınırlamalar
 
 - **MongoDB harici (Atlas) olmalıdır.** Backend yalnızca `mongodb+srv://` üzerinden bağlanır (`DB_ID` / `DB_MDP` / `DB_CLUSTER` öğesinden oluşturulur), bu nedenle düz `mongodb://host:27017` — konteyner'ın kendi paketlenmiş `mongod` dahil — kullanılamaz. Bir MongoDB Atlas kümesi sağlayın.
 - **Özel alan adı yok.** Tüm tarayıcıya yönelik `VITE_*` URL'leri derleme zamanında uygulamaya satır içine alınır ve yayınlanan görüntü `localhost` değerleriyle gemi. Pano şu adreste erişilmelidir: `http://localhost:3000`; bunu genel bir alan adında sunmak, görüntüyü hedef URL'ler ile yeniden oluşturmayı gerektiriyor ve kutudan hemen çıkar desteklenmiyor.
 - **E-posta çalışan bir postacı gerektirir.** İlk çalıştırma kurulumu e-posta doğrulamasını uygular, bu nedenle `RESEND_API_KEY` veya bir [global SMTP postacısı](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`) yapılandırılmalıdır. İlk yönetici oturum açtıktan sonra, her kuruluş panodan kendi SMTP veya Resend postacısını da yapılandırabilir.
-
----
 
 ## Sorun Giderme
 
@@ -379,8 +357,6 @@ Eğer `minio-init` tek seferlik servisi çalışmadıysa (veya MinIO hazır olma
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## Faydalı Bağlantılar
 

@@ -92,8 +92,6 @@ Skoro ustaliliśmy już prawdziwe **znaczenie i18n**, jak je zastosować?
 - **Wyodrębnij cały tekst skierowany do użytkownika:** Upewnij się, że w komponentach interfejsu użytkownika nie ma zakodowanego na sztywno tekstu.
 - **Zastosuj solidny system zarządzania tłumaczeniami:** Narzędzia takie jak **Intlayer** wypełniają lukę między programistami a tłumaczami. Intlayer działa jako headless CMS, który jest ściśle zintegrowany z bazą kodu, umożliwiając menedżerom treści wizualną aktualizację tłumaczeń bez konieczności uruchamiania nowej kompilacji przez programistę.
 
----
-
 ### Zobacz listę bibliotek i narzędzi i18n według technologii
 
 Jeśli szukasz listy bibliotek i narzędzi i18n według technologii, zapoznaj się z poniższymi zasobami:
@@ -111,8 +109,6 @@ Jeśli szukasz listy bibliotek i narzędzi i18n według technologii, zapoznaj si
 - Vue: [Zobacz listę bibliotek i narzędzi i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Zobacz listę bibliotek i narzędzi i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [Zobacz listę bibliotek i narzędzi i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Podsumowanie
 

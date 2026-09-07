@@ -85,8 +85,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Vite و React
 
 <Tabs defaultTab="video">
@@ -977,8 +975,6 @@ console.log("SEO files generated successfully.");
 - **إجراءات سريعة** لإنشاء الترجمات وتحديثها بسهولة.
 
 لمزيد من التفاصيل حول كيفية استخدام الإضافة، راجع [توثيق إضافة Intlayer لـ VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### التقدم أكثر
 

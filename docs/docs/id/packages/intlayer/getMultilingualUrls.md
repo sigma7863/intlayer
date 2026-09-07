@@ -39,8 +39,6 @@ Fungsi `getMultilingualUrls` menghasilkan pemetaan URL multibahasa dengan menamb
 - Mendukung multiple routing modes: `prefix-no-default`, `prefix-all`, `no-prefix`, dan `search-params`
 - Mengembalikan mapping object dengan semua locale sebagai keys dan URL yang sesuai sebagai values
 
----
-
 ## Tanda Tangan Fungsi
 
 ```typescript
@@ -53,8 +51,6 @@ getMultilingualUrls(
   }
 ): StrictModeLocaleMap<string>
 ```
-
----
 
 ## Parameter
 
@@ -96,8 +92,6 @@ getMultilingualUrls(
 
 - **Tipe**: `IConfigLocales<string>`
 - **Deskripsi**: Objek yang memetakan setiap locale ke URL multibahasa yang sesuai.
-
----
 
 ## Contoh Penggunaan
 
@@ -199,8 +193,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## Kasus Tepi
 
 - **Tidak Ada Segmen Locale:**
@@ -217,8 +209,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: Semua locale memiliki prefix (mis., `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: Tidak ada prefix locale di URL (semua locale mengembalikan URL yang sama)
   - `'search-params'`: Locale ditentukan melalui parameter query (mis., `/dashboard?locale=fr`)
-
----
 
 ## Penggunaan dalam Aplikasi
 

@@ -1376,33 +1376,6 @@ const docDataContent: Dictionary = {
               default: getDocMetadata('./docs/en/intlayer_with_nextjs_14.md'),
               frameworks: ['nextjs', 'react'],
             },
-            'no-locale-path': {
-              title: t({
-                en: 'Next.js no locale path',
-                'en-GB': 'Next.js no locale path',
-                fr: 'Next.js sans locale URL',
-                es: 'Next.js sin locale URL',
-                de: 'Next.js ohne Locale URL',
-                it: 'Next.js senza locale URL',
-                pt: 'Next.js sem locale URL',
-                ru: 'Next.js без locale URL',
-                pl: 'Next.js bez locale URL',
-                tr: 'Next.js locale’siz URL',
-                id: 'Next.js tanpa locale URL',
-                vi: 'Next.js không locale URL',
-
-                ja: 'Next.js ロケールなし URL',
-                ko: 'Next.js 로케일 없는 URL',
-                zh: 'Next.js 无 locale URL',
-                hi: 'Next.js बिना लोकेल URL',
-                ar: 'Next.js بدون locale URL',
-                uk: 'Next.js без locale URL',
-              }),
-              default: getDocMetadata(
-                './docs/en/intlayer_with_nextjs_no_locale_path.md'
-              ),
-              frameworks: ['nextjs', 'react'],
-            },
             'next-with-Page-Router': {
               title: t({
                 en: 'Next.js and Page Router',
@@ -1426,32 +1399,6 @@ const docDataContent: Dictionary = {
               }),
               default: getDocMetadata(
                 './docs/en/intlayer_with_nextjs_page_router.md'
-              ),
-              frameworks: ['nextjs', 'react'],
-            },
-            'next-with-compiler': {
-              title: t({
-                en: 'Compiler',
-                fr: 'Compiler',
-                es: 'Compiler',
-                'en-GB': 'Compiler',
-                de: 'Compiler',
-                ja: 'コンパイラ',
-                ko: '컴파일러',
-                zh: '编译器',
-                it: 'Compiler',
-                pt: 'Compiler',
-                hi: 'कंपाइलर',
-                ar: 'المترجم',
-                uk: 'Compiler',
-                ru: 'Compiler',
-                tr: 'Derleyici',
-                pl: 'Kompilator',
-                id: 'Compiler',
-                vi: 'Trình biên dịch',
-              }),
-              default: getDocMetadata(
-                './docs/en/intlayer_with_nextjs_compiler.md'
               ),
               frameworks: ['nextjs', 'react'],
             },
@@ -1678,6 +1625,7 @@ const docDataContent: Dictionary = {
             vi: 'Vite và React',
           }),
           default: getDocMetadata('./docs/en/intlayer_with_vite+react.md'),
+          frameworks: ['react', 'vite'],
           subSections: {
             'react-router-v7': {
               title: 'React Router v7',
@@ -1686,22 +1634,7 @@ const docDataContent: Dictionary = {
               ),
               frameworks: ['react', 'vite'],
             },
-            'react-router-v7-fs-routes': {
-              title: 'React Router v7 (fs-routes)',
-              default: getDocMetadata(
-                './docs/en/intlayer_with_react_router_v7_fs_routes.md'
-              ),
-              frameworks: ['react', 'vite'],
-            },
-            compiler: {
-              title: 'Compiler',
-              default: getDocMetadata(
-                './docs/en/intlayer_with_vite+react_compiler.md'
-              ),
-              frameworks: ['react', 'vite'],
-            },
           },
-          frameworks: ['react', 'vite'],
         },
 
         'vite-and-vue': {
@@ -1933,13 +1866,6 @@ const docDataContent: Dictionary = {
           },
           frameworks: ['angular', 'vite'],
         },
-        'create-react-app': {
-          title: 'React CRA',
-          default: getDocMetadata(
-            './docs/en/intlayer_with_create_react_app.md'
-          ),
-          frameworks: ['react', 'vite'],
-        },
         'react-native-and-expo': {
           title: t({
             en: 'React Native and Expo',
@@ -2023,6 +1949,13 @@ const docDataContent: Dictionary = {
             vi: 'Khác',
           }),
           subSections: {
+            'create-react-app': {
+              title: 'React CRA',
+              default: getDocMetadata(
+                './docs/en/intlayer_with_create_react_app.md'
+              ),
+              frameworks: ['react', 'vite'],
+            },
             'lynx-and-react': {
               title: t({
                 en: 'Lynx and React',

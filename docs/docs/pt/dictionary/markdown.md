@@ -1171,8 +1171,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## Renderização no Lado do Servidor (SSR) e Hidratação
 
 Em comparação com outros analisadores de Markdown, como remark / rehype, o Intlayer Markdown é livre de dependências e roda tanto no cliente quanto no servidor.

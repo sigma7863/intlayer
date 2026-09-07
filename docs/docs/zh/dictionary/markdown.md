@@ -1172,8 +1172,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## 服务端渲染 (SSR) 与 注水 (Hydration)
 
 与其他 Markdown 解析器（如 remark / rehype）相比，Intlayer Markdown 无依赖关系，且既可以在客户端运行，也可以在服务端运行。

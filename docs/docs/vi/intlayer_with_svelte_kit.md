@@ -108,8 +108,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng SvelteKit
 
 Xem [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template) trên GitHub.
@@ -773,8 +771,6 @@ Khuyến nghị bỏ qua các tệp được tạo bởi Intlayer.
 # Bỏ qua các tệp được tạo bởi Intlayer
 .intlayer
 ```
-
----
 
 ### Đi xa hơn
 

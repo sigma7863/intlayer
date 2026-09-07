@@ -107,8 +107,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Astro + Preact'te Intlayer'ı Yapılandırmak İçin Adım Adım Kılavuz
 
 GitHub'daki [uygulama şablonuna](https://github.com/aymericzip/intlayer-astro-template) göz atın.
@@ -646,8 +644,6 @@ Bu uzantı şunları sağlar:
 - Kolayca çeviri oluşturmak ve güncellemek için **hızlı eylemler**.
 
 Uzantı kullanımı hakkında daha fazla bilgi için [VS Code Uzantısı dokümantasyonuna](https://intlayer.org/doc/vs-code-extension) bakın.
-
----
 
 ### Bilginizi Derinleştirin
 

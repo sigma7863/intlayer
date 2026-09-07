@@ -107,8 +107,6 @@ Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](http
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guida passo-passo per configurare Intlayer in un'applicazione Vite e Vanilla JS
 
 <Steps>
@@ -763,8 +761,6 @@ Questa estensione fornisce:
 - **Azioni rapide** per creare e aggiornare facilmente le traduzioni.
 
 Per maggiori dettagli su come utilizzare l'estensione, consulta la [documentazione dell'estensione Intlayer per VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Vai oltre
 

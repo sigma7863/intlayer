@@ -23,15 +23,11 @@ author: aymericzip
 
 随着网络继续联系全球人们，提供多语言内容变得越来越重要。对于使用 **Svelte** 的开发人员来说，实现 i18n 是高效管理翻译、维护干净代码和保持良好 SEO 实践的关键。在本文中，我们深入探讨 Svelte 的各种 i18n 解决方案和工作流程，帮助您选择最适合您项目需求的方案。
 
----
-
 ## 什么是国际化 (i18n)？
 
 国际化，通常缩写为 i18n，是设计和构建应用程序的过程，以便它可以轻松适应各种语言、地区和文化习俗。在 Svelte 中，这通常意味着设置翻译字符串、本地化日期、时间和数字，并确保用户界面可以在不同语言环境之间动态切换，而无需进行重大代码重写。
 
 要了解有关 i18n 基础知识的更多信息，请阅读我们的文章：[什么是国际化 (i18n)？定义和挑战](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/what_is_internationalization.md)。
-
----
 
 ## Svelte 应用程序的翻译挑战
 
@@ -42,8 +38,6 @@ author: aymericzip
 - **SEO 考虑**: 如果您使用 **SvelteKit** 进行服务器端渲染 (SSR)，则配置本地化 URL、元标签和站点地图以实现有效的 SEO 需要额外的关注。
 - **状态与路由**: 在多个路由和动态页面中保持正确的语言通常涉及在 SvelteKit 中协调全局状态、路由守卫或自定义钩子。
 - **可维护性**: 随着您的代码库和翻译文件的增长，保持一切井然有序和同步将成为一项持续的努力。
-
----
 
 ## Svelte 的主要 i18n 解决方案
 
@@ -62,8 +56,6 @@ Svelte 并没有提供原生的内置 i18n 解决方案（如 Angular），但�
 - **TypeScript 与自动补全（Web）**：虽然此功能主要使 Web 框架受益，但类型化翻译方法仍然可以指导 Svelte 中的结构化代码。
 - **异步加载**：动态加载翻译资源，有可能减小多语言应用的初始包大小。
 - **与 Svelte 集成**：可以设置基本集成，以利用 Intlayer 方法进行结构化翻译。
-
----
 
 ### 2. svelte-i18n
 
@@ -85,8 +77,6 @@ Repository: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaise
 - **SSR 设置**: 配置 SSR 以实现 SEO 可能需要额外的步骤，以确保在服务器端正确检测到语言环境。
 - **性能**: 虽然运行时灵活，但一次加载大量翻译会影响初始加载时间，考虑使用惰性加载或缓存策略。
 
----
-
 ### 3. svelte-intl-precompile
 
 Repository: [https://github.com/cibernox/svelte-intl-precompile](https://github.com/cibernox/svelte-intl-precompile)
@@ -107,8 +97,6 @@ Repository: [https://github.com/cibernox/svelte-intl-precompile](https://github.
 - **动态内容**: 如果您需要实时翻译用户生成的内容，则此方法可能需要额外步骤以进行运行时更新。
 - **学习曲线**: 消息提取和预编译的组合对于新手来说可能会稍显复杂。
 
----
-
 ### 4. i18next 与 Svelte / SvelteKit
 
 Website: [https://www.i18next.com/](https://www.i18next.com/)
@@ -128,8 +116,6 @@ Website: [https://www.i18next.com/](https://www.i18next.com/)
 - **手动设置**: i18next 没有专门的 Svelte 集成，因此您需要自行配置。
 - **开销**: i18next 功能强大，但对于较小的 Svelte 项目来说，它的一些功能可能会显得过于复杂。
 - **路由与状态**: 处理语言路由可能需要自定义 SvelteKit 钩子或中间件。
-
----
 
 ### 最后思考
 

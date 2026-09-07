@@ -108,8 +108,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## SvelteKit Uygulamasında Intlayer Kurulumu için Adım Adım Rehber
 
 [Uygulama Şablonunu](https://github.com/aymericzip/intlayer-sveltekit-template) GitHub'da görüntüleyin.
@@ -773,8 +771,6 @@ Intlayer tarafından oluşturulan dosyaların göz ardı edilmesi önerilir.
 # Intlayer tarafından oluşturulan dosyaları göz ardı et
 .intlayer
 ```
-
----
 
 ### Daha İleri Gitmek İçin
 

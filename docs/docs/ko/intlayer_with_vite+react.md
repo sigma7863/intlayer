@@ -85,8 +85,6 @@ AI 제공업체의 비용으로 원하는 LLM을 사용하여 CI/CD 파이프라
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 대안보다 Intlayer를 선택해야 하는 이유는 무엇입니까?
 
 <Tabs defaultTab="video">
@@ -513,8 +511,6 @@ const App: FC = () => (
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ```typescript {3,7} fileName="vite.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { defineConfig } from "vite";
@@ -992,8 +988,6 @@ Intlayer와 함께하는 개발 환경을 개선하기 위해 공식 **Intlayer 
 - 번역을 쉽게 생성하고 업데이트할 수 있는 **빠른 작업(Quick actions)**.
 
 확장 프로그램 사용법에 대한 자세한 내용은 [Intlayer VS Code 확장 프로그램 문서](https://intlayer.org/doc/vs-code-extension)를 참조하세요.
-
----
 
 ### 더 나아가기
 

@@ -42,8 +42,6 @@ author: aymericzip
 - 结果根据 `key + locale + selector` 进行记忆化
 - 在开发中当字典缺失时回退到安全代理，而不是崩溃
 
----
-
 ## 函数签名
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // 可选
 ): DeepTransformContent<...>
 ```
-
----
 
 ## 参数
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: 字典的解释内容，根据您的声明进行类型化。
 - **Description**: 一个纯对象，镜像您字典的 `content` 字段，其中每个 Intlayer 节点都已解析为请求的语言环境的最终值。
-
----
 
 ## 示例用法
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## 行为说明
 
 ### 缓存
@@ -169,15 +161,11 @@ const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 
 `getIntlayer` 读取合并的字典，其中包含**每个**语言环境。在客户端 bundles 中，[构建插件](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/bundle_optimization.md)重写调用，以便只传输所需的内容。当你在渲染之外读取内容（元数据、加载器、服务器函数）并希望按需加载单个语言环境时，请使用 [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getIntlayerAsync.md)。
 
----
-
 ## 相关函数
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getIntlayerAsync.md): 异步版本，加载单个语言块。
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getDictionary.md): 解释你自己传递的字典对象，而不是按键查找。
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/react-intlayer/useIntlayer.md): React hook 等效版本，从 provider 读取语言设置。
-
----
 
 ## TypeScript
 

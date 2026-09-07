@@ -20,8 +20,6 @@ author: aymericzip
 
 # Polecenie logowania Intlayer CLI
 
----
-
 ## Opis
 
 Polecenie `login` w Intlayer CLI umożliwia uwierzytelnienie w Intlayer CMS. Polecenie to automatycznie otwiera domyślną przeglądarkę, aby dokończyć proces uwierzytelniania i otrzymać niezbędne dane dostępowe (Client ID i Client Secret) do korzystania z usług Intlayer.

@@ -63,8 +63,6 @@ chart.update();
 },
 ];
 
----
-
 apps/website/src/components/I18nBenchmark/index.tsx
 
 apps/website/src/components/I18nBenchmark/summarize-nextjs.json

@@ -44,8 +44,6 @@ It is the counterpart of [`getDictionary`](https://github.com/aymericzip/intlaye
 - Deduplicates concurrent loads of the same chunk, and caches the resolved content
 - Failed loads are evicted from the cache so a later call retries the chunk
 
----
-
 ## Function Signature
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // Optional
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Parameters
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — a promise resolving to the interpreted content of the loaded chunk.
 - **Description**: Resolves to `null` when the map emits no chunk for the requested locale nor for any of its fallbacks, mirroring how a missing qualified coordinate resolves.
-
----
 
 ## Example Usage
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## Behaviour Notes
 
 ### Caching and deduplication
@@ -135,15 +127,11 @@ The cache stores the **promise** of each `key + locale + selector` triple, so co
 
 A plain loader map is walked along the same fallback chain as the synchronous mode: the requested locale first, then its fallbacks, then `null` if none emitted a chunk.
 
----
-
 ## Related Functions
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/intlayer/getIntlayerAsync.md): The function applications call; build plugins rewrite it into `getDictionaryAsync`.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/packages/intlayer/getDictionary.md): Synchronous counterpart taking a full dictionary.
 - [Dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/dynamic_dictionaries/index.md): Collections and variants, and the loader maps they generate.
-
----
 
 ## TypeScript
 

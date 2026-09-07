@@ -108,8 +108,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 在 SvelteKit 应用中设置 Intlayer 的分步指南
 
 查看 GitHub 上的[应用模板](https://github.com/aymericzip/intlayer-sveltekit-template)。
@@ -779,8 +777,6 @@ bun run build # 或 bun run dev
 # 忽略 Intlayer 生成的文件
 .intlayer
 ```
-
----
 
 ### 深入了解
 

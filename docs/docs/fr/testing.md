@@ -24,15 +24,11 @@ author: aymericzip
 
 Ce guide montre comment vérifier automatiquement que vos dictionnaires sont complets, détecter les traductions manquantes avant la mise en production, et tester l’interface localisée dans votre application.
 
----
-
 ## Ce que vous pouvez tester
 
 - **Traductions manquantes** : échouer le CI si des locales requises manquent dans un dictionnaire.
 - **Rendu de l’interface localisée** : afficher des composants avec un fournisseur de locale spécifique et vérifier le texte/attributs visibles.
 - **Audits au moment de la compilation** : exécuter un audit rapide localement via la CLI.
-
----
 
 ## Démarrage rapide : audit via CLI
 
@@ -63,8 +59,6 @@ Options utiles :
 - `--prefix [label]` : préfixer les lignes de log.
 
 Note : la CLI affiche un rapport détaillé mais ne retourne pas un code d’erreur en cas d’échec. Pour un contrôle en CI, ajoutez un test unitaire (ci-dessous) qui vérifie qu’aucune locale requise n’est manquante.
-
----
 
 ## Test programmatique (Vitest/Jest)
 
@@ -112,8 +106,6 @@ Comment ça fonctionne :
   - `missingLocales` : l’union de toutes les locales manquantes.
   - `missingRequiredLocales` : sous-ensemble limité aux `requiredLocales` (ou toutes les locales si `requiredLocales` n’est pas défini).
 
----
-
 ## Tester une interface localisée (React / Next.js)
 
 Rendez les composants sous un fournisseur Intlayer et vérifiez le contenu visible.
@@ -159,8 +151,6 @@ Conseils :
 
 - Lorsque vous avez besoin des valeurs brutes des chaînes pour des attributs (par exemple, `aria-label`), accédez au champ `.value` retourné par `useIntlayer` dans React.
 - Gardez les dictionnaires proches des composants pour faciliter les tests unitaires et le nettoyage.
-
----
 
 ## Intégration Continue
 
@@ -210,8 +200,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## Dépannage
 

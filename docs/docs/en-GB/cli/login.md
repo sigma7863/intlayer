@@ -20,8 +20,6 @@ author: aymericzip
 
 # Intlayer CLI Login Command
 
----
-
 ## Description
 
 The `login` command of the Intlayer CLI allows you to authenticate with the Intlayer CMS. This command automatically opens your default browser to complete the authentication process and receive the necessary credentials (Client ID and Client Secret) to use Intlayer services.

@@ -52,8 +52,6 @@ Sementara Intlayer menyediakan solusi i18n mandiri yang sangat baik (lihat [pand
 
 Panduan ini menunjukkan cara memanfaatkan sistem deklarasi konten unggulan Intlayer sambil mempertahankan kompatibilitas dengan next-i18next.
 
----
-
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dengan next-i18next
 
 <Steps>

@@ -68,8 +68,6 @@ Hơn chỉ là một giải pháp i18n, Intlayer cung cấp một **[visual edit
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Chiến lược di chuyển
 
 Có hai chiến lược bổ sung cho việc di chuyển từ `react-i18next` / `i18next` sang Intlayer:
@@ -80,13 +78,9 @@ Có hai chiến lược bổ sung cho việc di chuyển từ `react-i18next` / 
 
 Hướng dẫn này bao gồm **Chiến lược 1** trước (compat adapter plug-and-play), sau đó hướng dẫn qua quá trình di chuyển toàn bộ tùy chọn.
 
----
-
 ## Mục lục
 
 <TOC/>
-
----
 
 ## Sự di chuyển nhanh chóng
 
@@ -233,8 +227,6 @@ export default withIntlayer(nextConfig);
 > tAbout("counter.label"); // ✓ được gõ
 > ```
 
----
-
 ## Quá trình di chuyển hoàn toàn
 
 Các bước dưới đây là tùy chọn và có thể được thực hiện từng bước. Chúng mở khóa bộ tính năng Intlayer đầy đủ: trình chỉnh sửa trực quan, CMS, các tệp nội dung được gõ, dịch được hỗ trợ bởi AI, và hơn thế nữa.
@@ -327,8 +319,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Những gì bạn có thể xóa sau khi di chuyển
 
 Khi các compat adapters đã được triển khai, boilerplate `react-i18next` / `i18next` sau đây có thể được xóa:
@@ -340,8 +330,6 @@ Khi các compat adapters đã được triển khai, boilerplate `react-i18next`
 | JSON language bundles (`locales/*.json`) | JSON bundles chỉ cần thiết nếu bạn vẫn sử dụng plugin `syncJSON`. Khi bạn di chuyển sang các file `.content.ts` bạn có thể xóa thư mục JSON. |
 
 Khi bạn sẵn sàng tiến xa hơn, Intlayer **tự động khám phá tất cả các file `.content.ts` và `.content.json` ở bất kỳ đâu trong codebase của bạn** (theo mặc định, ở bất kỳ đâu trong `./src`). Bạn có thể đặt một file `my-component.content.ts` ngay cạnh `MyComponent.tsx` của bạn và Intlayer sẽ nhận nó khi build mà không cần cấu hình bổ sung — không cần imports, không cần registration, không cần file index tập trung. Điều này làm cho việc co-locating translations với pages và components hoàn toàn không gặp trở ngại.
-
----
 
 ## Cấu hình TypeScript
 
@@ -357,8 +345,6 @@ Intlayer sử dụng module augmentation để cung cấp đầy đủ intellise
 }
 ```
 
----
-
 ## Cấu hình Git
 
 Thêm thư mục được tạo bởi Intlayer vào `.gitignore` của bạn:
@@ -367,8 +353,6 @@ Thêm thư mục được tạo bởi Intlayer vào `.gitignore` của bạn:
 # Bỏ qua các tệp được tạo bởi Intlayer
 .intlayer
 ```
-
----
 
 ## Đi Xa Hơn
 

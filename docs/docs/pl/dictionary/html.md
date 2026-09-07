@@ -122,8 +122,6 @@ const myContent = html(
 
 Podczas korzystania z metody `.use()` na węźle HTML, dostarczone komponenty zostaną sprawdzone pod kątem definicji podanej w funkcji `html()` (jeśli jest dostępna).
 
----
-
 ## Renderowanie HTML
 
 Renderowaniem można zająć się automatycznie za pomocą systemu treści Intlayer lub ręcznie przy użyciu specjalistycznych narzędzi.
@@ -477,8 +475,6 @@ Możesz skonfigurować renderowanie HTML globalnie dla całej aplikacji. To idea
   </Tab>
 </Tabs>
 
----
-
 ### Ręczne renderowanie i zaawansowane narzędzia
 
 Jeśli musisz renderować surowe łańcuchy HTML lub potrzebujesz większej kontroli nad mapowaniem komponentów, użyj poniższych narzędzi.
@@ -650,8 +646,6 @@ Jeśli musisz renderować surowe łańcuchy HTML lub potrzebujesz większej kont
 
   </Tab>
 </Tabs>
-
----
 
 ## Referencja opcji
 

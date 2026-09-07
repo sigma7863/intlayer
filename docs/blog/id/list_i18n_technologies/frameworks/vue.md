@@ -23,15 +23,11 @@ author: aymericzip
 
 Dalam lanskap digital yang semakin mengglobal, memperluas jangkauan situs web Vue.js Anda ke pengguna dalam berbagai bahasa bukan lagi sekadar "nilai tambah" tetapi menjadi kebutuhan kompetitif. Internasionalisasi (i18n) memungkinkan pengembang untuk mengelola terjemahan dan menyesuaikan aplikasi mereka untuk berbagai lokal sambil mempertahankan nilai SEO, pengalaman pengguna, dan struktur kode yang dapat dipelihara. Dalam artikel ini, kita akan menjelajahi berbagai pendekatan mulai dari pustaka khusus hingga solusi yang dikodekan secara kustom yang membantu Anda mengintegrasikan i18n ke dalam proyek Vue.js Anda dengan lancar.
 
----
-
 ## Apa itu Internasionalisasi (i18n)?
 
 Internasionalisasi (i18n) adalah praktik mempersiapkan aplikasi perangkat lunak (atau situs web) untuk berbagai bahasa dan konvensi budaya. Dalam ekosistem Vue.js, ini mencakup penetapan bagaimana teks, tanggal, angka, mata uang, dan elemen lain yang dapat dilokalisasi dapat disesuaikan dengan berbagai lokal. Dengan mengatur i18n sejak awal, Anda memastikan struktur yang terorganisir dan skalabel untuk menambahkan bahasa baru serta menangani kebutuhan lokalisasi di masa depan.
 
 Untuk mempelajari lebih lanjut tentang dasar-dasar i18n, lihat referensi kami: [Apa itu Internasionalisasi (i18n)? Definisi dan Tantangan](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/what_is_internationalization.md).
-
----
 
 ## Tantangan Terjemahan untuk Aplikasi Vue
 
@@ -43,13 +39,9 @@ Menerjemahkan aplikasi Vue.js membawa tantangan tersendiri:
 - **State dan Konteks Reaktif:** Memastikan bahwa lokal saat ini dipertahankan di seluruh rute dan komponen yang secara reaktif memperbarui teks dan format memerlukan pendekatan yang matang, terutama saat menggunakan Vuex atau Pinia untuk manajemen state.
 - **Beban Pengembangan:** Menjaga file terjemahan tetap terorganisir, konsisten, dan terbaru dapat dengan cepat menjadi tugas besar jika tidak dikelola dengan hati-hati.
 
----
-
 ## Solusi i18n Terdepan untuk Vue.js
 
 Berikut adalah beberapa pustaka dan pendekatan populer yang dapat Anda gunakan untuk mengintegrasikan internasionalisasi ke dalam aplikasi Vue Anda. Masing-masing bertujuan untuk menyederhanakan terjemahan, SEO, dan pertimbangan performa dengan cara yang berbeda.
-
----
 
 ### 1. Intlayer
 
@@ -94,8 +86,6 @@ Berikut adalah beberapa pustaka dan pendekatan populer yang dapat Anda gunakan u
 - **Ekosistem Plugin**  
   Meskipun kuat, Anda mungkin perlu memilih dengan hati-hati dari beberapa plugin atau modul (Nuxt I18n, Vue I18n, dll.) untuk membangun setup yang sempurna.
 
----
-
 ### 3. LinguiJS (Integrasi Vue)
 
 > Situs web: [https://lingui.js.org/](https://lingui.js.org/)
@@ -122,8 +112,6 @@ Awalnya dikenal untuk integrasi React, **LinguiJS** juga menawarkan plugin Vue y
   Meskipun LinguiJS memiliki dukungan resmi untuk Vue, dokumentasinya terutama berfokus pada React; Anda mungkin perlu mengandalkan contoh dari komunitas.
 - **Komunitas yang Lebih Kecil**  
   Dibandingkan dengan Vue I18n, ekosistemnya relatif lebih kecil. Plugin yang dikelola secara resmi dan add-on pihak ketiga bisa lebih terbatas.
-
----
 
 ## Pemikiran Akhir
 

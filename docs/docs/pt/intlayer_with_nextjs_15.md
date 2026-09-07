@@ -89,8 +89,6 @@ Mais do que apenas uma solução i18n, o Intlayer fornece um **[editor visual] a
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guia passo a passo para configurar o Intlayer em uma aplicação Next.js
 
 <Tabs defaultTab="video">

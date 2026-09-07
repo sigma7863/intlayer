@@ -39,8 +39,6 @@ author: aymericzip
 - Tüm yönlendirme modlarını destekler: `prefix-no-default`, `prefix-all`, `no-prefix` ve `search-params`
 - Locale ön eklerinin ne zaman ekleneceğini belirlemek için hafif bir yardımcı araç
 
----
-
 ## Fonksiyon İmzası
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // örn. 'fr' veya tanımsız
 }
 ```
-
----
 
 ## Parametreler
 
@@ -93,8 +89,6 @@ type GetPrefixResult = {
 - **Açıklama**: Üç farklı ön ek formatı içeren bir nesne:
   - `prefix`: Sonunda eğik çizgi olan yol ön eki (örneğin, `'fr/'`, `''`)
   - `localePrefix`: Eğik çizgisiz locale tanımlayıcısı (örneğin, `'fr'`, `undefined`)
-
----
 
 ## Örnek Kullanım
 
@@ -173,14 +167,10 @@ console.log(`Mevcut locale: ${localePrefix}`);
 // Çıktı: "Mevcut locale: fr"
 ```
 
----
-
 ## İlgili Fonksiyonlar
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getLocalizedUrl.md): Belirli bir locale için lokalize URL oluşturur
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getMultilingualUrls.md): Tüm yapılandırılmış locale'ler için URL'ler oluşturur
-
----
 
 ## TypeScript
 

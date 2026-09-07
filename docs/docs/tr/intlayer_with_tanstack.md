@@ -106,8 +106,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Tanstack Start Uygulamasında Intlayer Kurulumu için Adım Adım Rehber
 
 <Tabs defaultTab="video">
@@ -1199,8 +1197,6 @@ Bunu yapmak için, `.gitignore` dosyanıza aşağıdaki talimatları ekleyebilir
 .intlayer
 ```
 
----
-
 ## VS Code Extension
 
 Intlayer ile geliştirme deneyiminizi iyileştirmek için resmi **Intlayer VS Code Extension**'ını yükleyebilirsiniz.
@@ -1216,13 +1212,9 @@ Bu extension şunları sağlar:
 
 Extension'ın nasıl kullanılacağı hakkında daha fazla ayrıntı için, [Intlayer VS Code Extension belgelerine](https://intlayer.org/doc/vs-code-extension) başvurun.
 
----
-
 ## Daha İleri Gidin
 
 Daha ileri gitmek için, [görsel editörü](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) uygulayabilir veya içeriğinizi [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) kullanarak dışsallaştırabilirsiniz.
-
----
 
 ## Dokümantasyon Referansları
 

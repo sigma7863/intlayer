@@ -112,8 +112,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng Dẫn Từng Bước Cài Đặt Intlayer trong Ứng Dụng Vite và Solid
 
 ## Mục Lục
@@ -723,8 +721,6 @@ Nên bỏ qua các tệp được tạo bởi Intlayer. Điều này cho phép b
 Để cải thiện trải nghiệm phát triển của bạn với Intlayer, bạn có thể cài đặt **Intlayer VS Code Extension** chính thức.
 
 [Cài đặt từ VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Tiến xa hơn
 

@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-06-23
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - अपने ऐप को अनुवाद करने का पूर्ण गाइड"
 description: "अब i18next की जरूरत नहीं। 2026 में Next.js 16 ऐप को बहुभाषी (i18n) बनाने का गाइड। AI एजेंट्स से अनुवाद करें और बंडल साइज़, SEO और परफॉर्मेंस ऑप्टिमाइज़ करें।"
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="Next.js के लिए सबसे अच्छा i18n समाधान? Intlayer खोजें" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="कोड" value="code">
+  <Tab label="कोड (लोकेल पथ)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="डेमो" value="demo">
+  <Tab label="कोड (बिना लोकेल पथ के)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - Intlayer का उपयोग करके अपने एप्लिकेशन को अंतरराष्ट्रीय स्तर पर कैसे बनाएं"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="डेमो (लोकेल पथ)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="डेमो - intlayer-next-16-template"
+  title="डेमो Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-GitHub पर [एप्लिकेशन टेम्प्लेट](https://github.com/aymericzip/intlayer-next-16-template) देखें।
+GitHub पर [एप्लिकेशन टेम्प्लेट](https://github.com/aymericzip/intlayer-next-16-template) और [बिना लोकेल पाथ वाला एप्लिकेशन टेम्प्लेट](https://github.com/aymericzip/intlayer-next-no-lolale-path-template) देखें।
 
 ## विषय-सूची
 
@@ -81,7 +92,7 @@ GitHub पर [एप्लिकेशन टेम्प्लेट](https://
 कुशल रेंडरिंग के लिए इंटलेयर को **सर्वर कंपोनेंट्स** के साथ काम करने के लिए अनुकूलित किया गया है और यह [**टर्बोपैक**](https://nextjs.org/docs/architecture/turbopack) के साथ पूरी तरह से संगत है। यह स्थैतिक रेंडरिंग को अवरुद्ध नहीं करता है और मिडलवेयर के साथ-साथ अंतर्राष्ट्रीयकरण (i18n) को स्केल करने के लिए आवश्यक सभी सुविधाएँ प्रदान करता है।
 
 > इंटलेयर Next.js 12, 13, 14, 15 और 16 के साथ संगत है। यदि आप Next.js पेज राउटर का उपयोग कर रहे हैं, तो आप इस [गाइड] (https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md) को देख सकते हैं।
-> लोकेल रूटिंग एसईओ, बंडल आकार और प्रदर्शन के लिए उपयोगी है। यदि आपको इसकी आवश्यकता नहीं है, तो आप इस [गाइड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md) का संदर्भ ले सकते हैं।
+> लोकेल रूटिंग SEO, बंडल आकार और प्रदर्शन के लिए उपयोगी है। दोनों सेटअप, लोकेल पाथ रूटिंग के साथ और उसके बिना, समर्थित हैं और इस गाइड में शामिल हैं।
 > ऐप राउटर के साथ Next.js 12, 13, 14, और 15 के लिए, इस [गाइड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md) को देखें।
 
 </Accordion>
@@ -122,8 +133,6 @@ GitHub पर [एप्लिकेशन टेम्प्लेट](https://
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Next.js एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
@@ -181,7 +190,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="अपने प्रोजेक्ट को कॉन्फ़िगर करें">
 
-यहाँ अंतिम संरचना है जो हम बनाएंगे:
+चुनें कि क्या आपके एप्लिकेशन को स्थानीयकृत URL पथ (उदा. `/hi/about`, `/en/about`) का उपयोग करना चाहिए या पथ में लोकेल सेगमेंट के बिना सामग्री परोसनी चाहिए (उदा. `/about`, कुकीज़, हेडर या क्वेरी पैरामीटर के माध्यम से लोकेल का पता लगाना)।
+
+<Tabs group="routing-mode">
+<Tab label="लोकेल पथ के साथ" value="with-locale-path">
+
+### आर्किटेक्चर
+
+इस आर्किटेक्चर में, सभी स्थानीयकृत पृष्ठ `[locale]` डायनामिक रूट सेगमेंट के तहत नेस्ट किए गए हैं। यह दृष्टिकोण SEO और स्थिर रेंडरिंग के लिए अनुशंसित है क्योंकि प्रत्येक भाषा का एक समर्पित URL होता है:
 
 ```bash
 .
@@ -207,9 +223,9 @@ bun add intlayer next-intlayer
 └── tsconfig.json
 ```
 
-> यदि आप लोकल रूटिंग नहीं चाहते हैं, तो intlayer को एक साधारण प्रदाता / हुक के रूप में उपयोग किया जा सकता है। अधिक जानकारी के लिए [यह मार्गदर्शिका](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_with_nextjs_no_locale_path.md) देखें।
+### कॉन्फ़िगरेशन
 
-अपने एप्लिकेशन की भाषाओं को कॉन्फ़िगर करने के लिए एक कॉन्फ़िग फाइल बनाएं:
+अपने एप्लिकेशन की समर्थित भाषाओं को घोषित करने के लिए एक `intlayer.config.ts` कॉन्फ़िगरेशन फ़ाइल बनाएँ:
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -224,10 +240,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // या `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="बिना लोकेल पथ के" value="without-locale-path">
+
+### आर्किटेक्चर
+
+इस आर्किटेक्चर में, रूट्स के URL पाथ में डायनामिक `[locale]` सेगमेंट शामिल नहीं होता है। सभी पेज सीधे `src/app/` के अंतर्गत रहते हैं, और लोकेल कुकीज़, हेडर या क्वेरी पैरामीटर के माध्यम से निर्धारित होता है:
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### कॉन्फ़िगरेशन
+
+पाथ उपसर्ग के बिना सामग्री परोसने के लिए `routing.mode` प्रॉपर्टी को `"search-params"` (उदा. `/about?locale=hi`) या `"no-prefix"` पर सेट करें:
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // आपके अन्य locales
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // या `no-prefix` - middleware का पता लगाने के लिए उपयोगी
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > इस कॉन्फ़िगरेशन फ़ाइल के माध्यम से, आप स्थानीयकृत URL, प्रॉक्सी पुनर्निर्देशन, कुकी नाम, आपकी सामग्री घोषणाओं का स्थान और एक्सटेंशन सेट कर सकते हैं, कंसोल में Intlayer लॉग को अक्षम कर सकते हैं, और भी बहुत कुछ। उपलब्ध सभी पैरामीटरों की पूरी सूची के लिए, [कॉन्फ़िगरेशन दस्तावेज़](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/configuration.md) देखें।
 
@@ -277,6 +355,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="डायनामिक लोकल रूट्स परिभाषित करें">
+
+<Tabs group="routing-mode">
+<Tab label="लोकेल पथ के साथ" value="with-locale-path">
 
 `RootLayout` से सब कुछ हटा दें और इसे निम्नलिखित कोड से बदलें:
 
@@ -372,6 +453,102 @@ export default LocaleLayout;
 
 > Intlayer `export const dynamic = 'force-static';` के साथ काम करता है ताकि यह सुनिश्चित किया जा सके कि पृष्ठ सभी लोकल के लिए पूर्व-निर्मित हों।
 
+</Tab>
+<Tab label="बिना लोकेल पथ के" value="without-locale-path">
+
+बिना लोकेल पाथ वाले आर्किटेक्चर में, कोई `[locale]` डायरेक्टरी नहीं होती है। अनुरोध संदर्भ से लोकेल पढ़ने और अपने एप्लिकेशन को `IntlayerProvider` से लपेटने के लिए सीधे `src/app/layout.tsx` को कॉन्फ़िगर करें:
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+> एक single `IntlayerProvider` tree के दोनों हिस्सों को कवर करता है: यह request-scoped server context को seed करता है जिसे server hooks द्वारा पढ़ा जाता है, और client provider को mount करता है ताकि client components को same locale प्राप्त हो।
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+ </Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
+
 </Step>
 
 <Step number={5} title="अपनी सामग्री घोषित करें">
@@ -460,7 +637,7 @@ export default Page;
 ```
 
 - **`IntlayerProvider`** को locale layout में एक बार mount किया जाता है। यह locale को server और client दोनों components को प्रदान करता है, इसलिए pages अब अपने आप को wrap नहीं करते हैं।
-- Server hooks locale को इस क्रम में resolve करते हैं: call site पर passed locale, फिर provider द्वारा seeded server context, फिर request द्वारा carried locale (Intlayer proxy द्वारा set किया गया `x-intlayer-locale` header, फिर locale cookie)। यह आखिरी step वह है जो client-side navigation पर content को सही रखता है जो केवल page segment को re-render करता है, जहां layout — और इसके साथ provider — re-run नहीं होता है।
+- Server hooks locale को इस क्रम में resolve करते हैं: call site पर passed locale, फिर provider द्वारा seeded server context, फिर request द्वारा carried locale (Intlayer proxy द्वारा set किया गया `x-intlayer-locale` header, फिर locale cookie)। यह आखिरी step वह है जो client-side navigation पर content को सही रखता है जो केवल page segment को re-render करता है, जहां layout , और इसके साथ provider , re-run नहीं होता है।
 
 अपने एप्लिकेशन में अपनी सामग्री शब्दकोशों तक पहुँचें:
 
@@ -1257,7 +1434,7 @@ Next.js 12, 13, 14, 15, और 16। App Router और Pages Router दोनो
 - `"no-prefix"`: पथ में कोई लोकेल नहीं है, कुकी, हेडर या डोमेन से निर्धारित होता है।
 - `"search-params"`: `/about?locale=fr`।
 
-आप `routing.domains` के साथ प्रत्येक लोकेल को उसके अपने डोमेन से भी मैप कर सकते हैं। देखें [कॉन्फ़िगरेशन संदर्भ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/configuration.md) और [लोकेल पथ के बिना गाइड](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_with_nextjs_no_locale_path.md)।
+आप `routing.domains` के साथ प्रत्येक लोकेल को उसके अपने डोमेन से भी मैप कर सकते हैं। देखें [कॉन्फ़िगरेशन संदर्भ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/configuration.md) और रूटिंग मोड विकल्पों के लिए [चरण 2](#step-2-configure-your-project)।
 
 </Question>
 

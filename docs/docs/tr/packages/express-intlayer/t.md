@@ -28,13 +28,9 @@ author: aymericzip
 
 `express-intlayer` paketindeki `t` fonksiyonu, Express uygulamanızda yerelleştirilmiş yanıtlar sağlamak için temel yardımcıdır. Kullanıcının tercih ettiği dile göre içeriği dinamik olarak seçerek uluslararasılaştırmayı (i18n) basitleştirir.
 
----
-
 ## Genel Bakış
 
 `t` fonksiyonu, verilen bir dil seti için çevirileri tanımlamak ve almak için kullanılır. İstemcinin istek ayarlarına göre (örneğin `Accept-Language` başlığı) döndürülecek uygun dili otomatik olarak belirler. Tercih edilen dil mevcut değilse, yapılandırmanızda belirtilen varsayılan yerel ayara zarif bir şekilde geri döner.
-
----
 
 ## Temel Özellikler
 
@@ -42,8 +38,6 @@ author: aymericzip
 - **Varsayılan Yerel Ayara Geri Dönme**: İstemcinin tercih ettiği dil mevcut değilse, kullanıcı deneyimini sürdürmek için varsayılan yerel ayara geri döner.
 - **Hafif ve Hızlı**: Yüksek performanslı uygulamalar için tasarlanmış, minimum ek yük sağlar.
 - **Katı Mod Desteği**: Güvenilir davranış için bildirilen yerel ayarlara katı uyumu zorunlu kılar.
-
----
 
 ## Fonksiyon İmzası
 
@@ -58,8 +52,6 @@ t(translations: Record<string, string>): string;
 ### Döndürür
 
 - İstemcinin tercih ettiği dildeki içeriği temsil eden bir dize.
-
----
 
 ## Uluslararasılaştırma İstek İşleyicisini Yükleme
 
@@ -93,8 +85,6 @@ app.get("/", (_req, res) => {
 - **Yerel Algılama**: `intlayer` ara yazılımı, başlıklara, çerezlere veya diğer yapılandırılmış yöntemlere göre kullanıcının tercih ettiği yerel ayarı algılamak için gelen istekleri işler.
 - **Çeviri Bağlamı**: `t` fonksiyonunun doğru çalışması için gerekli bağlamı kurar, çevirilerin doğru dilde döndürülmesini sağlar.
 - **Hata Önleme**: Bu ara yazılım olmadan, `t` fonksiyonunu kullanmak, gerekli yerel bilgileri mevcut olmadığı için çalışma zamanı hatalarına neden olur.
-
----
 
 ## Kullanım Örnekleri
 
@@ -135,8 +125,6 @@ app.get("/error", (_req, res) => {
   );
 });
 ```
-
----
 
 ### Yerel Varyantları Kullanma
 
@@ -184,8 +172,6 @@ app.get("/greet", (_req, res) => {
 });
 ```
 
----
-
 ## Gelişmiş Konular
 
 ### Geri Dönme Mekanizması
@@ -209,8 +195,6 @@ export default config;
 
 - `defaultLocale` `Locales.CHINESE` ise ve bir istemci `Locales.DUTCH` isterse, döndürülen çeviri `Locales.CHINESE` değerine varsayılan olur.
 - `defaultLocale` tanımlanmamışsa, `t` fonksiyonu `Locales.ENGLISH` değerine geri döner.
-
----
 
 ### Katı Mod Zorunluluk
 
@@ -238,8 +222,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### TypeScript Entegrasyonu
 
 `t` fonksiyonu TypeScript ile kullanıldığında tür güvenlidir. Tür güvenli çeviriler nesnesi tanımlayın:
@@ -258,8 +240,6 @@ app.get("/morning", (_req, res) => {
 });
 ```
 
----
-
 ### Yaygın Hatalar ve Sorun Giderme
 
 | Sorun                     | Neden                                    | Çözüm                                                                 |
@@ -267,16 +247,12 @@ app.get("/morning", (_req, res) => {
 | `t` fonksiyonu çalışmıyor | Ara yazılım yüklenmemiş                  | `app.use(intlayer())` öğesinin yollar öncesi eklendiğinden emin olun. |
 | Eksik çeviriler hatası    | Tüm yerel ayarlar olmadan katı mod etkin | Tüm gerekli çevirileri sağlayın.                                      |
 
----
-
 ## Etkili Kullanım İçin İpuçları
 
 1. **Çevirileri Merkezi Hale Getirin**: Bakım kolaylığını artırmak için merkezi bir modül veya JSON dosyaları kullanarak çevirileri yönetin.
 2. **Çevirileri Doğrulayın**: Gereksiz geri dönmeyi önlemek için her dil varyantının karşılık gelen bir çeviriye sahip olduğundan emin olun.
 3. **Ön Uç i18n ile Birleştirin**: Uygulamada sorunsuz bir kullanıcı deneyimi için ön uç uluslararasılaştırmayla senkronize edin.
 4. **Performansı Ölçün**: Minimum etkiyi sağlamak için çeviriler ekledikten sonra uygulamanızın yanıt sürelerini test edin.
-
----
 
 ## Sonuç
 

@@ -23,15 +23,11 @@ author: aymericzip
 
 Seiring web terus menghubungkan orang-orang di seluruh dunia, menyediakan konten dalam berbagai bahasa menjadi semakin penting. Bagi pengembang yang bekerja dengan **Svelte**, menerapkan i18n sangat penting untuk mengelola terjemahan secara efisien, menjaga kode tetap bersih, dan mempertahankan praktik SEO yang baik. Dalam artikel ini, kami membahas berbagai solusi dan alur kerja i18n untuk Svelte yang membantu Anda memilih yang paling sesuai dengan kebutuhan proyek Anda.
 
----
-
 ## Apa itu Internasionalisasi (i18n)?
 
 Internasionalisasi, yang biasa disingkat i18n, adalah proses merancang dan membangun aplikasi Anda agar dapat dengan mudah beradaptasi dengan berbagai bahasa, wilayah, dan konvensi budaya. Dalam Svelte, ini biasanya berarti menyiapkan string terjemahan, melokalisasi tanggal, waktu, dan angka, serta memastikan antarmuka pengguna dapat beralih secara dinamis di antara berbagai locale tanpa perlu penulisan ulang kode yang besar.
 
 Untuk mempelajari lebih lanjut tentang dasar-dasar i18n, baca artikel kami: [Apa itu Internasionalisasi (i18n)? Definisi dan Tantangan](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/what_is_internationalization.md).
-
----
 
 ## Tantangan Terjemahan untuk Aplikasi Svelte
 
@@ -42,8 +38,6 @@ Menerjemahkan aplikasi Svelte dapat menghadirkan beberapa kendala:
 - **Pertimbangan SEO**: Jika Anda menggunakan **SvelteKit** untuk server-side rendering (SSR), mengonfigurasi URL yang dilokalisasi, meta tag, dan sitemap untuk SEO yang efektif memerlukan perhatian ekstra.
 - **State & Routing**: Mempertahankan bahasa yang benar di berbagai rute dan halaman dinamis sering kali melibatkan pengaturan state global, route guards, atau custom hooks di SvelteKit.
 - **Maintainability**: Seiring bertambahnya codebase dan file terjemahan Anda, menjaga semuanya tetap terorganisir dengan baik dan tersinkronisasi menjadi usaha yang berkelanjutan.
-
----
 
 ## Solusi i18n Terdepan untuk Svelte
 
@@ -69,8 +63,6 @@ Svelte tidak menyediakan solusi i18n bawaan secara native (seperti Angular), tet
 
 - **Komunitas & Ekosistem**: Meskipun terus berkembang, ekosistemnya masih baru, sehingga plugin dan alat yang didorong oleh komunitas mungkin lebih terbatas dibandingkan dengan solusi yang lebih mapan.
 
----
-
 ### 2. svelte-i18n
 
 Repositori: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaisermann/svelte-i18n)
@@ -90,8 +82,6 @@ Repositori: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaise
 - **Organisasi Proyek**: Anda perlu menyusun file terjemahan secara logis seiring pertumbuhan proyek.
 - **Pengaturan SSR**: Mengonfigurasi SSR untuk SEO mungkin memerlukan langkah tambahan untuk memastikan deteksi locale yang benar di sisi server.
 - **Performa**: Meskipun fleksibel saat runtime, memuat banyak terjemahan sekaligus dapat mempengaruhi waktu muat awal; pertimbangkan strategi lazy loading atau caching.
-
----
 
 ### 3. svelte-intl-precompile
 
@@ -113,8 +103,6 @@ Repository: [https://github.com/cibernox/svelte-intl-precompile](https://github.
 - **Konten Dinamis**: Jika Anda membutuhkan terjemahan langsung untuk konten yang dibuat pengguna, pendekatan ini mungkin memerlukan langkah tambahan untuk pembaruan saat runtime.
 - **Kurva Pembelajaran**: Kombinasi ekstraksi pesan dan prekompilasi bisa sedikit lebih kompleks bagi pemula.
 
----
-
 ### 4. i18next dengan Svelte / SvelteKit
 
 Website: [https://www.i18next.com/](https://www.i18next.com/)
@@ -134,8 +122,6 @@ Meskipun **i18next** lebih umum dikaitkan dengan React atau Vue, juga memungkink
 - **Pengaturan Manual**: i18next tidak memiliki integrasi khusus untuk Svelte secara langsung, jadi Anda perlu mengonfigurasinya sendiri.
 - **Beban Berlebih**: i18next sangat kuat, tetapi untuk proyek Svelte yang lebih kecil, beberapa fiturnya mungkin berlebihan.
 - **Routing & State**: Penanganan routing bahasa kemungkinan akan melibatkan hooks atau middleware khusus SvelteKit.
-
----
 
 ### Pemikiran Akhir
 

@@ -21,15 +21,11 @@ author: aymericzip
 
 Dünya çapında daha fazla kullanıcıya ulaşmak mı istiyorsunuz? Web sitenizi çok dilli yapmak, kitleinizi genişletmenin ve SEO'nuzu (Arama Motoru Optimizasyonu) iyileştirmenin en iyi yollarından biridir. Bu blog yazısında, uluslararası SEO'nun temellerini, genellikle **i18n** (uluslararasılaştırmanın kısaltması) olarak adlandırılanı, açık ve anlaşılır terimlerle açıklayacağız. Almanız gereken temel kararları, `hreflang` gibi teknik unsurları nasıl kullanacağınızı öğreneceksiniz ve **Intlayer** gibi araçların Next.js projelerinizde çok dilli yapmayı nasıl basitleştirebileceğini göreceksiniz.
 
----
-
 ## 1. Web Sitenizi Çok Dilli Yapmak Ne Anlama Geliyor?
 
 Çok dilli bir web sitesi, içeriğini birden fazla dilde sunar. Örneğin, İngilizce bir sürümünüz (`example.com/en/`), Fransızca bir sürümünüz (`example.com/fr/`) ve İspanyolca bir sürümünüz (`example.com/es/`) olabilir. Bu yaklaşım, arama motorlarının kullanıcıların tercihlerine veya coğrafi konumlarına göre doğru dil sürümünü göstermesini sağlar.
 
 Bunu doğru yaptığınızda, İngilizce konuşmayanlar için çok daha kullanıcı dostu bir deneyim yaratırsınız, bu da daha iyi etkileşim, daha yüksek dönüşüm oranları ve farklı bölgelerde iyileştirilmiş SEO anlamına gelir.
-
----
 
 ## 2. Doğru URL Yapısını Seçmek
 
@@ -51,8 +47,6 @@ Birden fazla dil sürümüne karar verirseniz, sitenizin URL'lerini açık ve tu
    - **Eksileri:** ccTLD'ler kadar güçlü bir yerel SEO sinyali değildir (ancak doğru yapılırsa hala çok etkilidir).
 
 > **İpucu:** Küresel bir markanız varsa ve işleri basit tutmak istiyorsanız, alt dizinler genellikle en iyisidir. Sadece bir veya iki ana ülkeyi hedefliyorsanız ve her birini gerçekten vurgulamak istiyorsanız, ccTLD'ler yol olabilir.
-
----
 
 ## 3. Hreflang ile Dil Hedeflemeyi Usta Düzeyine Getirmek
 
@@ -84,8 +78,6 @@ HTML'nizde şuna benzer bir şey ekleyeceksiniz:
 
 > **Hızlı Not:** Bu etiketlerdeki URL'lerin doğrudan son sayfaya yönlendirdiğinden emin olun, **ekstra yönlendirme olmadan**.
 
----
-
 ## 4. İçeriği Gerçekten "Yerel" Yapmak (Sadece Çevrilmiş Değil)
 
 ### 4.1. Yerelleştirme vs. Çeviri
@@ -96,8 +88,6 @@ HTML'nizde şuna benzer bir şey ekleyeceksiniz:
 ### 4.2. Yinelenen İçerikten Kaçınmak
 
 İyi çevirilere rağmen, arama motorları yapısı çok benzer görünüyorsa sitenizi yinelenen içerik için işaretleyebilir. Hreflang, bu sayfaların kopya olmadığını, dil varyasyonları olduğunu açıklar.
-
----
 
 ## 5. Teknik SEO Gereklilikleri
 
@@ -127,8 +117,6 @@ Kurallı etiketler, yakın kopya sayfalarınız varsa arama motorlarına hangi s
 <link rel="canonical" href="https://example.com/fr/produits" />
 ```
 
----
-
 ## 6. Birden Fazla Dilde Sayfa İçi SEO
 
 ### 6.1. Başlık & Meta Açıklamaları
@@ -144,8 +132,6 @@ Başlıklarınız her bölgenin **yerel ifadeleri** veya **anahtar kelimelerini*
 
 - Gerekirse alt metni, açıklamaları ve dosya adlarını yerelleştirin.
 - Hedef kültürle rezonansa giren görseller kullanın.
-
----
 
 ## 7. Dil Değiştirme & Kullanıcı Deneyimi
 
@@ -224,16 +210,12 @@ const LocaleSwitcher: FC = () => {
 - Kullanıcınızın dil seçimini bir **çerez** veya **oturumda** kaydedin.
 - Bir sonraki ziyaretlerinde sitenize otomatik olarak tercih ettikleri dili yükleyebilirsiniz.
 
----
-
 ## 8. Yerel Geri Bağlantılar Oluşturmak
 
 **Geri bağlantılar** (dış sitelerden sitenize bağlantılar) önemli bir SEO faktörü olmaya devam ediyor. Çok dilli bir site çalıştırdığınızda şunları göz önünde bulundurun:
 
 - Yerel haber sitelerine, bloglara veya forumlara ulaşın. Örneğin, Fransızca alt dizininize işaret eden bir `.fr` alan adı, yerel Fransızca SEO'nuzu artırabilir.
 - Her dil için geri bağlantıları izleyin ve hangi bölgelerin daha fazla PR/pazarlama çabasına ihtiyacı olduğunu görün.
-
----
 
 ## 9. Çok Dilli Sitenizi İzleme ve Bakım
 
@@ -246,8 +228,6 @@ const LocaleSwitcher: FC = () => {
 
 - Çevirileri taze tutun. İngilizce'de bir ürün açıklamasını değiştirirseniz, Fransızca, İspanyolca vb.'de güncelleyin.
 - Güncel olmayan çeviriler müşteriler için kafa karıştırıcı olabilir ve kullanıcı güvenini zedeleyebilir.
-
----
 
 ## 10. Kaçınılması Gereken Yaygın Tuzaklar
 
@@ -263,13 +243,9 @@ const LocaleSwitcher: FC = () => {
 4. **Kültürel Nüansları Göz Ardı Etmek**
    Bir ülkede işe yarayan bir şaka veya ifade başka bir ülkede saldırgan veya anlamsız olabilir.
 
----
-
 ## Intlayer SEO Scanner ile web sitenizi denetleyin
 
 Çok dilli uygulamanızın mükemmel şekilde optimize edildiğinden emin olmak için [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner) kullanmanızı öneririz. Çok dilli web sitesi kontrolü için özel bir araçtır; tüm yerelleştirilmiş sayfalarınızda eksik hreflang etiketlerini, bozuk bağlantıları ve diğer SEO sorunlarını belirlemenize yardımcı olur.
-
----
 
 ## Sonuç
 

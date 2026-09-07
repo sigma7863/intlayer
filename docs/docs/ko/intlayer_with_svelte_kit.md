@@ -108,8 +108,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </Accordion>
 </AccordionGroup>
 
----
-
 ## SvelteKit 애플리케이션에서 Intlayer 설정 단계별 가이드
 
 GitHub에서 [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template)을 참조하세요.
@@ -777,8 +775,6 @@ Intlayer가 생성한 파일은 무시하는 것이 권장됩니다.
 # Intlayer가 생성한 파일 무시
 .intlayer
 ```
-
----
 
 ### 더 나아가기
 

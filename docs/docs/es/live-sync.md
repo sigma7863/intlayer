@@ -38,8 +38,6 @@ La sincronización en vivo permite que tu aplicación refleje los cambios de con
 
 <TOC/>
 
----
-
 ## Activar la sincronización en vivo
 
 Habilita Live Sync actualizando tu configuración de Intlayer:

@@ -35,15 +35,11 @@ Evaluamos:
 
 > **resumen**: Los tres pueden localizar una aplicación React. Si quieres **contenido con alcance por componente**, **tipos estrictos en TypeScript**, **verificaciones de claves faltantes en tiempo de compilación**, **diccionarios optimizados por tree-shaking** y herramientas editoriales integradas (Editor Visual/CMS + traducción asistida por IA opcional), **Intlayer** es la opción más completa para bases de código React modulares.
 
----
-
 ## Posicionamiento a alto nivel
 
 - **react-intl** - Formateo basado en ICU y alineado con estándares (fechas/números/plurales) con una API madura. Los catálogos suelen estar centralizados; la seguridad de las claves y la validación en tiempo de compilación dependen en gran medida de ti.
 - **react-i18next** - Extremadamente popular y flexible; namespaces, detectores y muchos plugins (ICU, backends). Potente, pero la configuración puede expandirse a medida que los proyectos crecen.
 - **Intlayer** - Modelo de contenido centrado en componentes para React, **tipado estricto en TS**, **verificaciones en tiempo de compilación**, **tree-shaking**, además de **Editor Visual/CMS** y **traducciones asistidas por IA**. Funciona con React Router, Vite, CRA, etc.
-
----
 
 ## Matriz de características (enfoque React)
 
@@ -69,8 +65,6 @@ Evaluamos:
 | **Eliminación de contenido no usado**                            | ✅ Sí, por diccionario en tiempo de compilación                                                                                                  | ❌ No, solo mediante segmentación manual de namespaces                                                                                | ❌ No, todos los mensajes declarados se incluyen en el paquete                                                     |
 | **Gestión de Proyectos Grandes**                                 | ✅ Fomenta la modularidad, adecuado para sistemas de diseño                                                                                      | ⚠️ Requiere buena disciplina en los archivos                                                                                          | ⚠️ Los catálogos centrales pueden volverse grandes                                                                 |
 
----
-
 ## Comparación detallada
 
 ### 1) Arquitectura y escalabilidad
@@ -80,8 +74,6 @@ Evaluamos:
 
 **Por qué importa:** El contenido modular refleja una interfaz modular. Las grandes bases de código React se mantienen más limpias cuando las traducciones conviven con los componentes a los que pertenecen.
 
----
-
 ### 2) TypeScript y seguridad
 
 - **react-intl**: Tipados sólidos, pero **sin tipado automático de claves**; debes aplicar los patrones de seguridad tú mismo.
@@ -90,16 +82,12 @@ Evaluamos:
 
 **Por qué es importante:** Mover los fallos hacia la **izquierda** (a la compilación/CI) reduce problemas en producción y acelera los ciclos de retroalimentación para los desarrolladores.
 
----
-
 ### 3) Manejo de traducciones faltantes
 
 - **react-intl / react-i18next**: Por defecto usan **respaldo en tiempo de ejecución** (eco de la clave o idioma predeterminado). Puedes agregar linting/plugins, pero no está garantizado en la compilación.
 - **Intlayer**: **Detección en tiempo de compilación** con advertencias o errores cuando faltan locales o claves requeridas.
 
 **Por qué es importante:** Que la CI falle por cadenas faltantes evita que “inglés misterioso” se filtre en interfaces no inglesas.
-
----
 
 ### 4) Contenido enriquecido y formato
 
@@ -109,16 +97,12 @@ Evaluamos:
 
 **Por qué es importante:** Los textos complejos de la interfaz de usuario (enlaces, partes en negrita, componentes en línea) son más fáciles cuando la biblioteca integra nodos React de forma limpia.
 
----
-
 ### 5) Rendimiento y comportamiento de carga
 
 - **react-intl / react-i18next**: Normalmente gestionas el **división de catálogos** y la **carga diferida** manualmente (espacios de nombres/importaciones dinámicas). Efectivo pero requiere disciplina.
 - **Intlayer**: Realiza **tree-shaking** de diccionarios no usados y soporta **carga diferida por diccionario/por localización** de forma nativa.
 
 **Por qué importa:** Paquetes más pequeños y menos cadenas no usadas mejoran el rendimiento de inicio y navegación.
-
----
 
 ### 6) DX, herramientas y mantenimiento
 
@@ -127,15 +111,11 @@ Evaluamos:
 
 **Por qué es importante:** Las herramientas integradas acortan el ciclo entre desarrolladores y autores de contenido - menos código de unión, menos dependencias de proveedores.
 
----
-
 ## ¿Cuándo elegir cuál?
 
 - **Elige react-intl** si quieres un formateo de mensajes **priorizando ICU** con una API sencilla y alineada con estándares, y tu equipo está cómodo manteniendo catálogos y verificaciones de seguridad manualmente.
 - **Elige react-i18next** si necesitas la **amplitud del ecosistema de i18next** (detectores, backends, plugin ICU, integraciones) y aceptas más configuración para ganar flexibilidad.
 - **Elige Intlayer** si valoras el **contenido acotado por componente**, **TypeScript estricto**, **garantías en tiempo de compilación**, **tree-shaking** y herramientas editoriales **incluidas por defecto**, especialmente para aplicaciones React **grandes y modulares**.
-
----
 
 ## Interoperabilidad con `react-intl` y `react-i18next`
 
@@ -143,16 +123,12 @@ Evaluamos:
 
 Usando `intlayer`, puedes declarar tu contenido en el formato de tu librería i18n favorita, e intlayer generará tus namespaces en la ubicación que elijas (ejemplo: `/messages/{{locale}}/{{namespace}}.json`).
 
----
-
 ## Notas prácticas para la migración (react-intl / react-i18next → Intlayer)
 
 - **Migra de forma incremental**: Comienza con una funcionalidad o ruta; mantén los catálogos heredados en paralelo durante la transición.
 - **Adopta diccionarios por componente**: Ubica el contenido junto con los componentes para reducir el acoplamiento.
 - **Activa verificaciones estrictas**: Permite que los errores en tiempo de compilación detecten claves/locales faltantes temprano en CI.
 - **Mide los bundles**: Espera reducciones a medida que se eliminan cadenas no usadas.
-
----
 
 ## Conclusión
 

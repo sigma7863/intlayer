@@ -106,8 +106,6 @@ Intlayer оптимізовано для ідеальної роботи з Lit,
 </Accordion>
 </AccordionGroup>
 
----
-
 Див. [Application Template](https://github.com/aymericzip/intlayer-vite-lit-template) на GitHub.
 
 ## Покрокова інструкція з налаштування Intlayer у додатку Vite та Lit
@@ -719,8 +717,6 @@ console.log("SEO files generated successfully.");
 - **Швидкі дії** для легкого створення та оновлення перекладів.
 
 Докладніше про використання розширення дивіться в [документації до розширення Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Йдіть далі
 

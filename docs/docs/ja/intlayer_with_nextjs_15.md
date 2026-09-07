@@ -91,8 +91,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Next.jsアプリケーションでIntlayerをセットアップするステップバイステップガイド
 
 <Tabs defaultTab="video">

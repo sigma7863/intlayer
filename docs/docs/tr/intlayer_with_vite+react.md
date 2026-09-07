@@ -85,8 +85,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite ve React Uygulamasında Intlayer Kurulumu İçin Adım Adım Kılavuz
 
 <Tabs defaultTab="video">
@@ -976,8 +974,6 @@ Bu uzantı şunları sağlar:
 - Çevirileri kolayca oluşturmak ve güncellemek için **hızlı eylemler**.
 
 Uzantının nasıl kullanılacağı hakkında daha fazla ayrıntı için [Intlayer VS Code Uzantısı belgelerine](https://intlayer.org/tr/doc/vs-code-extension) bakın.
-
----
 
 ### Daha Fazla İlerle
 

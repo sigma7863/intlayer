@@ -1,6 +1,6 @@
 ---
 createdAt: 2025-08-23
-updatedAt: 2026-09-05
+updatedAt: 2026-09-06
 title: 簡介
 description: 了解 Intlayer 的工作原理。查看 Intlayer 在您的應用程式中使用的步驟。了解不同的套件各自的功能。
 keywords:
@@ -182,12 +182,9 @@ Intlayer 提供了多種功能，旨在滿足現代 Web 開發的需求。以下
 - **[Intlayer 與 Next.js 15](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_nextjs_15.md)**
 - **[Intlayer 與 Next.js 14 (App Router)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_nextjs_14.md)**
 - **[Intlayer 與 Next.js Page Router](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_nextjs_page_router.md)**
-- **[Intlayer 與 Next.js（URL 中無 locale）](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_nextjs_no_locale_path.md)**
-- **[Intlayer 與 Next.js (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_nextjs_compiler.md)**
 - **[Intlayer 與 Tanstack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_tanstack.md)**
 - **[Intlayer 與 Tanstack Start + Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_tanstack+solid.md)**
 - **[Intlayer 與 Vite + React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_vite+react.md)**
-- **[Intlayer 與 Vite + React (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_vite+react_compiler.md)**
 - **[Intlayer 與 React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_react_router_v7.md)**
 - **[Intlayer 與 React Router v7 (fs-routes)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_react_router_v7_fs_routes.md)**
 - **[Intlayer 與 React CRA](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh-TW/intlayer_with_create_react_app.md)**

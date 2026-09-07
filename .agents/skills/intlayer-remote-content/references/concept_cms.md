@@ -43,8 +43,6 @@ For that, Intlayer introduce the concept of 'distant dictionaries'.
 
 <TOC/>
 
----
-
 ## Understanding distant dictionaries
 
 Intlayer make a difference between 'local' and 'remote' dictionaries.

@@ -104,7 +104,7 @@ export default defineConfig({
 
 > Plugin `intlayerCompiler()` độc lập vẫn được export cho các setup nâng cao. Đăng ký nó cùng với `intlayer()` là an toàn — compiler tự động loại bỏ các bản sao và chỉ chạy một lần.
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react.md)
 
 #### Hỗ trợ Framework
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 Cấu hình này đảm bảo rằng nội dung được khai báo trong các component của bạn será được tự động trích xuất và sử dụng để tạo từ điển trong quá trình build.
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

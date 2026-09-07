@@ -458,8 +458,6 @@ Intlayer는 자동 완성 기능을 향상시키고 번역 오류를 잡기 위�
 - **사전 키에 대한 자동 완성**.
 - **존재하지 않는 키에 접근하거나 타입이 일치하지 않을 때 경고하는 타입 검사**.
 
----
-
 ## Git 설정
 
 Intlayer가 자동 생성한 파일을 커밋하지 않도록 하려면, `.gitignore`에 다음을 추가하세요:
@@ -468,8 +466,6 @@ Intlayer가 자동 생성한 파일을 커밋하지 않도록 하려면, `.gitig
 # Intlayer가 생성한 파일 무시
 .intlayer
 ```
-
----
 
 ### VS Code 확장
 
@@ -486,8 +482,6 @@ Intlayer와 함께 개발 경험을 향상시키기 위해 공식 **Intlayer VS 
 
 확장 기능 사용 방법에 대한 자세한 내용은 [Intlayer VS Code 확장 문서](https://intlayer.org/doc/vs-code-extension)를 참조하세요.
 
----
-
 ## 더 나아가기
 
 - **비주얼 에디터**: [Intlayer 비주얼 에디터](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_visual_editor.md)를 사용하여 번역을 시각적으로 관리하세요.
@@ -495,8 +489,6 @@ Intlayer와 함께 개발 경험을 향상시키기 위해 공식 **Intlayer VS 
 - **CLI 명령어**: 번역 추출이나 누락된 키 확인과 같은 작업을 위해 [Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/cli/index.md)를 탐색해 보세요.
 
 **Intlayer**를 통해 완벽하게 지원되는 i18n으로 **React Native** 앱을 즐겁게 개발하세요!
-
----
 
 ### Debug
 
@@ -523,8 +515,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - 모듈을 확인할 수 없으면 Metro 구성(resolver aliases, asset plugins, `tsconfig` paths)을 확인하세요.
-
----
 
 ## 자주 묻는 질문
 

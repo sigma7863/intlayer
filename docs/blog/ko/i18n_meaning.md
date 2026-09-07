@@ -92,8 +92,6 @@ i18n 의미는 언어를 넘어 확장됩니다. 진정한 국제화는 다음�
 - **모든 사용자 대면 텍스트 추상화:** UI 컴포넌트 내에 하드코딩된 텍스트가 전혀 없도록 하세요.
 - **강력한 번역 관리 시스템 활용:** **Intlayer**와 같은 도구는 개발자와 번역가 사이의 간극을 줄여줍니다. Intlayer는 코드베이스와 긴밀하게 통합된 헤드리스 CMS 역할을 하며, 콘텐츠 관리자가 개발자의 새로운 빌드 없이도 번역을 시각적으로 업데이트할 수 있도록 지원합니다.
 
----
-
 ### 기술별 i18n 라이브러리 및 도구 목록 보기
 
 기술별 i18n 라이브러리 및 도구 목록을 찾으신다면 다음 리소스를 확인해 보세요:
@@ -111,8 +109,6 @@ i18n 의미는 언어를 넘어 확장됩니다. 진정한 국제화는 다음�
 - Vue: [i18n 라이브러리 및 도구 목록 보기](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ko/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [i18n 라이브러리 및 도구 목록 보기](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ko/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [i18n 라이브러리 및 도구 목록 보기](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ko/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## 결론
 

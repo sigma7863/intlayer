@@ -64,8 +64,6 @@ author: aymericzip
 
 > 국제화 및 SEO에 대해 알아야 할 모든 내용을 정리한 문서를 참고하세요: [next-intl과 함께하는 국제화(i18n)](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ko/internationalization_and_SEO.md).
 
----
-
 ## Next.js 애플리케이션에서 next-intl 설정 단계별 가이드
 
 <iframe

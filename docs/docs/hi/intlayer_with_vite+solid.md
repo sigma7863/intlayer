@@ -112,8 +112,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite और Solid एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 ## Table of Contents
@@ -727,8 +725,6 @@ Intlayer द्वारा जनरेट की गई फ़ाइलों 
 Intlayer के साथ अपने development experience को बेहतर बनाने के लिए, आप official **Intlayer VS Code Extension** को install कर सकते हैं।
 
 [VS Code Marketplace से Install करें](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### आगे बढ़ें
 

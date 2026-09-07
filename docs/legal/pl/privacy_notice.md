@@ -79,6 +79,4 @@ W przypadku jakichkolwiek pytań dotyczących Twoich danych, skontaktuj się z n
 
 Możemy od czasu do czasu aktualizować niniejsze zawiadomienie o prywatności. Zalecamy regularne sprawdzanie tej strony, aby być na bieżąco z wszelkimi zmianami.
 
----
-
 Daj znać, jeśli chciałbyś bardziej formalny ton, dodać wzmianki o RODO/CCPA lub dostosować to do strony prawnej na Twojej witrynie.

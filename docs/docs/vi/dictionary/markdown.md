@@ -1171,8 +1171,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## Render Phía Server (SSR) và Hydrat Hóa
 
 So với các trình phân tích cú pháp Markdown khác như remark / rehype, Intlayer Markdown không phụ thuộc và chạy trên cả client lẫn server.

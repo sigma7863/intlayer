@@ -92,8 +92,6 @@ Artık gerçek **i18n anlamı**nı belirlediğimize göre, bunu nasıl uygulars�
 - **Kullanıcıya yönelik tüm metinleri soyutlayın:** Kullanıcı arayüzü bileşenlerinizde doğrudan kodlanmış metin bulunmadığından emin olun.
 - **Güçlü bir çeviri yönetim sistemi kullanın:** **Intlayer** gibi araçlar geliştiriciler ve çevirmenler arasındaki boşluğu doldurur. Intlayer, kod tabanınızla sıkı bir şekilde entegre olan bir headless CMS gibi çalışarak, içerik yöneticilerinin bir geliştiriciden yeni bir build almasına gerek kalmadan çevirileri görsel olarak güncellemesine olanak tanır.
 
----
-
 ### Teknoloji Başına i18n Kütüphane ve Araç Listesini Görüntüleyin
 
 Teknoloji başına i18n kütüphane ve araç listesi arıyorsanız, aşağıdaki kaynaklara göz atın:
@@ -111,8 +109,6 @@ Teknoloji başına i18n kütüphane ve araç listesi arıyorsanız, aşağıdaki
 - Vue: [i18n kütüphane ve araç listesini görüntüleyin](https://github.com/aymericzip/intlayer/blob/main/docs/blog/tr/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [i18n kütüphane ve araç listesini görüntüleyin](https://github.com/aymericzip/intlayer/blob/main/docs/blog/tr/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [i18n kütüphane ve araç listesini görüntüleyin](https://github.com/aymericzip/intlayer/blob/main/docs/blog/tr/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Sonuç
 

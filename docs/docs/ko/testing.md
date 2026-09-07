@@ -24,15 +24,11 @@ author: aymericzip
 
 이 가이드는 사전이 완전한지 자동으로 확인하고, 배포 전에 누락된 번역을 잡아내며, 앱에서 현지화된 UI를 테스트하는 방법을 보여줍니다.
 
----
-
 ## 테스트할 수 있는 항목
 
 - **누락된 번역**: 필수 로케일이 사전에서 누락된 경우 CI 실패 처리.
 - **현지화된 UI 렌더링**: 특정 로케일 제공자와 함께 컴포넌트를 렌더링하고, 표시된 텍스트/속성을 검증.
 - **빌드 시 감사**: CLI를 통해 로컬에서 빠른 감사를 실행.
-
----
 
 ## 빠른 시작: CLI를 통한 감사
 
@@ -63,8 +59,6 @@ bun x intlayer content test
 - `--prefix [label]`: 로그 라인에 접두사를 붙입니다.
 
 참고: CLI는 상세 보고서를 출력하지만 실패 시 비영(0이 아닌) 종료 코드를 반환하지 않습니다. CI 게이팅을 위해, 아래 단위 테스트를 추가하여 필수 로케일 누락이 0임을 확인하세요.
-
----
 
 ## 프로그래밍 방식 테스트 (Vitest/Jest)
 
@@ -112,8 +106,6 @@ test("필수 로케일이 누락되지 않음", () => {
   - `missingLocales`: 누락된 모든 로케일의 합집합.
   - `missingRequiredLocales`: `requiredLocales`로 제한된 부분집합 (또는 `requiredLocales`가 설정되지 않은 경우 모든 로케일).
 
----
-
 ## 지역화된 UI 테스트 (React / Next.js)
 
 Intlayer 프로바이더 하에 컴포넌트를 렌더링하고 화면에 보이는 내용을 검증합니다.
@@ -159,8 +151,6 @@ test("프랑스어로 현지화된 제목을 렌더링합니다", () => {
 
 - 속성(예: `aria-label`)에 대한 원시 문자열 값이 필요할 때는 React에서 `useIntlayer`가 반환하는 `.value` 필드에 접근하세요.
 - 단위 테스트 및 정리를 쉽게 하기 위해 사전을 컴포넌트와 함께 배치하세요.
-
----
 
 ## 지속적 통합
 
@@ -210,8 +200,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## 문제 해결
 

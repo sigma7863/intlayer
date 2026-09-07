@@ -101,8 +101,6 @@ This concise overview covers the main elements that should be internationalized,
 - **Cultural Sensitivities**  
   Icons, colors, and symbols might carry different meanings across cultures. It’s important to adapt visual and textual content to respect local cultural nuances.
 
----
-
 ## Best Practices for Implementing i18n
 
 - **Plan Early**  
@@ -116,8 +114,6 @@ This concise overview covers the main elements that should be internationalized,
 
 - **Translations Reusability**  
   Organize your translation files to be reusable across multiple websites or applications. For instance, if you have a multilingual footer or header, set up dedicated translation files so that common elements can be easily applied to all projects.
-
----
 
 ## Locale Dictionary vs. CMS Content Externalization
 
@@ -136,8 +132,6 @@ Given these challenges, it's common to opt for a headless CMS to externalize con
 
 It is important to choose the right tool for your needs and plan your internationalization strategy from the beginning. **Intlayer offers a compelling solution by combining locale content declaration with a headless CMS that is tightly integrated, providing the best of both worlds.**
 
----
-
 ### See list of i18n Libraries and tool per technology
 
 If you’re looking for a list of i18n libraries and tools per technology, check out the following resources:
@@ -155,8 +149,6 @@ If you’re looking for a list of i18n libraries and tools per technology, check
 - Vue: [See list of i18n Libraries and tool](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [See list of i18n Libraries and tool](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/list_i18n_technologies/frameworks/svelte.md)
 - React Native : [See list of i18n Libraries and tool](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Conclusion
 

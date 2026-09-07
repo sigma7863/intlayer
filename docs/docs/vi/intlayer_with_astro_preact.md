@@ -107,8 +107,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để cấu hình Intlayer trong Astro + Preact
 
 Xem [mẫu ứng dụng](https://github.com/aymericzip/intlayer-astro-template) trên GitHub.
@@ -646,8 +644,6 @@ Tiện ích này sẽ cung cấp:
 - **Các hành động nhanh** để tạo và cập nhật bản dịch dễ dàng.
 
 Để biết thêm thông tin về cách sử dụng tiện ích này, hãy xem [tài liệu tiện ích VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Tìm hiểu sâu hơn
 

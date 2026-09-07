@@ -39,8 +39,6 @@ author: aymericzip
 - 根据配置中定义的自定义重写规则解析路径。
 - 如果未找到指定 locale 的重写规则，会自动回退到 canonical path。
 
----
-
 ## 函数签名
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // 可选
 ): string
 ```
-
----
 
 ## 参数
 
@@ -77,8 +73,6 @@ getLocalizedPath(
   - `options.defaultLocale?: Locales` — 默认语言环境。**默认值**: `configuration.internationalization.defaultLocale`
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — 语言环境在路径中的显示方式。**默认值**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — 自定义重写规则。**默认值**: `configuration.routing.rewrite`
-
----
 
 ## 返回值
 
@@ -106,8 +100,6 @@ const home = getLocalizedPath("/", Locales.FRENCH);
 
 - 不是字符串字面量的路径（例如从变量构建的路径）；
 - 与使用多段或可选参数的规则匹配的路径（`[...slug]`、`[[...slug]]`、`:param?`）。
-
----
 
 ## 使用示例
 
@@ -165,8 +157,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // 输出："/about"
 ```
-
----
 
 ## 相关函数
 

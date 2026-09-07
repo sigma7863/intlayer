@@ -111,8 +111,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite और Svelte एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 GitHub पर [एप्लिकेशन टेम्पलेट](https://github.com/aymericzip/intlayer-vite-svelte-template) देखें।
@@ -745,8 +743,6 @@ pnpm या yarn हो तो कमांड अनुकूलित कर�
 - अनुवादों को आसानी से बनाने और अपडेट करने के लिए **त्वरित क्रियाएं**।
 
 एक्सटेंशन का उपयोग कैसे करें, इसके लिए अधिक जानकारी के लिए देखें [Intlayer VS Code Extension दस्ताव़ज़](https://intlayer.org/doc/vs-code-extension)।
-
----
 
 ### आगे बढ़ें
 

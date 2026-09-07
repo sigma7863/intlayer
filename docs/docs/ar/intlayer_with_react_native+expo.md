@@ -455,8 +455,6 @@ const styles = StyleSheet.create({
 - **الإكمال التلقائي** لمفاتيح القاموس الخاصة بك.
 - **التحقق من النوع** الذي يحذرك إذا قمت بالوصول إلى مفتاح غير موجود أو عدم تطابق النوع.
 
----
-
 ## تكوين Git
 
 لتجنب الالتزام بالملفات التي تم إنشاؤها تلقائيًا بواسطة Intlayer، أضف ما يلي إلى ملف `.gitignore` الخاص بك:
@@ -465,8 +463,6 @@ const styles = StyleSheet.create({
 # تجاهل الملفات التي تم إنشاؤها بواسطة Intlayer
 .intlayer
 ```
-
----
 
 ### إضافة VS Code
 
@@ -483,8 +479,6 @@ const styles = StyleSheet.create({
 
 لمزيد من التفاصيل حول كيفية استخدام الإضافة، راجع [توثيق إضافة Intlayer لـ VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## التعمق أكثر
 
 - **المحرر المرئي**: استخدم [المحرر المرئي لـ Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_visual_editor.md) لإدارة الترجمات بشكل بصري.
@@ -492,8 +486,6 @@ const styles = StyleSheet.create({
 - **أوامر سطر الأوامر (CLI)**: استكشف [أدوات سطر الأوامر لـ Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/index.md) للمهام مثل **استخراج الترجمات** أو **التحقق من المفاتيح المفقودة**.
 
 استمتع ببناء تطبيقات **React Native** الخاصة بك مع دعم كامل للترجمة الدولية (i18n) من خلال **Intlayer**!
-
----
 
 ### التصحيح
 
@@ -520,8 +512,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - تحقق من إعدادات Metro الخاصة بك (resolver aliases و asset plugins و مسارات `tsconfig`) إذا فشل استيراد الوحدات.
-
----
 
 ## الأسئلة الشائعة
 

@@ -70,8 +70,6 @@ Met Intlayer kunt u:
 - **TypeScript-ondersteuning garanderen** met automatisch gegenereerde typen, waardoor autocomplete en foutdetectie worden verbeterd.
 - **Profiteren van geavanceerde functies**, zoals dynamische taaldetectie en -schakeling.
 
----
-
 ## Stap-voor-stap gids om Intlayer in te stellen in een Vite- en Vanilla JS-applicatie
 
 <Steps>
@@ -724,8 +722,6 @@ Deze extensie biedt:
 - **Snelle acties** om eenvoudig vertalingen te maken en bij te werken.
 
 Raadpleeg de [documentatie van de Intlayer VS Code-extensie](https://intlayer.org/doc/vs-code-extension) voor meer informatie over het gebruik van de extensie.
-
----
 
 ### Ga verder
 

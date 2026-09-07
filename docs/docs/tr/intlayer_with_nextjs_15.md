@@ -92,8 +92,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Next.js Uygulamasında Intlayer Kurulumu Adım Adım Kılavuzu
 
 <Tabs defaultTab="video">

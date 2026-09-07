@@ -31,8 +31,6 @@ author: aymericzip
 
 Hàm `getConfiguration` lấy toàn bộ cấu hình cho ứng dụng `intlayer` bằng cách trích xuất các biến môi trường. Hàm này cung cấp sự linh hoạt để sử dụng cùng một cấu hình trên cả phía client và server, đảm bảo tính nhất quán trên toàn bộ ứng dụng.
 
----
-
 ## Tham số
 
 Hàm không nhận tham số nào. Thay vào đó, nó sử dụng các biến môi trường để cấu hình.
@@ -47,8 +45,6 @@ Hàm không nhận tham số nào. Thay vào đó, nó sử dụng các biến m
   - `editor`: Các cấu hình riêng biệt cho trình soạn thảo.
 
 Xem thêm [Tài liệu cấu hình Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md) để biết chi tiết.
-
----
 
 ## Ví dụ sử dụng
 

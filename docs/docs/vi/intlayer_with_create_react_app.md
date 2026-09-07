@@ -94,8 +94,6 @@ Không chỉ là một giải pháp i18n, Intlayer cung cấp một **[trình ch
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng React
 
 <Steps>

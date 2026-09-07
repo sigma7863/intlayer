@@ -92,8 +92,6 @@ i18nの意味は言語を超えて広がります。真の国際化は以下を�
 - **ユーザー向けのすべてのテキストを抽象化する：** UIコンポーネント内にハードコードされたテキストがゼロであることを確認してください。
 - **堅牢な翻訳管理システムを採用する：** **Intlayer** のようなツールは、開発者と翻訳者の間のギャップを埋めます。Intlayerは、コードベースと密接に統合されたヘッドレスCMSとして機能し、コンテンツ管理者が開発者の新しいビルドを必要とせずに翻訳を視覚的に更新できるようにします。
 
----
-
 ### テクノロジー別のi18nライブラリとツールの一覧
 
 テクノロジー別のi18nライブラリとツールのリストをお探しの場合は、以下のリソースをチェックしてください：
@@ -111,8 +109,6 @@ i18nの意味は言語を超えて広がります。真の国際化は以下を�
 - Vue：[i18nライブラリとツールの一覧を見る](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ja/list_i18n_technologies/frameworks/vue.md)
 - Svelte：[i18nライブラリとツールの一覧を見る](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ja/list_i18n_technologies/frameworks/svelte.md)
 - React Native：[i18nライブラリとツールの一覧を見る](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ja/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## 結論
 

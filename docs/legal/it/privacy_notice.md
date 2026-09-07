@@ -79,6 +79,4 @@ Per qualsiasi richiesta relativa ai tuoi dati, contattaci all'indirizzo [contact
 
 Potremmo aggiornare questa informativa sulla privacy di tanto in tanto. Si consiglia agli utenti di controllare regolarmente questa pagina per rimanere informati su eventuali modifiche.
 
----
-
 Fammi sapere se desideri un tono più formale, aggiungere riferimenti a GDPR/CCPA o adattarla per una pagina legale sul tuo sito.

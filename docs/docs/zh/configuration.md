@@ -122,13 +122,9 @@ author: aymericzip
 
 Intlayer 配置文件允许您自定义插件的各个方面，例如国际化 (i18n)、中间件和内容管理。本文档提供了配置中每个属性的详细说明。
 
----
-
 ## 目录
 
 <TOC/>
-
----
 
 ## 配置文件支持
 
@@ -142,8 +138,6 @@ Intlayer 接受 JSON、JS、MJS 和 TS 配置文件格式：
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## 配置文件示例
 
@@ -692,13 +686,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## 配置参考指南
 
 以下是 Intlayer 中可用的各种配置参数的详细说明。
-
----
 
 ### 国际化配置 (Internationalization)
 
@@ -710,8 +700,6 @@ export default config;
 | `requiredLocales` | 应用程序中必需的区域设置列表。                       | `string[]` | `[]`                | `[]`                 | • 如果为空，则在 `strict` 模式下所有区域设置都是必需的。<br/>• 请确保必需的区域设置也已在 `locales` 字段中定义。                                                                                                                   |
 | `strictMode`      | 使用 TypeScript 确保国际化内容的强实现。             | `string`   | `'inclusive'`       |                      | • 如果为 `"strict"`: 为 `t` 函数定义每个已声明的区域设置是强制性的--如缺少或未声明则报错。<br/>• 如果为 `"inclusive"`: 对缺少的区域设置发出警告，但允许使用未声明的现有区域设置。<br/>• 如果为 `"loose"`: 接受任何现有的区域设置。 |
 | `defaultLocale`   | 如果请求的区域设置不可用，则用作回退的默认区域设置。 | `string`   | `Locales.ENGLISH`   | `'en'`               | 如果 URL、cookie 或 header 中未指定区域设置，则用于确定区域设置。                                                                                                                                                                  |
-
----
 
 ### 编辑器配置 (Editor)
 
@@ -743,8 +731,6 @@ export default config;
 | `enabled`       | 启用分析数据收集（页面浏览量、内容曝光、A/B 事件）。   | `boolean` | `true`  | `false` | 需要安装 `@intlayer/analytics` 并设置 `editor.clientId` 以进行归因；否则即使 `enabled` 为 `true`，分析功能仍保持禁用状态。 |
 | `flushInterval` | 自动批量发送到后端之间的毫秒数。                       | `number`  | `20000` | `10000` |                                                                                                                            |
 | `sampleRate`    | 要记录的会话比例，从 `0`（不记录）到 `1`（全部记录）。 | `number`  | `1`     | `0.5`   | 采样按会话确定性进行，因此被记录的会话会报告其所有事件（不会出现部分漏斗）。                                               |
-
----
 
 ### 路由配置 (Routing)
 
@@ -947,8 +933,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### 内容配置 (Content)
 
 有关应用程序中如何管理内容、目录名称、文件扩展名以及派生配置的设置。
@@ -961,8 +945,6 @@ export default config;
 | `codeDir`        | 代码所在的路径目录，相对于基础目录。                         | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • 用于跟踪代码文件转换（删除不必要的部分、优化）。<br/>• 与 `contentDir` 分离可提高性能。                 |
 | `excludedPath`   | 要从内容扫描中排除的目录。                                   | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | 目前未使用；计划在未来使用。                                                                              |
 | `formatCommand`  | Intlayer 本地写入内容文件时对其进行格式化的命令。            | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` 将被替换为文件路径。<br/>• 如果未定义，Intlayer 会尝试推断（测试 prettier, biome, eslint）。 |
-
----
 
 ### 系统配置
 
@@ -1017,8 +999,6 @@ dictionary: {
   },
 };
 ```
-
----
 
 ### 日志记录器配置 (Log)
 
@@ -1090,8 +1070,6 @@ Intlayer 支持多个 AI 提供商，以提供最大的灵活性。当前支持�
 | `outputFormat`        | 控制字典的输出格式。                                           | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                 |
 | `traversePattern`     | 优化期间指定要扫描的文件的模式。                               | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • 通过将优化限制在相关文件来提高构建性能。<br/>• 如果 `optimize` 关闭则忽略。<br/>• 使用 glob 模式。                                                                                                                                                                                                                            |
 
----
-
 ### 编译器配置 (Compiler)
 
 控制 Intlayer 编译器的设置，该编译器直接从组件中收集字典。
@@ -1110,8 +1088,6 @@ Intlayer 支持多个 AI 提供商，以提供最大的灵活性。当前支持�
 | 字段      | 说明                                    | 类型                        |
 | --------- | --------------------------------------- | --------------------------- |
 | `schemas` | 允许您定义 Zod 架构来验证您的字典结构。 | `Record<string, ZodSchema>` |
-
----
 
 ### 插件 (Plugins)
 

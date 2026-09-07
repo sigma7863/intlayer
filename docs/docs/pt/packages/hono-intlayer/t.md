@@ -27,13 +27,9 @@ author: aymericzip
 
 A função `t` no pacote `hono-intlayer` é o utilitário principal para fornecer respostas localizadas na sua aplicação Hono. Ela simplifica a internacionalização (i18n) selecionando dinamicamente o conteúdo com base no idioma de preferência do usuário.
 
----
-
 ## Visão Geral
 
 A função `t` é usada para definir e recuperar traduções para um determinado conjunto de idiomas. Ela determina automaticamente o idioma apropriado a ser retornado com base nas configurações de solicitação do cliente, como o cabeçalho `Accept-Language`. Se o idioma preferido não estiver disponível, ela recorre graciosamente ao local padrão especificado na sua configuração.
-
----
 
 ## Principais Recursos
 
@@ -41,8 +37,6 @@ A função `t` é usada para definir e recuperar traduções para um determinado
 - **Fallback para o Local Padrão**: Recorre a um local padrão se o idioma preferido do cliente não estiver disponível, garantindo continuidade na experiência do usuário.
 - **Leve e Rápido**: Projetado para aplicações de alto desempenho, garantindo uma sobrecarga mínima.
 - **Suporte ao Modo Estrito**: Reforça a adesão estrita aos locais declarados para um comportamento confiável.
-
----
 
 ## Assinatura da Função
 
@@ -57,8 +51,6 @@ t(translations: Record<string, string>): string;
 ### Retorno
 
 - Uma string representando o conteúdo no idioma de preferência do cliente.
-
----
 
 ## Carregando o Manipulador de Solicitação de Internacionalização
 
@@ -93,8 +85,6 @@ app.get("/", (c) => {
 - **Detecção de Localidade**: O middleware `intlayer` processa as solicitações recebidas para detectar a localidade preferida do usuário com base em cabeçalhos, cookies ou outros métodos configurados.
 - **Contexto de Tradução**: Configura o contexto necessário para que a função `t` opere corretamente, garantindo que as traduções sejam retornadas no idioma correto.
 - **Prevenção de Erros**: Sem este middleware, o uso da função `t` resultará em erros de tempo de execução porque as informações de localidade necessárias não estarão disponíveis.
-
----
 
 ## Exemplos de Uso
 
@@ -137,8 +127,6 @@ app.get("/error", (c) => {
 });
 ```
 
----
-
 ### Usando Variantes de Localidade
 
 Especifique traduções para variantes específicas de localidade:
@@ -155,8 +143,6 @@ app.get("/greet", (c) => {
   );
 });
 ```
-
----
 
 ## Tópicos Avançados
 
@@ -177,8 +163,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Execução do Modo Estrito
 
 Configure a função `t` para reforçar a adesão estrita aos locais declarados:
@@ -188,8 +172,6 @@ Configure a função `t` para reforçar a adesão estrita aos locais declarados:
 | `strict`    | Todos os locais declarados devem ter traduções fornecidas. Locais ausentes lançarão erros. |
 | `inclusive` | Locais declarados devem ter traduções. Locais ausentes acionam avisos, mas são aceitos.    |
 | `loose`     | Qualquer local existente é aceito, mesmo que não seja declarado.                           |
-
----
 
 ### Integração com TypeScript
 
@@ -209,16 +191,12 @@ app.get("/morning", (c) => {
 });
 ```
 
----
-
 ### Erros Comuns e Solução de Problemas
 
 | Problema                   | Causa                                    | Solução                                                                          |
 | -------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------- |
 | Função `t` não funciona    | Middleware não carregado                 | Certifique-se de que `app.use("*", intlayer())` seja adicionado antes das rotas. |
 | Erro de traduções ausentes | Modo estrito ativado sem todos os locais | Forneça todas as traduções necessárias.                                          |
-
----
 
 ## Conclusão
 

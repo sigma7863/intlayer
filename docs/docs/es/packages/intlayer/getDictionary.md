@@ -41,8 +41,6 @@ A diferencia de [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main
 - Totalmente tipado: el objeto devuelto refleja el `content` que pasaste
 - Acepta plugins intérpretes personalizados
 
----
-
 ## Firma de Función
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // Opcional
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parámetros
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Type**: El contenido interpretado del diccionario.
 - **Description**: El `content` que pasaste, con cada nodo de Intlayer resuelto para la locale solicitada. Para un grupo de colección sin un selector `item`, se devuelve una matriz ordenada de entradas interpretadas; `null` se devuelve cuando el selector no apunta a nada.
-
----
 
 ## Ejemplo de uso
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## Funciones Relacionadas
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/intlayer/getIntlayer.md): Misma interpretación, pero el diccionario se busca por clave en el registro generado.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/intlayer/getDictionaryAsync.md): Contraparte para mapas de cargadores por locale.
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/react-intlayer/useDictionary.md): El equivalente del hook de React, leyendo el locale del proveedor.
-
----
 
 ## TypeScript
 

@@ -108,8 +108,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق SvelteKit
 
 انظر إلى [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template) على GitHub.
@@ -770,8 +768,6 @@ bun run build # Or bun run dev
 # تجاهل الملفات التي تم إنشاؤها بواسطة Intlayer
 .intlayer
 ```
-
----
 
 ### التعمق أكثر
 

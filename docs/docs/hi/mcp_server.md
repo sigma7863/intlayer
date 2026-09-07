@@ -76,8 +76,6 @@ MCP सर्वर को दूरस्थ रूप से भी उपय�
 
 > सर्वर होस्टिंग लागतों के कारण, रिमोट सर्वर की उपलब्धता की गारंटी नहीं दी जा सकती। हम एक साथ कनेक्शनों की संख्या सीमित करते हैं। सबसे विश्वसनीय अनुभव के लिए हम लोकल सर्वर (stdio) ट्रांसपोर्ट विधि का उपयोग करने की सलाह देते हैं।
 
----
-
 ## Intlayer CLI के माध्यम से सेटअप (अनुशंसित)
 
 Intlayer आपके प्रोजेक्ट में MCP सर्वर को स्वचालित रूप से कॉन्फ़िगर करने के लिए एक CLI कमांड प्रदान करता है।
@@ -104,8 +102,6 @@ bun x intlayer init mcp
 2. आपसे पूछेगा कि आप किस ट्रांसपोर्ट विधि का उपयोग करना चाहते हैं (लोकल सर्वर (stdio) या रिमोट सर्वर (Streamable HTTP))।
 3. आपकी कॉन्फ़िगरेशन फ़ाइल (जैसे, `.cursor/mcp.json`, `.vscode/mcp.json`, या ग्लोबल Claude Desktop कॉन्फ़िगरेशन) को स्वचालित रूप से अपडेट करेगा।
 
----
-
 ## Setup via Intlayer VS Code extension
 
 1. कमांड पैलेट खोलें (Ctrl+Shift+P या Cmd+Shift+P)।
@@ -113,8 +109,6 @@ bun x intlayer init mcp
 3. वह प्लेटफॉर्म चुनें जिसका आप उपयोग करते हैं (जैसे `VS Code`, `Cursor`, `Windsurf`, `OpenCode`, `Claude Code`, `GitHub Copilot Workspace`, आदि)।
 4. इंस्टॉल करने के लिए MCP चुनें (stdio, Streamable HTTP)।
 5. Enter दबाएं।
-
----
 
 ## मैन्युअल सेटअप
 
@@ -282,8 +276,6 @@ claude mcp add intlayer https://mcp.intlayer.org -t http
 
   </Tab>
 </Tabs>
-
----
 
 ## CLI के माध्यम से MCP सर्वर का उपयोग करना
 

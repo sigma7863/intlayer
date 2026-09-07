@@ -37,8 +37,6 @@ Live Sync allows your app to reflect CMS content changes at runtime. No rebuild 
 
 <TOC/>
 
----
-
 ## Enabling Live Sync
 
 Enable Live Sync by updating your Intlayer configuration:

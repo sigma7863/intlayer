@@ -46,8 +46,6 @@ author: aymericzip
 - الاستدعاءات المتزامنة لنفس الجزء تشارك تحميلاً واحداً
 - آمن للاستخدام في منشئات `async` metadata و loaders و server functions
 
----
-
 ## Function Signature
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // اختياري
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## المعاملات
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **Type**: `Promise<Content>` — وعد يتم حله إلى المحتوى المفسر للقاموس، مكتوب من إعلانك.
 
----
-
 ## مثال الاستخدام
 
 ### الاستخدام الأساسي
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` مقابل `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 كلاهما يقبل نفس المعاملات ويعيد نفس المحتوى: التبديل من أحدهما إلى الآخر يغير فقط **متى** و**كم** يتم تحميله.
 
----
-
 ## الوظائف ذات الصلة
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getIntlayer.md): المكافئ المتزامن الذي يقرأ القاموس المدمج.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getDictionaryAsync.md): الدالة منخفضة المستوى التي تعيد كتابتها إضافات البناء إلى هذا الاستدعاء.
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getLocale.md): يكتشف لغة الطلب الوارد.
-
----
 
 ## TypeScript
 

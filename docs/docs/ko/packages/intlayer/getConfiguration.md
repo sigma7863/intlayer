@@ -31,8 +31,6 @@ author: aymericzip
 
 `getConfiguration` 함수는 환경 변수를 추출하여 `intlayer` 애플리케이션의 전체 구성을 가져옵니다. 이 함수는 클라이언트와 서버 양쪽에서 동일한 구성을 사용할 수 있는 유연성을 제공하여 애플리케이션 전반에 걸쳐 일관성을 보장합니다.
 
----
-
 ## 매개변수
 
 이 함수는 매개변수를 받지 않습니다. 대신 환경 변수를 사용하여 구성을 처리합니다.
@@ -47,8 +45,6 @@ author: aymericzip
   - `editor`: 에디터 전용 구성.
 
 자세한 내용은 [Intlayer 구성 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md)를 참조하세요.
-
----
 
 ## 사용 예시
 

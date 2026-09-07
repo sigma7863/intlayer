@@ -122,8 +122,6 @@ const myContent = html(
 
 Quando si utilizza il metodo `.use()` su un nodo HTML, i componenti forniti verranno controllati rispetto alla definizione fornita nella funzione `html()` (se disponibile).
 
----
-
 ## Rendering dell'HTML
 
 Il rendering può essere gestito automaticamente dal sistema di contenuti di Intlayer o manualmente utilizzando strumenti specializzati.
@@ -477,8 +475,6 @@ Puoi configurare il rendering HTML a livello globale per l'intera applicazione. 
   </Tab>
 </Tabs>
 
----
-
 ### Rendering manuale e strumenti avanzati
 
 Se hai bisogno di renderizzare stringhe HTML grezze o di avere un controllo maggiore sulla mappatura dei componenti, usa i seguenti strumenti.
@@ -650,8 +646,6 @@ Se hai bisogno di renderizzare stringhe HTML grezze o di avere un controllo magg
 
   </Tab>
 </Tabs>
-
----
 
 ## Riferimento delle opzioni
 

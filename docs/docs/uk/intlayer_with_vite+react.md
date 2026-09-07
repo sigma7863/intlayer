@@ -85,8 +85,6 @@ Intlayer оптимізовано для ідеальної роботи з Vite
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник з налаштування Intlayer у застосунку на Vite та React
 
 <Tabs defaultTab="video">
@@ -983,8 +981,6 @@ Intlayer використовує module augmentation, щоб отримати �
 - **Quick actions** для швидкого створення та оновлення перекладів.
 
 Для детальнішої інформації про використання розширення зверніться до документації [Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Розширені можливості
 

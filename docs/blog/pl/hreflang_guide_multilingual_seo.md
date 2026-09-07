@@ -25,8 +25,6 @@ Przetłumaczyłeś swoją aplikację. Wdrożyłeś `/en`, `/fr`, `/es`. A użytk
 
 Tłumaczenie to łatwa połowa. Trudna połowa to poinformowanie wyszukiwarek, że te strony to **ta sama strona w innym języku**, a nie trzy dokumenty konkurujące ze sobą. To jest to, co robi `hreflang`, i to jest gdzie większość wielojęzycznych stron po cichu traci swój ruch.
 
----
-
 ## Co naprawdę robi hreflang
 
 Adnotacja na stronie mówiąca: _ten URL ma równoważne wersje tam, dla tych języków._
@@ -42,8 +40,6 @@ Daje ci dwie rzeczy: wyświetlenie prawidłowej wersji właściwemu użytkowniko
 
 Warto wyjaśnić, czym to nie jest. To **nie jest przekierowanie** — to wskazówka, którą Google może zastąpić. To **nie jest wzmocnienie rankingu** — zmienia _którą_ wersję rankingu, a nie _czy_ się plasują. A Bing w ogóle to ignoruje, polegając zamiast tego na `content-language` i geo-targetowaniu.
 
----
-
 ## Gdzie to zadeklarować
 
 Trzy umiejscowienia, wszystkie prawidłowe. Wybierz jedno i pozostań tam — ten sam klaster zadeklarowany w dwóch miejscach to jak zestawy dryfują.
@@ -53,8 +49,6 @@ Trzy umiejscowienia, wszystkie prawidłowe. Wybierz jedno i pozostań tam — te
 **Mapa witryny XML** jest lepsza na dużą skalę. Dziesięć lokalizacji na 5 000 stronach oznacza 50 000 elementów `<link>` wysłanych do przeglądarek bez powodu; w mapie witryny kosztuje to Twoje strony zero bajtów.
 
 **Nagłówek HTTP `Link`** jest jedyną opcją dla plików innych niż HTML, takich jak pliki PDF.
-
----
 
 ## Reguły
 
@@ -107,8 +101,6 @@ Ludzie źle rozumieją, co to oznacza. `x-default` **nie jest „wersją angiels
 
 Dwie rzeczy do zapamiętania: `x-default` to jeden dodatkowy wpis w zestawie, a nie zamiennik dla samoreferentalnego, i jak każdy inny wpis musi pojawić się identycznie na każdej stronie w klastrze.
 
----
-
 ## Pułapka canonical
 
 Każda zlokalizowana strona musi być **swoją własną canonical**:
@@ -131,8 +123,6 @@ mówi, że francuska strona jest duplikatem, który nie powinien być indeksowan
 
 **Canonical jest samoodnośny na lokalizację. `hreflang` opisuje klaster.**
 
----
-
 ## Wybór struktury URL
 
 `hreflang` adnotuje adresy URL, więc struktura ma pierwszeństwo.
@@ -148,8 +138,6 @@ Podkatalogi to właściwy domyślny wybór dla większości projektów. Sięgaj 
 Jedyna struktura do uniknięcia: serwowanie różnych języków pod **tym samym adresem URL** na podstawie `Accept-Language` lub IP. Crawlery widzą jedną wersję i indeksują jedną wersję; wszystko inne jest niewidoczne.
 
 > Intlayer obejmuje wszystkie trzy poprzez `routing.mode` i `routing.domains`. Patrz [niestandardowe domeny](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/custom_domains.md) i [dokumentacja konfiguracji](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/configuration.md).
-
----
 
 ## Implementacja
 
@@ -283,8 +271,6 @@ W przypadku crawlowania specyficznego dla wielu języków, [Intlayer SEO Scanner
 
 </Steps>
 
----
-
 ## Checklist
 
 - [ ] Każda lokalizacja ma odrębny, możliwy do przeszukania adres URL
@@ -297,8 +283,6 @@ W przypadku crawlowania specyficznego dla wielu języków, [Intlayer SEO Scanner
 - [ ] Tagi są renderowane po stronie serwera, a nie wstrzykiwane po hydratacji
 - [ ] Zadeklarowane w dokładnie jednym miejscu
 - [ ] Brak przekierowań alternacyjnych
-
----
 
 ## Podsumowanie
 

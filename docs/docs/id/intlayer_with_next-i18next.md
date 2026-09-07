@@ -40,8 +40,6 @@ author: aymericzip
 > Catatan: next-i18next dibangun di atas i18next. Panduan ini menggunakan primitif i18next yang kompatibel dengan next-i18next dalam App Router, sambil menjaga arsitektur tetap sederhana dan siap produksi.
 > Untuk perbandingan yang lebih luas, lihat [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Struktur proyek
 
 Pasang dependensi next-i18next -
@@ -93,8 +91,6 @@ Daftar periksa (mid/senior):
 - Jangan terlalu memusatkan pesan; gunakan namespace kecil yang terfokus pada halaman/fitur
 - Hindari mengimpor semua locale sekaligus; muat hanya yang Anda butuhkan
 
----
-
 ## 2) Pasang dependensi
 
 ```bash
@@ -107,8 +103,6 @@ Jika Anda berencana menggunakan API atau interoperabilitas konfigurasi next-i18n
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Konfigurasi inti i18n
 
@@ -135,8 +129,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Catatan senior: Jika Anda menggunakan `next-i18next.config.js`, pastikan untuk menyelaraskannya dengan `i18n.config.ts` agar tidak terjadi perbedaan.
-
----
 
 ## 4) Inisialisasi i18n sisi server
 
@@ -175,8 +167,6 @@ export async function initI18next(
 ```
 
 Catatan tengah: Jaga daftar namespace agar tetap singkat per halaman untuk membatasi payload. Hindari bundle global “catch-all”.
-
----
 
 ## 5) Provider klien untuk komponen React
 
@@ -234,8 +224,6 @@ export default function I18nProvider({
 
 Tips junior: Anda tidak perlu mengirim semua pesan ke klien. Mulailah hanya dengan namespace halaman saja.
 
----
-
 ## 6) Tata letak dan rute yang dilokalkan
 
 Atur bahasa dan arah, serta pra-generate rute per locale untuk mendukung rendering statis.
@@ -270,8 +258,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Contoh halaman dengan penggunaan server + client
 
@@ -388,8 +374,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: Metadata, Hreflang, Sitemap, Robots
 
 Menerjemahkan konten adalah cara untuk meningkatkan jangkauan. Sambungkan SEO multibahasa secara menyeluruh.
@@ -483,8 +467,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Middleware untuk routing locale
 
 Mendeteksi locale dan mengarahkan ulang ke rute yang dilokalkan jika tidak ada.
@@ -527,8 +509,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Praktik terbaik Performa dan DX
 
 - **Set html `lang` dan `dir`**: Dilakukan di `src/app/[locale]/layout.tsx`.
@@ -539,8 +519,6 @@ export const config = {
 - **Memoisasi operasi berat**: Terutama di kode klien untuk versi React yang lebih lama.
 - **Cache dan header**: Utamakan statis atau `revalidate` daripada rendering dinamis jika memungkinkan.
 
----
-
 ## 11) Pengujian dan CI
 
 - Tambahkan unit test untuk komponen yang menggunakan `t` untuk memastikan kunci ada.
@@ -548,8 +526,6 @@ export const config = {
 - Tampilkan kunci yang hilang selama CI sebelum deploy.
 
 Intlayer akan mengotomatisasi banyak hal ini (lihat bagian berikutnya).
-
----
 
 ## 12) Tambahkan Intlayer di atas (otomatisasi)
 
@@ -636,8 +612,6 @@ Alur umum:
 
 > Anda dapat memberikan argumen CLI; lihat [dokumentasi Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/index.md).
 
----
-
 ## 13) Pemecahan Masalah
 
 - **Kunci tidak ditemukan**: Pastikan halaman/provider mencantumkan namespace yang benar dan file JSON ada di bawah `src/locales/<locale>/<namespace>.json`.
@@ -645,8 +619,6 @@ Alur umum:
 - **Masalah tata letak RTL**: Verifikasi bahwa `dir` berasal dari `isRtl(locale)` dan CSS Anda menghormati `[dir="rtl"]`.
 - **Alternatif SEO hilang**: Pastikan `alternates.languages` mencakup semua locale dan `x-default`.
 - **Bundle terlalu besar**: Pisahkan namespace lebih lanjut dan hindari mengimpor seluruh pohon `locales` di sisi klien.
-
----
 
 ## 14) Apa Selanjutnya
 

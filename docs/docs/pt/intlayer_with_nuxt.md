@@ -84,8 +84,6 @@ Mais do que apenas uma solução i18n, o Intlayer fornece um **[editor visual] a
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guia passo a passo para configurar o Intlayer em uma aplicação Nuxt
 
 <Tabs defaultTab="video">
@@ -676,8 +674,6 @@ Esta extensão oferece:
 - **Ações rápidas** para criar e atualizar traduções facilmente.
 
 Para mais detalhes sobre como usar a extensão, consulte a [documentação da Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Ir Além
 

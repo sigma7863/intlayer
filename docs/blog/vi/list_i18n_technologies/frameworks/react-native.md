@@ -23,16 +23,12 @@ author: aymericzip
 
 Trong một thị trường ngày càng toàn cầu hóa, việc cung cấp ứng dụng React Native của bạn bằng nhiều ngôn ngữ có thể nâng cao đáng kể khả năng tiếp cận và sự hài lòng của người dùng. Quốc tế hóa (i18n) là yếu tố trung tâm để quản lý dịch thuật hiệu quả, cho phép bạn hiển thị văn bản theo ngôn ngữ cụ thể, định dạng ngày giờ, tiền tệ và nhiều hơn thế nữa mà không làm phức tạp codebase của bạn. Trong bài viết này, chúng ta sẽ khám phá các phương pháp i18n khác nhau, từ các thư viện chuyên dụng đến các giải pháp tổng quát hơn, và giúp bạn tìm ra giải pháp phù hợp nhất cho dự án React Native của mình.
 
----
-
 ## Quốc tế hóa (i18n) là gì?
 
 Quốc tế hóa, hay i18n, liên quan đến việc cấu trúc một ứng dụng sao cho có thể dễ dàng thích ứng với các ngôn ngữ khác nhau, định dạng vùng miền và chuẩn mực văn hóa. Trong React Native, i18n bao gồm việc xử lý các chuỗi cho nút bấm và nhãn, cũng như định dạng ngày tháng, thời gian, tiền tệ và nhiều hơn nữa theo vùng miền của người dùng. Các ứng dụng React Native được chuẩn bị đúng cách cho phép bạn tích hợp liền mạch các ngôn ngữ bổ sung và hành vi đặc thù theo vùng miền sau này mà không cần phải tái cấu trúc lớn.
 
 Để tìm hiểu sâu hơn về các khái niệm quốc tế hóa, hãy xem bài viết của chúng tôi:  
 [Quốc tế hóa (i18n) là gì? Định nghĩa và những thách thức](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/what_is_internationalization.md).
-
----
 
 ## Thách thức dịch thuật cho các ứng dụng React Native
 
@@ -52,8 +48,6 @@ Làm việc với bản dịch trong React Native mang đến những cân nhắ
 
 - **Cập nhật ứng dụng & Over-the-Air (OTA)**  
   Nếu bạn sử dụng CodePush hoặc cơ chế cập nhật OTA khác, bạn cần lên kế hoạch cách các bản cập nhật bản dịch hoặc ngôn ngữ mới sẽ được phân phối mà không cần phát hành lại toàn bộ ứng dụng trên cửa hàng.
-
----
 
 ## Các giải pháp i18n hàng đầu cho React Native
 
@@ -88,8 +82,6 @@ Dưới đây là một số phương pháp phổ biến để quản lý nội 
 - **Cộng đồng & Hệ sinh thái**  
   Vẫn là một giải pháp khá mới, vì vậy bạn có thể sẽ tìm thấy ít ví dụ do cộng đồng tạo ra hoặc các plugin có sẵn so với các thư viện đã tồn tại lâu.
 
----
-
 ### 2. React-i18next
 
 > Trang web: [https://react.i18next.com/](https://react.i18next.com/)
@@ -121,8 +113,6 @@ Dưới đây là một số phương pháp phổ biến để quản lý nội 
 
 - **Hiệu năng**  
   Mặc dù React-i18next thường hoạt động tốt, bạn nên chú ý cách tổ chức và tải các tài nguyên dịch để tránh gây tải nặng trên thiết bị di động.
-
----
 
 ### 3. React Intl (từ FormatJS)
 
@@ -156,8 +146,6 @@ Dưới đây là một số phương pháp phổ biến để quản lý nội 
 - **Ví dụ từ cộng đồng**  
   Mặc dù được sử dụng rộng rãi, các ví dụ sử dụng riêng cho React Native có thể ít hơn so với React web. Bạn có thể sẽ phải điều chỉnh tài liệu và mẫu hiện có cho môi trường native.
 
----
-
 ### 4. LinguiJS
 
 > Website: [https://lingui.js.org/](https://lingui.js.org/)
@@ -189,8 +177,6 @@ Dưới đây là một số phương pháp phổ biến để quản lý nội 
 
 - **Tổ chức mã nguồn**  
   Việc quyết định cách phân chia các catalog thông điệp (theo màn hình, tính năng hoặc ngôn ngữ) là rất quan trọng để duy trì sự rõ ràng trong các ứng dụng lớn hơn.
-
----
 
 ## Những suy nghĩ cuối cùng
 

@@ -1171,8 +1171,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## Sunucu Tarafı İşleme (SSR) ve Hidrasyon
 
 Remark / rehype gibi diğer Markdown ayrıştırıcılarıyla karşılaştırıldığında, Intlayer Markdown bağımlılık içermez ve hem istemci hem de sunucu tarafında çalışır.

@@ -42,8 +42,6 @@ author: aymericzip
 - Підтримує кілька режимів маршрутизації: `prefix-no-default`, `prefix-all`, `no-prefix` та `search-params`
 - Повертає об'єкт-мапу, де ключами є всі локалі, а значеннями, відповідні URL
 
----
-
 ## Підпис функції
 
 ```typescript
@@ -56,8 +54,6 @@ getMultilingualUrls(
   }
 ): StrictModeLocaleMap<string>
 ```
-
----
 
 ## Параметри
 
@@ -99,8 +95,6 @@ getMultilingualUrls(
 
 - **Тип**: `StrictModeLocaleMap<string>`
 - **Опис**: Об'єкт, який зіставляє кожну локаль з відповідним багатомовним URL.
-
----
 
 ## Приклад використання
 
@@ -200,8 +194,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## Крайні випадки
 
 - **Відсутній сегмент локалі:**
@@ -219,8 +211,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: усі локалі мають префікси (наприклад, `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: Немає префіксів локалі в URL (для всіх локалей повертається той самий URL)
   - `'search-params'`: Локаль вказується через параметр запиту (наприклад, `/dashboard?locale=fr`)
-
----
 
 ## Використання в застосунках
 

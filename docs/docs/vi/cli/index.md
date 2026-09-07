@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - Tất cả các lệnh CLI của Intlayer cho trang web đa ngôn ngữ của bạn
 
----
-
 ## Mục lục
 
 <TOC/>
-
----
 
 ## Cài đặt gói
 

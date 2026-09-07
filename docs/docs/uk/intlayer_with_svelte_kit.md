@@ -108,8 +108,6 @@ Intlayer оптимізовано для ідеальної роботи зі Sv
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник із налаштування Intlayer у застосунку SvelteKit
 
 Див. [Шаблон застосунку](https://github.com/aymericzip/intlayer-sveltekit-template) на GitHub.
@@ -774,8 +772,6 @@ bun run build # Or bun run dev
 # Ігнорувати файли, згенеровані Intlayer
 .intlayer
 ```
-
----
 
 ### Далі
 

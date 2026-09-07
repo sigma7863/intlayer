@@ -85,8 +85,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a Vite and React Application
 
 <Tabs defaultTab="video">
@@ -979,8 +977,6 @@ This extension provides:
 - **Quick actions** to easily create and update translations.
 
 For more details on how to use the extension, refer to the [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Go Further
 

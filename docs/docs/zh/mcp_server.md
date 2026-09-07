@@ -76,8 +76,6 @@ MCP 服务器也可以通过 Streamable HTTP 传输方式远程使用。该服�
 
 > 由于服务器托管成本，远程服务器的可用性无法保证。我们限制同时连接的数量。我们建议使用本地服务器（stdio）传输方式，以获得最可靠的体验。
 
----
-
 ## 通过 Intlayer CLI 设置（推荐）
 
 Intlayer 提供了一个 CLI 命令，用于在项目中自动配置 MCP 服务器。
@@ -104,8 +102,6 @@ bun x intlayer init mcp
 2. 询问您要使用的传输方法（本地服务器 (stdio) 或远程服务器 (Streamable HTTP)）。
 3. 自动更新您的配置文件（例如 `.cursor/mcp.json`、`.vscode/mcp.json` 或全局 Claude Desktop 配置）。
 
----
-
 ## Setup via Intlayer VS Code extension
 
 1. 打开命令面板 (Ctrl+Shift+P 或 Cmd+Shift+P)。
@@ -113,8 +109,6 @@ bun x intlayer init mcp
 3. 选择您使用的平台（例如 `VS Code`、`Cursor`、`Windsurf`、`OpenCode`、`Claude Code`、`GitHub Copilot Workspace` 等）。
 4. 选择要安装的 MCP (stdio, Streamable HTTP)
 5. 按 Enter 键。
-
----
 
 ## 手动配置
 
@@ -282,8 +276,6 @@ claude mcp add intlayer https://mcp.intlayer.org -t http
 
   </Tab>
 </Tabs>
-
----
 
 ## 通过 CLI 使用 MCP Server
 

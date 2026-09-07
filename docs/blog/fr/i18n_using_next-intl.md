@@ -64,8 +64,6 @@ Localisez les liens en utilisant le composant `Link` pour rediriger l’utilisat
 
 > Consultez notre documentation listant tout ce que vous devez savoir sur l’internationalisation et le SEO : [Internationalization (i18n) with next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/fr/internationalization_and_SEO.md).
 
----
-
 ## Guide étape par étape pour configurer next-intl dans une application Next.js
 
 <iframe

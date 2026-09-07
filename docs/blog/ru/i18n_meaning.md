@@ -92,8 +92,6 @@ author: aymericzip
 - **Абстрагируйте весь текст, обращенный к пользователю:** Убедитесь, что в ваших компонентах пользовательского интерфейса нет жестко закодированного текста.
 - **Используйте надежную систему управления переводами:** Такие инструменты, как **Intlayer**, сокращают разрыв между разработчиками и переводчиками. Intlayer действует как headless CMS, которая тесно интегрирована с вашей кодовой базой, позволяя контент-менеджерам визуально обновлять переводы без необходимости запуска нового билда разработчиком.
 
----
-
 ### Список библиотек и инструментов i18n по технологиям
 
 Если вы ищете список библиотек и инструментов i18n для конкретной технологии, ознакомьтесь со следующими ресурсами:
@@ -111,8 +109,6 @@ author: aymericzip
 - Vue: [Список библиотек и инструментов i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ru/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Список библиотек и инструментов i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ru/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [Список библиотек и инструментов i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ru/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Заключение
 

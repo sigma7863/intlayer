@@ -27,13 +27,9 @@ author: aymericzip
 
 The `t` function in the `hono-intlayer` package is the core utility for providing localized responses in your Hono application. It simplifies internationalization (i18n) by dynamically selecting content based on the user's preferred language.
 
----
-
 ## Overview
 
 The `t` function is used to define and retrieve translations for a given set of languages. It automatically determines the appropriate language to return based on the client's request settings, such as the `Accept-Language` header. If the preferred language is unavailable, it gracefully falls back to the default locale specified in your configuration.
-
----
 
 ## Key Features
 
@@ -41,8 +37,6 @@ The `t` function is used to define and retrieve translations for a given set of 
 - **Fallback to Default Locale**: Falls back to a default locale if the client's preferred language isn't available, ensuring continuity in user experience.
 - **Lightweight and Fast**: Designed for high-performance applications, ensuring minimal overhead.
 - **Strict Mode Support**: Enforce strict adherence to declared locales for reliable behavior.
-
----
 
 ## Function Signature
 
@@ -57,8 +51,6 @@ t(translations: Record<string, string>): string;
 ### Returns
 
 - A string representing the content in the client's preferred language.
-
----
 
 ## Loading the Internationalization Request Handler
 
@@ -92,8 +84,6 @@ app.get("/", (c) => {
 - **Locale Detection**: The `intlayer` middleware processes incoming requests to detect the user's preferred locale based on headers, cookies, or other configured methods.
 - **Translation Context**: Sets up the necessary context for the `t` function to operate correctly, ensuring that translations are returned in the correct language.
 - **Error Prevention**: Without this middleware, using the `t` function will result in runtime errors because the necessary locale information won't be available.
-
----
 
 ## Usage Examples
 
@@ -136,8 +126,6 @@ app.get("/error", (c) => {
 });
 ```
 
----
-
 ### Using Locale Variants
 
 Specify translations for locale-specific variants:
@@ -155,8 +143,6 @@ app.get("/greet", (c) => {
   );
 });
 ```
-
----
 
 ## Advanced Topics
 
@@ -177,8 +163,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Strict Mode Enforcement
 
 Configure the `t` function to enforce strict adherence to declared locales:
@@ -188,8 +172,6 @@ Configure the `t` function to enforce strict adherence to declared locales:
 | `strict`    | All declared locales must have translations provided. Missing locales will throw errors.    |
 | `inclusive` | Declared locales must have translations. Missing locales trigger warnings but are accepted. |
 | `loose`     | Any existing locale is accepted, even if not declared.                                      |
-
----
 
 ### TypeScript Integration
 
@@ -209,16 +191,12 @@ app.get("/morning", (c) => {
 });
 ```
 
----
-
 ### Common Errors and Troubleshooting
 
 | Issue                      | Cause                                   | Solution                                                  |
 | -------------------------- | --------------------------------------- | --------------------------------------------------------- |
 | `t` function not working   | Middleware not loaded                   | Ensure `app.use("*", intlayer())` is added before routes. |
 | Missing translations error | Strict mode enabled without all locales | Provide all required translations.                        |
-
----
 
 ## Conclusion
 

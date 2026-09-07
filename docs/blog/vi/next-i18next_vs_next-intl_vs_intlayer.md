@@ -34,15 +34,11 @@ Chúng tôi tập trung vào **Next.js 13+ App Router** (với **React Server Co
 
 > Một sự nhầm lẫn thường gặp của các nhà phát triển là nghĩ rằng `next-intl` là phiên bản Next.js của `react-intl`. Không phải vậy, `next-intl` được duy trì bởi [Amann](https://github.com/amannn), trong khi `react-intl` được duy trì bởi [FormatJS](https://github.com/formatjs/formatjs).
 
----
-
 ## Tóm tắt ngắn gọn
 
 - **next-intl** - Định dạng thông điệp nhẹ, đơn giản với hỗ trợ Next.js vững chắc. Các catalog tập trung là phổ biến; trải nghiệm nhà phát triển (DX) đơn giản, nhưng an toàn và bảo trì quy mô lớn phần lớn vẫn là trách nhiệm của bạn.
 - **next-i18next** - i18next trong bộ dạng Next.js. Hệ sinh thái trưởng thành và các tính năng qua plugin (ví dụ: ICU), nhưng cấu hình có thể dài dòng và các catalog có xu hướng tập trung khi dự án phát triển.
 - **Intlayer** - Mô hình nội dung tập trung vào component cho Next.js, **kiểu TypeScript nghiêm ngặt**, **kiểm tra trong thời gian build**, **tree-shaking**, **middleware tích hợp & trợ giúp SEO**, tùy chọn **Visual Editor/CMS**, và **dịch thuật hỗ trợ AI**.
-
----
 
 | Library                | GitHub Stars                                                                                                                                                                     | Total Commits                                                                                                                                                                        | Last Commit                                                                                                                                           | First Version | NPM Version                                                                                                         | NPM Downloads                                                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -52,8 +48,6 @@ Chúng tôi tập trung vào **Next.js 13+ App Router** (với **React Server Co
 | `i18next/next-i18next` | [![GitHub Repo stars](https://img.shields.io/github/stars/i18next/next-i18next?style=for-the-badge&label=%E2%AD%90%20stars)](https://github.com/i18next/next-i18next/stargazers) | [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/i18next/next-i18next?style=for-the-badge&label=commits)](https://github.com/i18next/next-i18next/commits) | [![Last Commit](https://img.shields.io/github/last-commit/i18next/next-i18next?style=for-the-badge)](https://github.com/i18next/next-i18next/commits) | Nov 2018      | [![npm](https://img.shields.io/npm/v/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) | [![npm downloads](https://img.shields.io/npm/dm/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) |
 
 > Các huy hiệu được cập nhật tự động. Các ảnh chụp nhanh sẽ thay đổi theo thời gian.
-
----
 
 ## So sánh Tính năng Song song (Tập trung vào Next.js)
 
@@ -80,15 +74,11 @@ Chúng tôi tập trung vào **Next.js 13+ App Router** (với **React Server Co
 | **Quản lý dự án lớn**                            | ✅ Khuyến khích mô-đun, phù hợp với hệ thống thiết kế                                                                   | ✅ Mô-đun với thiết lập                                                                             | ✅ Mô-đun với thiết lập                                                                             |
 | **Kiểm tra bản dịch thiếu (CLI/CI)**             | ✅ CLI: `npx intlayer content test` (kiểm tra thân thiện với CI)                                                        | ⚠️ Không tích hợp sẵn; tài liệu đề xuất `npx @lingual/i18n-check`                                   | ⚠️ Không tích hợp sẵn; dựa vào công cụ i18next / runtime `saveMissing`                              |
 
----
-
 ## Giới thiệu
 
 Next.js cung cấp hỗ trợ tích hợp cho routing quốc tế hóa (ví dụ: các đoạn locale). Nhưng tính năng đó không tự động thực hiện việc dịch thuật. Bạn vẫn cần một thư viện để hiển thị nội dung đã được bản địa hóa cho người dùng.
 
 Có nhiều thư viện i18n tồn tại, nhưng trong thế giới Next.js hiện nay, có ba thư viện đang được ưa chuộng: next-i18next, next-intl và Intlayer.
-
----
 
 ## Kiến trúc & khả năng mở rộng
 
@@ -96,8 +86,6 @@ Có nhiều thư viện i18n tồn tại, nhưng trong thế giới Next.js hi�
 - **Intlayer**: Khuyến khích sử dụng từ điển **theo từng component** (hoặc theo từng tính năng) **đặt cùng vị trí** với mã nguồn mà chúng phục vụ. Điều này giảm tải nhận thức, dễ dàng sao chép/di chuyển các phần UI, và giảm xung đột giữa các nhóm. Nội dung không sử dụng cũng dễ dàng được phát hiện và loại bỏ.
 
 **Tại sao điều này quan trọng:** Trong các codebase lớn hoặc các thiết lập hệ thống thiết kế, **nội dung mô-đun** có khả năng mở rộng tốt hơn so với các danh mục đơn khối.
-
----
 
 ## Kích thước gói & phụ thuộc
 
@@ -166,8 +154,6 @@ Dưới đây là ví dụ về tác động của việc tối ưu kích thư�
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | ![gói tối ưu hóa](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle.png?raw=true) | ![gói không tối ưu hóa](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle_no_optimization.png?raw=true) |
 
----
-
 ## TypeScript & an toàn
 
 <Columns>
@@ -192,11 +178,10 @@ Dưới đây là ví dụ về tác động của việc tối ưu kích thư�
 - **Tạo kiểu nghiêm ngặt** từ nội dung của bạn. **Tự động hoàn thành trong IDE** và **lỗi thời gian biên dịch** phát hiện lỗi chính tả và khóa thiếu trước khi triển khai.
 
   </Column>
+
 </Columns>
 
 **Tại sao điều này quan trọng:** Kiểu mạnh giúp chuyển lỗi sang bên **trái** (CI/build) thay vì bên **phải** (runtime).
-
----
 
 ## Xử lý dịch thiếu
 
@@ -222,11 +207,10 @@ Dưới đây là ví dụ về tác động của việc tối ưu kích thư�
 - **Phát hiện trong thời gian build** với **cảnh báo/lỗi** cho các locale hoặc key bị thiếu.
 
   </Column>
+
 </Columns>
 
 **Tại sao điều này quan trọng:** Phát hiện thiếu sót trong quá trình build giúp ngăn chặn các chuỗi 'undefined' xuất hiện trong môi trường production.
-
----
 
 ## Định tuyến, middleware & chiến lược URL
 
@@ -254,11 +238,10 @@ Dưới đây là ví dụ về tác động của việc tối ưu kích thư�
 - Cung cấp middleware.
 
   </Column>
+
 </Columns>
 
 **Tại sao điều này quan trọng:** Giúp cải thiện SEO và khả năng khám phá, cũng như trải nghiệm người dùng.
-
----
 
 ## Đồng bộ với Server Components (RSC)
 
@@ -287,11 +270,10 @@ Dưới đây là ví dụ về tác động của việc tối ưu kích thư�
 - Cung cấp API đồng bộ cho các thành phần server con.
 
   </Column>
+
 </Columns>
 
 **Tại sao điều này quan trọng:** Hỗ trợ thành phần server là một tính năng then chốt của Next.js 13+, giúp cải thiện hiệu suất. Việc truyền props như locale hoặc hàm `t` từ thành phần cha xuống các thành phần server con làm cho các thành phần của bạn kém tái sử dụng hơn.
-
----
 
 ## Tích hợp với các nền tảng bản địa hóa (TMS)
 
@@ -311,8 +293,6 @@ Các tổ chức lớn thường dựa vào Hệ thống Quản lý Dịch thu�
   - Intlayer cung cấp các lựa chọn thay thế: **dịch thuật hỗ trợ AI** (sử dụng khóa nhà cung cấp của bạn), một **Trình chỉnh sửa trực quan/CMS**, và các quy trình làm việc **CLI/CI** để phát hiện và điền trước các khoảng trống.
 
 > Lưu ý: `next-intl` và `i18next` cũng chấp nhận các catalog TypeScript. Nếu nhóm của bạn lưu trữ các thông điệp trong các tệp `.ts` hoặc phân quyền chúng theo tính năng, bạn có thể gặp phải sự cản trở tương tự với TMS. Tuy nhiên, nhiều thiết lập `next-intl` vẫn tập trung trong thư mục `locales/`, điều này giúp việc chuyển đổi sang JSON cho TMS dễ dàng hơn một chút.
-
----
 
 ## Trải nghiệm nhà phát triển
 
@@ -947,8 +927,6 @@ const ClientComponentExample = () => {
   - **next-intl** linh hoạt; tải thông điệp theo cách bạn cấu hình.
   - **Intlayer** lưu nội dung trong các từ điển TS/JS và giải quyết theo key.
 
----
-
 ### Sử dụng trong một server component
 
 Chúng ta sẽ lấy ví dụ về một component giao diện người dùng (UI). Component này là một server component, và nên có khả năng được chèn như một con của client component. (page (server component) -> client component -> server component). Vì component này có thể được chèn như một con của client component, nó không thể là async.
@@ -1061,7 +1039,7 @@ Dưới đây là danh sách các thực hành tốt liên quan đến SEO đa n
 Các nhà phát triển thường quên tham chiếu đúng các trang của họ theo từng ngôn ngữ.
 
 <Tabs defaultTab="next-intl" group='techno'>
- 
+
   <Tab label="next-i18next" value="next-i18next">
 
 ```ts fileName="i18n.config.ts"
@@ -1463,9 +1441,8 @@ Việc thiết lập middleware được tập trung trong tệp `intlayer.confi
 - **Công cụ tích hợp**: Tận dụng các tính năng định tuyến tích hợp, trợ giúp SEO và hỗ trợ trình chỉnh sửa trực quan.
 
   </Tab>
-</Tabs>
 
----
+</Tabs>
 
 ## Và người chiến thắng là…
 
@@ -1493,6 +1470,7 @@ Không đơn giản. Mỗi lựa chọn đều có những đánh đổi. Đây 
 - được xây dựng cho Next.js hiện đại, với nội dung mô-đun, an toàn kiểu, công cụ hỗ trợ, và ít mã mẫu hơn. Nếu bạn đánh giá cao **nội dung phạm vi thành phần**, **TypeScript nghiêm ngặt**, **đảm bảo tại thời điểm xây dựng**, **tree-shaking**, và công cụ định tuyến/SEO/trình soạn thảo **đầy đủ tính năng** - đặc biệt cho **Next.js App Router**, hệ thống thiết kế và **các codebase lớn, mô-đun**.
 
   </Column>
+
 </Columns>
 
 Nếu bạn ưu tiên thiết lập tối giản và chấp nhận một số cấu hình thủ công, next-intl là lựa chọn tốt. Nếu bạn cần tất cả các tính năng và không ngại sự phức tạp, next-i18next sẽ phù hợp. Nhưng nếu bạn muốn một giải pháp hiện đại, có thể mở rộng, mô-đun với các công cụ tích hợp sẵn, Intlayer hướng đến việc cung cấp cho bạn điều đó ngay khi sử dụng.
@@ -1506,8 +1484,6 @@ Nếu bạn ưu tiên thiết lập tối giản và chấp nhận một số c�
 Sao trên GitHub là một chỉ số mạnh mẽ cho thấy mức độ phổ biến của dự án, sự tin tưởng của cộng đồng và tính liên quan lâu dài. Mặc dù không phải là thước đo trực tiếp về chất lượng kỹ thuật, nhưng chúng phản ánh số lượng nhà phát triển thấy dự án hữu ích, theo dõi tiến trình của nó và có khả năng áp dụng nó. Để ước tính giá trị của một dự án, sao giúp so sánh mức độ thu hút giữa các lựa chọn thay thế và cung cấp cái nhìn sâu sắc về sự phát triển của hệ sinh thái.
 
 [![Biểu đồ Lịch sử Sao](https://api.star-history.com/chart?repos=i18next/next-i18next%2Camannn/next-intl%2Caymericzip/intlayer&type=date&legend=top-left)](https://www.star-history.com/#i18next/next-i18next&amannn/next-intl&aymericzip/intlayer)
-
----
 
 ## Kết luận
 

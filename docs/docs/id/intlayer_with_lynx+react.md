@@ -89,8 +89,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="Instalasi Dependensi">
@@ -458,8 +456,6 @@ Ini yang memungkinkan fitur seperti:
 - **Autocompletion** untuk kunci kamus Anda.
 - **Pemeriksaan tipe** yang memperingatkan jika Anda mengakses kunci yang tidak ada atau tipe yang tidak cocok.
 
----
-
 ## Konfigurasi Git
 
 Untuk menghindari commit file yang dihasilkan otomatis oleh Intlayer, tambahkan berikut ini ke `.gitignore` Anda:
@@ -468,8 +464,6 @@ Untuk menghindari commit file yang dihasilkan otomatis oleh Intlayer, tambahkan 
 #  Abaikan file yang dihasilkan oleh Intlayer
 .intlayer
 ```
-
----
 
 ### Ekstensi VS Code
 
@@ -485,8 +479,6 @@ Ekstensi ini menyediakan:
 - **Tindakan cepat** untuk dengan mudah membuat dan memperbarui terjemahan.
 
 Untuk detail lebih lanjut tentang cara menggunakan ekstensi ini, lihat [dokumentasi Ekstensi VS Code Intlayer](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ## Melangkah Lebih Jauh
 

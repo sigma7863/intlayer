@@ -39,8 +39,6 @@ The `getLocalizedUrl` function generates a localised URL by prefixing the given 
 - Can be used with minimal parameters for simple cases or fully customised for complex scenarios
 - Supports multiple routing modes: `prefix-no-default`, `prefix-all`, `no-prefix`, and `search-params`
 
----
-
 ## Function Signature
 
 ```typescript
@@ -54,8 +52,6 @@ getLocalizedUrl(
   }
 ): string
 ```
-
----
 
 ## Parameters
 
@@ -102,8 +98,6 @@ getLocalizedUrl(
 
 - **Type**: `string`
 - **Description**: The localised URL for the specified locale.
-
----
 
 ## Example Usage
 
@@ -206,8 +200,6 @@ getLocalizedUrl(
 ); // Output: "/about" (no prefix applied for unsupported locale)
 ```
 
----
-
 ## Edge Cases
 
 - **No Locale Segment:**
@@ -224,8 +216,6 @@ getLocalizedUrl(
   - `'prefix-all'`: All locales have prefixes (e.g., `/en/about`, `/fr/about`)
   - `'no-prefix'`: No locale prefixes in URLs (locale handled elsewhere)
   - `'search-params'`: Locale specified via query parameter (e.g., `/about?locale=fr`)
-
----
 
 ## Usage in Applications
 

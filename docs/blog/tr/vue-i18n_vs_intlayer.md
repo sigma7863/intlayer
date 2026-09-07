@@ -35,14 +35,10 @@ Modern Vue araçlarına (Vite, Composition API) odaklanıyoruz ve şunları değ
 
 > **tl;dr**: İkisi de Vue uygulamalarını yerelleştirebilir. **Bileşen kapsamlı içerik**, **katı TypeScript türleri**, **derleme zamanı eksik anahtar kontrolleri**, **ağaç sallanan sözlükler** ve **pil dahil yönlendirici/SEO yardımcıları** artı **Görsel Düzenleyici ve AI çevirileri** istiyorsanız, **Intlayer** daha kapsamlı, modern seçimdir.
 
----
-
 ## Yüksek düzey konumlandırma
 
 - **vue-i18n** - Vue için de-facto i18n kütüphanesi. Esnek mesaj formatlaması (ICU tarzı), yerel mesajlar için SFC `<i18n>` blokları ve büyük bir ekosistem. Güvenlik ve büyük ölçekli bakım çoğunlukla sizin sorumluluğunuzdur.
 - **Intlayer** - Vue/Vite/Nuxt için bileşen merkezli içerik modeli, **katı TS yazımı**, **derleme zamanı kontrolleri**, **ağaç sallama**, **yönlendirici ve SEO yardımcıları**, isteğe bağlı **Görsel Düzenleyici/CMS** ve **AI destekli çeviriler**.
-
----
 
 ## Yan Yana Özellik Karşılaştırması (Vue odaklı)
 
@@ -67,8 +63,6 @@ Modern Vue araçlarına (Vite, Composition API) odaklanıyoruz ve şunları değ
 | **Büyük proje bakımı**                                  | ✅ Modüler teşvik eder, tasarım sistemi dostu yapı                                             | ✅ Olası, ancak güçlü dosya/ad alanı disiplini gerektirir                                |
 | **Ekosistem / topluluk**                                | ⚠️ Daha küçük ama hızlı büyüyen                                                                | ✅ Vue ekosisteminde büyük ve olgun                                                      |
 
----
-
 ## Derinlemesine karşılaştırma
 
 ### 1) Mimari ve ölçeklenebilirlik
@@ -78,16 +72,12 @@ Modern Vue araçlarına (Vite, Composition API) odaklanıyoruz ve şunları değ
 
 **Neden önemli:** Büyük Vue uygulamalarında veya tasarım sistemlerinde, **modüler içerik** monolitik kataloglardan daha iyi ölçeklenir.
 
----
-
 ### 2) TypeScript ve güvenlik
 
 - **vue-i18n**: İyi TS desteği; **katı anahtar yazımı** genellikle özel şemalar/genel türler ve dikkatli kurallar gerektirir.
 - **Intlayer**: İçeriğinizden **katı türler oluşturur**, **IDE otomatik tamamlama** ve yazım/eksik anahtarlar için **derleme zamanı hataları** sağlar.
 
 **Neden önemli:** Güçlü yazım, sorunları **çalışma zamanından önce** yakalar.
-
----
 
 ### 3) Eksik çeviri işleme
 
@@ -96,16 +86,12 @@ Modern Vue araçlarına (Vite, Composition API) odaklanıyoruz ve şunları değ
 
 **Neden önemli:** Derleme zamanı uygulaması, üretim UI'sini temiz ve tutarlı tutar.
 
----
-
 ### 4) Yönlendirme ve URL stratejisi (Vue Router/Nuxt)
 
 - **İkisi de** yerelleştirilmiş yollarla çalışabilir.
 - **Intlayer**, **yerelleştirilmiş yollar oluşturmak**, **yerel önekleri yönetmek** ve SEO için **`<link rel="alternate" hreflang>`** yaymak için yardımcılar sağlar. Nuxt ile, çerçevenin yönlendirmesini tamamlar.
 
 **Neden önemli:** Daha az özel yapıştırıcı katman ve yerel genelinde **daha temiz SEO**.
-
----
 
 ### 5) Performans ve yükleme davranışı
 
@@ -114,8 +100,6 @@ Modern Vue araçlarına (Vite, Composition API) odaklanıyoruz ve şunları değ
 
 **Neden önemli:** Çok yerel Vue uygulamaları için daha küçük paketler ve daha hızlı başlatma.
 
----
-
 ### 6) Geliştirici deneyimi ve araçlar
 
 - **vue-i18n**: Olgun dokümantasyon ve topluluk; genellikle düzenleme iş akışları için **harici yerelleştirme platformlarına** güveneceksiniz.
@@ -123,16 +107,12 @@ Modern Vue araçlarına (Vite, Composition API) odaklanıyoruz ve şunları değ
 
 **Neden önemli:** Daha düşük operasyon maliyeti ve geliştiriciler ile içerik yazarları arasındaki döngüyü kısaltır.
 
----
-
 ### 7) SEO, SSR ve SSG
 
 - **İkisi de** Vue SSR ve Nuxt ile çalışır.
 - **Intlayer**: Vue/Nuxt yapılarıyla iyi uyumlu, çerçeve agnostik **SEO yardımcıları** (site haritaları/meta veri/`hreflang`) ekler.
 
 **Neden önemli:** Özel kablolama olmadan uluslararası SEO.
-
----
 
 ## Neden Intlayer? (Sorun ve yaklaşım)
 
@@ -223,8 +203,6 @@ Bu yaklaşım:
 - **Ölü anahtarları önler** (kullanılmayan bileşenler içerik içe aktarmaz).
 - **Yüklemeyi optimize eder** (tembel yüklenen bileşenler içeriklerini yanlarında getirir).
 
----
-
 ## Intlayer'ın ek özellikleri (Vue ilgili)
 
 - **Çapraz çerçeve desteği**: Vue, Nuxt, Vite, React, Express vb. ile çalışır.
@@ -242,14 +220,10 @@ Bu yaklaşım:
 - **MCP sunucusu ve VSCode uzantısı**: IDE'nizde i18n iş akışlarını ve yazmayı otomatikleştirin.
 - **Birlikte çalışabilirlik**: Gerektiğinde **vue-i18n**, **react-i18next** ve **react-intl** ile köprü kurar.
 
----
-
 ## Hangisini ne zaman seçmeli?
 
 - **vue-i18n**'i seçin eğer **standart Vue yaklaşımını** istiyorsanız, katalogları/ad alanlarını kendiniz yönetmekle rahatınız ve uygulamanız **küçük ila orta boy**.
 - **Intlayer**'ı seçin eğer **bileşen kapsamlı içerik**, **katı TypeScript**, **derleme zamanı garantileri**, **ağaç sallama** ve **pil dahil yönlendirme/SEO/düzenleyici araçlarını** takdir ediyorsanız - özellikle **büyük, modüler Vue/Nuxt kod tabanları**, tasarım sistemleri vb. için.
-
----
 
 ## vue-i18n ile birlikte çalışabilirlik
 
@@ -257,15 +231,11 @@ Bu yaklaşım:
 
 `intlayer` kullanarak, içeriğinizi favori i18n kütüphanenizin formatında beyan edebilirsiniz ve intlayer ad alanlarınızı istediğiniz konumda oluşturacaktır (örnek: `/messages/{{locale}}/{{namespace}}.json`).
 
----
-
 ## GitHub YILDIZLARI
 
 GitHub yıldızları, bir projenin popülaritesinin, topluluk güveninin ve uzun vadeli öneminin güçlü bir göstergesidir. Teknik kalitenin doğrudan bir ölçüsü olmasa da, kaç geliştiricinin projeyi yararlı bulduğunu, ilerlemesini takip ettiğini ve muhtemelen benimsediğini yansıtır. Bir projenin değerini tahmin etmek için yıldızlar, alternatifler arasındaki çekişmeyi karşılaştırmaya ve ekosistem büyümesine ilişkin içgörüler sağlamaya yardımcı olur.
 
 [![Yıldız Geçmişi Grafiği](https://api.star-history.com/svg?repos=intlify/vue-i18n&repos=aymericzip/intlayer&type=Date)](https://www.star-history.com/#intlify/vue-i18n&aymericzip/intlayer)
-
----
 
 ## Sonuç
 

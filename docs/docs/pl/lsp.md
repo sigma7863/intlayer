@@ -31,8 +31,6 @@ author: aymericzip
 
 **Serwer języka Intlayer** to implementacja [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/), która sprawia, że Twoje IDE — i Twój agent AI — rozumieją Intlayer. Łączy wywołanie takie jak `useIntlayer("home")` z plikiem `.content.ts`, który je deklaruje, w obie strony.
 
----
-
 ## Funkcje
 
 | Funkcja                         | Skrót               | Opis                                                                                                             |
@@ -65,8 +63,6 @@ Działa to dla każdego pakietu `*-intlayer` (`next-intlayer`, `react-intlayer`,
 
 > Słowniki są odczytywane z wyniku budowania, więc uruchom `npx intlayer build` — albo pozostaw działający serwer deweloperski — aby serwer miał co rozwiązywać.
 
----
-
 ## Instalacja
 
 Serwer jest dostarczany jako binarium `intlayer-lsp` w pakiecie `@intlayer/lsp`:
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 Zainstaluj go globalnie (`npm install -g @intlayer/lsp`), jeśli Twój edytor wymaga `intlayer-lsp` w `PATH` — dotyczy to wtyczki Claude Code oraz każdej poniższej konfiguracji wywołującej binarium bezpośrednio.
-
----
 
 ## Konfiguracja
 
@@ -255,15 +249,11 @@ Dokładny format konfiguracji znajdziesz w dokumentacji LSP swojego edytora.
   </Tab>
 </Tabs>
 
----
-
 ## Uwaga o agentach AI w terminalu
 
 **Claude Code** działa jako prawdziwy klient LSP — zobacz zakładkę powyżej.
 
 **OpenAI Codex** i większość innych narzędzi terminalowych nie są klientami LSP: czytają i zapisują pliki bezpośrednio. Samo uruchomienie serwera im nie pomoże; wartość pojawia się, gdy jest aktywny w towarzyszącym edytorze, którego indeks agent może odpytać (Cursor Composer, Windsurf Cascade, Copilot Chat).
-
----
 
 ## Jak to działa
 
@@ -274,8 +264,6 @@ Przy żądaniu serwer parsuje dokument (przez [oxc](https://oxc.rs/)) i bada poz
 1. **Na ciągu klucza** (`useIntlayer("home")`) → zwraca każdy plik treści deklarujący ten klucz, ustawiony na jego linii `key:`.
 2. **Na użyciu pola** (`content.title`, zdestrukturyzowana właściwość, `t('path.to.field')`, `<Trans>`, …) → sprowadza zmienną z powrotem do jej słownika i zwraca pasujące pole w plikach treści.
 3. **Z pliku treści** → wykonuje wyszukiwanie odwrotne, przeszukując źródła projektu w poszukiwaniu miejsc wywołania tego klucza lub pola.
-
----
 
 ## Rozwiązywanie problemów
 

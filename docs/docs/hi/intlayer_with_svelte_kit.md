@@ -108,8 +108,6 @@ Intlayer को **बहुभाषी रूटिंग**, **SSR समर्
 </Accordion>
 </AccordionGroup>
 
----
-
 ## SvelteKit एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 शुरू करने के लिए, एक नया SvelteKit प्रोजेक्ट बनाएं। यहाँ अंतिम संरचना है जिसे हम बनाएंगे:
@@ -776,8 +774,6 @@ bun run build # Or bun run dev
 # Intlayer द्वारा उत्पन्न फ़ाइलों को ignore करें
 .intlayer
 ```
-
----
 
 ### आगे बढ़ें
 

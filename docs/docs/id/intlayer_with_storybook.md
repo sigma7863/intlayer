@@ -80,8 +80,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Mengapa menggunakan Intlayer dengan Storybook?
 
 Storybook adalah alat standar industri untuk mengembangkan dan mendokumentasikan komponen UI secara terisolasi. Menggabungkannya dengan Intlayer memungkinkan Anda untuk:
@@ -89,8 +87,6 @@ Storybook adalah alat standar industri untuk mengembangkan dan mendokumentasikan
 - **Pratinjau setiap lokal** langsung di dalam kanvas Storybook menggunakan pengalih bilah alat.
 - **Menemukan terjemahan yang hilang** sebelum mencapai tahap produksi.
 - **Mendokumentasikan komponen multibahasa** dengan konten asli yang aman secara tipe, bukan string yang dikodekan secara statis.
-
----
 
 ## Pengaturan Langkah demi Langkah
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > Untuk format dan fitur deklarasi konten lainnya, lihat [dokumentasi deklarasi konten](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/dictionary/content_file.md).
 
----
-
 ## Menggunakan `useIntlayer` dalam Komponen
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` mengembalikan kamus yang telah dikompilasi untuk lokal saat ini yang disediakan oleh `IntlayerProvider` terdekat. Mengalihkan lokal di bilah alat Storybook akan secara otomatis me-render ulang story dengan terjemahan yang diperbarui.
-
----
 
 ## Menulis Story untuk Komponen yang di-Internasionalisasi
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > Setiap story mewarisi global `locale` dari bilah alat, jadi Anda dapat memverifikasi setiap lokal tanpa mengubah kode story apa pun.
 
----
-
 ## Menguji Terjemahan dalam Story
 
 Gunakan fungsi `play` Storybook untuk menegaskan bahwa teks terjemahan yang benar telah dirender untuk lokal tertentu:
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Sumber Daya Tambahan
 

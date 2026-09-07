@@ -43,8 +43,6 @@ Nhập khẩu (Import):
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### Plugins
 
 | Hàm / Lớp                      | Mô tả                                                                                                                                                                                              |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | Hàm tạo tạo ra một plugin Babel để phân tích việc sử dụng `useIntlayer` / `getIntlayer` trong mã nguồn và tổng hợp dữ liệu sử dụng trường trong `PruneContext` chung.                              |
 | `getSharedPruneContext`        | Hàm trợ giúp trả về đối tượng `PruneContext` chung cho thư mục gốc đã chỉ định hoặc `null` nếu nó chưa được khởi tạo.                                                                              |
 
----
-
 ### Tiện ích cấu hình plugin
 
 | Hàm                        | Mô tả                                                                                                                                           |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Tải cấu hình Intlayer và các từ điển đã biên dịch, đồng thời trả về `OptimizePluginOptions` sẵn sàng sử dụng với `intlayerOptimizeBabelPlugin`. |
 | `getPurgePluginOptions`    | Tải cấu hình Intlayer và trả về `PurgePluginOptions` sẵn sàng sử dụng với `intlayerPurgeBabelPlugin`.                                           |
 | `getMinifyPluginOptions`   | Tải cấu hình Intlayer và trả về `MinifyPluginOptions` sẵn sàng sử dụng với `intlayerMinifyBabelPlugin`.                                         |
-
----
 
 ### Kiểu dữ liệu
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | Cấu hình cho bộ phân tích sử dụng tương thích cho các gói `compat-adapter` (tên người gọi và các tùy chọn xử lý).             |
 | `ScriptBlock`           | Khối script được trích xuất từ tệp SFC (Vue hoặc Svelte): nội dung, độ lệch bắt đầu và kết thúc.                              |
 
----
-
 ### Các hàm tiện ích
 
 | Hàm                               | Mô tả                                                                                                                                                         |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | Trích xuất các khối `<script>` từ các tệp SFC (Vue / Svelte) để phân tích Babel tiếp theo.                                                                    |
 | `BABEL_PARSER_OPTIONS`            | Hằng số đại diện cho các tùy chọn phân tích cú pháp Babel bao gồm các framework được hỗ trợ (React/Vue/Svelte/Angular/...).                                   |
 | `INTLAYER_CALLER_NAMES`           | Danh sách hằng số gồm các tên người gọi Intlayer ban đầu: `['useIntlayer', 'getIntlayer']`.                                                                   |
-
----
 
 ## Ví dụ sử dụng
 

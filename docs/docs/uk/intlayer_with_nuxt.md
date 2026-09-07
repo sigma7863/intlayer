@@ -90,8 +90,6 @@ Intlayer оптимізовано для ідеальної роботи з Nuxt
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник налаштування Intlayer у Nuxt-застосунку
 
 <Tabs defaultTab="video">
@@ -694,8 +692,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 - **Швидкі дії** для швидкого створення та оновлення перекладів.
 
 Для детальнішої інформації про використання розширення зверніться до [документації Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Далі
 

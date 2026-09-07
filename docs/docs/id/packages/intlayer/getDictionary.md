@@ -41,8 +41,6 @@ Berbeda dengan [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/
 - Fully typed: objek yang dikembalikan mencerminkan `content` yang Anda berikan
 - Menerima plugin interpreter kustom
 
----
-
 ## Function Signature
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // Opsional
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parameters
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Type**: Konten yang ditafsirkan dari kamus.
 - **Description**: `content` yang Anda berikan, dengan setiap node Intlayer diselesaikan untuk lokal yang diminta. Untuk grup koleksi tanpa pemilih `item`, array terurut dari entri yang ditafsirkan dikembalikan; `null` dikembalikan ketika pemilih tidak menargetkan apa pun.
-
----
 
 ## Contoh Penggunaan
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## Fungsi Terkait
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getIntlayer.md): Interpretasi yang sama, tetapi kamus dicari berdasarkan kunci dalam registry yang dihasilkan.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getDictionaryAsync.md): Rekan untuk peta loader per-locale.
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/react-intlayer/useDictionary.md): Setara dengan React hook, membaca locale dari provider.
-
----
 
 ## TypeScript
 

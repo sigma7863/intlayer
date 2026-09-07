@@ -122,8 +122,6 @@ const myContent = html(
 
 Bir HTML düğümü üzerinde `.use()` yöntemini kullanırken, sağladığınız bileşenler `html()` fonksiyonunda sağlanan tanıma (varsa) göre kontrol edilecektir.
 
----
-
 ## HTML'i Render Etme
 
 Render işlemi Intlayer'ın içerik sistemi tarafından otomatik olarak veya özel araçlar kullanılarak manuel olarak yapılabilir.
@@ -477,8 +475,6 @@ HTML render'lamasını tüm uygulamanız için global olarak yapılandırabilirs
   </Tab>
 </Tabs>
 
----
-
 ### Manuel Renderlama ve Gelişmiş Araçlar
 
 Ham HTML string'lerini render etmeniz gerekiyorsa veya bileşen eşlemesinde daha fazla kontrole ihtiyacınız varsa, aşağıdaki araçları kullanın.
@@ -650,8 +646,6 @@ Belirli bileşenlerle bir HTML dizesi oluşturun.
 
   </Tab>
 </Tabs>
-
----
 
 ## Seçenekler Referansı
 

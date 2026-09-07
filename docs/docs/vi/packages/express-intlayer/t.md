@@ -28,13 +28,9 @@ author: aymericzip
 
 Hàm `t` trong gói `express-intlayer` là tiện ích cốt lõi để cung cấp các phản hồi được địa phương hóa trong ứng dụng Express của bạn. Nó đơn giản hóa việc quốc tế hóa (i18n) bằng cách chọn nội dung một cách động dựa trên ngôn ngữ ưu tiên của người dùng.
 
----
-
 ## Tổng quan
 
 Hàm `t` được sử dụng để định nghĩa và truy xuất các bản dịch cho một tập hợp ngôn ngữ nhất định. Nó tự động xác định ngôn ngữ phù hợp để trả về dựa trên cài đặt yêu cầu của client, chẳng hạn như header `Accept-Language`. Nếu ngôn ngữ ưu tiên không có sẵn, nó sẽ tự động chuyển về locale mặc định được chỉ định trong cấu hình của bạn một cách mượt mà.
-
----
 
 ## Các tính năng chính
 
@@ -42,8 +38,6 @@ Hàm `t` được sử dụng để định nghĩa và truy xuất các bản d�
 - **Chuyển về locale mặc định**: Chuyển về locale mặc định nếu ngôn ngữ ưu tiên của client không có sẵn, đảm bảo trải nghiệm người dùng liên tục.
 - **Nhẹ và nhanh**: Thiết kế cho các ứng dụng hiệu năng cao, đảm bảo chi phí tài nguyên tối thiểu.
 - **Hỗ trợ Chế độ Nghiêm ngặt**: Thực thi tuân thủ nghiêm ngặt các locale đã khai báo để đảm bảo hành vi đáng tin cậy.
-
----
 
 ## Chữ ký Hàm
 
@@ -58,8 +52,6 @@ t(translations: Record<string, string>): string;
 ### Trả về
 
 - Một chuỗi đại diện cho nội dung theo ngôn ngữ ưu tiên của client.
-
----
 
 ## Tải Bộ Xử lý Yêu cầu Quốc tế hóa
 
@@ -93,8 +85,6 @@ app.get("/", (_req, res) => {
 - **Phát hiện ngôn ngữ**: Middleware `intlayer` xử lý các yêu cầu đến để phát hiện ngôn ngữ ưu tiên của người dùng dựa trên headers, cookies hoặc các phương pháp cấu hình khác.
 - **Ngữ cảnh dịch thuật**: Thiết lập ngữ cảnh cần thiết để hàm `t` hoạt động chính xác, đảm bảo các bản dịch được trả về đúng ngôn ngữ.
 - **Ngăn ngừa lỗi**: Nếu không có middleware này, việc sử dụng hàm `t` sẽ gây ra lỗi thời gian chạy vì thông tin ngôn ngữ cần thiết sẽ không có sẵn.
-
----
 
 ## Ví dụ sử dụng
 
@@ -135,8 +125,6 @@ app.get("/error", (_req, res) => {
   );
 });
 ```
-
----
 
 ### Sử dụng các biến thể ngôn ngữ
 
@@ -184,8 +172,6 @@ app.get("/greet", (_req, res) => {
 });
 ```
 
----
-
 ## Các Chủ Đề Nâng Cao
 
 ### Cơ Chế Dự Phòng (Fallback Mechanism)
@@ -209,8 +195,6 @@ Ví dụ:
 
 - Nếu `defaultLocale` là `Locales.CHINESE` và một client yêu cầu `Locales.DUTCH`, bản dịch trả về sẽ mặc định là giá trị của `Locales.CHINESE`.
 - Nếu `defaultLocale` không được định nghĩa, hàm `t` sẽ tự động chuyển sang giá trị của `Locales.ENGLISH`.
-
----
 
 ### Bắt Buộc Chế Độ Strict
 
@@ -238,8 +222,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Tích hợp TypeScript
 
 Hàm `t` an toàn về kiểu khi sử dụng với TypeScript. Định nghĩa một đối tượng bản dịch an toàn về kiểu:
@@ -258,8 +240,6 @@ app.get("/morning", (_req, res) => {
 });
 ```
 
----
-
 ### Các lỗi phổ biến và cách khắc phục
 
 | Vấn đề                  | Nguyên nhân                                         | Giải pháp                                                |
@@ -267,16 +247,12 @@ app.get("/morning", (_req, res) => {
 | Hàm `t` không hoạt động | Middleware chưa được tải                            | Đảm bảo `app.use(intlayer())` được thêm trước các route. |
 | Lỗi thiếu bản dịch      | Chế độ Strict được bật nhưng không có đủ các locale | Cung cấp đầy đủ các bản dịch cần thiết.                  |
 
----
-
 ## Mẹo sử dụng hiệu quả
 
 1. **Tập trung quản lý bản dịch**: Sử dụng một module tập trung hoặc các file JSON để quản lý bản dịch nhằm cải thiện khả năng bảo trì.
 2. **Xác thực bản dịch**: Đảm bảo mỗi biến thể ngôn ngữ đều có bản dịch tương ứng để tránh việc fallback không cần thiết.
 3. **Kết hợp với i18n phía frontend**: Đồng bộ hóa với hệ thống quốc tế hóa phía frontend để mang lại trải nghiệm người dùng liền mạch trên toàn ứng dụng.
 4. **Đánh giá hiệu năng**: Kiểm tra thời gian phản hồi của ứng dụng khi thêm bản dịch để đảm bảo ảnh hưởng tối thiểu.
-
----
 
 ## Kết luận
 

@@ -80,8 +80,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 为什么要结合 Storybook 使用 Intlayer？
 
 Storybook 是开发和记录 UI 组件的行业标准工具。通过将它与 Intlayer 结合使用，您可以：
@@ -89,8 +87,6 @@ Storybook 是开发和记录 UI 组件的行业标准工具。通过将它与 In
 - **直接在 Storybook 画布中预览每种语言**：使用工具栏切换器。
 - **提前捕获缺失的翻译**：在进入生产环境之前修正问题。
 - **记录多语言组件**：使用真实的、类型安全的内容，而不是硬编码的字符串。
-
----
 
 ## 逐步设置
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > 有关更多内容声明格式和功能，请参阅 [内容声明文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dictionary/content_file.md)。
 
----
-
 ## 在组件中使用 `useIntlayer`
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` 会返回由最近的 `IntlayerProvider` 提供的当前语言的编译后的字典。在 Storybook 工具栏中切换语言会自动重新渲染对应的 story 并更新翻译。
-
----
 
 ## 为国际化组件编写 Story
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > 每个 story 都会从工具栏继承 `locale` 全局变量，因此您可以在不更改任何 story 代码的情况下验证每种语言。
 
----
-
 ## 在 Story 中测试翻译
 
 使用 Storybook 的 `play` 函数来断言在指定语言下是否渲染了正确的翻译文本：
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## 其他资源
 

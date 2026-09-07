@@ -105,8 +105,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Analog
 
 انظر [قالب التطبيق](https://github.com/aymericzip/intlayer-analog-template) على GitHub.
@@ -403,8 +401,6 @@ export default class HomeComponent {
 - **إجراءات سريعة** لإنشاء وتحديث الترجمات بسهولة.
 
 لمزيد من التفاصيل حول كيفية استخدام الإضافة، راجع [توثيق إضافة Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### اذهب أبعد من ذلك
 

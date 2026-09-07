@@ -61,8 +61,6 @@ can [see the source for it by adding '.text' to the URL][src].
 
 [src]: /projects/markdown/syntax.text
 
----
-
 <h2 id="overview">Overview</h2>
 
 <h3 id="philosophy">Philosophy</h3>
@@ -195,8 +193,6 @@ ampersands are _always_ encoded automatically. This makes it easy to use
 Markdown to write about HTML code. (As opposed to raw HTML, which is a
 terrible format for writing about HTML syntax, because every single `<`
 and `&` in your example code needs to be escaped.)
-
----
 
 <h2 id="block">Block Elements</h2>
 
@@ -546,8 +542,6 @@ following lines will produce a horizontal rule:
 
     ---------------------------------------
 
----
-
 <h2 id="span">Span Elements</h2>
 
 <h3 id="link">Links</h3>
@@ -834,8 +828,6 @@ are defined using syntax identical to link references:
 As of this writing, Markdown has no syntax for specifying the
 dimensions of an image; if this is important to you, you can simply
 use regular HTML `<img>` tags.
-
----
 
 <h2 id="misc">Miscellaneous</h2>
 

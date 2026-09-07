@@ -89,8 +89,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="تثبيت التبعيات">
@@ -463,8 +461,6 @@ export const LocaleSwitcher: FC = () => {
 - **الإكمال التلقائي** لمفاتيح القاموس.
 - **التحقق من النوع** الذي يحذرك إذا قمت بالوصول إلى مفتاح غير موجود أو عدم تطابق النوع.
 
----
-
 ## إعداد Git
 
 لتجنب الالتزام بالملفات التي يتم إنشاؤها تلقائيًا بواسطة Intlayer، أضف التالي إلى ملف `.gitignore` الخاص بك:
@@ -473,8 +469,6 @@ export const LocaleSwitcher: FC = () => {
 #  تجاهل الملفات التي يتم إنشاؤها بواسطة Intlayer
 .intlayer
 ```
-
----
 
 ### إضافة VS Code
 
@@ -494,8 +488,6 @@ export const LocaleSwitcher: FC = () => {
 - **معاينات داخلية** للمحتوى المترجم.
 - **إجراءات سريعة** لإنشاء الترجمات وتحديثها بسهولة.
   لمزيد من التفاصيل حول كيفية استخدام الإضافة، راجع [توثيق إضافة Intlayer لـ VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ## المزيد من الاستكشاف
 

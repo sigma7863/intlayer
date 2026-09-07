@@ -111,8 +111,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении на Vite и Svelte
 
 Смотрите [Шаблон приложения](https://github.com/aymericzip/intlayer-vite-svelte-template) на GitHub.
@@ -717,8 +715,6 @@ console.log("SEO files generated successfully.");
 - **Быстрые действия** для удобного создания и обновления переводов.
 
 Для получения дополнительной информации о том, как использовать расширение, обратитесь к [документации расширения Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Продвинуться дальше
 

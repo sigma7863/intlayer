@@ -40,8 +40,6 @@ author: aymericzip
 > Nota: next-i18next é construído sobre o i18next. Este guia utiliza as primitivas do i18next compatíveis com o next-i18next no App Router, mantendo a arquitetura simples e pronta para produção.
 > Para uma comparação mais ampla, veja [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pt/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Estrutura do projeto
 
 Instale as dependências do next-i18next -
@@ -93,8 +91,6 @@ Checklist (nível médio/sênior):
 - Não centralize excessivamente as mensagens; use namespaces pequenos, escopados por página/feature
 - Evite importar todas as localidades de uma vez; carregue apenas o que você precisa
 
----
-
 ## 2) Instalar dependências
 
 ```bash
@@ -106,8 +102,6 @@ Se você planeja usar as APIs do next-i18next ou interoperabilidade de configura
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Configuração principal do i18n
 
@@ -134,8 +128,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Nota importante: Se você usar `next-i18next.config.js`, mantenha-o alinhado com `i18n.config.ts` para evitar divergências.
-
----
 
 ## 4) Inicialização do i18n no lado do servidor
 
@@ -174,8 +166,6 @@ export async function initI18next(
 ```
 
 Nota intermediária: Mantenha a lista de namespaces curta por página para limitar o payload. Evite bundles globais “catch-all”.
-
----
 
 ## 5) Provedor cliente para componentes React
 
@@ -233,8 +223,6 @@ export default function I18nProvider({
 
 Dica para iniciantes: Você não precisa passar todas as mensagens para o cliente. Comece apenas com os namespaces da página.
 
----
-
 ## 6) Layout e rotas localizados
 
 Defina o idioma e a direção, e pré-genere rotas por localidade para favorecer a renderização estática.
@@ -269,8 +257,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Exemplo de página com uso no servidor + cliente
 
@@ -387,8 +373,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: Metadados, Hreflang, Sitemap, Robots
 
 Traduzir conteúdo é uma forma de ampliar o alcance. Configure o SEO multilíngue de forma completa.
@@ -482,8 +466,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Middleware para roteamento de locale
 
 Detecta o locale e redireciona para uma rota localizada caso esteja ausente.
@@ -526,8 +508,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Melhores práticas de desempenho e DX
 
 - **Definir `lang` e `dir` no html**: Feito em `src/app/[locale]/layout.tsx`.
@@ -538,8 +518,6 @@ export const config = {
 - **Memoizar operações pesadas**: Especialmente no código cliente para versões antigas do React.
 - **Cache e headers**: Prefira estático ou `revalidate` em vez de renderização dinâmica quando possível.
 
----
-
 ## 11) Testes e CI
 
 - Adicione testes unitários para componentes que usam `t` para garantir que as chaves existam.
@@ -547,8 +525,6 @@ export const config = {
 - Exibir chaves faltantes durante o CI antes do deploy.
 
 O Intlayer automatizará grande parte disso (veja a próxima seção).
-
----
 
 ## 12) Adicionar Intlayer por cima (automação)
 
@@ -635,8 +611,6 @@ Fluxos comuns:
 
 > Você pode fornecer argumentos para a CLI; consulte a [documentação da CLI do Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/cli/index.md).
 
----
-
 ## 13) Solução de problemas
 
 - **Chaves não encontradas**: Verifique se a página/provedor lista os namespaces corretos e se o arquivo JSON existe em `src/locales/<locale>/<namespace>.json`.
@@ -644,8 +618,6 @@ Fluxos comuns:
 - **Problemas de layout RTL**: Confirme que `dir` é derivado de `isRtl(locale)` e que seu CSS respeita `[dir="rtl"]`.
 - **Alternativas de SEO ausentes**: Confirme que `alternates.languages` inclui todos os locales e `x-default`.
 - **Bundles muito grandes**: Divida os namespaces ainda mais e evite importar árvores inteiras de `locales` no cliente.
-
----
 
 ## 14) O que vem a seguir
 

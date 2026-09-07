@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-08-30
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - 앱을 번역하는 완전 가이드"
 description: "i18next는 이제 그만. 2026년 다국어 (i18n) Next.js 16 앱 구축 가이드. AI 에이전트로 번역하고 번들 크기, SEO, 성능을 최적화하세요."
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="Next.js를 위한 최고의 i18n 솔루션? Intlayer를 발견하세요" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="코드" value="code">
+  <Tab label="코드 (로케일 경로 있음)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="데모" value="demo">
+  <Tab label="코드 (로케일 경로 없음)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="데모 CodeSandbox - Intlayer를 사용하여 애플리케이션을 국제화하는 방법"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="데모 (로케일 경로 있음)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="데모 - intlayer-next-16-template"
+  title="데모 Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-GitHub에서 [애플리케이션 템플릿](https://github.com/aymericzip/intlayer-next-16-template)을 확인하세요.
+GitHub에서 [애플리케이션 템플릿](https://github.com/aymericzip/intlayer-next-16-template) 및 [로케일 경로 없는 애플리케이션 템플릿](https://github.com/aymericzip/intlayer-next-no-lolale-path-template)을 확인하세요.
 
 ## 목차
 
@@ -81,7 +92,7 @@ GitHub에서 [애플리케이션 템플릿](https://github.com/aymericzip/intlay
 Intlayer는 효율적인 렌더링을 위해 **서버 구성요소**와 작동하도록 최적화되어 있으며 [**Turbopack**](https://nextjs.org/docs/architecture/turbopack)과 완벽하게 호환됩니다. 정적 렌더링을 차단하지 않으며 미들웨어는 물론 국제화 확장(i18n)에 필요한 모든 기능을 제공합니다.
 
 > Intlayer는 Next.js 12, 13, 14, 15, 16과 호환됩니다. Next.js Pages Router를 사용하는 경우 이 [가이드](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md)를 참조하세요.
-> 로케일 라우팅은 SEO, 번들 크기 및 성능에 유용합니다. 필요하지 않은 경우에는 이 [가이드](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md)를 참고하시면 됩니다.
+> 로케일 라우팅은 SEO, 번들 크기 및 성능에 유용합니다. 로케일 경로가 있는 설정과 없는 설정 모두 지원되며 이 가이드에서 다룹니다.
 > 앱 라우터가 포함된 Next.js 12, 13, 14, 15의 경우 이 [가이드](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md)를 참조하세요.
 
 </Accordion>
@@ -122,8 +133,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Next.js 애플리케이션에서 Intlayer 설정 단계별 가이드
 
@@ -181,7 +190,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="프로젝트 구성">
 
-최종적으로 만들어질 구조는 다음과 같습니다:
+애플리케이션이 지역화된 URL 경로(예: `/ko/about`, `/en/about`)를 사용할지, 아니면 경로에 로케일 세그먼트 없이 콘텐츠를 제공할지(예: `/about`, 쿠키, 헤더 또는 쿼리 파라미터를 통해 감지) 선택하세요.
+
+<Tabs group="routing-mode">
+<Tab label="로케일 경로 있음" value="with-locale-path">
+
+### 아키텍처
+
+이 아키텍처에서는 지역화된 모든 페이지가 `[locale]` 동적 라우트 세그먼트 아래에 중첩됩니다. 각 언어마다 고유한 전용 URL이 제공되므로 SEO 및 정적 렌더링에 권장됩니다:
 
 ```bash
 .
@@ -207,9 +223,9 @@ bun add intlayer next-intlayer
 └── tsconfig.json
 ```
 
-> 로케일 라우팅을 원하지 않는 경우, intlayer를 단순한 프로바이더 / 훅으로 사용할 수 있습니다. 자세한 내용은 [이 가이드](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_nextjs_no_locale_path.md)를 참조하세요.
+### 설정
 
-애플리케이션의 언어를 구성하기 위해 설정 파일을 만드세요:
+애플리케이션에서 지원하는 언어를 선언하기 위해 `intlayer.config.ts` 설정 파일을 생성합니다:
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -224,10 +240,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // 또는 `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="로케일 경로 없음" value="without-locale-path">
+
+### 아키텍처
+
+이 아키텍처에서는 라우트의 URL 경로에 `[locale]` 동적 세그먼트가 포함되지 않습니다. 모든 페이지는 `src/app/` 바로 아래에 위치하며 쿠키, 헤더 또는 쿼리 매개변수를 통해 로케일이 결정됩니다. 대시보드, 사내 도구 또는 인증된 앱에 적합합니다:
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### 설정
+
+경로 접두사 없이 콘텐츠를 제공하려면 `routing.mode` 속성을 `"search-params"`(예: `/about?locale=ko`) 또는 `"no-prefix"`로 설정하세요:
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // 다른 로케일들
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // 또는 `no-prefix` - 미들웨어 감지에 유용함
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > 이 구성 파일을 통해 지역화된 URL, 프록시 리디렉션, 쿠키 이름, 콘텐츠 선언의 위치 및 확장자 설정, 콘솔에서 Intlayer 로그 비활성화 등 다양한 설정을 할 수 있습니다. 사용 가능한 모든 매개변수 목록은 [구성 문서](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md)를 참조하세요.
 
@@ -277,6 +355,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="동적 로케일 경로 정의">
+
+<Tabs group="routing-mode">
+<Tab label="로케일 경로 있음" value="with-locale-path">
 
 `RootLayout`의 모든 내용을 제거하고 다음 코드로 교체하세요:
 
@@ -371,6 +452,101 @@ export default LocaleLayout;
 > `generateStaticParams`는 애플리케이션이 모든 로케일에 대해 필요한 페이지를 사전 빌드하도록 보장하여 런타임 계산을 줄이고 사용자 경험을 향상시킵니다. 자세한 내용은 [Next.js의 generateStaticParams 문서](https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic-rendering#generate-static-params)를 참조하세요.
 
 > Intlayer는 `export const dynamic = 'force-static';`와 함께 작동하여 모든 로케일에 대해 페이지가 사전 빌드되도록 보장합니다.
+
+</Tab>
+<Tab label="로케일 경로 없음" value="without-locale-path">
+
+로케일 경로가 없는 아키텍처에서는 `[locale]` 디렉터리가 없습니다. 요청 컨텍스트에서 로케일을 읽고 애플리케이션을 `IntlayerProvider`로 래핑하도록 `src/app/layout.tsx`를 직접 구성하세요:
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+> 단일 `IntlayerProvider`는 트리의 두 부분을 모두 커버합니다: 서버 훅에서 읽는 request-scoped 서버 컨텍스트를 제공하고, 클라이언트 컴포넌트가 동일한 로케일을 받도록 클라이언트 provider를 마운트합니다.
+
+RootLayout에서 모든 내용을 제거하고 다음 코드로 교체하세요:
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+ </Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
 
 </Step>
 
@@ -1056,7 +1232,7 @@ bun x intlayer extract
  </Tab>
  <Tab value='Babel 컴파일러'>
 
-> Since v9, the `intlayerCompiler` is included in the `intlayer` plugin. So you don't need to add it manually.
+> v9부터 `intlayerCompiler`가 `intlayer` 플러그인에 포함되어 있으므로 수동으로 추가할 필요가 없습니다.
 
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
@@ -1256,7 +1432,7 @@ Intlayer는 Next.js 12, 13, 14, 15 및 16을 지원합니다. 본 가이드는 N
 - `"no-prefix"`: 경로에 로케일이 없으며, 쿠키, 헤더 또는 도메인에서 확인.
 - `"search-params"`: `/about?locale=ko`.
 
-또한 `routing.domains`를 사용하여 각 로케일을 자체 도메인에 매핑할 수도 있습니다. [설정 참조](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md) 및 [로케일 경로 없는 가이드](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_nextjs_no_locale_path.md)를 참조하세요.
+또한 `routing.domains`를 사용하여 각 로케일을 자체 도메인에 매핑할 수도 있습니다. [설정 참조](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md) 및 라우팅 모드 옵션에 대한 [2단계](#step-2-configure-your-project)를 참조하세요..
 
 </Question>
 

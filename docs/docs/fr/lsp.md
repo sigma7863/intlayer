@@ -31,8 +31,6 @@ author: aymericzip
 
 Le **serveur de langage Intlayer** est une implémentation du [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) qui rend votre EDI — et votre agent IA — conscient d'Intlayer. Il relie un appel comme `useIntlayer("home")` au fichier `.content.ts` qui le déclare, dans les deux sens.
 
----
-
 ## Fonctionnalités
 
 | Fonctionnalité                       | Raccourci                | Description                                                                                                                  |
@@ -65,8 +63,6 @@ Cela fonctionne pour tous les packages `*-intlayer` (`next-intlayer`, `react-int
 
 > Les dictionnaires sont lus depuis la sortie de build : exécutez `npx intlayer build` — ou laissez votre serveur de développement tourner — pour donner au serveur quelque chose à résoudre.
 
----
-
 ## Installation
 
 Le serveur est distribué sous forme du binaire `intlayer-lsp` dans `@intlayer/lsp` :
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 Installez-le plutôt globalement (`npm install -g @intlayer/lsp`) si votre éditeur a besoin de `intlayer-lsp` dans le `PATH` — c'est le cas pour le plugin Claude Code et pour toute configuration ci-dessous qui appelle directement le binaire.
-
----
 
 ## Configuration
 
@@ -255,15 +249,11 @@ Consultez la documentation LSP de votre éditeur pour le format de configuration
   </Tab>
 </Tabs>
 
----
-
 ## Remarque sur les agents IA en terminal
 
 **Claude Code** agit comme un véritable client LSP — voir l'onglet ci-dessus.
 
 **OpenAI Codex** et la plupart des autres outils en terminal ne sont pas des clients LSP : ils lisent et écrivent les fichiers directement. Lancer le serveur seul ne les aide pas ; l'intérêt vient de son activation dans un éditeur compagnon dont l'agent peut interroger l'index (Cursor Composer, Windsurf Cascade, Copilot Chat).
-
----
 
 ## Fonctionnement
 
@@ -274,8 +264,6 @@ Lors d'une requête, le serveur analyse le document (via [oxc](https://oxc.rs/))
 1. **Sur une chaîne de clé** (`useIntlayer("home")`) → renvoie tous les fichiers de contenu déclarant cette clé, positionnés sur leur ligne `key:`.
 2. **Sur l'utilisation d'un champ** (`content.title`, une propriété déstructurée, `t('path.to.field')`, `<Trans>`, …) → remonte la variable jusqu'à son dictionnaire et renvoie le champ correspondant dans les fichiers de contenu.
 3. **Depuis un fichier de contenu** → effectue la recherche inverse, en parcourant les sources du projet à la recherche des sites d'appel de cette clé ou de ce champ.
-
----
 
 ## Dépannage
 

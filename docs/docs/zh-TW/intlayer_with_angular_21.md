@@ -48,8 +48,6 @@ author: aymericzip
 - **確保TypeScript支援**：使用自動生成的型別，改善自動補全和錯誤檢測。
 - **受益於進階功能**：如動態區域設定檢測和切換。
 
----
-
 ## 在Angular應用程式中設定Intlayer的逐步指南
 
 <Tabs defaultTab="code">
@@ -435,8 +433,6 @@ Intlayer使用模組擴充（Module Augmentation）來獲得TypeScript的好處�
 - 輕鬆創建和更新翻譯的**快速操作**。
 
 有關如何使用該擴展的更多詳細資訊，請參閱 [Intlayer VS Code 擴展範例文件](https://intlayer.org/doc/vs-code-extension)。
-
----
 
 ### 深入了解
 

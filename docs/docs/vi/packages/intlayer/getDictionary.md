@@ -41,8 +41,6 @@ Không giống như [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/
 - Hoàn toàn có kiểu: object được trả về phản ánh `content` mà bạn đã truyền vào
 - Chấp nhận các custom interpreter plugins
 
----
-
 ## Function Signature
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // Tùy chọn
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Tham số
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Loại**: Nội dung đã được diễn giải của từ điển.
 - **Mô tả**: `content` bạn đã truyền, với mọi nút Intlayer được phân giải cho ngôn ngữ được yêu cầu. Đối với một nhóm bộ sưu tập mà không có bộ chọn `item`, một mảng các mục đã được diễn giải theo thứ tự được trả về; `null` được trả về khi bộ chọn không nhắm đến gì.
-
----
 
 ## Ví dụ Sử dụng
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## Các Hàm Liên Quan
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getIntlayer.md): Cách diễn giải tương tự, nhưng từ điển được tìm kiếm theo khóa trong registry được tạo ra.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getDictionaryAsync.md): Đối tác cho các bản đồ loader theo từng ngôn ngữ.
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/react-intlayer/useDictionary.md): Hook React tương đương, đọc ngôn ngữ từ provider.
-
----
 
 ## TypeScript
 

@@ -27,13 +27,9 @@ author: aymericzip
 
 `adonis-intlayer` 包中的 `t` 函数是在 AdonisJS 应用程序中提供本地化响应的核心工具。它通过根据用户的首选语言动态选择内容，简化了国际化 (i18n) 过程。
 
----
-
 ## 概述
 
 `t` 函数用于定义和检索一组给定语言的翻译。它根据客户端的请求设置（如 `Accept-Language` 标头）自动确定要返回的相应语言。如果首选语言不可用，它会优雅地回退到配置中指定的默认语言区域。
-
----
 
 ## 关键特性
 
@@ -41,8 +37,6 @@ author: aymericzip
 - **回退到默认语言区域**：如果客户端的首选语言不可用，则回退到默认语言区域，确保用户体验的连续性。
 - **异步上下文**：使用 Async Local Storage 在 AdonisJS 请求生命周期内无缝工作。
 - **TypeScript 支持**：为您的翻译强制执行类型安全。
-
----
 
 ## 函数签名
 
@@ -58,8 +52,6 @@ t(translations: Record<string, any>): any;
 
 - 代表客户端首选语言的内容。
 
----
-
 ## 加载中间件
 
 为了确保 `t` 函数正常工作，您**必须**在 AdonisJS 应用程序中注册 `intlayer` 中间件。
@@ -67,8 +59,6 @@ t(translations: Record<string, any>): any;
 ```typescript fileName="start/kernel.ts"
 router.use([() => import("adonis-intlayer/middleware")]);
 ```
-
----
 
 ## 使用示例
 
@@ -104,8 +94,6 @@ export default class ExampleController {
   }
 }
 ```
-
----
 
 ## 高级主题
 

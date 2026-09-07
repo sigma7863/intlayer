@@ -93,8 +93,6 @@ CI/CD 파이프라인에서 선택한 LLM을 사용하여 자동화로 번역하
 </Accordion>
 </AccordionGroup>
 
----
-
 ## React 애플리케이션에서 Intlayer 설정 단계별 가이드
 
 <Steps>

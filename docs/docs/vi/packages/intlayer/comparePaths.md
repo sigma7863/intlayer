@@ -45,8 +45,6 @@ Gói cũng xuất ra một hàm hỗ trợ cơ bản là [`normalizePath`](#norm
 - Cho phép bỏ qua dấu gạch chéo ở đầu và giá trị rỗng (được chuẩn hóa thành `/`)
 - Nhẹ nhàng — được xây dựng trên `getPathWithoutLocale`
 
----
-
 ## Chữ ký hàm (Function Signature)
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // Không bắt buộc
 ): string
 ```
-
----
 
 ## Tham số
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Loại**: `boolean`
 - **Mô tả**: `true` khi cả hai đầu vào đều phân giải về cùng một đường dẫn không phụ thuộc locale, ngược lại trả về `false`.
-
----
 
 ## Ví dụ sử dụng
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` trả về đường dẫn chuẩn, không phụ thuộc locale được sử dụng bởi `comparePaths`. Nó loại bỏ phần locale, giao thức/host, chuỗi truy vấn và hash, đảm bảo chỉ có một dấu gạch chéo ở đầu, loại bỏ bất kỳ dấu gạch chéo ở cuối (ngoại trừ root) và dùng `/` thay thế cho các giá trị rỗng.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## Các hàm liên quan
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getPathWithoutLocale.md): Loại bỏ phần locale khỏi một URL hoặc đường dẫn.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getPrefix.md): Xác định tiền tố URL cho một locale cụ thể.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/packages/intlayer/getLocalizedUrl.md): Tạo ra một URL đã được bản địa hóa cho một locale cụ thể.
-
----
 
 ## TypeScript
 

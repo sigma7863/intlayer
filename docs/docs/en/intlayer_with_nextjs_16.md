@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-08-29
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - Complete guide to translate your app"
 description: "No more i18next. The 2026 guide to building a multilingual (i18n) Next.js 16 app. Translate with AI agents and optimize bundle size, SEO and performances."
 keywords:
@@ -44,7 +44,7 @@ author: aymericzip
 <iframe title="The best i18n solution for Next.js? Discover Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="Code" value="code">
+  <Tab label="Code (locale paths)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -55,7 +55,18 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="Demo" value="demo">
+  <Tab label="Code (no locale paths)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - How to Internationalize your application using Intlayer"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="Demo (locale paths)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
@@ -84,7 +95,7 @@ Compared to main solutions like `next-intl` or `i18next`, Intlayer is a solution
 Intlayer is optimized to work with **Server Components** for efficient rendering and is fully compatible with [**Turbopack**](https://nextjs.org/docs/architecture/turbopack). It does not block static rendering and offers middleware as well as all the features needed for scaling internationalization (i18n).
 
 > Intlayer is compatible with Next.js 12, 13, 14, 15, and 16. If you are using the Next.js Pages Router, you can refer to this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md).
-> Locale routing is useful for SEO, bundle size, and performance. Both setups—with and without locale path routing—are supported and covered in this guide.
+> Locale routing is useful for SEO, bundle size, and performance. Both setups, with and without locale path routing, are supported and covered in this guide.
 > For Next.js 12, 13, 14, and 15 with the App Router, refer to this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
 </Accordion>
@@ -125,8 +136,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Step-by-Step Guide to Set Up Intlayer in a Next.js Application
 
@@ -235,7 +244,7 @@ const config: IntlayerConfig = {
     defaultLocale: Locales.ENGLISH,
   },
   routing: {
-    mode: "prefix-no-default", // or `prefix-all
+    mode: "prefix-no-default", // or `prefix-all`
   },
 };
 
@@ -526,7 +535,7 @@ const RootLayout = async ({
   return (
     <html lang={locale} dir={getHTMLTextDir(locale)}>
       <body>
-        <IntlayerProvider defaultLocale={locale}>{children}</IntlayerProvider>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
       </body>
     </html>
   );
@@ -628,7 +637,7 @@ export default Page;
 ```
 
 - **`IntlayerProvider`** is mounted once, in the locale layout. It provides the locale to both server and client components, so pages no longer wrap themselves.
-- The server hooks resolve the locale in this order: the locale passed at the call site, then the server context seeded by the provider, then the locale carried by the request (the `x-intlayer-locale` header set by the Intlayer proxy, then the locale cookie). That last step is what keeps content correct on a client-side navigation that re-renders only the page segment, where the layout — and with it the provider — does not re-run.
+- The server hooks resolve the locale in this order: the locale passed at the call site, then the server context seeded by the provider, then the locale carried by the request (the `x-intlayer-locale` header set by the Intlayer proxy, then the locale cookie). That last step is what keeps content correct on a client-side navigation that re-renders only the page segment, where the layout, and with it the provider, does not re-run.
 
  </Tab>
  <Tab label='Intlayer <9.4' value='<9.4'>

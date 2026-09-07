@@ -68,8 +68,6 @@ Muito mais que apenas uma solução i18n, o Intlayer fornece um **[editor visual
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Estratégias de Migração
 
 Como o `@nuxtjs/i18n` é executado usando `vue-i18n` sob o capô, há duas estratégias complementares para migrar para o Intlayer:
@@ -80,13 +78,9 @@ Como o `@nuxtjs/i18n` é executado usando `vue-i18n` sob o capô, há duas estra
 
 Este guia foca inicialmente em tratar a fundo a **Estratégia 1** (que aborda o uso rápido através do tal adaptador de compatibilidade em substituição direta) antes de mergulhar na completa migração, opcional em questão.
 
----
-
 ## Índice
 
 <TOC/>
-
----
 
 ## Migração Rápida
 
@@ -192,8 +186,6 @@ export default defineNuxtConfig({
 
 Isso é tudo para a migração rápida. Seu aplicativo Nuxt agora está executando perfeitamente bem ao decorrer das chamadas que antes serviam em formato de `$t` somados também das chamadas via funcionalidade com nome igual a `useI18n()` a partir de dentro das suas próprias estruturas atadas no sistema operacional englobado e alimentado internamente a plataforma e ecossistema pelo uso contínuo de suporte atrelados as raízes de base Intlayer.
 
----
-
 ## Migração Completa
 
 As etapas a seguir são opcionais e podem ser feitas gradativamente. Elas desbloqueiam o conjunto completo das funcionalidades do Intlayer: editor visual, CMS, arquivos de conteúdo tipados, automação de tradução por IA e muito mais.
@@ -273,8 +265,6 @@ export default config;
 
 </Steps>
 
----
-
 ## O que pode ser excluído pós-migração
 
 Uma vez que o adaptador de compatibilidade esteja implementado, o seguinte boilerplate padrão do `@nuxtjs/i18n` pode ser excluído:
@@ -286,8 +276,6 @@ Uma vez que o adaptador de compatibilidade esteja implementado, o seguinte boile
 | Pacotes de idiomas JSON (`locales/*.json`)                                                                                                                                                                                                        | Pacotes JSON são necessários apenas se você continuar a usar o plugin `syncJSON`. Uma vez migrado para arquivos `.content.ts`, você pode remover a pasta JSON.                                                                                                                              |
 
 Quando você estiver pronto para ir mais além, o Intlayer **descobre automaticamente todos os arquivos `.content.ts` e `.content.json` em qualquer lugar da sua base de código** (por padrão, em qualquer lugar sob `./src`). Basta colocar um arquivo `my-component.content.ts` ao lado do seu `MyComponent.vue`, e o Intlayer o detectará em tempo de build sem necessidade de configuração adicional — não são necessários imports, registros ou um arquivo index central. Isso torna a co-localização das traduções com páginas e componentes totalmente fluida.
-
----
 
 ## Configuração do TypeScript
 
@@ -303,8 +291,6 @@ O Intlayer usa aumento de módulo (module augmentation) para fornecer IntelliSen
 }
 ```
 
----
-
 ## Configuração do Git
 
 Adicione o diretório gerado pelo Intlayer ao seu `.gitignore`:
@@ -313,8 +299,6 @@ Adicione o diretório gerado pelo Intlayer ao seu `.gitignore`:
 # Ignora arquivos gerados pelo Intlayer
 .intlayer
 ```
-
----
 
 ## Explore Além
 

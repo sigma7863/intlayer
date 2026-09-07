@@ -30,13 +30,9 @@ author: aymericzip
 
 Intlayer adalah solusi manajemen konten dan internasionalisasi yang dirancang untuk mempermudah cara Anda mendeklarasikan, mengelola, dan memperbarui konten di seluruh aplikasi Anda. Solusi ini menawarkan fitur-fitur kuat seperti deklarasi konten terpusat atau terdistribusi, opsi internasionalisasi yang luas, dukungan Markdown, rendering kondisional, integrasi TypeScript/JavaScript/JSON, dan banyak lagi. Berikut adalah gambaran menyeluruh tentang apa yang saat ini disediakan oleh Intlayer, diikuti dengan fitur-fitur roadmap yang akan datang.
 
----
-
 ## Daftar Isi
 
 <TOC/>
-
----
 
 ## Fitur Saat Ini
 
@@ -149,8 +145,6 @@ Intlayer mendukung **TypeScript** (juga JavaScript) dan **JSON** untuk mendeklar
 >
 > - [Konfigurasi Build](https://intlayer.org/doc/concept/configuration#build-configuration)
 
----
-
 ## Integrasi dengan Framework & Lingkungan
 
 ### 1. Next.js
@@ -237,8 +231,6 @@ Intlayer mendukung **TypeScript** (juga JavaScript) dan **JSON** untuk mendeklar
 >
 > - [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_preact.md)
 
----
-
 ## Editor Visual dan CMS
 
 ### 1. Editor Visual Lokal
@@ -264,20 +256,14 @@ Intlayer mendukung **TypeScript** (juga JavaScript) dan **JSON** untuk mendeklar
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md)
 
----
-
 ## Ekstensi IDE
 
 - Ekstensi untuk IDE utama yang menyediakan **antarmuka grafis** untuk mengelola terjemahan lokal dan jarak jauh.
 - Fitur dapat mencakup pembuatan otomatis file deklarasi konten untuk komponen, integrasi langsung dengan Intlayer CMS, dan validasi waktu nyata.
 
----
-
 ## Server MCP
 
 - Sebuah **server MCP** yang memungkinkan Anda mengelola konten dan terjemahan menggunakan alat terintegrasi di IDE Anda.
-
----
 
 ## Intlayer CLI
 
@@ -289,14 +275,10 @@ Intlayer mendukung **TypeScript** (juga JavaScript) dan **JSON** untuk mendeklar
 >
 > - [CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/cli/index.md)
 
----
-
 ## Lingkungan
 
 - Gunakan **variabel lingkungan** untuk mengonfigurasi Intlayer secara berbeda di lingkungan produksi, pengujian, dan lokal.
 - Tentukan editor visual atau proyek CMS jarak jauh mana yang akan ditargetkan tergantung pada lingkungan Anda.
-
----
 
 ## Pembaruan Konten Hot
 
@@ -305,8 +287,6 @@ Intlayer mendukung **TypeScript** (juga JavaScript) dan **JSON** untuk mendeklar
 > Sumber daya:
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_CMS.md)
-
----
 
 ## Fitur Mendatang
 
@@ -335,8 +315,6 @@ Intlayer mendukung **TypeScript** (juga JavaScript) dan **JSON** untuk mendeklar
 
 - Upaya sedang dilakukan untuk mendukung **Solid, Svelte, Angular**, dan lainnya.
 - Bertujuan agar Intlayer kompatibel dengan **aplikasi berbasis JavaScript apa pun**.
-
----
 
 ## Kesimpulan
 

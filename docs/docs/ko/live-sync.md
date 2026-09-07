@@ -38,8 +38,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## 라이브 동기화 활성화
 
 Intlayer 구성을 업데이트하여 Live Sync를 활성화하세요:

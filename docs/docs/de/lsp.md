@@ -31,8 +31,6 @@ author: aymericzip
 
 Der **Intlayer Language Server** ist eine Implementierung des [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/), die Ihre IDE — und Ihren KI-Agenten — Intlayer-fähig macht. Er verbindet einen Aufruf wie `useIntlayer("home")` mit der `.content.ts`-Datei, die ihn deklariert, und zwar in beide Richtungen.
 
----
-
 ## Funktionen
 
 | Funktion                   | Tastenkürzel           | Beschreibung                                                                                                               |
@@ -65,8 +63,6 @@ Das funktioniert für jedes `*-intlayer`-Paket (`next-intlayer`, `react-intlayer
 
 > Wörterbücher werden aus der Build-Ausgabe gelesen — führen Sie also `npx intlayer build` aus oder lassen Sie Ihren Dev-Server laufen, damit der Server etwas auflösen kann.
 
----
-
 ## Installation
 
 Der Server wird als `intlayer-lsp`-Binary in `@intlayer/lsp` ausgeliefert:
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 Installieren Sie ihn stattdessen global (`npm install -g @intlayer/lsp`), wenn Ihr Editor `intlayer-lsp` im `PATH` benötigt — das gilt für das Claude-Code-Plugin und für jede der folgenden Konfigurationen, die das Binary direkt aufruft.
-
----
 
 ## Einrichtung
 
@@ -255,15 +249,11 @@ Das genaue Konfigurationsformat entnehmen Sie der LSP-Dokumentation Ihres Editor
   </Tab>
 </Tabs>
 
----
-
 ## Hinweis zu KI-Agenten im Terminal
 
 **Claude Code** agiert als echter LSP-Client — siehe den Tab oben.
 
 **OpenAI Codex** und die meisten anderen Terminal-Tools sind keine LSP-Clients: Sie lesen und schreiben Dateien direkt. Den Server allein laufen zu lassen hilft ihnen nicht; der Nutzen entsteht, wenn er in einem begleitenden Editor aktiv ist, dessen Index der Agent abfragen kann (Cursor Composer, Windsurf Cascade, Copilot Chat).
-
----
 
 ## Funktionsweise
 
@@ -274,8 +264,6 @@ Bei einer Anfrage parst der Server das Dokument (via [oxc](https://oxc.rs/)) und
 1. **Auf einem Schlüssel-String** (`useIntlayer("home")`) → liefert jede Inhaltsdatei, die diesen Schlüssel deklariert, positioniert auf deren `key:`-Zeile.
 2. **Auf einer Feldverwendung** (`content.title`, eine destrukturierte Eigenschaft, `t('path.to.field')`, `<Trans>`, …) → löst die Variable zurück zu ihrem Wörterbuch auf und liefert das passende Feld innerhalb der Inhaltsdateien.
 3. **Aus einer Inhaltsdatei heraus** → führt die umgekehrte Suche aus und durchsucht die Projektquellen nach Aufrufstellen dieses Schlüssels oder Feldes.
-
----
 
 ## Fehlerbehebung
 

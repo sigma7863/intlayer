@@ -112,8 +112,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## ViteとSolidアプリケーションでIntlayerをセットアップするステップバイステップガイド
 
 ## 目次
@@ -727,8 +725,6 @@ Intlayer によって生成されたファイルを無視することが推奨�
 Intlayer での開発体験を向上させるために、公式の **Intlayer VS Code Extension** をインストールできます。
 
 [VS Code Marketplace からインストール](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### さらに進むために
 

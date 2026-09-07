@@ -80,8 +80,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## لماذا تستخدم Intlayer مع Storybook؟
 
 Storybook هو الأداة القياسية في الصناعة لتطوير وتوثيق مكونات واجهة المستخدم بشكل معزول. يتيح لك دمجه مع Intlayer:
@@ -89,8 +87,6 @@ Storybook هو الأداة القياسية في الصناعة لتطوير و
 - **معاينة كل لغة** مباشرة داخل لوحة Storybook باستخدام مبدل شريط الأدوات.
 - **اكتشاف الترجمات المفقودة** قبل أن تصل إلى مرحلة الإنتاج.
 - **توثيق المكونات متعددة اللغات** بمحتوى حقيقي وآمن من حيث النوع (type-safe) بدلاً من السلاسل النصية الثابتة.
-
----
 
 ## الإعداد خطوة بخطوة
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > لمزيد من تنسيقات وميزات إعلان المحتوى، راجع [توثيق إعلان المحتوى](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/dictionary/content_file.md).
 
----
-
 ## استخدام `useIntlayer` في مكون
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 تعيد `useIntlayer` القاموس المجمع للغة الحالية المقدمة من أقرب `IntlayerProvider`. يؤدي تبديل اللغة في شريط أدوات Storybook إلى إعادة رندرة القصة تلقائيًا بالترجمات المحدثة.
-
----
 
 ## كتابة القصص للمكونات المدوّلة
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > ترث كل قصة الـ `locale` العالمي من شريط الأدوات، لذا يمكنك التحقق من كل لغة دون تغيير أي كود في القصة.
 
----
-
 ## اختبار الترجمات في القصص
 
 استخدم وظائف `play` في Storybook للتأكد من رندرة النص المترجم الصحيح للغة معينة:
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## موارد إضافية
 

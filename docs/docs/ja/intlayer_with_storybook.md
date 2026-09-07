@@ -80,8 +80,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## なぜStorybookでIntlayerを使用するのか？
 
 Storybookは、UIコンポーネントを分離して開発およびドキュメント化するための業界標準ツールです。これをIntlayerと組み合わせることで、以下のメリットが得られます：
@@ -89,8 +87,6 @@ Storybookは、UIコンポーネントを分離して開発およびドキュメ
 - **すべてのロケールをプレビュー**: Storybookのツールバースイッチャーを使用して、キャンバス内で直接確認できます。
 - **翻訳の欠落を防止**: 本番環境に到達する前にエラーを発見できます。
 - **多言語コンポーネントのドキュメント化**: ハードコードされた文字列ではなく、実際のタイプセーフなコンテンツでドキュメント化できます。
-
----
 
 ## ステップバイステップのセットアップ
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > その他のコンテンツ宣言形式や機能については、[コンテンツ宣言のドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/dictionary/content_file.md)を参照してください。
 
----
-
 ## コンポーネントでの `useIntlayer` の使用
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` は、最も近い `IntlayerProvider` から提供される現在のロケールのコンパイル済み辞書を返します。Storybookのツールバーでロケールを切り替えると、更新された翻訳でストーリーが自動的に再レンダリングされます。
-
----
 
 ## 国際化されたコンポーネントのストーリー作成
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > 各ストーリーはツールバーから `locale` グローバルを継承するため、ストーリーコードを変更することなく、すべてのロケールを確認できます。
 
----
-
 ## ストーリー内での翻訳のテスト
 
 Storybookの `play` 関数を使用して、特定のロケールに対して正しい翻訳テキストがレンダリングされていることを確認します：
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## その他のリソース
 

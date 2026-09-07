@@ -83,8 +83,6 @@ Intlayer ist mehr als nur eine i18n-Lösung. Es bietet einen **selbstgehosteten 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Schritt-für-Schritt-Anleitung zur Einrichtung von Intlayer in einer Angular-Anwendung
 
 <Tabs defaultTab="code">
@@ -449,13 +447,9 @@ Diese Erweiterung bietet:
 
 Weitere Informationen zur Verwendung der Erweiterung finden Sie in der [Dokumentation zur Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Weiterführende Informationen
 
 Um weiter zu gehen, können Sie den [visuellen Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) implementieren oder Ihre Inhalte mit dem [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) extern verwalten.
-
----
 
 ## Häufig gestellte Fragen
 

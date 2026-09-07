@@ -40,8 +40,6 @@ author: aymericzip
 > Not: next-i18next, i18next üzerine inşa edilmiştir. Bu rehber, App Router'da next-i18next ile uyumlu i18next ilkel fonksiyonlarını kullanırken mimariyi basit ve üretime hazır tutar.
 > Daha geniş bir karşılaştırma için bkz. [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/tr/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Proje yapısı
 
 next-i18next bağımlılıklarını yükleyin:
@@ -93,8 +91,6 @@ Kontrol listesi (orta/kıdemli):
 - Mesajları aşırı merkezi hale getirmeyin; küçük, sayfa/özellik kapsamlı namespace'ler kullanın
 - Tüm locale'leri bir kerede import etmekten kaçının; sadece ihtiyacınız olanları yükleyin
 
----
-
 ## 2) Bağımlılıkları yükleyin
 
 ```bash
@@ -106,8 +102,6 @@ Eğer next-i18next API'lerini veya konfigürasyon entegrasyonunu kullanmayı pla
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Temel i18n konfigürasyonu
 
@@ -134,8 +128,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Uzman notu: Eğer `next-i18next.config.js` kullanıyorsanız, sapmayı önlemek için bunu `i18n.config.ts` ile uyumlu tutun.
-
----
 
 ## 4) Sunucu tarafı i18n başlatma
 
@@ -174,8 +166,6 @@ export async function initI18next(
 ```
 
 Orta not: Yükü sınırlamak için namespace listesini sayfa başına kısa tutun. Global “catch-all” paketlerden kaçının.
-
----
 
 ## 5) React bileşenleri için istemci sağlayıcısı
 
@@ -233,8 +223,6 @@ export default function I18nProvider({
 
 Junior ipucu: Tüm mesajları istemciye geçirmenize gerek yok. Sadece sayfanın namespace'leri ile başlayın.
 
----
-
 ## 6) Yerelleştirilmiş düzen ve rotalar
 
 Dili ve yönü ayarlayın ve statik render'ı desteklemek için her locale için rotaları önceden oluşturun.
@@ -269,8 +257,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Sunucu + istemci kullanımı ile örnek sayfa
 
@@ -387,8 +373,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: Metadata, Hreflang, Sitemap, Robots
 
 İçeriği çevirmek erişimi artırmanın bir yoludur. Çok dilli SEO'yu kapsamlı şekilde yapılandırın.
@@ -482,8 +466,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Yerel Yönlendirme için Middleware
 
 Yereli algılar ve eksikse yerelleştirilmiş bir rotaya yönlendirir.
@@ -526,8 +508,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Performans ve Geliştirici Deneyimi (DX) en iyi uygulamaları
 
 - **html `lang` ve `dir` ayarla**: `src/app/[locale]/layout.tsx` içinde yapılmıştır.
@@ -538,8 +518,6 @@ export const config = {
 - **Ağır işlemleri memoize et**: Özellikle eski React sürümleri için istemci kodunda.
 - **Önbellek ve başlıklar**: Mümkün olduğunda dinamik render yerine statik veya `revalidate` tercih et.
 
----
-
 ## 11) Test ve CI
 
 - `t` kullanan bileşenler için anahtarların varlığını doğrulayan birim testleri ekle.
@@ -547,8 +525,6 @@ export const config = {
 - Eksik anahtarları deploy öncesinde CI sırasında görünür hale getirin.
 
 Intlayer bunun çoğunu otomatikleştirecektir (bir sonraki bölüme bakınız).
-
----
 
 ## 12) Intlayer'ı üstüne ekle (otomasyon)
 
@@ -635,8 +611,6 @@ Yaygın akışlar:
 
 > CLI argümanları sağlayabilirsiniz; bkz. [Intlayer CLI dokümanları](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/cli/index.md).
 
----
-
 ## 13) Sorun Giderme
 
 - **Anahtarlar bulunamadı**: Sayfa/sağlayıcının doğru namespace'leri listelediğinden ve JSON dosyasının `src/locales/<locale>/<namespace>.json` altında mevcut olduğundan emin olun.
@@ -644,8 +618,6 @@ Yaygın akışlar:
 - **RTL düzen sorunları**: `dir` değerinin `isRtl(locale)` fonksiyonundan türetildiğini ve CSS'inizin `[dir="rtl"]` kurallarına uyduğunu doğrulayın.
 - **SEO alternatifi eksik**: `alternates.languages` içinde tüm locale'lerin ve `x-default`'un bulunduğundan emin olun.
 - **Paketler çok büyük**: Namespace'leri daha da bölün ve istemci tarafında tüm `locales` ağaçlarını içe aktarmaktan kaçının.
-
----
 
 ## 14) Sonraki Adımlar
 

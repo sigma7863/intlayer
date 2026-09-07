@@ -35,14 +35,10 @@ Ci concentriamo sugli strumenti moderni di Vue (Vite, Composition API) e valutia
 
 > **tl;dr**: Entrambi possono localizzare app Vue. Se desideri **contenuti a livello di componente**, **tipi TypeScript rigorosi**, **controlli delle chiavi mancanti in fase di build**, **dizionari tree-shaken** e **helper integrati per router/SEO** oltre a **Editor Visivo e traduzioni AI**, **Intlayer** è la scelta più completa e moderna.
 
----
-
 ## Posizionamento ad alto livello
 
 - **vue-i18n** - La libreria i18n de-facto per Vue. Formattazione flessibile dei messaggi (stile ICU), blocchi SFC `<i18n>` per messaggi locali e un grande ecosistema. La sicurezza e la manutenzione su larga scala dipendono principalmente da te.
 - **Intlayer** - Modello di contenuto incentrato sui componenti per Vue/Vite/Nuxt con **tipizzazione TS rigorosa**, **controlli in fase di build**, **tree-shaking**, **helper per router e SEO**, **Editor Visivo/CMS** opzionale e **traduzioni assistite da AI**.
-
----
 
 ## Confronto delle funzionalità affiancate (focalizzato su Vue)
 
@@ -67,8 +63,6 @@ Ci concentriamo sugli strumenti moderni di Vue (Vite, Composition API) e valutia
 | **Manutenibilità di progetti di grandi dimensioni** | ✅ Favorisce una struttura modulare e amichevole per i design system              | ✅ Possibile, ma richiede una forte disciplina su file/namespace                                         |
 | **Ecosistema / comunità**                           | ⚠️ Più piccolo ma in rapida crescita                                              | ✅ Grande e maturo nell'ecosistema Vue                                                                   |
 
----
-
 ## Confronto approfondito
 
 ### 1) Architettura e scalabilità
@@ -78,16 +72,12 @@ Ci concentriamo sugli strumenti moderni di Vue (Vite, Composition API) e valutia
 
 **Perché è importante:** In grandi app Vue o design system, il **contenuto modulare** scala meglio rispetto ai cataloghi monolitici.
 
----
-
 ### 2) TypeScript e sicurezza
 
 - **vue-i18n**: Buon supporto TS; la **tipizzazione rigorosa delle chiavi** richiede tipicamente schemi/generici personalizzati e convenzioni attente.
 - **Intlayer**: **Genera tipi rigorosi** dal tuo contenuto, offrendo **autocompletamento nell’IDE** e **errori a tempo di compilazione** per errori di battitura o chiavi mancanti.
 
 **Perché è importante:** Il typing forte intercetta i problemi **prima** del runtime.
-
----
 
 ### 3) Gestione delle traduzioni mancanti
 
@@ -96,16 +86,12 @@ Ci concentriamo sugli strumenti moderni di Vue (Vite, Composition API) e valutia
 
 **Perché è importante:** L’applicazione a build-time mantiene l’interfaccia di produzione pulita e coerente.
 
----
-
 ### 4) Strategia di routing e URL (Vue Router/Nuxt)
 
 - **Entrambi** possono funzionare con rotte localizzate.
 - **Intlayer** fornisce helper per **generare percorsi localizzati**, **gestire i prefissi di localizzazione** ed emettere **`<link rel="alternate" hreflang>`** per la SEO. Con Nuxt, integra il routing del framework.
 
 **Perché è importante:** Meno strati di collegamento personalizzati e **SEO più pulita** tra le localizzazioni.
-
----
 
 ### 5) Prestazioni e comportamento di caricamento
 
@@ -114,8 +100,6 @@ Ci concentriamo sugli strumenti moderni di Vue (Vite, Composition API) e valutia
 
 **Perché è importante:** Bundle più piccoli e avvio più veloce per app Vue multi-localizzazione.
 
----
-
 ### 6) Esperienza sviluppatore e strumenti
 
 - **vue-i18n**: Documentazione e community mature; solitamente ti affiderai a **piattaforme di localizzazione esterne** per i flussi editoriali.
@@ -123,16 +107,12 @@ Ci concentriamo sugli strumenti moderni di Vue (Vite, Composition API) e valutia
 
 **Perché è importante:** Costi operativi ridotti e un ciclo sviluppo–contenuto più breve.
 
----
-
 ### 7) SEO, SSR & SSG
 
 - **Entrambi** funzionano con Vue SSR e Nuxt.
 - **Intlayer**: Aggiunge **helper SEO** (sitemap/metadata/`hreflang`) indipendenti dal framework e ben integrati con le build Vue/Nuxt.
 
 **Perché è importante:** SEO internazionale senza configurazioni personalizzate complesse.
-
----
 
 ## Perché Intlayer? (Problema e approccio)
 
@@ -223,8 +203,6 @@ Questo approccio:
 - **Evita chiavi inutilizzate** (i componenti non usati non importano contenuti).
 - **Ottimizza il caricamento** (i componenti caricati in modo lazy portano con sé il loro contenuto).
 
----
-
 ## Funzionalità aggiuntive di Intlayer (rilevanti per Vue)
 
 - **Supporto cross-framework**: Funziona con Vue, Nuxt, Vite, React, Express e altri.
@@ -242,22 +220,16 @@ Questo approccio:
 - **Server MCP & estensione VSCode**: Automatizza i flussi di lavoro i18n e la creazione di contenuti direttamente nel tuo IDE.
 - **Interoperabilità**: Collegamenti con **vue-i18n**, **react-i18next** e **react-intl** quando necessario.
 
----
-
 ## Quando scegliere quale?
 
 - **Scegli vue-i18n** se vuoi l’**approccio standard di Vue**, ti senti a tuo agio a gestire cataloghi/namespace da solo e la tua app è di **dimensioni piccole o medie** (o già usi Nuxt i18n).
 - **Scegli Intlayer** se apprezzi il **contenuto scoped per componente**, il **TypeScript rigoroso**, le **garanzie a build-time**, il **tree-shaking** e gli strumenti **batteries-included** per routing/SEO/editor-specialmente per **codebase Vue/Nuxt grandi e modulari**.
-
----
 
 ## Interoperabilità con vue-i18n
 
 `intlayer` può anche aiutarti a gestire i tuoi namespace `vue-i18n`.
 
 Utilizzando `intlayer`, puoi dichiarare i tuoi contenuti nel formato della tua libreria i18n preferita, e intlayer genererà i tuoi namespace nella posizione di tua scelta (esempio: `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## Note pratiche per la migrazione (vue-i18n → Intlayer)
 
@@ -266,8 +238,6 @@ Utilizzando `intlayer`, puoi dichiarare i tuoi contenuti nel formato della tua l
 - **Abilita controlli rigorosi**: Permetti al rilevamento in fase di build di evidenziare presto chiavi/locale mancanti.
 - **Adotta helper per router/SEO**: Standardizza il rilevamento della localizzazione e i tag `hreflang`.
 - **Misura i bundle**: Aspettati **riduzioni delle dimensioni del bundle** man mano che il contenuto non utilizzato viene escluso.
-
----
 
 ## Conclusione
 

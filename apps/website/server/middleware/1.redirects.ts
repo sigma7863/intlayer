@@ -39,6 +39,27 @@ const REMOVED_BLOG_SLUGS = new Set([
   '/blog/i18n-technologies/frameworks/flutter',
 ]);
 
+/**
+ * Doc pages whose slug moved or was merged into another page.
+ * Key: former locale-agnostic path — Value: current locale-agnostic path.
+ */
+const MOVED_DOC_PATHS = new Map<string, string>([
+  [
+    '/doc/environment/vite-and-react/tanstack-start',
+    '/doc/environment/tanstack-start',
+  ],
+  ['/doc/environment/nextjs/compiler', '/doc/environment/nextjs'],
+  ['/doc/environment/nextjs/no-locale-path', '/doc/environment/nextjs'],
+  [
+    '/doc/environment/vite-and-react/react-router-v7-fs-routes',
+    '/doc/environment/vite-and-react/react-router-v7',
+  ],
+  [
+    '/doc/environment/vite-and-react/compiler',
+    '/doc/environment/vite-and-react',
+  ],
+]);
+
 const redirect = (location: string): Response =>
   new Response(null, { status: 301, headers: { Location: location } });
 
@@ -46,9 +67,8 @@ export default (event: H3EventLike): Response | void => {
   const { locale, rest } = parseLocale(event.path);
 
   // ── 1. Doc pages that moved ────────────────────────────────────────────────
-  if (rest === '/doc/environment/vite-and-react/tanstack-start') {
-    return redirect(`${locale}/doc/environment/tanstack-start`);
-  }
+  const movedDocPath = MOVED_DOC_PATHS.get(rest);
+  if (movedDocPath) return redirect(`${locale}${movedDocPath}`);
 
   // ── 2. Removed blog pages ──────────────────────────────────────────────────
   if (REMOVED_BLOG_SLUGS.has(rest)) {

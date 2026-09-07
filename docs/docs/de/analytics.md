@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Was es nachverfolgt
 
 `@intlayer/analytics` bündelt drei Arten von anonymen Ereignissen:

@@ -29,13 +29,9 @@ author: aymericzip
 
 `next-intlayer` paketindeki `t` fonksiyonu, Next.js uygulamanızda satır içi uluslararasılaştırma için temel bir araçtır. Bileşenlerinizde doğrudan çevirileri tanımlamanıza olanak tanır, mevcut yerel ayara göre yerelleştirilmiş içeriği görüntülemeyi basitleştirir.
 
----
-
 ## Genel Bakış
 
 `t` fonksiyonu, bileşenlerinizde farklı yerel ayarlar için çevirileri doğrudan sağlamak için kullanılır. Desteklenen her yerel ayar için çeviriler içeren bir nesne geçirerek, `t` Next.js uygulamanızdaki mevcut yerel bağlamına göre uygun çeviriyi döndürür.
-
----
 
 ## Temel Özellikler
 
@@ -43,8 +39,6 @@ author: aymericzip
 - **Otomatik Yerel Seçim**: Mevcut yerel ayara karşılık gelen çeviriyi otomatik olarak döndürür.
 - **TypeScript Desteği**: TypeScript ile kullanıldığında tür güvenliği ve otomatik tamamlama sağlar.
 - **Kolay Entegrasyon**: Next.js'te hem istemci hem de sunucu bileşenlerinde sorunsuz çalışır.
-
----
 
 ## Fonksiyon İmzası
 
@@ -59,8 +53,6 @@ t<T extends string>(content: Record<LocalesValues, T>, locale?: Locales): string
 ### Döndürür
 
 - Mevcut yerel ayar için çevrilmiş içeriği temsil eden bir dize.
-
----
 
 ## Kullanım Örnekleri
 
@@ -131,8 +123,6 @@ export const ServerComponentExample: FC = () => (
 </button>
 ```
 
----
-
 ## Gelişmiş Konular
 
 ### TypeScript Entegrasyonu
@@ -193,8 +183,6 @@ const Page: FC<{ locale: Locales }> = ({ locale }) => (
 </Tab>
 </Tabs>
 
----
-
 ## Yaygın Hatalar ve Sorun Giderme
 
 ### `t` Tanımsız veya Yanlış Çeviri Döndürüyor
@@ -219,8 +207,6 @@ const translations: IConfigLocales<string> = {
 const text = t(translations);
 ```
 
----
-
 ## Etkili Kullanım İçin İpuçları
 
 1. **Basit Satır İçi Çeviriler İçin `t` Kullanın**: Bileşenlerinizde doğrudan küçük metin parçalarını çevirmek için idealdir.
@@ -228,14 +214,10 @@ const text = t(translations);
 3. **Tutarlı Yerel Sağlama**: Uygulamanızda yerel ayarınızın uygun sağlayıcılar aracılığıyla tutarlı şekilde sağlandığından emin olun.
 4. **TypeScript'i Kullanın**: Eksik çevirileri yakalamak ve tür güvenliğini sağlamak için TypeScript türlerini kullanın.
 
----
-
 ## Sonuç
 
 `next-intlayer`'daki `t` fonksiyonu, Next.js uygulamalarınızda satır içi çevirileri yönetmek için güçlü ve kullanışlı bir araçtır. Bunu etkili bir şekilde entegre ederek, uygulamanızın uluslararasılaştırma yeteneklerini geliştirir, dünya çapındaki kullanıcılar için daha iyi bir deneyim sağlar.
 
 Daha detaylı kullanım ve gelişmiş özellikler için [next-intlayer dokümantasyonuna](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) bakın.
-
----
 
 **Not**: `t` fonksiyonunun doğru çevirileri döndürmesi için mevcut yerel ayarınızın bileşenlerinize doğru şekilde aktarıldığından emin olun. Bu, `IntlayerClientProvider` ve `IntlayerServerProvider`'ı düzgün şekilde kurmak için çok önemlidir.

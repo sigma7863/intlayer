@@ -122,13 +122,9 @@ author: aymericzip
 
 Intlayer-configuratiebestanden stellen u in staat om verschillende aspecten van de plugin aan te passen, zoals internationalisering, middleware en contentbeheer. Dit document geeft een gedetailleerde beschrijving van elke eigenschap in de configuratie.
 
----
-
 ## Inhoudsopgave
 
 <TOC/>
-
----
 
 ## Ondersteuning voor configuratiebestanden
 
@@ -142,8 +138,6 @@ Intlayer accepteert JSON-, JS-, MJS- en TS-configuratiebestandsformaten:
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## Voorbeeld van een configuratiebestand
 
@@ -694,13 +688,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## Configuratiegids
 
 Hieronder worden de verschillende configuratieparameters beschreven die beschikbaar zijn in Intlayer.
-
----
 
 ### Internationaliseringsconfiguratie (Internationalization)
 
@@ -712,8 +702,6 @@ Definieert instellingen met betrekking tot internationalisering, waaronder besch
 | `requiredLocales` | Lijst van vereiste locales in de applicatie.                                                        | `string[]` | `[]`                | `[]`                 | • Indien leeg, zijn alle locales vereist in de `strict` modus.<br/>• Zorg ervoor dat vereiste locales ook zijn gedefinieerd in het veld `locales`.                                                                                                                                                                                                |
 | `strictMode`      | Zorgt voor een robuuste implementatie van geinternationaliseerde content met behulp van TypeScript. | `string`   | `'inclusive'`       |                      | • Indien `"strict"`: de functie `t` vereist definitie van elke gedeclareerde locale - geeft een foutmelding als er een ontbreekt of niet gedeclareerd is.<br/>• Indien `"inclusive"`: waarschuwt voor ontbrekende locales, maar staat het gebruik van bestaande niet-gedeclareerde toe.<br/>• Indien `"loose"`: accepteert elke bestaande locale. |
 | `defaultLocale`   | De standaard locale die wordt gebruikt als fallback als de gevraagde locale niet wordt gevonden.    | `string`   | `Locales.ENGLISH`   | `'en'`               | Wordt gebruikt om de locale te bepalen wanneer deze niet is opgegeven in de URL, cookie of header.                                                                                                                                                                                                                                                |
-
----
 
 ### Editorconfiguratie (Editor)
 
@@ -734,8 +722,6 @@ Definieert de instellingen voor de ingebouwde visuele editor, inclusief de serve
 | `liveSyncPort`               | Poort van de live sync server.                                                                                                                                          | `number`                          | `4000`                              | `4000`                                                                                          |                                                                                                                                                                                                                                                                 |
 | `liveSyncURL`                | URL van de live sync server.                                                                                                                                            | `string`                          | `'http://localhost:{liveSyncPort}'` | `'https://example.com'`                                                                         | Verwijst standaard naar localhost; kan worden gewijzigd naar een externe live sync server.                                                                                                                                                                      |
 
----
-
 ### Analytics-configuratie (Analytics)
 
 Definieert instellingen voor Intlayer analytics: het verzamelen van welke content daadwerkelijk aan gebruikers wordt getoond (paginaweergaven, content-exposities) en het mogelijk maken van A/B-testen op content.
@@ -747,8 +733,6 @@ Analytics is opt-out: het staat standaard aan en begint met verzamelen zodra het
 | `enabled`       | Schakelt het verzamelen van analytics in (paginaweergaven, content-exposities, A/B-events). | `boolean` | `true`    | `false`   | Vereist dat `@intlayer/analytics` is geïnstalleerd en dat `editor.clientId` is ingesteld voor attributie; anders blijft analytics uitgeschakeld, zelfs als `enabled` op `true` staat. |
 | `flushInterval` | Milliseconden tussen automatische gebundelde verzendingen naar de backend.                  | `number`  | `20000`   | `10000`   |                                                                                                                                                                                       |
 | `sampleRate`    | Fractie van sessies om te registreren, van `0` (geen) tot `1` (alle).                       | `number`  | `1`       | `0.5`     | Sampling is deterministisch per sessie, zodat een geregistreerde sessie al zijn events rapporteert (geen gedeeltelijke funnels).                                                      |
-
----
 
 ### Routingconfiguratie (Routing)
 
@@ -951,8 +935,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### Contentconfiguratie (Content)
 
 Instellingen met betrekking tot hoe content in de applicatie wordt beheerd, inclusief mapnamen, bestandsextensies en afgeleide configuraties.
@@ -965,8 +947,6 @@ Instellingen met betrekking tot hoe content in de applicatie wordt beheerd, incl
 | `codeDir`        | Pad naar de map waar code wordt bewaard, relatief aan de hoofdasmap.                                               | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • Wordt gebruikt voor het volgen van cadebestanden voor transformatie (verwijderen van onnodige delen, optimalisatie).<br/>• Scheiding van `contentDir` kan de prestaties verhogen. |
 | `excludedPath`   | Mappen die zijn uitgesloten van het scannen van content.                                                           | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | Wordt nog niet gebruikt; gepland voor de toekomst.                                                                                                                                  |
 | `formatCommand`  | Opdracht voor het formatteren van contentbestanden bij hun lokale schrijven door Intlayer.                         | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` wordt vervangen door het pad naar het bestand.<br/>• Als het niet gedefinieerd is, bepaalt Intlayer dit automatisch (test prettier, biome, eslint).                    |
-
----
 
 ### Woordenboekconfiguratie (Dictionary)
 
@@ -1000,8 +980,6 @@ dictionary: {
 };
 ```
 
----
-
 ### Loggerconfiguratie (Log)
 
 Parameters voor het aanpassen van de loguitvoer van Intlayer.
@@ -1010,8 +988,6 @@ Parameters voor het aanpassen van de loguitvoer van Intlayer.
 | -------- | ------------------------------------------- | -------------------------------------------------------------- | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------- |
 | `mode`   | Geeft de loggermodus aan.                   | `'default'` &#124; <br/> `'verbose'` &#124; <br/> `'disabled'` | `'default'`     | `'verbose'`      | • `'verbose'`: logt meer informatie voor debuggen.<br/>• `'disabled'`: schakelt de logger volledig uit. |
 | `prefix` | Voorvoegsel voor alle berichten in het log. | `string`                                                       | `'[intlayer] '` | `'[my prefix] '` |                                                                                                         |
-
----
 
 ### AI-configuratie (AI)
 
@@ -1052,8 +1028,6 @@ Intlayer ondersteunt meerdere AI-providers voor maximale flexibiliteit. Momentee
 | `baseURL`            | Basis URL voor de AI API.                                                                                                           | `string`                                                                                                                                                                                                                                                                                                                                                                                                                                             | Geen        | `'https://api.openai.com/v1'` <br/> `'http://localhost:5000'` | Kan verwijzen naar een lokaal of aangepast endpoint van de AI API.                                                                                                                                          |
 | `dataSerialization`  | Formaat van de dataserialisatie voor AI-functies.                                                                                   | `'json'` &#124; <br/> `'toon'`                                                                                                                                                                                                                                                                                                                                                                                                                       | `undefined` | `'toon'`                                                      | • `'json'`: standaard, betrouwbaar; verbruikt meer tokens.<br/>• `'toon'`: minder tokens, minder stabiel.<br/>• Extra parameters worden als context aan het model doorgegeven (redenaties-inspanning enz.). |
 
----
-
 ### Buildconfiguratie (Build)
 
 Parameters die regelen hoe Intlayer de internationalisering van uw applicatie optimaliseert en compileert.
@@ -1076,8 +1050,6 @@ Build-opties worden toegepast op de plug-ins `@intlayer/babel` en `@intlayer/swc
 | `outputFormat`        | Beheert het uitvoerformaat van woordenboeken.                                                                                                   | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `traversePattern`     | Patronen die definieren welke bestanden tijdens de optimalisatie moeten worden gescand.                                                         | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • Beperk de optimalisatie tot relevante bestanden voor het verhogen van de buildprestaties.<br/>• Zou worden genegeerd als `optimize` was uitgeschakeld.<br/>• Gebruikt glob-patronen.                                                                                                                                                                                                                                                                                                                                                          |
 
----
-
 ### Systeemconfiguratie (System)
 
 Deze instellingen zijn bedoeld voor geavanceerde use cases en interne configuratie van Intlayer.
@@ -1092,8 +1064,6 @@ Deze instellingen zijn bedoeld voor geavanceerde use cases en interne configurat
 | `configDir`               | Map van de gecompileerde configuratiebestanden.    | `string` | `'.intlayer/config'`              |           |           |
 | `cacheDir`                | Map voor cachebestanden.                           | `string` | `'.intlayer/cache'`               |           |           |
 
----
-
 ### Compilerconfiguratie (Compiler)
 
 Instellingen die de Intlayer-compiler regelen, die woordenboeken rechtstreeks uit uw componenten extraheert.
@@ -1107,15 +1077,11 @@ Instellingen die de Intlayer-compiler regelen, die woordenboeken rechtstreeks ui
 | `noMetadata`          | Indien `true`, laat de compiler woordenboekmetadata (sleutel, contentwrapper) weg uit de uitvoer.                                                                                                                                                                                                                             | `boolean`                                                                                                       | `false`     | `false` → `{"key":"my-key","content":{"key":"value"}}` <br/> `true` → `{"key":"value"}`                                                                  | • Handig voor uitvoer in i18next-formaat of ICU MessageFormat JSON.<br/>• Werkt goed samen met de plug-in `loadJSON`.                                                                                           |
 | `dictionaryKeyPrefix` | Voorvoegsel voor woordenboeksleutel                                                                                                                                                                                                                                                                                           | `string`                                                                                                        | `''`        |                                                                                                                                                          | Optionele prefix toevoegen voor geextraheerde woordenboeksleutels                                                                                                                                               |
 
----
-
 ### Aangepaste schema's (Custom Schemas)
 
 | Veld      | Beschrijving                                                                                         | Type                        |
 | --------- | ---------------------------------------------------------------------------------------------------- | --------------------------- |
 | `schemas` | Stelt u in staat om Zod-schema's te definieren voor validatie van de structuur van uw woordenboeken. | `Record<string, ZodSchema>` |
-
----
 
 ### Plug-ins (Plugins)
 

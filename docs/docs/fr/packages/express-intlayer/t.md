@@ -28,13 +28,9 @@ author: aymericzip
 
 La fonction `t` dans le package `express-intlayer` est l'utilitaire principal pour fournir des réponses localisées dans votre application Express. Elle simplifie l'internationalisation (i18n) en sélectionnant dynamiquement le contenu en fonction de la langue préférée de l'utilisateur.
 
----
-
 ## Vue d'ensemble
 
 La fonction `t` est utilisée pour définir et récupérer des traductions pour un ensemble donné de langues. Elle détermine automatiquement la langue appropriée à retourner en fonction des paramètres de la requête du client, tels que l'en-tête `Accept-Language`. Si la langue préférée n'est pas disponible, elle revient élégamment à la locale par défaut spécifiée dans votre configuration.
-
----
 
 ## Fonctionnalités clés
 
@@ -42,8 +38,6 @@ La fonction `t` est utilisée pour définir et récupérer des traductions pour 
 - **Retour à la locale par défaut** : Reviens à une locale par défaut si la langue préférée du client n'est pas disponible, garantissant ainsi la continuité de l'expérience utilisateur.
 - **Léger et rapide** : Conçu pour des applications haute performance, assurant une surcharge minimale.
 - **Support du mode strict** : Imposer une adhérence stricte aux locales déclarées pour un comportement fiable.
-
----
 
 ## Signature de la fonction
 
@@ -58,8 +52,6 @@ t(translations: Record<string, string>): string;
 ### Retour
 
 - Une chaîne représentant le contenu dans la langue préférée du client.
-
----
 
 ## Chargement du gestionnaire de requêtes d'internationalisation
 
@@ -93,8 +85,6 @@ app.get("/", (_req, res) => {
 - **Détection de la langue** : Le middleware `intlayer` traite les requêtes entrantes pour détecter la langue préférée de l'utilisateur en se basant sur les en-têtes, les cookies ou d'autres méthodes configurées.
 - **Contexte de traduction** : Configure le contexte nécessaire pour que la fonction `t` fonctionne correctement, garantissant que les traductions sont retournées dans la bonne langue.
 - **Prévention des erreurs** : Sans ce middleware, l'utilisation de la fonction `t` entraînera des erreurs d'exécution car les informations de langue nécessaires ne seront pas disponibles.
-
----
 
 ## Exemples d'utilisation
 
@@ -135,8 +125,6 @@ app.get("/error", (_req, res) => {
   );
 });
 ```
-
----
 
 ### Utilisation des variantes de locale
 
@@ -184,8 +172,6 @@ app.get("/greet", (_req, res) => {
 });
 ```
 
----
-
 ## Sujets Avancés
 
 ### Mécanisme de Repli
@@ -209,8 +195,6 @@ Par exemple :
 
 - Si `defaultLocale` est `Locales.CHINESE` et qu'un client demande `Locales.DUTCH`, la traduction retournée sera celle de `Locales.CHINESE`.
 - Si `defaultLocale` n'est pas défini, la fonction `t` utilisera par défaut la valeur de `Locales.ENGLISH`.
-
----
 
 ### Application du Mode Strict
 
@@ -238,8 +222,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Intégration TypeScript
 
 La fonction `t` est typée de manière sécurisée lorsqu'elle est utilisée avec TypeScript. Définissez un objet de traductions typé en toute sécurité :
@@ -258,8 +240,6 @@ app.get("/morning", (_req, res) => {
 });
 ```
 
----
-
 ### Erreurs courantes et dépannage
 
 | Problème                         | Cause                                      | Solution                                                            |
@@ -267,16 +247,12 @@ app.get("/morning", (_req, res) => {
 | Fonction `t` ne fonctionne pas   | Middleware non chargé                      | Assurez-vous que `app.use(intlayer())` est ajouté avant les routes. |
 | Erreur de traductions manquantes | Mode strict activé sans toutes les locales | Fournissez toutes les traductions requises.                         |
 
----
-
 ## Conseils pour une utilisation efficace
 
 1. **Centraliser les traductions** : Utilisez un module centralisé ou des fichiers JSON pour gérer les traductions afin d'améliorer la maintenabilité.
 2. **Valider les traductions** : Assurez-vous que chaque variante linguistique dispose d'une traduction correspondante pour éviter les retours inutiles.
 3. **Combiner avec l'internationalisation frontend** : Synchronisez avec l'internationalisation côté frontend pour une expérience utilisateur fluide dans toute l'application.
 4. **Évaluer les performances** : Testez les temps de réponse de votre application lors de l'ajout de traductions pour garantir un impact minimal.
-
----
 
 ## Conclusion
 

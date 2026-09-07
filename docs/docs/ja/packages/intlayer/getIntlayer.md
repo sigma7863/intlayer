@@ -42,8 +42,6 @@ Intlayer によって `.intlayer/` に生成された辞書を読み込むため
 - 結果は `key + locale + selector` ごとにメモ化される
 - 開発時に辞書が見つからない場合、クラッシュする代わりに安全なプロキシにフォールバックする
 
----
-
 ## 関数シグネチャ
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // オプション
 ): DeepTransformContent<...>
 ```
-
----
 
 ## パラメータ
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: 宣言から型付けされた、辞書の解釈されたコンテンツ。
 - **Description**: 辞書の `content` フィールドをミラーリングしたプレーンオブジェクト。すべての Intlayer ノードが要求されたロケールの最終値に解決されます。
-
----
 
 ## 使用例
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## 動作に関する注記
 
 ### キャッシング
@@ -169,15 +161,11 @@ const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 
 `getIntlayer` は、**すべての**ロケールを保持するマージされた辞書を読み込みます。クライアントバンドルでは、[ビルドプラグイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/bundle_optimization.md)が呼び出しを書き換え、必要なコンテンツのみがシップされます。レンダリング外でコンテンツを読み込む場合（メタデータ、ローダー、サーバー関数）で、単一のロケールをオンデマンドで読み込みたい場合は、代わりに[`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getIntlayerAsync.md)を使用してください。
 
----
-
 ## 関連関数
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getIntlayerAsync.md): 単一のlocaleチャンクをロードするAsync版。
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getDictionary.md): キーで検索する代わりに、自分で渡すdictionaryオブジェクトを解釈する。
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/react-intlayer/useIntlayer.md): React hookの同等版で、providerからlocaleを読み取る。
-
----
 
 ## TypeScript
 

@@ -41,8 +41,6 @@ author: aymericzip
 - مكتوبة بالكامل: الكائن المُرجع يعكس `content` الذي مررته
 - تقبل مكونات إضافية مفسّرة مخصصة
 
----
-
 ## توقيع الدالة
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // اختياري
 ): DeepTransformContent<...>
 ```
-
----
 
 ## المعاملات
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Type**: المحتوى المترجم للقاموس.
 - **Description**: `content` التي مررتها، مع حل كل عقدة Intlayer للغة المطلوبة. بالنسبة لمجموعة collection بدون محدد `item`، يتم إرجاع مصفوفة مرتبة من الإدخالات المترجمة؛ يتم إرجاع `null` عندما يستهدف المحدد شيئًا لا يوجد.
-
----
 
 ## مثال على الاستخدام
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## الدوال ذات الصلة
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getIntlayer.md): نفس التفسير، لكن يتم البحث عن القاموس حسب المفتاح في السجل المُنشأ.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getDictionaryAsync.md): نظير خرائط المحمّل لكل لغة.
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/react-intlayer/useDictionary.md): معادل React hook، يقرأ اللغة من الموفر.
-
----
 
 ## TypeScript
 

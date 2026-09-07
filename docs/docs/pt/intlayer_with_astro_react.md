@@ -110,8 +110,6 @@ Mais do que apenas uma solução i18n, o Intlayer fornece um **[editor visual] a
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guia passo a passo para configurar o Intlayer no Astro + React
 
 Confira o [modelo da aplicação](https://github.com/aymericzip/intlayer-astro-template) no GitHub.
@@ -638,8 +636,6 @@ Esta extensão fornece:
 - **Ações rápidas** para criar e atualizar traduções facilmente.
 
 Para mais informações sobre o uso da extensão, consulte a [documentação da Extensão do VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Aprofunde seu conhecimento
 

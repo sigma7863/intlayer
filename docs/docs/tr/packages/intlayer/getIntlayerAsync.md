@@ -46,8 +46,6 @@ Bu plugins olmadan — optimize edilmemiş bir build — çağrı bunun yerine s
 - Aynı chunk için eş zamanlı çağrılar tek bir yüklemişi paylaşır
 - `async` metadata builders, loaders ve server functions'larda kullanmak için güvenlidir
 
----
-
 ## Fonksiyon İmzası
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // İsteğe Bağlı
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Parametreler
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **Type**: `Promise<Content>` — sözlüğün yorumlanan içeriğine çözümlenen bir promise, deklarasyonunuzdan yazılmıştır.
 
----
-
 ## Örnek Kullanım
 
 ### Temel Kullanım
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` vs `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 Her ikisi de aynı argümanları kabul eder ve aynı içeriği döndürür: birinden diğerine geçiş yalnızca **ne zaman** ve **ne kadar** yüklendiğini değiştirir.
 
----
-
 ## İlgili Fonksiyonlar
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getIntlayer.md): Birleştirilmiş sözlüğü okuyan senkron eşdeğer.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getDictionaryAsync.md): Build eklentilerinin bu çağrıyı yeniden yazdığı alt seviye fonksiyon.
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getLocale.md): Gelen bir isteğin yerel ayarını algılar.
-
----
 
 ## TypeScript
 

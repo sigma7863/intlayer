@@ -37,8 +37,6 @@ Fungsi `getCanonicalPath` mengonversi path URL yang dilokalkan (mis. `/a-propos`
 - Mencocokkan path yang dilokalkan dengan aturan rewrite kustom yang didefinisikan dalam konfigurasi Anda.
 - Mengembalikan path asli jika tidak ditemukan aturan rewrite yang cocok.
 
----
-
 ## Tanda Tangan Fungsi
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opsional
 ): string
 ```
-
----
 
 ## Parameter
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **Tipe**: `RoutingConfig['rewrite']`
   - **Default**: `configuration.routing.rewrite`
 
----
-
 ## Pengembalian
 
 - **Tipe**: `string`
 - **Deskripsi**: Jalur kanonis internal.
-
----
 
 ## Contoh Penggunaan
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // Keluaran: "/contact"
 ```
-
----
 
 ## Fungsi Terkait
 

@@ -35,15 +35,11 @@ Nous évaluons :
 
 > **En résumé** : Les trois solutions peuvent localiser une application React. Si vous souhaitez un **contenu scoped par composant**, des **types TypeScript stricts**, des **vérifications des clés manquantes à la compilation**, des **dictionnaires optimisés par tree-shaking**, ainsi qu’un outil éditorial intégré (Éditeur Visuel/CMS + traduction IA optionnelle), **Intlayer** est le choix le plus complet pour des bases de code React modulaires.
 
----
-
 ## Positionnement général
 
 - **react-intl** - Formatage priorisant ICU, conforme aux standards (dates/nombres/pluriels) avec une API mature. Les catalogues sont généralement centralisés ; la sécurité des clés et la validation à la compilation dépendent en grande partie de vous.
 - **react-i18next** - Extrêmement populaire et flexible ; namespaces, détecteurs, et de nombreux plugins (ICU, backends). Puissant, mais la configuration peut devenir complexe à mesure que les projets grandissent.
 - **Intlayer** - Modèle de contenu centré sur les composants pour React, **typage TS strict**, **vérifications à la compilation**, **tree-shaking**, plus **éditeur visuel/CMS** et **traductions assistées par IA**. Fonctionne avec React Router, Vite, CRA, etc.
-
----
 
 ## Matrice des fonctionnalités (focus React)
 
@@ -69,8 +65,6 @@ Nous évaluons :
 | **Purge du contenu inutilisé**                              | ✅ Oui, par dictionnaire au moment de la compilation                                                                                                                | ❌ Non, uniquement via une segmentation manuelle des namespaces                                                                                 | ❌ Non, tous les messages déclarés sont inclus dans le bundle                                                              |
 | **Gestion des grands projets**                              | ✅ Encourage la modularité, adapté aux design-systems                                                                                                               | ⚠️ Nécessite une bonne discipline des fichiers                                                                                                  | ⚠️ Les catalogues centraux peuvent devenir volumineux                                                                      |
 
----
-
 ## Comparaison approfondie
 
 ### 1) Architecture et évolutivité
@@ -80,8 +74,6 @@ Nous évaluons :
 
 **Pourquoi c’est important :** Le contenu modulaire reflète une interface modulaire. Les grandes bases de code React restent plus propres lorsque les traductions vivent avec les composants auxquels elles appartiennent.
 
----
-
 ### 2) TypeScript & sécurité
 
 - **react-intl** : Typages solides, mais **pas de typage automatique des clés** ; vous devez appliquer vous-même les bonnes pratiques de sécurité.
@@ -90,16 +82,12 @@ Nous évaluons :
 
 **Pourquoi c’est important :** Déplacer les erreurs **en amont** (vers la compilation/CI) réduit les problèmes en production et accélère les boucles de retour pour les développeurs.
 
----
-
 ### 3) Gestion des traductions manquantes
 
 - **react-intl / react-i18next** : Par défaut, recours aux **solutions de repli à l’exécution** (répétition de la clé ou locale par défaut). Vous pouvez ajouter du linting/plugins, mais ce n’est pas garanti à la compilation.
 - **Intlayer** : **Détection à la compilation** avec avertissements ou erreurs lorsque des locales/clés requises sont manquantes.
 
 **Pourquoi c’est important :** Un CI qui échoue sur les chaînes manquantes empêche la fuite d’« anglais mystère » dans les interfaces non anglophones.
-
----
 
 ### 4) Contenu riche & formatage
 
@@ -109,16 +97,12 @@ Nous évaluons :
 
 **Pourquoi c’est important :** Les textes UI complexes (liens, parties en gras, composants en ligne) sont plus faciles à gérer lorsque la bibliothèque intègre proprement les nœuds React.
 
----
-
 ### 5) Performance et comportement de chargement
 
 - **react-intl / react-i18next** : Vous gérez généralement la **division des catalogues** et le **chargement paresseux** manuellement (espaces de noms/importations dynamiques). Efficace mais demande de la rigueur.
 - **Intlayer** : Effectue un **tree-shaking** des dictionnaires inutilisés et prend en charge le **chargement paresseux par dictionnaire/par langue** prêt à l'emploi.
 
 **Pourquoi c'est important :** Des bundles plus petits et moins de chaînes inutilisées améliorent les performances au démarrage et lors de la navigation.
-
----
 
 ### 6) DX, outils & maintenance
 
@@ -127,15 +111,11 @@ Nous évaluons :
 
 **Pourquoi c’est important :** Les outils intégrés raccourcissent la boucle entre les développeurs et les auteurs de contenu - moins de code de liaison, moins de dépendances externes.
 
----
-
 ## Quand choisir lequel ?
 
 - **Choisissez react-intl** si vous souhaitez un formatage de messages **priorisant ICU** avec une API simple et conforme aux standards, et que votre équipe est à l’aise pour maintenir manuellement les catalogues et les vérifications de sécurité.
 - **Choisissez react-i18next** si vous avez besoin de **l’écosystème étendu d’i18next** (détecteurs, backends, plugin ICU, intégrations) et acceptez plus de configuration pour gagner en flexibilité.
 - **Choisissez Intlayer** si vous valorisez le **contenu scoped par composant**, le **TypeScript strict**, les **garanties à la compilation**, le **tree-shaking**, et les outils éditoriaux **tout-en-un** - particulièrement pour les applications React **grandes et modulaires**.
-
----
 
 ## Interopérabilité avec `react-intl` et `react-i18next`
 
@@ -143,16 +123,12 @@ Nous évaluons :
 
 En utilisant `intlayer`, vous pouvez déclarer votre contenu au format de votre bibliothèque i18n préférée, et intlayer générera vos namespaces à l'emplacement de votre choix (exemple : `/messages/{{locale}}/{{namespace}}.json`).
 
----
-
 ## Notes pratiques de migration (react-intl / react-i18next → Intlayer)
 
 - **Migrez de manière incrémentale** : Commencez par une fonctionnalité ou une route ; conservez les catalogues hérités en parallèle pendant la transition.
 - **Adoptez des dictionnaires par composant** : Placez le contenu au même endroit que les composants pour réduire le couplage.
 - **Activez les vérifications strictes** : Laissez les erreurs à la compilation révéler tôt les clés/locales manquantes dans l’intégration continue.
 - **Mesurez les bundles** : Attendez-vous à des réductions à mesure que les chaînes inutilisées sont éliminées.
-
----
 
 ## Conclusion
 

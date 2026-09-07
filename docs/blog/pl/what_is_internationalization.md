@@ -102,8 +102,6 @@ Ten zwięzły przegląd obejmuje główne elementy, które powinny być internac
 - **Wrażliwość kulturowa**
 - Ikony, kolory i symbole mogą mieć różne znaczenia w różnych kulturach. Ważne jest, aby dostosować treści wizualne i tekstowe, aby szanować lokalne niuanse kulturowe.
 
----
-
 ## Najlepsze praktyki wdrażania i18n
 
 - **Planuj wcześnie**  
@@ -117,8 +115,6 @@ Ten zwięzły przegląd obejmuje główne elementy, które powinny być internac
 
 - **Ponowne wykorzystanie tłumaczeń**  
   Organizuj pliki tłumaczeń tak, aby mogły być ponownie wykorzystywane na wielu stronach internetowych lub aplikacjach. Na przykład, jeśli masz wielojęzyczny stopkę lub nagłówek, utwórz dedykowane pliki tłumaczeń, aby wspólne elementy mogły być łatwo stosowane we wszystkich projektach.
-
----
 
 ## Słownik lokalizacyjny a eksternalizacja treści CMS
 
@@ -137,8 +133,6 @@ Biorąc pod uwagę te wyzwania, często wybiera się headless CMS do eksternaliz
 
 Ważne jest, aby wybrać odpowiednie narzędzie do swoich potrzeb i zaplanować strategię internacjonalizacji od samego początku. **Intlayer oferuje przekonujące rozwiązanie, łącząc deklarację treści lokalnych z headless CMS ściśle zintegrowanym, zapewniając to, co najlepsze z obu światów.**
 
----
-
 ### Zobacz listę bibliotek i narzędzi i18n według technologii
 
 Jeśli szukasz listy bibliotek i narzędzi i18n według technologii, sprawdź następujące zasoby:
@@ -156,8 +150,6 @@ Jeśli szukasz listy bibliotek i narzędzi i18n według technologii, sprawdź na
 - Vue: [Zobacz listę bibliotek i narzędzi i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Zobacz listę bibliotek i narzędzi i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/list_i18n_technologies/frameworks/svelte.md)
 - React Native : [Zobacz listę bibliotek i narzędzi i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Podsumowanie
 

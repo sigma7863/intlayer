@@ -84,8 +84,6 @@ Intlayer को **घटक-स्तरीय सामग्री स्क�
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite और Vue एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 <Tabs defaultTab="video">
@@ -1129,13 +1127,9 @@ Intlayer के साथ अपने development experience को improve क
 
 Extension के उपयोग के बारे में अधिक विवरण के लिए, [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension) को देखें।
 
----
-
 ### आगे बढ़ें
 
 आगे बढ़ने के लिए, आप [विज़ुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_visual_editor.md) को लागू कर सकते हैं या अपनी सामग्री को [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/intlayer_CMS.md) का उपयोग करके बाहरी रूप से प्रबंधित कर सकते हैं।
-
----
 
 ## अक्सर पूछे जाने वाले प्रश्न
 

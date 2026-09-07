@@ -23,16 +23,12 @@ author: aymericzip
 
 Giderek küresel bir pazarda, React Native uygulamanızı birden fazla dilde sunmak erişilebilirliği ve kullanıcı memnuniyetini önemli ölçüde artırabilir. Uluslararasılaştırma (i18n), çevirileri etkili bir şekilde yönetmenin merkezinde yer alır ve kod tabanınızı karmaşıklaştırmadan dil spesifik metin, tarih ve saat formatları, para birimi ve daha fazlasını görüntülemenizi sağlar. Bu makalede, özel kütüphanelerden daha genel çözümlere kadar çeşitli i18n yaklaşımlarını inceleyeceğiz ve React Native projeniz için en uygun olanı bulmanıza yardımcı olacağız.
 
----
-
 ## Uluslararasılaştırma (i18n) Nedir?
 
 Uluslararasılaştırma veya i18n, bir uygulamanın farklı dillere, bölgesel formatlara ve kültürel normlara kolayca uyum sağlayacak şekilde yapılandırılmasını içerir. React Native'da i18n, düğmeler ve etiketler için dizeleri yönetmeyi, ayrıca tarihleri, saatleri, para birimlerini ve daha fazlasını kullanıcının yerel ayarına göre biçimlendirmeyi içerir. Düzgün hazırlanmış React Native uygulamaları, büyük yeniden düzenlemeler olmadan ek dilleri ve yerel ayar spesifik davranışları sorunsuz bir şekilde entegre etmenizi sağlar.
 
 Uluslararasılaştırma kavramları hakkında daha derin bir dalış için makalemizi inceleyin:  
 [Uluslararasılaştırma (i18n) Nedir? Tanım ve Zorluklar](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/what_is_internationalization.md).
-
----
 
 ## React Native Uygulamaları İçin Çeviri Zorluğu
 
@@ -52,8 +48,6 @@ React Native'da çevirilerle çalışmak, kendine özgü bazı hususları getiri
 
 - **Uygulama Güncellemeleri ve Hava Üzerinden (OTA)**  
   CodePush veya başka bir OTA güncelleme mekanizması kullanıyorsanız, tam bir uygulama mağazası sürümü gerektirmeden çeviri güncellemelerinin veya yeni dillerin nasıl teslim edileceğini planlamanız gerekir.
-
----
 
 ## React Native İçin Önde Gelen i18n Çözümleri
 
@@ -88,8 +82,6 @@ Aşağıda, React Native'da çok dilli içeriği yönetmek için birkaç popüle
 - **Topluluk ve Ekosistem**  
   Hala nispeten yeni bir çözüm, bu yüzden uzun süredir kullanılan kütüphanelere kıyasla daha az topluluk odaklı örnek veya hazır eklenti bulabilirsiniz.
 
----
-
 ### 2. React-i18next
 
 > Website: [https://react.i18next.com/](https://react.i18next.com/)
@@ -121,8 +113,6 @@ Aşağıda, React Native'da çok dilli içeriği yönetmek için birkaç popüle
 
 - **Performans**  
   React-i18next genel olarak iyi performans gösterirken, mobil cihazlarda yükü önlemek için çeviri kaynaklarını nasıl organize ettiğinize ve yüklediğinize dikkat etmelisiniz.
-
----
 
 ### 3. React Intl (FormatJS'den)
 
@@ -156,8 +146,6 @@ Aşağıda, React Native'da çok dilli içeriği yönetmek için birkaç popüle
 - **Topluluk Örnekleri**  
   Geniş çapta kullanılırken, React web için olanlara kıyasla React Native'a özel kullanım örnekleri daha az olabilir. Mevcut dokümanları ve kalıpları native bir ortama uyarlamanız gerekebilir.
 
----
-
 ### 4. LinguiJS
 
 > Website: [https://lingui.js.org/](https://lingui.js.org/)
@@ -189,8 +177,6 @@ Aşağıda, React Native'da çok dilli içeriği yönetmek için birkaç popüle
 
 - **Kod Organizasyonu**  
   Mesaj kataloglarınızı (ekrana, özelliğe veya dile göre) nasıl böleceğinize karar vermek, daha büyük uygulamalarda netliği korumak için hayati önem taşır.
-
----
 
 ## Son Düşünceler
 

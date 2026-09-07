@@ -56,8 +56,6 @@ Une valeur traduite interpolée dans un fragment est du markup. Échappez-la, ex
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guide étape par étape
 
 <iframe
@@ -663,8 +661,6 @@ Questa estensione fornisce:
 - **Azioni rapide** per creare e aggiornare facilmente le traduzioni.
 
 Per ulteriori dettagli su come utilizzare l'estensione, fare riferimento alla [documentazione dell'Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Andare oltre
 

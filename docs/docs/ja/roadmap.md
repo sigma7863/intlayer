@@ -27,13 +27,9 @@ author: aymericzip
 
 Intlayerは、アプリケーション全体でコンテンツを宣言、管理、更新する方法を効率化するために設計されたコンテンツ管理および国際化ソリューションです。集中型または分散型のコンテンツ宣言、豊富な国際化オプション、Markdownサポート、条件付きレンダリング、TypeScript/JavaScript/JSON統合などの強力な機能を提供します。以下に、Intlayerが現在提供している機能の包括的な概要と、今後のロードマップ機能を示します。
 
----
-
 ## 目次
 
 <TOC/>
-
----
 
 ## 現在の機能
 
@@ -146,8 +142,6 @@ Intlayer はコンテンツ宣言に **TypeScript**（および JavaScript）と
 >
 > - [ビルド構成](https://intlayer.org/doc/concept/configuration#build-configuration)
 
----
-
 ## フレームワークおよび環境との統合
 
 ### 1. Next.js
@@ -234,8 +228,6 @@ Intlayer はコンテンツ宣言に **TypeScript**（および JavaScript）と
 >
 > - [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_with_preact.md)
 
----
-
 ## ビジュアルエディターとCMS
 
 ### 1. ローカルビジュアルエディター
@@ -261,20 +253,14 @@ Intlayer はコンテンツ宣言に **TypeScript**（および JavaScript）と
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)
 
----
-
 ## IDE拡張機能
 
 - 主要なIDE向けの拡張機能で、ローカルおよびリモートの翻訳を管理するための**グラフィカルインターフェース**を提供します。
 - 機能には、コンポーネントのコンテンツ宣言ファイルの自動生成、Intlayer CMSとの直接統合、リアルタイム検証などが含まれる可能性があります。
 
----
-
 ## MCPサーバー
 
 - IDEに統合されたツールを使用して、コンテンツと翻訳を管理できる**MCPサーバー**です。
-
----
 
 ## Intlayer CLI
 
@@ -286,14 +272,10 @@ Intlayer はコンテンツ宣言に **TypeScript**（および JavaScript）と
 >
 > - [CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/cli/index.md)
 
----
-
 ## 環境設定
 
 - **環境変数**を使用して、プロダクション、テスト、ローカル環境ごとにIntlayerの設定を変更します。
 - 環境に応じて、どのビジュアルエディターやリモートCMSプロジェクトを対象にするかを定義します。
-
----
 
 ## ホットコンテンツアップデート
 
@@ -302,8 +284,6 @@ Intlayer はコンテンツ宣言に **TypeScript**（および JavaScript）と
 > リソース:
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)
-
----
 
 ## 今後の機能
 
@@ -332,8 +312,6 @@ Intlayer はコンテンツ宣言に **TypeScript**（および JavaScript）と
 
 - **Solid、Svelte、Angular**などのサポートに向けた取り組みが進行中です。
 - Intlayerを**あらゆるJavaScriptベースのアプリケーション**に対応させることを目指しています。
-
----
 
 ## 結論
 

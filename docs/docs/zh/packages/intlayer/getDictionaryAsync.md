@@ -44,8 +44,6 @@ author: aymericzip
 - 对同一块的并发加载进行去重，并缓存解决的内容
 - 失败的加载会从缓存中清除，以便后续调用重新尝试该块
 
----
-
 ## 函数签名
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // 可选
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## 参数
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — 一个 promise，解析为加载的 chunk 的解释内容。
 - **Description**: 当 map 对请求的 locale 及其任何 fallback 都没有发出 chunk 时，解析为 `null`，镜像缺失的合格坐标如何解析。
-
----
 
 ## 使用示例
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## 行为注释
 
 ### 缓存和去重
@@ -135,15 +127,11 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 
 普通加载器映射沿着与同步模式相同的回退链进行遍历：首先是请求的区域设置，然后是其回退，如果没有发出任何块，则为 `null`。
 
----
-
 ## 相关函数
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getIntlayerAsync.md): 应用程序调用的函数；build 插件将其重写为 `getDictionaryAsync`。
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getDictionary.md): 同步对应函数，接收完整的字典。
 - [动态字典](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/dynamic_dictionaries/index.md): 集合和变体，以及它们生成的 loader 映射。
-
----
 
 ## TypeScript
 

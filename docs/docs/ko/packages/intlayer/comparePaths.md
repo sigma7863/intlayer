@@ -45,8 +45,6 @@ author: aymericzip
 - 선행 슬래시 누락 및 빈 값 허용(`/`로 정규화)
 - 가벼움 — `getPathWithoutLocale`을 기반으로 구축됨
 
----
-
 ## 함수 시그니처
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // 선택
 ): string
 ```
-
----
 
 ## 매개변수
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **타입**: `boolean`
 - **설명**: 두 입력이 동일한 로케일 독립적인 경로로 확인되면 `true`, 그렇지 않으면 `false`를 반환합니다.
-
----
 
 ## 사용 예시
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath`는 `comparePaths`에서 사용하는 로케일 독립적인 정규 경로명을 반환합니다. 로케일 세그먼트, 프로토콜/호스트, 쿼리 문자열 및 해시를 제거하고, 단일 선행 슬래시를 확인하며, 루트를 제외한 모든 후행 슬래시를 제거하고, 빈 값의 경우 `/`로 대체합니다.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## 관련 함수
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getPathWithoutLocale.md): URL 또는 경로에서 로케일 세그먼트를 제거합니다.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getPrefix.md): 주어진 로케일에 대한 URL 접두사를 결정합니다.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getLocalizedUrl.md): 특정 로케일에 대한 현지화된 URL을 생성합니다.
-
----
 
 ## TypeScript
 

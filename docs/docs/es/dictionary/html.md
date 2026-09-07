@@ -119,8 +119,6 @@ const myContent = html(
 
 Al utilizar el método `.use()` en un nodo HTML, los componentes que proporcione se cotejarán con la definición proporcionada en la función `html()` (si está disponible).
 
----
-
 ## Renderizado de HTML
 
 El renderizado puede ser gestionado automáticamente por el sistema de contenido de Intlayer o manualmente mediante herramientas especializadas.
@@ -474,8 +472,6 @@ Puedes configurar el renderizado de HTML de forma global para toda tu aplicació
   </Tab>
 </Tabs>
 
----
-
 ### Renderizado Manual y Herramientas Avanzadas
 
 Si necesitas renderizar cadenas de HTML sin procesar o tener más control sobre el mapeo de componentes, utiliza las siguientes herramientas.
@@ -647,8 +643,6 @@ Si necesitas renderizar cadenas de HTML sin procesar o tener más control sobre 
 
   </Tab>
 </Tabs>
-
----
 
 ## Referencia de Opciones
 

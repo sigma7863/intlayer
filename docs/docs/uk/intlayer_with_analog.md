@@ -105,8 +105,6 @@ Intlayer оптимізовано для ідеальної роботи з Anal
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник з налаштування Intlayer у додатку Analog
 
 Дивіться [Шаблон додатка](https://github.com/aymericzip/intlayer-analog-template) на GitHub.
@@ -403,8 +401,6 @@ Intlayer використовує розширення модулів (module au
 - **Швидкі дії** для легкого створення та оновлення перекладів.
 
 Докладнішу інформацію про використання розширення дивіться в [документації розширення Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Йдіть далі
 

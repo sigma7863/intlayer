@@ -27,13 +27,9 @@ author: aymericzip
 
 Fungsi `t` dalam paket `hono-intlayer` adalah alat utama untuk menyediakan respons yang dilokalkan dalam aplikasi Hono Anda. Ini menyederhanakan internasionalisasi (i18n) dengan secara dinamis memilih konten berdasarkan bahasa pilihan pengguna.
 
----
-
 ## Ikhtisar
 
 Fungsi `t` digunakan untuk mendefinisikan dan mengambil terjemahan untuk kumpulan bahasa tertentu. Fungsi ini secara otomatis menentukan bahasa yang tepat untuk dikembalikan berdasarkan pengaturan permintaan klien, seperti header `Accept-Language`. Jika bahasa yang disukai tidak tersedia, fungsi ini akan beralih ke locale default yang ditentukan dalam konfigurasi Anda.
-
----
 
 ## Fitur Utama
 
@@ -41,8 +37,6 @@ Fungsi `t` digunakan untuk mendefinisikan dan mengambil terjemahan untuk kumpula
 - **Fallback ke Locale Default**: Beralih ke locale default jika bahasa pilihan klien tidak tersedia, memastikan kelangsungan pengalaman pengguna.
 - **Ringan dan Cepat**: Dirancang untuk aplikasi berperforma tinggi, memastikan overhead minimal.
 - **Dukungan Mode Ketat**: Menegakkan kepatuhan ketat terhadap locale yang dideklarasikan untuk perilaku yang andal.
-
----
 
 ## Tanda Tangan Fungsi
 
@@ -57,8 +51,6 @@ t(translations: Record<string, string>): string;
 ### Pengembalian
 
 - Sebuah string yang mewakili konten dalam bahasa pilihan klien.
-
----
 
 ## Memuat Handler Permintaan Internasionalisasi
 
@@ -93,8 +85,6 @@ app.get("/", (c) => {
 - **Deteksi Locale**: Middleware `intlayer` memproses permintaan masuk untuk mendeteksi locale pilihan pengguna berdasarkan header, cookie, atau metode konfigurasi lainnya.
 - **Konteks Terjemahan**: Menyiapkan konteks yang diperlukan agar fungsi `t` dapat beroperasi dengan benar, memastikan bahwa terjemahan dikembalikan dalam bahasa yang benar.
 - **Pencegahan Kesalahan**: Tanpa middleware ini, menggunakan fungsi `t` akan menghasilkan kesalahan runtime karena informasi locale yang diperlukan tidak akan tersedia.
-
----
 
 ## Contoh Penggunaan
 
@@ -137,8 +127,6 @@ app.get("/error", (c) => {
 });
 ```
 
----
-
 ### Menggunakan Varian Locale
 
 Tentukan terjemahan untuk varian khusus locale:
@@ -155,8 +143,6 @@ app.get("/greet", (c) => {
   );
 });
 ```
-
----
 
 ## Topik Lanjutan
 
@@ -177,8 +163,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Penegakan Mode Ketat
 
 Konfigurasikan fungsi `t` untuk menegakkan kepatuhan ketat terhadap locale yang dideklarasikan:
@@ -188,8 +172,6 @@ Konfigurasikan fungsi `t` untuk menegakkan kepatuhan ketat terhadap locale yang 
 | `strict`    | Semua locale yang dideklarasikan harus memiliki terjemahan. Locale yang hilang akan menyebabkan kesalahan.  |
 | `inclusive` | Locale yang dideklarasikan harus memiliki terjemahan. Locale yang hilang memicu peringatan tetapi diterima. |
 | `loose`     | Locale apa pun yang ada diterima, meskipun tidak dideklarasikan.                                            |
-
----
 
 ### Integrasi TypeScript
 
@@ -209,16 +191,12 @@ app.get("/morning", (c) => {
 });
 ```
 
----
-
 ### Kesalahan Umum dan Pemecahan Masalah
 
 | Masalah                     | Penyebab                                 | Solusi                                                        |
 | --------------------------- | ---------------------------------------- | ------------------------------------------------------------- |
 | Fungsi `t` tidak berfungsi  | Middleware tidak dimuat                  | Pastikan `app.use("*", intlayer())` ditambahkan sebelum rute. |
 | Kesalahan terjemahan hilang | Mode ketat diaktifkan tanpa semua locale | Sediakan semua terjemahan yang diperlukan.                    |
-
----
 
 ## Kesimpulan
 

@@ -112,8 +112,6 @@ AI プロバイダーのコストで、選択した LLM を使用して CI/CD �
 </Accordion>
 </AccordionGroup>
 
----
-
 ## SolidStart アプリケーションで Intlayer をセットアップするためのステップバイステップガイド
 
 <Steps>
@@ -1016,8 +1014,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## 設定の検証
 
 ビルドしてサーバーを起動し、以下のリクエストが期待通りに動作することを確認します:
@@ -1043,8 +1039,6 @@ node .output/server/index.mjs
 
 > デブサーバーは Bun (`bun --bun vite dev`) ではなく Node (`vite dev`) で実行してください。SolidStart の SSR は現在、Bun ランタイム下で `Expected a Response object, but received 'NodeResponse'` で失敗します。これは Intlayer とは無関係で（プレーンなテンプレートでも再現します）、`vite build` ではなく開発サーバーにのみ影響します。
 
----
-
 ## Git の設定
 
 Intlayer によって生成されたファイルを無視することをお勧めします。これにより、それらを Git リポジトリにコミットすることを回避できます。
@@ -1055,8 +1049,6 @@ Intlayer によって生成されたファイルを無視することをお勧�
 # Intlayer によって生成されたファイルを無視
 .intlayer
 ```
-
----
 
 ## VS Code 拡張機能
 
@@ -1071,13 +1063,9 @@ Intlayer での開発体験を向上させるために、公式の **Intlayer VS
 - 翻訳されたコンテンツの **インラインプレビュー**。
 - 翻訳を簡単に作成および更新するための **クイックアクション**。
 
----
-
 ## さらに進む
 
 さらに進むには、[ビジュアルエディタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)を実装するか、[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md)を使用してコンテンツを外部化できます。
-
----
 
 ## ドキュメントの参照
 

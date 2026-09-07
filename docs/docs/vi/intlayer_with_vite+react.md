@@ -85,8 +85,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng Vite và React
 
 <Tabs defaultTab="video">
@@ -975,8 +973,6 @@ Tiện ích mở rộng này cung cấp:
 - **Quick actions** để dễ dàng tạo và cập nhật các bản dịch.
 
 Để biết thêm chi tiết về cách sử dụng tiện ích mở rộng, hãy tham khảo [tài liệu Intlayer VS Code Extension](https://intlayer.org/vi/doc/vs-code-extension).
-
----
 
 ### Tiến xa hơn
 

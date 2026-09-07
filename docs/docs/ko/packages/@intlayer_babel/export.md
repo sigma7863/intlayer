@@ -43,8 +43,6 @@ npm install @intlayer/babel
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### 플러그인
 
 | 함수 / 클래스                  | 설명                                                                                                                                                                                     |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | 소스 코드에서 `useIntlayer` / `getIntlayer`의 사용을 분석하고 공유 `PruneContext`에 필드 사용 데이터를 집계하는 Babel 플러그인을 생성하는 팩토리 함수입니다.                             |
 | `getSharedPruneContext`        | 지정된 기본 디렉토리에 대한 공유 `PruneContext` 객체를 반환하거나 아직 초기화되지 않은 경우 `null`을 반환하는 도우미 함수입니다.                                                         |
 
----
-
 ### 플러그인 설정 유틸리티
 
 | 함수                       | 설명                                                                                                                                |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Intlayer 설정 및 컴파일된 사전을 로드하고 `intlayerOptimizeBabelPlugin`과 함께 사용할 수 있는 `OptimizePluginOptions`를 반환합니다. |
 | `getPurgePluginOptions`    | Intlayer 설정을 로드하고 `intlayerPurgeBabelPlugin`과 함께 사용할 수 있는 `PurgePluginOptions`를 반환합니다.                        |
 | `getMinifyPluginOptions`   | Intlayer 설정을 로드하고 `intlayerMinifyBabelPlugin`과 함께 사용할 수 있는 `MinifyPluginOptions`를 반환합니다.                      |
-
----
 
 ### 타입
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | 호환성 어댑터(compat-adapter) 패키지용 호환 사용 분석기 설정 (호출자 이름 및 처리 옵션).       |
 | `ScriptBlock`           | SFC 파일(Vue 또는 Svelte)에서 추출된 스크립트 블록: 콘텐츠, 시작 오프셋 및 끝 오프셋.          |
 
----
-
 ### 유틸리티 함수
 
 | 함수                              | 설명                                                                                                                                    |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | Babel 분석을 위해 SFC 파일(Vue / Svelte)에서 `<script>` 블록을 추출합니다.                                                              |
 | `BABEL_PARSER_OPTIONS`            | 지원되는 프레임워크(React/Vue/Svelte/Angular/...)를 다루는 Babel 파서 옵션을 나타내는 상수.                                             |
 | `INTLAYER_CALLER_NAMES`           | 원래 Intlayer 호출자 이름의 상수 목록: `['useIntlayer', 'getIntlayer']`.                                                                |
-
----
 
 ## 사용 예시
 

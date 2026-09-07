@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - Semua perintah Intlayer CLI untuk situs web multibahasa Anda
 
----
-
 ## Daftar Isi
 
 <TOC/>
-
----
 
 ## Instal Paket
 

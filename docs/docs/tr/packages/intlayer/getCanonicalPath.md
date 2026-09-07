@@ -37,8 +37,6 @@ author: aymericzip
 - Yerelleştirilmiş yolları, yapılandırmanızda tanımlı özel yeniden yazma kurallarıyla eşleştirir.
 - Eşleşen bir yeniden yazma kuralı bulunamazsa orijinal yolu döndürür.
 
----
-
 ## Fonksiyon İmzası
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opsiyonel
 ): string
 ```
-
----
 
 ## Parametreler
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **Tür**: `RoutingConfig['rewrite']`
   - **Varsayılan**: `configuration.routing.rewrite`
 
----
-
 ## Döndürülen Değer
 
 - **Tür**: `string`
 - **Açıklama**: Dahili kanonik yol.
-
----
 
 ## Örnek Kullanım
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // Output: "/contact"
 ```
-
----
 
 ## İlgili Fonksiyonlar
 

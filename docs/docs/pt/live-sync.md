@@ -38,8 +38,6 @@ A Sincronização ao Vivo permite que a sua aplicação reflita as alterações 
 
 <TOC/>
 
----
-
 ## Ativar a sincronização ao vivo
 
 Ative a Sincronização ao Vivo atualizando a sua configuração Intlayer:

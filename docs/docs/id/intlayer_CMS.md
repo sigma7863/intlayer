@@ -47,8 +47,6 @@ Untuk itu, Intlayer memperkenalkan konsep 'kamus jauh'.
 
 <TOC/>
 
----
-
 ## Memahami kamus jauh
 
 Intlayer membedakan antara kamus 'lokal' dan 'remote'.
@@ -411,8 +409,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 Untuk panduan setup lengkap, referensi variabel environment, instruksi upgrade, dan prosedur backup/restore, lihat [Self-Hosting Guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/self_hosting.md).
-
----
 
 ## Debug
 

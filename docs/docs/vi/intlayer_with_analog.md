@@ -105,8 +105,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng Analog
 
 Xem [Mẫu ứng dụng](https://github.com/aymericzip/intlayer-analog-template) trên GitHub.
@@ -403,8 +401,6 @@ Tiện ích mở rộng này cung cấp:
 - **Các hành động nhanh** để dễ dàng tạo và cập nhật các bản dịch.
 
 Để biết thêm chi tiết về cách sử dụng tiện ích mở rộng, hãy tham khảo [tài liệu Tiện ích mở rộng Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Đi Xa Hơn
 

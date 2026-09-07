@@ -45,8 +45,6 @@ author: aymericzip
 - 先頭のスラッシュの欠落や空の値を許容（`/` に正規化）
 - 軽量 — `getPathWithoutLocale` の上に構築されています
 
----
-
 ## 関数シグネチャ
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // オプション
 ): string
 ```
-
----
 
 ## パラメーター
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **型**: `boolean`
 - **説明**: 両方の入力が同じロケールに依存しないパスに解決される場合は `true`、そうでない場合は `false`。
-
----
 
 ## 使用例
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` は `comparePaths` で使用されるロケールに依存しない正規パスを返します。ロケールセグメント、プロトコル/ホスト、クエリ文字列、ハッシュを削除し、先頭のスラッシュを1つだけに保ち、末尾のスラッシュ（ルートを除く）を削除し、空の値に対しては `/` にフォールバックします。
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## 関連関数
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getPathWithoutLocale.md): URL やパス名からロケールセグメントを削除します。
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getPrefix.md): 指定したロケールの URL プレフィックスを決定します。
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getLocalizedUrl.md): 特定のロケールのローカライズされた URL を生成します。
-
----
 
 ## TypeScript
 

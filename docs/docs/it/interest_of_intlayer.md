@@ -282,8 +282,6 @@ Le stelle su GitHub sono un forte indicatore della popolarità di un progetto, d
 
 [![Star History Chart](https://api.star-history.com/chart?repos=aymericzip/intlayer%2Cformatjs/formatjs%2Ci18next/react-i18next%2Ci18next/i18next%2Ci18next/next-i18next%2Clingui/js-lingui%2Camannn/next-intl%2Cintlify/vue-i18n%2Ccodingcommons/typesafe-i18n%2Copral/paraglide-js&type=date&legend=top-left)](https://www.star-history.com/#aymericzip/intlayer&formatjs/formatjs&i18next/react-i18next&i18next/i18next&i18next/next-i18next&lingui/js-lingui&amannn/next-intl&intlify/vue-i18n&codingcommons/typesafe-i18n&opral/paraglide-js)
 
----
-
 ## Interoperabilità
 
 `intlayer` può anche aiutare a gestire i namespace `react-intl`, `react-i18next`, `next-intl`, `next-i18next` e `vue-i18n`.

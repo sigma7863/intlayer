@@ -20,8 +20,6 @@ author: aymericzip
 
 # Intlayer CLI Login Komutu
 
----
-
 ## Açıklama
 
 Intlayer CLI'nin `login` komutu, Intlayer CMS ile kimlik doğrulaması yapmanıza olanak tanır. Bu komut, kimlik doğrulama işlemini tamamlamak ve Intlayer hizmetlerini kullanmak için gerekli kimlik bilgilerini (Client ID ve Client Secret) almak üzere varsayılan tarayıcınızı otomatik olarak açar.

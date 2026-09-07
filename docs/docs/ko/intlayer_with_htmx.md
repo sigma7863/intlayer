@@ -56,8 +56,6 @@ fragment로 보간된 번역 값은 마크업입니다. 다른 동적 값처럼 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 단계별 가이드
 
 <iframe
@@ -665,8 +663,6 @@ Intlayer를 사용한 개발 경험을 향상시키기 위해 공식 **Intlayer 
 - **번역을 쉽게 생성하고 업데이트하기 위한 빠른 작업**.
 
 확장을 사용하는 방법에 대한 자세한 내용은 [Intlayer VS Code Extension 문서](https://intlayer.org/doc/vs-code-extension)를 참고하세요.
-
----
 
 ### 더 나아가기
 

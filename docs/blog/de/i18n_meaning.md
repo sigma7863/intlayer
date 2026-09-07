@@ -92,8 +92,6 @@ Nun, da wir die wahre **i18n Bedeutung** etabliert haben, wie wenden Sie sie an?
 - **Abstrahieren Sie alle benutzerseitigen Texte:** Stellen Sie sicher, dass in Ihren UI-Komponenten kein fest kodierter Text vorhanden ist.
 - **Nutzen Sie ein robustes Übersetzungsmanagementsystem:** Tools wie **Intlayer** schließen die Lücke zwischen Entwicklern und Übersetzern. Intlayer fungiert als Headless CMS, das eng in Ihre Codebasis integriert ist und es Content-Managern ermöglicht, Übersetzungen visuell zu aktualisieren, ohne dass ein Entwickler einen neuen Build auslösen muss.
 
----
-
 ### Liste der i18n-Bibliotheken und Tools pro Technologie anzeigen
 
 Wenn Sie nach einer Liste von i18n-Bibliotheken und Tools pro Technologie suchen, sehen Sie sich die folgenden Ressourcen an:
@@ -111,8 +109,6 @@ Wenn Sie nach einer Liste von i18n-Bibliotheken und Tools pro Technologie suchen
 - Vue: [Liste der i18n-Bibliotheken und Tools anzeigen](https://github.com/aymericzip/intlayer/blob/main/docs/blog/de/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Liste der i18n-Bibliotheken und Tools anzeigen](https://github.com/aymericzip/intlayer/blob/main/docs/blog/de/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [Liste der i18n-Bibliotheken und Tools anzeigen](https://github.com/aymericzip/intlayer/blob/main/docs/blog/de/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Fazit
 

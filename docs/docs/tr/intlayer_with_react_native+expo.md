@@ -455,8 +455,6 @@ Bu, aşağıdaki gibi özellikleri etkinleştirir:
 - **Sözlük anahtarlarınız için otomatik tamamlama**.
 - **Var olmayan bir anahtara eriştiğinizde veya türü eşleşmediğinde sizi uyaran tür kontrolü**.
 
----
-
 ## Git Yapılandırma
 
 Intlayer tarafından otomatik olarak oluşturulan dosyaları göndermekten kaçınmak için, `.gitignore`'nize aşağıdakileri ekleyin:
@@ -465,8 +463,6 @@ Intlayer tarafından otomatik olarak oluşturulan dosyaları göndermekten kaç�
 # Intlayer tarafından oluşturulan dosyaları yok say
 .intlayer
 ```
-
----
 
 ### VS Code Uzantısı
 
@@ -483,8 +479,6 @@ Bu uzantı şunları sağlar:
 
 Uzantının nasıl kullanılacağı hakkında daha fazla detay için, [Intlayer VS Code Uzantısı dokümantasyonuna](https://intlayer.org/doc/vs-code-extension) bakın.
 
----
-
 ## Daha Fazla İlerleyin
 
 - **Görsel Düzenleyici**: Çevirileri görsel olarak yönetmek için [Intlayer Görsel Düzenleyici](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md)'yi kullanın.
@@ -492,8 +486,6 @@ Uzantının nasıl kullanılacağı hakkında daha fazla detay için, [Intlayer 
 - **CLI Komutları**: Çevirileri çıkarma veya eksik anahtarları kontrol etme gibi görevler için [Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/cli/index.md)'yi keşfedin.
 
 **Intlayer** ile tam güçlendirilmiş i18n ile **React Native** uygulamalarınızı oluşturmanın keyfini çıkarın!
-
----
 
 ### Debug
 
@@ -520,8 +512,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - Modüller çözümlenemezse Metro yapılandırmanızı (resolver takma adları, asset eklentileri, `tsconfig` yolları) doğrulayın.
-
----
 
 ## Sıkça Sorulan Sorular
 

@@ -47,8 +47,6 @@ With Intlayer, you can:
 
 > Intlayer is compatible with Next.js 12, 13, 14, and 15. If you are using Next.js App Router, refer to the [App Router guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md). For Next.js 15, follow this [guide](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_15.md).
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a Next.js Application Using Page Router
 
 ### Step 1: Install Dependencies

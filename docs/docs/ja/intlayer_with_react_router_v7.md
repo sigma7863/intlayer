@@ -179,23 +179,34 @@ For more details on how to use the extension, refer to the [Intlayer VS Code Ext
 <iframe title="Intlayerを使用してReact Router v7アプリを翻訳する方法" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/dS9L7uJeak4?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="Code" value="code">
+  <Tab label="コード (設定ベース)" value="code-config">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-template?file=intlayer.config.ts"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="デモ CodeSandbox - Intlayerを使用してアプリケーションを多言語化する方法"
+  title="デモ CodeSandbox - Intlayerを使用してアプリケーションを多言語化する方法 (設定ベース)"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
 
   </Tab>
-  <Tab label="デモ" value="demo">
+  <Tab label="コード (ファイルシステムルート)" value="code-fs">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-react-router-v7-fs-routes-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="デモ CodeSandbox - Intlayerを使用してアプリケーションを多言語化する方法 (ファイルシステムルート)"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="デモ (設定ベース)" value="demo">
 
 <iframe
   src="https://intlayer-react-router-v7.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="Demo - intlayer-react-router-v7-template"
+  title="デモ Intlayer React Router v7 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />

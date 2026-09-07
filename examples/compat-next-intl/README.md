@@ -27,8 +27,6 @@ Before we dive into the implementation, here are some practices you should follo
 
 > See our doc listing everything you need to know about internationalization and SEO: [Internationalization (i18n) with next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/internationalization_and_SEO.md).
 
----
-
 ## Step-by-Step Guide to Set Up next-intl in a Next.js Application
 
 <iframe
@@ -423,8 +421,6 @@ const ServerComponent = ({
 ```
 
 > In your page/layout, use `getTranslations` and `getFormatter` from `next-intl/server` to pre-compute translations and formatting, then pass them as props to server components.
-
----
 
 ### (Optional) Step 8: Change the language of your content
 

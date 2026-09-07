@@ -122,8 +122,6 @@ const myContent = html(
 
 Ao usar o método `.use()` em um nó HTML, os componentes que você fornecer serão verificados em relação à definição fornecida na função `html()` (se disponível).
 
----
-
 ## Renderização de HTML
 
 A renderização pode ser feita automaticamente pelo sistema de conteúdo do Intlayer ou manualmente usando ferramentas especializadas.
@@ -477,8 +475,6 @@ Você pode configurar a renderização de HTML globalmente para toda a sua aplic
   </Tab>
 </Tabs>
 
----
-
 ### Renderização Manual e Ferramentas Avançadas
 
 Se precisar renderizar strings HTML brutas ou tiver mais controlo sobre o mapeamento de componentes, use as seguintes ferramentas.
@@ -650,8 +646,6 @@ Se precisar renderizar strings HTML brutas ou tiver mais controlo sobre o mapeam
 
   </Tab>
 </Tabs>
-
----
 
 ## Referência de Opções
 

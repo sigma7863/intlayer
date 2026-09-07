@@ -111,8 +111,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite와 Svelte 애플리케이션에서 Intlayer 설정 단계별 가이드
 
 GitHub에서 [애플리케이션 템플릿](https://github.com/aymericzip/intlayer-vite-svelte-template)을 확인하세요.
@@ -733,8 +731,6 @@ Intlayer 개발 경험을 향상시키기 위해 공식 **Intlayer VS Code 확�
 - 번역을 쉽게 생성하고 업데이트할 수 있는 **빠른 작업**.
 
 확장 프로그램 사용 방법에 대한 자세한 내용은 [Intlayer VS Code 확장 프로그램 문서](https://intlayer.org/doc/vs-code-extension)를 참조하세요.
-
----
 
 ### 더 나아가기
 

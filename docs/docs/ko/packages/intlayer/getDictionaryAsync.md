@@ -44,8 +44,6 @@ author: aymericzip
 - 동일한 청크의 동시 로드를 중복 제거하고 해석된 콘텐츠를 캐시합니다
 - 실패한 로드는 캐시에서 제거되므로 이후 호출이 청크를 재시도합니다
 
----
-
 ## 함수 시그니처
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // 선택사항
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## 매개변수
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — loaded chunk의 interpreted content로 resolve되는 promise입니다.
 - **Description**: 요청된 locale에 대해 map이 chunk를 emit하지 않고 그 fallback 중 어느 것도 emit하지 않을 때 `null`로 resolve됩니다. 이는 missing qualified coordinate가 resolve되는 방식을 반영합니다.
-
----
 
 ## 사용 예시
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## 동작 주의사항
 
 ### 캐싱 및 중복 제거
@@ -135,15 +127,11 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 
 일반 로더 맵은 동기 모드와 동일한 폴백 체인을 따라 탐색됩니다: 먼저 요청된 로캘, 그 다음 폴백, 마지막으로 어떤 청크도 방출되지 않은 경우 `null`입니다.
 
----
-
 ## 관련 함수
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getIntlayerAsync.md): 애플리케이션이 호출하는 함수이며, 빌드 플러그인이 이를 `getDictionaryAsync`로 다시 작성합니다.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getDictionary.md): 전체 사전을 받는 동기 대응 함수입니다.
 - [동적 사전](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/dynamic_dictionaries/index.md): 컬렉션과 변형, 그리고 이들이 생성하는 로더 맵입니다.
-
----
 
 ## TypeScript
 

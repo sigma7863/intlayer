@@ -56,8 +56,6 @@ Bir parçaya interpole edilen çevrilmiş bir değer markup'tır. Bunu diğer di
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Adım Adım Rehber
 
 <iframe
@@ -663,8 +661,6 @@ Bu extension şunları sağlar:
 - **Çevirileri kolayca oluşturmak ve güncellemek için hızlı eylemler**.
 
 Extension'ın nasıl kullanılacağı hakkında daha fazla bilgi için [Intlayer VS Code Extension belgelerine](https://intlayer.org/doc/vs-code-extension) bakın.
-
----
 
 ### Daha İleri Gidin
 

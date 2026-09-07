@@ -107,8 +107,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Bir Vite ve Vanilla JS Uygulamasında Intlayer Kurulumu İçin Adım Adım Kılavuz
 
 <Steps>
@@ -763,8 +761,6 @@ Bu uzantı şunları sağlar:
 - Çevirileri kolayca oluşturmak ve güncellemek için **hızlı eylemler**.
 
 Uzantının nasıl kullanılacağına dair daha fazla ayrıntı için [Intlayer VS Code Uzantısı belgelerine](https://intlayer.org/doc/vs-code-extension) bakın.
-
----
 
 ### Daha Fazlasına Gidin
 

@@ -38,8 +38,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## ライブ同期を有効にする
 
 Intlayerの設定を更新してLive Syncを有効にします：

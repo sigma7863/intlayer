@@ -85,8 +85,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении Angular
 
 <Tabs defaultTab="code">
@@ -473,13 +471,9 @@ Intlayer использует расширение модулей (Module Augmen
 
 Подробнее о том, как использовать расширение, см. [в документации к расширению Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Идти дальше
 
 Чтобы пойти дальше, вы можете реализовать [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_visual_editor.md) или экстернализовать свой контент с помощью [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_CMS.md).
-
----
 
 ## Часто задаваемые вопросы
 

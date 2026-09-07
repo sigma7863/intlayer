@@ -43,8 +43,6 @@ npm install @intlayer/babel
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### プラグイン
 
 | 関数 / クラス                  | 説明                                                                                                                                                                                                         |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | ソースコード内での`useIntlayer` / `getIntlayer`の使用状況を分析し、共有`PruneContext`内にフィールドの使用状況データを集計するBabelプラグインを生成するファクトリ関数。                                       |
 | `getSharedPruneContext`        | 指定されたベースディレクトリに対する共有`PruneContext`オブジェクトを返すヘルパー関数。まだ初期化されていない場合は`null`を返します。                                                                         |
 
----
-
 ### プラグイン設定ユーティリティ
 
 | 関数                       | 説明                                                                                                                           |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Intlayer設定とコンパイル済み辞書を読み込み、`intlayerOptimizeBabelPlugin`で使用できる状態の`OptimizePluginOptions`を返します。 |
 | `getPurgePluginOptions`    | Intlayer設定を読み込み、`intlayerPurgeBabelPlugin`で使用できる状態の`PurgePluginOptions`を返します。                           |
 | `getMinifyPluginOptions`   | Intlayer設定を読み込み、`intlayerMinifyBabelPlugin`で使用できる状態の`MinifyPluginOptions`を返します。                         |
-
----
 
 ### 型
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | 互換アダプタ（compat-adapter）パッケージ用の互換使用アナライザ設定（呼び出し元名と処理オプション）。                               |
 | `ScriptBlock`           | SFCファイル（VueまたはSvelte）から抽出されたスクリプトブロック：コンテンツ、開始オフセット、および終了オフセット。                 |
 
----
-
 ### ユーティリティ関数
 
 | 関数                              | 説明                                                                                                                                        |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | 後続のBabel分析のために、SFCファイル（Vue / Svelte）から`<script>`ブロックを抽出します。                                                    |
 | `BABEL_PARSER_OPTIONS`            | サポートされているフレームワーク（React/Vue/Svelte/Angular/...）をカバーするBabelパーサーオプションを表す定数。                             |
 | `INTLAYER_CALLER_NAMES`           | オリジナルのIntlayer呼び出し元名の定数リスト：`['useIntlayer', 'getIntlayer']`。                                                            |
-
----
 
 ## 使用例
 

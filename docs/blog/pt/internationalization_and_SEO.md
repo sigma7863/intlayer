@@ -21,15 +21,11 @@ author: aymericzip
 
 Quer alcançar mais usuários em todo o mundo? Tornar seu site multilíngue é uma das melhores maneiras de expandir seu público e melhorar seu SEO (Otimização para Mecanismos de Busca). Neste post do blog, vamos descrever os fundamentos do SEO internacional, frequentemente referido como **i18n** (abreviação de “integração”), em termos claros e compreensíveis. Você aprenderá sobre as principais decisões que precisa tomar, como usar elementos técnicos como `hreflang`, e por que ferramentas como **Intlayer** podem simplificar seus projetos Next.js multilíngues.
 
----
-
 ## 1. O Que Significa Tornar Seu Site Multilíngue?
 
 Um site multilíngue oferece seu conteúdo em mais de um idioma. Por exemplo, você pode ter uma versão em inglês (`example.com/en/`), uma versão em francês (`example.com/fr/`), e uma versão em espanhol (`example.com/es/`). Essa abordagem permite que os mecanismos de busca exibam a versão correta do idioma para os usuários com base em suas preferências ou localização geográfica.
 
 Quando você faz isso corretamente, criará uma experiência muito mais amigável para falantes não nativos de inglês, resultando em melhor engajamento, maiores taxas de conversão e SEO aprimorado em diferentes regiões.
-
----
 
 ## 2. Escolhendo a Estrutura de URL Correta
 
@@ -51,8 +47,6 @@ Se você decidir ter múltiplas versões de idioma, precisará de uma maneira cl
    - **Contras:** Não é um sinal tão forte de SEO local quanto os ccTLDs (embora ainda seja muito eficaz se feito corretamente).
 
 > **Dica:** Se você tem uma marca global e quer manter as coisas mais simples, subdiretórios costumam funcionar melhor. Se você está apenas direcionando um ou dois países principais e quer realmente enfatizar cada um, os ccTLDs podem ser o caminho a seguir.
-
----
 
 ## 3. Dominando o Alvo de Idioma com Hreflang
 
@@ -100,8 +94,6 @@ No seu HTML, você adicionará algo como:
 
 > **Nota Rápida:** Certifique-se de que as URLs nessas tags apontem diretamente para a página final, com **nenhum** redirecionamento adicional.
 
----
-
 ## 4. Tornando o Conteúdo Verdadeiramente “Local” (Não Apenas Traduzido)
 
 ### 4.1. Localização vs. Tradução
@@ -131,8 +123,6 @@ No seu HTML, você adicionará algo como:
 ### 4.2. Evitando Conteúdo Duplicado
 
 Mesmo com boas traduções, os mecanismos de busca podem sinalizar seu site por conteúdo duplicado se ele parecer muito semelhante em estrutura. Hreflang ajuda a esclarecer que essas páginas não são duplicadas, mas são variações de idioma.
-
----
 
 ## 5. Necessidades Técnicas de SEO
 
@@ -165,8 +155,6 @@ Tags canônicas informam aos mecanismos de busca qual página é a “original�
 />
 ```
 
----
-
 ## 6. SEO na Página em Múltiplos Idiomas
 
 ### 6.1. Títulos & Meta Descrições
@@ -182,8 +170,6 @@ Seus cabeçalhos devem refletir as **frases locais** ou **palavras-chave** de ca
 
 - Localize texto alternativo, legendas e nomes de arquivos, se necessário.
 - Use visuais que ressoem com a cultura alvo.
-
----
 
 ## 7. Mudança de Idioma & Experiência do Usuário
 
@@ -264,16 +250,12 @@ const LocaleSwitcher: FC = () => {
 - Salve a escolha de idioma do seu usuário em um **cookie** ou **sessão**.
 - Na próxima vez que ele visitar seu site, você pode carregar automaticamente seu idioma preferido.
 
----
-
 ## 8. Construindo Backlinks Locais
 
 **Backlinks** (links de sites externos para o seu) continuam sendo um fator importante de SEO. Quando você executa um site multilíngue, considere:
 
 - Entrar em contato com sites de notícias locais, blogs ou fóruns. Por exemplo, um domínio `.fr` apontando para sua subpasta francesa pode aumentar seu SEO local francês.
 - Monitorar backlinks por idioma para ver quais regiões precisam de mais esforços de PR/marketing.
-
----
 
 ## 9. Monitorando & Mantendo Seu Site Multilíngue
 
@@ -286,8 +268,6 @@ const LocaleSwitcher: FC = () => {
 
 - Mantenha as traduções atualizadas. Se você alterar uma descrição de produto em inglês, atualize em francês, espanhol, etc.
 - Traduções desatualizadas podem confundir os clientes e prejudicar a confiança do usuário.
-
----
 
 ## 10. Armadilhas Comuns a Evitar
 
@@ -303,13 +283,9 @@ const LocaleSwitcher: FC = () => {
 4. **Ignorar Nuances Culturais**
    Uma piada ou frase que funciona em um país pode ser ofensiva ou sem sentido em outro.
 
----
-
 ## Audite seu site com o Intlayer SEO Scanner
 
 Para garantir que seu aplicativo multilíngue esteja perfeitamente otimizado, recomendamos o uso do [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner). É uma ferramenta especializada em verificação de sites multilíngues, ajudando você a identificar tags hreflang ausentes, links quebrados e outros problemas de SEO em todas as suas páginas localizadas.
-
----
 
 ## Conclusão
 

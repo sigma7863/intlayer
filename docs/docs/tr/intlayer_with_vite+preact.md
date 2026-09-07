@@ -83,8 +83,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite ve Preact Uygulamasında Intlayer'ı Ayarlamak İçin Adım Adım Kılavuz
 
 <Tabs defaultTab="video">
@@ -1022,13 +1020,9 @@ Bu uzantı aşağıdakileri sağlar:
 
 Uzantının nasıl kullanılacağı hakkında daha fazla ayrıntı için [Intlayer VS Code Uzantısı dokumentasyonu](https://intlayer.org/doc/vs-code-extension)'na bakın.
 
----
-
 ### Daha Fazla İlerleme
 
 Daha fazla ilerlemek için [görsel düzenleyiciyi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) uygulayabilir veya [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) kullanarak içeriğinizi dışa aktarabilirsiniz.
-
----
 
 ## Sıkça Sorulan Sorular
 

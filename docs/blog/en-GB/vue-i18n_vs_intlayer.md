@@ -35,14 +35,10 @@ We focus on modern Vue tooling (Vite, Composition API) and evaluate:
 
 > **tl;dr**: Both can localise Vue apps. If you want **component-scoped content**, **strict TypeScript types**, **build-time missing-key checks**, **tree-shaken dictionaries**, and **batteries-included router/SEO helpers** plus **Visual Editor & AI translations**, **Intlayer** is the more complete, modern choice.
 
----
-
 ## High-level positioning
 
 - **vue-i18n** - The de-facto i18n library for Vue. Flexible message formatting (ICU-style), SFC `<i18n>` blocks for local messages, and a large ecosystem. Safety and large-scale maintenance are mostly your responsibility.
 - **Intlayer** - Component-centric content model for Vue/Vite/Nuxt with **strict TS typing**, **build-time checks**, **tree-shaking**, **router & SEO helpers**, optional **Visual Editor/CMS**, and **AI-assisted translations**.
-
----
 
 ## Side-by-Side Feature Comparison (Vue-focused)
 
@@ -67,8 +63,6 @@ We focus on modern Vue tooling (Vite, Composition API) and evaluate:
 | **Large-project maintainability**           | ✅ Encourages modular, design-system-friendly structure                          | ✅ Possible, but requires strong file/namespace discipline                   |
 | **Ecosystem / community**                   | ⚠️ Smaller but growing fast                                                      | ✅ Large and mature in the Vue ecosystem                                     |
 
----
-
 ## Deep-dive comparison
 
 ### 1) Architecture & scalability
@@ -78,16 +72,12 @@ We focus on modern Vue tooling (Vite, Composition API) and evaluate:
 
 **Why it matters:** In large Vue apps or design systems, **modular content** scales better than monolithic catalogues.
 
----
-
 ### 2) TypeScript & safety
 
 - **vue-i18n**: Good TS support; **strict key typing** typically needs custom schemas/generics and careful conventions.
 - **Intlayer**: **Generates strict types** from your content, providing **IDE autocompletion** and **compile-time errors** for typos or missing keys.
 
 **Why it matters:** Strong typing catches issues **before** runtime.
-
----
 
 ### 3) Missing translation handling
 
@@ -96,16 +86,12 @@ We focus on modern Vue tooling (Vite, Composition API) and evaluate:
 
 **Why it matters:** Build-time enforcement keeps the production UI clean and consistent.
 
----
-
 ### 4) Routing & URL strategy (Vue Router/Nuxt)
 
 - **Both** can work with localised routes.
 - **Intlayer** provides helpers to **generate localised paths**, **manage locale prefixes**, and emit **`<link rel="alternate" hreflang>`** for SEO. With Nuxt, it complements the framework’s routing.
 
 **Why it matters:** Fewer custom glue layers and **cleaner SEO** across locales.
-
----
 
 ### 5) Performance & loading behaviour
 
@@ -114,8 +100,6 @@ We focus on modern Vue tooling (Vite, Composition API) and evaluate:
 
 **Why it matters:** Smaller bundles and faster startup for multi-locale Vue apps.
 
----
-
 ### 6) Developer experience & tooling
 
 - **vue-i18n**: Mature docs and community; you’ll typically rely on **external localisation platforms** for editorial workflows.
@@ -123,16 +107,12 @@ We focus on modern Vue tooling (Vite, Composition API) and evaluate:
 
 **Why it matters:** Lower ops cost and a shorter dev–content loop.
 
----
-
 ### 7) SEO, SSR & SSG
 
 - **Both** work with Vue SSR and Nuxt.
 - **Intlayer**: Adds **SEO helpers** (sitemaps/metadata/`hreflang`) that are framework-agnostic and play nicely with Vue/Nuxt builds.
 
 **Why it matters:** International SEO without bespoke wiring.
-
----
 
 ## Why Intlayer? (Problem & approach)
 
@@ -223,8 +203,6 @@ This approach:
 - **Avoids dead keys** (unused components don’t import content).
 - **Optimises loading** (lazy-loaded components bring their content with them).
 
----
-
 ## Additional features of Intlayer (Vue-relevant)
 
 - **Cross-framework support**: Works with Vue, Nuxt, Vite, React, Express, and more.
@@ -242,14 +220,10 @@ This approach:
 - **MCP server & VSCode extension**: Automate i18n workflows and authoring inside your IDE.
 - **Interoperability**: Bridges with **vue-i18n**, **react-i18next**, and **react-intl** when needed.
 
----
-
 ## When to choose which?
 
 - **Choose vue-i18n** if you want the **standard Vue approach**, you’re comfortable managing catalogues/namespaces yourself, and your app is **small to mid-size** (or you already rely on Nuxt i18n).
 - **Choose Intlayer** if you value **component-scoped content**, **strict TypeScript**, **build-time guarantees**, **tree-shaking**, and **batteries-included** routing/SEO/editor tooling-especially for **large, modular Vue/Nuxt codebases**, design-systems, etc.
-
----
 
 ## Interoperability with vue-i18n
 
@@ -257,15 +231,11 @@ This approach:
 
 Using `intlayer`, you can declare your content in the format of your favourite i18n library, and intlayer will generate your namespaces in the location of your choice (example: `/messages/{{locale}}/{{namespace}}.json`).
 
----
-
 ## GitHub STARs
 
 GitHub stars are a strong indicator of a project's popularity, community trust, and long-term relevance. While not a direct measure of technical quality, they reflect how many developers find the project useful, follow its progress, and are likely to adopt it. For estimating the value of a project, stars help compare traction across alternatives and provide insights into ecosystem growth.
 
 [![Star History Chart](https://api.star-history.com/svg?repos=intlify/vue-i18n&repos=aymericzip/intlayer&type=Date)](https://www.star-history.com/#intlify/vue-i18n&aymericzip/intlayer)
-
----
 
 ## Conclusion
 

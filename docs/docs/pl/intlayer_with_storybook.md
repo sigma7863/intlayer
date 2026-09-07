@@ -80,8 +80,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Dlaczego warto używać Intlayer z Storybook?
 
 Storybook to standardowe narzędzie branżowe do tworzenia i dokumentowania komponentów interfejsu użytkownika w izolacji. Połączenie go z Intlayer pozwala na:
@@ -89,8 +87,6 @@ Storybook to standardowe narzędzie branżowe do tworzenia i dokumentowania komp
 - **Podgląd każdego języka** bezpośrednio w środowisku Storybook za pomocą przełącznika na pasku narzędzi.
 - **Wykrywanie brakujących tłumaczeń** przed ich wdrożeniem do produkcji.
 - **Dokumentowanie komponentów wielojęzycznych** przy użyciu rzeczywistych, bezpiecznych pod kątem typów treści zamiast zakodowanych na sztywno ciągów znaków.
-
----
 
 ## Konfiguracja krok po kroku
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > Więcej informacji na temat formatów deklaracji i dostępnych funkcji znajdziesz w [dokumentacji deklaracji treści](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/dictionary/content_file.md).
 
----
-
 ## Używanie `useIntlayer` w komponencie
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` zwraca skompilowany słownik dla bieżącego języka, dostarczanego przez najbliższy komponent `IntlayerProvider`. Przełączenie języka na pasku narzędzi Storybook automatycznie odświeży historię z zaktualizowanymi tłumaczeniami.
-
----
 
 ## Pisanie historii dla komponentów zinternacjonalizowanych
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > Każda historia dziedziczy parametr globalny `locale` z paska narzędzi, więc możesz zweryfikować każdy język bez modyfikacji kodu historii.
 
----
-
 ## Testowanie tłumaczeń w historiach
 
 Użyj funkcji `play` w Storybook, aby upewnić się, że renderowany jest poprawny przetłumaczony tekst dla danego języka:
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Dodatkowe zasoby
 

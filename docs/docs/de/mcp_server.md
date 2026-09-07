@@ -76,8 +76,6 @@ Beachten Sie, dass der Remote-Server keine CLI-Tools, keine KI-Autovervollständ
 
 > Aufgrund der Hosting-Kosten für den Server kann die Verfügbarkeit des Remote-Servers nicht garantiert werden. Wir begrenzen die Anzahl gleichzeitiger Verbindungen. Für die zuverlässigste Erfahrung empfehlen wir die Verwendung der lokalen Server-Transportmethode (stdio).
 
----
-
 ## Einrichtung über die Intlayer CLI (empfohlen)
 
 Intlayer stellt einen CLI-Befehl zur Verfügung, um den MCP-Server automatisch in Ihrem Projekt zu konfigurieren.
@@ -104,8 +102,6 @@ Dieser Befehl wird:
 2. Sie fragen, welche Transportmethode Sie verwenden möchten (lokal (stdio) oder remote (Streamable HTTP)).
 3. Automatisch Ihre Konfigurationsdatei aktualisieren (z. B. `.cursor/mcp.json`, `.vscode/mcp.json` oder die globale Claude Desktop-Konfiguration).
 
----
-
 ## Setup via Intlayer VS Code extension
 
 1. Öffnen Sie die Befehlspalette (Strg+Umschalt+P oder Cmd+Umschalt+P).
@@ -113,8 +109,6 @@ Dieser Befehl wird:
 3. Wählen Sie die von Ihnen verwendete Plattform aus (z. B. `VS Code`, `Cursor`, `Windsurf`, `OpenCode`, `Claude Code`, `GitHub Copilot Workspace` usw.).
 4. Wählen Sie den zu installierenden MCP aus (stdio, Streamable HTTP).
 5. Drücken Sie die Eingabetaste.
-
----
 
 ## Manuelle Einrichtung
 
@@ -281,8 +275,6 @@ claude mcp add intlayer https://mcp.intlayer.org -t http
 
   </Tab>
 </Tabs>
-
----
 
 ## Verwendung des MCP-Servers über die CLI
 

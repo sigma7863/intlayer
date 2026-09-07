@@ -1,6 +1,6 @@
 ---
 createdAt: 2025-08-23
-updatedAt: 2026-09-05
+updatedAt: 2026-09-06
 title: Giriş
 description: Intlayer'ın nasıl çalıştığını keşfedin. Uygulamanızda Intlayer tarafından kullanılan adımları görün. Farklı paketlerin ne yaptığını öğrenin.
 keywords:
@@ -180,12 +180,9 @@ Intlayer'ı esnekliği göz önünde bulundurarak geliştirdik; popüler çerçe
 - **[Next.js 15 ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_nextjs_15.md)**
 - **[Next.js 14 (App Router) ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_nextjs_14.md)**
 - **[Next.js Page Router ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_nextjs_page_router.md)**
-- **[Next.js URL’de locale olmadan ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_nextjs_no_locale_path.md)**
-- **[Next.js (Intlayer Compiler) ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_nextjs_compiler.md)**
 - **[Tanstack Start ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_tanstack.md)**
 - **[Tanstack Start + Solid ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_tanstack+solid.md)**
 - **[Vite + React ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_vite+react.md)**
-- **[Vite + React (Intlayer Compiler) ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_vite+react_compiler.md)**
 - **[React Router v7 ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_react_router_v7.md)**
 - **[React Router v7 (fs-routes) ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_react_router_v7_fs_routes.md)**
 - **[React CRA ile Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_with_create_react_app.md)**

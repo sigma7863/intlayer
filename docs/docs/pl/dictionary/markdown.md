@@ -1171,8 +1171,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## Renderowanie po stronie serwera (SSR) i hydratacja
 
 W porównaniu do innych parserów Markdown, takich jak remark / rehype, Intlayer Markdown jest pozbawiony zależności i działa zarówno po stronie klienta, jak i serwera.

@@ -27,13 +27,9 @@ author: aymericzip
 
 Die `t`-Funktion im Paket `adonis-intlayer` ist das Kernwerkzeug zur Bereitstellung lokalisierter Antworten in Ihrer AdonisJS-Anwendung. Sie vereinfacht die Internationalisierung (i18n), indem sie Inhalte dynamisch basierend auf der bevorzugten Sprache des Benutzers auswählt.
 
----
-
 ## Übersicht
 
 Die `t`-Funktion wird verwendet, um Übersetzungen für einen bestimmten Satz von Sprachen zu definieren und abzurufen. Sie bestimmt automatisch die geeignete Sprache für die Rückgabe basierend auf den Anfrageeinstellungen des Clients, wie dem `Accept-Language`-Header. Wenn die bevorzugte Sprache nicht verfügbar ist, fällt sie elegant auf die in Ihrer Konfiguration angegebene Standard-Locale zurück.
-
----
 
 ## Hauptmerkmale
 
@@ -41,8 +37,6 @@ Die `t`-Funktion wird verwendet, um Übersetzungen für einen bestimmten Satz vo
 - **Fallback auf Standard-Locale**: Fällt auf eine Standard-Locale zurück, wenn die bevorzugte Sprache des Clients nicht verfügbar ist, um die Kontinuität des Benutzererlebnisses zu gewährleisten.
 - **Asynchroner Kontext**: Arbeitet nahtlos innerhalb des AdonisJS-Anfrage-Lebenszyklus unter Verwendung von Async Local Storage.
 - **TypeScript-Unterstützung**: Erzwingen Sie Typsicherheit für Ihre Übersetzungen.
-
----
 
 ## Funktionssignatur
 
@@ -58,8 +52,6 @@ t(translations: Record<string, any>): any;
 
 - Der Inhalt, der die bevorzugte Sprache des Clients repräsentiert.
 
----
-
 ## Laden der Middleware
 
 Um sicherzustellen, dass die `t`-Funktion korrekt funktioniert, **müssen** Sie die `intlayer`-Middleware in Ihrer AdonisJS-Anwendung registrieren.
@@ -67,8 +59,6 @@ Um sicherzustellen, dass die `t`-Funktion korrekt funktioniert, **müssen** Sie 
 ```typescript fileName="start/kernel.ts"
 router.use([() => import("adonis-intlayer/middleware")]);
 ```
-
----
 
 ## Anwendungsbeispiele
 
@@ -104,8 +94,6 @@ export default class ExampleController {
   }
 }
 ```
-
----
 
 ## Fortgeschrittene Themen
 

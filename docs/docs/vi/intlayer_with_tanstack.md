@@ -106,8 +106,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng Tanstack Start
 
 <Tabs defaultTab="video">
@@ -1199,8 +1197,6 @@ Khuyến nghị bạn nên bỏ qua các file được tạo bởi Intlayer. Đi
 .intlayer
 ```
 
----
-
 ## VS Code Extension
 
 Để cải thiện trải nghiệm phát triển của bạn với Intlayer, bạn có thể cài đặt **Intlayer VS Code Extension** chính thức.
@@ -1216,13 +1212,9 @@ Extension này cung cấp:
 
 Để biết thêm chi tiết về cách sử dụng extension, hãy tham khảo [tài liệu Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Đi Xa Hơn
 
 Để đi xa hơn, bạn có thể triển khai [trình chỉnh sửa trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md) hoặc ngoại hóa nội dung của bạn bằng [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md).
-
----
 
 ## Tài liệu tham khảo
 

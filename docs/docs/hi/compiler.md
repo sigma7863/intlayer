@@ -104,7 +104,7 @@ export default defineConfig({
 
 > स्टैंडअलोन `intlayerCompiler()` प्लगइन अभी भी advanced setups के लिए exported है। इसे `intlayer()` के साथ register करना सुरक्षित है — compiler खुद को deduplicate करता है और केवल एक बार चलता है।
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react.md)
 
 #### फ्रेमवर्क समर्थन
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 यह कॉन्फ़िगरेशन सुनिश्चित करता है कि आपके कंपोनेंट्स में घोषित सामग्री स्वचालित रूप से निकाली जाए और आपके बिल्ड प्रक्रिया के दौरान शब्दकोश बनाने के लिए उपयोग की जाए।
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

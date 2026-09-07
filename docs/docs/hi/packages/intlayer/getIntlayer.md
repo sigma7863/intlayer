@@ -42,8 +42,6 @@ author: aymericzip
 - Results `key + locale + selector` के अनुसार memoized हैं
 - Development में एक safe proxy में fallback करता है जब dictionary missing हो, crash करने के बजाय
 
----
-
 ## फ़ंक्शन सिग्नेचर
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // वैकल्पिक
 ): DeepTransformContent<...>
 ```
-
----
 
 ## पैरामीटर
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: शब्दकोश की व्याख्या की गई सामग्री, आपकी घोषणा से टाइप की गई।
 - **Description**: आपके शब्दकोश के `content` फील्ड को दर्शाने वाली एक सादी object, जहां प्रत्येक Intlayer नोड को अनुरोधित locale के लिए अंतिम मान में resolve किया गया है।
-
----
 
 ## उदाहरण उपयोग
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## व्यवहार नोट्स
 
 ### कैशिंग
@@ -169,15 +161,11 @@ const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 
 `getIntlayer` merged dictionary को पढ़ता है, जो **हर** locale को hold करता है। Client bundles में, [build plugins](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/bundle_optimization.md) call को rewrite करते हैं ताकि केवल required content ship हो। जब आप rendering के बाहर content को पढ़ते हैं (metadata, loaders, server functions) और single locale को on demand load करना चाहते हैं, तो इसके बजाय [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getIntlayerAsync.md) का उपयोग करें।
 
----
-
 ## संबंधित फ़ंक्शन
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getIntlayerAsync.md): एक single locale chunk को लोड करने वाला Async counterpart।
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/intlayer/getDictionary.md): एक dictionary object को interpret करता है जो आप स्वयं पास करते हैं, key द्वारा देखे गए object के बजाय।
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/hi/packages/react-intlayer/useIntlayer.md): React hook का समतुल्य, provider से locale को पढ़ता है।
-
----
 
 ## TypeScript
 

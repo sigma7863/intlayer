@@ -1,6 +1,6 @@
 ---
 createdAt: 2025-08-23
-updatedAt: 2026-09-05
+updatedAt: 2026-09-06
 title: 소개
 description: Intlayer의 작동 방식을 알아보세요. Intlayer가 애플리케이션에서 사용하는 단계를 확인하세요. 다양한 패키지가 어떤 역할을 하는지 알아보세요.
 keywords:
@@ -180,12 +180,9 @@ Intlayer는 현대 웹 개발의 요구를 충족하도록 설계된 다양한 �
 - **[Intlayer와 Next.js 15](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_nextjs_15.md)**
 - **[Intlayer와 Next.js 14 (App Router)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_nextjs_14.md)**
 - **[Intlayer와 Next.js Page Router](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_nextjs_page_router.md)**
-- **[Intlayer와 Next.js (URL에 로케일 없음)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_nextjs_no_locale_path.md)**
-- **[Intlayer와 Next.js (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_nextjs_compiler.md)**
 - **[Intlayer와 Tanstack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_tanstack.md)**
 - **[Intlayer와 Tanstack Start + Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_tanstack+solid.md)**
 - **[Intlayer와 Vite + React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_vite+react.md)**
-- **[Intlayer와 Vite + React (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_vite+react_compiler.md)**
 - **[Intlayer와 React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_react_router_v7.md)**
 - **[Intlayer와 React Router v7 (fs-routes)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_react_router_v7_fs_routes.md)**
 - **[Intlayer와 React CRA](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_create_react_app.md)**

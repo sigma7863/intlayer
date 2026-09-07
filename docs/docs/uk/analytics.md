@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Що відстежується
 
 `@intlayer/analytics` об'єднує в пакети (batch) три типи анонімних подій:

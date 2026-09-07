@@ -67,8 +67,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia samodzielnie hostowany *
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Strategia migracji
 
 Rekomendowane podejście dla istniejących aplikacji to **adapter compat**: zainstaluj `@intlayer/next-intl`, który ujawnia **dokładnie ten sam API** co `next-intl`, ale deleguje całą pracę tłumaczenia do Intlayer za kulisami.
@@ -77,13 +75,9 @@ Zachowujesz istniejące `useTranslations`, `getTranslations`, `NextIntlClientPro
 
 Z biegiem czasu możesz opcjonalnie migrować poszczególne pliki do bogatszego formatu `.content.ts` Intlayer aby odblokować edytor wizualny, CMS i ograniczanie zawartości per-komponent — ale ten krok jest całkowicie opcjonalny i może być wykonywany przyrostowo.
 
----
-
 ## Spis treści
 
 <TOC/>
-
----
 
 ## Szybka migracja
 
@@ -212,8 +206,6 @@ To wszystko dla szybkiej migracji. Twoja aplikacja teraz działa na Intlayer, za
 > t("counter.label"); // ✓ typowane
 > ```
 
----
-
 ## Pełna migracja
 
 Poniższe kroki są opcjonalne i można je wykonywać stopniowo. Odblokowują pełny zestaw funkcji Intlayer: edytor wizualny, CMS, typizowane pliki zawartości, automatyczne tłumaczenie oparte na AI i wiele innych.
@@ -308,8 +300,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Co można usunąć po migracji
 
 Po wdrożeniu `@intlayer/next-intl` można usunąć następujący boilerplate `next-intl`:
@@ -321,8 +311,6 @@ Po wdrożeniu `@intlayer/next-intl` można usunąć następujący boilerplate `n
 | Importy `locales/{locale}/*.json` w layout            | Pakiety JSON są potrzebne tylko jeśli nadal używasz pluginu `syncJSON`. Po migracji do plików `.content.ts` możesz usunąć folder JSON.                                               |
 
 Gdy będziesz gotowy, aby pójść dalej, Intlayer **automatycznie odkrywa wszystkie pliki `.content.ts` i `.content.json` gdziekolwiek w twoim codebase** (domyślnie gdziekolwiek wewnątrz `./src`). Możesz umieścić plik `about.content.ts` tuż obok `about/page.tsx` i Intlayer podciągnie go w czasie budowania bez żadnej dodatkowej konfiguracji — bez importów, bez rejestracji, bez scentralizowanego pliku indeksu. Sprawia to, że współlokalizowanie tłumaczeń ze stronami i komponentami jest całkowicie pozbawione tarcia.
-
----
 
 ## Konfiguracja TypeScript
 
@@ -338,8 +326,6 @@ Intlayer używa module augmentation aby zapewnić pełny TypeScript intellisense
 }
 ```
 
----
-
 ## Konfiguracja Git
 
 Dodaj wygenerowany katalog Intlayer do swoją `.gitignore`:
@@ -348,8 +334,6 @@ Dodaj wygenerowany katalog Intlayer do swoją `.gitignore`:
 # Ignoruj pliki wygenerowane przez Intlayer
 .intlayer
 ```
-
----
 
 ## Idź dalej
 

@@ -90,8 +90,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 在 Next.js 应用中逐步设置 Intlayer 的指南
 
 <Tabs defaultTab="code">

@@ -31,8 +31,6 @@ author: aymericzip
 
 A função `getConfiguration` recupera toda a configuração para a aplicação `intlayer` extraindo variáveis de ambiente. Esta função oferece a flexibilidade de usar a mesma configuração tanto no lado do cliente quanto no lado do servidor, garantindo consistência em toda a aplicação.
 
----
-
 ## Parâmetros
 
 A função não recebe nenhum parâmetro. Em vez disso, ela utiliza variáveis de ambiente para a configuração.
@@ -47,8 +45,6 @@ A função não recebe nenhum parâmetro. Em vez disso, ela utiliza variáveis d
   - `editor`: Configurações específicas do editor.
 
 Consulte a [documentação de configuração do Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/configuration.md) para mais detalhes.
-
----
 
 ## Exemplo de Uso
 

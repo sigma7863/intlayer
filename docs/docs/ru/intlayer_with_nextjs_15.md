@@ -89,8 +89,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по установке Intlayer в приложение Next.js
 
 <Tabs defaultTab="video">

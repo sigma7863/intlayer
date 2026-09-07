@@ -51,7 +51,7 @@ You can declare Markdown content using the `md` function or simply as a string (
 
 <Tabs>
   <Tab label=".content.md" value=".content.md">
-  
+
     Since version `8.10.0`, you can declare Markdown content directly in `.content.md` files. Intlayer will
     automatically detect and parse the Markdown content.
 
@@ -496,7 +496,7 @@ These utilities render **raw Markdown strings** and are independent of `useIntla
 
 <Tabs group="framework">
   <Tab label="React" value="react">
-  
+
     #### `<MarkdownRenderer />` Component
 
     Render a Markdown string with specific options.
@@ -535,7 +535,7 @@ These utilities render **raw Markdown strings** and are independent of `useIntla
 
   </Tab>
   <Tab label="Next.js" value="nextjs">
-  
+
     #### `<MarkdownRenderer />` Component
 
     Render a Markdown string with specific options.
@@ -1068,7 +1068,7 @@ const MyComponent = () => {
 ```
 
   </Tab>
- 
+
   <Tab label="Vue" value="vue">
 
 Vue has a built-in `<Suspense>` component. Wrap the component rendering Markdown content in a `<Suspense>` boundary.
@@ -1171,8 +1171,6 @@ export class MyComponent {
 
   </Tab>
 </Tabs>
-
----
 
 ## Server-Side Rendering (SSR) and Hydration
 

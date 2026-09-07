@@ -24,15 +24,11 @@ author: aymericzip
 
 This guide shows how to automatically verify your dictionaries are complete, catch missing translations before shipping, and test localised UI in your app.
 
----
-
 ## What you can test
 
 - **Missing translations**: fail CI if any required locales are missing for any dictionary.
 - **Localised UI rendering**: render components with a specific locale provider and assert on visible text/attributes.
 - **Build-time audits**: run a quick audit locally via CLI.
-
----
 
 ## Quick start: audit via CLI
 
@@ -63,8 +59,6 @@ Useful flags:
 - `--prefix [label]`: prefix log lines.
 
 Note: the CLI prints a detailed report but does not exit with a non-zero code on failures. For CI gating, add a unit test (below) that asserts zero missing required locales.
-
----
 
 ## Programmatic test (Vitest/Jest)
 
@@ -112,8 +106,6 @@ How it works:
   - `missingLocales`: union of all missing locales.
   - `missingRequiredLocales`: subset limited to `requiredLocales` (or all locales if `requiredLocales` is not set).
 
----
-
 ## Testing localised UI (React / Next.js)
 
 Render components under an Intlayer provider and assert on visible content.
@@ -159,8 +151,6 @@ Tips:
 
 - When you need raw string values for attributes (e.g., `aria-label`), access the `.value` field returned by `useIntlayer` in React.
 - Keep dictionaries colocated with components for easier unit testing and cleanup.
-
----
 
 ## Continuous Integration
 
@@ -210,8 +200,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## Troubleshooting
 

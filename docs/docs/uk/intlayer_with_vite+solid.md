@@ -112,8 +112,6 @@ Intlayer оптимізовано для ідеальної роботи з Soli
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник з налаштування Intlayer у додатку на Vite і Solid
 
 ## Зміст
@@ -723,8 +721,6 @@ console.log("SEO files generated successfully.");
 Щоб покращити ваш досвід розробки з Intlayer, ви можете встановити офіційне **розширення Intlayer для VS Code**.
 
 [Встановити з VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Розширені можливості
 

@@ -37,15 +37,11 @@ Chúng tôi đánh giá:
 
 > **tóm tắt**: Cả ba đều có thể bản địa hóa ứng dụng React. Nếu bạn muốn **nội dung theo phạm vi component**, **kiểu TypeScript nghiêm ngặt**, **kiểm tra khóa thiếu tại thời điểm build**, **từ điển được tree-shaking**, và công cụ biên tập tích hợp sẵn (Visual Editor/CMS + dịch thuật AI tùy chọn), thì **Intlayer** là lựa chọn toàn diện nhất cho các codebase React mô-đun.
 
----
-
 ## Vị trí tổng quan cấp cao
 
 - **react-intl** - Định dạng ưu tiên ICU, tuân thủ tiêu chuẩn (ngày/tháng/số/dạng số nhiều) với API trưởng thành. Các catalog thường được tập trung; an toàn khóa và kiểm tra tại thời điểm build phần lớn phụ thuộc vào bạn.
 - **react-i18next** - Rất phổ biến và linh hoạt; hỗ trợ namespace, bộ phát hiện, và nhiều plugin (ICU, backend). Mạnh mẽ, nhưng cấu hình có thể phức tạp khi dự án mở rộng.
 - **Intlayer** - Mô hình nội dung tập trung vào component cho React, **kiểu TypeScript nghiêm ngặt**, **kiểm tra tại thời điểm build**, **tree-shaking**, cộng với **Visual Editor/CMS** và **dịch thuật hỗ trợ AI**. Hoạt động với React Router, Vite, CRA, v.v.
-
----
 
 ## Ma trận tính năng (tập trung React)
 
@@ -71,8 +67,6 @@ Chúng tôi đánh giá:
 | **Loại bỏ nội dung không sử dụng (Purge unused content)** | ✅ Có, theo từng từ điển tại thời điểm build                                                                                               | ❌ Không, chỉ qua phân đoạn namespace thủ công                                                                | ❌ Không, tất cả các thông điệp khai báo đều được đóng gói                                         |
 | **Quản lý Dự án Lớn**                                     | ✅ Khuyến khích mô-đun, phù hợp với hệ thống thiết kế                                                                                      | ⚠️ Cần kỷ luật tệp tốt                                                                                        | ⚠️ Các danh mục trung tâm có thể trở nên lớn                                                       |
 
----
-
 ## So sánh chuyên sâu
 
 ### 1) Kiến trúc & khả năng mở rộng
@@ -82,8 +76,6 @@ Chúng tôi đánh giá:
 
 **Tại sao điều này quan trọng:** Nội dung mô-đun phản ánh giao diện người dùng mô-đun. Các codebase React lớn sẽ sạch hơn khi bản dịch được đặt cùng với các component mà chúng thuộc về.
 
----
-
 ### 2) TypeScript & an toàn
 
 - **react-intl**: Kiểu dữ liệu vững chắc, nhưng **không tự động tạo kiểu key**; bạn phải tự thực thi các mẫu an toàn.
@@ -92,16 +84,12 @@ Chúng tôi đánh giá:
 
 **Tại sao điều này quan trọng:** Đưa lỗi về phía **trước** (trong quá trình build/CI) giúp giảm sự cố trong môi trường sản xuất và tăng tốc vòng phản hồi của nhà phát triển.
 
----
-
 ### 3) Xử lý thiếu bản dịch
 
 - **react-intl / react-i18next**: Mặc định sử dụng **giải pháp thay thế khi chạy** (hiển thị key hoặc locale mặc định). Bạn có thể thêm linting/plugin, nhưng không đảm bảo trong quá trình build.
 - **Intlayer**: **Phát hiện trong thời gian build** với cảnh báo hoặc lỗi khi thiếu locale/key bắt buộc.
 
 **Tại sao điều này quan trọng:** CI thất bại khi thiếu chuỗi giúp ngăn chặn việc “tiếng Anh bí ẩn” lọt vào giao diện không phải tiếng Anh.
-
----
 
 ### 4) Nội dung phong phú & định dạng
 
@@ -111,16 +99,12 @@ Chúng tôi đánh giá:
 
 **Tại sao điều này quan trọng:** Văn bản UI phức tạp (liên kết, đoạn in đậm, thành phần nội tuyến) trở nên dễ dàng hơn khi thư viện hỗ trợ các nút React một cách rõ ràng.
 
----
-
 ### 5) Hiệu năng & hành vi tải dữ liệu
 
 - **react-intl / react-i18next**: Bạn thường tự quản lý **chia nhỏ catalog** và **tải chậm** thủ công (namespace/import động). Hiệu quả nhưng đòi hỏi kỷ luật.
 - **Intlayer**: **Loại bỏ cây** các từ điển không sử dụng và hỗ trợ **tải chậm theo từng từ điển/từng locale** ngay khi cài đặt.
 
 **Tại sao điều này quan trọng:** Gói nhỏ hơn và ít chuỗi không sử dụng giúp cải thiện hiệu suất khởi động và điều hướng.
-
----
 
 ### 6) DX, công cụ & bảo trì
 
@@ -129,23 +113,17 @@ Chúng tôi đánh giá:
 
 **Tại sao điều này quan trọng:** Công cụ tích hợp rút ngắn vòng lặp giữa các nhà phát triển và tác giả nội dung - ít mã kết dính hơn, ít phụ thuộc nhà cung cấp hơn.
 
----
-
 ## Khi nào nên chọn cái nào?
 
 - **Chọn react-intl** nếu bạn muốn định dạng thông điệp **ưu tiên ICU** với API đơn giản, tuân thủ tiêu chuẩn và đội ngũ của bạn thoải mái trong việc duy trì các catalog và kiểm tra an toàn thủ công.
 - **Chọn react-i18next** nếu bạn cần **hệ sinh thái rộng lớn của i18next** (bộ phát hiện, backend, plugin ICU, tích hợp) và chấp nhận cấu hình nhiều hơn để có được sự linh hoạt.
 - **Chọn Intlayer** nếu bạn đánh giá cao **nội dung theo phạm vi component**, **TypeScript nghiêm ngặt**, **đảm bảo tại thời điểm build**, **tree-shaking**, và công cụ biên tập **đầy đủ tính năng** - đặc biệt dành cho các ứng dụng React **lớn, mô-đun hóa**, hệ thống thiết kế, v.v.
 
----
-
 ## Tương tác với `react-intl` và `react-i18next`
 
 `intlayer` cũng có thể giúp quản lý các namespace của bạn trong `react-intl` và `react-i18next`.
 
 Sử dụng `intlayer`, bạn có thể khai báo nội dung theo định dạng của thư viện i18n yêu thích của bạn, và intlayer sẽ tạo ra các namespace tại vị trí bạn chọn (ví dụ: `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## Sao trên GitHub
 

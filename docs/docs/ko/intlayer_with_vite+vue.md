@@ -84,8 +84,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite와 Vue 애플리케이션에서 Intlayer 설정 단계별 가이드
 
 <Tabs defaultTab="video">
@@ -1141,13 +1139,9 @@ Intlayer와 함께하는 개발 환경을 개선하기 위해 공식 **Intlayer 
 
 확장 프로그램 사용법에 대한 자세한 내용은 [Intlayer VS Code 확장 프로그램 문서](https://intlayer.org/doc/vs-code-extension)를 참조하세요.
 
----
-
 ### 더 나아가기
 
 더 나아가려면 [비주얼 에디터](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_visual_editor.md)를 구현하거나 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_CMS.md)를 사용하여 콘텐츠를 외부화할 수 있습니다.
-
----
 
 ## 자주 묻는 질문
 

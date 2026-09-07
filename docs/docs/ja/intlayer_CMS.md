@@ -53,8 +53,6 @@ Intlayer CMSは、Intlayerプロジェクトのコンテンツを外部化でき
 
 <TOC/>
 
----
-
 ## 遠隔辞書の理解
 
 Intlayerは「ローカル辞書」と「遠隔辞書」を区別しています。
@@ -417,8 +415,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 完全なセットアップガイド、環境変数リファレンス、アップグレード手順、バックアップ/復元手順については、[セルフホスティングガイド](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/self_hosting.md)を参照してください。
-
----
 
 ## デバッグ
 

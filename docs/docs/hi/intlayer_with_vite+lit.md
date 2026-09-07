@@ -106,8 +106,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 GitHub पर [Application Template](https://github.com/aymericzip/intlayer-vite-lit-template) देखें।
 
 ## Vite और Lit एप्लिकेशन में Intlayer सेट करने के लिए चरण-दर-चरण मार्गदर्शिका
@@ -719,8 +717,6 @@ Intlayer के साथ अपने विकास अनुभव को �
 - आसानी से अनुवाद बनाने और अपडेट करने के लिए **त्वरित कार्य (Quick actions)**।
 
 एक्सटेंशन का उपयोग करने के तरीके के बारे में अधिक विवरण के लिए, [Intlayer VS Code एक्सटेंशन दस्तावेज़](https://intlayer.org/doc/vs-code-extension) देखें।
-
----
 
 ### और आगे बढ़ें
 

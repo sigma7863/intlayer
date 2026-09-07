@@ -39,13 +39,9 @@ La fonction `getMultilingualUrls` génère un mapping d'URLs multilingues en pr�
 - Supporte plusieurs modes de routage : `prefix-no-default`, `prefix-all`, `no-prefix` et `search-params`
 - Retourne un objet de mapping avec toutes les locales comme clés et leurs URLs correspondantes comme valeurs
 
----
-
 ## Description
 
 La fonction `getMultilingualUrls` génère une correspondance d'URLs multilingues en préfixant l'URL donnée avec chaque locale prise en charge. Elle peut gérer à la fois des URLs absolues et relatives, en appliquant le préfixe de locale approprié basé sur la configuration fournie ou les valeurs par défaut.
-
----
 
 ## Paramètres
 
@@ -87,8 +83,6 @@ La fonction `getMultilingualUrls` génère une correspondance d'URLs multilingue
 
 - **Type** : `IConfigLocales<string>`
 - **Description** : Un objet associant chaque locale à son URL multilingue correspondante.
-
----
 
 ## Exemple d'utilisation
 
@@ -190,8 +184,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## Cas particuliers
 
 - **Pas de segment de locale :**
@@ -208,8 +200,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: Toutes les locales ont des préfixes (ex. : `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: Aucun préfixe de locale dans les URLs (toutes les locales retournent la même URL)
   - `'search-params'`: Locale spécifiée via un paramètre de requête (ex. : `/dashboard?locale=fr`)
-
----
 
 ## Utilisation dans les applications
 

@@ -274,15 +274,11 @@ This approach allows you to:
 | **Purge unused content**                      | ✅ Yes, per-dictionary at build time                                                                                                | ❌ No, only via manual namespace segmentation                                                            | ❌ No, all declared messages are bundled                                                                                         | ✅ Yes, unused keys detected & dropped at build       | ❌ No, can be managed manually with namespace management                                                 | ❌ No, can be managed manually with namespace management                                                 | ❌ No, only possible via manual lazy-loading                 |
 | **Management of Large Projects**              | ✅ Encourages modular, suited for design-system                                                                                     | ⚠️ Needs good file discipline                                                                            | ⚠️ Central catalogs can get large                                                                                                | ⚠️ May get complex                                    | ✅ Modular with setup                                                                                    | ✅ Modular with setup                                                                                    | ✅ Modular with Vue Router/Nuxt i18n setup                   |
 
----
-
 ## GitHub STARs
 
 GitHub stars are a strong indicator of a project's popularity, community trust, and long-term relevance. While not a direct measure of technical quality, they reflect how many developers find the project useful, follow its progress, and are likely to adopt it. For estimating the value of a project, stars help compare traction across alternatives and provide insights into ecosystem growth.
 
 [![Star History Chart](https://api.star-history.com/chart?repos=formatjs/formatjs%2Ci18next/react-i18next%2Ci18next/i18next%2Ci18next/next-i18next%2Clingui/js-lingui%2Camannn/next-intl%2Cintlify/vue-i18n%2Caymericzip/intlayer%2Copral/inlang&type=date&legend=top-left)](https://www.star-history.com/#formatjs/formatjs&i18next/react-i18next&i18next/i18next&i18next/next-i18next&lingui/js-lingui&amannn/next-intl&intlify/vue-i18n&opral/paraglide-js&aymericzip/intlayer)
-
----
 
 ## Interoperability
 

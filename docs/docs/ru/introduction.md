@@ -1,6 +1,6 @@
 ---
 createdAt: 2025-08-23
-updatedAt: 2026-09-05
+updatedAt: 2026-09-06
 title: Введение
 description: Узнайте, как работает Intlayer. Ознакомьтесь с этапами, которые использует Intlayer в вашем приложении. Узнайте, для чего предназначены различные пакеты.
 keywords:
@@ -180,12 +180,9 @@ Intlayer предлагает множество функций, адаптир�
 - **[Intlayer с Next.js 15](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_nextjs_15.md)**
 - **[Intlayer с Next.js 14 (App Router)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_nextjs_14.md)**
 - **[Intlayer с Next.js Page Router](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_nextjs_page_router.md)**
-- **[Intlayer с Next.js без locale в URL](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_nextjs_no_locale_path.md)**
-- **[Intlayer с Next.js (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_nextjs_compiler.md)**
 - **[Intlayer с Tanstack Start](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_tanstack.md)**
 - **[Intlayer с Tanstack Start + Solid](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_tanstack+solid.md)**
 - **[Intlayer с Vite + React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_vite+react.md)**
-- **[Intlayer с Vite + React (Intlayer Compiler)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_vite+react_compiler.md)**
 - **[Intlayer с React Router v7](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_react_router_v7.md)**
 - **[Intlayer с React Router v7 (fs-routes)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_react_router_v7_fs_routes.md)**
 - **[Intlayer с React CRA](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_with_create_react_app.md)**

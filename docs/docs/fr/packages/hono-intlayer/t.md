@@ -27,13 +27,9 @@ author: aymericzip
 
 La fonction `t` dans le paquet `hono-intlayer` est l'utilitaire central pour fournir des réponses localisées dans votre application Hono. Elle simplifie l'internationalisation (i18n) en sélectionnant dynamiquement le contenu en fonction de la langue préférée de l'utilisateur.
 
----
-
 ## Aperçu
 
 La fonction `t` est utilisée pour définir et récupérer des traductions pour un ensemble donné de langues. Elle détermine automatiquement la langue appropriée à renvoyer en fonction des paramètres de requête du client, tels que l'en-tête `Accept-Language`. Si la langue préférée est indisponible, elle se replie gracieusement sur la langue par défaut spécifiée dans votre configuration.
-
----
 
 ## Caractéristiques Clés
 
@@ -41,8 +37,6 @@ La fonction `t` est utilisée pour définir et récupérer des traductions pour 
 - **Repli sur la Langue par Défaut** : Revient à une langue par défaut si la langue préférée du client n'est pas disponible, assurant la continuité de l'expérience utilisateur.
 - **Léger et Rapide** : Conçu pour des applications haute performance, garantissant un impact minimal.
 - **Support du Mode Strict** : Impose le respect strict des langues déclarées pour un comportement fiable.
-
----
 
 ## Signature de la Fonction
 
@@ -57,8 +51,6 @@ t(translations: Record<string, string>): string;
 ### Retour
 
 - Une chaîne de caractères représentant le contenu dans la langue préférée du client.
-
----
 
 ## Chargement du Gestionnaire de Requêtes d'Internationalisation
 
@@ -92,8 +84,6 @@ app.get("/", (c) => {
 - **Détection de la Langue** : Le middleware `intlayer` traite les requêtes entrantes pour détecter la langue préférée de l'utilisateur en fonction des en-têtes, cookies ou autres méthodes configurées.
 - **Contexte de Traduction** : Configure le contexte nécessaire pour que la fonction `t` fonctionne correctement, garantissant que les traductions sont renvoyées dans la bonne langue.
 - **Prévention des Erreurs** : Sans ce middleware, l'utilisation de la fonction `t` entraînera des erreurs d'exécution car les informations de langue nécessaires ne seront pas disponibles.
-
----
 
 ## Exemples d'Utilisation
 
@@ -136,8 +126,6 @@ app.get("/error", (c) => {
 });
 ```
 
----
-
 ### Utilisation des Variantes de Langue
 
 Spécifiez des traductions pour des variantes spécifiques à une langue :
@@ -155,8 +143,6 @@ app.get("/greet", (c) => {
   );
 });
 ```
-
----
 
 ## Sujets Avancés
 
@@ -177,8 +163,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Application du Mode Strict
 
 Configurez la fonction `t` pour imposer un respect strict des langues déclarées :
@@ -188,8 +172,6 @@ Configurez la fonction `t` pour imposer un respect strict des langues déclarée
 | `strict`    | Toutes les langues déclarées doivent avoir des traductions fournies. Les langues manquantes jetteront des erreurs.              |
 | `inclusive` | Les langues déclarées doivent avoir des traductions. Les langues manquantes déclenchent des avertissements mais sont acceptées. |
 | `loose`     | Toute langue existante est acceptée, même si elle n'est pas déclarée.                                                           |
-
----
 
 ### Intégration TypeScript
 
@@ -209,16 +191,12 @@ app.get("/morning", (c) => {
 });
 ```
 
----
-
 ### Erreurs Courantes et Dépannage
 
 | Problème                          | Cause                                      | Solution                                                                 |
 | --------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------ |
 | La fonction `t` ne fonctionne pas | Middleware non chargé                      | Assurez-vous que `app.use("*", intlayer())` est ajouté avant les routes. |
 | Erreur de traductions manquantes  | Mode strict activé sans toutes les langues | Fournissez toutes les traductions requises.                              |
-
----
 
 ## Conclusion
 

@@ -23,15 +23,11 @@ author: aymericzip
 
 Trong thế giới kết nối ngày nay, việc cung cấp trang web của bạn bằng nhiều ngôn ngữ có thể mở rộng đáng kể phạm vi tiếp cận và cải thiện trải nghiệm người dùng. Đối với các nhà phát triển làm việc với Angular, việc triển khai quốc tế hóa (i18n) là rất quan trọng để quản lý hiệu quả các bản dịch đồng thời giữ nguyên cấu trúc ứng dụng, SEO và hiệu suất. Trong bài viết này, chúng ta sẽ khám phá các phương pháp i18n khác nhau từ các giải pháp tích hợp sẵn của Angular đến các thư viện bên thứ ba phổ biến để giúp bạn xác định lựa chọn phù hợp nhất cho dự án của mình.
 
----
-
 ## Quốc tế hóa (i18n) là gì?
 
 Quốc tế hóa, thường được gọi là i18n, là quá trình thiết kế và chuẩn bị ứng dụng của bạn để hỗ trợ nhiều ngôn ngữ và bối cảnh văn hóa khác nhau. Trong Angular, điều này bao gồm việc cấu hình ứng dụng sao cho văn bản, ngày tháng, số và thậm chí cả bố cục giao diện người dùng có thể thích nghi một cách liền mạch với các vùng địa lý khác nhau. Việc đặt nền tảng này một cách đúng đắn đảm bảo rằng việc tích hợp các bản dịch trong tương lai sẽ được tổ chức và hiệu quả.
 
 Tìm hiểu thêm về các kiến thức cơ bản về i18n bằng cách đọc bài viết của chúng tôi: [Quốc tế hóa (i18n) là gì? Định nghĩa và những thách thức](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/what_is_internationalization.md).
-
----
 
 ## Thách thức trong việc dịch ứng dụng Angular
 
@@ -42,8 +38,6 @@ Việc dịch một ứng dụng Angular đặt ra nhiều thách thức:
 - **Cân nhắc SEO**: Nếu bạn sử dụng Angular Universal cho việc render phía máy chủ, bạn sẽ cần thiết lập các URL địa phương hóa, thẻ meta và sơ đồ trang để làm cho các trang đa ngôn ngữ của bạn thân thiện với công cụ tìm kiếm.
 - **Định tuyến và trạng thái**: Đảm bảo ngôn ngữ chính xác được duy trì khi điều hướng giữa các tuyến đường liên quan đến quản lý trạng thái và có thể là các route guard hoặc interceptor tùy chỉnh.
 - **Khả năng mở rộng & Bảo trì**: Các tệp dịch có thể phát triển nhanh chóng, và việc giữ chúng có tổ chức, có phiên bản và đồng bộ với sự phát triển của ứng dụng có thể là một nhiệm vụ liên tục.
-
----
 
 ## Các Giải pháp i18n Hàng đầu cho Angular
 
@@ -69,8 +63,6 @@ Angular cung cấp một framework i18n tích hợp sẵn, và cũng có một s
 
 - **Cộng đồng và Hệ sinh thái**: Mặc dù đang phát triển, hệ sinh thái vẫn còn mới, vì vậy các plugin và công cụ do cộng đồng thúc đẩy có thể hạn chế hơn so với các giải pháp lâu đời hơn.
 
----
-
 ### 2. i18n Tích hợp sẵn của Angular
 
 **Tổng quan**  
@@ -88,8 +80,6 @@ Angular đi kèm với một hệ thống **i18n tích hợp sẵn** bao gồm c
 - **Nhiều bản dựng**: Mỗi ngôn ngữ yêu cầu một bản dựng riêng, điều này có thể dẫn đến các kịch bản triển khai phức tạp hơn.
 - **Nội dung động**: Xử lý nội dung thời gian thực hoặc do người dùng điều khiển có thể yêu cầu logic tùy chỉnh vì giải pháp tích hợp sẵn của Angular tập trung nhiều vào dịch tại thời điểm biên dịch.
 - **Tính linh hoạt thời gian chạy hạn chế**: Việc chuyển đổi ngôn ngữ ngay lập tức (mà không tải lại ứng dụng) có thể gặp khó khăn vì các bản dịch đã được tích hợp sẵn trong quá trình xây dựng.
-
----
 
 ### 3. ngx-translate
 
@@ -110,8 +100,6 @@ Website: [https://github.com/ngx-translate/core](https://github.com/ngx-translat
 - **Trạng thái & Độ phức tạp**: Quản lý nhiều tệp dịch có thể trở nên phức tạp trong các ứng dụng lớn hơn.
 - **SEO & SSR**: Nếu bạn cần render phía máy chủ với Angular Universal, ngx-translate yêu cầu cấu hình thêm để đảm bảo các bản dịch chính xác được phục vụ cho các trình thu thập dữ liệu và trình duyệt ngay lần tải đầu tiên.
 - **Hiệu suất**: Mặc dù linh hoạt tại thời gian chạy, việc xử lý nhiều bản dịch trên các trang lớn có thể ảnh hưởng đến hiệu suất, vì vậy nên sử dụng các chiến lược lưu bộ nhớ đệm.
-
----
 
 ### 4. Transloco
 

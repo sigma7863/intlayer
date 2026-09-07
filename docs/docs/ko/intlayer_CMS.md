@@ -53,8 +53,6 @@ Intlayer CMS는 Intlayer 프로젝트의 콘텐츠를 외부화할 수 있게 �
 
 <TOC/>
 
----
-
 ## 원격 사전 이해하기
 
 Intlayer는 '로컬(local)' 사전과 '원격(distant)' 사전을 구분합니다.
@@ -417,8 +415,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 전체 설정 가이드, 환경 변수 참조, 업그레이드 지침 및 백업/복원 절차는 [자체 호스팅 가이드](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/self_hosting.md)를 참조하세요.
-
----
 
 ## 디버그
 

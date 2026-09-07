@@ -30,13 +30,9 @@ author: aymericzip
 
 Intlayer là một giải pháp quản lý nội dung và quốc tế hóa được thiết kế để tối ưu hóa cách bạn khai báo, quản lý và cập nhật nội dung trên các ứng dụng của mình. Nó cung cấp các tính năng mạnh mẽ như khai báo nội dung tập trung hoặc phân tán, các tùy chọn quốc tế hóa đa dạng, hỗ trợ Markdown, kết xuất có điều kiện, tích hợp TypeScript/JavaScript/JSON, và nhiều hơn nữa. Dưới đây là tổng quan toàn diện về những gì Intlayer hiện đang cung cấp, cùng với các tính năng dự kiến trong lộ trình phát triển sắp tới.
 
----
-
 ## Mục lục
 
 <TOC/>
-
----
 
 ## Các tính năng hiện tại
 
@@ -149,8 +145,6 @@ Intlayer hỗ trợ **TypeScript** (cũng như JavaScript) và **JSON** để kh
 >
 > - [Cấu hình Build](https://intlayer.org/doc/concept/configuration#build-configuration)
 
----
-
 ## Tích hợp với Frameworks & Môi trường
 
 ### 1. Next.js
@@ -237,8 +231,6 @@ Intlayer hỗ trợ **TypeScript** (cũng như JavaScript) và **JSON** để kh
 >
 > - [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_preact.md)
 
----
-
 ## Trình chỉnh sửa trực quan và CMS
 
 ### 1. Trình chỉnh sửa trực quan cục bộ
@@ -264,20 +256,14 @@ Intlayer hỗ trợ **TypeScript** (cũng như JavaScript) và **JSON** để kh
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md)
 
----
-
 ## Tiện ích mở rộng IDE
 
 - Các tiện ích mở rộng cho các IDE chính để cung cấp một **giao diện đồ họa** cho việc quản lý bản dịch cục bộ và từ xa.
 - Các tính năng có thể bao gồm tự động tạo các tệp khai báo nội dung cho các thành phần, tích hợp trực tiếp với Intlayer CMS và xác thực theo thời gian thực.
 
----
-
 ## MCP Server
 
 - Một **máy chủ MCP** cho phép bạn quản lý nội dung và bản dịch của mình bằng công cụ tích hợp trong IDE của bạn.
-
----
 
 ## Intlayer CLI
 
@@ -289,14 +275,10 @@ Intlayer hỗ trợ **TypeScript** (cũng như JavaScript) và **JSON** để kh
 >
 > - [CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/index.md)
 
----
-
 ## Môi trường
 
 - Sử dụng **biến môi trường** để cấu hình Intlayer khác nhau giữa môi trường sản xuất, thử nghiệm và cục bộ.
 - Định nghĩa trình chỉnh sửa trực quan hoặc dự án CMS từ xa nào sẽ được nhắm tới tùy thuộc vào môi trường của bạn.
-
----
 
 ## Cập nhật nội dung nóng
 
@@ -305,8 +287,6 @@ Intlayer hỗ trợ **TypeScript** (cũng như JavaScript) và **JSON** để kh
 > Tài nguyên:
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md)
-
----
 
 ## Tính năng sắp ra mắt
 
@@ -335,8 +315,6 @@ Intlayer hỗ trợ **TypeScript** (cũng như JavaScript) và **JSON** để kh
 
 - Đang nỗ lực hỗ trợ **Solid, Svelte, Angular**, và nhiều hơn nữa.
 - Mục tiêu làm cho Intlayer tương thích với **bất kỳ ứng dụng nào chạy trên JavaScript**.
-
----
 
 ## Kết luận
 

@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## 추적 대상
 
 `@intlayer/analytics`는 다음 세 가지 종류의 익명 이벤트를 일괄 처리(batch)하여 수집합니다:

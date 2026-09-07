@@ -25,8 +25,6 @@ Tradujiste tu aplicación. Desplegaste `/en`, `/fr`, `/es`. Y los usuarios franc
 
 Traducir es la mitad fácil. La mitad difícil es decirle a los motores de búsqueda que estas páginas son la **misma página en otro idioma**, no tres documentos compitiendo entre sí. Eso es lo que hace `hreflang`, y es donde la mayoría de los sitios multilingües pierden silenciosamente su tráfico.
 
----
-
 ## Qué es realmente hreflang
 
 Una anotación en una página que dice: _esta URL tiene versiones equivalentes allá, para esos idiomas._
@@ -42,8 +40,6 @@ Te compra dos cosas: la versión correcta mostrada al usuario correcto, y tus lo
 
 Es importante ser claro sobre lo que no es. **No es una redirección** — es una sugerencia, y Google puede ignorarla. **No es un impulso de clasificación** — cambia _qué_ versión se clasifica, no _si_ te clasificas. Y Bing la ignora completamente, confiando en `content-language` y geo-targeting en su lugar.
 
----
-
 ## Dónde declararlo
 
 Tres ubicaciones, todas válidas. Elige una y mantente ahí — el mismo clúster declarado en dos lugares es cómo los conjuntos se desvinculan.
@@ -53,8 +49,6 @@ Tres ubicaciones, todas válidas. Elige una y mantente ahí — el mismo clúste
 **XML sitemap** es mejor a escala. Diez locales en 5 000 páginas significa 50 000 elementos `<link>` enviados a navegadores sin propósito; en un sitemap cuesta cero bytes a tus páginas.
 
 **HTTP `Link` header** es la única opción para archivos que no son HTML como PDFs.
-
----
 
 ## Las reglas
 
@@ -107,8 +101,6 @@ Lo que la gente se equivoca es qué significa. `x-default` **no es "la versión 
 
 Dos cosas que debes tener claras: `x-default` es una entrada extra en el conjunto, no un reemplazo de la auto-referencial, y como todas las demás entradas debe aparecer idénticamente en cada página del cluster.
 
----
-
 ## La trampa del canonical
 
 Cada página localizada debe ser **su propio canonical**:
@@ -131,8 +123,6 @@ dice que la página francesa es un duplicado que no debe indexarse, mientras que
 
 **Canonical es auto-referencial por locale. `hreflang` describe el cluster.**
 
----
-
 ## Elegir una estructura de URL
 
 `hreflang` anota URLs, así que la estructura viene primero.
@@ -148,8 +138,6 @@ Los subdirectorios son la opción predeterminada correcta para la mayoría de lo
 La única estructura a evitar: servir diferentes idiomas en la **misma URL** basándose en `Accept-Language` o IP. Los rastreadores ven una versión e indexan una versión; todo lo demás es invisible.
 
 > Intlayer cubre los tres casos a través de `routing.mode` y `routing.domains`. Consulta [dominios personalizados](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/custom_domains.md) y la [referencia de configuración](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/configuration.md).
-
----
 
 ## Implementación
 
@@ -281,8 +269,6 @@ Para un crawl específico multilingüe, el [Intlayer SEO Scanner](https://intlay
 
 </Steps>
 
----
-
 ## Lista de verificación
 
 - [ ] Cada locale tiene una URL distinta y rastreable
@@ -295,8 +281,6 @@ Para un crawl específico multilingüe, el [Intlayer SEO Scanner](https://intlay
 - [ ] Las etiquetas se renderizan del lado del servidor, no se inyectan después de la hidratación
 - [ ] Declaradas en exactamente un lugar
 - [ ] Sin redirecciones alternas
-
----
 
 ## Conclusión
 

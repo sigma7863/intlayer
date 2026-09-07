@@ -20,8 +20,6 @@ author: aymericzip
 
 # Intlayer CLI ログインコマンド
 
----
-
 ## 説明
 
 Intlayer CLI の `login` コマンドは Intlayer CMS に対して認証を行うためのコマンドです。このコマンドは既定のブラウザを自動的に開き、認証プロセスを完了して Intlayer サービスを利用するために必要な認証情報（Client ID と Client Secret）を受け取ります。

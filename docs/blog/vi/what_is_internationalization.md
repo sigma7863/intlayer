@@ -102,8 +102,6 @@ Tổng quan ngắn gọn này bao gồm các yếu tố chính cần được qu
 - **Nhạy cảm văn hóa**
 - Biểu tượng, màu sắc và ký hiệu có thể mang những ý nghĩa khác nhau tùy theo văn hóa. Việc điều chỉnh nội dung hình ảnh và văn bản để tôn trọng những sắc thái văn hóa địa phương là rất quan trọng.
 
----
-
 ## Các Thực Tiễn Tốt Nhất cho Việc Triển Khai i18n
 
 - **Lập Kế Hoạch Sớm**  
@@ -118,8 +116,6 @@ Tổng quan ngắn gọn này bao gồm các yếu tố chính cần được qu
 
 - **Tái sử dụng bản dịch**  
   Tổ chức các tệp bản dịch của bạn để có thể tái sử dụng trên nhiều trang web hoặc ứng dụng khác nhau. Ví dụ, nếu bạn có phần chân trang hoặc đầu trang đa ngôn ngữ, hãy thiết lập các tệp bản dịch riêng biệt để các thành phần chung có thể dễ dàng áp dụng cho tất cả các dự án.
-
----
 
 ## Từ điển Locale so với Việc Ngoại hóa Nội dung CMS
 
@@ -138,8 +134,6 @@ Với những thách thức này, việc lựa chọn một CMS không đầu (h
 
 Việc lựa chọn công cụ phù hợp với nhu cầu và lên kế hoạch chiến lược quốc tế hóa ngay từ đầu là rất quan trọng. **Intlayer cung cấp một giải pháp hấp dẫn bằng cách kết hợp khai báo nội dung theo locale với một CMS headless được tích hợp chặt chẽ, mang lại lợi ích tốt nhất của cả hai thế giới.**
 
----
-
 ### Xem danh sách các thư viện và công cụ i18n theo công nghệ
 
 Nếu bạn đang tìm danh sách các thư viện và công cụ i18n theo công nghệ, hãy tham khảo các tài nguyên sau:
@@ -157,8 +151,6 @@ Nếu bạn đang tìm danh sách các thư viện và công cụ i18n theo côn
 - Vue: [Xem danh sách các thư viện và công cụ i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Xem danh sách các thư viện và công cụ i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/list_i18n_technologies/frameworks/svelte.md)
 - React Native : [Xem danh sách các thư viện và công cụ i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Kết luận
 

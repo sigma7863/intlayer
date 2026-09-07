@@ -28,13 +28,9 @@ author: aymericzip
 
 `react-intlayer` 包中的 `t` 函数是您 React 应用程序中用于内联国际化的基础工具。它允许您直接在组件中定义翻译，使得根据当前语言环境显示本地化内容变得简单。
 
----
-
 ## 概述
 
 `t` 函数用于在组件中直接提供不同语言环境的翻译。通过传递包含每个支持语言环境翻译的对象，`t` 会根据 React 应用中的当前语言环境上下文返回相应的翻译内容。
-
----
 
 ## 主要特性
 
@@ -42,8 +38,6 @@ author: aymericzip
 - **自动语言环境选择**：自动返回与当前语言环境对应的翻译内容。
 - **TypeScript 支持**：在使用 TypeScript 时提供类型安全和自动补全功能。
 - **轻松集成**：可无缝集成于 React 组件中。
-
----
 
 ## 函数签名
 
@@ -58,8 +52,6 @@ t<T extends string>(content: Record<LocalesValues, T>, locale?: Locales): string
 ### 返回值
 
 - 返回一个字符串，表示当前语言环境的翻译内容。
-
----
 
 ## 使用示例
 
@@ -112,8 +104,6 @@ export const ComponentExample: FC = () => {
 </button>
 ```
 
----
-
 ## 高级主题
 
 ### TypeScript 集成
@@ -148,8 +138,6 @@ const App: FC<{ locale: Locales }> = ({ locale }) => (
 );
 ```
 
----
-
 ## 常见错误与故障排除
 
 ### `t` 返回未定义或错误的翻译
@@ -174,8 +162,6 @@ const translations: IConfigLocales<string> = {
 const text = t(translations);
 ```
 
----
-
 ## 有效使用技巧
 
 1. **使用 `t` 进行简单的内联翻译**：适合在组件中直接翻译小段文本。
@@ -183,14 +169,10 @@ const text = t(translations);
 3. **一致的语言环境提供**：确保通过 `IntlayerProvider` 在整个应用中一致地提供语言环境。
 4. **利用 TypeScript**：使用 TypeScript 类型来捕获缺失的翻译并确保类型安全。
 
----
-
 ## 结论
 
 `react-intlayer` 中的 `t` 函数是一个强大且方便的工具，用于管理 React 应用中的内联翻译。通过有效集成它，您可以增强应用的国际化能力，为全球用户提供更好的体验。
 
 有关更详细的用法和高级功能，请参阅 [react-intlayer 文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)。
-
----
 
 **注意**：请记得正确设置您的 `IntlayerProvider`，以确保当前语言环境能够正确传递给您的组件。这对于 `t` 函数返回正确的翻译至关重要。

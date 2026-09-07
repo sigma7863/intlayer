@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - Çok dilli web siteniz için tüm Intlayer CLI komutları
 
----
-
 ## İçindekiler
 
 <TOC/>
-
----
 
 ## Paketi Yükle
 

@@ -68,8 +68,6 @@ Intlayer는 단순한 i18n 솔루션을 넘어, 자체 호스팅이 가능한 **
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 마이그레이션 전략
 
 `@nuxtjs/i18n`은 내부적으로 `vue-i18n`에 의해 작동하므로, Intlayer로 마이그레이션하기 위한 두 가지 보완적 전략이 있습니다:
@@ -80,13 +78,9 @@ Intlayer는 단순한 i18n 솔루션을 넘어, 자체 호스팅이 가능한 **
 
 이 가이드에서는 먼저 **전략 1** (쉽게 도입할 수 있는 호환성 어댑터)에 대해 설명하고, 선택 사항인 전체 마이그레이션에 대해 알아봅니다.
 
----
-
 ## 목차
 
 <TOC/>
-
----
 
 ## 빠른 마이그레이션
 
@@ -192,8 +186,6 @@ export default defineNuxtConfig({
 
 이것으로 빠른 마이그레이션이 완료되었습니다. 이제 Nuxt 앱은 모든 `$t` 호출 및 `useI18n()`을 그대로 유지한 채 Intlayer에서 작동합니다.
 
----
-
 ## 전체 마이그레이션
 
 아래 단계는 선택 사항이며 점진적으로 수행할 수 있습니다. 이는 시각적 에디터, CMS, 타입이 있는 콘텐츠 파일, AI 지원 번역 자동화 등 Intlayer의 전체 기능을 열어줍니다.
@@ -273,8 +265,6 @@ export default config;
 
 </Steps>
 
----
-
 ## 마이그레이션 후 삭제할 수 있는 항목
 
 호환성 어댑터가 제자리에 배치되면 기존에 사용하던 다음 상용구를 삭제할 수 있습니다:
@@ -286,8 +276,6 @@ export default config;
 | JSON 언어 번들 (`locales/*.json`)  | JSON 번들은 `syncJSON` 플러그인을 여전히 사용할 때만 필요합니다. `.content.ts` 파일로 이전을 완료하면 JSON 폴더를 삭제할 수 있습니다. |
 
 한 단계 더 나아갈 준비가 되면 Intlayer는 **코드베이스 내의 모든 `.content.ts` 및 `.content.json` 파일을 자동으로 감지합니다**(기본적으로 `./src` 내의 어느 곳에서든). `MyComponent.vue` 바로 옆에 `my-component.content.ts` 파일을 추가하기만 하면 Intlayer는 별도 설정 없이 컴파일 타임에 이를 감지합니다 — 가져오기, 등록, 중앙 인덱스 파일이 필요 없습니다. 페이지와 컴포넌트에서 번역의 위치 통일이 매우 매끄러워집니다.
-
----
 
 ## TypeScript 설정
 
@@ -303,8 +291,6 @@ Intlayer는 번역 키에 대해 전체 TypeScript IntelliSense(자동 완성)�
 }
 ```
 
----
-
 ## Git 설정
 
 Intlayer가 생성한 디렉토리를 `.gitignore`에 추가하세요:
@@ -313,8 +299,6 @@ Intlayer가 생성한 디렉토리를 `.gitignore`에 추가하세요:
 # Intlayer에서 생성된 파일 무시
 .intlayer
 ```
-
----
 
 ## 더 알아보기
 

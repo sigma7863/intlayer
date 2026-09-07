@@ -105,8 +105,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku, jak skonfigurować Intlayer w aplikacji Analog
 
 Zobacz [Szablon aplikacji](https://github.com/aymericzip/intlayer-analog-template) na GitHubie.
@@ -403,8 +401,6 @@ To rozszerzenie zapewnia:
 - **Szybkie akcje** ułatwiające tworzenie i aktualizację tłumaczeń.
 
 Więcej szczegółów na temat korzystania z rozszerzenia znajdziesz w [dokumentacji rozszerzenia Intlayer dla VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Dowiedz się więcej
 

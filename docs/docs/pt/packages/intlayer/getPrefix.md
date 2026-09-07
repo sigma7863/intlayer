@@ -39,8 +39,6 @@ A função `getPrefix` determina o prefixo da URL para um determinado locale com
 - Suporta todos os modos de roteamento: `prefix-no-default`, `prefix-all`, `no-prefix` e `search-params`
 - Utilitário leve para determinar quando adicionar prefixos de locale
 
----
-
 ## Assinatura da Função
 
 ```typescript
@@ -57,8 +55,6 @@ type GetPrefixResult = {
   localePrefix?: Locale; // ex: 'fr' ou indefinido
 }
 ```
-
----
 
 ## Parâmetros
 
@@ -93,8 +89,6 @@ type GetPrefixResult = {
 - **Descrição**: Um objeto contendo três formatos diferentes de prefixo:
   - `prefix`: O prefixo do caminho com barra no final (ex., `'fr/'`, `''`)
   - `localePrefix`: O identificador do locale sem barras (ex., `'fr'`, `undefined`)
-
----
 
 ## Exemplo de Uso
 
@@ -173,14 +167,10 @@ console.log(`Locale atual: ${localePrefix}`);
 // Saída: "Locale atual: fr"
 ```
 
----
-
 ## Funções Relacionadas
 
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/packages/intlayer/getLocalizedUrl.md): Gera uma URL localizada para um locale específico
 - [`getMultilingualUrls`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/packages/intlayer/getMultilingualUrls.md): Gera URLs para todos os locales configurados
-
----
 
 ## TypeScript
 

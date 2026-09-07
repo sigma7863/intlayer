@@ -41,8 +41,6 @@ author: aymericzip
 - 完全に型付け: 返されたオブジェクトは渡した `content` を反映
 - カスタムインタープリタープラグインを受け入れ
 
----
-
 ## 関数署名
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // オプション
 ): DeepTransformContent<...>
 ```
-
----
 
 ## パラメータ
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Type**: 辞書の解釈されたコンテンツ。
 - **Description**: 渡した `content` に対して、リクエストされたロケール用に全ての Intlayer ノードが解決されたもの。`item` セレクタのないコレクショングループの場合、解釈されたエントリの順序付き配列が返されます。セレクタが何もターゲットしない場合は `null` が返されます。
-
----
 
 ## 使用例
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## 関連する関数
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getIntlayer.md): 同じ解釈ですが、生成されたレジストリ内でキーで辞書を検索します。
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/intlayer/getDictionaryAsync.md): ロケール別ローダーマップの対応物。
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/packages/react-intlayer/useDictionary.md): React フックの同等物で、プロバイダーからロケールを読み取ります。
-
----
 
 ## TypeScript
 

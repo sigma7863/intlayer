@@ -90,8 +90,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Ön Koşullar
 
 Bu kılavuzu takip etmek için aşağıdaki araçlara ihtiyacınız olacak:

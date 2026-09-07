@@ -31,8 +31,6 @@ author: aymericzip
 
 **Intlayer dil sunucusu**, IDE’nizi — ve yapay zekâ ajanınızı — Intlayer’dan haberdar kılan bir [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) uygulamasıdır. `useIntlayer("home")` gibi bir çağrıyı, onu bildiren `.content.ts` dosyasına iki yönlü olarak bağlar.
 
----
-
 ## Özellikler
 
 | Özellik                  | Kısayol                | Ne yapar                                                                                                        |
@@ -65,8 +63,6 @@ Bu, tüm `*-intlayer` paketleri (`next-intlayer`, `react-intlayer`, `vue-intlaye
 
 > Sözlükler derleme çıktısından okunur; bu nedenle sunucunun çözecek bir şeyi olması için `npx intlayer build` çalıştırın veya geliştirme sunucunuzu açık tutun.
 
----
-
 ## Kurulum
 
 Sunucu, `@intlayer/lsp` içinde `intlayer-lsp` ikili dosyası olarak dağıtılır:
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 Editörünüz `intlayer-lsp` komutunu `PATH` üzerinde arıyorsa bunun yerine küresel olarak kurun (`npm install -g @intlayer/lsp`) — Claude Code eklentisi ve aşağıdaki ikili dosyayı doğrudan çağıran her yapılandırma için durum budur.
-
----
 
 ## Kurulum ve yapılandırma
 
@@ -255,15 +249,11 @@ Tam yapılandırma biçimi için editörünüzün LSP belgelerine bakın.
   </Tab>
 </Tabs>
 
----
-
 ## Terminal yapay zekâ ajanları hakkında not
 
 **Claude Code** gerçek bir LSP istemcisi gibi davranır — yukarıdaki sekmeye bakın.
 
 **OpenAI Codex** ve diğer terminal araçlarının çoğu LSP istemcisi değildir: dosyaları doğrudan okur ve yazarlar. Sunucuyu tek başına çalıştırmak onlara yardımcı olmaz; asıl fayda, ajanın dizinini sorgulayabildiği bir yardımcı editörde (Cursor Composer, Windsurf Cascade, Copilot Chat) etkin olmasından gelir.
-
----
 
 ## Nasıl çalışır
 
@@ -274,8 +264,6 @@ Bir istek geldiğinde sunucu belgeyi ([oxc](https://oxc.rs/) ile) ayrıştırır
 1. **Bir anahtar dizesi üzerinde** (`useIntlayer("home")`) → o anahtarı bildiren her içerik dosyasını, `key:` satırına konumlanmış olarak döndürür.
 2. **Bir alan kullanımı üzerinde** (`content.title`, yapı bozumuyla alınmış bir özellik, `t('path.to.field')`, `<Trans>`, …) → değişkeni sözlüğüne kadar çözer ve içerik dosyalarındaki eşleşen alanı döndürür.
 3. **Bir içerik dosyasından** → ters aramayı çalıştırır ve proje kaynaklarını o anahtarın veya alanın çağrı noktaları için tarar.
-
----
 
 ## Sorun giderme
 

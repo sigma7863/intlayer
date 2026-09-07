@@ -39,8 +39,6 @@ A função `getMultilingualUrls` gera um mapeamento de URLs multilíngues prefix
 - Suporta múltiplos modos de roteamento: `prefix-no-default`, `prefix-all`, `no-prefix`, e `search-params`
 - Retorna um objeto de mapeamento com todas as locales como chaves e suas URLs correspondentes como valores
 
----
-
 ## Assinatura da Função
 
 ```typescript
@@ -53,8 +51,6 @@ getMultilingualUrls(
   }
 ): StrictModeLocaleMap<string>
 ```
-
----
 
 ## Parâmetros
 
@@ -96,8 +92,6 @@ getMultilingualUrls(
 
 - **Tipo**: `IConfigLocales<string>`
 - **Descrição**: Um objeto que mapeia cada localidade para sua URL multilíngue correspondente.
-
----
 
 ## Exemplo de Uso
 
@@ -199,8 +193,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## Casos Especiais
 
 - **Sem Segmento de Localidade:**
@@ -217,8 +209,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: Todos os locales com prefixos (ex: `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: Sem prefixos de locale nas URLs (todos os locales retornam a mesma URL)
   - `'search-params'`: Locale especificado via parâmetro de query (ex: `/dashboard?locale=fr`)
-
----
 
 ## Uso em Aplicações
 

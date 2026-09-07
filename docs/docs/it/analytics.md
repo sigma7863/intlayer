@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Cosa traccia
 
 `@intlayer/analytics` raggruppa tre tipi di eventi anonimi in batch:

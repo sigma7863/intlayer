@@ -38,8 +38,6 @@ La synchronisation en direct permet à votre application de refléter les modifi
 
 <TOC/>
 
----
-
 ## Activer la synchronisation en direct
 
 Activez la synchronisation en direct en mettant à jour votre configuration Intlayer :

@@ -50,8 +50,6 @@ Dafür führt Intlayer das Konzept der „fernen Wörterbücher“ ein.
 
 <TOC/>
 
----
-
 ## Verständnis von fernen Wörterbüchern
 
 Intlayer unterscheidet zwischen „lokalen“ und „fernen“ Wörterbüchern.
@@ -419,8 +417,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 Eine umfassende Installationsanleitung, Umgebungsvariablenreferenz, Upgrade-Anweisungen und Sicherungs-/Wiederherstellungsverfahren finden Sie im [Self-Hosting-Handbuch](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/self_hosting.md).
-
----
 
 ## Debug
 

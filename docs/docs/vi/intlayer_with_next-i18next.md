@@ -40,8 +40,6 @@ author: aymericzip
 > Lưu ý: next-i18next được xây dựng dựa trên i18next. Hướng dẫn này sử dụng các primitive của i18next tương thích với next-i18next trong App Router, đồng thời giữ cho kiến trúc đơn giản và sẵn sàng cho môi trường production.
 > Để so sánh rộng hơn, xem [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Cấu trúc dự án
 
 Cài đặt các dependencies của next-i18next -
@@ -93,8 +91,6 @@ Danh sách kiểm tra (trung cấp/cao cấp):
 - Không tập trung quá nhiều thông điệp; sử dụng các namespace nhỏ, theo trang/tính năng
 - Tránh import tất cả các locale cùng lúc; chỉ tải những gì bạn cần
 
----
-
 ## 2) Cài đặt dependencies
 
 ```bash
@@ -107,8 +103,6 @@ Nếu bạn dự định sử dụng các API hoặc cấu hình tương tác c�
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Cấu hình i18n cốt lõi
 
@@ -135,8 +129,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Ghi chú chuyên sâu: Nếu bạn sử dụng `next-i18next.config.js`, hãy giữ cho nó đồng bộ với `i18n.config.ts` để tránh lệch pha.
-
----
 
 ## 4) Khởi tạo i18n phía server
 
@@ -175,8 +167,6 @@ export async function initI18next(
 ```
 
 Ghi chú giữa: Giữ danh sách namespace ngắn cho mỗi trang để giới hạn payload. Tránh các gói “bắt tất cả” toàn cục.
-
----
 
 ## 5) Provider phía client cho các component React
 
@@ -234,8 +224,6 @@ export default function I18nProvider({
 
 Mẹo cho người mới: Bạn không cần phải truyền tất cả các thông điệp đến client. Hãy bắt đầu chỉ với các namespace của trang.
 
----
-
 ## 6) Bố cục và đường dẫn địa phương hóa
 
 Đặt ngôn ngữ và hướng, đồng thời tạo trước các đường dẫn theo từng locale để ưu tiên render tĩnh.
@@ -270,8 +258,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Ví dụ trang với sử dụng server + client
 
@@ -388,8 +374,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: Metadata, Hreflang, Sitemap, Robots
 
 Dịch nội dung là một cách để mở rộng phạm vi tiếp cận. Thiết lập SEO đa ngôn ngữ một cách kỹ lưỡng.
@@ -483,8 +467,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Middleware cho định tuyến locale
 
 Phát hiện locale và chuyển hướng đến đường dẫn có locale nếu thiếu.
@@ -527,8 +509,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Hiệu suất và các thực hành tốt nhất cho trải nghiệm nhà phát triển (DX)
 
 - **Đặt thuộc tính `lang` và `dir` cho html**: Đã thực hiện trong `src/app/[locale]/layout.tsx`.
@@ -539,8 +519,6 @@ export const config = {
 - **Ghi nhớ các thao tác nặng**: Đặc biệt trong mã client cho các phiên bản React cũ hơn.
 - **Bộ nhớ đệm và header**: Ưu tiên tĩnh hoặc `revalidate` thay vì render động khi có thể.
 
----
-
 ## 11) Kiểm thử và CI
 
 - Thêm unit test cho các component sử dụng `t` để đảm bảo các key tồn tại.
@@ -548,8 +526,6 @@ export const config = {
 - Hiển thị các khóa còn thiếu trong quá trình CI trước khi triển khai.
 
 Intlayer sẽ tự động hóa phần lớn công việc này (xem phần tiếp theo).
-
----
 
 ## 12) Thêm Intlayer lên trên (tự động hóa)
 
@@ -636,8 +612,6 @@ Các luồng phổ biến:
 
 > Bạn có thể cung cấp các đối số CLI; xem thêm tại [Tài liệu CLI của Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/cli/index.md).
 
----
-
 ## 13) Khắc phục sự cố
 
 - **Không tìm thấy khóa**: Đảm bảo trang/nhà cung cấp liệt kê đúng các namespace và tệp JSON tồn tại trong `src/locales/<locale>/<namespace>.json`.
@@ -645,8 +619,6 @@ Các luồng phổ biến:
 - **Vấn đề bố cục RTL**: Xác nhận `dir` được lấy từ `isRtl(locale)` và CSS của bạn tuân thủ `[dir="rtl"]`.
 - **Thiếu các alternate SEO**: Xác nhận `alternates.languages` bao gồm tất cả các locale và `x-default`.
 - **Gói quá lớn**: Chia nhỏ các namespace hơn nữa và tránh nhập toàn bộ cây `locales` trên client.
-
----
 
 ## 14) Tiếp theo
 

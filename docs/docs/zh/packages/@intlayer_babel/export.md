@@ -43,8 +43,6 @@ npm install @intlayer/babel
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### 插件
 
 | 函数 / 类                      | 描述                                                                                                                                       |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | 工厂函数，用于生成一个 Babel 插件，以分析源代码中 `useIntlayer` / `getIntlayer` 的使用情况，并在共享的 `PruneContext` 中聚合字段使用数据。 |
 | `getSharedPruneContext`        | 辅助函数，用于返回指定根目录的共享 `PruneContext` 对象，如果尚未初始化，则返回 `null`。                                                    |
 
----
-
 ### 插件配置工具
 
 | 函数                       | 描述                                                                                                                |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | 加载 Intlayer 配置和编译好的字典，并返回准备好与 `intlayerOptimizeBabelPlugin` 配合使用的 `OptimizePluginOptions`。 |
 | `getPurgePluginOptions`    | 加载 Intlayer 配置并返回准备好与 `intlayerPurgeBabelPlugin` 配合使用的 `PurgePluginOptions`。                       |
 | `getMinifyPluginOptions`   | 加载 Intlayer 配置并返回准备好与 `intlayerMinifyBabelPlugin` 配合使用的 `MinifyPluginOptions`。                     |
-
----
 
 ### 类型
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | 用于兼容包（`compat-adapter`）的兼容使用分析器配置（调用者名称和处理选项）。  |
 | `ScriptBlock`           | 从 SFC 文件（Vue 或 Svelte）中提取的脚本块：内容、起始偏移量和结束偏移量。    |
 
----
-
 ### 工具函数
 
 | 函数                              | 描述                                                                                                          |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | 从 SFC 文件（Vue / Svelte）中提取 `<script>` 块，以便进行后续的 Babel 分析。                                  |
 | `BABEL_PARSER_OPTIONS`            | 表示覆盖支持的框架（React/Vue/Svelte/Angular/...）的 Babel 解析器选项的常量。                                 |
 | `INTLAYER_CALLER_NAMES`           | 原始 Intlayer 调用者名称的常量列表：`['useIntlayer', 'getIntlayer']`。                                        |
-
----
 
 ## 使用示例
 

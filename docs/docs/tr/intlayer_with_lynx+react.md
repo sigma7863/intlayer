@@ -89,8 +89,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="Bağımlılıkları Yükleyin">
@@ -457,8 +455,6 @@ Bu, aşağıdaki gibi özellikleri etkinleştirir:
 - **Sözlük anahtarlarınız için otomatik tamamlama**.
 - **Bir anahtara erişmediğinizde veya türü eşleşmediğinde uyaran tür kontrolü**.
 
----
-
 ## Git Yapılandırması
 
 Intlayer tarafından otomatik oluşturulan dosyaları commit etmemek için `.gitignore`'nize aşağıdakileri ekleyin:
@@ -467,8 +463,6 @@ Intlayer tarafından otomatik oluşturulan dosyaları commit etmemek için `.git
 #  Intlayer tarafından oluşturulan dosyaları yok say
 .intlayer
 ```
-
----
 
 ### VS Code Uzantısı
 
@@ -484,8 +478,6 @@ Bu uzantı şunları sağlar:
 - **Çevirileri kolayca oluşturmak ve güncellemek için hızlı eylemler**.
 
 Uzantının nasıl kullanılacağı hakkında daha fazla detay için [Intlayer VS Code Uzantısı dokümantasyonuna](https://intlayer.org/doc/vs-code-extension) bakın.
-
----
 
 ## Daha Fazla Gidin
 

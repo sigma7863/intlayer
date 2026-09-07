@@ -104,7 +104,7 @@ export default defineConfig({
 
 > إن plugin `intlayerCompiler()` المستقل لا يزال يتم تصديره للإعدادات المتقدمة. تسجيله جنباً إلى جنب مع `intlayer()` آمن — المترجم يزيل التكرار عن نفسه ويعمل مرة واحدة فقط.
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react.md)
 
 #### دعم الأُطُر
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 يضمن هذا التكوين استخراج المحتوى المعلن في مكوناتك تلقائيًا واستخدامه لتوليد القواميس أثناء عملية البناء.
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

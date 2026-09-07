@@ -84,8 +84,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Nuxt Uygulamasında Intlayer Kurulumu Adım Adım Rehber
 
 <Tabs defaultTab="video">
@@ -678,8 +676,6 @@ Bu uzantı şunları sağlar:
 - Çevirileri kolayca oluşturup güncellemek için **Hızlı işlemler**.
 
 Uzantının nasıl kullanılacağı hakkında daha fazla bilgi için [Intlayer VS Code Uzantısı dokümantasyonuna](https://intlayer.org/doc/vs-code-extension) bakabilirsiniz.
-
----
 
 ### Daha İleri Gitmek
 

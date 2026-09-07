@@ -90,8 +90,6 @@ Intlayer предлагает больше, чем просто решение i
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении Tanstack Start
 
 <Tabs defaultTab="video">
@@ -1129,8 +1127,6 @@ Intlayer использует расширение модулей (module augmen
 .intlayer
 ```
 
----
-
 ## Расширение VS Code
 
 Для улучшения процесса разработки с Intlayer вы можете установить официальное **расширение Intlayer для VS Code**.
@@ -1146,13 +1142,9 @@ Intlayer использует расширение модулей (module augmen
 
 Для получения дополнительной информации о том, как использовать расширение, обратитесь к [документации расширения Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Что дальше?
 
 Для дальнейшего развития вы можете внедрить [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_visual_editor.md) или вынести ваш контент во внешнюю систему, используя [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_CMS.md).
-
----
 
 ## Ссылки на документацию
 

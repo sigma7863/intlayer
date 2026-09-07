@@ -53,8 +53,6 @@ author: aymericzip
 
 本指南将向您展示如何利用 Intlayer 优越的内容声明系统，同时保持与 vue-i18n 的兼容性。
 
----
-
 ## Vue-i18n 与 Intlayer 的分步设置指南
 
 <Steps>

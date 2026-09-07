@@ -45,8 +45,6 @@ author: aymericzip
 - Допускает отсутствие начальных слэшей и пустые значения (нормализуется к `/`)
 - Легковесная — построена поверх `getPathWithoutLocale`
 
----
-
 ## Сигнатура функции
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // Необязательно
 ): string
 ```
-
----
 
 ## Параметры
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Тип**: `boolean`
 - **Описание**: `true`, когда оба входа разрешаются в один и тот же путь, независимый от локали, иначе `false`.
-
----
 
 ## Пример использования
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` возвращает канонический путь, независимый от локали, используемый `comparePaths`. Он удаляет сегмент локали, протокол/хост, строку запроса и хэш, обеспечивает наличие одного начального слэша, удаляет любые конечные слэши (кроме корня) и возвращает `/` для пустых значений.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## Связанные функции
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/intlayer/getPathWithoutLocale.md): Удаляет сегмент локали из URL или пути.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/intlayer/getPrefix.md): Определяет префикс URL для заданной локали.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/intlayer/getLocalizedUrl.md): Генерирует локализованный URL для указанной локали.
-
----
 
 ## TypeScript
 

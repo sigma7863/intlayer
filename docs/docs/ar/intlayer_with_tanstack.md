@@ -106,8 +106,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق TanStack Start
 
 <Tabs defaultTab="video">
@@ -1197,8 +1195,6 @@ export const Route = createFileRoute("/sitemap.xml")({
 .intlayer
 ```
 
----
-
 ## إضافة VS Code
 
 لتحسين تجربة التطوير الخاصة بك مع Intlayer، يمكنك تثبيت **إضافة Intlayer VS Code الرسمية**.
@@ -1214,13 +1210,9 @@ export const Route = createFileRoute("/sitemap.xml")({
 
 لمزيد من التفاصيل حول كيفية استخدام الإضافة، راجع [توثيق إضافة Intlayer لـ VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## اذهب أبعد من ذلك
 
 للذهاب أبعد من ذلك، يمكنك تنفيذ [المحرر المرئي](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_visual_editor.md) أو إخراج محتواك باستخدام [نظام إدارة المحتوى (CMS)](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/intlayer_CMS.md).
-
----
 
 ## مراجع التوثيق
 

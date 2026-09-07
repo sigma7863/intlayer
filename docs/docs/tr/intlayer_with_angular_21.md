@@ -85,8 +85,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Intlayer'ı Bir Angular Uygulamasına Kurmak İçin Adım Adım Kılavuz
 
 <Tabs defaultTab="code">
@@ -473,13 +471,9 @@ Bu uzantı şunları sağlar:
 
 Uzantının nasıl kullanılacağına dair daha fazla ayrıntı için [Intlayer VS Code Uzantı belgelerine](https://intlayer.org/doc/vs-code-extension) başvurun.
 
----
-
 ### Daha İleri Gidin
 
 Daha ileri gitmek için [görsel düzenleyiciyi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_visual_editor.md) uygulayabilir veya [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/intlayer_CMS.md) kullanarak içeriğinizi dışsallaştırabilirsiniz.
-
----
 
 ## Sıkça Sorulan Sorular
 

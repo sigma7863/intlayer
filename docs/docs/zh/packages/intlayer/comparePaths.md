@@ -45,8 +45,6 @@ author: aymericzip
 - 容忍缺少前导斜杠和空值（规范化为 `/`）
 - 轻量级 — 构建在 `getPathWithoutLocale` 之上
 
----
-
 ## 函数签名
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // 可选
 ): string
 ```
-
----
 
 ## 参数
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **类型**: `boolean`
 - **描述**: 当两个输入都解析为相同的与区域设置无关的路径时返回 `true`，否则返回 `false`。
-
----
 
 ## 示例用法
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` 返回由 `comparePaths` 使用的、与区域设置无关的规范路径名。它去除了区域设置段、协议/主机、查询字符串和哈希，确保单个前导斜杠，删除任何尾随斜杠（根目录除外），对于空值则回退为 `/`。
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## 相关函数
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getPathWithoutLocale.md): 从 URL 或路径中删除区域设置段。
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getPrefix.md): 获取给定区域设置的 URL 前缀。
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getLocalizedUrl.md): 为特定区域设置生成本地化 URL。
-
----
 
 ## TypeScript
 

@@ -33,14 +33,10 @@ Nous nous concentrons sur les outils modernes de Vue (Vite, Composition API) et 
 
 > **en résumé** : Les deux peuvent localiser des applications Vue. Si vous souhaitez un **contenu scoped par composant**, des **types TypeScript stricts**, des **vérifications des clés manquantes à la compilation**, des **dictionnaires optimisés par tree-shaking**, ainsi que des **helpers intégrés pour le routeur/SEO** et en plus un **éditeur visuel & des traductions assistées par IA**, **Intlayer** est le choix le plus complet et moderne.
 
----
-
 ## Positionnement général
 
 - **vue-i18n** - La bibliothèque i18n de référence pour Vue. Formatage flexible des messages (style ICU), blocs SFC `<i18n>` pour les messages locaux, et un large écosystème. La sécurité et la maintenance à grande échelle dépendent principalement de vous.
 - **Intlayer** - Modèle de contenu centré sur les composants pour Vue/Vite/Nuxt avec **typage TS strict**, **vérifications à la compilation**, **tree-shaking**, **helpers pour le routeur & SEO**, **éditeur visuel/CMS** optionnel, et **traductions assistées par IA**.
-
----
 
 ## Comparaison des fonctionnalités côte à côte (axée sur Vue)
 
@@ -65,8 +61,6 @@ Nous nous concentrons sur les outils modernes de Vue (Vite, Composition API) et 
 | **Maintenabilité des grands projets**                   | ✅ Encourage une structure modulaire, adaptée aux design systems                                | ✅ Possible, mais nécessite une discipline stricte des fichiers/namespaces                             |
 | **Écosystème / communauté**                             | ⚠️ Plus petite mais en forte croissance                                                         | ✅ Large et mature dans l'écosystème Vue                                                               |
 
----
-
 ## Comparaison approfondie
 
 ### 1) Architecture et évolutivité
@@ -76,16 +70,12 @@ Nous nous concentrons sur les outils modernes de Vue (Vite, Composition API) et 
 
 **Pourquoi c'est important :** Dans les grandes applications Vue ou les design systems, le **contenu modulaire** évolue mieux que les catalogues monolithiques.
 
----
-
 ### 2) TypeScript & sécurité
 
 - **vue-i18n** : Bon support TS ; la **typage strict des clés** nécessite généralement des schémas/génériques personnalisés et des conventions rigoureuses.
 - **Intlayer** : **Génère des types stricts** à partir de votre contenu, offrant **l’autocomplétion dans l’IDE** et des **erreurs à la compilation** pour les fautes de frappe ou les clés manquantes.
 
 **Pourquoi c’est important :** Le typage fort détecte les problèmes **avant** l’exécution.
-
----
 
 ### 3) Gestion des traductions manquantes
 
@@ -94,16 +84,12 @@ Nous nous concentrons sur les outils modernes de Vue (Vite, Composition API) et 
 
 **Pourquoi c’est important :** L’application à la compilation garantit une interface utilisateur propre et cohérente en production.
 
----
-
 ### 4) Stratégie de routage et d’URL (Vue Router/Nuxt)
 
 - **Les deux** peuvent fonctionner avec des routes localisées.
 - **Intlayer** fournit des helpers pour **générer des chemins localisés**, **gérer les préfixes de locale**, et émettre des **`<link rel="alternate" hreflang>`** pour le SEO. Avec Nuxt, il complète le routage du framework.
 
 **Pourquoi c’est important :** Moins de couches personnalisées et un **SEO plus propre** à travers les locales.
-
----
 
 ### 5) Performance et comportement de chargement
 
@@ -112,8 +98,6 @@ Nous nous concentrons sur les outils modernes de Vue (Vite, Composition API) et 
 
 **Pourquoi c’est important :** Des bundles plus petits et un démarrage plus rapide pour les applications Vue multi-locales.
 
----
-
 ### 6) Expérience développeur et outils
 
 - **vue-i18n** : Documentation et communauté matures ; vous vous appuierez généralement sur des **plateformes de localisation externes** pour les flux éditoriaux.
@@ -121,16 +105,12 @@ Nous nous concentrons sur les outils modernes de Vue (Vite, Composition API) et 
 
 **Pourquoi c’est important :** Réduction des coûts opérationnels et boucle dev–contenu plus courte.
 
----
-
 ### 7) SEO, SSR & SSG
 
 - **Les deux** fonctionnent avec Vue SSR et Nuxt.
 - **Intlayer** : Ajoute des **aides SEO** (sitemaps/métadonnées/`hreflang`) indépendantes du framework et compatibles avec les builds Vue/Nuxt.
 
 **Pourquoi c’est important :** SEO international sans câblage personnalisé.
-
----
 
 ## Pourquoi Intlayer ? (Problème & approche)
 
@@ -222,8 +202,6 @@ Cette approche :
 - **Évite les clés mortes** (les composants inutilisés n’importent pas de contenu).
 - **Optimise le chargement** (les composants chargés à la demande apportent leur contenu avec eux).
 
----
-
 ## Fonctionnalités supplémentaires d’Intlayer (pertinentes pour Vue)
 
 - **Support multi-framework** : Fonctionne avec Vue, Nuxt, Vite, React, Express, et plus encore.
@@ -241,22 +219,16 @@ Cette approche :
 - **Serveur MCP & extension VSCode** : Automatisez les workflows i18n et la rédaction directement dans votre IDE.
 - **Interopérabilité** : Ponts avec **vue-i18n**, **react-i18next** et **react-intl** selon les besoins.
 
----
-
 ## Quand choisir quoi ?
 
 - **Choisissez vue-i18n** si vous souhaitez l’**approche standard Vue**, que vous êtes à l’aise pour gérer vous-même les catalogues/namespaces, et que votre application est de taille **petite à moyenne** (ou si vous utilisez déjà Nuxt i18n).
 - **Choisissez Intlayer** si vous valorisez le **contenu scoped par composant**, un **TypeScript strict**, des **garanties à la compilation**, le **tree-shaking**, et des outils intégrés pour le routage/SEO/éditeur - particulièrement pour des bases de code **Vue/Nuxt larges et modulaires**.
-
----
 
 ## Interopérabilité avec vue-i18n
 
 `intlayer` peut aussi vous aider à gérer vos namespaces `vue-i18n`.
 
 En utilisant `intlayer`, vous pouvez déclarer votre contenu dans le format de votre bibliothèque i18n préférée, et intlayer générera vos namespaces à l'emplacement de votre choix (exemple : `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## Notes pratiques de migration (vue-i18n → Intlayer)
 
@@ -265,8 +237,6 @@ En utilisant `intlayer`, vous pouvez déclarer votre contenu dans le format de v
 - **Activez les vérifications strictes** : Laissez la détection à la compilation révéler tôt les clés/locales manquantes.
 - **Adoptez les helpers routeur/SEO** : Standardisez la détection de la locale et les balises `hreflang`.
 - **Mesurez les bundles** : Attendez-vous à des **réductions de taille de bundle** à mesure que le contenu inutilisé est exclu.
-
----
 
 ## Conclusion
 

@@ -106,8 +106,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 Lihat [Application Template](https://github.com/aymericzip/intlayer-vite-lit-template) di GitHub.
 
 ## Panduan langkah demi langkah untuk menyiapkan Intlayer di aplikasi Vite dan Lit
@@ -719,8 +717,6 @@ Ekstensi ini menyediakan:
 - **Tindakan cepat** untuk membuat dan memperbarui terjemahan dengan mudah.
 
 Untuk detail lebih lanjut tentang cara menggunakan ekstensi, lihat [dokumentasi Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Melangkah Lebih Jauh
 

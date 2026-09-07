@@ -68,8 +68,6 @@ Intlayer は、ウェブおよびモバイルアプリ向けの**最新の i18n 
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Feature" width="700">                    | **相互運用性**<br><br>react-i18next、next-i18next、next-intl, react-intl, vue-i18n との相互運用性を可能にします。<br><br> - [Intlayer と react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer と next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer と next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer と vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [Intlayer の互換アダプター](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Feature" width="700">                           | **パフォーマンスとベンチマーク**<br><br>高度なツリーシェイキングと動的ローディングを使用してパフォーマンスを向上させ、ソリューションを可能な限り軽量に保ちます。 <br><br> - [パフォーマンスとベンチマーク](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                                                |
 
----
-
 ## 📦 インストール
 
 今日から Intlayer を始めて、よりスムーズで強力な国際化アプローチを体験しましょう。

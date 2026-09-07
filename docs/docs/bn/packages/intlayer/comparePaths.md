@@ -45,8 +45,6 @@ author: aymericzip
 - লিডিং স্ল্যাশ না থাকা এবং খালি মানগুলি সহ্য করে (যা `/` তে নরমালাইজ হয়)
 - হালকা ওজনের — `getPathWithoutLocale` এর উপরে নির্মিত
 
----
-
 ## ফাংশন সিগনেচার
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // ঐচ্ছিক
 ): string
 ```
-
----
 
 ## প্যারামিটার
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **ধরন**: `boolean`
 - **বর্ণনা**: `true` যখন উভয় ইনপুট একই লোকেল-স্বাধীন পাথে সমাধান হয়, অন্যথায় `false`।
-
----
 
 ## ব্যবহারের উদাহরণ
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` হল সেই ক্যানোনিকাল, লোকেল-স্বাধীন পাথনেম যা `comparePaths` দ্বারা ব্যবহৃত হয়। এটি লোকেল সেগমেন্ট, প্রোটোকল/হোস্ট, কোয়েরি স্ট্রিং এবং হ্যাশ সরিয়ে দেয়, একটি একক লিডিং স্ল্যাশ নিশ্চিত করে, যে কোনও ট্রেইলিং স্ল্যাশ মুছে ফেলে (রুট বাদে) এবং খালি মানগুলির জন্য `/` এ ফিরে আসে।
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## সম্পর্কিত ফাংশন
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/bn/packages/intlayer/getPathWithoutLocale.md): একটি URL বা পাথ থেকে লোকেল সেগমেন্ট মুছে ফেলে।
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/bn/packages/intlayer/getPrefix.md): একটি প্রদত্ত লোকেলের জন্য URL প্রিফিক্স নির্ধারণ করে।
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/bn/packages/intlayer/getLocalizedUrl.md): একটি নির্দিষ্ট লোকেলের জন্য স্থানীয়কৃত (localized) URL তৈরি করে।
-
----
 
 ## TypeScript
 

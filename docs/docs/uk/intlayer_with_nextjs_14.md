@@ -100,8 +100,6 @@ Intlayer оптимізовано для роботи з **компонента�
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник з налаштування Intlayer у застосунку Next.js
 
 <Tabs defaultTab="code">

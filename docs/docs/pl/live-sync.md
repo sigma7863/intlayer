@@ -38,8 +38,6 @@ Synchronizacja na żywo pozwala Twojej aplikacji odzwierciedlać zmiany treści 
 
 <TOC/>
 
----
-
 ## Włączanie synchronizacji na żywo
 
 Włącz synchronizację na żywo, aktualizując konfigurację Intlayer:

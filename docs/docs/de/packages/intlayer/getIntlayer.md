@@ -42,8 +42,6 @@ Sie liest die von Intlayer in `.intlayer/` generierten Wörterbücher, sodass da
 - Ergebnisse werden pro `key + locale + selector` im Speicher gespeichert
 - Fällt in der Entwicklung auf einen sicheren Proxy zurück, wenn ein Wörterbuch fehlt, anstatt zu crashen
 
----
-
 ## Funktionssignatur
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // Optional
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parameter
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: Der interpretierte Inhalt des Wörterbuchs, typisiert aus Ihrer Deklaration.
 - **Description**: Ein einfaches Objekt, das das `content`-Feld Ihres Wörterbuchs widerspiegelt, wobei jeder Intlayer-Knoten auf seinen Endwert für das angeforderte Locale aufgelöst wurde.
-
----
 
 ## Beispielverwendung
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## Verhaltenshinweise
 
 ### Caching
@@ -169,15 +161,11 @@ Beim Anfordern eines Schlüssels, der kein generiertes Wörterbuch hat, protokol
 
 `getIntlayer` liest das zusammengeführte Wörterbuch, das **jedes** Locale enthält. In Client-Bundles schreiben die [Build-Plugins](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/bundle_optimization.md) den Aufruf um, sodass nur der erforderliche Inhalt ausgeliefert wird. Wenn Sie Inhalte außerhalb des Rendering lesen (Metadaten, Loaders, Server-Funktionen) und ein einzelnes Locale bei Bedarf laden möchten, verwenden Sie stattdessen [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/packages/intlayer/getIntlayerAsync.md).
 
----
-
 ## Verwandte Funktionen
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/packages/intlayer/getIntlayerAsync.md): Asynchrones Äquivalent, das einen einzelnen Locale-Chunk lädt.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/packages/intlayer/getDictionary.md): Interpretiert ein Wörterbuch-Objekt, das Sie selbst übergeben, anstatt eines, das nach Schlüssel nachgeschlagen wird.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/packages/react-intlayer/useIntlayer.md): Das React-Hook-Äquivalent, das das Locale vom Provider liest.
-
----
 
 ## TypeScript
 

@@ -47,8 +47,6 @@ Intlayer CMS là một ứng dụng cho phép bạn đưa nội dung của dự 
 
 <TOC/>
 
----
-
 ## Hiểu về từ điển từ xa
 
 Intlayer phân biệt giữa 'từ điển cục bộ' và 'từ điển từ xa'.
@@ -411,8 +409,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 Để biết hướng dẫn thiết lập hoàn chỉnh, tham khảo biến môi trường, hướng dẫn nâng cấp và các thủ tục sao lưu/khôi phục, hãy xem [Hướng dẫn Tự Hosting](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/self_hosting.md).
-
----
 
 ## Gỡ lỗi
 

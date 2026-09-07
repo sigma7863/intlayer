@@ -84,8 +84,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Nuxt
 
 <Tabs defaultTab="video">
@@ -679,8 +677,6 @@ import LocaleSwitcher from "~/components/LocaleSwitcher.vue";
 - **إجراءات سريعة** لإنشاء وتحديث الترجمات بسهولة.
 
 لمزيد من التفاصيل حول كيفية استخدام الامتداد، راجع [توثيق امتداد Intlayer لـ VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### التعمق أكثر
 

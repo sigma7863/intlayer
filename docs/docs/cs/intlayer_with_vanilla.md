@@ -75,8 +75,6 @@ Pokud vaše aplikace používá bundler (například Vite), doporučujeme místo
 
 Pomocí samostatného balíčku (standalone bundle) můžete Intlayer importovat přímo do svých souborů HTML prostřednictvím jediného souboru JavaScript, což je ideální pro starší projekty nebo jednoduché statické stránky.
 
----
-
 ## Průvodce krok za krokem nastavením Intlayeru v aplikaci Vanilla JS
 
 <Steps>
@@ -444,8 +442,6 @@ Toto rozšíření poskytuje:
 - **Rychlé akce** pro snadné vytváření a aktualizaci překladů.
 
 Další podrobnosti o tom, jak rozšíření používat, naleznete v [dokumentaci k rozšíření Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Jděte dále
 

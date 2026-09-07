@@ -106,8 +106,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 Przejdź do [Application Template](https://github.com/aymericzip/intlayer-vite-lit-template) na GitHubie.
 
 ## Przewodnik krok po kroku dotyczący konfiguracji Intlayer w aplikacji Vite i Lit
@@ -719,8 +717,6 @@ To rozszerzenie zapewnia:
 - **Szybkie akcje** ułatwiające tworzenie i aktualizowanie tłumaczeń.
 
 Więcej szczegółów na temat korzystania z rozszerzenia znajdziesz w [dokumentacji rozszerzenia Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Dowiedz się więcej
 

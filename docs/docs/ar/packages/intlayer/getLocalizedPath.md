@@ -39,8 +39,6 @@ author: aymericzip
 - يحوّل المسارات وفقًا لقواعد إعادة الكتابة المخصصة (rewrite rules) المعرفة في تكوين المشروع.
 - يتعامل تلقائيًا مع الرجوع إلى المسار القانوني إذا لم يتم العثور على قاعدة إعادة كتابة للـ locale المحدد.
 
----
-
 ## Function Signature
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // اختياري
 ): string
 ```
-
----
 
 ## Parameters
 
@@ -77,8 +73,6 @@ getLocalizedPath(
   - **الوصف**: كائن يعرّف قواعد إعادة الكتابة المخصصة. إذا لم يتم توفيره، فسيكون الافتراضي هو الخاصية `routing.rewrite` من تكوين مشروعك.
   - **النوع**: `RoutingConfig['rewrite']`
   - **الافتراضي**: `configuration.routing.rewrite`
-
----
 
 ## القيمة المرجعة
 
@@ -106,8 +100,6 @@ const home = getLocalizedPath("/", Locales.FRENCH);
 
 - مسار ليس حرفيًا (مثلاً، مسار تم إنشاؤه من متغير);
 - مسار يطابق قاعدة تستخدم معامل متعدد القطاعات أو اختياري (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## مثال على الاستخدام
 
@@ -165,8 +157,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // النتيجة: "/about"
 ```
-
----
 
 ## الدوال ذات الصلة
 

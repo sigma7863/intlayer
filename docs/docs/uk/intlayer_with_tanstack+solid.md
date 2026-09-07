@@ -89,8 +89,6 @@ Intlayer оптимізовано для ідеальної роботи з TanS
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник із налаштування Intlayer у додатку Tanstack Start
 
 <Tabs defaultTab="video">
@@ -1128,8 +1126,6 @@ Intlayer використовує розширення модулів (module au
 .intlayer
 ```
 
----
-
 ## Розширення VS Code
 
 Щоб покращити свій досвід розробки з Intlayer, ви можете встановити офіційне **розширення Intlayer VS Code**.
@@ -1145,13 +1141,9 @@ Intlayer використовує розширення модулів (module au
 
 Докладніше про те, як користуватися розширенням, див. у [документації до розширення Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Подальші кроки
 
 Щоб піти далі, ви можете впровадити [візуальний редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_visual_editor.md) або винести свій вміст за допомогою [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_CMS.md).
-
----
 
 ## Посилання на документацію
 

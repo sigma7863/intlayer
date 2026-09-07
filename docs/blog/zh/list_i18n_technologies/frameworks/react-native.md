@@ -23,16 +23,12 @@ author: aymericzip
 
 在日益全球化的市场中，以多种语言提供您的 React Native 应用可以大大提高可访问性和用户满意度。国际化（i18n）对于有效管理翻译至关重要，它允许您显示特定于语言的文本、日期和时间格式、货币等，而不会使您的代码库变得复杂。在本文中，我们将深入探讨各种 i18n 方法，从专用库到更通用的解决方案，帮助您找到最适合您的 React Native 项目的方案。
 
----
-
 ## 什么是国际化（i18n）？
 
 国际化或 i18n 涉及对应用程序的结构设计，以便它可以轻松适应不同的语言、区域格式和文化规范。在 React Native 中，i18n 包括处理按钮和标签的字符串，以及根据用户的区域格式来格式化日期、时间、货币等。适当准备的 React Native 应用程序使您能够无缝集成其他语言和特定于区域的行为，而无需进行大量重构。
 
 要深入了解国际化概念，请查看我们的文章：  
 [什么是国际化（i18n）？定义和挑战](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/what_is_internationalization.md)。
-
----
 
 ## React Native 应用程序的翻译挑战
 
@@ -52,8 +48,6 @@ author: aymericzip
 
 - **应用更新和越行更新（OTA）**  
   如果您使用 CodePush 或其他 OTA 更新机制，则需要计划如何在不需要完全应用商店发布的情况下交付翻译更新或新语言。
-
----
 
 ## React Native 的领先 i18n 解决方案
 
@@ -88,8 +82,6 @@ author: aymericzip
 - **社区与生态系统**  
   仍然是一个相对较新的解决方案，因此您可能会发现社区驱动的示例或现成插件比那些成熟的库要少。
 
----
-
 ### 2. React-i18next
 
 > 网站: [https://react.i18next.com/](https://react.i18next.com/)
@@ -121,8 +113,6 @@ author: aymericzip
 
 - **性能**  
   虽然 React-i18next 通常表现良好，但您需要关注如何组织和加载翻译资源，以避免在移动设备上的额外开销。
-
----
 
 ### 3. React Intl（来自 FormatJS）
 
@@ -156,8 +146,6 @@ author: aymericzip
 - **社区示例**  
   虽然广泛使用，但 React Native 特定的使用示例可能少于 React 网页。您可能需要将现有文档和模式调整为原生环境。
 
----
-
 ### 4. LinguiJS
 
 > 网站: [https://lingui.js.org/](https://lingui.js.org/)
@@ -189,8 +177,6 @@ author: aymericzip
 
 - **代码组织**  
   决定如何分解消息目录（按屏幕、功能或语言）对于在较大型应用中保持清晰性至关重要。
-
----
 
 ## 最后思考
 

@@ -122,13 +122,9 @@ author: aymericzip
 
 Intlayer 구성 파일을 사용하면 국제화(i18n), 미들웨어, 콘텐츠 관리 등 플러그인의 다양한 측면을 맞춤설정할 수 있습니다. 이 문서는 구성의 각 속성에 대한 자세한 설명을 제공합니다.
 
----
-
 ## 목차
 
 <TOC/>
-
----
 
 ## 구성 파일 지원
 
@@ -142,8 +138,6 @@ Intlayer는 JSON, JS, MJS 및 TS 구성 파일 형식을 허용합니다:
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## 구성 파일 예시
 
@@ -692,13 +686,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## 구성 참조
 
 다음 섹션에서는 Intlayer에서 사용 가능한 다양한 구성 설정에 대해 자세히 설명합니다.
-
----
 
 ### 국제화 구성 (Internationalization)
 
@@ -710,8 +700,6 @@ export default config;
 | `requiredLocales` | 애플리케이션에서 필수적인 로케일 목록.                            | `string[]` | `[]`                | `[]`                 | • 비어 있는 경우 `strict` 모드에서는 모든 로케일이 필수입니다.<br/>• 필수 로케일이 `locales` 필드에도 정의되어 있는지 확인하세요.                                                                                                                                                    |
 | `strictMode`      | TypeScript를 사용하여 국제화된 콘텐츠의 강력한 구현을 보장합니다. | `string`   | `'inclusive'`       |                      | • `"strict"`인 경우: `t` 함수는 선언된 모든 로케일이 정의되어야 하며, 누락되거나 선언되지 않은 경우 오류를 발생시킵니다.<br/>• `"inclusive"`인 경우: 로케일 누락 시 경고를 표시하지만, 선언되지 않은 로케일도 수용합니다.<br/>• `"loose"`인 경우: 존재하는 모든 로케일을 수용합니다. |
 | `defaultLocale`   | 요청된 로케일을 찾을 수 없을 때 폴백으로 사용되는 기본 로케일.    | `string`   | `Locales.ENGLISH`   | `'en'`               | URL, 쿠키 또는 헤더에 로케일이 지정되지 않은 경우 로케일을 결정하는 데 사용됩니다.                                                                                                                                                                                                   |
-
----
 
 ### 에디터 구성 (Editor)
 
@@ -743,8 +731,6 @@ Intlayer 애널리틱스와 관련된 설정을 정의합니다: 사용자에게
 | `enabled`       | 애널리틱스 수집을 활성화합니다(페이지 뷰, 콘텐츠 노출, A/B 이벤트). | `boolean` | `true`  | `false` | `@intlayer/analytics`가 설치되어 있고 귀속을 위해 `editor.clientId`가 설정되어 있어야 합니다. 그렇지 않으면 `enabled`가 `true`여도 애널리틱스는 비활성 상태로 유지됩니다. |
 | `flushInterval` | 백엔드로 자동 일괄 전송하는 간격(밀리초).                           | `number`  | `20000` | `10000` |                                                                                                                                                                           |
 | `sampleRate`    | 기록할 세션의 비율, `0`(없음)에서 `1`(전체) 사이.                   | `number`  | `1`     | `0.5`   | 샘플링은 세션별로 결정적이므로, 기록된 세션은 자신의 모든 이벤트를 보고합니다(부분 퍼널 없음).                                                                            |
-
----
 
 ### 라우팅 구성 (Routing)
 
@@ -947,8 +933,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### 콘텐츠 구성 (Content)
 
 디렉토리 이름, 파일 확장자 및 파생된 구성을 포함하여 애플리케이션의 콘텐츠 관리를 위한 설정입니다.
@@ -961,8 +945,6 @@ export default config;
 | `codeDir`        | 기본 디렉토리를 기준으로 소스 코드가 위치한 디렉토리 경로.                                          | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • 불필요한 부분을 제거하거나 최적화하기 위해 코드 파일 번역 변환을 추적하는 데 사용됩니다.<br/>• `contentDir`과 분리하면 성능이 향상됩니다. |
 | `excludedPath`   | 콘텐츠 스캔에서 제외할 디렉토리.                                                                    | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | 현재 사용되지 않으며 미래를 위해 계획되었습니다.                                                                                            |
 | `formatCommand`  | Intlayer가 파일 내용을 로컬에 작성할 때 콘텐츠 파일을 포맷팅하는 명령.                              | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}`은 파일 경로로 대체됩니다.<br/>• 정의되지 않은 경우 Intlayer는 자동으로 감지를 시도합니다(prettier, biome, eslint 테스트).      |
-
----
 
 ### 시스템 구성
 
@@ -1017,8 +999,6 @@ dictionary: {
   },
 };
 ```
-
----
 
 ### 로거 구성 (Log)
 
@@ -1090,8 +1070,6 @@ Intlayer가 애플리케이션의 국제화를 최적화하고 컴파일하는 �
 | `outputFormat`        | 딕셔너리 출력 형식을 제어합니다.                                                              | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `traversePattern`     | 최적화 중에 스캔할 파일 패턴.                                                                 | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • 최적화를 관련 파일로 제한하여 빌드 성능을 향상시킵니다.<br/>• `optimize`가 비활성화된 경우 무시됩니다.<br/>• glob 패턴을 사용합니다.                                                                                                                                                                                                                                                                                                                                  |
 
----
-
 ### 컴파일러 구성 (Compiler)
 
 컴포넌트에서 직접 딕셔너리를 수집하는 Intlayer 컴파일러의 설정을 제어합니다.
@@ -1110,8 +1088,6 @@ Intlayer가 애플리케이션의 국제화를 최적화하고 컴파일하는 �
 | 필드      | 설명                                                                     | 타입                        |
 | --------- | ------------------------------------------------------------------------ | --------------------------- |
 | `schemas` | 딕셔너리 콘텐츠 구조를 검증하기 위해 Zod 스키마를 정의할 수 있게 합니다. | `Record<string, ZodSchema>` |
-
----
 
 ### 플러그인 (Plugins)
 

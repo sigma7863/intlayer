@@ -27,13 +27,9 @@ author: aymericzip
 
 Intlayer는 애플리케이션 전반에서 콘텐츠를 선언, 관리 및 업데이트하는 방식을 간소화하도록 설계된 콘텐츠 관리 및 국제화 솔루션입니다. 중앙 집중식 또는 분산식 콘텐츠 선언, 광범위한 국제화 옵션, Markdown 지원, 조건부 렌더링, TypeScript/JavaScript/JSON 통합 등 강력한 기능을 제공합니다. 아래는 Intlayer가 현재 제공하는 기능에 대한 종합적인 개요와 앞으로의 로드맵 기능입니다.
 
----
-
 ## 목차
 
 <TOC/>
-
----
 
 ## 현재 기능
 
@@ -146,8 +142,6 @@ Intlayer는 콘텐츠 선언을 위해 **TypeScript**(및 JavaScript)와 **JSON*
 >
 > - [빌드 구성](https://intlayer.org/doc/concept/configuration#build-configuration)
 
----
-
 ## 프레임워크 및 환경과의 통합
 
 ### 1. Next.js
@@ -234,8 +228,6 @@ Intlayer는 콘텐츠 선언을 위해 **TypeScript**(및 JavaScript)와 **JSON*
 >
 > - [Preact](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_with_preact.md)
 
----
-
 ## 비주얼 에디터 및 CMS
 
 ### 1. 로컬 비주얼 에디터
@@ -261,20 +253,14 @@ Intlayer는 콘텐츠 선언을 위해 **TypeScript**(및 JavaScript)와 **JSON*
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_CMS.md)
 
----
-
 ## IDE 확장 기능
 
 - 주요 IDE용 확장 기능으로, 로컬 및 원격 번역을 관리할 수 있는 **그래픽 인터페이스**를 제공합니다.
 - 기능에는 컴포넌트용 콘텐츠 선언 파일 자동 생성, Intlayer CMS와의 직접 통합, 실시간 검증 등이 포함될 수 있습니다.
 
----
-
 ## MCP 서버
 
 - IDE 내 통합 도구를 사용하여 콘텐츠와 번역을 관리할 수 있는 **MCP 서버**입니다.
-
----
 
 ## Intlayer CLI
 
@@ -286,14 +272,10 @@ Intlayer는 콘텐츠 선언을 위해 **TypeScript**(및 JavaScript)와 **JSON*
 >
 > - [CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/cli/index.md)
 
----
-
 ## 환경
 
 - **환경 변수**를 사용하여 프로덕션, 테스트, 로컬 환경에서 Intlayer를 다르게 구성합니다.
 - 환경에 따라 대상 시각 편집기 또는 원격 CMS 프로젝트를 정의합니다.
-
----
 
 ## 핫 콘텐츠 업데이트
 
@@ -302,8 +284,6 @@ Intlayer는 콘텐츠 선언을 위해 **TypeScript**(및 JavaScript)와 **JSON*
 > 자료:
 >
 > - [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/intlayer_CMS.md)
-
----
 
 ## 향후 기능
 
@@ -332,8 +312,6 @@ Intlayer는 콘텐츠 선언을 위해 **TypeScript**(및 JavaScript)와 **JSON*
 
 - **Solid, Svelte, Angular** 등 지원을 위한 노력이 진행 중입니다.
 - Intlayer를 **모든 자바스크립트 기반 애플리케이션**과 호환되도록 하는 것이 목표입니다.
-
----
 
 ## 결론
 

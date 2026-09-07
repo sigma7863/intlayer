@@ -68,8 +68,6 @@ Intlayer هو **حل i18n حديث** لتطبيقات الويب والهاتف 
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Feature" width="700">                    | **التشغيل البيني**<br><br>يسمح بالتشغيل البيني مع react-i18next و next-i18next و next-intl و react-intl و vue-i18n. <br><br> - [Intlayer و react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer و next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer و next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer و vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [محوّلات التوافق في Intlayer](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Feature" width="700">                           | **الأداء والاختبار المقارن**<br><br>يستخدم تقنية tree-shaking المتقدمة والتحميل الديناميكي لتعزيز الأداء والحفاظ على الحل خفيفًا قدر الإمكان. <br><br> - [الأداء والاختبار المقارن](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                                                                        |
 
----
-
 ## 📦 التثبيت
 
 ابدأ رحلتك مع Intlayer اليوم واختبر نهجًا أكثر سلاسة وقوة في التدويل.

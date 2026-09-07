@@ -41,8 +41,6 @@ author: aymericzip
 - 완전히 타입됨: 반환된 객체는 전달한 `content`를 미러링
 - 사용자 정의 interpreter 플러그인 수락
 
----
-
 ## 함수 서명
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // 선택사항
 ): DeepTransformContent<...>
 ```
-
----
 
 ## 매개변수
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Type**: 해석된 딕셔너리의 콘텐츠.
 - **Description**: 전달한 `content`에서 요청된 로케일에 대해 모든 Intlayer 노드가 해석됩니다. `item` 선택자가 없는 컬렉션 그룹의 경우 해석된 항목의 정렬된 배열이 반환되며, 선택자가 아무것도 대상으로 하지 않으면 `null`이 반환됩니다.
-
----
 
 ## 예제 사용법
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## 관련 함수
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getIntlayer.md): 동일한 해석이지만, 생성된 registry에서 key로 dictionary를 조회합니다.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/intlayer/getDictionaryAsync.md): locale별 loader maps의 대응 함수입니다.
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/packages/react-intlayer/useDictionary.md): React hook 동등물로, provider에서 locale을 읽습니다.
-
----
 
 ## TypeScript
 

@@ -53,8 +53,6 @@ Trong khi Intlayer cung cấp một giải pháp i18n độc lập xuất sắc 
 
 Hướng dẫn này sẽ chỉ cho bạn cách tận dụng hệ thống khai báo nội dung vượt trội của Intlayer trong khi vẫn duy trì khả năng tương thích với vue-i18n.
 
----
-
 ## Hướng Dẫn Từng Bước Để Thiết Lập Intlayer với vue-i18n
 
 <Steps>

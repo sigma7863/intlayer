@@ -68,8 +68,6 @@ Với **các tệp nội dung theo từng locale**, **tự động hoàn thành 
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/interoperability.png?raw=true" alt="Interoperability" width="700">                | **Khả năng tương tác**<br><br>Cho phép tương thích liên vận với react-i18next, next-i18next, next-intl, react-intl, vue-i18n. <br><br> - [Intlayer và react-intl](https://intlayer.org/blog/intlayer-with-react-intl) <br> - [Intlayer và next-intl](https://intlayer.org/blog/intlayer-with-next-intl) <br> - [Intlayer và next-i18next](https://intlayer.org/blog/intlayer-with-next-i18next) <br> - [Intlayer và vue-i18n](https://intlayer.org/blog/intlayer-with-vue-i18n) <br> - [Compat adapter của Intlayer](https://intlayer.org/doc/compatibility) |
 | <img src="https://github.com/aymericzip/intlayer/blob/main/docs/assets/benchmark.png?raw=true" alt="Interoperability" width="700">                       | **Hiệu năng & Điểm chuẩn**<br><br>Sử dụng tree-shaking nâng cao và tải động để tăng hiệu năng và giữ cho giải pháp nhẹ nhất có thể. <br><br> - [Hiệu năng & Điểm chuẩn](https://intlayer.org/doc/benchmark)                                                                                                                                                                                                                                                                                                                                                  |
 
----
-
 ## 📦 Cài Đặt
 
 Bắt đầu hành trình với Intlayer ngay hôm nay và trải nghiệm một cách tiếp cận quốc tế hóa mượt mà và mạnh mẽ hơn.

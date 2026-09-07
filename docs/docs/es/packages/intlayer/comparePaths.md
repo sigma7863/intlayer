@@ -45,8 +45,6 @@ El paquete también exporta la utilidad subyacente [`normalizePath`](#normalizep
 - Tolera la ausencia de barra oblicua inicial y valores vacíos (normalizado a `/`)
 - Ligero — construido sobre `getPathWithoutLocale`
 
----
-
 ## Firma de la función
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // Opcional
 ): string
 ```
-
----
 
 ## Parámetros
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Tipo**: `boolean`
 - **Descripción**: `true` cuando ambas entradas se resuelven a la misma ruta independiente del idioma, de lo contrario `false`.
-
----
 
 ## Ejemplo de uso
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` devuelve la ruta canónica e independiente del idioma utilizada por `comparePaths`. Elimina el segmento de idioma, el protocolo/dominio, la cadena de consulta y el hash, asegura una única barra oblicua inicial, elimina cualquier barra diagonal final (excepto en la raíz) y usa `/` como valor predeterminado para valores vacíos.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## Funciones relacionadas
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/intlayer/getPathWithoutLocale.md): Elimina el segmento de idioma de una URL o ruta.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/intlayer/getPrefix.md): Determina el prefijo de URL para un idioma dado.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/packages/intlayer/getLocalizedUrl.md): Genera una URL localizada para un idioma específico.
-
----
 
 ## TypeScript
 

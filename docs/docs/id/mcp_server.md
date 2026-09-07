@@ -76,8 +76,6 @@ Perlu dicatat bahwa server jarak jauh tidak mengintegrasikan alat CLI, autocompl
 
 > Karena biaya hosting server, ketersediaan server jarak jauh tidak dapat dijamin. Kami membatasi jumlah koneksi simultan. Kami merekomendasikan menggunakan metode transport server lokal (stdio) untuk pengalaman yang paling andal.
 
----
-
 ## Setup melalui CLI Intlayer (disarankan)
 
 Intlayer menyediakan perintah CLI untuk secara otomatis mengonfigurasi server MCP di proyek Anda.
@@ -104,8 +102,6 @@ Perintah ini akan:
 2. Menanyakan metode transportasi apa yang ingin Anda gunakan (Server lokal (stdio) atau Server jarak jauh (Streamable HTTP)).
 3. Secara otomatis memperbarui file konfigurasi Anda (misalnya, `.cursor/mcp.json`, `.vscode/mcp.json`, atau konfigurasi global Claude Desktop).
 
----
-
 ## Setup via Intlayer VS Code extension
 
 1. Buka Command Palette (Ctrl+Shift+P atau Cmd+Shift+P).
@@ -113,8 +109,6 @@ Perintah ini akan:
 3. Pilih platform yang Anda gunakan (mis. `VS Code`, `Cursor`, `Windsurf`, `OpenCode`, `Claude Code`, `GitHub Copilot Workspace`, dll.).
 4. Pilih MCP yang akan diinstal (stdio, Streamable HTTP)
 5. Tekan Enter.
-
----
 
 ## Penyiapan manual
 
@@ -282,8 +276,6 @@ claude mcp add intlayer https://mcp.intlayer.org -t http
 
   </Tab>
 </Tabs>
-
----
 
 ## Menggunakan MCP Server melalui CLI
 

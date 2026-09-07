@@ -897,6 +897,58 @@ const blogDataContent: Dictionary = {
         './blog/en/rag_powered_documentation_assistant.md'
       ),
     },
+
+    'nextjs-compiler': {
+      title: t({
+        en: 'Make existing Next.js app multilingual',
+        'en-GB': 'Make existing Next.js app multilingual',
+        fr: 'Rendre une app Next.js existante multilingue',
+        es: 'Hacer multilingüe una app Next.js existente',
+        de: 'Bestehende Next.js-App mehrsprachig machen',
+        ja: '既存のNext.jsアプリを多言語化',
+        ko: '기존 Next.js 앱 다국어화',
+        zh: '现有 Next.js 应用多语言化',
+        it: "Rendere un'app Next.js esistente multilingue",
+        pt: 'Tornar um app Next.js existente multilíngue',
+        hi: 'मौजूदा Next.js ऐप को बहुभाषी बनाएं',
+        ar: 'جعل تطبيق Next.js الحالي متعدد اللغات',
+        ru: 'Сделать существующий Next.js многоязычным',
+        tr: 'Mevcut Next.js uygulamasını çok dilli yapma',
+        pl: 'Uczyń istniejącą aplikację Next.js wielojęzyczną',
+        id: 'Membuat aplikasi Next.js yang ada multibahasa',
+        vi: 'Đa ngôn ngữ hóa ứng dụng Next.js hiện có',
+        uk: 'Зробити наявний додаток Next.js багатомовним',
+      }),
+      default: getBlogMetadata(
+        './blog/en/transform_existing_nextjs_app_using_compiler.md'
+      ),
+    },
+
+    'vite-react-compiler': {
+      title: t({
+        en: 'Make existing Vite & React app multilingual',
+        'en-GB': 'Make existing Vite & React app multilingual',
+        fr: 'Rendre une app Vite & React existante multilingue',
+        es: 'Hacer multilingüe una app Vite & React existente',
+        de: 'Bestehende Vite- und React-App mehrsprachig machen',
+        ja: '既存のVite & Reactアプリを多言語化',
+        ko: '기존 Vite & React 앱 다국어화',
+        zh: '现有 Vite & React 应用多语言化',
+        it: "Rendere un'app Vite & React esistente multilingue",
+        pt: 'Tornar um app Vite & React existente multilíngue',
+        hi: 'मौजूदा Vite और React ऐप को बहुभाषी बनाएं',
+        ar: 'جعل تطبيق Vite و React الحالي متعدد اللغات',
+        ru: 'Сделать существующий Vite и React многоязычным',
+        tr: 'Mevcut Vite & React uygulamasını çok dilli yapma',
+        pl: 'Uczyń istniejącą aplikację Vite & React wielojęzyczną',
+        id: 'Membuat aplikasi Vite & React yang ada multibahasa',
+        vi: 'Đa ngôn ngữ hóa ứng dụng Vite & React hiện có',
+        uk: 'Зробити наявний додаток Vite & React багатомовним',
+      }),
+      default: getBlogMetadata(
+        './blog/en/transform_existing_vite_react_app_using_compiler.md'
+      ),
+    },
   },
 } satisfies Dictionary;
 

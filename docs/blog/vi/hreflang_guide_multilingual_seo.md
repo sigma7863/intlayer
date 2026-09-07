@@ -25,8 +25,6 @@ Bạn đã dịch ứng dụng của mình. Bạn đã triển khai `/en`, `/fr`
 
 Dịch là nửa dễ. Nửa khó là báo cho các search engine biết rằng những trang này là **cùng một trang ở ngôn ngữ khác**, không phải ba tài liệu cạnh tranh với nhau. Đó là cái `hreflang` làm, và đó là nơi hầu hết các site đa ngôn ngữ lặng lẽ mất lưu lượng của họ.
 
----
-
 ## hreflang thực sự là gì
 
 Một annotation trên một trang nói: _URL này có các phiên bản tương đương ở đó, cho những ngôn ngữ đó._
@@ -42,8 +40,6 @@ Nó mang lại cho bạn hai điều: phiên bản phù hợp được hiển th
 
 Điều quan trọng là phải rõ ràng về những gì nó không phải. Nó **không phải là một chuyển hướng** — nó là một gợi ý, và Google có thể ghi đè nó. Nó **không phải là một tăng thứ hạng** — nó thay đổi _phiên bản nào_ được xếp hạng, không phải _liệu_ bạn có được xếp hạng hay không. Và Bing hoàn toàn bỏ qua nó, thay vào đó dựa vào `content-language` và geo-targeting.
 
----
-
 ## Nơi khai báo nó
 
 Ba vị trí, tất cả đều hợp lệ. Chọn một và ở lại đó — cụm tương tự được khai báo ở hai nơi là cách làm cho các tập hợp trôi nổi.
@@ -53,8 +49,6 @@ Ba vị trí, tất cả đều hợp lệ. Chọn một và ở lại đó — 
 **XML sitemap** tốt hơn ở quy mô lớn. Mười locale trên 5 000 trang có nghĩa là 50 000 phần tử `<link>` được gửi đến trình duyệt mà không có lý do gì; trong sitemap nó không tốn bytes cho trang của bạn.
 
 **HTTP `Link` header** là lựa chọn duy nhất cho các tệp không phải HTML như PDF.
-
----
 
 ## Các quy tắc
 
@@ -107,8 +101,6 @@ Một khái niệm mà thường xuyên bị quên và hiểu sai nhất là `x-
 
 Hai điều cần phân biệt rõ: `x-default` là một mục bổ sung trong tập hợp, không phải là sự thay thế cho mục tự tham chiếu, và giống như mọi mục khác, nó phải xuất hiện giống hệt nhau trên mọi trang trong cụm.
 
----
-
 ## Bẫy canonical
 
 Mỗi trang được bản địa hóa phải là **canonical của chính nó**:
@@ -131,8 +123,6 @@ cho biết trang tiếng Pháp là một bản sao không nên được lập ch
 
 **Canonical là tự tham chiếu cho từng locale. `hreflang` mô tả cluster.**
 
----
-
 ## Chọn cấu trúc URL
 
 `hreflang` chú thích các URL, vì vậy cấu trúc đến trước.
@@ -148,8 +138,6 @@ Subdirectories là lựa chọn mặc định phù hợp cho hầu hết các d�
 Cấu trúc duy nhất cần tránh: phục vụ các ngôn ngữ khác nhau tại **cùng một URL** dựa trên `Accept-Language` hoặc IP. Crawlers chỉ thấy một phiên bản và index một phiên bản; mọi thứ khác không hiển thị.
 
 > Intlayer bao gồm cả ba thông qua `routing.mode` và `routing.domains`. Xem [tùy chỉnh domains](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/custom_domains.md) và [tài liệu cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md).
-
----
 
 ## Triển khai
 
@@ -281,8 +269,6 @@ Hai tùy chọn đáng chú ý:
 
 </Steps>
 
----
-
 ## Danh sách kiểm tra
 
 - [ ] Mỗi locale có URL riêng, có thể crawl được
@@ -295,8 +281,6 @@ Hai tùy chọn đáng chú ý:
 - [ ] Các thẻ được render phía máy chủ, không được chèn sau hydration
 - [ ] Được khai báo trong chính xác một nơi
 - [ ] Không có redirect giữa các locale
-
----
 
 ## Kết luận
 

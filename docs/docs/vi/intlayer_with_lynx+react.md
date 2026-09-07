@@ -89,8 +89,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="Cài đặt các phụ thuộc">
@@ -458,8 +456,6 @@ Intlayer tạo các định nghĩa kiểu trong một thư mục ẩn (mặc đ�
 - **Tự động hoàn thành** cho các khóa trong từ điển của bạn.
 - **Kiểm tra kiểu** cảnh báo nếu bạn truy cập vào khóa không tồn tại hoặc không khớp kiểu.
 
----
-
 ## Cấu hình Git
 
 Để tránh commit các file được tạo tự động bởi Intlayer, hãy thêm đoạn sau vào `.gitignore` của bạn:
@@ -468,8 +464,6 @@ Intlayer tạo các định nghĩa kiểu trong một thư mục ẩn (mặc đ�
 #  Bỏ qua các file được tạo bởi Intlayer
 .intlayer
 ```
-
----
 
 ### Tiện ích mở rộng VS Code
 
@@ -485,8 +479,6 @@ Tiện ích mở rộng này cung cấp:
 - **Hành động nhanh** để dễ dàng tạo và cập nhật bản dịch.
 
 Để biết thêm chi tiết về cách sử dụng tiện ích mở rộng, tham khảo [Tài liệu Tiện ích mở rộng Intlayer cho VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ## Đi xa hơn
 

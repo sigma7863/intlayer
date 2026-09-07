@@ -34,8 +34,6 @@ The only external dependency is **MongoDB**: the backend connects to a MongoDB *
 
 <TOC/>
 
----
-
 ## Architecture
 
 ```
@@ -55,8 +53,6 @@ The only external dependency is **MongoDB**: the backend connects to a MongoDB *
 
 Chromium (used for Puppeteer screenshot generation) is bundled inside the image. No separate container is needed. Redis and MinIO run inside the container. MongoDB is **not** hosted by the image; the backend connects to your Atlas cluster over `mongodb+srv://`.
 
----
-
 ## Prerequisites
 
 - **Docker** ≥ 24. The installer offers to install it for you if it is missing (via [get.docker.com](https://get.docker.com) on Linux, Homebrew on macOS).
@@ -66,8 +62,6 @@ Chromium (used for Puppeteer screenshot generation) is bundled inside the image.
 - A **Resend** API key for transactional email. Get one at [resend.com](https://resend.com). A [global SMTP mailer](#global-mailer) works instead.
 
 Everything else — Bun, Redis, MinIO, Chromium — ships inside the image.
-
----
 
 ## Quick start
 
@@ -137,8 +131,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > The four port variables only change the **host** side of the mapping printed in the `docker run` command. The published image has `http://localhost:3000`, `http://localhost:3100` and `http://localhost:9000` compiled into the dashboard bundle at build time, so remapping them leaves the browser pointing at the old ports. Keep the defaults unless you are building your own image — see [Limitations](#limitations).
 
----
-
 ## First-run setup
 
 On a fresh instance (empty database), opening the dashboard redirects you to the **`/init`** page:
@@ -148,8 +140,6 @@ On a fresh instance (empty database), opening the dashboard redirects you to the
 3. Click the link in the email, then sign in.
 
 Once an admin exists, `/init` redirects to the standard sign-in page.
-
----
 
 ## Services
 
@@ -162,8 +152,6 @@ Once an admin exists, `/init` redirects to the standard sign-in page.
 | **mongo**   | **external** (you) | —                             | MongoDB Atlas, provided via `DB_ID` / `DB_MDP` / `DB_CLUSTER` |
 
 > MinIO port `9000` must be reachable by the browser because uploaded assets (avatars, screenshots) are loaded directly from `S3_PUBLIC_URL=http://localhost:9000/intlayer`.
-
----
 
 ## Environment variables
 
@@ -221,8 +209,6 @@ Set `MAIL_PROVIDER` to activate it. When unset, the default Resend mailer is use
 | `MAIL_SMTP_PASSWORD` | _(your password)_              | SMTP password                                                     |
 
 > Precedence: an organization's own mailer (configured from the **Organization** dashboard) takes priority over the global mailer, which in turn takes priority over the default Resend key.
-
----
 
 ## Connecting your Intlayer project
 
@@ -285,8 +271,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## Upgrading
 
 Re-run the installer to pull the latest image, then recreate the container. Your `intlayer.env` is left untouched, and your data is preserved in the named volume (MinIO/Redis) and in your Atlas cluster (MongoDB):
@@ -296,8 +280,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 docker rm -f intlayer
 # re-run the `docker run …` command from step 3 of Quick start
 ```
-
----
 
 ## Backup and restore
 
@@ -321,15 +303,11 @@ docker run --rm \
   busybox tar xzf /backup/intlayer-data.tar.gz -C /
 ```
 
----
-
 ## Limitations
 
 - **MongoDB must be external (Atlas).** The backend connects only over `mongodb+srv://` (built from `DB_ID` / `DB_MDP` / `DB_CLUSTER`), so a plain `mongodb://host:27017` — including the container's own bundled `mongod` — cannot be used. Provide a MongoDB Atlas cluster.
 - **No custom domain, and no port remapping.** All browser-facing `VITE_*` URLs are inlined into the app at build time, and the published image ships with `localhost` values. The dashboard must be accessed at `http://localhost:3000`, the API at `:3100` and MinIO at `:9000`; serving it on a public domain — or on different ports — would require rebuilding the image with the target URLs baked in (`--build-arg VITE_BACKEND_URL=…`) and is not supported out of the box.
 - **Email requires a working mailer.** First-run setup enforces email verification, so either `RESEND_API_KEY` or a [global SMTP mailer](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`) must be configured. After the first admin signs in, each organization can also configure its own SMTP or Resend mailer from the dashboard.
-
----
 
 ## Troubleshooting
 
@@ -355,8 +333,6 @@ The `init-minio` one-shot creates the bucket on first boot. If assets fail to lo
 ```sh
 docker restart intlayer
 ```
-
----
 
 ## Useful links
 

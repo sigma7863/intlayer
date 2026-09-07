@@ -106,8 +106,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </Accordion>
 </AccordionGroup>
 
----
-
 GitHub에서 [Application Template](https://github.com/aymericzip/intlayer-vite-lit-template)을 참고하세요.
 
 ## Vite 및 Lit 애플리케이션에서 Intlayer를 설정하기 위한 단계별 가이드
@@ -725,8 +723,6 @@ Intlayer 개발 환경을 개선하기 위해 공식 **Intlayer VS Code Extensio
 - 번역을 쉽게 생성하고 업데이트할 수 있는 **빠른 작업**.
 
 확장 프로그램 사용 방법에 대한 자세한 내용은 [Intlayer VS Code Extension 문서](https://intlayer.org/doc/vs-code-extension)를 참조하세요.
-
----
 
 ### 더 알아보기
 

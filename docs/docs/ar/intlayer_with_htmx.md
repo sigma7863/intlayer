@@ -56,8 +56,6 @@ htmx لا يعرض أي محتوى خاص به. كل تسمية يقرأها ا�
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة
 
 <iframe
@@ -673,8 +671,6 @@ export default config;
 - **إجراءات سريعة** لإنشاء وتحديث الترجمات بسهولة.
 
 للحصول على مزيد من التفاصيل حول كيفية استخدام الامتداد، راجع [وثائق امتداد Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### المزيد
 

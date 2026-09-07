@@ -92,8 +92,6 @@ Sekarang setelah kita menetapkan arti i18n yang sebenarnya, bagaimana cara mener
 - **Abstraksi semua teks yang menghadap pengguna:** Pastikan tidak ada teks yang di-hardcoded dalam komponen UI Anda.
 - **Gunakan sistem manajemen terjemahan yang tangguh:** Alat bantu seperti **Intlayer** menjembatani kesenjangan antara pengembang dan penerjemah. Intlayer bertindak sebagai CMS headless yang terintegrasi erat dengan basis kode Anda, memungkinkan manajer konten untuk memperbarui terjemahan secara visual tanpa memerlukan pengembang untuk melakukan build baru.
 
----
-
 ### Lihat Daftar Library dan Tool i18n per Teknologi
 
 Jika Anda mencari daftar library dan tool i18n per teknologi, lihat sumber daya berikut:
@@ -111,8 +109,6 @@ Jika Anda mencari daftar library dan tool i18n per teknologi, lihat sumber daya 
 - Vue: [Lihat daftar library dan tool i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Lihat daftar library dan tool i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [Lihat daftar library dan tool i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Kesimpulan
 

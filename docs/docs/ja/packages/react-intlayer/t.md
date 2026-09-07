@@ -28,13 +28,9 @@ author: aymericzip
 
 `react-intlayer` パッケージの `t` 関数は、React アプリケーション内でのインライン国際化の基本的なツールです。コンポーネント内で直接翻訳を定義できるため、現在のロケールに基づいてローカライズされたコンテンツを簡単に表示できます。
 
----
-
 ## 概要
 
 `t` 関数は、異なるロケールの翻訳をコンポーネント内で直接提供するために使用されます。サポートされている各ロケールの翻訳を含むオブジェクトを渡すことで、`t` は React アプリケーションの現在のロケールコンテキストに基づいて適切な翻訳を返します。
-
----
 
 ## 主な特徴
 
@@ -42,8 +38,6 @@ author: aymericzip
 - **自動ロケール選択**: 現在のロケールに対応する翻訳を自動的に返します。
 - **TypeScript サポート**: TypeScript 使用時に型安全性とオートコンプリートを提供します。
 - **簡単な統合**: React コンポーネント内でシームレスに動作します。
-
----
 
 ## 関数シグネチャ
 
@@ -58,8 +52,6 @@ t<T extends string>(content: Record<LocalesValues, T>, locale?: Locales): string
 ### 戻り値
 
 - 現在のロケールに対応する翻訳済みコンテンツの文字列。
-
----
 
 ## 使用例
 
@@ -112,8 +104,6 @@ export const ComponentExample: FC = () => {
 </button>
 ```
 
----
-
 ## 高度なトピック
 
 ### TypeScriptとの統合
@@ -150,8 +140,6 @@ const App: FC<{ locale: Locales }> = ({ locale }) => (
 );
 ```
 
----
-
 ## よくあるエラーとトラブルシューティング
 
 ### `t` が undefined または誤った翻訳を返す
@@ -176,8 +164,6 @@ const translations: IConfigLocales<string> = {
 const text = t(translations);
 ```
 
----
-
 ## 効果的な使用のためのヒント
 
 1. **シンプルなインライン翻訳には `t` を使用する**：コンポーネント内で小さなテキストを直接翻訳するのに最適です。
@@ -185,14 +171,10 @@ const text = t(translations);
 3. **一貫したロケールの提供**: `IntlayerProvider` を通じて、アプリケーション全体でロケールが一貫して提供されていることを確認してください。
 4. **TypeScriptの活用**: TypeScriptの型を使用して、翻訳の欠落を検出し、型の安全性を確保しましょう。
 
----
-
 ## 結論
 
 `react-intlayer` の `t` 関数は、Reactアプリケーション内でインライン翻訳を管理するための強力で便利なツールです。これを効果的に統合することで、アプリの国際化機能を強化し、世界中のユーザーにより良い体験を提供できます。
 
 より詳細な使用方法や高度な機能については、[react-intlayer ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)を参照してください。
-
----
 
 **注意**: `IntlayerProvider` を適切に設定し、現在のロケールがコンポーネントに正しく渡されるようにしてください。これは、`t` 関数が正しい翻訳を返すために非常に重要です。

@@ -21,15 +21,11 @@ author: aymericzip
 
 Ingin menjangkau lebih banyak pengguna di seluruh dunia? Membuat situs web Anda menjadi multibahasa adalah salah satu cara terbaik untuk memperluas audiens Anda dan meningkatkan SEO (Search Engine Optimization) Anda. Dalam posting blog ini, kami akan menguraikan dasar-dasar SEO internasional yang sering disebut sebagai **i18n** (singkatan dari "internasionalisasi"), dengan istilah yang jelas dan mudah dipahami. Anda akan mempelajari keputusan kunci yang perlu Anda buat, cara menggunakan elemen teknis seperti `hreflang`, dan mengapa alat seperti **Intlayer** dapat menyederhanakan proyek Next.js multibahasa Anda.
 
----
-
 ## 1. Apa Arti Membuat Situs Web Anda Menjadi Multibahasa?
 
 Situs web multibahasa menawarkan kontennya dalam lebih dari satu bahasa. Misalnya, Anda mungkin memiliki versi bahasa Inggris (`example.com/en/`), versi bahasa Prancis (`example.com/fr/`), dan versi bahasa Spanyol (`example.com/es/`). Pendekatan ini memungkinkan mesin pencari menampilkan versi bahasa yang tepat kepada pengguna berdasarkan preferensi atau lokasi geografis mereka.
 
 Ketika Anda melakukannya dengan benar, Anda akan menciptakan pengalaman yang jauh lebih ramah pengguna bagi penutur non-Inggris yang mengarah pada keterlibatan yang lebih baik, tingkat konversi yang lebih tinggi, dan peningkatan SEO di berbagai wilayah.
-
----
 
 ## 2. Memilih Struktur URL yang Tepat
 
@@ -51,8 +47,6 @@ Jika Anda memutuskan untuk memiliki beberapa versi bahasa, Anda memerlukan cara 
    - **Kekurangan:** Sinyal SEO lokal tidak sekuat ccTLD (meskipun masih sangat efektif jika dilakukan dengan benar).
 
 > **Tips:** Jika Anda memiliki merek global dan ingin menjaga semuanya tetap sederhana, subdirektori seringkali menjadi pilihan terbaik. Jika Anda hanya menargetkan satu atau dua negara utama dan ingin benar-benar menekankan masing-masing, ccTLD mungkin menjadi pilihan yang tepat.
-
----
 
 ## 3. Menguasai Penargetan Bahasa dengan Hreflang
 
@@ -84,8 +78,6 @@ Dalam HTML Anda, tambahkan sesuatu seperti:
 
 > **Catatan Cepat:** Pastikan URL dalam tag ini langsung mengarah ke halaman akhir, tanpa pengalihan tambahan apapun.
 
----
-
 ## 4. Membuat Konten Benar-Benar “Lokal” (Bukan Sekadar Diterjemahkan)
 
 ### 3.1. Apa Itu Hreflang?
@@ -95,8 +87,6 @@ Ketika Anda memiliki konten yang identik atau sangat mirip dalam beberapa bahasa
 ### 4.2. Menghindari Konten Duplikat
 
 Meskipun terjemahan sudah baik, mesin pencari dapat menandai situs Anda sebagai konten duplikat jika tampilannya terlalu mirip secara struktur. Hreflang membantu memperjelas bahwa halaman-halaman ini bukan duplikat, melainkan variasi bahasa.
-
----
 
 ## 5. Keperluan Teknis SEO
 
@@ -127,8 +117,6 @@ Tag kanonik memberi tahu mesin pencari halaman mana yang merupakan versi “asli
 <link rel="canonical" href="https://example.com/fr/produits" />
 ```
 
----
-
 ## 6. SEO On-Page dalam Beberapa Bahasa
 
 ### 6.1. Judul & Deskripsi Meta
@@ -144,8 +132,6 @@ Judul Anda harus mencerminkan **frasa lokal** atau **kata kunci** dari setiap wi
 
 - Lokalisasi teks alt, keterangan, dan nama file jika diperlukan.
 - Gunakan visual yang sesuai dengan budaya target.
-
----
 
 ## 7. Pergantian Bahasa & Pengalaman Pengguna
 
@@ -224,16 +210,12 @@ const LocaleSwitcher: FC = () => {
 - Simpan pilihan bahasa pengguna Anda dalam **cookie** atau **session**.
 - Saat mereka mengunjungi situs Anda berikutnya, Anda dapat secara otomatis memuat bahasa yang mereka pilih.
 
----
-
 ## 8. Membangun Backlink Lokal
 
 **Backlinks** (tautan dari situs eksternal ke situs Anda) tetap menjadi faktor SEO yang penting. Saat Anda menjalankan situs multibahasa, pertimbangkan:
 
 - Menghubungi situs berita lokal, blog, atau forum. Misalnya, domain `.fr` yang mengarah ke subdirektori bahasa Prancis Anda dapat meningkatkan SEO lokal Prancis Anda.
 - Memantau backlinks per bahasa untuk melihat wilayah mana yang membutuhkan lebih banyak upaya PR/pemasaran.
-
----
 
 ## 9. Memantau & Memelihara Situs Multibahasa Anda
 
@@ -246,8 +228,6 @@ const LocaleSwitcher: FC = () => {
 
 - Jaga agar terjemahan tetap segar. Jika Anda mengubah deskripsi produk dalam bahasa Inggris, perbarui juga dalam bahasa Prancis, Spanyol, dll.
 - Terjemahan yang sudah usang dapat membingungkan pelanggan dan merusak kepercayaan pengguna.
-
----
 
 ## 10. Kesalahan Umum yang Harus Dihindari
 
@@ -263,13 +243,9 @@ const LocaleSwitcher: FC = () => {
 4. **Mengabaikan Nuansa Budaya**
    Sebuah lelucon atau frasa yang berhasil di satu negara mungkin menyinggung atau tidak berarti di negara lain.
 
----
-
 ## Audit situs web Anda dengan Intlayer SEO Scanner
 
 Untuk memastikan aplikasi multibahasa Anda dioptimalkan dengan sempurna, kami sarankan untuk menggunakan [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner). Ini adalah alat khusus untuk pengecekan situs web multibahasa, membantu Anda mengidentifikasi tag hreflang yang hilang, tautan rusak, dan masalah SEO lainnya di semua halaman lokal Anda.
-
----
 
 ## Penutup
 

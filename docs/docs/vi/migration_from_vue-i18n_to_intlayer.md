@@ -67,8 +67,6 @@ Hơn chỉ là một giải pháp i18n, Intlayer cung cấp **[visual editor](ht
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Chiến lược di chuyển
 
 Có hai chiến lược bổ sung nhau để di chuyển từ `vue-i18n` sang Intlayer:
@@ -79,13 +77,9 @@ Có hai chiến lược bổ sung nhau để di chuyển từ `vue-i18n` sang In
 
 Hướng dẫn này bao gồm **Chiến lược 1** trước tiên (compat adapter drop-in), sau đó hướng dẫn qua các di chuyển toàn bộ tùy chọn.
 
----
-
 ## Mục lục
 
 <TOC/>
-
----
 
 ## Hướng dẫn di chuyển nhanh chóng
 
@@ -222,8 +216,6 @@ export default defineNuxtConfig({
 > t("does.not.exist"); // ✗ Lỗi TypeScript
 > ```
 
----
-
 ## Hoàn tất quá trình di chuyển
 
 Các bước dưới đây là tùy chọn và có thể thực hiện từng bước. Chúng mở khóa bộ tính năng đầy đủ của Intlayer: trình chỉnh sửa trực quan, CMS, các tệp nội dung được gõ, dịch tự động bằng AI, v.v.
@@ -304,8 +296,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Những gì bạn có thể xóa sau khi di chuyển
 
 Sau khi các bộ chuyển đổi tương thích được đặt vào, các boilerplate `vue-i18n` sau đây có thể bị xóa:
@@ -317,8 +307,6 @@ Sau khi các bộ chuyển đổi tương thích được đặt vào, các boil
 | JSON language bundles (`locales/*.json`)  | Các bundle JSON chỉ cần thiết nếu bạn vẫn sử dụng plugin `syncJSON`. Sau khi di chuyển sang các file `.content.ts`, bạn có thể xóa thư mục JSON. |
 
 Khi bạn sẵn sàng để đi xa hơn, Intlayer **tự động phát hiện tất cả các file `.content.ts` và `.content.json` ở bất kỳ đâu trong codebase của bạn** (theo mặc định, ở bất kỳ đâu bên trong `./src`). Bạn có thể đặt một file `my-component.content.ts` ngay cạnh `MyComponent.vue` của bạn và Intlayer sẽ nhận nó tại thời điểm build mà không cần cấu hình bổ sung — không imports, không registration, không file index tập trung. Điều này làm cho việc đặt cùng vị trí translations với pages và components hoàn toàn không gây khó khăn.
-
----
 
 ## Cấu hình TypeScript
 
@@ -334,8 +322,6 @@ Intlayer sử dụng module augmentation để cung cấp đầy đủ TypeScrip
 }
 ```
 
----
-
 ## Cấu hình Git
 
 Thêm thư mục được tạo bởi Intlayer vào `.gitignore` của bạn:
@@ -344,8 +330,6 @@ Thêm thư mục được tạo bởi Intlayer vào `.gitignore` của bạn:
 # Bỏ qua các tệp được tạo bởi Intlayer
 .intlayer
 ```
-
----
 
 ## Đi Sâu Hơn
 

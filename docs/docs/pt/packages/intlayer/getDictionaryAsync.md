@@ -44,8 +44,6 @@ A função `getDictionaryAsync` carrega um **único chunk de locale** de um dici
 - Deduplica carregamentos simultâneos do mesmo chunk e cacheia o conteúdo resolvido
 - Carregamentos falhados são removidos do cache para que uma chamada posterior tente novamente o chunk
 
----
-
 ## Assinatura da Função
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // Opcional
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Parâmetros
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — uma promise resolvendo para o conteúdo interpretado do chunk carregado.
 - **Description**: Resolve para `null` quando o map não emite nenhum chunk para a locale solicitada nem para nenhum de seus fallbacks, espelhando como uma coordenada qualificada ausente é resolvida.
-
----
 
 ## Exemplo de Uso
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## Notas de Comportamento
 
 ### Caching e deduplicação
@@ -135,15 +127,11 @@ O cache armazena a **promise** de cada tripla `key + locale + selector`, então 
 
 Um mapa de loader simples é percorrido ao longo da mesma cadeia de fallback que o modo síncrono: a locale solicitada primeiro, depois seus fallbacks, depois `null` se nenhum emitir um chunk.
 
----
-
 ## Funções Relacionadas
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/packages/intlayer/getIntlayerAsync.md): A função que as aplicações chamam; os plugins de build reescrevem-na em `getDictionaryAsync`.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/packages/intlayer/getDictionary.md): Equivalente síncrono que recebe um dicionário completo.
 - [Dicionários dinâmicos](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pt/dynamic_dictionaries/index.md): Coleções e variantes, e os mapas de loader que geram.
-
----
 
 ## TypeScript
 

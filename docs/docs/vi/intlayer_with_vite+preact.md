@@ -105,8 +105,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng Dẫn Từng Bước Để Cài Đặt Intlayer Trong Ứng Dụng Vite và Preact
 
 <Tabs defaultTab="video">
@@ -1044,13 +1042,9 @@ Tiện ích này cung cấp:
 
 Để biết thêm chi tiết về cách sử dụng tiện ích, vui lòng tham khảo [tài liệu Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Đi xa hơn
 
 Để đi xa hơn, bạn có thể triển khai [trình chỉnh sửa trực quan](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md) hoặc bên ngoài hóa nội dung của bạn bằng [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_CMS.md).
-
----
 
 ## Các Câu Hỏi Thường Gặp
 

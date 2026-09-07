@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Apa yang dilacak (What it tracks)
 
 `@intlayer/analytics` menggabungkan tiga jenis peristiwa anonim dalam sebuah batch:

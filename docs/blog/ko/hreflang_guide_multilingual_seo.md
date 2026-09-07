@@ -25,8 +25,6 @@ author: aymericzip
 
 번역은 쉬운 부분입니다. 어려운 부분은 검색 엔진에 이 페이지들이 **다른 언어로 된 같은 페이지**이지, 서로 경쟁하는 세 개의 문서가 아니라는 것을 알리는 것입니다. 그것이 `hreflang`이 하는 일이며, 대부분의 다국어 사이트가 조용히 트래픽을 잃는 곳입니다.
 
----
-
 ## hreflang이 실제로 무엇인가
 
 페이지에 대한 주석으로, _이 URL은 저 언어들을 위해 다른 곳에 동등한 버전이 있습니다._
@@ -42,8 +40,6 @@ author: aymericzip
 
 이것이 무엇이 아닌지 명확히 하는 것이 중요합니다. 이것은 **리다이렉트가 아닙니다** — 힌트일 뿐이며, Google이 이를 무시할 수 있습니다. 이것은 **순위 부스트가 아닙니다** — 순위 여부가 아니라 _어느_ 버전이 순위를 얻을지 변경합니다. 그리고 Bing은 이를 완전히 무시하며 대신 `content-language`와 지역 타게팅에 의존합니다.
 
----
-
 ## 선언 위치
 
 세 가지 배치, 모두 유효합니다. 하나를 선택하고 거기에 머물러 있으세요 — 같은 클러스터가 두 곳에서 선언되면 세트가 분산되는 방식입니다.
@@ -53,8 +49,6 @@ author: aymericzip
 **XML sitemap**은 규모가 클 때 더 좋습니다. 10개의 로케일에 걸쳐 5,000개의 페이지가 있으면 50,000개의 `<link>` 요소가 브라우저에 전송되는데 아무 의미가 없습니다. sitemap에서는 페이지에 0바이트가 소요됩니다.
 
 **HTTP `Link` header**는 PDF와 같은 non-HTML 파일의 유일한 옵션입니다.
-
----
 
 ## 규칙
 
@@ -107,8 +101,6 @@ getLocalizedUrl("https://example.com/about", "fr"); // → "https://example.com/
 
 두 가지를 명확히 해야 합니다: `x-default`는 self-referencing 항목을 대체하는 것이 아니라 세트의 추가 항목이며, 다른 모든 항목처럼 클러스터의 모든 페이지에서 동일하게 나타나야 합니다.
 
----
-
 ## canonical 함정
 
 각 로컬라이제이션된 페이지는 **자신의 canonical이어야 합니다**:
@@ -131,8 +123,6 @@ getLocalizedUrl("https://example.com/about", "fr"); // → "https://example.com/
 
 **Canonical은 로케일별로 자체 참조입니다. `hreflang`은 클러스터를 설명합니다.**
 
----
-
 ## URL 구조 선택
 
 `hreflang`은 URL에 주석을 달므로 구조가 먼저 정해집니다.
@@ -148,8 +138,6 @@ getLocalizedUrl("https://example.com/about", "fr"); // → "https://example.com/
 피해야 할 구조 하나: `Accept-Language` 또는 IP에 기반하여 **동일한 URL**에서 다른 언어를 제공하는 것입니다. 크롤러는 한 버전을 보고 한 버전을 인덱싱합니다. 다른 모든 것은 보이지 않습니다.
 
 > Intlayer는 `routing.mode` 및 `routing.domains`를 통해 세 가지 모두를 지원합니다. [사용자 정의 도메인](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/custom_domains.md) 및 [구성 참조](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/configuration.md)를 참조하십시오.
-
----
 
 ## 구현
 
@@ -281,8 +269,6 @@ const sitemap = generateSitemap(
 
 </Steps>
 
----
-
 ## 체크리스트
 
 - [ ] 각 로캘은 고유하고 크롤 가능한 URL을 가집니다
@@ -295,8 +281,6 @@ const sitemap = generateSitemap(
 - [ ] 태그는 서버에서 렌더링되며, hydration 후에 주입되지 않습니다
 - [ ] 정확히 한 곳에서 선언됩니다
 - [ ] Alternate 리다이렉트가 없습니다
-
----
 
 ## 마무리
 

@@ -31,8 +31,6 @@ author: aymericzip
 
 The **Intlayer Language Server** is a [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) implementation that makes your IDE — and your AI agent — Intlayer-aware. It connects a call like `useIntlayer("home")` to the `.content.ts` file that declares it, in both directions.
 
----
-
 ## Features
 
 | Feature                 | Shortcut            | What it does                                                                                       |
@@ -65,8 +63,6 @@ This works for every `*-intlayer` package (`next-intlayer`, `react-intlayer`, `v
 
 > Dictionaries are read from the build output, so run `npx intlayer build` — or keep your dev server running — to give the server something to resolve.
 
----
-
 ## Installation
 
 The server ships as the `intlayer-lsp` binary in `@intlayer/lsp`:
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 Install it globally instead (`npm install -g @intlayer/lsp`) if your editor needs `intlayer-lsp` on the `PATH` — this is the case for the Claude Code plugin and for any configuration below that calls the binary directly.
-
----
 
 ## Setup
 
@@ -255,15 +249,11 @@ Consult your editor's LSP documentation for the exact configuration format.
   </Tab>
 </Tabs>
 
----
-
 ## Note on terminal AI agents
 
 **Claude Code** acts as a real LSP client — see the tab above.
 
 **OpenAI Codex** and most other terminal tools are not LSP clients: they read and write files directly. Running the server on its own does not help them; the value comes from having it active in a companion editor whose index the agent can query (Cursor Composer, Windsurf Cascade, Copilot Chat).
-
----
 
 ## How It Works
 
@@ -274,8 +264,6 @@ On a request, the server parses the document (via [oxc](https://oxc.rs/)) and in
 1. **On a key string** (`useIntlayer("home")`) → returns every content file declaring that key, positioned on its `key:` line.
 2. **On a field usage** (`content.title`, a destructured property, `t('path.to.field')`, `<Trans>`, …) → resolves the variable back to its dictionary and returns the matching field inside the content files.
 3. **From a content file** → runs the reverse lookup, scanning project sources for call sites of that key or field.
-
----
 
 ## Troubleshooting
 

@@ -111,8 +111,6 @@ Más que una simple solución i18n, Intlayer proporciona un **[editor visual] au
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guía Paso a Paso para Configurar Intlayer en una Aplicación Vite y Svelte
 
 Consulta la [Plantilla de Aplicación](https://github.com/aymericzip/intlayer-vite-svelte-template) en GitHub.
@@ -722,8 +720,6 @@ Esta extensión ofrece:
 - **Acciones rápidas** para crear y actualizar traducciones fácilmente.
 
 Para más detalles sobre cómo usar la extensión, consulta la [documentación de la extensión Intlayer para VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Ir Más Allá
 

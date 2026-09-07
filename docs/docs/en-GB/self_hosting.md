@@ -35,8 +35,6 @@ The only external dependency is **MongoDB**: the backend connects to a MongoDB *
 
 <TOC/>
 
----
-
 ## Architecture
 
 ```
@@ -56,8 +54,6 @@ The only external dependency is **MongoDB**: the backend connects to a MongoDB *
 
 Chromium (used for Puppeteer screenshot generation) is bundled inside the backend image. No separate container is needed.
 
----
-
 ## Prerequisites
 
 - **Docker** ≥ 24 and **Docker Compose** ≥ v2. If either is missing, the installer prints the install link and exits.
@@ -65,8 +61,6 @@ Chromium (used for Puppeteer screenshot generation) is bundled inside the backen
 - A Linux or macOS host (or WSL2 on Windows).
 
 Everything else — Bun, Redis, MinIO, Chromium — ships inside the image.
-
----
 
 ## Quick start
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > The four port variables only change the **host** side of the mapping printed in the `docker run` command. The published image has `http://localhost:3000`, `http://localhost:3100` and `http://localhost:9000` compiled into the dashboard bundle at build time, so remapping them leaves the browser pointing at the old ports. Keep the defaults unless you are building your own image — see [Limitations](#limitations).
 
----
-
 ## Quick start
 
 What the installer does:
@@ -149,8 +141,6 @@ What the installer does:
 5. Prints the URLs: dashboard `:3000`, API `:3100`, email UI `:8025`, MinIO console `:9001`.
 
 After the stack is up, open **http://localhost:3000** and create your first account.
-
----
 
 ## Services
 
@@ -164,8 +154,6 @@ After the stack is up, open **http://localhost:3000** and create your first acco
 | **mailpit** | `axllent/mailpit`                    | `1025` (SMTP), `8025` (web UI) | Local transactional email sink                           |
 
 > MinIO port `9000` must be reachable by the browser because uploaded assets (avatars, screenshots) are loaded directly from `S3_PUBLIC_URL=http://localhost:9000/intlayer`.
-
----
 
 ## Environment variables
 
@@ -236,8 +224,6 @@ Set `MAIL_PROVIDER` to activate it. When unset, the default Resend mailer is use
 
 > Precedence: an organisation's own mailer (configured from the **Organisation** dashboard) takes priority over the global mailer, which in turn takes priority over the default Resend key.
 
----
-
 ## Connecting your Intlayer project
 
 Once the stack is running, point your project at the self-hosted backend and dashboard instead of `intlayer.org`.
@@ -299,8 +285,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## Upgrading
 
 This pulls the latest images and restarts containers with `docker compose pull && docker compose up -d`. Existing volumes (`mongo-data`, `redis-data`, `minio-data`) are preserved — no data loss.
@@ -309,8 +293,6 @@ This pulls the latest images and restarts containers with `docker compose pull &
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## Backup and restore
 
@@ -346,15 +328,11 @@ docker run --rm \
 # Repeat for redis-data and minio-data
 ```
 
----
-
 ## Limitations
 
 - **MongoDB must be external (Atlas).** The backend connects only over `mongodb+srv://` (built from `DB_ID` / `DB_MDP` / `DB_CLUSTER`), so a plain `mongodb://host:27017` — including the container's own bundled `mongod` — cannot be used. Provide a MongoDB Atlas cluster.
 - **No custom domain.** All browser-facing `VITE_*` URLs are inlined into the app at build time, and the published image ships with `localhost` values. The dashboard must be accessed at `http://localhost:3000`; serving it on a public domain would require rebuilding the image with the target URLs baked in and is not supported out of the box.
 - **Email requires a working mailer.** First-run setup enforces email verification, so either `RESEND_API_KEY` or a [global SMTP mailer](#global-mailer) (`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`) must be configured. After the first admin signs in, each organisation can also configure its own SMTP or Resend mailer from the dashboard.
-
----
 
 ## Troubleshooting
 
@@ -381,8 +359,6 @@ If the `minio-init` one-shot service didn't run (or ran before MinIO was ready),
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## Useful links
 

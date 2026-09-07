@@ -35,8 +35,6 @@ author: aymericzip
 
 <TOC/>
 
----
-
 ## Co jest śledzone
 
 `@intlayer/analytics` gromadzi i wysyła (batch) trzy rodzaje anonimowych zdarzeń:

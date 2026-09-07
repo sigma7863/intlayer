@@ -31,8 +31,6 @@ author: aymericzip
 
 `getConfiguration` 関数は、環境変数を抽出することで `intlayer` アプリケーションの全体設定を取得します。この関数は、クライアント側とサーバー側の両方で同じ設定を使用できる柔軟性を提供し、アプリケーション全体の一貫性を確保します。
 
----
-
 ## パラメーター
 
 この関数はパラメーターを受け取りません。代わりに、環境変数を使用して設定を行います。
@@ -47,8 +45,6 @@ author: aymericzip
   - `editor`: エディター固有の設定。
 
 詳細については、[Intlayer設定ドキュメント](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
-
----
 
 ## 使用例
 

@@ -31,8 +31,6 @@ author: aymericzip
 
 **Language server Intlayer** adalah implementasi [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) yang membuat IDE — dan agen AI — Anda memahami Intlayer. Ia menghubungkan pemanggilan seperti `useIntlayer("home")` dengan berkas `.content.ts` yang mendeklarasikannya, dua arah.
 
----
-
 ## Fitur
 
 | Fitur                    | Pintasan            | Fungsinya                                                                                                           |
@@ -65,8 +63,6 @@ Ini berlaku untuk semua paket `*-intlayer` (`next-intlayer`, `react-intlayer`, `
 
 > Kamus dibaca dari hasil build, jadi jalankan `npx intlayer build` — atau biarkan dev server tetap berjalan — agar server punya sesuatu untuk diselesaikan.
 
----
-
 ## Instalasi
 
 Server didistribusikan sebagai biner `intlayer-lsp` di dalam `@intlayer/lsp`:
@@ -88,8 +84,6 @@ bun add --dev @intlayer/lsp
 ```
 
 Pasang secara global (`npm install -g @intlayer/lsp`) bila editor Anda membutuhkan `intlayer-lsp` di `PATH` — ini berlaku untuk plugin Claude Code dan untuk setiap konfigurasi di bawah yang memanggil biner secara langsung.
-
----
 
 ## Penyiapan
 
@@ -255,15 +249,11 @@ Lihat dokumentasi LSP editor Anda untuk format konfigurasi yang tepat.
   </Tab>
 </Tabs>
 
----
-
 ## Catatan tentang agen AI di terminal
 
 **Claude Code** bertindak sebagai klien LSP sungguhan — lihat tab di atas.
 
 **OpenAI Codex** dan sebagian besar alat terminal lain bukan klien LSP: mereka membaca dan menulis berkas secara langsung. Menjalankan server sendirian tidak membantu mereka; manfaatnya muncul saat server aktif di editor pendamping yang indeksnya bisa dikueri oleh agen (Cursor Composer, Windsurf Cascade, Copilot Chat).
-
----
 
 ## Cara kerjanya
 
@@ -274,8 +264,6 @@ Pada setiap permintaan, server mem-parsing dokumen (via [oxc](https://oxc.rs/)) 
 1. **Pada string kunci** (`useIntlayer("home")`) → mengembalikan setiap berkas konten yang mendeklarasikan kunci itu, diposisikan pada baris `key:`-nya.
 2. **Pada penggunaan field** (`content.title`, properti hasil destrukturisasi, `t('path.to.field')`, `<Trans>`, …) → menelusuri variabel kembali ke kamusnya dan mengembalikan field yang cocok di dalam berkas konten.
 3. **Dari berkas konten** → menjalankan pencarian balik, memindai sumber proyek untuk menemukan lokasi pemanggilan kunci atau field tersebut.
-
----
 
 ## Pemecahan masalah
 

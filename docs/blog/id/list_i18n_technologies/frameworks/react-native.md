@@ -23,16 +23,12 @@ author: aymericzip
 
 Dalam pasar yang semakin global, menghadirkan aplikasi React Native Anda dalam berbagai bahasa dapat secara signifikan meningkatkan aksesibilitas dan kepuasan pengguna. Internasionalisasi (i18n) adalah kunci untuk mengelola terjemahan secara efektif yang memungkinkan Anda menampilkan teks spesifik bahasa, format tanggal dan waktu, mata uang, dan lainnya tanpa mempersulit basis kode Anda. Dalam artikel ini, kami akan membahas berbagai pendekatan i18n mulai dari pustaka khusus hingga solusi yang lebih umum dan membantu Anda menemukan yang paling sesuai untuk proyek React Native Anda.
 
----
-
 ## Apa itu Internasionalisasi (i18n)?
 
 Internasionalisasi, atau i18n, melibatkan penyusunan aplikasi agar dapat dengan mudah beradaptasi dengan berbagai bahasa, format regional, dan norma budaya. Dalam React Native, i18n mencakup penanganan string untuk tombol dan label, serta pemformatan tanggal, waktu, mata uang, dan lainnya sesuai dengan lokal pengguna. Aplikasi React Native yang disiapkan dengan baik memungkinkan Anda mengintegrasikan bahasa tambahan dan perilaku spesifik lokal secara mulus di kemudian hari tanpa perlu refaktor besar-besaran.
 
 Untuk pemahaman lebih mendalam tentang konsep internasionalisasi, lihat artikel kami:  
 [Apa itu Internasionalisasi (i18n)? Definisi dan Tantangan](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/what_is_internationalization.md).
-
----
 
 ## Tantangan Terjemahan untuk Aplikasi React Native
 
@@ -52,8 +48,6 @@ Bekerja dengan terjemahan di React Native memperkenalkan pertimbangan unik terse
 
 - **Pembaruan Aplikasi & Over-the-Air (OTA)**  
   Jika Anda menggunakan CodePush atau mekanisme pembaruan OTA lainnya, Anda perlu merencanakan bagaimana pembaruan terjemahan atau bahasa baru akan dikirimkan tanpa memerlukan rilis penuh di app store.
-
----
 
 ## Solusi i18n Terdepan untuk React Native
 
@@ -88,8 +82,6 @@ Berikut adalah beberapa pendekatan populer untuk mengelola konten multibahasa di
 - **Komunitas & Ekosistem**  
   Masih merupakan solusi yang relatif baru, jadi Anda mungkin menemukan lebih sedikit contoh yang digerakkan oleh komunitas atau plugin siap pakai dibandingkan dengan perpustakaan yang sudah lama ada.
 
----
-
 ### 2. React-i18next
 
 > Situs web: [https://react.i18next.com/](https://react.i18next.com/)
@@ -121,8 +113,6 @@ Berikut adalah beberapa pendekatan populer untuk mengelola konten multibahasa di
 
 - **Performa**  
   Meskipun React-i18next umumnya memiliki performa yang baik, Anda perlu memperhatikan bagaimana Anda mengatur dan memuat sumber daya terjemahan untuk menghindari beban berlebih pada perangkat mobile.
-
----
 
 ### 3. React Intl (dari FormatJS)
 
@@ -156,8 +146,6 @@ Berikut adalah beberapa pendekatan populer untuk mengelola konten multibahasa di
 - **Contoh dari Komunitas**  
   Meskipun banyak digunakan, contoh penggunaan khusus React Native mungkin lebih sedikit dibandingkan dengan React web. Anda kemungkinan akan menyesuaikan dokumentasi dan pola yang ada ke lingkungan native.
 
----
-
 ### 4. LinguiJS
 
 > Website: [https://lingui.js.org/](https://lingui.js.org/)
@@ -189,8 +177,6 @@ Berikut adalah beberapa pendekatan populer untuk mengelola konten multibahasa di
 
 - **Organisasi Kode**  
   Memutuskan bagaimana membagi katalog pesan Anda (berdasarkan layar, fitur, atau bahasa) sangat penting untuk menjaga kejelasan dalam aplikasi yang lebih besar.
-
----
 
 ## Pemikiran Akhir
 

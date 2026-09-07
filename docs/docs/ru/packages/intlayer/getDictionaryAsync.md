@@ -44,8 +44,6 @@ author: aymericzip
 - Дедублирует одновременные загрузки одного chunk и кэширует разрешенное содержимое
 - Неудачные загрузки удаляются из кэша, поэтому последующий вызов повторит попытку загрузки chunk
 
----
-
 ## Сигнатура функции
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // Опционально
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Параметры
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — a promise resolving to the interpreted content of the loaded chunk.
 - **Description**: Resolves to `null` when the map emits no chunk for the requested locale nor for any of its fallbacks, mirroring how a missing qualified coordinate resolves.
-
----
 
 ## Пример использования
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## Примечания о поведении
 
 ### Кеширование и дедупликация
@@ -135,15 +127,11 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 
 Простая карта загрузчика следует той же цепочке fallback, что и синхронный режим: сначала запрашиваемая локаль, затем её fallbacks, затем `null`, если ни один из них не выдал chunk.
 
----
-
 ## Связанные функции
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/intlayer/getIntlayerAsync.md): Функция, которую вызывают приложения; плагины сборки переписывают её в `getDictionaryAsync`.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/intlayer/getDictionary.md): Синхронный аналог, принимающий полный словарь.
 - [Dynamic dictionaries](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/dynamic_dictionaries/index.md): Collections и variants, а также генерируемые ими карты loader.
-
----
 
 ## TypeScript
 

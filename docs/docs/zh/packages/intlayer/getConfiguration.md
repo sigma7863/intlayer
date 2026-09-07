@@ -31,8 +31,6 @@ author: aymericzip
 
 `getConfiguration` 函数通过提取环境变量来获取 `intlayer` 应用程序的完整配置。该函数提供了在客户端和服务器端使用相同配置的灵活性，确保整个应用程序的一致性。
 
----
-
 ## 参数
 
 该函数不接受任何参数。相反，它使用环境变量进行配置。
@@ -47,8 +45,6 @@ author: aymericzip
   - `editor`：编辑器特定的配置。
 
 详情请参见 [Intlayer 配置文档](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/configuration.md)。
-
----
 
 ## 示例用法
 

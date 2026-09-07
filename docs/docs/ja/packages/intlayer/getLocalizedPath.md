@@ -39,8 +39,6 @@ author: aymericzip
 - プロジェクトの設定で定義したカスタムリライトルールに従ってパスを解決します。
 - 指定したロケールに対するリライトルールが見つからない場合、自動的に canonical path にフォールバックします。
 
----
-
 ## 関数シグネチャ
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // オプション
 ): string
 ```
-
----
 
 ## パラメータ
 
@@ -77,8 +73,6 @@ getLocalizedPath(
   - `options.defaultLocale?: Locales` — デフォルトロケール。**デフォルト**: `configuration.internationalization.defaultLocale`
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — パス内でロケールがどのように表示されるか。**デフォルト**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — カスタム rewrite ルール。**デフォルト**: `configuration.routing.rewrite`
-
----
 
 ## 戻り値
 
@@ -106,8 +100,6 @@ const home = getLocalizedPath("/", Locales.FRENCH);
 
 - 文字列リテラルではないパス（例：変数から構築されたパス）;
 - マルチセグメントまたはオプショナルパラメータを使用するルールにマッチするパス（`[...slug]`、`[[...slug]]`、`:param?`）。
-
----
 
 ## 使用例
 
@@ -165,8 +157,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Output: "/about"
 ```
-
----
 
 ## 関連関数
 

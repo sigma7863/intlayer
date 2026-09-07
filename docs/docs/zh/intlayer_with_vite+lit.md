@@ -108,8 +108,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 查看 GitHub 上的[应用程序模板](https://github.com/aymericzip/intlayer-vite-lit-template)。
 
 ## 在 Vite 和 Lit 应用中设置 Intlayer 的分步指南
@@ -739,8 +737,6 @@ console.log("SEO files generated successfully.");
 - 以方便地创建和更新翻译的**快速操作**。
 
 有关如何使用该扩展的更多详细信息，请参阅 [Intlayer VS Code 扩展文档](https://intlayer.org/doc/vs-code-extension)。
-
----
 
 ### 深入了解
 

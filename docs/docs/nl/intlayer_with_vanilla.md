@@ -75,8 +75,6 @@ Als je applicatie een bundler gebruikt (zoals Vite), raden we aan om in plaats d
 
 Met behulp van de standalone bundel kun je Intlayer direct in je HTML-bestanden importeren via een enkel JavaScript-bestand, waardoor het perfect is voor legacy-projecten of eenvoudige statische sites.
 
----
-
 ## Stap-voor-stap handleiding om Intlayer in te stellen in een Vanilla JS-applicatie
 
 <Steps>
@@ -444,8 +442,6 @@ Deze extensie biedt:
 - **Sneltoetsen** om eenvoudig vertalingen aan te maken en bij te werken.
 
 Raadpleeg de [Intlayer VS Code-extensie documentatie](https://intlayer.org/doc/vs-code-extension) voor meer details over het gebruik van de extensie.
-
----
 
 ### Ga verder
 

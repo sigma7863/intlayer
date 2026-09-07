@@ -29,13 +29,9 @@ author: aymericzip
 
 Hàm `t` trong gói `next-intlayer` là công cụ cơ bản để quốc tế hóa nội tuyến trong ứng dụng Next.js của bạn. Nó cho phép bạn định nghĩa các bản dịch trực tiếp trong các component, giúp hiển thị nội dung địa phương hóa dựa trên locale hiện tại một cách đơn giản.
 
----
-
 ## Tổng quan
 
 Hàm `t` được sử dụng để cung cấp các bản dịch cho các locale khác nhau trực tiếp trong các component của bạn. Bằng cách truyền một đối tượng chứa các bản dịch cho từng locale được hỗ trợ, `t` sẽ trả về bản dịch phù hợp dựa trên ngữ cảnh locale hiện tại trong ứng dụng Next.js của bạn.
-
----
 
 ## Các tính năng chính
 
@@ -43,8 +39,6 @@ Hàm `t` được sử dụng để cung cấp các bản dịch cho các locale
 - **Tự động chọn locale**: Tự động trả về bản dịch tương ứng với locale hiện tại.
 - **Hỗ trợ TypeScript**: Cung cấp an toàn kiểu và tự động hoàn thành khi sử dụng với TypeScript.
 - **Dễ dàng tích hợp**: Hoạt động mượt mà trong cả component phía client và server trong Next.js.
-
----
 
 ## Chữ ký hàm
 
@@ -59,8 +53,6 @@ t<T extends string>(content: Record<LocalesValues, T>, locale?: Locales): string
 ### Giá trị trả về
 
 - Một chuỗi đại diện cho nội dung đã được dịch cho locale hiện tại.
-
----
 
 ## Ví dụ sử dụng
 
@@ -131,8 +123,6 @@ Khi bản địa hóa các thuộc tính như `alt`, `title`, `href`, hoặc `ar
 </button>
 ```
 
----
-
 ## Chủ đề nâng cao
 
 ### Tích hợp TypeScript
@@ -193,8 +183,6 @@ const Page: FC<{ locale: Locales }> = ({ locale }) => (
  </Tab>
 </Tabs>
 
----
-
 ## Lỗi Thường Gặp và Khắc Phục Sự Cố
 
 ### `t` Trả Về Giá Trị Undefined hoặc Dịch Sai
@@ -219,8 +207,6 @@ const translations: IConfigLocales<string> = {
 const text = t(translations);
 ```
 
----
-
 ## Mẹo Sử Dụng Hiệu Quả
 
 1. **Sử dụng `t` cho các bản dịch nội tuyến đơn giản**: Phù hợp để dịch các đoạn văn bản nhỏ trực tiếp trong các component của bạn.
@@ -228,14 +214,10 @@ const text = t(translations);
 3. **Cung cấp locale nhất quán**: Đảm bảo locale của bạn được cung cấp một cách nhất quán trên toàn bộ ứng dụng thông qua các provider phù hợp.
 4. **Tận dụng TypeScript**: Sử dụng các kiểu TypeScript để phát hiện các bản dịch còn thiếu và đảm bảo an toàn kiểu.
 
----
-
 ## Kết luận
 
 Hàm `t` trong `next-intlayer` là một công cụ mạnh mẽ và tiện lợi để quản lý các bản dịch nội tuyến trong các ứng dụng Next.js của bạn. Bằng cách tích hợp hiệu quả, bạn nâng cao khả năng quốc tế hóa của ứng dụng, mang lại trải nghiệm tốt hơn cho người dùng trên toàn thế giới.
 
 Để biết thêm chi tiết về cách sử dụng và các tính năng nâng cao, hãy tham khảo [tài liệu next-intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_visual_editor.md).
-
----
 
 **Lưu ý**: Hãy nhớ thiết lập `IntlayerClientProvider` và `IntlayerServerProvider` của bạn một cách chính xác để đảm bảo rằng locale hiện tại được truyền đúng xuống các component của bạn. Điều này rất quan trọng để hàm `t` trả về các bản dịch chính xác.

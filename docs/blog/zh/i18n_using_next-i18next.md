@@ -71,8 +71,6 @@ author: aymericzip
 
 > 查看我们的文档，了解有关国际化和SEO的所有内容：[使用 next-intl 进行国际化 (i18n)](https://github.com/aymericzip/intlayer/blob/main/docs/blog/zh/internationalization_and_SEO.md)。
 
----
-
 ## 在 Next.js 应用中设置 i18next 的逐步指南
 
 <iframe

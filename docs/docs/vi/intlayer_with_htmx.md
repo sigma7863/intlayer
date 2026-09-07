@@ -56,8 +56,6 @@ Một giá trị được dịch nội suy vào một fragment là markup. Escap
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng Dẫn Từng Bước
 
 <iframe
@@ -662,8 +660,6 @@ Tiện ích mở rộng này cung cấp:
 - **Hành động nhanh** để dễ dàng tạo và cập nhật các bản dịch.
 
 Để biết thêm chi tiết về cách sử dụng tiện ích mở rộng, hãy tham khảo [tài liệu Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Đi xa hơn
 

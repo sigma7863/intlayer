@@ -43,8 +43,6 @@ Impor:
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### Plugin
 
 | Fungsi / Kelas                 | Deskripsi                                                                                                                                                                                                                          |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | Fungsi pabrik yang menghasilkan plugin Babel untuk menganalisis penggunaan `useIntlayer` / `getIntlayer` dalam kode sumber dan mengumpulkan data penggunaan bidang dalam `PruneContext` bersama.                                   |
 | `getSharedPruneContext`        | Fungsi pembantu yang mengembalikan objek `PruneContext` bersama untuk direktori basis yang ditentukan, atau `null` jika belum diinisialisasi.                                                                                      |
 
----
-
 ### Utilitas Konfigurasi Plugin
 
 | Fungsi                     | Deskripsi                                                                                                                                                   |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Memuat konfigurasi Intlayer dan kamus yang dikompilasi, dan mengembalikan `OptimizePluginOptions` yang siap digunakan dengan `intlayerOptimizeBabelPlugin`. |
 | `getPurgePluginOptions`    | Memuat konfigurasi Intlayer dan mengembalikan `PurgePluginOptions` yang siap digunakan dengan `intlayerPurgeBabelPlugin`.                                   |
 | `getMinifyPluginOptions`   | Memuat konfigurasi Intlayer dan mengembalikan `MinifyPluginOptions` yang siap digunakan dengan `intlayerMinifyBabelPlugin`.                                 |
-
----
 
 ### Tipe
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | Konfigurasi untuk penganalisis penggunaan yang kompatibel untuk paket `compat-adapter` (nama pemanggil dan opsi pemrosesan). |
 | `ScriptBlock`           | Blok skrip yang diekstrak dari file SFC (Vue atau Svelte): konten, offset awal, dan offset akhir.                            |
 
----
-
 ### Fungsi Utilitas
 
 | Fungsi                            | Deskripsi                                                                                                                                                         |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | Mengekstrak blok `<script>` dari file SFC (Vue / Svelte) untuk analisis Babel berikutnya.                                                                         |
 | `BABEL_PARSER_OPTIONS`            | Konstanta yang mewakili opsi parser Babel yang mencakup kerangka kerja yang didukung (React/Vue/Svelte/Angular/...).                                              |
 | `INTLAYER_CALLER_NAMES`           | Daftar konstanta nama pemanggil Intlayer asli: `['useIntlayer', 'getIntlayer']`.                                                                                  |
-
----
 
 ## Contoh Penggunaan
 

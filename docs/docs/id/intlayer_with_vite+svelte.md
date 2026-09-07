@@ -111,8 +111,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dalam Aplikasi Vite dan Svelte
 
 Lihat [Template Aplikasi](https://github.com/aymericzip/intlayer-vite-svelte-template) di GitHub.
@@ -728,8 +726,6 @@ Ekstensi ini menyediakan:
 - **Tindakan cepat** untuk dengan mudah membuat dan memperbarui terjemahan.
 
 Untuk detail lebih lanjut tentang cara menggunakan ekstensi ini, lihat [dokumentasi Ekstensi VS Code Intlayer](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Melangkah Lebih Jauh
 

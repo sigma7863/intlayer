@@ -56,8 +56,6 @@ Intlayer middleware 从请求本身解析locale，因此在第十分钟提供的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 逐步指南
 
 <iframe
@@ -671,8 +669,6 @@ export default config;
 - **快速操作**，轻松创建和更新翻译。
 
 有关如何使用该扩展的更多详细信息，请参阅 [Intlayer VS Code 扩展文档](https://intlayer.org/doc/vs-code-extension)。
-
----
 
 ### 进一步探索
 

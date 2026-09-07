@@ -46,8 +46,6 @@ Bez tych wtyczek — niezoptymalizowana kompilacja — wywołanie rozwiązuje si
 - Współbieżne wywołania dla tego samego fragmentu współdzielą jedno ładowanie
 - Bezpieczne do użycia w asynchronicznych konstruktorach metadanych, loaderach i funkcjach serwerowych
 
----
-
 ## Sygnatura Funkcji
 
 ```typescript
@@ -57,8 +55,6 @@ getIntlayerAsync(
   plugins?: Plugins[]                         // Opcjonalne
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Parametry
 
@@ -86,8 +82,6 @@ getIntlayerAsync(
 
 - **Typ**: `Promise<Content>` — promise rozwiązujący się do interpretowanej zawartości słownika, typizowanej z Twojej deklaracji.
 
----
-
 ## Przykład użycia
 
 ### Podstawowe użycie
@@ -97,8 +91,6 @@ import { getIntlayerAsync } from "intlayer";
 
 const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 ```
-
----
 
 ## `getIntlayer` vs `getIntlayerAsync`
 
@@ -111,15 +103,11 @@ const { title } = await getIntlayerAsync("app", "fr"); // "Bonjour"
 
 Obie funkcje akceptują te same argumenty i zwracają tę samą zawartość: przełączenie się między nimi zmienia tylko **kiedy** i **ile** jest ładowane.
 
----
-
 ## Powiązane funkcje
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/intlayer/getIntlayer.md): Synchroniczny odpowiednik odczytujący scalony słownik.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/intlayer/getDictionaryAsync.md): Funkcja niskiego poziomu, którą wtyczki kompilacji przepisują do tego wywołania.
 - [`getLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/intlayer/getLocale.md): Wykrywa locale przychodzącego żądania.
-
----
 
 ## TypeScript
 

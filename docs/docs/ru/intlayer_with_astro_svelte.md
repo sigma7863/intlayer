@@ -107,8 +107,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в Astro + Svelte
 
 Посмотреть [Шаблон приложения](https://github.com/aymericzip/intlayer-astro-template) на GitHub.
@@ -653,8 +651,6 @@ Intlayer использует расширение модулей, чтобы в
 - **Быстрые действия** для легкого создания и обновления переводов.
 
 Для получения более подробной информации об использовании расширения см. [документацию расширения Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Дальнейшие шаги
 

@@ -107,8 +107,6 @@ Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](http
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guida passo dopo passo per configurare Intlayer in Astro + Preact
 
 Controlla il [template dell'applicazione](https://github.com/aymericzip/intlayer-astro-template) su GitHub.
@@ -646,8 +644,6 @@ Questa estensione fornisce:
 - **Azioni rapide** per creare e aggiornare facilmente le traduzioni.
 
 Per maggiori informazioni sull'utilizzo dell'estensione, consulta la [documentazione dell'estensione VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Approfondisci
 

@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-06-23
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - Panduan lengkap menerjemahkan aplikasi Anda"
 description: "Tidak ada lagi i18next. Panduan 2026 untuk membangun aplikasi Next.js 16 multibahasa (i18n). Terjemahkan dengan agen AI dan optimalkan ukuran bundle, SEO, dan performa."
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="Solusi i18n terbaik untuk Next.js? Temukan Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="Kode" value="code">
+  <Tab label="Kode (path locale)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="Demo" value="demo">
+  <Tab label="Kode (tanpa path locale)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - Cara Melakukan Internasionalisasi aplikasi Anda menggunakan Intlayer"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="Demo (path locale)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="Demo - intlayer-next-16-template"
+  title="Demo Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-Lihat [Template Aplikasi](https://github.com/aymericzip/intlayer-next-16-template) di GitHub.
+Lihat [Template Aplikasi](https://github.com/aymericzip/intlayer-next-16-template) dan [Template Aplikasi tanpa path locale](https://github.com/aymericzip/intlayer-next-no-lolale-path-template) di GitHub.
 
 ## Daftar Isi
 
@@ -81,7 +92,7 @@ Dibandingkan dengan solusi utama seperti `next-intl` atau `i18next`, Intlayer ad
 Intlayer dioptimalkan untuk bekerja dengan **Komponen Server** untuk rendering yang efisien dan sepenuhnya kompatibel dengan [**Turbopack**](https://nextjs.org/docs/architecture/turbopack). Itu tidak memblokir rendering statis dan menawarkan middleware serta semua fitur yang diperlukan untuk penskalaan internasionalisasi (i18n).
 
 > Intlayer kompatibel dengan Next.js 12, 13, 14, 15, dan 16. Jika Anda menggunakan Next.js Pages Router, Anda dapat merujuk ke [panduan] ini(https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md).
-> Perutean lokal berguna untuk SEO, ukuran bundle, dan kinerja. Jika Anda tidak membutuhkannya, Anda dapat merujuk ke [panduan] ini(https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md).
+> Perutean lokal berguna untuk SEO, ukuran bundle, dan kinerja. Kedua penyiapan, dengan dan tanpa perutean jalur lokal, didukung dan dibahas dalam panduan ini.
 > Untuk Next.js 12, 13, 14, dan 15 dengan App Router, lihat [panduan] ini(https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
 </Accordion>
@@ -122,8 +133,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer di Aplikasi Next.js
 
@@ -181,7 +190,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="Konfigurasikan Proyek Anda">
 
-Berikut adalah struktur akhir yang akan kita buat:
+Pilih apakah aplikasi Anda harus menggunakan path URL terlokalisasi (misalnya, `/id/about`, `/en/about`) atau menyajikan konten tanpa segmen locale di path (misalnya, `/about`, mendeteksi locale melalui cookie, header, atau parameter kueri).
+
+<Tabs group="routing-mode">
+<Tab label="Dengan path locale" value="with-locale-path">
+
+### Arsitektur
+
+Dalam arsitektur ini, semua halaman terlokalisasi berada di bawah segmen rute dinamis `[locale]`. Pendekatan ini direkomendasikan untuk SEO dan rendering statis karena setiap bahasa memiliki URL khusus tersendiri:
 
 ```bash
 .
@@ -207,9 +223,9 @@ Berikut adalah struktur akhir yang akan kita buat:
 └── tsconfig.json
 ```
 
-> Jika Anda tidak menginginkan locale routing, intlayer dapat digunakan sebagai provider / hook sederhana. Lihat [panduan ini](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_nextjs_no_locale_path.md) untuk detail lebih lanjut.
+### Konfigurasi
 
-Buat file konfigurasi untuk mengatur bahasa aplikasi Anda:
+Buat file konfigurasi `intlayer.config.ts` untuk mendeklarasikan bahasa yang didukung aplikasi Anda:
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -224,10 +240,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // atau `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="Tanpa path locale" value="without-locale-path">
+
+### Arsitektur
+
+Dalam arsitektur ini, rute tidak menyertakan segmen dinamis `[locale]` di path URL. Semua halaman berada langsung di bawah `src/app/`, dan locale ditentukan melalui cookie, header, atau parameter pencarian. Ini ideal untuk dasbor, alat internal, atau aplikasi berotentikasi di mana menambahkan awalan pada setiap URL tidak diperlukan:
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### Konfigurasi
+
+Atur properti `routing.mode` ke `"search-params"` (misalnya `/about?locale=id`) atau `"no-prefix"` untuk menyajikan konten tanpa awalan path:
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // Lokal lainnya
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // atau `no-prefix` - Berguna untuk deteksi middleware
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > Melalui file konfigurasi ini, Anda dapat mengatur URL yang dilokalkan, pengalihan proxy, nama cookie, lokasi dan ekstensi deklarasi konten Anda, menonaktifkan log Intlayer di konsol, dan lainnya. Untuk daftar lengkap parameter yang tersedia, lihat [dokumentasi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
 
@@ -277,6 +355,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="Definisikan Rute Locale Dinamis">
+
+<Tabs group="routing-mode">
+<Tab label="Dengan path locale" value="with-locale-path">
 
 Hapus semua dari `RootLayout` dan ganti dengan kode berikut:
 
@@ -372,6 +453,102 @@ export default LocaleLayout;
 
 > Intlayer bekerja dengan `export const dynamic = 'force-static';` untuk memastikan bahwa halaman-halaman dibangun terlebih dahulu untuk semua lokal.
 
+</Tab>
+<Tab label="Tanpa path locale" value="without-locale-path">
+
+Dalam arsitektur tanpa path locale, tidak ada direktori `[locale]`. Konfigurasikan `src/app/layout.tsx` secara langsung untuk membaca locale dari konteks permintaan dan bungkus aplikasi Anda dengan `IntlayerProvider`:
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+> Satu `IntlayerProvider` mencakup kedua bagian dari tree: ini memberikan seed pada konteks server yang di-scope request yang dibaca oleh server hooks, dan memasang client provider sehingga client components menerima locale yang sama.
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+ </Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
+
 </Step>
 
 <Step number={5} title="Deklarasikan Konten Anda">
@@ -459,7 +636,7 @@ export default Page;
 ```
 
 - **`IntlayerProvider`** dipasang sekali, dalam tata letak lokal. Ini menyediakan lokal ke komponen server dan klien, sehingga halaman tidak lagi membungkus diri mereka sendiri.
-- Server hooks menyelesaikan lokal dalam urutan ini: lokal yang diteruskan di situs panggilan, kemudian konteks server yang ditanam oleh provider, kemudian lokal yang dibawa oleh permintaan (header `x-intlayer-locale` yang ditetapkan oleh proxy Intlayer, kemudian cookie lokal). Langkah terakhir ini adalah apa yang menjaga konten tetap benar pada navigasi sisi klien yang me-render hanya segmen halaman, di mana tata letak — dan dengannya provider — tidak berjalan kembali.
+- Server hooks menyelesaikan lokal dalam urutan ini: lokal yang diteruskan di situs panggilan, kemudian konteks server yang ditanam oleh provider, kemudian lokal yang dibawa oleh permintaan (header `x-intlayer-locale` yang ditetapkan oleh proxy Intlayer, kemudian cookie lokal). Langkah terakhir ini adalah apa yang menjaga konten tetap benar pada navigasi sisi klien yang me-render hanya segmen halaman, di mana tata letak , dan dengannya provider , tidak berjalan kembali.
 
  </Tab>
  <Tab label='Intlayer <9.4' value='<9.4'>
@@ -1073,7 +1250,7 @@ bun x intlayer extract
  </Tab>
  <Tab value='Compiler Babel'>
 
-> Since v9, the `intlayerCompiler` is included in the `intlayer` plugin. So you don't need to add it manually.
+> Sejak v9, `intlayerCompiler` disertakan dalam plugin `intlayer`. Jadi Anda tidak perlu menambahkannya secara manual.
 
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
@@ -1274,7 +1451,7 @@ Tidak. Skema URL adalah opsi konfigurasi, bukan batasan. `routing.mode` menerima
 - `"no-prefix"`: tidak ada locale di path, diselesaikan dari cookie, header, atau domain.
 - `"search-params"`: `/about?locale=fr`.
 
-Anda juga dapat memetakan setiap locale ke domainnya sendiri dengan `routing.domains`. Lihat [referensi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md) dan [panduan tanpa jalur locale](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/intlayer_with_nextjs_no_locale_path.md).
+Anda juga dapat memetakan setiap locale ke domainnya sendiri dengan `routing.domains`. Lihat [referensi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md) dan [Langkah 2](#step-2-configure-your-project) untuk opsi mode perutean.
 
 </Question>
 

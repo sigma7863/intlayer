@@ -23,15 +23,11 @@ author: aymericzip
 
 Di dunia yang saling terhubung saat ini, menawarkan situs web Anda dalam berbagai bahasa dapat secara signifikan memperluas jangkauan dan meningkatkan pengalaman pengguna. Bagi pengembang yang bekerja dengan Angular, menerapkan internasionalisasi (i18n) sangat penting untuk mengelola terjemahan secara efisien sambil mempertahankan struktur aplikasi, SEO, dan kinerja. Dalam artikel ini, kami akan mengeksplorasi berbagai pendekatan i18n mulai dari solusi bawaan Angular hingga pustaka pihak ketiga yang populer untuk membantu Anda menentukan yang paling cocok untuk proyek Anda.
 
----
-
 ## Apa itu Internasionalisasi (i18n)?
 
 Internasionalisasi, yang sering disebut sebagai i18n, adalah proses merancang dan mempersiapkan aplikasi Anda untuk mendukung berbagai bahasa dan konteks budaya. Dalam Angular, ini melibatkan konfigurasi aplikasi Anda sehingga teks, tanggal, angka, dan bahkan tata letak UI dapat beradaptasi dengan mulus ke berbagai lokal. Menyiapkan dasar ini dengan benar memastikan bahwa integrasi terjemahan di masa depan tetap terorganisir dan efisien.
 
 Pelajari lebih lanjut tentang dasar-dasar i18n dengan membaca artikel kami: [Apa itu Internasionalisasi (i18n)? Definisi dan Tantangan](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/what_is_internationalization.md).
-
----
 
 ## Tantangan Terjemahan untuk Aplikasi Angular
 
@@ -42,8 +38,6 @@ Menerjemahkan aplikasi Angular menghadirkan beberapa tantangan:
 - **Pertimbangan SEO**: Jika Anda menggunakan Angular Universal untuk rendering sisi server, Anda perlu mengatur URL yang dilokalkan, meta tag, dan sitemap agar halaman multibahasa Anda ramah mesin pencari.
 - **Routing dan Status**: Memastikan bahasa yang benar dipertahankan saat menavigasi antar rute melibatkan manajemen status dan mungkin penjaga rute khusus atau interceptor.
 - **Skalabilitas & Pemeliharaan**: File terjemahan dapat berkembang dengan cepat, dan menjaga agar tetap terorganisir, memiliki versi, dan sinkron dengan evolusi aplikasi Anda bisa menjadi tugas yang berkelanjutan.
-
----
 
 ## Solusi i18n Terdepan untuk Angular
 
@@ -69,8 +63,6 @@ Angular menawarkan kerangka kerja i18n bawaan, dan ada beberapa pustaka pihak ke
 
 - **Komunitas & Ekosistem**: Meskipun terus berkembang, ekosistemnya masih baru, sehingga plugin dan alat yang didorong oleh komunitas mungkin lebih terbatas dibandingkan dengan solusi yang lebih mapan.
 
----
-
 ### 2. i18n Bawaan Angular
 
 **Ikhtisar**  
@@ -88,8 +80,6 @@ Angular dilengkapi dengan sistem **i18n bawaan** yang mencakup alat untuk mengek
 - **Build Ganda**: Setiap bahasa memerlukan build tersendiri, yang dapat menyebabkan skenario deployment yang lebih kompleks.
 - **Konten Dinamis**: Menangani konten waktu nyata atau yang digerakkan oleh pengguna mungkin memerlukan logika khusus karena solusi bawaan Angular sangat fokus pada terjemahan waktu kompilasi.
 - **Fleksibilitas Runtime Terbatas**: Mengganti bahasa secara langsung (tanpa memuat ulang aplikasi) bisa menjadi tantangan karena terjemahan sudah dimasukkan saat build.
-
----
 
 ### 3. ngx-translate
 
@@ -110,8 +100,6 @@ Situs Web: [https://github.com/ngx-translate/core](https://github.com/ngx-transl
 - **Status & Kompleksitas**: Mengelola banyak file terjemahan dapat menjadi kompleks dalam aplikasi yang lebih besar.
 - **SEO & SSR**: Jika Anda membutuhkan server-side rendering dengan Angular Universal, ngx-translate memerlukan pengaturan tambahan untuk memastikan terjemahan yang benar disajikan kepada crawler dan browser pada pemuatan pertama.
 - **Performa**: Meskipun fleksibel saat runtime, menangani banyak terjemahan pada halaman besar dapat berdampak pada performa, sehingga strategi caching sangat disarankan.
-
----
 
 ### 4. Transloco
 

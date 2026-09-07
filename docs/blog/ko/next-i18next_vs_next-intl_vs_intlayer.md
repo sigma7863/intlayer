@@ -42,15 +42,11 @@ Next.js를 위한 세 가지 i18n 옵션인 next-i18next, next-intl, Intlayer의
 
 > 개발자들이 자주 혼동하는 점 중 하나는 `next-intl`이 `react-intl`의 Next.js 버전이라고 생각하는 것입니다. 그렇지 않습니다, `next-intl`은 [Amann](https://github.com/amannn)이 유지 관리하며, `react-intl`은 [FormatJS](https://github.com/formatjs/formatjs)가 유지 관리합니다.
 
----
-
 ## 요약
 
 - **next-intl** - 가볍고 직관적인 메시지 포맷팅을 제공하며, 견고한 Next.js 지원을 갖추고 있습니다. 중앙 집중식 카탈로그가 일반적이며, 개발자 경험(DX)은 간단하지만 안전성과 대규모 유지 관리는 주로 사용자 책임입니다.
 - **next-i18next** - Next.js 환경에 맞춘 i18next입니다. 성숙한 생태계와 플러그인(예: ICU)을 통한 기능을 제공하지만, 설정이 장황할 수 있으며 프로젝트가 커질수록 카탈로그가 중앙 집중화되는 경향이 있습니다.
 - **Intlayer** - Next.js를 위한 컴포넌트 중심 콘텐츠 모델, **엄격한 TS 타이핑**, **빌드 시 검사**, **트리 쉐이킹**, **내장 미들웨어 및 SEO 도우미**, 선택적 **비주얼 에디터/CMS**, 그리고 **AI 지원 번역**을 제공합니다.
-
----
 
 | Library                | GitHub Stars                                                                                                                                                                     | Total Commits                                                                                                                                                                        | Last Commit                                                                                                                                           | First Version | NPM Version                                                                                                         | NPM Downloads                                                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -60,8 +56,6 @@ Next.js를 위한 세 가지 i18n 옵션인 next-i18next, next-intl, Intlayer의
 | `i18next/next-i18next` | [![GitHub Repo stars](https://img.shields.io/github/stars/i18next/next-i18next?style=for-the-badge&label=%E2%AD%90%20stars)](https://github.com/i18next/next-i18next/stargazers) | [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/i18next/next-i18next?style=for-the-badge&label=commits)](https://github.com/i18next/next-i18next/commits) | [![Last Commit](https://img.shields.io/github/last-commit/i18next/next-i18next?style=for-the-badge)](https://github.com/i18next/next-i18next/commits) | Nov 2018      | [![npm](https://img.shields.io/npm/v/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) | [![npm downloads](https://img.shields.io/npm/dm/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) |
 
 > 배지는 자동으로 업데이트됩니다. 스냅샷은 시간이 지남에 따라 달라질 수 있습니다.
-
----
 
 ## 나란히 기능 비교 (Next.js 중심)
 
@@ -88,15 +82,11 @@ Next.js를 위한 세 가지 i18n 옵션인 next-i18next, next-intl, Intlayer의
 | **대규모 프로젝트 관리**                  | ✅ 모듈화 권장, 디자인 시스템에 적합                                                                                     | ✅ 설정과 함께 모듈화                                                                    | ✅ 설정과 함께 모듈화                                                                    |
 | **누락된 번역 테스트 (CLI/CI)**           | ✅ CLI: `npx intlayer content test` (CI 친화적 감사)                                                                     | ⚠️ 내장되어 있지 않음; 문서에서는 `npx @lingual/i18n-check` 사용 권장                    | ⚠️ 내장되어 있지 않음; i18next 도구 또는 런타임 `saveMissing`에 의존                     |
 
----
-
 ## 소개
 
 Next.js는 국제화된 라우팅(예: 로케일 세그먼트)을 기본적으로 지원합니다. 하지만 이 기능만으로는 번역을 수행하지 않습니다. 사용자에게 현지화된 콘텐츠를 렌더링하려면 여전히 라이브러리가 필요합니다.
 
 많은 i18n 라이브러리가 존재하지만, 현재 Next.js 환경에서는 next-i18next, next-intl, 그리고 Intlayer 세 가지가 주목받고 있습니다.
-
----
 
 ## 아키텍처 및 확장성
 
@@ -104,8 +94,6 @@ Next.js는 국제화된 라우팅(예: 로케일 세그먼트)을 기본적으�
 - **Intlayer**: 코드와 **공간적으로 함께 위치한** 컴포넌트별(또는 기능별) 사전을 권장합니다. 이는 인지 부하를 줄이고, UI 조각의 복제/이전을 쉽게 하며, 팀 간 충돌을 줄여줍니다. 사용하지 않는 콘텐츠는 자연스럽게 더 쉽게 발견하고 제거할 수 있습니다.
 
 **중요한 이유:** 대규모 코드베이스나 디자인 시스템 설정에서는 **모듈화된 콘텐츠**가 단일 카탈로그보다 더 잘 확장됩니다.
-
----
 
 ## 번들 크기 및 의존성
 
@@ -172,8 +160,6 @@ Next.js는 국제화된 라우팅(예: 로케일 세그먼트)을 기본적으�
 | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | ![최적화된 번들](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle.png?raw=true) | ![최적화되지 않은 번들](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle_no_optimization.png?raw=true) |
 
----
-
 ## TypeScript 및 안전성
 
 <Columns>
@@ -198,11 +184,10 @@ Next.js는 국제화된 라우팅(예: 로케일 세그먼트)을 기본적으�
 - **콘텐츠에서 엄격한 타입을 생성합니다.** **IDE 자동완성**과 **컴파일 타임 오류**가 배포 전에 오타와 누락된 키를 잡아냅니다.
 
   </Column>
+
 </Columns>
 
 **중요한 이유:** 강력한 타입 지정은 실패를 **오른쪽(런타임)**이 아닌 **왼쪽(CI/빌드)**으로 이동시킵니다.
-
----
 
 ## 라우팅, 미들웨어 및 URL 전략
 
@@ -228,11 +213,10 @@ Next.js는 국제화된 라우팅(예: 로케일 세그먼트)을 기본적으�
 - 위의 모든 기능에 더해, **i18n 미들웨어**(헤더/쿠키를 통한 로케일 감지)와 지역화된 URL 및 `<link rel="alternate" hreflang="…">` 태그 생성을 위한 **도우미**를 제공합니다.
 
   </Column>
+
 </Columns>
 
 **중요한 이유:** 커스텀 연결 계층이 줄어들고, **일관된 사용자 경험(UX)**과 **깔끔한 SEO**를 지역별로 유지할 수 있습니다.
-
----
 
 ## 서버 컴포넌트(RSC) 정렬
 
@@ -258,11 +242,10 @@ Next.js는 국제화된 라우팅(예: 로케일 세그먼트)을 기본적으�
 - Next.js 13+를 지원하며, 일관된 API와 RSC 지향 프로바이더를 통해 **서버/클라이언트 경계**를 원활하게 처리하여 포매터나 t-함수를 전달하는 것을 방지합니다.
 
   </Column>
+
 </Columns>
 
 **중요한 이유:** 더 깔끔한 정신 모델과 하이브리드 트리에서의 예외 상황 감소.
-
----
 
 ## 개발자 경험(DX), 도구 및 유지보수
 
@@ -288,6 +271,7 @@ Next.js는 국제화된 라우팅(예: 로케일 세그먼트)을 기본적으�
 - **무료 비주얼 에디터**와 **선택적 CMS**(Git 친화적이거나 외부화 가능)를 제공하며, **VSCode 확장**과 자체 제공자 키를 사용하는 **AI 지원 번역**도 포함됩니다.
 
   </Column>
+
 </Columns>
 
 **중요한 이유:** 운영 비용을 낮추고 개발자와 콘텐츠 작성자 간의 피드백 주기를 단축합니다.
@@ -798,8 +782,6 @@ const ClientComponentExample = () => {
   - **next-intl**는 유연하며, 설정에 따라 메시지 로드 가능.
   - **Intlayer**는 TS/JS 딕셔너리에 콘텐츠를 저장하고 키로 해석.
 
----
-
 ### 서버 컴포넌트에서의 사용
 
 UI 컴포넌트의 경우를 살펴보겠습니다. 이 컴포넌트는 서버 컴포넌트이며, 클라이언트 컴포넌트의 자식으로 삽입될 수 있어야 합니다. (페이지 (서버 컴포넌트) -> 클라이언트 컴포넌트 -> 서버 컴포넌트). 이 컴포넌트가 클라이언트 컴포넌트의 자식으로 삽입될 수 있으므로 비동기(async)일 수 없습니다.
@@ -897,7 +879,7 @@ const ServerComponent = ({ count }: { count: number }) => {
 개발자들은 종종 여러 로케일에 걸쳐 페이지를 올바르게 참조하는 것을 잊어버립니다.
 
 <Tabs defaultTab="next-intl" group='techno'>
- 
+
   <Tab label="next-i18next" value="next-i18next">
 
 ```ts fileName="i18n.config.ts"
@@ -1155,8 +1137,6 @@ export default robots;
 
 > Intlayer는 사이트맵을 위해 다국어 URL을 생성하는 `getMultilingualUrls` 함수를 제공합니다.
 
----
-
 ### 로케일 라우팅을 위한 Middleware
 
 <Tabs defaultTab="next-intl" group='techno'>
@@ -1274,9 +1254,8 @@ middleware의 설정은 `intlayer.config.ts` 파일에 중앙화되어 있습니
 - **통합 도구**: 기본 제공 라우팅, SEO 헬퍼 및 비주얼 에디터 지원을 활용합니다.
 
   </Tab>
-</Tabs>
 
----
+</Tabs>
 
 ## 그리고 승자는…
 
@@ -1304,6 +1283,7 @@ middleware의 설정은 `intlayer.config.ts` 파일에 중앙화되어 있습니
 - 모듈식 콘텐츠, 타입 안전성, 도구 지원, 그리고 보일러플레이트가 적은 현대적인 Next.js를 위해 설계되었습니다. 특히 **Next.js App Router**, 디자인 시스템, 그리고 **대규모 모듈식 코드베이스**에 대해 **컴포넌트 범위 콘텐츠**, **엄격한 TypeScript**, **빌드 타임 보장**, **트리 쉐이킹**, 그리고 **기본 제공** 라우팅/SEO/에디터 도구를 중요하게 생각한다면 적합합니다.
 
   </Column>
+
 </Columns>
 
 최소한의 설정을 선호하고 일부 수동 연결을 감수할 수 있다면 next-intl이 좋은 선택입니다. 모든 기능이 필요하고 복잡성을 감수할 수 있다면 next-i18next가 적합합니다. 하지만 현대적이고 확장 가능하며 모듈식 솔루션과 내장 도구를 원한다면 Intlayer가 바로 그 요구를 충족시키고자 합니다.
@@ -1317,8 +1297,6 @@ middleware의 설정은 `intlayer.config.ts` 파일에 중앙화되어 있습니
 GitHub 스타는 프로젝트의 인기, 커뮤니티 신뢰도, 그리고 장기적인 관련성을 강력하게 나타내는 지표입니다. 기술적 품질의 직접적인 척도는 아니지만, 얼마나 많은 개발자가 해당 프로젝트를 유용하다고 생각하고, 진행 상황을 팔로우하며, 채택할 가능성이 있는지를 반영합니다. 프로젝트의 가치를 평가할 때, 스타는 대안들 간의 관심도를 비교하고 생태계 성장에 대한 통찰을 제공하는 데 도움이 됩니다.
 
 [![스타 히스토리 차트](https://api.star-history.com/chart?repos=i18next/next-i18next%2Camannn/next-intl%2Caymericzip/intlayer&type=date&legend=top-left)](https://www.star-history.com/#i18next/next-i18next&amannn/next-intl&aymericzip/intlayer)
-
----
 
 ## 결론
 

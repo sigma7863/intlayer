@@ -39,8 +39,6 @@ author: aymericzip
 - 複数のルーティングモードをサポート: `prefix-no-default`、`prefix-all`、`no-prefix`、`search-params`
 - すべてのロケールをキーとし、対応するURLを値とするマッピングオブジェクトを返す
 
----
-
 ## 関数シグネチャ
 
 ```typescript
@@ -53,8 +51,6 @@ getMultilingualUrls(
   }
 ): StrictModeLocaleMap<string>
 ```
-
----
 
 ## パラメータ
 
@@ -96,8 +92,6 @@ getMultilingualUrls(
 
 - **型**: `IConfigLocales<string>`
 - **説明**: 各ロケールを対応する多言語 URL にマッピングしたオブジェクト。
-
----
 
 ## 使用例
 
@@ -199,8 +193,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## エッジケース
 
 - **ロケールセグメントなし:**
@@ -217,8 +209,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: すべてのロケールがプレフィックス付き (例: `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: URLにロケールプレフィックスなし (すべてのロケールが同じURLを返す)
   - `'search-params'`: クエリパラメータでロケールを指定 (例: `/dashboard?locale=fr`)
-
----
 
 ## アプリケーションでの使用方法
 

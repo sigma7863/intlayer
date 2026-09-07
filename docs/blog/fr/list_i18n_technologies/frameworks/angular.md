@@ -23,15 +23,11 @@ author: aymericzip
 
 Dans un monde interconnecté d'aujourd'hui, proposer votre site web en plusieurs langues peut considérablement élargir votre portée et améliorer l'expérience utilisateur. Pour les développeurs travaillant avec Angular, la mise en œuvre de l'internationalisation (i18n) est cruciale pour gérer efficacement les traductions tout en préservant la structure de l'application, le SEO et les performances. Dans cet article, nous explorerons diverses approches i18n, des solutions intégrées d'Angular aux bibliothèques tierces populaires, pour vous aider à déterminer la meilleure solution pour votre projet.
 
----
-
 ## Qu'est-ce que l'internationalisation (i18n) ?
 
 L'internationalisation, souvent appelée i18n, est le processus de conception et de préparation de votre application pour prendre en charge plusieurs langues et contextes culturels. Dans Angular, cela implique de configurer votre application afin que le texte, les dates, les nombres et même les mises en page de l'interface utilisateur puissent s'adapter de manière transparente à différents locales. Établir correctement cette base garantit que l'intégration de futures traductions reste organisée et efficace.
 
 En savoir plus sur les bases de l'i18n en lisant notre article : [Qu'est-ce que l'internationalisation (i18n) ? Définition et défis](https://github.com/aymericzip/intlayer/blob/main/docs/blog/fr/what_is_internationalization.md).
-
----
 
 ## Le défi de la traduction pour les applications Angular
 
@@ -42,8 +38,6 @@ La traduction d'une application Angular introduit plusieurs défis :
 - **Considérations SEO** : Si vous utilisez Angular Universal pour le rendu côté serveur, vous devrez configurer des URL localisées, des métadonnées et des sitemaps pour rendre vos pages multilingues adaptées aux moteurs de recherche.
 - **Routage et état** : Assurer le maintien de la bonne langue lors de la navigation entre les routes implique la gestion de l'état et peut nécessiter des gardes de route ou des intercepteurs personnalisés.
 - **Scalabilité et maintenance** : Les fichiers de traduction peuvent croître rapidement, et les garder organisés, versionnés et synchronisés avec l'évolution de votre application peut être une tâche continue.
-
----
 
 ## Solutions i18n leader pour Angular
 
@@ -69,8 +63,6 @@ Angular propose un cadre i18n intégré, et plusieurs bibliothèques tiers sont 
 
 - **Communauté & Écosystème :** Bien que croissante, l'écosystème est plus récent, donc les plugins et outils pilotés par la communauté peuvent être plus limités par rapport à des solutions plus établies.
 
----
-
 ### 2. i18n intégré d'Angular
 
 **Aperçu**  
@@ -88,8 +80,6 @@ Angular est fourni avec un système **i18n intégré** qui comprend des outils p
 - **Multiples constructions** : Chaque langue nécessite sa propre construction, ce qui peut conduire à des scénarios de déploiement plus complexes.
 - **Contenu dynamique** : Gérer le contenu en temps réel ou dirigé par l'utilisateur peut nécessiter une logique personnalisée puisque la solution intégrée d'Angular se concentre fortement sur les traductions au moment de la compilation.
 - **Flexibilité d'exécution limitée** : Changer de langue à la volée (sans recharger l'application) peut être un défi car les traductions sont intégrées au moment de la construction.
-
----
 
 ### 3. ngx-translate
 
@@ -110,8 +100,6 @@ Site Web : [https://github.com/ngx-translate/core](https://github.com/ngx-transl
 - **État et complexité** : Gérer de nombreux fichiers de traduction peut devenir complexe dans les grandes applications.
 - **SEO et SSR** : Si vous avez besoin du rendu côté serveur avec Angular Universal, ngx-translate nécessite une configuration supplémentaire pour s'assurer que les traductions correctes sont servies aux robots d’indexation et aux navigateurs lors du premier chargement.
 - **Performance** : Bien que flexible à l'exécution, gérer de nombreuses traductions sur de grandes pages peut avoir des implications en matière de performance, il est donc recommandé de mettre en œuvre des stratégies de cache.
-
----
 
 ### 4. Transloco
 

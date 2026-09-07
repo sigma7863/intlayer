@@ -139,7 +139,7 @@ import { IntlayerProvider } from "react-native-intlayer";
 
 export default function App() {
   return (
-    <IntlayerProvider defaultLocale={getLocales()[0]?.languageTag}>
+    <IntlayerProvider locale={getLocales()[0]?.languageTag}>
       <RootNavigator />
     </IntlayerProvider>
   );

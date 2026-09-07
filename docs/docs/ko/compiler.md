@@ -104,7 +104,7 @@ export default defineConfig({
 
 > 독립형 `intlayerCompiler()` 플러그인은 고급 설정을 위해 여전히 내보내집니다. `intlayer()`와 함께 등록하는 것은 안전합니다 — 컴파일러는 자신을 중복 제거하고 한 번만 실행됩니다.
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react.md)
 
 #### 프레임워크 지원
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 이 구성은 컴포넌트 내에 선언된 콘텐츠가 자동으로 추출되어 빌드 과정 중에 사전 생성에 사용되도록 보장합니다.
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

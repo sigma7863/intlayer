@@ -45,8 +45,6 @@ Das Paket exportiert auch den zugrundeliegenden Helper [`normalizePath`](#normal
 - Toleriert fehlende führende Schrägstriche und leere Werte (normalisiert zu `/`)
 - Leichtgewichtig — baut auf `getPathWithoutLocale` auf
 
----
-
 ## Funktionssignatur
 
 ```typescript
@@ -61,8 +59,6 @@ normalizePath(
   locales?: Locales[] // Optional
 ): string
 ```
-
----
 
 ## Parameter
 
@@ -85,8 +81,6 @@ normalizePath(
 
 - **Typ**: `boolean`
 - **Beschreibung**: `true`, wenn beide Eingaben auf denselben Locale-unabhängigen Pfad auflösen, ansonsten `false`.
-
----
 
 ## Anwendungsbeispiel
 
@@ -132,8 +126,6 @@ const NavLink = ({ href, children }) => {
 };
 ```
 
----
-
 ## normalizePath
 
 `normalizePath` gibt den kanonischen, Locale-unabhängigen Pfad zurück, der von `comparePaths` verwendet wird. Es entfernt das Locale-Segment, das Protokoll/den Host, den Query-String und den Hash, stellt einen einzelnen führenden Schrägstrich sicher, entfernt jegliche abschließenden Schrägstriche (außer für das Stammverzeichnis) und greift für leere Werte auf `/` zurück.
@@ -150,15 +142,11 @@ normalizePath(""); // "/"
 normalizePath("https://example.com/ru/path"); // "/path"
 ```
 
----
-
 ## Verwandte Funktionen
 
 - [`getPathWithoutLocale`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/packages/intlayer/getPathWithoutLocale.md): Entfernt das Locale-Segment aus einer URL oder einem Pfad.
 - [`getPrefix`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/packages/intlayer/getPrefix.md): Ermittelt das URL-Präfix für ein bestimmtes Locale.
 - [`getLocalizedUrl`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/packages/intlayer/getLocalizedUrl.md): Generiert eine lokalisierte URL für ein bestimmtes Locale.
-
----
 
 ## TypeScript
 

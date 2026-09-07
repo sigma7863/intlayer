@@ -80,8 +80,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Tại sao nên sử dụng Intlayer với Storybook?
 
 Storybook là công cụ tiêu chuẩn trong ngành để phát triển và lập tài liệu cho các thành phần UI một cách độc lập. Việc kết hợp nó với Intlayer cho phép bạn:
@@ -89,8 +87,6 @@ Storybook là công cụ tiêu chuẩn trong ngành để phát triển và lậ
 - **Xem trước mọi ngôn ngữ** trực tiếp bên trong canvas của Storybook bằng trình chuyển đổi trên thanh công cụ.
 - **Phát hiện các bản dịch còn thiếu** trước khi chúng được đưa vào sản xuất.
 - **Lập tài liệu cho các thành phần đa ngôn ngữ** với nội dung thực tế, an toàn về kiểu dữ liệu thay vì các chuỗi được mã hóa cứng.
-
----
 
 ## Thiết lập từng bước
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > Để biết thêm các định dạng khai báo nội dung và tính năng khác, hãy xem [tài liệu khai báo nội dung](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/dictionary/content_file.md).
 
----
-
 ## Sử dụng `useIntlayer` trong một thành phần
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` trả về từ điển đã biên dịch cho ngôn ngữ hiện tại được cung cấp bởi `IntlayerProvider` gần nhất. Việc chuyển đổi ngôn ngữ trên thanh công cụ Storybook sẽ tự động hiển thị lại câu chuyện với các bản dịch đã cập nhật.
-
----
 
 ## Viết các câu chuyện (Story) cho các thành phần đa ngôn ngữ
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > Mỗi câu chuyện kế thừa biến toàn cục `locale` từ thanh công cụ, vì vậy bạn có thể xác minh mọi ngôn ngữ mà không cần thay đổi bất kỳ mã nguồn câu chuyện nào.
 
----
-
 ## Kiểm thử các bản dịch trong các câu chuyện
 
 Sử dụng các hàm `play` của Storybook để khẳng định rằng văn bản được dịch chính xác được hiển thị cho một ngôn ngữ nhất định:
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Tài nguyên bổ sung
 

@@ -39,8 +39,6 @@ author: aymericzip
 - 여러 라우팅 모드를 지원합니다: `prefix-no-default`, `prefix-all`, `no-prefix`, `search-params`
 - 모든 로케일을 키로, 해당 URL을 값으로 하는 매핑 객체를 반환합니다
 
----
-
 ## 함수 서명
 
 ```typescript
@@ -53,8 +51,6 @@ getMultilingualUrls(
   }
 ): StrictModeLocaleMap<string>
 ```
-
----
 
 ## 매개변수
 
@@ -96,8 +92,6 @@ getMultilingualUrls(
 
 - **타입**: `IConfigLocales<string>`
 - **설명**: 각 로케일을 해당 다국어 URL에 매핑한 객체입니다.
-
----
 
 ## 사용 예시
 
@@ -199,8 +193,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## 예외 상황
 
 - **로케일 세그먼트 없음:**
@@ -217,8 +209,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: 모든 로케일에 접두사가 있음 (예: `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: URL에 로케일 접두사가 없음 (모든 로케일이 동일한 URL 반환)
   - `'search-params'`: 쿼리 파라미터를 통해 로케일 지정 (예: `/dashboard?locale=fr`)
-
----
 
 ## 애플리케이션에서의 사용법
 

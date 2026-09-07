@@ -27,15 +27,11 @@ author: aymericzip
 
 Hướng dẫn này trình bày cách tự động xác minh từ điển của bạn đã đầy đủ, phát hiện các bản dịch còn thiếu trước khi phát hành, và kiểm thử giao diện người dùng đã được địa phương hóa trong ứng dụng của bạn.
 
----
-
 ## Những gì bạn có thể kiểm thử
 
 - **Bản dịch còn thiếu**: làm cho CI thất bại nếu bất kỳ ngôn ngữ bắt buộc nào bị thiếu trong bất kỳ từ điển nào.
 - **Kết xuất giao diện người dùng địa phương hóa**: kết xuất các component với một provider locale cụ thể và xác nhận trên văn bản/thuộc tính hiển thị.
 - **Kiểm tra thời gian build**: chạy kiểm tra nhanh cục bộ qua CLI.
-
----
 
 ## Bắt đầu nhanh: kiểm tra qua CLI
 
@@ -67,8 +63,6 @@ Các cờ hữu ích:
 - `--build [build]`: build các từ điển trước khi kiểm thử để đảm bảo nội dung được cập nhật. True sẽ ép buộc build, false sẽ bỏ qua build, undefined sẽ cho phép sử dụng cache của build.
 
 Lưu ý: CLI in ra báo cáo chi tiết nhưng không thoát với mã lỗi khác 0 khi có lỗi. Để kiểm soát CI, hãy thêm một unit test (dưới đây) để xác nhận không có locale bắt buộc nào bị thiếu.
-
----
 
 ## Kiểm tra lập trình (Vitest/Jest)
 
@@ -117,8 +111,6 @@ Cách hoạt động:
   - `missingLocales`: tập hợp tất cả các locale bị thiếu.
   - `missingRequiredLocales`: tập con giới hạn trong `requiredLocales` (hoặc tất cả các locales nếu `requiredLocales` không được thiết lập).
 
----
-
 ## Kiểm thử giao diện người dùng bản địa hóa (React / Next.js)
 
 Render các component dưới một Intlayer provider và kiểm tra nội dung hiển thị.
@@ -164,8 +156,6 @@ Mẹo:
 
 - Khi bạn cần giá trị chuỗi thô cho các thuộc tính (ví dụ: `aria-label`), truy cập trường `.value` được trả về bởi `useIntlayer` trong React.
 - Giữ các từ điển cùng vị trí với các component để dễ dàng kiểm thử đơn vị và dọn dẹp.
-
----
 
 ## Tích hợp liên tục
 
@@ -215,8 +205,6 @@ pnpm intlayer content test --verbose
 ```bash packageManager="bun"
 bun x intlayer content test --verbose
 ```
-
----
 
 ## Khắc phục sự cố
 

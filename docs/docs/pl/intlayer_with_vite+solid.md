@@ -108,8 +108,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku, jak skonfigurować Intlayer w aplikacji Vite i Solid
 
 ## Spis treści
@@ -719,8 +717,6 @@ Aby to zrobić, możesz dodać następujące instrukcje do pliku `.gitignore`:
 Aby ulepszyć doświadczenie programistyczne z Intlayer, możesz zainstalować oficjalnego **Intlayer VS Code Extension**.
 
 [Zainstaluj z VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=intlayer.intlayer-vs-code-extension)
-
----
 
 ### Idź dalej
 

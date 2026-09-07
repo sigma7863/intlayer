@@ -43,8 +43,6 @@ Import:
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### Wtyczki
 
 | Funkcja / Klasa                | Opis                                                                                                                                                                                                                      |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | Funkcja fabryczna, która tworzy wtyczkę Babel do analizowania użycia `useIntlayer` / `getIntlayer` w kodzie źródłowym i agregowania danych o użyciu pól we wspólnym `PruneContext`.                                       |
 | `getSharedPruneContext`        | Funkcja pomocnicza, która zwraca wspólny obiekt `PruneContext` dla określonego katalogu bazowego lub `null`, jeśli nie został jeszcze zainicjowany.                                                                       |
 
----
-
 ### Narzędzia konfiguracji wtyczek
 
 | Funkcja                    | Opis                                                                                                                                       |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Ładuje konfigurację Intlayer i skompilowane słowniki oraz zwraca `OptimizePluginOptions` gotowe do użycia z `intlayerOptimizeBabelPlugin`. |
 | `getPurgePluginOptions`    | Ładuje konfigurację Intlayer i zwraca `PurgePluginOptions` gotowe do użycia z `intlayerPurgeBabelPlugin`.                                  |
 | `getMinifyPluginOptions`   | Ładuje konfigurację Intlayer i zwraca `MinifyPluginOptions` gotowe do użycia z `intlayerMinifyBabelPlugin`.                                |
-
----
 
 ### Typy
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | Konfiguracja dla kompatybilnego analizatora użycia dla pakietów compat-adapter (nazwa wywołującego i opcje przetwarzania). |
 | `ScriptBlock`           | Blok skryptu wyekstrahowany z pliku SFC (Vue lub Svelte): zawartość, przesunięcie początkowe i przesunięcie końcowe.       |
 
----
-
 ### Funkcje pomocnicze
 
 | Funkcja                           | Opis                                                                                                                                                        |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | Ekstrahuje bloki `<script>` z plików SFC (Vue / Svelte) do późniejszej analizy Babel.                                                                       |
 | `BABEL_PARSER_OPTIONS`            | Stała reprezentująca opcje parsera Babel obejmująca obsługiwane frameworki (React/Vue/Svelte/Angular/...).                                                  |
 | `INTLAYER_CALLER_NAMES`           | Stała lista oryginalnych nazw wywołujących Intlayer: `['useIntlayer', 'getIntlayer']`.                                                                      |
-
----
 
 ## Przykładowe użycie
 

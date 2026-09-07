@@ -31,8 +31,6 @@ author: aymericzip
 
 Fungsi `getConfiguration` mengambil seluruh konfigurasi untuk aplikasi `intlayer` dengan mengekstrak variabel lingkungan. Fungsi ini memberikan fleksibilitas untuk menggunakan konfigurasi yang sama di sisi klien dan server, memastikan konsistensi di seluruh aplikasi.
 
----
-
 ## Parameter
 
 Fungsi ini tidak menerima parameter apa pun. Sebagai gantinya, fungsi ini menggunakan variabel lingkungan untuk konfigurasi.
@@ -47,8 +45,6 @@ Fungsi ini tidak menerima parameter apa pun. Sebagai gantinya, fungsi ini menggu
   - `editor`: Konfigurasi spesifik untuk editor.
 
 Lihat [dokumentasi konfigurasi Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md) untuk detail lebih lanjut.
-
----
 
 ## Contoh Penggunaan
 

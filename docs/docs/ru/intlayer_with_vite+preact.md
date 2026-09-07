@@ -83,8 +83,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении на Vite и Preact
 
 <Tabs defaultTab="video">
@@ -1022,13 +1020,9 @@ Intlayer использует модульное расширение, чтоб�
 
 Для получения дополнительной информации об использовании расширения см. [документацию расширения Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Продвигайтесь дальше
 
 Чтобы продвинуться дальше, вы можете реализовать [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_visual_editor.md) или вынести ваш контент вовне с помощью [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_CMS.md).
-
----
 
 ## Часто задаваемые вопросы
 

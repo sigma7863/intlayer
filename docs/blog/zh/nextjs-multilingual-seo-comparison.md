@@ -26,8 +26,6 @@ author: aymericzip
 
 在这篇博客中，我们将探讨 **为什么国际化（i18n）是 SEO 的超级力量**，以及如何在 Next.js 中使用 `next-intl`、`next-i18next` 和 `Intlayer` 正确实现它。
 
----
-
 ## 为什么要做 SEO 和国际化
 
 添加语言不仅仅是为了用户体验（UX）。它也是提升 **自然流量可见性** 的强大杠杆。原因如下：
@@ -36,8 +34,6 @@ author: aymericzip
 2. **避免重复内容：** 适当的规范（canonical）和替代（alternate）标签告诉爬虫每个页面属于哪个语言版本。
 3. **更好的用户体验：** 访客能够立即访问到你网站的正确语言版本。
 4. **竞争优势：** 很少有网站能很好地实现多语言SEO，这意味着你可以脱颖而出。
-
----
 
 ## Next.js 多语言SEO最佳实践
 
@@ -56,8 +52,6 @@ author: aymericzip
   例如：使用 `<a href="/fr/about">À propos</a>`，而不是链接到默认的 `/about`。
 
 这些都是简单的步骤, 但跳过它们可能会让你失去可见性。
-
----
 
 ## 实现示例
 
@@ -345,13 +339,9 @@ export default robots;
   </Tab>
 </Tabs>
 
----
-
 ## 使用 Intlayer SEO Scanner 审核您的网站
 
 为了确保您的多语言应用程序得到完美优化，我们建议使用 [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner)。这是一款专门用于多语言网站检查的工具，可帮助您识别所有本地化页面中缺失的 hreflang 标签、断开的链接以及其他 SEO 问题。
-
----
 
 ## 结论
 

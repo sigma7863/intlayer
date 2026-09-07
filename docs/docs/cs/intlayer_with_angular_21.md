@@ -48,8 +48,6 @@ S Intlayer můžete:
 - **Zajistit podporu TypeScriptu** s automaticky generovanými typy, což zlepšuje automatické doplňování a detekci chyb.
 - **Využívat pokročilé funkce**, jako je dynamická detekce a přepínání jazyků.
 
----
-
 ## Průvodce krok za krokem k nastavení Intlayer v aplikaci Angular
 
 <Tabs defaultTab="code">
@@ -435,8 +433,6 @@ Toto rozšíření nabízí:
 - **Rychlé akce** k snadnému vytváření a aktualizaci překladů.
 
 Další informace o tom, jak používat rozšíření, najdete v [dokumentaci Intlayer VS Code Extension](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Další kroky
 

@@ -42,8 +42,6 @@ author: aymericzip
 - يتم حفظ النتائج في الذاكرة لكل `key + locale + selector`
 - الرجوع إلى وكيل آمن في وضع التطوير عندما يكون القاموس مفقوداً، بدلاً من توقف البرنامج
 
----
-
 ## توقيع الدالة
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // اختياري
 ): DeepTransformContent<...>
 ```
-
----
 
 ## المعاملات
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **النوع**: محتوى القاموس المُفسَّر، مُكتَّب من تصريحك.
 - **الوصف**: كائن عادي يعكس حقل `content` من قاموسك، حيث تم حل كل عقدة Intlayer إلى قيمتها النهائية للغة المطلوبة.
-
----
 
 ## مثال على الاستخدام
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## ملاحظات السلوك
 
 ### التخزين المؤقت
@@ -169,15 +161,11 @@ const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 
 يقرأ `getIntlayer` القاموس المدمج الذي يحتوي على **كل** لغة. في حزم العميل، تعيد [ملحقات البناء](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/bundle_optimization.md) كتابة الاستدعاء بحيث يتم شحن المحتوى المطلوب فقط. عندما تقرأ المحتوى خارج التصيير (البيانات الوصفية، المحملات، وظائف الخادم) وتريد تحميل لغة واحدة حسب الطلب، استخدم [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getIntlayerAsync.md) بدلاً من ذلك.
 
----
-
 ## الدوال ذات الصلة
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getIntlayerAsync.md): نظير غير متزامن يحمل مجموعة منطقة واحدة.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/intlayer/getDictionary.md): يفسر كائن القاموس الذي تمرره بنفسك، بدلاً من البحث عنه حسب المفتاح.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/packages/react-intlayer/useIntlayer.md): معادل React hook، يقرأ المنطقة من موفر الخدمة.
-
----
 
 ## TypeScript
 

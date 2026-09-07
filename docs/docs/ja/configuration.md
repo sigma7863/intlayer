@@ -122,13 +122,9 @@ author: aymericzip
 
 Intlayer 設定ファイルを使用すると、国際化、ミドルウェア、コンテンツ管理など、プラグインのさまざまな側面をカスタマイズできます。このドキュメントでは、設定内の各プロパティの詳細な説明を提供します。
 
----
-
 ## 目次
 
 <TOC/>
-
----
 
 ## 設定ファイルのサポート
 
@@ -142,8 +138,6 @@ Intlayer は、JSON、JS、MJS、および TS の設定ファイル形式をサ�
 - `intlayer.config.cjs`
 - `intlayer.config.mjs`
 - `.intlayerrc`
-
----
 
 ## 設定ファイルの例
 
@@ -691,13 +685,9 @@ const config: IntlayerConfig = {
 export default config;
 ````
 
----
-
 ## 設定リファレンス
 
 以下のセクションでは、Intlayer で利用可能なさまざまな設定項目について詳しく説明します。
-
----
 
 ### 国際化設定 (Internationalization)
 
@@ -709,8 +699,6 @@ export default config;
 | `requiredLocales` | アプリケーションで必須とされるロケールのリスト。                                         | `string[]` | `[]`                | `[]`                 | • 空の場合、`strict` モードではすべてのロケールが必須になります。<br/>• 必須ロケールが `locales` フィールドにも定義されていることを確認してください。                                                                                                                                                                                                   |
 | `strictMode`      | TypeScript を使用して、国際化コンテンツの堅牢な実装を保証します。                        | `string`   | `'inclusive'`       |                      | • `"strict"` の場合: `t` 関数は、宣言されたすべてのロケールが定義されていることを要求します。不足している場合や宣言されていない場合にエラーをスローします。<br/>• `"inclusive"` の場合: ロケールが不足している場合に警告を出しますが、宣言されていない既存のロケールの使用も許可します。<br/>• `"loose"` の場合: 既存のすべてのロケールを受け入れます。 |
 | `defaultLocale`   | 要求されたロケールが見つからない場合にフォールバックとして使用されるデフォルトロケール。 | `string`   | `Locales.ENGLISH`   | `'en'`               | URL、Cookie、またはヘッダーでロケールが指定されていない場合にロケールを決定するために使用されます。                                                                                                                                                                                                                                                     |
-
----
 
 ### エディタ設定 (Editor)
 
@@ -742,8 +730,6 @@ Intlayerアナリティクスに関する設定を定義します。ユーザー
 | `enabled`       | アナリティクス収集を有効にします（ページビュー、コンテンツの露出、A/Bイベント）。 | `boolean` | `true`     | `false` | `@intlayer/analytics` がインストールされ、帰属のために `editor.clientId` が設定されている必要があります。そうでない場合、`enabled` が `true` でもアナリティクスは無効のままです。 |
 | `flushInterval` | バックエンドへの自動バッチ送信間のミリ秒数。                                      | `number`  | `20000`    | `10000` |                                                                                                                                                                                   |
 | `sampleRate`    | 記録するセッションの割合。`0`（なし）から`1`（すべて）まで。                      | `number`  | `1`        | `0.5`   | サンプリングはセッションごとに決定的であるため、記録されたセッションはそのすべてのイベントを報告します（部分的なファネルにはなりません）。                                        |
-
----
 
 ### ルーティング設定 (Routing)
 
@@ -946,8 +932,6 @@ const config: IntlayerConfig = {
 export default config;
 ```
 
----
-
 ### コンテンツ設定 (Content)
 
 ディレクトリ名、ファイル拡張子、派生設定など、アプリケーション内でのコンテンツ管理方法に関連する設定。
@@ -960,8 +944,6 @@ export default config;
 | `codeDir`        | コードが保存されているベースディレクトリからの相対ディレクトリパス。                  | `string[]` | `['.']`                                                                                                                                                                   | `['src', '../../ui-library']`                                                                                                                                                         | • コード変換 (プルーニング、最適化) のためにコードファイルを監視するために使用されます。<br/>• `contentDir` と分離することでパフォーマンスが向上する場合があります。 |
 | `excludedPath`   | コンテンツスキャンから除外するディレクトリ。                                          | `string[]` | `['**/node_modules/**', '**/dist/**', '**/build/**', '**/.intlayer/**', '**/.next/**', '**/.nuxt/**', '**/.expo/**', '**/.vercel/**', '**/.turbo/**', '**/.tanstack/**']` |                                                                                                                                                                                       | 未使用。将来の実装のために計画されています。                                                                                                                         |
 | `formatCommand`  | Intlayer がローカルにファイルを書き込む際のコンテンツファイルのフォーマッタコマンド。 | `string`   | `undefined`                                                                                                                                                               | `'npx prettier --write "{{file}}" --log-level silent'` (Prettier), `'npx biome format "{{file}}" --write --log-level none'` (Biome), `'npx eslint --fix "{{file}}" --quiet'` (ESLint) | • `{{file}}` はファイルパスに置き換えられます。<br/>• 未定義の場合、Intlayer は自動的に検出を試みます (prettier、biome、eslint をテスト)。                           |
-
----
 
 ### システム設定
 
@@ -1016,8 +998,6 @@ dictionary: {
   },
 };
 ```
-
----
 
 ### ロガー設定 (Logger)
 
@@ -1089,8 +1069,6 @@ Intlayer がアプリケーションの国際化をどのように最適化お�
 | `outputFormat`        | 辞書の出力形式を制御します。                                                                                           | `('esm' &#124; 'cjs')[]`         | `['esm', 'cjs']`                                                                                                                                                                  | `['cjs']`                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `traversePattern`     | 最適化中にスキャンするファイルを定義するパターン。                                                                     | `string[]`                       | `['**/*.{tsx,ts,js,mjs,cjs,jsx,vue,svelte,svte}', '!**/node_modules/**', '!**/dist/**', '!**/.intlayer/**', '!**/*.config.*', '!**/*.test.*', '!**/*.spec.*', '!**/*.stories.*']` | `['src/**/*.{ts,tsx}', '../ui-library/**/*.{ts,tsx}', '!**/node_modules/**']` | • ビルドパフォーマンスを向上させるために、最適化対象を関連するファイルに限定します。<br/>• `optimize` がオフの場合は無視されます。<br/>• glob パターンを使用します。                                                                                                                                                                                                                                                                                                                                                                  |
 
----
-
 ### コンパイラ設定 (Compiler)
 
 コンポーネントから直接辞書を抽出する Intlayer コンパイラを制御する設定。
@@ -1109,8 +1087,6 @@ Intlayer がアプリケーションの国際化をどのように最適化お�
 | フィールド | 説明                                                    | 型                          |
 | ---------- | ------------------------------------------------------- | --------------------------- |
 | `schemas`  | 辞書の構造を検証するための Zod スキーマを定義できます。 | `Record<string, ZodSchema>` |
-
----
 
 ### プラグイン (Plugins)
 

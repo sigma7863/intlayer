@@ -20,8 +20,6 @@ author: aymericzip
 
 # Lệnh Login của Intlayer CLI
 
----
-
 ## Mô tả
 
 Lệnh `login` của Intlayer CLI cho phép bạn xác thực với Intlayer CMS. Lệnh này tự động mở trình duyệt mặc định của bạn để hoàn tất quá trình xác thực và nhận các thông tin xác thực cần thiết (Client ID và Client Secret) để sử dụng dịch vụ Intlayer.

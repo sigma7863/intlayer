@@ -107,8 +107,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 在 Astro + Preact 中配置 Intlayer 的分步指南
 
 在 GitHub 上查看[应用程序模板](https://github.com/aymericzip/intlayer-astro-template)。
@@ -645,8 +643,6 @@ Intlayer 使用模块扩展来利用 TypeScript，使您的代码库更加健壮
 - 轻松创建和更新翻译的**快速操作**。
 
 有关使用该扩展的更多信息，请参阅 [Intlayer VS Code 扩展文档](https://intlayer.org/doc/vs-code-extension)。
-
----
 
 ### 深入了解
 

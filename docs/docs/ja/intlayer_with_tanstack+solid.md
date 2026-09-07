@@ -90,8 +90,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Tanstack StartアプリケーションでIntlayerをセットアップするためのステップバイステップガイド
 
 <Tabs defaultTab="video">
@@ -1129,8 +1127,6 @@ Intlayerによって生成されたファイルを無視することをお勧め
 .intlayer
 ```
 
----
-
 ## VS Code 拡張機能
 
 Intlayerでの開発体験を向上させるために、公式の **Intlayer VS Code 拡張機能** をインストールできます。
@@ -1146,13 +1142,9 @@ Intlayerでの開発体験を向上させるために、公式の **Intlayer VS 
 
 拡張機能の使用方法の詳細については、[Intlayer VS Code 拡張機能ドキュメント](https://intlayer.org/doc/vs-code-extension) を参照してください。
 
----
-
 ## さらに進む
 
 さらに進むには、[ビジュアルエディタ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)を実装したり、[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md)を使用してコンテンツを外部化したりできます。
-
----
 
 ## ドキュメント参照
 

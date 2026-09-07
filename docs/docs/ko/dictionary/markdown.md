@@ -1172,8 +1172,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## 서버 사이드 렌더링 (SSR) 및 하이드레이션
 
 remark / rehype와 같은 다른 마크다운 파서와 비교할 때, Intlayer 마크다운은 의존성이 없으며 클라이언트와 서버 사이드 모두에서 실행됩니다.

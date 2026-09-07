@@ -37,15 +37,11 @@ Bu rehber, **React** için üç yerleşik i18n seçeneğini karşılaştırır: 
 
 > **tl;dr**: Üçü de bir React uygulamasını yerelleştirebilir. **Bileşen kapsamlı içerik**, **katı TypeScript türleri**, **derleme zamanı eksik anahtar kontrolleri**, **ağaç sallanan sözlükler** ve yerleşik düzenleme araçları (Görsel Düzenleyici/CMS + isteğe bağlı AI çeviri) istiyorsanız, **Intlayer** modüler React kod tabanları için en kapsamlı seçimdir.
 
----
-
 ## Yüksek düzey konumlandırma
 
 - **react-intl** - ICU-ilk, standartlara uygun formatlama (tarihler/sayılar/çoğullar) olgun bir API ile. Kataloglar genellikle merkezi; anahtar güvenliği ve derleme zamanı doğrulama büyük ölçüde sizin sorumluluğunuzdur.
 - **react-i18next** - Son derece popüler ve esnek; ad alanları, detektörler ve birçok eklenti (ICU, arka uçlar). Güçlü, ancak yapılandırma projeler büyüdükçe yayılabilir.
 - **Intlayer** - React için bileşen merkezli içerik modeli, **katı TS yazımı**, **derleme zamanı kontrolleri**, **ağaç sallama**, artı **Görsel Düzenleyici/CMS** ve **AI destekli çeviriler**. React Router, Vite, CRA vb. ile çalışır.
-
----
 
 ## Özellik matrisi (React odaklı)
 
@@ -71,8 +67,6 @@ Bu rehber, **React** için üç yerleşik i18n seçeneğini karşılaştırır: 
 | **Kullanılmayan içeriği temizle**                    | ✅ Evet, derleme zamanında sözlük başına                                                                                                                        | ❌ Hayır, sadece manuel ad alanı segmentasyonu aracılığıyla                                                          | ❌ Hayır, tüm beyan edilen mesajlar paketlenir                                                     |
 | **Büyük Projelerin Yönetimi**                        | ✅ Modüler teşvik eder, tasarım sistemi için uygundur                                                                                                           | ⚠️ İyi dosya disiplini gerektir                                                                                      | ⚠️ Merkezi kataloglar büyük olabilir                                                               |
 
----
-
 ## Derinlemesine karşılaştırma
 
 ### 1) Mimari ve ölçeklenebilirlik
@@ -82,8 +76,6 @@ Bu rehber, **React** için üç yerleşik i18n seçeneğini karşılaştırır: 
 
 **Neden önemli:** Modüler içerik modüler UI'yi yansıtır. Büyük React kod tabanları, çeviriler bileşenlerle birlikte yaşadığında daha temiz kalır.
 
----
-
 ### 2) TypeScript ve güvenlik
 
 - **react-intl**: Sağlam yazımlar, ancak **otomatik anahtar yazımı yok**; güvenlik desenlerini kendiniz uygularsınız.
@@ -92,16 +84,12 @@ Bu rehber, **React** için üç yerleşik i18n seçeneğini karşılaştırır: 
 
 **Neden önemli:** Başarısızlıkları **sol** (derleme/CI) kaydırmak üretim sorunlarını azaltır ve geliştirici geri bildirim döngülerini hızlandırır.
 
----
-
 ### 3) Eksik çeviri işleme
 
 - **react-intl / react-i18next**: **Çalışma zamanı geri dönüşlerine** varsayılan (anahtar yankısı veya varsayılan yerel). Linting/eklentiler ekleyebilirsiniz, ancak derlemede garanti edilmez.
 - **Intlayer**: Gerekli yerel/anahtarlar eksik olduğunda **derleme zamanı algılama** ile uyarılar veya hatalar.
 
 **Neden önemli:** Eksik dizeler üzerinde CI başarısızlığı, "gizem İngilizce"nin İngilizce olmayan UI'lere sızmasını önler.
-
----
 
 ### 4) Zengin içerik ve formatlama
 
@@ -111,16 +99,12 @@ Bu rehber, **React** için üç yerleşik i18n seçeneğini karşılaştırır: 
 
 **Neden önemli:** Karmaşık UI metinleri (bağlantılar, kalın parçalar, satır içi bileşenler), kütüphane React düğümlerini temiz bir şekilde benimsediğinde daha kolaydır.
 
----
-
 ### 5) Performans ve yükleme davranışı
 
 - **react-intl / react-i18next**: Genellikle **katalog bölme** ve **tembel yükleme** yi manuel olarak yönetirsiniz (ad alanları/dinamik içe aktarmalar). Etkili ancak disiplin gerektirir.
 - **Intlayer**: Kullanılmayan sözlükleri **ağaç sallar** ve **sözlük başına/yere göre tembel yükleme** yi kutudan çıkarır.
 
 **Neden önemli:** Daha küçük paketler ve daha az kullanılmayan dize başlatma ve navigasyon performansını iyileştirir.
-
----
 
 ### 6) DX, araçlar ve bakım
 
@@ -129,23 +113,17 @@ Bu rehber, **React** için üç yerleşik i18n seçeneğini karşılaştırır: 
 
 **Neden önemli:** Yerleşik araçlar geliştiriciler ve içerik yazarları arasındaki döngüyü kısaltır - daha az yapıştırıcı kod, daha az satıcı bağımlılığı.
 
----
-
 ## Hangisini ne zaman seçmeli?
 
 - **react-intl**'i seçin eğer **ICU-ilk** mesaj formatlaması istiyorsanız, standartlara uygun bir API ile ve ekibiniz katalogları ve güvenlik kontrollerini manuel olarak sürdürmekle rahat.
 - **react-i18next**'i seçin eğer **i18next'in ekosisteminin genişliğine** ihtiyacınız varsa (detektörler, arka uçlar, ICU eklentisi, entegrasyonlar) ve esnekliği kazanmak için daha fazla yapılandırma kabul ediyorsanız.
 - **Intlayer**'ı seçin eğer **bileşen kapsamlı içerik**, **katı TypeScript**, **derleme zamanı garantileri**, **ağaç sallama** ve **pil dahil** düzenleme araçlarını takdir ediyorsanız - özellikle **büyük, modüler** React uygulamaları, tasarım sistemleri vb. için.
 
----
-
 ## `react-intl` ve `react-i18next` ile birlikte çalışabilirlik
 
 `intlayer`, `react-intl` ve `react-i18next` ad alanlarınızı yönetmenize de yardımcı olabilir.
 
 `intlayer` kullanarak, içeriğinizi favori i18n kütüphanenizin formatında beyan edebilirsiniz ve intlayer ad alanlarınızı istediğiniz konumda oluşturacaktır (örnek: `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## GitHub YILDIZLARI
 

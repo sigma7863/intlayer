@@ -25,8 +25,6 @@ author: aymericzip
 
 翻訳は簡単な半分です。難しい半分は、検索エンジンにこれらのページが**別の言語の同じページ**であることを伝えることであり、3つのドキュメントが互いに競合していないことです。これが `hreflang` が行うことであり、ほとんどの多言語サイトが静かに交通を失うところです。
 
----
-
 ## hreflang が実際に何であるか
 
 ページ上の注釈で、次のように言っています：_この URL には、これらの言語用に同等のバージョンがあります。_
@@ -42,8 +40,6 @@ author: aymericzip
 
 それが何でないかについて明確にすることは価値があります。これは**リダイレクトではありません** — これはヒントであり、Googleはそれをオーバーライドするかもしれません。これは**ランキングブースト ではありません** — これはあなたがランクするかどうかではなく、**どのバージョンがランクするか**を変更します。そしてBingはそれを完全に無視し、代わりに`content-language`とジオターゲティングに依存しています。
 
----
-
 ## どこで宣言するか
 
 3つの配置、すべて有効です。1つを選んでそこに留まってください — 2つの場所で宣言された同じクラスターは、セットがどのように分散するかを示します。
@@ -53,8 +49,6 @@ author: aymericzip
 **XML sitemap** はスケールに優れています。10 個のロケール × 5,000 ページは、ブラウザに何も得られない 50,000 個の `<link>` 要素が送信されることになりますが、sitemap では、ページに対してゼロバイトのコストで済みます。
 
 **HTTP `Link` header** は PDF などの非 HTML ファイルの唯一のオプションです。
-
----
 
 ## ルール
 
@@ -107,8 +101,6 @@ getLocalizedUrl("https://example.com/about", "fr"); // → "https://example.com/
 
 2つのことを区別する必要があります: `x-default` はセット内の追加エントリであり、自己参照エントリの置き換えではなく、他のすべてのエントリと同様に、クラスター内のすべてのページに同じ形式で表示される必要があります。
 
----
-
 ## canonical トラップ
 
 ローカライズされた各ページは、**それ自体の canonical** である必要があります:
@@ -131,8 +123,6 @@ getLocalizedUrl("https://example.com/about", "fr"); // → "https://example.com/
 
 **Canonicalはロケールごとに自己参照的です。`hreflang`はクラスタを説明します。**
 
----
-
 ## URLの構造を選択する
 
 `hreflang`はURLに注釈を付けるため、構造が最初に来ます。
@@ -148,8 +138,6 @@ getLocalizedUrl("https://example.com/about", "fr"); // → "https://example.com/
 避けるべき構造の1つ：`Accept-Language`またはIPに基づいて、**同じURL**で異なる言語を提供すること。クローラーは1つのバージョンを見て、1つのバージョンをインデックスしますため、他のすべてが見えなくなります。
 
 > Intlayerは`routing.mode`と`routing.domains`を通じて3つすべてをカバーしています。[カスタムドメイン](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/custom_domains.md)と[構成リファレンス](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/configuration.md)を参照してください。
-
----
 
 ## 実装
 
@@ -287,8 +275,6 @@ const sitemap = generateSitemap(
 
 </Steps>
 
----
-
 ## チェックリスト
 
 - [ ] 各ロケールには、異なるクロール可能な URL があります
@@ -301,8 +287,6 @@ const sitemap = generateSitemap(
 - [ ] タグはサーバーレンダリングされており、ハイドレーション後に注入されていない
 - [ ] 正確に 1 つの場所で宣言されている
 - [ ] Alternate がリダイレクトしていない
-
----
 
 ## まとめ
 

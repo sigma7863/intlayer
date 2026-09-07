@@ -1172,8 +1172,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## العرض من جانب الخادم (SSR) والترطيب (Hydration)
 
 بالمقارنة مع محللات Markdown الأخرى مثل remark / rehype، فإن Intlayer Markdown خالي من الاعتماديات ويعمل على جانب العميل وجانب الخادم على حد سواء.

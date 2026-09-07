@@ -40,8 +40,6 @@ author: aymericzip
 > Nota: next-i18next está construido sobre i18next. Esta guía utiliza las primitivas de i18next compatibles con next-i18next en el App Router, manteniendo la arquitectura simple y lista para producción.
 > Para una comparación más amplia, consulta [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/es/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Estructura del proyecto
 
 Instala las dependencias de next-i18next -
@@ -93,8 +91,6 @@ Lista de verificación (mid/senior):
 - No sobrecentralices los mensajes; usa namespaces pequeños, específicos por página o funcionalidad
 - Evita importar todos los locales a la vez; carga solo lo que necesites
 
----
-
 ## 2) Instalar dependencias
 
 ```bash
@@ -107,8 +103,6 @@ Si planeas usar las APIs de next-i18next o interoperabilidad de configuración, 
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Configuración principal de i18n
 
@@ -135,8 +129,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Nota importante: Si usas `next-i18next.config.js`, mantenlo alineado con `i18n.config.ts` para evitar desincronizaciones.
-
----
 
 ## 4) Inicialización de i18n del lado servidor
 
@@ -175,8 +167,6 @@ export async function initI18next(
 ```
 
 Nota intermedia: Mantén la lista de namespaces corta por página para limitar la carga. Evita paquetes globales “catch-all”.
-
----
 
 ## 5) Proveedor cliente para componentes React
 
@@ -234,8 +224,6 @@ export default function I18nProvider({
 
 Consejo para principiantes: No necesitas pasar todos los mensajes al cliente. Comienza solo con los namespaces de la página.
 
----
-
 ## 6) Diseño y rutas localizadas
 
 Configura el idioma y la dirección, y pre-genera rutas por locale para favorecer el renderizado estático.
@@ -270,8 +258,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Página de ejemplo con uso en servidor + cliente
 
@@ -388,8 +374,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: Metadatos, Hreflang, Sitemap, Robots
 
 Traducir contenido es un medio para mejorar el alcance. Configura el SEO multilingüe de manera exhaustiva.
@@ -483,8 +467,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Middleware para el enrutamiento por locales
 
 Detecta la locale y redirige a una ruta localizada si falta.
@@ -527,8 +509,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Buenas prácticas de rendimiento y experiencia de desarrollo (DX)
 
 - **Configurar `lang` y `dir` en html**: Hecho en `src/app/[locale]/layout.tsx`.
@@ -539,8 +519,6 @@ export const config = {
 - **Memoizar operaciones pesadas**: Especialmente en código cliente para versiones antiguas de React.
 - **Cache y headers**: Preferir estático o `revalidate` sobre renderizado dinámico cuando sea posible.
 
----
-
 ## 11) Testing y CI
 
 - Añadir tests unitarios para componentes que usan `t` para asegurar que las keys existen.
@@ -548,8 +526,6 @@ export const config = {
 - Mostrar las claves faltantes durante la CI antes del despliegue.
 
 Intlayer automatizará gran parte de esto (ver la siguiente sección).
-
----
 
 ## 12) Añadir Intlayer encima (automatización)
 
@@ -636,8 +612,6 @@ Flujos comunes:
 
 > Puedes proporcionar argumentos CLI; consulta la [documentación CLI de Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/cli/index.md).
 
----
-
 ## 13) Solución de problemas
 
 - **Claves no encontradas**: Asegúrate de que la página/proveedor liste los namespaces correctos y que el archivo JSON exista en `src/locales/<locale>/<namespace>.json`.
@@ -645,8 +619,6 @@ Flujos comunes:
 - **Problemas con diseño RTL**: Confirma que `dir` se derive de `isRtl(locale)` y que tu CSS respete `[dir="rtl"]`.
 - **Faltan alternativos SEO**: Confirma que `alternates.languages` incluya todos los locales y `x-default`.
 - **Bundles demasiado grandes**: Divide aún más los namespaces y evita importar árboles completos de `locales` en el cliente.
-
----
 
 ## 14) Qué sigue
 

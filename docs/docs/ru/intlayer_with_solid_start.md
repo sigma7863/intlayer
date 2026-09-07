@@ -112,8 +112,6 @@ Intlayer — это больше, чем просто решение для i18n
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении SolidStart
 
 <Steps>
@@ -1016,8 +1014,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## Проверка вашей настройки
 
 Соберите и запустите сервер, затем проверьте, что следующие запросы ведут себя как ожидается:
@@ -1043,8 +1039,6 @@ node .output/server/index.mjs
 
 > Запускайте dev-сервер на Node (`vite dev`), а не на Bun (`bun --bun vite dev`): SSR SolidStart в настоящее время падает под рантаймом Bun с ошибкой `Expected a Response object, but received 'NodeResponse'`. Это не связано с Intlayer — ошибка воспроизводится на обычном шаблоне — и затрагивает только dev-сервер, а не `vite build`.
 
----
-
 ## Настройка Git
 
 Рекомендуется игнорировать файлы, сгенерированные Intlayer. Это позволяет избежать их коммита в ваш Git-репозиторий.
@@ -1055,8 +1049,6 @@ node .output/server/index.mjs
 # Игнорировать файлы, сгенерированные Intlayer
 .intlayer
 ```
-
----
 
 ## Расширение для VS Code
 
@@ -1071,13 +1063,9 @@ node .output/server/index.mjs
 - **Встроенные превью** переведённого контента.
 - **Быстрые действия** для лёгкого создания и обновления переводов.
 
----
-
 ## Что дальше
 
 Чтобы пойти дальше, вы можете внедрить [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) или вынести ваш контент вовне с помощью [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md).
-
----
 
 ## Ссылки на документацию
 

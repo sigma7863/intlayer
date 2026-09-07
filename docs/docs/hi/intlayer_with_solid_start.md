@@ -112,8 +112,6 @@ Intlayer को Solid के साथ पूरी तरह से काम �
 </Accordion>
 </AccordionGroup>
 
----
-
 ## SolidStart एप्लिकेशन में Intlayer सेटअप करने के लिए चरण-दर-चरण गाइड
 
 <Steps>
@@ -1015,8 +1013,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## अपने सेटअप का सत्यापन
 
 सर्वर बनाएं और प्रारंभ करें, फिर जांचें कि ये अनुरोध अपेक्षा के अनुसार व्यवहार करते हैं:
@@ -1042,8 +1038,6 @@ node .output/server/index.mjs
 
 > डेवलपर सर्वर को Bun (`bun --bun vite dev`) के बजाय Node (`vite dev`) पर चलाएं: SolidStart का SSR वर्तमान में Bun रनटाइम के तहत `Expected a Response object, but received 'NodeResponse'` के साथ विफल रहता है। यह Intlayer से असंबंधित है — यह सादे टेम्पलेट पर भी पुनः प्रस्तुत होता है — और केवल देव सर्वर को प्रभावित करता है, `vite build` को नहीं।
 
----
-
 ## Git कॉन्फ़िगरेशन
 
 Intlayer द्वारा जनरेट की गई फ़ाइलों को अनदेखा करने की सिफारिश की जाती है। यह आपको उन्हें अपने Git रिपॉजिटरी में प्रतिबद्ध (commit) करने से बचने की अनुमति देता है।
@@ -1054,8 +1048,6 @@ Intlayer द्वारा जनरेट की गई फ़ाइलों 
 # Intlayer द्वारा जनरेट की गई फ़ाइलों को अनदेखा करें
 .intlayer
 ```
-
----
 
 ## VS Code एक्सटेंशन
 
@@ -1070,13 +1062,9 @@ Intlayer के साथ अपने विकास अनुभव को �
 - अनुवादित सामग्री का **इनलाइन पूर्वावलोकन**।
 - आसानी से अनुवाद बनाने और अपडेट करने के लिए **त्वरित कार्य (quick actions)**।
 
----
-
 ## आगे बढ़ें
 
 आगे बढ़ने के लिए, आप [विजुअल एडिटर](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) को लागू कर सकते हैं या [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md) का उपयोग करके अपनी सामग्री को बाहरी रूप से प्रबंधित कर सकते हैं।
-
----
 
 ## दस्तावेज़ीकरण संदर्भ
 

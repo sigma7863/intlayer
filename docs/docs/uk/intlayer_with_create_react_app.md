@@ -94,8 +94,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник з налаштування Intlayer у React-додатку
 
 <Steps>

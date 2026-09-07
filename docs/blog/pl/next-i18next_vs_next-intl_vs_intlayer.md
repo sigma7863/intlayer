@@ -34,15 +34,11 @@ Skupiamy się na **Next.js 13+ App Router** (z **React Server Components**) i oc
 
 > Częstym nieporozumieniem wśród deweloperów jest myślenie, że `next-intl` to wersja Next.js `react-intl`. Tak nie jest, `next-intl` jest utrzymywany przez [Amann](https://github.com/amannn), podczas gdy `react-intl` jest utrzymywany przez [FormatJS](https://github.com/formatjs/formatjs).
 
----
-
 ## W skrócie
 
 - **next-intl** - Lekki, prosty formatowanie wiadomości z solidnym wsparciem Next.js. Centralizowane katalogi są powszechne; DX jest prosty, ale bezpieczeństwo i utrzymanie na dużą skalę pozostają głównie Twoją odpowiedzialnością.
 - **next-i18next** - i18next w oprawie Next.js. Dojrzały ekosystem i funkcje dostępne przez wtyczki (np. ICU), ale konfiguracja może być rozbudowana, a katalogi mają tendencję do centralizacji wraz z rozwojem projektów.
 - **Intlayer** - Model zawartości skoncentrowany na komponentach dla Next.js, **ścisłe typowanie TS**, **sprawdzanie podczas kompilacji**, **tree-shaking**, **wbudowane middleware i pomocniki SEO**, opcjonalny **Visual Editor/CMS** oraz **tłumaczenia wspomagane przez AI**.
-
----
 
 | Library                | GitHub Stars                                                                                                                                                                     | Total Commits                                                                                                                                                                        | Last Commit                                                                                                                                           | First Version | NPM Version                                                                                                         | NPM Downloads                                                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -52,8 +48,6 @@ Skupiamy się na **Next.js 13+ App Router** (z **React Server Components**) i oc
 | `i18next/next-i18next` | [![GitHub Repo stars](https://img.shields.io/github/stars/i18next/next-i18next?style=for-the-badge&label=%E2%AD%90%20stars)](https://github.com/i18next/next-i18next/stargazers) | [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/i18next/next-i18next?style=for-the-badge&label=commits)](https://github.com/i18next/next-i18next/commits) | [![Last Commit](https://img.shields.io/github/last-commit/i18next/next-i18next?style=for-the-badge)](https://github.com/i18next/next-i18next/commits) | Nov 2018      | [![npm](https://img.shields.io/npm/v/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) | [![npm downloads](https://img.shields.io/npm/dm/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) |
 
 > Odznaki aktualizują się automatycznie. Zrzuty ekranu mogą się zmieniać w czasie.
-
----
 
 ## Porównanie funkcji obok siebie (skoncentrowane na Next.js)
 
@@ -80,15 +74,11 @@ Skupiamy się na **Next.js 13+ App Router** (z **React Server Components**) i oc
 | **Zarządzanie dużymi projektami**                          | ✅ Zachęca do modularności, odpowiednie dla systemów projektowych                                                            | ✅ Modularne z konfiguracją                                                                                                    | ✅ Modularne z konfiguracją                                                                                                    |
 | **Testowanie brakujących tłumaczeń (CLI/CI)**              | ✅ CLI: `npx intlayer content test` (audyt przyjazny CI)                                                                     | ⚠️ Nie wbudowane; dokumentacja sugeruje `npx @lingual/i18n-check`                                                              | ⚠️ Nie wbudowane; opiera się na narzędziach i18next / runtime `saveMissing`                                                    |
 
----
-
 ## Wprowadzenie
 
 Next.js oferuje wbudowane wsparcie dla internacjonalizowanego routingu (np. segmenty lokalizacji). Jednak ta funkcja sama w sobie nie wykonuje tłumaczeń. Nadal potrzebujesz biblioteki do renderowania zlokalizowanych treści dla użytkowników.
 
 Istnieje wiele bibliotek i18n, ale w świecie Next.js obecnie trzy zyskują na popularności: next-i18next, next-intl oraz Intlayer.
-
----
 
 ## Architektura i skalowalność
 
@@ -96,8 +86,6 @@ Istnieje wiele bibliotek i18n, ale w świecie Next.js obecnie trzy zyskują na p
 - **Intlayer**: Zachęca do stosowania słowników **per-komponent** (lub per-funkcjonalność) **współlokowanych** z kodem, który obsługują. Zmniejsza to obciążenie poznawcze, ułatwia duplikację/migrację elementów UI oraz redukuje konflikty między zespołami. Nieużywana zawartość jest naturalnie łatwiejsza do wykrycia i usunięcia.
 
 **Dlaczego to ważne:** W dużych bazach kodu lub systemach designu, **modułowa zawartość** skalują się lepiej niż monolityczne katalogi.
-
----
 
 ## Rozmiary pakietów i zależności
 
@@ -168,8 +156,6 @@ Oto przykład wpływu optymalizacji rozmiaru bundle za pomocą `intlayer` w apli
 | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | ![zoptymalizowany pakiet](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle.png?raw=true) | ![niezoptymalizowany pakiet](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle_no_optimization.png?raw=true) |
 
----
-
 ## TypeScript i bezpieczeństwo
 
 <Columns>
@@ -194,11 +180,10 @@ Oto przykład wpływu optymalizacji rozmiaru bundle za pomocą `intlayer` w apli
 - **Generuje ścisłe typy** na podstawie twoich treści. **Autouzupełnianie w IDE** oraz **błędy podczas kompilacji** wychwytują literówki i brakujące klucze przed wdrożeniem.
 
   </Column>
+
 </Columns>
 
 **Dlaczego to ważne:** Silne typowanie przesuwa błędy na **wcześniejszy etap** (CI/build), zamiast na **późniejszy** (czas działania).
-
----
 
 ## Obsługa brakujących tłumaczeń
 
@@ -224,11 +209,10 @@ Oto przykład wpływu optymalizacji rozmiaru bundle za pomocą `intlayer` w apli
 - **Wykrywanie podczas kompilacji** z **ostrzeżeniami/błędami** dla brakujących lokalizacji lub kluczy.
 
   </Column>
+
 </Columns>
 
 **Dlaczego to ważne:** Wykrywanie braków podczas kompilacji zapobiega pojawianiu się 'undefined' w produkcji.
-
----
 
 ## Routing, middleware i strategia URL
 
@@ -256,11 +240,10 @@ Oto przykład wpływu optymalizacji rozmiaru bundle za pomocą `intlayer` w apli
 - Dostarcza middleware.
 
   </Column>
+
 </Columns>
 
 **Dlaczego to ważne:** Pomaga w SEO i odkrywalności, a także poprawia doświadczenie użytkownika.
-
----
 
 ## Wsparcie dla Server Components (RSC)
 
@@ -289,11 +272,10 @@ Oto przykład wpływu optymalizacji rozmiaru bundle za pomocą `intlayer` w apli
 - Zapewnia synchroniczne API dla dziecięcych komponentów serwerowych.
 
   </Column>
+
 </Columns>
 
 **Dlaczego to ważne:** Wsparcie komponentów serwerowych jest kluczową funkcją Next.js 13+, wspomagającą wydajność. Przekazywanie propsów takich jak locale lub funkcji `t` z komponentu nadrzędnego do dziecięcych komponentów serwerowych sprawia, że Twoje komponenty są mniej wielokrotnego użytku.
-
----
 
 ## Integracja z platformami lokalizacyjnymi (TMS)
 
@@ -313,8 +295,6 @@ Duże organizacje często polegają na Systemach Zarządzania Tłumaczeniami (TM
   - Intlayer oferuje alternatywy: **tłumaczenia wspomagane AI** (z użyciem własnych kluczy dostawcy), **Edytor Wizualny/CMS** oraz workflowy **CLI/CI** do wykrywania i wypełniania luk.
 
 > Uwaga: `next-intl` i `i18next` również akceptują katalogi TypeScript. Jeśli Twój zespół przechowuje wiadomości w plikach `.ts` lub decentralizuje je według funkcji, możesz napotkać podobne problemy z TMS. Jednak wiele konfiguracji `next-intl` pozostaje scentralizowanych w folderze `locales/`, co jest nieco łatwiejsze do przekształcenia na JSON dla TMS.
-
----
 
 ## Doświadczenie dewelopera
 
@@ -949,8 +929,6 @@ const ClientComponentExample = () => {
   - **next-intl** jest elastyczny; ładuj wiadomości według własnej konfiguracji.
   - **Intlayer** przechowuje zawartość w słownikach TS/JS i rozwiązuje je za pomocą klucza.
 
----
-
 ### Użycie w komponencie serwerowym
 
 Weźmiemy pod uwagę przypadek komponentu UI. Ten komponent jest komponentem serwerowym i powinien mieć możliwość bycia wstawionym jako dziecko komponentu klienta. (strona (komponent serwerowy) -> komponent klienta -> komponent serwerowy). Ponieważ ten komponent może być wstawiony jako dziecko komponentu klienta, nie może być asynchroniczny.
@@ -1063,7 +1041,7 @@ Oto lista dobrych praktyk dotyczących wielojęzycznego SEO.
 Programiści często zapominają o prawidłowym referencjonowaniu swoich stron w różnych lokalizacjach.
 
 <Tabs defaultTab="next-intl" group='techno'>
- 
+
   <Tab label="next-i18next" value="next-i18next">
 
 ```ts fileName="i18n.config.ts"
@@ -1446,9 +1424,8 @@ Konfiguracja middleware jest scentralizowana w pliku `intlayer.config.ts`.
 - **Zintegrowane narzędzia**: Wykorzystaj wbudowane routowanie, pomocników SEO oraz wsparcie edytora wizualnego.
 
   </Tab>
-</Tabs>
 
----
+</Tabs>
 
 ## A zwycięzca to…
 
@@ -1476,6 +1453,7 @@ To nie jest proste. Każda opcja ma swoje kompromisy. Oto jak to widzę:
 - zbudowany dla nowoczesnego Next.js, z modularną zawartością, bezpieczeństwem typów, narzędziami i mniejszą ilością boilerplate. Jeśli cenisz sobie **zawartość ograniczoną do komponentu**, **ścisły TypeScript**, **gwarancje w czasie kompilacji**, **tree-shaking** oraz **wbudowane** narzędzia do routingu/SEO/edytora – szczególnie dla **Next.js App Router**, systemów projektowych i **dużych, modularnych baz kodu**.
 
   </Column>
+
 </Columns>
 
 Jeśli wolisz minimalną konfigurację i akceptujesz trochę ręcznego łączenia, next-intl jest dobrym wyborem. Jeśli potrzebujesz wszystkich funkcji i nie przeszkadza Ci złożoność, next-i18next sprawdzi się. Ale jeśli chcesz nowoczesne, skalowalne, modularne rozwiązanie z wbudowanymi narzędziami, Intlayer ma na celu dostarczyć to od razu po wyjęciu z pudełka.
@@ -1489,8 +1467,6 @@ Jeśli wolisz minimalną konfigurację i akceptujesz trochę ręcznego łączeni
 Gwiazdy na GitHubie są silnym wskaźnikiem popularności projektu, zaufania społeczności oraz jego długoterminowej istotności. Choć nie są bezpośrednią miarą jakości technicznej, odzwierciedlają, ilu deweloperów uważa projekt za przydatny, śledzi jego rozwój i prawdopodobnie zdecyduje się go używać. Przy szacowaniu wartości projektu, gwiazdy pomagają porównać zainteresowanie różnymi alternatywami oraz dostarczają wglądu w rozwój ekosystemu.
 
 [![Wykres historii gwiazd](https://api.star-history.com/chart?repos=i18next/next-i18next%2Camannn/next-intl%2Caymericzip/intlayer&type=date&legend=top-left)](https://www.star-history.com/#i18next/next-i18next&amannn/next-intl&aymericzip/intlayer)
-
----
 
 ## Podsumowanie
 

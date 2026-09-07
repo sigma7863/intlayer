@@ -108,8 +108,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении SvelteKit
 
 See [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template) on GitHub.
@@ -773,8 +771,6 @@ bun run build # Or bun run dev
 # Игнорировать файлы, сгенерированные Intlayer
 .intlayer
 ```
-
----
 
 ### Дальнейшие шаги
 

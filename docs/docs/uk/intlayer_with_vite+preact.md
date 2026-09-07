@@ -86,8 +86,6 @@ Intlayer оптимізовано для ідеальної роботи з Prea
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник із налаштування Intlayer у застосунку на Vite і Preact
 
 <Tabs defaultTab="video">
@@ -1025,13 +1023,9 @@ Intlayer використовує module augmentation для отримання 
 
 Для більш детальної інформації про використання розширення зверніться до [документації розширення Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ### Далі
 
 Щоб просунутися далі, ви можете реалізувати [візуальний редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_visual_editor.md) або винести ваш контент, використовуючи [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/uk/intlayer_CMS.md).
-
----
 
 ## Часто задавані запитання
 

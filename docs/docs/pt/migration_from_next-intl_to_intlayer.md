@@ -67,8 +67,6 @@ Muito mais que apenas uma solução i18n, o Intlayer fornece um **[editor visual
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Estratégia de Migração
 
 A abordagem recomendada para aplicativos existentes é usar o **adaptador de compatibilidade**: Instale `@intlayer/next-intl`. Ele expõe **exatamente a mesma API** do `next-intl`, mas delega todo o trabalho de tradução, por baixo dos panos, ao Intlayer.
@@ -77,13 +75,9 @@ Você mantém intactos o `useTranslations`, o `getTranslations`, o `NextIntlClie
 
 Com o tempo, você pode opcionalmente migrar arquivos individuais para o formato `.content.ts` mais rico do Intlayer para destravar o editor visual, CMS e o escopo no nível do componente — mas este passo é totalmente opcional e pode ser feito de modo incremental.
 
----
-
 ## Índice
 
 <TOC/>
-
----
 
 ## Migração Rápida
 
@@ -212,8 +206,6 @@ Isso é tudo para a migração rápida. Seu aplicativo agora está sendo executa
 > t("counter.label"); // ✓ tipado
 > ```
 
----
-
 ## Migração Completa
 
 As etapas a seguir são opcionais e podem ser feitas gradativamente. Elas desbloqueiam o conjunto completo das funcionalidades do Intlayer: editor visual, CMS, arquivos de conteúdo tipados, automação de tradução por IA e muito mais.
@@ -308,8 +300,6 @@ export default config;
 
 </Steps>
 
----
-
 ## O que pode ser excluído pós-migração
 
 Logo que o `@intlayer/next-intl` estiver configurado, as estruturas do tipo boilerplate que dizem respeito ao seu app rodando `next-intl` podem então seguir rumo a exclusão:
@@ -321,8 +311,6 @@ Logo que o `@intlayer/next-intl` estiver configurado, as estruturas do tipo boil
 | Qualquer carregamento das fontes localizadas do `locales/{locale}/*.json` dentro desse seu design | Os pacotes que trabalham utilizando a configuração e arquitetura via JSON (JSON bundle's) seguem sendo demandados restritamente durante o tempo aonde prosseguir acionado de preferência por você o plugin `syncJSON`. Terminando assim as respectivas transições para as abordagens voltadas aos estilos com finalizações `.content.ts`, basta apenas mandar fora a pasta contendo esse antigo método de armazenamento via JSON. |
 
 Quando você estiver pronto para ir mais além, o Intlayer **descobre automaticamente todos os arquivos `.content.ts` e `.content.json` em qualquer lugar da sua base de código** (por padrão, em qualquer lugar sob `./src`). Basta colocar um arquivo `about.content.ts` ao lado do seu `about/page.tsx`, e o Intlayer o detectará em tempo de build sem necessidade de configuração adicional — não são necessários imports, registros ou um arquivo index central. Isso torna a co-localização das traduções com páginas e componentes totalmente fluida.
-
----
 
 ## Configuração do TypeScript
 
@@ -338,8 +326,6 @@ O Intlayer usa aumento de módulo (module augmentation) para fornecer IntelliSen
 }
 ```
 
----
-
 ## Configuração do Git
 
 Adicione o diretório gerado pelo Intlayer ao seu `.gitignore`:
@@ -348,8 +334,6 @@ Adicione o diretório gerado pelo Intlayer ao seu `.gitignore`:
 # Ignora arquivos gerados pelo Intlayer
 .intlayer
 ```
-
----
 
 ## Explore Além
 

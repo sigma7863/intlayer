@@ -42,8 +42,6 @@ Legge i dizionari generati da Intlayer in `.intlayer/`, quindi l'argomento `key`
 - I risultati sono memorizzati nella cache per `key + locale + selector`
 - Ricade su un proxy sicuro in sviluppo quando un dizionario è mancante, invece di bloccarsi
 
----
-
 ## Firma della Funzione
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // Opzionale
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parametri
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: Il contenuto interpretato del dizionario, tipizzato dalla tua dichiarazione.
 - **Description**: Un oggetto semplice che rispecchia il campo `content` del tuo dizionario, dove ogni nodo Intlayer è stato risolto al suo valore finale per la locale richiesta.
-
----
 
 ## Esempio di utilizzo
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## Note sul comportamento
 
 ### Caching
@@ -169,15 +161,11 @@ Durante lo sviluppo, richiedere una chiave che non ha un dizionario generato reg
 
 `getIntlayer` legge il dizionario unito, che contiene **ogni** locale. Nei bundle client, i [plugin di build](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/bundle_optimization.md) riscrivono la chiamata in modo che solo il contenuto richiesto venga spedito. Quando leggi contenuto al di fuori del rendering (metadata, loader, funzioni server) e vuoi che una singola locale sia caricata su richiesta, usa invece [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/packages/intlayer/getIntlayerAsync.md).
 
----
-
 ## Funzioni Correlate
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/packages/intlayer/getIntlayerAsync.md): Controparte asincrona che carica un singolo chunk di locale.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/packages/intlayer/getDictionary.md): Interpreta un oggetto dictionary che passi tu stesso, invece di uno cercato per chiave.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/packages/react-intlayer/useIntlayer.md): L'equivalente React hook, che legge il locale dal provider.
-
----
 
 ## TypeScript
 

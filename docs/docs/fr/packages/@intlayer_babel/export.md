@@ -43,8 +43,6 @@ Importation :
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### Plugins
 
 | Fonction / Classe              | Description                                                                                                                                                                                                                  |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | Fonction factory qui produit un plugin Babel pour analyser l'utilisation de `useIntlayer` / `getIntlayer` dans le code source et regrouper les données d'utilisation des champs dans le `PruneContext` partagé.              |
 | `getSharedPruneContext`        | Fonction utilitaire qui renvoie l'objet `PruneContext` partagé pour le répertoire de base spécifié, ou `null` si le contexte n'a pas encore été initialisé.                                                                  |
 
----
-
 ### Utilitaires de configuration des plugins
 
 | Fonction                   | Description                                                                                                                                                  |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Charge la configuration Intlayer et les dictionnaires compilés, et renvoie les `OptimizePluginOptions` prêtes à l'emploi avec `intlayerOptimizeBabelPlugin`. |
 | `getPurgePluginOptions`    | Charge la configuration Intlayer et renvoie les `PurgePluginOptions` prêtes à l'emploi avec `intlayerPurgeBabelPlugin`.                                      |
 | `getMinifyPluginOptions`   | Charge la configuration Intlayer et renvoie les `MinifyPluginOptions` prêtes à l'emploi avec `intlayerMinifyBabelPlugin`.                                    |
-
----
 
 ### Types
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | Configuration pour un analyseur d'utilisation compatible pour les packages compat-adapter (nom de l'appelant et options de traitement).    |
 | `ScriptBlock`           | Bloc de script extrait d'un fichier SFC (Vue ou Svelte) : contenu, décalage de début et décalage de fin.                                   |
 
----
-
 ### Fonctions utilitaires
 
 | Fonction                          | Description                                                                                                                                                                                       |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | Extrait les blocs `<script>` des fichiers SFC (Vue / Svelte) pour une analyse Babel ultérieure.                                                                                                   |
 | `BABEL_PARSER_OPTIONS`            | Constante représentant les options du parseur Babel couvrant les frameworks pris en charge (React/Vue/Svelte/Angular/...).                                                                        |
 | `INTLAYER_CALLER_NAMES`           | Liste constante des noms d'appelants originaux d'Intlayer : `['useIntlayer', 'getIntlayer']`.                                                                                                     |
-
----
 
 ## Exemple d'utilisation
 

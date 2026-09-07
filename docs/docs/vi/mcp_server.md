@@ -76,8 +76,6 @@ Lưu ý rằng máy chủ từ xa không tích hợp các công cụ CLI, tự �
 
 > Do chi phí lưu trữ máy chủ, không thể đảm bảo tính khả dụng của máy chủ từ xa. Chúng tôi giới hạn số lượng kết nối đồng thời. Chúng tôi khuyến nghị sử dụng phương thức truyền máy chủ cục bộ (stdio) để có trải nghiệm ổn định nhất.
 
----
-
 ## Thiết lập qua Intlayer CLI (khuyên dùng)
 
 Intlayer cung cấp lệnh CLI để tự động cấu hình máy chủ MCP trong dự án của bạn.
@@ -104,8 +102,6 @@ Lệnh này sẽ:
 2. Hỏi bạn muốn sử dụng phương thức vận chuyển nào (Máy chủ cục bộ (stdio) hoặc Máy chủ từ xa (Streamable HTTP)).
 3. Tự động cập nhật tệp cấu hình của bạn (ví dụ: `.cursor/mcp.json`, `.vscode/mcp.json` hoặc cấu hình Claude Desktop chung).
 
----
-
 ## Setup via Intlayer VS Code extension
 
 1. Mở Command Palette (Ctrl+Shift+P hoặc Cmd+Shift+P).
@@ -113,8 +109,6 @@ Lệnh này sẽ:
 3. Chọn nền tảng bạn sử dụng (ví dụ: `VSC Code`, `Cursor`, `Windsurf`, `OpenCode`, `Claude Code`, `GitHub Copilot Workspace`, v.v.).
 4. Chọn MCP để cài đặt (stdio, Streamable HTTP)
 5. Nhấn Enter.
-
----
 
 ## Thiết lập thủ công
 
@@ -282,8 +276,6 @@ claude mcp add intlayer https://mcp.intlayer.org -t http
 
   </Tab>
 </Tabs>
-
----
 
 ## Sử dụng MCP Server qua CLI
 

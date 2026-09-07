@@ -39,8 +39,6 @@ Hàm `getMultilingualUrls` tạo ra một ánh xạ các URL đa ngôn ngữ b�
 - Hỗ trợ nhiều chế độ định tuyến: `prefix-no-default`, `prefix-all`, `no-prefix`, và `search-params`
 - Trả về một object ánh xạ với tất cả các locale làm khóa và các URL tương ứng của chúng làm giá trị
 
----
-
 ## Chữ Ký Hàm
 
 ```typescript
@@ -53,8 +51,6 @@ getMultilingualUrls(
   }
 ): StrictModeLocaleMap<string>
 ```
-
----
 
 ## Tham số
 
@@ -96,8 +92,6 @@ getMultilingualUrls(
 
 - **Kiểu**: `IConfigLocales<string>`
 - **Mô tả**: Một đối tượng ánh xạ mỗi ngôn ngữ với URL đa ngôn ngữ tương ứng.
-
----
 
 ## Ví dụ sử dụng
 
@@ -199,8 +193,6 @@ getMultilingualUrls("/dashboard", {
 // }
 ```
 
----
-
 ## Các trường hợp đặc biệt
 
 - **Không có đoạn ngôn ngữ:**
@@ -217,8 +209,6 @@ getMultilingualUrls("/dashboard", {
   - `'prefix-all'`: Tất cả các ngôn ngữ đều có tiền tố (ví dụ: `/en/dashboard`, `/fr/dashboard`)
   - `'no-prefix'`: Không có tiền tố ngôn ngữ trong URL (tất cả các ngôn ngữ trả về cùng một URL)
   - `'search-params'`: Ngôn ngữ được chỉ định thông qua tham số truy vấn (ví dụ: `/dashboard?locale=fr`)
-
----
 
 ## Sử dụng trong các ứng dụng
 

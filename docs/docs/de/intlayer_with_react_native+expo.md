@@ -455,8 +455,6 @@ Dies ermöglicht Funktionen wie:
 - **Autovervollständigung** für Ihre Wörterbuchschlüssel.
 - **Typprüfung**, die warnt, wenn Sie auf einen nicht existierenden Schlüssel zugreifen oder der Typ nicht übereinstimmt.
 
----
-
 ## Git-Konfiguration
 
 Um zu vermeiden, dass automatisch generierte Dateien von Intlayer committet werden, fügen Sie Folgendes zu Ihrer `.gitignore` hinzu:
@@ -465,8 +463,6 @@ Um zu vermeiden, dass automatisch generierte Dateien von Intlayer committet werd
 # Ignoriere die von Intlayer generierten Dateien
 .intlayer
 ```
-
----
 
 ### VS Code Erweiterung
 
@@ -483,8 +479,6 @@ Diese Erweiterung bietet:
 
 Für weitere Details zur Verwendung der Erweiterung siehe die [Intlayer VS Code Extension Dokumentation](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Weiterführende Informationen
 
 - **Visueller Editor**: Verwenden Sie den [Intlayer Visual Editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/intlayer_visual_editor.md), um Übersetzungen visuell zu verwalten.
@@ -492,8 +486,6 @@ Für weitere Details zur Verwendung der Erweiterung siehe die [Intlayer VS Code 
 - **CLI-Befehle**: Erkunden Sie die [Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/de/cli/index.md) für Aufgaben wie das **Extrahieren von Übersetzungen** oder das **Überprüfen fehlender Schlüssel**.
 
 Viel Spaß beim Erstellen Ihrer **React Native**-Apps mit voll ausgestatteter i18n durch **Intlayer**!
-
----
 
 ### Debug
 
@@ -520,8 +512,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - Überprüfen Sie Ihre Metro-Konfiguration (Resolver Aliases, Asset Plugins, `tsconfig` Paths), wenn Module nicht aufgelöst werden können.
-
----
 
 ## Häufig gestellte Fragen
 

@@ -28,13 +28,9 @@ author: aymericzip
 
 Fungsi `t` dalam paket `express-intlayer` adalah utilitas inti untuk menyediakan respons yang dilokalisasi dalam aplikasi Express Anda. Fungsi ini mempermudah internasionalisasi (i18n) dengan memilih konten secara dinamis berdasarkan bahasa yang dipilih pengguna.
 
----
-
 ## Ikhtisar
 
 Fungsi `t` digunakan untuk mendefinisikan dan mengambil terjemahan untuk satu set bahasa tertentu. Fungsi ini secara otomatis menentukan bahasa yang tepat untuk dikembalikan berdasarkan pengaturan permintaan klien, seperti header `Accept-Language`. Jika bahasa yang dipilih tidak tersedia, fungsi ini dengan mulus akan kembali ke locale default yang ditentukan dalam konfigurasi Anda.
-
----
 
 ## Fitur Utama
 
@@ -42,8 +38,6 @@ Fungsi `t` digunakan untuk mendefinisikan dan mengambil terjemahan untuk satu se
 - **Fallback ke Locale Default**: Kembali ke locale default jika bahasa pilihan klien tidak tersedia, memastikan kelangsungan pengalaman pengguna.
 - **Ringan dan Cepat**: Dirancang untuk aplikasi dengan performa tinggi, memastikan overhead minimal.
 - **Dukungan Mode Ketat**: Menerapkan kepatuhan ketat pada locale yang dideklarasikan untuk perilaku yang dapat diandalkan.
-
----
 
 ## Tanda Tangan Fungsi
 
@@ -58,8 +52,6 @@ t(translations: Record<string, string>): string;
 ### Mengembalikan
 
 - Sebuah string yang mewakili konten dalam bahasa pilihan klien.
-
----
 
 ## Memuat Handler Permintaan Internasionalisasi
 
@@ -93,8 +85,6 @@ app.get("/", (_req, res) => {
 - **Deteksi Locale**: Middleware `intlayer` memproses permintaan yang masuk untuk mendeteksi locale yang dipilih pengguna berdasarkan header, cookie, atau metode lain yang dikonfigurasi.
 - **Konteks Terjemahan**: Menyiapkan konteks yang diperlukan agar fungsi `t` dapat beroperasi dengan benar, memastikan terjemahan dikembalikan dalam bahasa yang tepat.
 - **Pencegahan Error**: Tanpa middleware ini, penggunaan fungsi `t` akan menyebabkan error saat runtime karena informasi locale yang diperlukan tidak tersedia.
-
----
 
 ## Contoh Penggunaan
 
@@ -136,8 +126,6 @@ app.get("/error", (_req, res) => {
   );
 });
 ```
-
----
 
 ### Menggunakan Varian Locale
 
@@ -185,8 +173,6 @@ app.get("/greet", (_req, res) => {
 });
 ```
 
----
-
 ## Topik Lanjutan
 
 ### Mekanisme Fallback
@@ -210,8 +196,6 @@ Sebagai contoh:
 
 - Jika `defaultLocale` adalah `Locales.CHINESE` dan klien meminta `Locales.DUTCH`, terjemahan yang dikembalikan akan menggunakan nilai `Locales.CHINESE` secara default.
 - Jika `defaultLocale` tidak didefinisikan, fungsi `t` akan kembali menggunakan nilai `Locales.ENGLISH`.
-
----
 
 ### Penegakan Mode Ketat
 
@@ -239,8 +223,6 @@ const config = {
 export default config;
 ```
 
----
-
 ### Integrasi TypeScript
 
 Fungsi `t` aman tipe saat digunakan dengan TypeScript. Definisikan objek terjemahan yang aman tipe:
@@ -259,8 +241,6 @@ app.get("/morning", (_req, res) => {
 });
 ```
 
----
-
 ### Kesalahan Umum dan Pemecahan Masalah
 
 | Masalah                     | Penyebab                                 | Solusi                                                     |
@@ -268,16 +248,12 @@ app.get("/morning", (_req, res) => {
 | Fungsi `t` tidak berfungsi  | Middleware tidak dimuat                  | Pastikan `app.use(intlayer())` ditambahkan sebelum routes. |
 | Kesalahan terjemahan hilang | Mode ketat diaktifkan tanpa semua locale | Sediakan semua terjemahan yang diperlukan.                 |
 
----
-
 ## Tips untuk Penggunaan Efektif
 
 1. **Sentralisasi Terjemahan**: Gunakan modul terpusat atau file JSON untuk mengelola terjemahan agar memudahkan pemeliharaan.
 2. **Validasi Terjemahan**: Pastikan setiap varian bahasa memiliki terjemahan yang sesuai untuk mencegah fallback yang tidak perlu.
 3. **Gabungkan dengan i18n Frontend**: Sinkronkan dengan internasionalisasi frontend untuk pengalaman pengguna yang mulus di seluruh aplikasi.
 4. **Uji Kinerja**: Uji waktu respons aplikasi Anda saat menambahkan terjemahan untuk memastikan dampak minimal.
-
----
 
 ## Kesimpulan
 

@@ -39,8 +39,6 @@ The `getLocalizedPath` फ़ंक्शन एक कैनोनिकल प
 - आपकी कॉन्फ़िगरेशन में परिभाषित कस्टम rewrite नियमों के अनुसार पाथ को resolve करता है।
 - यदि निर्दिष्ट locale के लिए कोई rewrite नियम नहीं मिलता है तो यह स्वचालित रूप से कैनोनिकल पाथ पर fallback संभालता है।
 
----
-
 ## फ़ंक्शन सिग्नेचर
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // वैकल्पिक
 ): string
 ```
-
----
 
 ## पैरामीटर
 
@@ -77,8 +73,6 @@ getLocalizedPath(
   - **विवरण**: कस्टम rewrite नियमों को परिभाषित करने वाला एक ऑब्जेक्ट। यदि प्रदान नहीं किया गया है, तो यह आपके प्रोजेक्ट कॉन्फ़िगरेशन की `routing.rewrite` प्रॉपर्टी पर डिफॉल्ट होगा।
   - **प्रकार**: `RoutingConfig['rewrite']`
   - **डिफ़ॉल्ट**: `configuration.routing.rewrite`
-
----
 
 ## रिटर्न
 
@@ -106,8 +100,6 @@ const home = getLocalizedPath("/", Locales.FRENCH);
 
 - एक path जो string literal नहीं है (उदाहरण के लिए, एक variable से बनाई गई);
 - एक path जो multi-segment या optional parameter का उपयोग करते हुए एक rule से मेल खाती है (`[...slug]`, `[[...slug]]`, `:param?`)।
-
----
 
 ## उदाहरण उपयोग
 
@@ -165,8 +157,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Output: "/about"
 ```
-
----
 
 ## संबंधित फ़ंक्शन
 

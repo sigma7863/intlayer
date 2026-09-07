@@ -111,8 +111,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Hướng Dẫn Từng Bước Để Cài Đặt Intlayer Trong Ứng Dụng Vite và Svelte
 
 Xem [Mẫu Ứng Dụng](https://github.com/aymericzip/intlayer-vite-svelte-template) trên GitHub.
@@ -731,8 +729,6 @@ Tiện ích mở rộng này cung cấp:
 - **Hành động nhanh** để dễ dàng tạo và cập nhật các bản dịch.
 
 Để biết thêm chi tiết về cách sử dụng tiện ích mở rộng, hãy tham khảo [tài liệu Tiện ích mở rộng Intlayer cho VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Tiến xa hơn
 

@@ -23,15 +23,11 @@ author: aymericzip
 
 Dans le paysage numérique d'aujourd'hui, étendre la portée de votre site web pour toucher un public mondial est essentiel. Pour les développeurs construisant avec React, la mise en œuvre de l'internationalisation (i18n) est clé pour gérer les traductions efficacement tout en préservant la structure de l'application, la valeur SEO et l'expérience utilisateur. Dans cet article, nous explorons diverses approches i18n, des bibliothèques dédiées aux solutions codées sur mesure, vous aidant à décider laquelle convient le mieux à vos besoins de projet.
 
----
-
 ## Qu'est-ce que l'Internationalisation (i18n) ?
 
 L'internationalisation, abrégée en i18n, est le processus de conception et de préparation de votre site web pour prendre en charge plusieurs langues et contextes culturels. Dans React, cela signifie configurer votre application de manière à ce que les chaînes, les formats de date, les formats de nombre, et même la mise en page puissent être facilement adaptés pour les utilisateurs de différentes régions. Préparer votre application React pour l'i18n pose les bases d'une intégration propre des traductions et d'autres fonctionnalités de localisation.
 
 En savoir plus sur l'i18n en lisant notre article : [Qu'est-ce que l'Internationalisation (i18n) ? Définition et Défis](https://github.com/aymericzip/intlayer/blob/main/docs/blog/fr/what_is_internationalization.md).
-
----
 
 ## Le Défi de la Traduction pour les Applications React
 
@@ -42,8 +38,6 @@ Traduire un site web React présente plusieurs défis :
 - **Considérations SEO :** Pour les applications React rendues côté serveur (utilisant des frameworks comme Next.js), il est essentiel de s'assurer que les traductions contribuent positivement au SEO, ce qui implique la gestion des URLs localisées, des métadonnées, et des sitemaps.
 - **Gestion d'État et de Contexte :** Assurer que la langue correcte soit maintenue à travers les routes et les composants nécessite une gestion d'état réfléchie.
 - **Charge de Développement :** Maintenir des fichiers de traduction, assurer l'exactitude du contexte, et garder votre application évolutive sont des considérations constantes.
-
----
 
 ## Principales Solutions i18n pour React
 
@@ -69,8 +63,6 @@ Voici plusieurs approches populaires pour gérer du contenu multilingue dans des
 
 - **Communauté & Écosystème :** Bien que croissante, l'écosystème est plus récent, donc les plugins et outils pilotés par la communauté peuvent être plus limités par rapport à des solutions plus établies.
 
----
-
 ### 2. React-i18next
 
 Site Web : [https://react.i18next.com/](https://react.i18next.com/)
@@ -92,8 +84,6 @@ Site Web : [https://react.i18next.com/](https://react.i18next.com/)
 - **Soutenable :** La configuration peut devenir complexe, surtout pour des projets de grande taille ou multi-équipes ; une structure minutieuse des fichiers de traduction est essentielle.
 - **Écosystème de Plugins :** Un large écosystème de plugins et middleware est disponible, ce qui signifie aussi que vous devrez trier à travers divers paquets pour trouver les bons outils.
 - **Composants Serveur :** Nécessite une configuration supplémentaire pour s'assurer que les composants serveur reçoivent les locales correctes, surtout si vous utilisez des frameworks autres que Next.js.
-
----
 
 ### 3. React Intl (de FormatJS)
 
@@ -138,8 +128,6 @@ Site Web : [https://lingui.js.org/](https://lingui.js.org/)
 - **Soutenable :** L'extraction automatique aide à garder le code propre, mais structurer plusieurs fichiers de traduction pour des applications grandes nécessite une organisation disciplinée.
 - **Communauté & Plugins :** L'écosystème est en croissance mais reste encore plus petit comparé à i18next ou FormatJS.
 - **Composants Serveur :** Peut nécessiter une configuration plus explicite pour s'assurer que les composants serveur reçoivent les données de locale correctes.
-
----
 
 ### Pensées Finales
 

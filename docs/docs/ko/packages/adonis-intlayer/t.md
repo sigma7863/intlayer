@@ -27,13 +27,9 @@ author: aymericzip
 
 `adonis-intlayer` 패키지의 `t` 함수는 AdonisJS 애플리케이션에서 현지화된 응답을 제공하기 위한 핵심 유틸리티입니다. 사용자의 선호 언어에 따라 콘텐츠를 동적으로 선택하여 국제화(i18n)를 단순화합니다.
 
----
-
 ## 개요
 
 `t` 함수는 주어진 언어 집합에 대한 번역을 정의하고 검색하는 데 사용됩니다. `Accept-Language` 헤더와 같은 클라이언트의 요청 설정을 기반으로 반환할 적절한 언어를 자동으로 결정합니다. 선호하는 언어를 사용할 수 없는 경우 구성에 지정된 기본 로케일로 적절하게 대체됩니다.
-
----
 
 ## 주요 특징
 
@@ -41,8 +37,6 @@ author: aymericzip
 - **기본 로케일로의 폴백**: 클라이언트의 선호 언어를 사용할 수 없는 경우 기본 로케일로 대체되어 사용자 경험의 연속성을 보장합니다.
 - **비동기 컨텍스트**: Async Local Storage를 사용하여 AdonisJS 요청 수명 주기 내에서 원활하게 작동합니다.
 - **TypeScript 지원**: 번역에 대한 유형 안전성을 강제합니다.
-
----
 
 ## 함수 시그니처
 
@@ -58,8 +52,6 @@ t(translations: Record<string, any>): any;
 
 - 클라이언트의 선호 언어를 나타내는 콘텐츠입니다.
 
----
-
 ## 미들웨어 로드
 
 `t` 함수가 올바르게 작동하려면 AdonisJS 애플리케이션에 `intlayer` 미들웨어를 등록**해야** 합니다.
@@ -67,8 +59,6 @@ t(translations: Record<string, any>): any;
 ```typescript fileName="start/kernel.ts"
 router.use([() => import("adonis-intlayer/middleware")]);
 ```
-
----
 
 ## 사용 예시
 
@@ -104,8 +94,6 @@ export default class ExampleController {
   }
 }
 ```
-
----
 
 ## 고급 주제
 

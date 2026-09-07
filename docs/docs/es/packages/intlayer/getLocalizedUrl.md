@@ -39,8 +39,6 @@ La función `getLocalizedUrl` genera una URL localizada añadiendo un prefijo de
 - Puede utilizarse con parámetros mínimos para casos simples o completamente personalizado para escenarios complejos
 - Soporta múltiples modos de enrutamiento: `prefix-no-default`, `prefix-all`, `no-prefix` y `search-params`
 
----
-
 ## Firma de Función
 
 ```typescript
@@ -54,8 +52,6 @@ getLocalizedUrl(
   }
 ): string
 ```
-
----
 
 ## Parámetros
 
@@ -102,8 +98,6 @@ getLocalizedUrl(
 
 - **Tipo**: `string`
 - **Descripción**: La URL localizada para el locale especificado.
-
----
 
 ## Ejemplo de Uso
 
@@ -206,8 +200,6 @@ getLocalizedUrl(
 ); // Salida: "/about" (no se aplica prefijo para locales no soportados)
 ```
 
----
-
 ## Casos Especiales
 
 - **Sin Segmento de Locale:**
@@ -224,8 +216,6 @@ getLocalizedUrl(
   - `'prefix-all'`: Todas las locales tienen prefijos (p. ej., `/en/about`, `/fr/about`)
   - `'no-prefix'`: Sin prefijos de locale en las URLs (locale manejada en otro lugar)
   - `'search-params'`: Locale especificada mediante parámetro de consulta (p. ej., `/about?locale=fr`)
-
----
 
 ## Uso en Aplicaciones
 

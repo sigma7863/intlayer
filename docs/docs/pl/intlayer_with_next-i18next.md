@@ -40,8 +40,6 @@ author: aymericzip
 > Uwaga: next-i18next jest zbudowany na bazie i18next. Ten przewodnik korzysta z prymitywów i18next kompatybilnych z next-i18next w App Router, jednocześnie utrzymując architekturę prostą i gotową do produkcji.
 > Dla szerszego porównania zobacz [next-i18next vs next-intl vs Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) Struktura projektu
 
 Zainstaluj zależności next-i18next -
@@ -93,8 +91,6 @@ Lista kontrolna (mid/senior):
 - Nie centralizuj nadmiernie wiadomości; używaj małych przestrzeni nazw ograniczonych do strony/funkcji
 - Unikaj importowania wszystkich lokalizacji naraz; ładuj tylko to, czego potrzebujesz
 
----
-
 ## 2) Instalacja zależności
 
 ```bash
@@ -107,8 +103,6 @@ Jeśli planujesz używać API next-i18next lub integracji konfiguracji, dodaj r�
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) Podstawowa konfiguracja i18n
 
@@ -135,8 +129,6 @@ export function abs(locale: string, path: string) {
 ```
 
 Uwaga seniora: Jeśli używasz `next-i18next.config.js`, utrzymuj go zgodnego z `i18n.config.ts`, aby uniknąć rozbieżności.
-
----
 
 ## 4) Inicjalizacja i18n po stronie serwera
 
@@ -175,8 +167,6 @@ export async function initI18next(
 ```
 
 Uwaga środkowa: Utrzymuj listę przestrzeni nazw krótką na stronę, aby ograniczyć rozmiar ładunku. Unikaj globalnych pakietów „catch-all”.
-
----
 
 ## 5) Provider klienta dla komponentów React
 
@@ -234,8 +224,6 @@ export default function I18nProvider({
 
 Junior tip: Nie musisz przekazywać wszystkich komunikatów do klienta. Zacznij tylko od przestrzeni nazw strony.
 
----
-
 ## 6) Lokalizowany układ i trasy
 
 Ustaw język i kierunek oraz wstępnie wygeneruj trasy dla każdego locale, aby sprzyjać statycznemu renderowaniu.
@@ -270,8 +258,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) Przykładowa strona z użyciem po stronie serwera i klienta
 
@@ -388,8 +374,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) SEO: Metadane, Hreflang, Sitemap, Robots
 
 Tłumaczenie treści jest sposobem na zwiększenie zasięgu. Dokładnie skonfiguruj wielojęzyczne SEO.
@@ -483,8 +467,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) Middleware do routingu lokalizacji
 
 Wykrywa lokalizację i przekierowuje do zlokalizowanej ścieżki, jeśli jej brakuje.
@@ -527,8 +509,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) Wydajność i najlepsze praktyki DX
 
 - **Ustaw atrybuty html `lang` i `dir`**: Zrobione w `src/app/[locale]/layout.tsx`.
@@ -539,8 +519,6 @@ export const config = {
 - **Memoizuj ciężkie operacje**: Szczególnie w kodzie klienta dla starszych wersji React.
 - **Cache i nagłówki**: Preferuj statyczne lub `revalidate` zamiast renderowania dynamicznego, gdy to możliwe.
 
----
-
 ## 11) Testowanie i CI
 
 - Dodaj testy jednostkowe dla komponentów używających `t`, aby upewnić się, że klucze istnieją.
@@ -548,8 +526,6 @@ export const config = {
 - Wyświetl brakujące klucze podczas CI przed wdrożeniem.
 
 Intlayer zautomatyzuje większość z tych zadań (patrz następna sekcja).
-
----
 
 ## 12) Dodaj Intlayer na górę (automatyzacja)
 
@@ -636,8 +612,6 @@ Typowe przepływy:
 
 > Możesz podać argumenty CLI; zobacz [dokumentację Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/cli/index.md).
 
----
-
 ## 13) Rozwiązywanie problemów
 
 - **Nie znaleziono kluczy**: Upewnij się, że strona/dostawca wymienia poprawne przestrzenie nazw, a plik JSON istnieje pod ścieżką `src/locales/<locale>/<namespace>.json`.
@@ -645,8 +619,6 @@ Typowe przepływy:
 - **Problemy z układem RTL**: Zweryfikuj, czy `dir` jest wyprowadzany z `isRtl(locale)` oraz czy Twój CSS obsługuje `[dir="rtl"]`.
 - **Brak alternatyw SEO**: Potwierdź, że `alternates.languages` zawiera wszystkie lokalizacje oraz `x-default`.
 - **Zbyt duże paczki**: Dalsze dzielenie przestrzeni nazw i unikanie importowania całych drzew `locales` po stronie klienta.
-
----
 
 ## 14) Co dalej
 

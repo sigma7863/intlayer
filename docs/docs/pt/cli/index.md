@@ -70,13 +70,9 @@ author: aymericzip
 
 # CLI Intlayer - Todos os comandos do CLI Intlayer para o seu site multilíngue
 
----
-
 ## Índice
 
 <TOC/>
-
----
 
 ## Instalar Pacote
 

@@ -39,8 +39,6 @@ author: aymericzip
 - 구성(configuration)에 정의된 커스텀 리라이트(rewrite) 규칙에 따라 경로를 해석합니다.
 - 지정된 로케일에 대한 리라이트 규칙이 없으면 자동으로 캐노니컬 경로로 폴백합니다.
 
----
-
 ## 함수 시그니처
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // 선택사항
 ): string
 ```
-
----
 
 ## 매개변수
 
@@ -77,8 +73,6 @@ getLocalizedPath(
   - `options.defaultLocale?: Locales` — 기본 로케일. **기본값**: `configuration.internationalization.defaultLocale`
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — 경로에 로케일이 표시되는 방식. **기본값**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — 사용자 정의 rewrite 규칙. **기본값**: `configuration.routing.rewrite`
-
----
 
 ## 반환값
 
@@ -106,8 +100,6 @@ const home = getLocalizedPath("/", Locales.FRENCH);
 
 - 문자열 리터럴이 아닌 경로 (예: 변수에서 생성된 경로);
 - 다중 세그먼트 또는 선택적 매개변수를 사용하는 규칙과 일치하는 경로 (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## 예시 사용법
 
@@ -165,8 +157,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // 출력: "/about"
 ```
-
----
 
 ## 관련 함수
 

@@ -112,8 +112,6 @@ Intlayer 不仅仅是一个 i18n 解决方案，还提供了一个**自托管的
 </Accordion>
 </AccordionGroup>
 
----
-
 ## 在 SolidStart 应用程序中设置 Intlayer 的分步指南
 
 <Steps>
@@ -1015,8 +1013,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## 验证你的设置
 
 构建并启动服务器，然后检查这些请求是否按预期运行：
@@ -1042,8 +1038,6 @@ node .output/server/index.mjs
 
 > 请在 Node (`vite dev`) 上运行开发服务器，而不是在 Bun (`bun --bun vite dev`) 上：SolidStart 的 SSR 目前在 Bun 运行时下会失败并显示 `Expected a Response object, but received 'NodeResponse'`。这与 Intlayer 无关 —— 它在纯模板上也会复现 —— 并且只影响开发服务器，不影响 `vite build`。
 
----
-
 ## Git 配置
 
 建议忽略由 Intlayer 生成的文件。这可以让你避免将它们提交到 Git 仓库。
@@ -1054,8 +1048,6 @@ node .output/server/index.mjs
 # 忽略 Intlayer 生成的文件
 .intlayer
 ```
-
----
 
 ## VS Code 插件
 
@@ -1070,13 +1062,9 @@ node .output/server/index.mjs
 - 翻译内容的**行内预览**。
 - 轻松创建和更新翻译的**快速操作**。
 
----
-
 ## 深入了解
 
 要进一步了解，你可以实现[可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)或使用 [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_CMS.md) 外包你的内容。
-
----
 
 ## 文档参考
 

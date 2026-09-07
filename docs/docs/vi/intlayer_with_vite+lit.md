@@ -106,8 +106,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 </Accordion>
 </AccordionGroup>
 
----
-
 Xem [Application Template](https://github.com/aymericzip/intlayer-vite-lit-template) trên GitHub.
 
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng Vite và Lit
@@ -719,8 +717,6 @@ Tiện ích mở rộng này cung cấp:
 - **Các hành động nhanh** để dễ dàng tạo và cập nhật các bản dịch.
 
 Để biết thêm chi tiết về cách sử dụng tiện ích mở rộng, hãy tham khảo [tài liệu Tiện ích mở rộng Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Tìm hiểu thêm
 

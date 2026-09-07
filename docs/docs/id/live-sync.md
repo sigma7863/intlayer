@@ -38,8 +38,6 @@ Sinkronisasi Langsung memungkinkan aplikasi Anda mencerminkan perubahan konten C
 
 <TOC/>
 
----
-
 ## Mengaktifkan Sinkronisasi langsung
 
 Aktifkan Sinkronisasi Langsung dengan memperbarui konfigurasi Intlayer Anda:

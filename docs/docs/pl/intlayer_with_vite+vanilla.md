@@ -107,8 +107,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia **samodzielny [edytor wi
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Przewodnik krok po kroku dotyczący konfiguracji Intlayer w aplikacji Vite i Vanilla JS
 
 <Steps>
@@ -763,8 +761,6 @@ To rozszerzenie zapewnia:
 - **Szybkie akcje** do łatwego tworzenia i aktualizowania tłumaczeń.
 
 Więcej szczegółów na temat korzystania z rozszerzenia znajdziesz w [dokumentacji rozszerzenia Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Idź dalej
 

@@ -33,14 +33,10 @@ Wir konzentrieren uns auf moderne Vue-Tools (Vite, Composition API) und bewerten
 
 > **Kurzfassung**: Beide können Vue-Apps lokalisieren. Wenn Sie **komponentenbezogenen Inhalt**, **strenge TypeScript-Typen**, **Build-Zeit-Prüfungen für fehlende Schlüssel**, **tree-shakbare Wörterbücher** und **integrierte Router-/SEO-Hilfen** sowie **Visuellen Editor & KI-Übersetzungen** wünschen, ist **Intlayer** die umfassendere, modernere Wahl.
 
----
-
 ## Übergeordnete Positionierung
 
 - **vue-i18n** - Die de-facto i18n-Bibliothek für Vue. Flexible Nachrichtenformatierung (ICU-Stil), SFC-`<i18n>`-Blöcke für lokale Nachrichten und ein großes Ökosystem. Sicherheit und groß angelegte Wartung liegen größtenteils bei Ihnen.
 - **Intlayer** - Komponentenorientiertes Inhaltsmodell für Vue/Vite/Nuxt mit **strenger TS-Typisierung**, **Build-Zeit-Prüfungen**, **Tree-Shaking**, **Router- & SEO-Hilfen**, optionalem **Visuellen Editor/CMS** und **KI-unterstützten Übersetzungen**.
-
----
 
 ## Gegenüberstellung der Funktionen (Vue-fokussiert)
 
@@ -65,8 +61,6 @@ Wir konzentrieren uns auf moderne Vue-Tools (Vite, Composition API) und bewerten
 | **Wartbarkeit bei großen Projekten**               | ✅ Fördert modulare, designsystemfreundliche Struktur                                          | ✅ Möglich, erfordert jedoch strenge Datei-/Namespace-Disziplin                                            |
 | **Ökosystem / Community**                          | ⚠️ Kleiner, aber schnell wachsend                                                              | ✅ Groß und ausgereift im Vue-Ökosystem                                                                    |
 
----
-
 ## Tiefgehender Vergleich
 
 ### 1) Architektur & Skalierbarkeit
@@ -76,16 +70,12 @@ Wir konzentrieren uns auf moderne Vue-Tools (Vite, Composition API) und bewerten
 
 **Warum das wichtig ist:** In großen Vue-Anwendungen oder Designsystemen skaliert **modularer Inhalt** besser als monolithische Kataloge.
 
----
-
 ### 2) TypeScript & Sicherheit
 
 - **vue-i18n**: Gute TS-Unterstützung; **strikte Schlüsseltypisierung** erfordert typischerweise benutzerdefinierte Schemata/Generics und sorgfältige Konventionen.
 - **Intlayer**: **Erzeugt strenge Typen** aus deinen Inhalten, bietet **IDE-Autovervollständigung** und **Kompilierzeit-Fehler** bei Tippfehlern oder fehlenden Schlüsseln.
 
 **Warum das wichtig ist:** Starke Typisierung erkennt Probleme **vor** der Laufzeit.
-
----
 
 ### 3) Umgang mit fehlenden Übersetzungen
 
@@ -94,16 +84,12 @@ Wir konzentrieren uns auf moderne Vue-Tools (Vite, Composition API) und bewerten
 
 **Warum das wichtig ist:** Durchsetzung zur Buildzeit hält die Produktions-UI sauber und konsistent.
 
----
-
 ### 4) Routing- & URL-Strategie (Vue Router/Nuxt)
 
 - **Beide** können mit lokalisierten Routen arbeiten.
 - **Intlayer** bietet Hilfsmittel, um **lokalisierte Pfade zu generieren**, **Locale-Präfixe zu verwalten** und **`<link rel="alternate" hreflang>`** für SEO auszugeben. In Kombination mit Nuxt ergänzt es das Routing des Frameworks.
 
 **Warum das wichtig ist:** Weniger individuelle Verbindungs-Schichten und **saubereres SEO** über verschiedene Sprachen hinweg.
-
----
 
 ### 5) Leistung & Ladeverhalten
 
@@ -112,8 +98,6 @@ Wir konzentrieren uns auf moderne Vue-Tools (Vite, Composition API) und bewerten
 
 **Warum das wichtig ist:** Kleinere Bundles und schnellerer Start für mehrsprachige Vue-Anwendungen.
 
----
-
 ### 6) Entwicklererfahrung & Werkzeuge
 
 - **vue-i18n**: Ausgereifte Dokumentation und Community; in der Regel verlassen Sie sich auf **externe Lokalisierungsplattformen** für redaktionelle Workflows.
@@ -121,16 +105,12 @@ Wir konzentrieren uns auf moderne Vue-Tools (Vite, Composition API) und bewerten
 
 **Warum das wichtig ist:** Geringere Betriebskosten und eine kürzere Entwicklungs-Content-Schleife.
 
----
-
 ### 7) SEO, SSR & SSG
 
 - **Beide** funktionieren mit Vue SSR und Nuxt.
 - **Intlayer**: Fügt **SEO-Hilfsmittel** hinzu (Sitemaps/Metadaten/`hreflang`), die frameworkunabhängig sind und gut mit Vue/Nuxt-Builds zusammenarbeiten.
 
 **Warum das wichtig ist:** Internationale SEO ohne maßgeschneiderte Verkabelung.
-
----
 
 ## Warum Intlayer? (Problem & Ansatz)
 
@@ -221,8 +201,6 @@ Dieser Ansatz:
 - **Vermeidet tote Schlüssel** (ungenutzte Komponenten importieren keinen Inhalt).
 - **Optimiert das Laden** (lazy-geladene Komponenten bringen ihren Inhalt mit).
 
----
-
 ## Zusätzliche Funktionen von Intlayer (Vue-relevant)
 
 - **Framework-übergreifende Unterstützung**: Funktioniert mit Vue, Nuxt, Vite, React, Express und mehr.
@@ -240,22 +218,16 @@ Dieser Ansatz:
 - **MCP-Server & VSCode-Erweiterung**: Automatisieren Sie i18n-Workflows und das Verfassen direkt in Ihrer IDE.
 - **Interoperabilität**: Verbindet bei Bedarf mit **vue-i18n**, **react-i18next** und **react-intl**.
 
----
-
 ## Wann welches wählen?
 
 - **Wählen Sie vue-i18n**, wenn Sie den **standardmäßigen Vue-Ansatz** bevorzugen, gerne selbst Kataloge/Namespaces verwalten und Ihre App **klein bis mittelgroß** ist (oder Sie bereits Nuxt i18n verwenden).
 - **Wählen Sie Intlayer**, wenn Sie **komponentenbezogenen Inhalt**, **striktes TypeScript**, **Build-Zeit-Garantien**, **Tree-Shaking** und **umfangreiche Routing/SEO/Editor-Tools** schätzen – besonders für **große, modulare Vue/Nuxt-Codebasen**.
-
----
 
 ## Interoperabilität mit vue-i18n
 
 `intlayer` kann auch bei der Verwaltung deiner `vue-i18n` Namespaces helfen.
 
 Mit `intlayer` kannst du deinen Content im Format deiner bevorzugten i18n-Bibliothek deklarieren, und intlayer generiert deine Namespaces an dem Ort deiner Wahl (Beispiel: `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## Praktische Migrationshinweise (vue-i18n → Intlayer)
 
@@ -264,8 +236,6 @@ Mit `intlayer` kannst du deinen Content im Format deiner bevorzugten i18n-Biblio
 - **Strenge Prüfungen aktivieren**: Lassen Sie fehlende Schlüssel/Locales frühzeitig zur Build-Zeit erkennen.
 - **Router/SEO-Hilfen übernehmen**: Standardisieren Sie die Lokalerkennung und `hreflang`-Tags.
 - **Bundles messen**: Erwarten Sie **Reduzierungen der Bundle-Größe**, da ungenutzte Inhalte ausgeschlossen werden.
-
----
 
 ## Fazit
 

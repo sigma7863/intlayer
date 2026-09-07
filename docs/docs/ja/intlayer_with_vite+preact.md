@@ -102,8 +102,6 @@ Intlayer は単なる i18n ソリューションではなく、**自己ホスト
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Vite と Preact アプリケーションで Intlayer をセットアップするステップバイステップガイド
 
 <Tabs defaultTab="video">
@@ -1060,13 +1058,9 @@ Intlayer での開発体験を向上させるために、公式の **Intlayer VS
 
 拡張機能の使用方法の詳細については、[Intlayer VS Code Extension ドキュメント](https://intlayer.org/doc/vs-code-extension)を参照してください。
 
----
-
 ### さらに進む
 
 さらに進むには、[ビジュアルエディター](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_visual_editor.md)を実装するか、[CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ja/intlayer_CMS.md) を使用してコンテンツを外部化できます。
-
----
 
 ## よくある質問
 

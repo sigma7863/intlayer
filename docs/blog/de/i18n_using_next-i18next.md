@@ -73,8 +73,6 @@ Bevor wir in die Implementierung einsteigen, hier einige Praktiken, die Sie befo
 
 > Siehe unsere Dokumentation, die alles auflistet, was Sie über Internationalisierung und SEO wissen müssen: [Internationalisierung (i18n) mit next-intl](https://github.com/aymericzip/intlayer/blob/main/docs/blog/de/internationalization_and_SEO.md).
 
----
-
 ## Schritt-für-Schritt-Anleitung zur Einrichtung von i18next in einer Next.js-Anwendung
 
 <iframe

@@ -84,8 +84,6 @@ Intlayer — это больше, чем просто решение i18n. Он 
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Пошаговое руководство по настройке Intlayer в приложении на Vite и Vue
 
 <Tabs defaultTab="video">
@@ -1130,13 +1128,9 @@ Intlayer использует расширение модулей (module augmen
 
 Для получения более подробной информации о том, как использовать расширение, обратитесь к [документации Intlayer VS Code Extension](https://intlayer.org/ru/doc/vs-code-extension).
 
----
-
 ### Продвинутые возможности
 
 Для расширения возможностей вы можете реализовать [визуальный редактор](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_visual_editor.md) или вынести ваш контент во внешний [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/intlayer_CMS.md).
-
----
 
 ## Часто задаваемые вопросы
 

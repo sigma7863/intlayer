@@ -101,8 +101,6 @@ Ikhtisar singkat ini mencakup elemen utama yang harus diinternasionalkan, memast
 - **Sensitivitas Budaya**
 - Ikon, warna, dan simbol mungkin memiliki makna yang berbeda di berbagai budaya. Penting untuk menyesuaikan konten visual dan tekstual agar menghormati nuansa budaya lokal.
 
----
-
 ## Praktik Terbaik untuk Menerapkan i18n
 
 - **Rencanakan Sejak Awal**  
@@ -116,8 +114,6 @@ Ikhtisar singkat ini mencakup elemen utama yang harus diinternasionalkan, memast
 
 - **Dapat Digunakan Kembali Terjemahan**  
   Atur file terjemahan Anda agar dapat digunakan kembali di berbagai situs web atau aplikasi. Misalnya, jika Anda memiliki footer atau header multibahasa, buat file terjemahan khusus sehingga elemen umum dapat dengan mudah diterapkan ke semua proyek.
-
----
 
 ## Kamus Locale vs. Eksternalisasi Konten CMS
 
@@ -136,8 +132,6 @@ Mengingat tantangan ini, umum untuk memilih CMS headless guna mengeksternalisasi
 
 Penting untuk memilih alat yang tepat sesuai kebutuhan Anda dan merencanakan strategi internasionalisasi sejak awal. **Intlayer menawarkan solusi menarik dengan menggabungkan deklarasi konten lokal dengan CMS headless yang terintegrasi erat, memberikan yang terbaik dari kedua dunia.**
 
----
-
 ### Lihat daftar Perpustakaan dan alat i18n per teknologi
 
 Jika Anda mencari daftar perpustakaan dan alat i18n per teknologi, lihat sumber daya berikut:
@@ -155,8 +149,6 @@ Jika Anda mencari daftar perpustakaan dan alat i18n per teknologi, lihat sumber 
 - Vue: [Lihat daftar Perpustakaan dan alat i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Lihat daftar Perpustakaan dan alat i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/list_i18n_technologies/frameworks/svelte.md)
 - React Native : [Lihat daftar Perpustakaan dan alat i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/id/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Kesimpulan
 

@@ -42,8 +42,6 @@ Ini membaca kamus yang dihasilkan oleh Intlayer di `.intlayer/`, jadi argumen `k
 - Hasil di-cache per `key + locale + selector`
 - Kembali ke proksi yang aman dalam pengembangan ketika kamus hilang, alih-alih mengalami kegagalan
 
----
-
 ## Function Signature
 
 ```typescript
@@ -53,8 +51,6 @@ getIntlayer(
   plugins?: Plugins[]                         // Opsional
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parameter
 
@@ -82,8 +78,6 @@ getIntlayer(
 
 - **Type**: Konten dictionary yang diinterpretasi, diketik dari deklarasi Anda.
 - **Description**: Objek biasa yang mencerminkan bidang `content` dari dictionary Anda, di mana setiap node Intlayer telah diselesaikan ke nilai akhirnya untuk locale yang diminta.
-
----
 
 ## Contoh Penggunaan
 
@@ -153,8 +147,6 @@ const allPosts = getIntlayer("blog-post", { locale: "fr" });
 const banner = getIntlayer("banner", { variant: "black-friday", locale: "fr" });
 ```
 
----
-
 ## Catatan Perilaku
 
 ### Caching
@@ -169,15 +161,11 @@ Dalam pengembangan, meminta kunci yang tidak memiliki kamus yang dihasilkan menc
 
 `getIntlayer` membaca dictionary yang digabungkan, yang menyimpan **setiap** locale. Dalam client bundles, [build plugins](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/bundle_optimization.md) menulis ulang panggilan sehingga hanya konten yang diperlukan yang dikirim. Ketika Anda membaca konten di luar rendering (metadata, loaders, server functions) dan ingin satu locale dimuat sesuai permintaan, gunakan [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getIntlayerAsync.md) sebagai gantinya.
 
----
-
 ## Fungsi Terkait
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getIntlayerAsync.md): Counterpart async yang memuat satu chunk locale.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/intlayer/getDictionary.md): Menginterpretasikan object dictionary yang Anda berikan sendiri, alih-alih yang dicari berdasarkan key.
 - [`useIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/packages/react-intlayer/useIntlayer.md): Equivalent React hook, membaca locale dari provider.
-
----
 
 ## TypeScript
 

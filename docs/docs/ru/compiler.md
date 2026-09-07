@@ -104,7 +104,7 @@ export default defineConfig({
 
 > Самостоятельный плагин `intlayerCompiler()` по-прежнему экспортируется для расширенных настроек. Его регистрация вместе с `intlayer()` безопасна — компилятор дедублирует себя и запускается только один раз.
 
-See complete tutorial: [Intlayer Compiler with Vite+React](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react_compiler.md)
+See complete tutorial: [Translate Vite and React with Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_vite+react.md)
 
 #### Поддержка фреймворков
 
@@ -165,8 +165,6 @@ module.exports = {
 ```
 
 Эта конфигурация гарантирует, что контент, объявленный в ваших компонентах, автоматически извлекается и используется для генерации словарей во время процесса сборки.
-
-See complete tutorial: [Intlayer Compiler with Next.js](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_compiler.md)
 
  </Tab>
 </Tabs>

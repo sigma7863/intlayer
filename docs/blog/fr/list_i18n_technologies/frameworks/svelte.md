@@ -23,15 +23,11 @@ author: aymericzip
 
 Au fur et à mesure que le web continue de connecter les gens à travers le monde, il est de plus en plus important de fournir du contenu dans plusieurs langues. Pour les développeurs travaillant avec **Svelte**, la mise en œuvre de l'i18n est essentielle pour gérer efficacement les traductions, maintenir un code propre et respecter de bonnes pratiques en matière de SEO. Dans cet article, nous plongeons dans diverses solutions et flux de travail i18n pour Svelte, vous aidant à choisir celle qui convient le mieux aux besoins de votre projet.
 
----
-
 ## Qu'est-ce que l'internationalisation (i18n)?
 
 L'internationalisation, couramment abrégée en i18n, est le processus de conception et de construction de votre application de manière à ce qu'elle puisse facilement s'adapter à diverses langues, régions et conventions culturelles. Dans Svelte, cela signifie généralement la mise en place de chaînes de traduction, la localisation des dates, heures et nombres, et garantir que l'interface utilisateur peut passer dynamiquement d'une locale à l'autre sans réécritures majeures du code.
 
 Pour en savoir plus sur les fondamentaux de l'i18n, lisez notre article : [Qu'est-ce que l'internationalisation (i18n)? Définition et défis](https://github.com/aymericzip/intlayer/blob/main/docs/blog/fr/what_is_internationalization.md).
-
----
 
 ## Le défi de la traduction pour les applications Svelte
 
@@ -42,8 +38,6 @@ Traduire une application Svelte peut présenter plusieurs obstacles :
 - **Considérations SEO** : Si vous utilisez **SvelteKit** pour le rendu côté serveur (SSR), configurer des URLs localisées, des balises méta et des sitemaps pour un SEO efficace nécessite des soins supplémentaires.
 - **État et routage** : Maintenir la langue correcte à travers plusieurs routes et pages dynamiques implique souvent d'orchestrer l'état global, les gardes de route ou des hooks personnalisés dans SvelteKit.
 - **Maintenabilité** : À mesure que votre code et vos fichiers de traduction s'étoffent, garder tout bien organisé et synchronisé devient un effort continu.
-
----
 
 ## Solutions i18n de premier plan pour Svelte
 
@@ -69,8 +63,6 @@ Svelte ne propose pas de solution i18n native intégrée (comme le fait Angular)
 
 - **Communauté & Écosystème :** Bien que croissante, l'écosystème est plus récent, donc les plugins et outils pilotés par la communauté peuvent être plus limités par rapport à des solutions plus établies.
 
----
-
 ### 2. svelte-i18n
 
 Dépôt : [https://github.com/kaisermann/svelte-i18n](https://github.com/kaisermann/svelte-i18n)
@@ -90,8 +82,6 @@ Dépôt : [https://github.com/kaisermann/svelte-i18n](https://github.com/kaiserm
 - **Organisation du projet** : Vous devrez structurer logiquement vos fichiers de traduction à mesure que le projet grandit.
 - **Configuration SSR** : La configuration du SSR pour le SEO pourrait nécessiter des étapes supplémentaires pour garantir une détection correcte des locales côté serveur.
 - **Performance** : Bien que flexible à l'exécution, un grand nombre de traductions chargées en même temps peut affecter les temps de chargement initiaux, envisagez des stratégies de chargement paresseux ou de mise en cache.
-
----
 
 ### 3. svelte-intl-precompile
 
@@ -113,8 +103,6 @@ Dépôt : [https://github.com/cibernox/svelte-intl-precompile](https://github.co
 - **Contenu dynamique** : Si vous avez besoin de traductions à la volée pour du contenu généré par l'utilisateur, cette approche peut nécessiter des étapes supplémentaires pour les mises à jour en temps réel.
 - **Courbe d'apprentissage** : La combinaison de l'extraction de messages et de la précompilation peut être légèrement plus complexe pour les nouveaux venus.
 
----
-
 ### 4. i18next avec Svelte / SvelteKit
 
 Site Web : [https://www.i18next.com/](https://www.i18next.com/)
@@ -134,8 +122,6 @@ Bien que **i18next** soit plus couramment associé à React ou Vue, il est égal
 - **Configuration manuelle** : i18next n'a pas d'intégration dédiée à Svelte prête à l'emploi, vous devrez donc le configurer vous-même.
 - **Surcharge** : i18next est robuste, mais pour les projets Svelte plus petits, certaines de ses fonctionnalités peuvent être superflues.
 - **Routage et état** : La gestion du routage linguistique impliquera probablement des hooks ou des middlewares personnalisés dans SvelteKit.
-
----
 
 ### Dernières réflexions
 

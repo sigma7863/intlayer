@@ -50,8 +50,6 @@ Bunun için Intlayer, 'uzak sözlükler' kavramını tanıtmaktadır.
 
 <TOC/>
 
----
-
 ## Uzak sözlükleri anlama
 
 Intlayer, 'yerel' ve 'uzak' sözlükler arasında ayrım yapar.
@@ -414,8 +412,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 Tam kurulum kılavuzu, ortam değişkeni referansı, yükseltme talimatları ve yedekleme/geri yükleme prosedürleri için [Kendi Sunucuda Barındırma Kılavuzu'na](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/self_hosting.md) bakınız.
-
----
 
 ## Hata Ayıklama
 

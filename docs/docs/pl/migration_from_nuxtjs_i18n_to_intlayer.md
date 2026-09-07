@@ -68,8 +68,6 @@ Więcej niż tylko rozwiązanie i18n, Intlayer zapewnia samodzielnie hostowany *
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Strategie migracji
 
 Ponieważ `@nuxtjs/i18n` jest zasilany przez `vue-i18n` za kulisami, istnieją dwie komplementarne strategie migracji do Intlayer:
@@ -80,13 +78,9 @@ Ponieważ `@nuxtjs/i18n` jest zasilany przez `vue-i18n` za kulisami, istnieją d
 
 Ten przewodnik obejmuje **Strategię 1** najpierw (adapter compat drop-in), a następnie przechodzi przez opcjonalną pełną migrację.
 
----
-
 ## Spis treści
 
 <TOC/>
-
----
 
 ## Szybka migracja
 
@@ -192,8 +186,6 @@ export default defineNuxtConfig({
 
 To wszystko dla szybkiej migracji. Twoja aplikacja Nuxt działa teraz na Intlayer, zachowując każdy `$t` i `useI18n()` bez zmian.
 
----
-
 ## Pełna migracja
 
 Poniższe kroki są opcjonalne i można je wykonywać przyrostowo. Odblokują one pełny zestaw funkcji Intlayer: edytor wizualny, CMS, typed content files, tłumaczenie wspierane sztuczną inteligencją i wiele więcej.
@@ -273,8 +265,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Co możesz usunąć po migracji
 
 Gdy adapter kompatybilności jest już na miejscu, poniższy boilerplate można usunąć:
@@ -286,8 +276,6 @@ Gdy adapter kompatybilności jest już na miejscu, poniższy boilerplate można 
 | JSON language bundles (`locales/*.json`)  | Pakiety JSON są potrzebne tylko jeśli nadal używasz pluginu `syncJSON`. Po migracji do plików `.content.ts` możesz usunąć folder JSON. |
 
 Gdy będziesz gotowy do pójścia dalej, Intlayer **automatycznie odkrywa wszystkie pliki `.content.ts` i `.content.json` w dowolnym miejscu w Twoim codebase** (domyślnie w dowolnym miejscu wewnątrz `./src`). Możesz umieścić plik `my-component.content.ts` obok pliku `MyComponent.vue`, a Intlayer zarejestruje go w czasie budowania bez dodatkowej konfiguracji — bez importów, bez rejestracji, bez scentralizowanego pliku indeksu. To sprawia, że współlokalizacja tłumaczeń ze stronami i komponentami jest całkowicie bezproblemowa.
-
----
 
 ## Konfiguruj TypeScript
 
@@ -303,8 +291,6 @@ Intlayer używa module augmentation, aby zapewnić pełny TypeScript intellisens
 }
 ```
 
----
-
 ## Konfiguracja Git
 
 Dodaj wygenerowany przez Intlayer katalog do `.gitignore`:
@@ -313,8 +299,6 @@ Dodaj wygenerowany przez Intlayer katalog do `.gitignore`:
 # Ignoruj pliki wygenerowane przez Intlayer
 .intlayer
 ```
-
----
 
 ## Idź dalej
 

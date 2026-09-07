@@ -112,8 +112,6 @@ Mais do que apenas uma solução de i18n, o Intlayer fornece um **[editor visual
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guia passo a passo para configurar o Intlayer em uma aplicação SolidStart
 
 <Steps>
@@ -1016,8 +1014,6 @@ useIntlayer("hom-page"); // ❌ Argument of type '"hom-page"' is not assignable 
 
 </Steps>
 
----
-
 ## Verificando sua configuração
 
 Faça o build e inicie o servidor, depois verifique se estas requisições se comportam como esperado:
@@ -1043,8 +1039,6 @@ As linhas que renderizam uma página se comportam de forma idêntica em `vite de
 
 > Execute o servidor de dev no Node (`vite dev`) em vez de no Bun (`bun --bun vite dev`): a SSR do SolidStart atualmente falha no ambiente de execução do Bun com `Expected a Response object, but received 'NodeResponse'`. Isso não tem relação com o Intlayer — reproduz-se no template padrão — e afeta apenas o servidor de desenvolvimento, não o `vite build`.
 
----
-
 ## Configuração do Git
 
 É recomendado ignorar os arquivos gerados pelo Intlayer. Isso permite evitar o commit deles no seu repositório Git.
@@ -1055,8 +1049,6 @@ Para fazer isso, você pode adicionar as seguintes instruções ao seu arquivo `
 # Ignorar os arquivos gerados pelo Intlayer
 .intlayer
 ```
-
----
 
 ## Extensão do VS Code
 
@@ -1071,13 +1063,9 @@ Esta extensão oferece:
 - **Visualizações inline** do conteúdo traduzido.
 - **Ações rápidas** para criar e atualizar traduções facilmente.
 
----
-
 ## Ir Mais Longe
 
 Para ir mais longe, você pode implementar o [editor visual](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_visual_editor.md) ou externalizar seu conteúdo usando o [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_CMS.md).
-
----
 
 ## Referências de Documentação
 

@@ -39,8 +39,6 @@ To względny odpowiednik [`getLocalizedUrl`](https://github.com/aymericzip/intla
 - Rozwiązuje ścieżki zgodnie z niestandardowymi regułami przepisywania zdefiniowanymi w Twojej konfiguracji.
 - Automatycznie obsługuje powrót do ścieżki kanonicznej, jeśli dla określonego locale nie zostanie znaleziona reguła przepisywania.
 
----
-
 ## Sygnatura funkcji
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opcjonalny
 ): string
 ```
-
----
 
 ## Parametry
 
@@ -79,8 +75,6 @@ getLocalizedPath(
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — jak locale pojawia się w ścieżce. **Domyślnie**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — niestandardowe reguły rewrite. **Domyślnie**: `configuration.routing.rewrite`
 
----
-
 ## Zwraca
 
 - **Typ**: `string`
@@ -107,8 +101,6 @@ Dwa przypadki pozostają poszerzone do `string`, ponieważ nie mogą być rozwi�
 
 - ścieżka, która nie jest literałem łańcucha (np. zbudowana ze zmiennej);
 - ścieżka dopasowana przez regułę używającą parametru wielosegmentowego lub opcjonalnego (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Przykład użycia
 
@@ -166,8 +158,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Wynik: "/about"
 ```
-
----
 
 ## Powiązane funkcje
 

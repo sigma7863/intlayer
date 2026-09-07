@@ -21,15 +21,11 @@ author: aymericzip
 
 Möchten Sie mehr Nutzer weltweit erreichen? Ihre Website mehrsprachig zu gestalten, ist eine der besten Möglichkeiten, Ihr Publikum zu erweitern und Ihr SEO (Suchmaschinenoptimierung) zu verbessern. In diesem Blogbeitrag erläutern wir die Grundlagen des internationalen SEO, häufig als **i18n** (kurz für "Internationalisierung") bezeichnet, in klar verständlichen Begriffen. Sie erfahren, welche wichtigen Entscheidungen Sie treffen müssen, wie Sie technische Elemente wie `hreflang` verwenden und warum Werkzeuge wie **Intlayer** Ihre mehrsprachigen Next.js-Projekte vereinfachen können.
 
----
-
 ## 1. Was bedeutet es, Ihre Website mehrsprachig zu machen?
 
 Eine mehrsprachige Website bietet ihren Inhalt in mehr als einer Sprache an. Zum Beispiel könnten Sie eine englische Version (`example.com/en/`), eine französische Version (`example.com/fr/`) und eine spanische Version (`example.com/es/`) haben. Dieser Ansatz ermöglicht es Suchmaschinen, die richtige Sprachversion basierend auf den Vorlieben oder dem geografischen Standort der Nutzer anzuzeigen.
 
 Wenn Sie dies richtig machen, schaffen Sie ein benutzerfreundlicheres Erlebnis für Nicht-Englischsprachige, was zu besserem Engagement, höheren Konversionsraten und verbessertem SEO in verschiedenen Regionen führt.
-
----
 
 ## 2. Die richtige URL-Struktur wählen
 
@@ -51,8 +47,6 @@ Wenn Sie sich entscheiden, mehrere Sprachversionen zu haben, benötigen Sie eine
    - **Nachteile:** Nicht so starkes lokales SEO-Signal wie ccTLDs (obwohl es bei ordnungsgemäßer Durchführung immer noch sehr effektiv ist).
 
 > **Tipp:** Wenn Sie eine globale Marke haben und die Dinge einfacher halten möchten, funktionieren Subverzeichnisse oft am besten. Wenn Sie nur ein oder zwei Hauptländer ansprechen und jedes wirklich betonen möchten, könnten ccTLDs der Weg sein.
-
----
 
 ## 3. Sprache gezielt ansprechen mit Hreflang
 
@@ -84,8 +78,6 @@ In Ihrem HTML fügen Sie etwas wie folgendes hinzu:
 
 > **Kurze Anmerkung:** Stellen Sie sicher, dass die URLs in diesen Tags direkt auf die endgültige Seite zeigen, ohne zusätzliche Weiterleitungen.
 
----
-
 ## 4. Inhalte wirklich „lokal“ machen (nicht nur übersetzen)
 
 ### 4.1. Lokalisierung vs. Übersetzung
@@ -96,8 +88,6 @@ In Ihrem HTML fügen Sie etwas wie folgendes hinzu:
 ### 4.2. Duplizierte Inhalte vermeiden
 
 Selbst bei guten Übersetzungen können Suchmaschinen Ihre Website wegen doppelter Inhalte kennzeichnen, wenn sie zu ähnlich in der Struktur erscheint. Hreflang hilft klarzustellen, dass diese Seiten keine Duplikate sind, sondern Sprachvarianten.
-
----
 
 ## 5. Technisches SEO – Must-Haves
 
@@ -127,8 +117,6 @@ Kanonische Tags teilen Suchmaschinen mit, welche Seite die „originale“ oder 
 <link rel="canonical" href="https://example.com/fr/produits" />
 ```
 
----
-
 ## 6. On-Page SEO in mehreren Sprachen
 
 ### 6.1. Titel & Meta-Beschreibungen
@@ -144,8 +132,6 @@ Ihre Überschriften sollten die **lokalen Phrasen** oder **Keywords** jeder Regi
 
 - Lokalisiert den Alt-Text, Bildunterschriften und Dateinamen, falls nötig.
 - Verwenden Sie visuelle Darstellungen, die mit der Zielkultur resonieren.
-
----
 
 ## 7. Sprachwechsel & Benutzererfahrung
 
@@ -226,16 +212,12 @@ const LocaleSwitcher: FC = () => {
 - Speichern Sie die Sprachwahl Ihres Nutzers in einem **Cookie** oder einer **Sitzung**.
 - Bei ihrem nächsten Besuch auf Ihrer Website können Sie automatisch ihre bevorzugte Sprache laden.
 
----
-
 ## 8. Lokale Backlinks aufbauen
 
 **Backlinks** (Links von externen Seiten zu Ihrer) bleiben ein wichtiger SEO-Faktor. Wenn Sie eine mehrsprachige Seite betreiben, sollten Sie Folgendes in Betracht ziehen:
 
 - Kontaktieren Sie lokale Nachrichtenwebsites, Blogs oder Foren. Zum Beispiel kann eine `.fr`-Domain, die auf Ihr französisches Unterverzeichnis verweist, Ihr lokales französisches SEO steigern.
 - Überwachen Sie Backlinks pro Sprache, um zu sehen, welche Regionen mehr PR-/Marketingbemühungen benötigen.
-
----
 
 ## 9. Überwachung und Pflege Ihrer mehrsprachigen Website
 
@@ -248,8 +230,6 @@ const LocaleSwitcher: FC = () => {
 
 - Halten Sie Übersetzungen aktuell. Wenn Sie eine Produktbeschreibung auf Englisch ändern, aktualisieren Sie diese auch in Französisch, Spanisch usw.
 - Veraltete Übersetzungen können für Kunden verwirrend sein und das Vertrauen der Nutzer untergraben.
-
----
 
 ## 10. Häufige Fallstricke, die zu vermeiden sind
 
@@ -265,13 +245,9 @@ const LocaleSwitcher: FC = () => {
 4. **Kulturelle Nuancen ignorieren**
    Ein Witz oder eine Phrase, die in einem Land funktioniert, könnte in einem anderen beleidigend oder bedeutungslos sein.
 
----
-
 ## Überprüfen Sie Ihre Website mit dem Intlayer SEO Scanner
 
 Um sicherzustellen, dass Ihre mehrsprachige App perfekt optimiert ist, empfehlen wir die Verwendung des [Intlayer SEO Scanners](https://intlayer.org/i18n-seo-scanner). Es handelt sich um ein spezielles Tool zur Überprüfung mehrsprachiger Websites, das Ihnen hilft, fehlende hreflang-Tags, defekte Links und andere SEO-Probleme auf all Ihren lokalisierten Seiten zu identifizieren.
-
----
 
 ## Zusammenfassung
 

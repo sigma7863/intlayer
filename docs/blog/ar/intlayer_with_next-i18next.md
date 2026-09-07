@@ -52,8 +52,6 @@ author: aymericzip
 
 يوضح هذا الدليل كيفية الاستفادة من نظام إعلان المحتوى المتفوق في Intlayer مع الحفاظ على التوافق مع next-i18next.
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer مع next-i18next
 
 <Steps>

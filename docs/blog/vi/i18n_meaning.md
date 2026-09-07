@@ -92,8 +92,6 @@ Bây giờ chúng ta đã xác định được **ý nghĩa thực sự của i1
 - **Trừu tượng hóa tất cả văn bản hiển thị cho người dùng:** Đảm bảo không có văn bản viết cứng nào tồn tại trong các thành phần giao diện người dùng của bạn.
 - **Sử dụng hệ thống quản lý dịch thuật mạnh mẽ:** Các công cụ như **Intlayer** thu hẹp khoảng cách giữa nhà phát triển và trình biên dịch. Intlayer hoạt động như một CMS không đầu (headless CMS) được tích hợp chặt chẽ với cơ sở mã của bạn, cho phép những người quản lý nội dung cập nhật bản dịch một cách trực quan mà không yêu cầu nhà phát triển kích hoạt một bản dựng mới.
 
----
-
 ### Xem danh sách thư viện và công cụ i18n theo công nghệ
 
 Nếu bạn đang tìm kiếm danh sách các thư viện và công cụ i18n theo công nghệ, hãy xem các tài nguyên sau:
@@ -111,8 +109,6 @@ Nếu bạn đang tìm kiếm danh sách các thư viện và công cụ i18n th
 - Vue: [Xem danh sách thư viện và công cụ i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [Xem danh sách thư viện và công cụ i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/list_i18n_technologies/frameworks/svelte.md)
 - React Native: [Xem danh sách thư viện và công cụ i18n](https://github.com/aymericzip/intlayer/blob/main/docs/blog/vi/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## Kết luận
 

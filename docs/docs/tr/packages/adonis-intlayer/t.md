@@ -27,13 +27,9 @@ author: aymericzip
 
 `adonis-intlayer` paketindeki `t` fonksiyonu, AdonisJS uygulamanızda yerelleştirilmiş yanıtlar sağlamak için temel yardımcı programdır. Kullanıcının tercih ettiği dile göre içeriği dinamik olarak seçerek uluslararasılaştırmayı (i18n) basitleştirir.
 
----
-
 ## Genel Bakış
 
 `t` fonksiyonu, belirli bir dil seti için çevirileri tanımlamak ve almak için kullanılır. `Accept-Language` başlığı gibi istemcinin istek ayarlarına bağlı olarak döndürülecek uygun dili otomatik olarak belirler. Tercih edilen dil mevcut değilse, yapılandırmanızda belirtilen varsayılan yerel ayara zarif bir şekilde geri döner.
-
----
 
 ## Ana Özellikler
 
@@ -41,8 +37,6 @@ author: aymericzip
 - **Varsayılan Yerel Ayara Geri Dönüş**: İstemcinin tercih ettiği dil mevcut değilse varsayılan bir yerel ayara geri döner ve kullanıcı deneyiminde süreklilik sağlar.
 - **Asenkron Bağlam**: Async Local Storage kullanarak AdonisJS istek yaşam döngüsü içinde sorunsuz bir şekilde çalışır.
 - **TypeScript Desteği**: Çevirileriniz için tür güvenliğini zorunlu kılar.
-
----
 
 ## Fonksiyon İmzası
 
@@ -58,8 +52,6 @@ t(translations: Record<string, any>): any;
 
 - İstemcinin tercih ettiği dili temsil eden içerik.
 
----
-
 ## Middleware'i Yükleme
 
 `t` fonksiyonunun doğru çalışmasını sağlamak için, AdonisJS uygulamanıza `intlayer` middleware'ini kaydetmeniz **gerekir**.
@@ -67,8 +59,6 @@ t(translations: Record<string, any>): any;
 ```typescript fileName="start/kernel.ts"
 router.use([() => import("adonis-intlayer/middleware")]);
 ```
-
----
 
 ## Kullanım Örnekleri
 
@@ -104,8 +94,6 @@ export default class ExampleController {
   }
 }
 ```
-
----
 
 ## Gelişmiş Konular
 

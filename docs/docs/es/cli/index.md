@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - Todas las comandos de Intlayer CLI para su sitio web multilingüe
 
----
-
 ## Tabla de contenidos
 
 <TOC/>
-
----
 
 ## Instalar paquete
 

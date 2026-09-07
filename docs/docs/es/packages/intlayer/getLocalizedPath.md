@@ -39,8 +39,6 @@ Es el equivalente relativo de [`getLocalizedUrl`](https://github.com/aymericzip/
 - Resuelve rutas de acuerdo con reglas de reescritura personalizadas definidas en tu configuración.
 - Maneja automáticamente la caída (fallback) a la ruta canónica si no se encuentra una regla de reescritura para el locale especificado.
 
----
-
 ## Firma de la función
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opcional
 ): string
 ```
-
----
 
 ## Parámetros
 
@@ -79,8 +75,6 @@ getLocalizedPath(
   - `options.mode?: 'prefix-no-default' | 'prefix-all' | 'no-prefix' | 'search-params'` — cómo aparece la locale en la ruta. **Default**: `configuration.routing.mode`
   - `options.rewrite?: RoutingConfig['rewrite']` — reglas de reescritura personalizadas. **Default**: `configuration.routing.rewrite`
 
----
-
 ## Devuelve
 
 - **Tipo**: `string`
@@ -107,8 +101,6 @@ Dos casos se mantienen ampliados a `string`, porque no pueden resolverse en tiem
 
 - una ruta que no es un literal de string (por ejemplo, una construida a partir de una variable);
 - una ruta coincidente con una regla que utiliza un parámetro de múltiples segmentos u opcional (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Ejemplo de uso
 
@@ -166,8 +158,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Salida: "/about"
 ```
-
----
 
 ## Funciones relacionadas
 

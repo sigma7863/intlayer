@@ -26,8 +26,6 @@ Si tu aplicación multilingüe de Next.js no indica a los motores de búsqueda c
 
 En este blog, exploraremos **por qué la i18n es un superpoder para el SEO** y cómo implementarla correctamente en Next.js con `next-intl`, `next-i18next` e `Intlayer`.
 
----
-
 ## Por qué SEO e i18n
 
 Agregar idiomas no es solo una cuestión de experiencia de usuario (UX). También es una palanca poderosa para la **visibilidad orgánica**. Aquí te explicamos por qué:
@@ -36,8 +34,6 @@ Agregar idiomas no es solo una cuestión de experiencia de usuario (UX). Tambié
 2. **Evitar contenido duplicado:** Las etiquetas canónicas y alternas adecuadas indican a los rastreadores qué página pertenece a qué localización.
 3. **Mejor UX:** Los visitantes aterrizan inmediatamente en la versión correcta de tu sitio.
 4. **Ventaja competitiva:** Pocos sitios implementan bien el SEO multilingüe, lo que significa que puedes destacar.
-
----
 
 ## Mejores prácticas para el SEO multilingüe en Next.js
 
@@ -56,8 +52,6 @@ Aquí tienes una lista de verificación que toda aplicación multilingüe deber�
   Ejemplo: `<a href="/fr/about">À propos</a>` en lugar de enlazar a la ruta predeterminada `/about`.
 
 Estos son pasos simples, pero omitirlos puede costarte visibilidad.
-
----
 
 ## Ejemplos de implementación
 
@@ -344,13 +338,9 @@ export default robots;
   </Tab>
 </Tabs>
 
----
-
 ## Audita tu sitio web con Intlayer SEO Scanner
 
 Para asegurarte de que tu aplicación multilingüe esté perfectamente optimizada, recomendamos utilizar el [Intlayer SEO Scanner](https://intlayer.org/i18n-seo-scanner). Es una herramienta especializada en la comprobación de sitios web multilingües que te ayuda a identificar etiquetas hreflang faltantes, enlaces rotos y otros problemas de SEO en todas tus páginas localizadas.
-
----
 
 ## Conclusión
 

@@ -106,8 +106,6 @@ More than just an i18n solution, Intlayer provides an **self-hosted [visual edit
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Step-by-Step Guide to Set Up Intlayer in a Tanstack Start Application
 
 <Tabs defaultTab="video">
@@ -1203,8 +1201,6 @@ To do this, you can add the following instructions to your `.gitignore` file:
 .intlayer
 ```
 
----
-
 ## VS Code Extension
 
 To improve your development experience with Intlayer, you can install the official **Intlayer VS Code Extension**.
@@ -1220,13 +1216,9 @@ This extension provides:
 
 For more details on how to use the extension, refer to the [Intlayer VS Code Extension documentation](https://intlayer.org/doc/vs-code-extension).
 
----
-
 ## Go Further
 
 To go further, you can implement the [visual editor](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_visual_editor.md) or externalise your content using the [CMS](https://github.com/aymericzip/intlayer/blob/main/docs/docs/en-GB/intlayer_CMS.md).
-
----
 
 ## Documentation References
 

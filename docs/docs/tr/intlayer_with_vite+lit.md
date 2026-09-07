@@ -106,8 +106,6 @@ Bir i18n çözümünden çok daha fazlası olan Intlayer, **kendi kendine barın
 </Accordion>
 </AccordionGroup>
 
----
-
 [Uygulama Şablonunu](https://github.com/aymericzip/intlayer-vite-lit-template) GitHub'da görün.
 
 ## Vite ve Lit Uygulamasında Intlayer Kurulumu İçin Adım Adım Kılavuz
@@ -719,8 +717,6 @@ Bu uzantı şunları sağlar:
 - Çevirileri kolayca oluşturmak ve güncellemek için **hızlı işlemler**.
 
 Uzantının nasıl kullanılacağı hakkında daha fazla ayrıntı için [Intlayer VS Code Uzantısı belgelerine](https://intlayer.org/doc/vs-code-extension) bakın.
-
----
 
 ### Daha Fazlasına Gidin
 

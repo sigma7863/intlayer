@@ -37,8 +37,6 @@ Live Sync lets your app reflect [Intlayer CMS](https://github.com/aymericzip/int
 
 <TOC/>
 
----
-
 ## Enabling Live Sync
 
 Enable Live Sync by updating your Intlayer configuration:

@@ -50,8 +50,6 @@ Para ello, Intlayer introduce el concepto de 'diccionarios distantes'.
 
 <TOC/>
 
----
-
 ## Entendiendo los diccionarios distantes
 
 Intlayer diferencia entre diccionarios 'locales' y 'distantes'.
@@ -396,8 +394,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 ```
 
 Para la guía de configuración completa, referencia de variables de entorno, instrucciones de actualización y procedimientos de copia de seguridad/restauración, consulta la [Guía de Auto-hospedaje](https://github.com/aymericzip/intlayer/blob/main/docs/docs/es/self_hosting.md).
-
----
 
 ## Depuración
 

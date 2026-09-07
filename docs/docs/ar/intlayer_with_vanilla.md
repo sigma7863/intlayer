@@ -106,8 +106,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## دليل خطوة بخطوة لإعداد Intlayer في تطبيق Vanilla JS
 
 <Steps>
@@ -475,8 +473,6 @@ const unsubscribe = useDictionaryDynamic(
 - **إجراءات سريعة** لإنشاء وتحديث الترجمات بسهولة.
 
 لمزيد من التفاصيل حول كيفية استخدام الامتداد ، راجع [وثائق امتداد Intlayer VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### اذهب أبعد من ذلك
 

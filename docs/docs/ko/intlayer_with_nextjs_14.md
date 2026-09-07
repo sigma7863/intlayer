@@ -88,8 +88,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Next.js 애플리케이션에서 Intlayer 설정 단계별 가이드
 
 <Tabs defaultTab="code">

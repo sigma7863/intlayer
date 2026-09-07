@@ -24,8 +24,6 @@ An [SWC](https://swc.rs) transform plugin for [Intlayer](https://intlayer.org) �
 
 **Intlayer** is a **modern i18n solution** for web and mobile apps. It’s framework-agnostic, **AI-powered**, and includes a free **CMS & visual editor**. With **per-locale content files**, **TypeScript autocompletion**, **tree-shakable dictionaries**, and **CI/CD integration**, Intlayer makes internationalization **faster, cleaner, and smarter**.
 
----
-
 ## 🚀 Key Features
 
 Intlayer provides a variety of features to help you scale your internationalization efforts.
@@ -49,8 +47,6 @@ Intlayer provides a variety of features to help you scale your internationalizat
 - **VSCode Extension**: Intlayer provides a VSCode extension to help you manage your content and translations.
 - **Interoperability**: Allow interoperability with react-i18next, next-i18next, next-intl, react-intl, vue-i18n.
 - **Performances & Benchmark**: Uses advanced tree-shaking and dynamic loading to boost performances and keep the solution as light as possible.
-
----
 
 ## 🛠️ How the plugin works
 
@@ -117,8 +113,6 @@ The plugin transforms one file at a time with no cross-file state, so all it can
 
 With `next-intlayer`, set `INTLAYER_SWC_LOG_LEVEL=info` (or `debug`) to turn it on; `log.mode: "disabled"` silences it regardless.
 
----
-
 ## Next.js compatibility
 
 An SWC Wasm plugin can only be loaded by a host that speaks its `swc_ecma_ast`
@@ -146,8 +140,6 @@ This is also why the crate pins `swc_core` to the `54.x` line rather than the
 latest release: `54.x` is the newest `swc_core` still on `swc_ecma_ast` 19, the
 schema Next.js 16.1 ships. Moving the pin forward would raise the minimum
 supported Next.js version with it.
-
----
 
 ## Usage: Next.js / SWC Wasm plugin (recommended)
 
@@ -192,8 +184,6 @@ export default nextConfig;
 ```
 
 In practice you should use the [`@intlayer/webpack`](https://www.npmjs.com/package/@intlayer/webpack) or [`@intlayer/vite`](https://www.npmjs.com/package/@intlayer/vite) plugin, which configures the SWC plugin automatically based on your `intlayer.config.*` file.
-
----
 
 ## Usage: native Rust library
 
@@ -241,8 +231,6 @@ binary into the forward-compatible ABI. Built without it, the plugin only loads
 on hosts sharing its exact `swc_ecma_ast` version, and the first Next.js release
 that adds an AST node breaks every build using it.
 
----
-
 ## Plugin configuration reference
 
 All fields correspond to the JSON object passed as the second element of each `swcPlugins` tuple.
@@ -263,8 +251,6 @@ All fields correspond to the JSON object passed as the second element of each `s
 | `logLevel`               | `"off" \| "info" \| "debug"`       | `"off"`    | Build-time reporting verbosity                       |
 
 `FieldRenameMap` is a recursive object mapping each original field name to `{ shortName: string; children: FieldRenameMap }`.
-
----
 
 ## Public Rust API
 
@@ -292,8 +278,6 @@ The following symbols are exported by this crate:
 | `imports`          | Injection of the dictionary imports the rewrite created      |
 | `dictionary_entry` | Emptying of the generated dictionaries entry module          |
 | `logger`           | Build-time reporting                                         |
-
----
 
 ## Documentation
 
@@ -406,8 +390,6 @@ Explore our comprehensive documentation to get started with Intlayer and learn h
 </ul>
 </details>
 
----
-
 ## Related packages
 
 | Package                                                                | Description                            |
@@ -416,8 +398,6 @@ Explore our comprehensive documentation to get started with Intlayer and learn h
 | [`@intlayer/vite`](https://www.npmjs.com/package/@intlayer/vite)       | Vite plugin                            |
 | [`react-intlayer`](https://www.npmjs.com/package/react-intlayer)       | React hooks                            |
 | [`next-intlayer`](https://www.npmjs.com/package/next-intlayer)         | Next.js integration                    |
-
----
 
 ## License
 

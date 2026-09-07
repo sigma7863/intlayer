@@ -23,15 +23,11 @@ author: aymericzip
 
 Giderek küreselleşen dijital ortamda, Vue.js web sitenizin birden fazla dildeki kullanıcılara ulaşmasını genişletmek artık "iyi olur" değil, rekabet gereksinimi. Uluslararasılaştırma (i18n), geliştiricilerin çevirileri yönetmelerine ve uygulamalarını çeşitli yerel ayarlar için uyarlamalarına olanak tanır, SEO değerini, kullanıcı deneyimini ve sürdürülebilir kod yapılarını koruyarak. Bu makalede, özel kütüphanelerden özel kodlanmış çözümlere kadar farklı yaklaşımları inceleyeceğiz ve i18n'yi Vue.js projenize sorunsuz bir şekilde entegre etmenize yardımcı olacağız.
 
----
-
 ## Uluslararasılaştırma (i18n) Nedir?
 
 Uluslararasılaştırma (i18n), bir yazılım uygulamasını (veya web sitesini) birden fazla dil ve kültürel kural için hazırlama uygulamasıdır. Vue.js ekosistemi içinde bu, metin, tarihler, sayılar, para birimi ve diğer yerelleştirilebilir unsurların çeşitli yerel ayarlara nasıl uyarlanabileceğini belirlemeyi içerir. Başlangıçtan itibaren i18n'yi ayarlayarak, yeni diller eklemek ve gelecekteki yerelleştirme ihtiyaçlarını yönetmek için organize, ölçeklenebilir bir yapı sağlarsınız.
 
 i18n temelleri hakkında daha fazla bilgi edinmek için referansımıza göz atın: [Uluslararasılaştırma (i18n) Nedir? Tanım ve Zorluklar](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/what_is_internationalization.md).
-
----
 
 ## Vue Uygulamaları İçin Çeviri Zorluğu
 
@@ -43,13 +39,9 @@ Vue.js uygulamasını çevirmek kendine özgü zorluklar getirir:
 - **Durum ve Reaktif Bağlam:** Geçerli yerel ayarın rotalar ve bileşenler arasında korunmasını sağlamak, özellikle Vuex veya Pinia ile durum yönetimi yaparken metinleri ve formatları reaktif olarak güncellemek dikkatli bir yaklaşım gerektirir.
 - **Geliştirme Yükü:** Çeviri dosyalarını organize, tutarlı ve güncel tutmak, dikkatli yönetilmezse hızla büyük bir görev haline gelebilir.
 
----
-
 ## Vue.js İçin Önde Gelen i18n Çözümleri
 
 Aşağıda, Vue uygulamalarınıza uluslararasılaştırmayı dahil etmek için kullanabileceğiniz birkaç popüler kütüphane ve yaklaşım bulunmaktadır. Her biri çeviriyi, SEO'yu ve performans hususlarını farklı şekillerde basitleştirmeyi amaçlar.
-
----
 
 ### 1. Intlayer
 
@@ -94,8 +86,6 @@ Aşağıda, Vue uygulamalarınıza uluslararasılaştırmayı dahil etmek için 
 - **Eklenti Ekosistemi**  
   Sağlam olsa da, mükemmel bir kurulum oluşturmak için birden fazla eklenti veya modülden (Nuxt I18n, Vue I18n vb.) dikkatli bir şekilde seçim yapmanız gerekebilir.
 
----
-
 ### 3. LinguiJS (Vue Entegrasyonu)
 
 > Website: [https://lingui.js.org/](https://lingui.js.org/)
@@ -122,8 +112,6 @@ Orijinal olarak React entegrasyonuyla bilinen **LinguiJS**, minimum çalışma z
   LinguiJS'nin Vue için resmi desteği olsa da, dokümantasyonu öncelikle React'a odaklanır; topluluk örneklerine güvenmeniz gerekebilir.
 - **Daha Küçük Topluluk**  
   Vue I18n'ye kıyasla nispeten daha küçük bir ekosistem vardır. Resmi olarak sürdürülen eklentiler ve üçüncü taraf eklentileri daha sınırlı olabilir.
-
----
 
 ## Son Düşünceler
 

@@ -117,8 +117,6 @@ Intlayer оптимізовано для роботи з **компонента�
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покроковий посібник щодо налаштування Intlayer у застосунку Next.js із Page Router
 
 <Steps>

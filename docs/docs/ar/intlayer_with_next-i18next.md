@@ -40,8 +40,6 @@ author: aymericzip
 > ملاحظة: تم بناء next-i18next على أساس i18next. يستخدم هذا الدليل بدائيات i18next المتوافقة مع next-i18next في App Router، مع الحفاظ على بنية بسيطة وجاهزة للإنتاج.
 > للمقارنة الأوسع، راجع [next-i18next مقابل next-intl مقابل Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/blog/ar/next-i18next_vs_next-intl_vs_intlayer.md).
 
----
-
 ## 1) هيكل المشروع
 
 قم بتثبيت تبعيات next-i18next -
@@ -93,8 +91,6 @@ bun add next-i18next i18next react-i18next i18next-resources-to-backend
 - لا تفرط في مركزية الرسائل؛ استخدم مساحات أسماء صغيرة مخصصة للصفحة أو الميزة
 - تجنب استيراد كل اللغات دفعة واحدة؛ قم بتحميل ما تحتاجه فقط
 
----
-
 ## 2) تثبيت التبعيات
 
 ```bash
@@ -106,8 +102,6 @@ pnpm add i18next react-i18next i18next-resources-to-backend
 ```bash
 pnpm add next-i18next
 ```
-
----
 
 ## 3) إعداد i18n الأساسي
 
@@ -134,8 +128,6 @@ export function abs(locale: string, path: string) {
 ```
 
 ملاحظة هامة: إذا كنت تستخدم `next-i18next.config.js`، فاحرص على توافقه مع `i18n.config.ts` لتجنب الاختلافات.
-
----
 
 ## 4) تهيئة i18n على جانب الخادم
 
@@ -174,8 +166,6 @@ export async function initI18next(
 ```
 
 ملاحظة وسطى: حافظ على قائمة المجالات قصيرة لكل صفحة لتقليل حجم التحميل. تجنب حزم "شاملة للجميع" العامة.
-
----
 
 ## 5) مزود العميل لمكونات React
 
@@ -233,8 +223,6 @@ export default function I18nProvider({
 
 نصيحة للمبتدئين: لا تحتاج إلى تمرير جميع الرسائل إلى العميل. ابدأ فقط بمساحات الأسماء الخاصة بالصفحة.
 
----
-
 ## 6) التخطيط والمسارات المحلية
 
 قم بتعيين اللغة والاتجاه، وقم بإنشاء المسارات مسبقًا لكل لغة لتفضيل العرض الثابت.
@@ -272,8 +260,6 @@ export default function LocaleLayout({
   );
 }
 ```
-
----
 
 ## 7) صفحة مثال مع استخدام الخادم والعميل
 
@@ -390,8 +376,6 @@ const ServerComponent = ({ t, locale, count }: ServerComponentProps) => {
 export default ServerComponent;
 ```
 
----
-
 ## 8) تحسين محركات البحث: البيانات الوصفية، Hreflang، خريطة الموقع، الروبوتات
 
 ترجمة المحتوى وسيلة لتحسين الوصول. قم بتوصيل تحسين محركات البحث متعدد اللغات بشكل شامل.
@@ -485,8 +469,6 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
----
-
 ## 9) الوسيط (Middleware) لتوجيه اللغة
 
 كشف اللغة وإعادة التوجيه إلى مسار محلي إذا كان مفقودًا.
@@ -529,8 +511,6 @@ export const config = {
 };
 ```
 
----
-
 ## 10) أفضل ممارسات الأداء وتجربة المطور (DX)
 
 - **تعيين خصائص html `lang` و `dir`**: تم ذلك في `src/app/[locale]/layout.tsx`.
@@ -541,8 +521,6 @@ export const config = {
 - **تخزين العمليات الثقيلة في الذاكرة المؤقتة (Memoize)**: خاصة في كود العميل لإصدارات React الأقدم.
 - **التخزين المؤقت والرؤوس**: فضل الصفحات الثابتة أو `revalidate` بدلاً من العرض الديناميكي عندما يكون ذلك ممكنًا.
 
----
-
 ## 11) الاختبار والتكامل المستمر (CI)
 
 - أضف اختبارات وحدة للمكونات التي تستخدم `t` لضمان وجود المفاتيح.
@@ -550,8 +528,6 @@ export const config = {
 - عرض المفاتيح المفقودة أثناء التكامل المستمر (CI) قبل النشر.
 
 سوف يقوم Intlayer بأتمتة الكثير من هذا (انظر القسم التالي).
-
----
 
 ## 12) إضافة Intlayer في الأعلى (الأتمتة)
 
@@ -638,8 +614,6 @@ export default config;
 
 > يمكنك تقديم وسائط CLI؛ راجع [وثائق Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ar/cli/index.md).
 
----
-
 ## 13) استكشاف الأخطاء وإصلاحها
 
 - **المفاتيح غير موجودة**: تأكد من أن الصفحة/المزود يسرد المساحات الاسمية الصحيحة وأن ملف JSON موجود تحت `src/locales/<locale>/<namespace>.json`.
@@ -647,8 +621,6 @@ export default config;
 - **مشاكل تخطيط RTL**: تحقق من أن `dir` مشتق من `isRtl(locale)` وأن CSS الخاص بك يحترم `[dir="rtl"]`.
 - **غياب بدائل SEO**: تأكد من أن `alternates.languages` تشمل جميع اللغات و `x-default`.
 - **حجم الحزم كبير جدًا**: قسم المساحات الاسمية أكثر وتجنب استيراد شجرة `locales` كاملة على العميل.
-
----
 
 ## 14) ما التالي
 

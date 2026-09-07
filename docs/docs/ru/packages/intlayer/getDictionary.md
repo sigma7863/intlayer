@@ -41,8 +41,6 @@ author: aymericzip
 - Полностью типизирована: возвращаемый объект отражает `content`, который вы передали
 - Принимает пользовательские плагины интерпретатора
 
----
-
 ## Сигнатура функции
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // Опционально
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Параметры
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Type**: The interpreted content of the dictionary.
 - **Description**: The `content` you passed, with every Intlayer node resolved for the requested locale. For a collection group without an `item` selector, an ordered array of interpreted entries is returned; `null` is returned when the selector targets nothing.
-
----
 
 ## Пример использования
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## Связанные функции
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/intlayer/getIntlayer.md): Аналогичная интерпретация, но словарь ищется по ключу в созданном реестре.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/intlayer/getDictionaryAsync.md): Аналог для карт загрузчиков для каждой локали.
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ru/packages/react-intlayer/useDictionary.md): Эквивалент React хука, читающий локаль от провайдера.
-
----
 
 ## TypeScript
 

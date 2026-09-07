@@ -79,6 +79,4 @@ Para cualquier solicitud relacionada con sus datos, contáctenos en [contact@int
 
 Podemos actualizar este aviso de privacidad de vez en cuando. Se recomienda a los usuarios revisar esta página regularmente para mantenerse informados sobre cualquier cambio.
 
----
-
 Hágame saber si desea un tono más formal, agregar menciones de GDPR/CCPA o adaptarlo para una página legal en su sitio.

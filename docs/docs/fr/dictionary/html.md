@@ -119,8 +119,6 @@ const myContent = html(
 
 Lors de l'utilisation de la méthode `.use()` sur un nœud HTML, les composants que vous fournissez seront vérifiés par rapport à la définition fournie dans la fonction `html()` (si disponible).
 
----
-
 ## Rendu du HTML
 
 Le rendu peut être géré automatiquement par le système de contenu d'Intlayer ou manuellement à l'aide d'outils spécialisés.
@@ -474,8 +472,6 @@ Vous pouvez configurer le rendu HTML globalement pour l'ensemble de votre applic
   </Tab>
 </Tabs>
 
----
-
 ### Rendu Manuel et Outils Avancés
 
 Si vous avez besoin de rendre des chaînes HTML brutes ou si vous voulez plus de contrôle sur le mappage des composants, utilisez les outils suivants.
@@ -647,8 +643,6 @@ Si vous avez besoin de rendre des chaînes HTML brutes ou si vous voulez plus de
 
   </Tab>
 </Tabs>
-
----
 
 ## Référence des Options
 

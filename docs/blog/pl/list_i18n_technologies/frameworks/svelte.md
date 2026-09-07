@@ -23,15 +23,11 @@ author: aymericzip
 
 W miarę jak sieć nadal łączy ludzi na całym świecie, dostarczanie treści w wielu językach staje się coraz ważniejsze. Dla deweloperów pracujących z **Svelte**, wdrożenie i18n jest niezbędne do efektywnego zarządzania tłumaczeniami, utrzymania czystego kodu oraz zachowania dobrych praktyk SEO. W tym artykule zagłębiamy się w różne rozwiązania i przepływy pracy i18n dla Svelte, pomagając Ci wybrać to, które najlepiej odpowiada potrzebom Twojego projektu.
 
----
-
 ## Czym jest internacjonalizacja (i18n)?
 
 Internacjonalizacja, powszechnie skracana do i18n, to proces projektowania i budowania aplikacji w taki sposób, aby mogła ona łatwo dostosowywać się do różnych języków, regionów i konwencji kulturowych. W Svelte zazwyczaj oznacza to konfigurację łańcuchów tłumaczeń, lokalizację dat, godzin i liczb oraz zapewnienie, że interfejs użytkownika może dynamicznie przełączać się między różnymi lokalizacjami bez konieczności dużych zmian w kodzie.
 
 Aby dowiedzieć się więcej o podstawach i18n, przeczytaj nasz artykuł: [Czym jest internacjonalizacja (i18n)? Definicja i wyzwania](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pl/what_is_internationalization.md).
-
----
 
 ## Wyzwania związane z tłumaczeniem aplikacji Svelte
 
@@ -42,8 +38,6 @@ Tłumaczenie aplikacji Svelte może napotkać na kilka przeszkód:
 - **Aspekty SEO**: Jeśli używasz **SvelteKit** do renderowania po stronie serwera (SSR), konfiguracja lokalizowanych adresów URL, meta tagów i map witryn dla skutecznego SEO wymaga dodatkowej uwagi.
 - **Stan i routing**: Utrzymanie właściwego języka na wielu trasach i dynamicznych stronach często wymaga zarządzania globalnym stanem, ochroną tras lub niestandardowymi hookami w SvelteKit.
 - **Utrzymanie**: W miarę rozrastania się bazy kodu i plików tłumaczeń, utrzymanie wszystkiego w dobrej organizacji i synchronizacji staje się ciągłym wyzwaniem.
-
----
 
 ## Wiodące rozwiązania i18n dla Svelte
 
@@ -69,8 +63,6 @@ Svelte nie oferuje natywnego, wbudowanego rozwiązania i18n (jak Angular), ale s
 
 - **Społeczność i ekosystem**: Choć stale rośnie, ekosystem jest nowszy, więc wtyczki i narzędzia tworzone przez społeczność mogą być bardziej ograniczone w porównaniu do bardziej ugruntowanych rozwiązań.
 
----
-
 ### 2. svelte-i18n
 
 Repozytorium: [https://github.com/kaisermann/svelte-i18n](https://github.com/kaisermann/svelte-i18n)
@@ -90,8 +82,6 @@ Repozytorium: [https://github.com/kaisermann/svelte-i18n](https://github.com/kai
 - **Organizacja projektu**: W miarę rozwoju projektu konieczne będzie logiczne uporządkowanie plików tłumaczeń.
 - **Konfiguracja SSR**: Konfiguracja SSR pod kątem SEO może wymagać dodatkowych kroków, aby zapewnić prawidłowe wykrywanie lokalizacji po stronie serwera.
 - **Wydajność**: Choć elastyczne w czasie wykonywania, załadowanie dużej liczby tłumaczeń naraz może wpłynąć na czas początkowego ładowania; rozważ zastosowanie lazy loadingu lub strategii cache'owania.
-
----
 
 ### 3. svelte-intl-precompile
 
@@ -113,8 +103,6 @@ Repozytorium: [https://github.com/cibernox/svelte-intl-precompile](https://githu
 - **Dynamiczna zawartość**: Jeśli potrzebujesz tłumaczeń na bieżąco dla treści generowanych przez użytkowników, to podejście może wymagać dodatkowych kroków aktualizacji w czasie wykonywania.
 - **Krzywa uczenia się**: Połączenie ekstrakcji wiadomości i prekompilacji może być nieco bardziej skomplikowane dla początkujących.
 
----
-
 ### 4. i18next z Svelte / SvelteKit
 
 Strona internetowa: [https://www.i18next.com/](https://www.i18next.com/)
@@ -134,8 +122,6 @@ Chociaż **i18next** jest częściej kojarzony z React lub Vue, możliwa jest r�
 - **Ręczna konfiguracja**: i18next nie posiada dedykowanej integracji z Svelte „od ręki”, więc będziesz musiał skonfigurować ją samodzielnie.
 - **Nadwyżka**: i18next jest rozbudowany, ale dla mniejszych projektów Svelte niektóre jego funkcje mogą być zbyt rozbudowane.
 - **Routing i stan**: Obsługa routingu językowego prawdopodobnie będzie wymagać niestandardowych hooków lub middleware w SvelteKit.
-
----
 
 ### Ostateczne przemyślenia
 

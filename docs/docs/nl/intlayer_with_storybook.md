@@ -43,8 +43,6 @@ Met Intlayer kunt u:
 - **Tijdens runtime van taal wisselen** zonder de pagina te herladen.
 - **Automatisch vertalen** met ingebouwde AI-provider integraties.
 
----
-
 ## Waarom Intlayer gebruiken met Storybook?
 
 Storybook is de industriestandaard tool voor het in isolatie ontwikkelen en documenteren van UI-componenten. Door het te combineren met Intlayer kunt u:
@@ -52,8 +50,6 @@ Storybook is de industriestandaard tool voor het in isolatie ontwikkelen en docu
 - **Elke taal bekijken** direct in het Storybook-canvas met behulp van een taalschakelaar in de werkbalk.
 - **Ontbrekende vertalingen detecteren** voordat ze de productie bereiken.
 - **Meertalige componenten documenteren** met echte, typeveilige inhoud in plaats van hardgecodeerde strings.
-
----
 
 ## Stapsgewijze installatie
 
@@ -370,8 +366,6 @@ export default copyButtonContent;
 
 > Zie voor meer inhoudsdeclaratieformaten en functies de [documentatie voor inhoudsdeclaratie](https://github.com/aymericzip/intlayer/blob/main/docs/docs/nl/dictionary/content_file.md).
 
----
-
 ## `useIntlayer` gebruiken in een component
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -400,8 +394,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` retourneert het gecompileerde woordenboek voor de huidige taal die wordt geleverd door de dichtstbijzijnde `IntlayerProvider`. Het wisselen van taal in de Storybook-werkbalk herrendert de story automatisch met de bijgewerkte vertalingen.
-
----
 
 ## Stories schrijven voor geïnternationaliseerde componenten
 
@@ -451,8 +443,6 @@ export const InsideCodeBlock: Story = {
 
 > Elke story erft de `locale` global van de werkbalk, zodat u elke taal kunt verifiëren zonder story-code te wijzigen.
 
----
-
 ## Vertalingen testen in stories
 
 Gebruik de `play` functies van Storybook om te controleren of de juiste vertaalde tekst wordt gerenderd voor een bepaalde taal:
@@ -486,8 +476,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Aanvullende bronnen
 

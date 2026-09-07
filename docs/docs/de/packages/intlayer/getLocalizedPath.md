@@ -39,8 +39,6 @@ Es ist das relative Gegenstück zu [`getLocalizedUrl`](https://github.com/aymeri
 - Löst Pfade entsprechend benutzerdefinierten Rewrite-Regeln, die in deiner Konfiguration definiert sind.
 - Handhabt automatisch einen Fallback auf den kanonischen Pfad, falls keine Rewrite-Regel für die angegebene Locale gefunden wird.
 
----
-
 ## Funktionssignatur
 
 ```typescript
@@ -50,8 +48,6 @@ getLocalizedPath(
   rewriteRules?: RoutingConfig['rewrite'] // Optional
 ): string
 ```
-
----
 
 ## Parameter
 
@@ -77,8 +73,6 @@ getLocalizedPath(
   - **Beschreibung**: Ein Objekt, das benutzerdefinierte Rewrite-Regeln definiert. Wenn nicht angegeben, wird standardmäßig die Eigenschaft `routing.rewrite` aus der Konfiguration Ihres Projekts verwendet.
   - **Typ**: `RoutingConfig['rewrite']`
   - **Standard**: `configuration.routing.rewrite`
-
----
 
 ## Rückgabewert
 
@@ -106,8 +100,6 @@ Zwei Fälle bleiben zu `string` verbreitert, da sie zur Compile-Zeit nicht aufge
 
 - ein Pfad, der kein String-Literal ist (z. B. einer, der aus einer Variablen erstellt wird);
 - ein Pfad, der einer Regel mit einem Multi-Segment- oder optionalen Parameter entspricht (`[...slug]`, `[[...slug]]`, `:param?`).
-
----
 
 ## Beispielverwendung
 
@@ -165,8 +157,6 @@ import { getLocalizedPath } from "intlayer";
 getLocalizedPath("/about");
 // Ausgabe: "/about"
 ```
-
----
 
 ## Verwandte Funktionen
 

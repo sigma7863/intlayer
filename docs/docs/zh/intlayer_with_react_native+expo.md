@@ -455,8 +455,6 @@ Intlayer 会在一个隐藏文件夹中（默认是 `.intlayer`）生成类型�
 - **自动补全** 您的字典键。
 - **类型检查**，如果访问不存在的键或类型不匹配，会发出警告。
 
----
-
 ## Git 配置
 
 为了避免提交 Intlayer 自动生成的文件，请将以下内容添加到您的 `.gitignore` 文件中：
@@ -465,8 +463,6 @@ Intlayer 会在一个隐藏文件夹中（默认是 `.intlayer`）生成类型�
 #  忽略 Intlayer 生成的文件
 .intlayer
 ```
-
----
 
 ### VS Code 扩展
 
@@ -483,8 +479,6 @@ Intlayer 会在一个隐藏文件夹中（默认是 `.intlayer`）生成类型�
 
 有关如何使用该扩展的更多详细信息，请参阅[Intlayer VS Code 扩展文档](https://intlayer.org/doc/vs-code-extension)。
 
----
-
 ## 深入了解
 
 - **可视化编辑器**：使用[Intlayer 可视化编辑器](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/intlayer_visual_editor.md)来可视化管理翻译。
@@ -492,8 +486,6 @@ Intlayer 会在一个隐藏文件夹中（默认是 `.intlayer`）生成类型�
 - **CLI 命令**：探索 [Intlayer CLI](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/cli/index.md)，用于执行诸如**提取翻译**或**检查缺失键**等任务。
 
 享受通过 **Intlayer** 为您的 **React Native** 应用构建强大国际化支持的乐趣！
-
----
 
 ### 调试
 
@@ -520,8 +512,6 @@ import "@formatjs/intl-datetimeformat/polyfill";
 ```
 
 - 如果模块无法解析，请验证你的 Metro 配置（resolver 别名、asset 插件、`tsconfig` 路径）。
-
----
 
 ## 常见问题
 

@@ -43,8 +43,6 @@ S Intlayerem můžete:
 - **Přepínat jazyky za běhu** bez nutnosti obnovení stránky.
 - **Překládat automaticky** pomocí integrovaných AI poskytovatelů.
 
----
-
 ## Proč používat Intlayer se Storybookem?
 
 Storybook je standardní nástroj pro vývoj a dokumentaci UI komponent v izolaci. Kombinace s Intlayerem vám umožní:
@@ -52,8 +50,6 @@ Storybook je standardní nástroj pro vývoj a dokumentaci UI komponent v izolac
 - **Prohlížet každou lokalitu** přímo v plátně Storybooku pomocí přepínače v nástrojové liště.
 - **Zachytit chybějící překlady** ještě než se dostanou do produkce.
 - **Dokumentovat vícejazyčné komponenty** se skutečným typově bezpečným obsahem namísto pevně zakódovaných řetězců.
-
----
 
 ## Nastavení krok za krokem
 
@@ -370,8 +366,6 @@ export default copyButtonContent;
 
 > Další formáty deklarace obsahu a funkce naleznete v [dokumentaci deklarace obsahu](https://github.com/aymericzip/intlayer/blob/main/docs/docs/cs/dictionary/content_file.md).
 
----
-
 ## Použití `useIntlayer` v komponentě
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -400,8 +394,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` vrací zkompilovaný slovník pro aktuální lokalitu poskytovanou nejbližším `IntlayerProvider`. Přepnutí jazyka v nástrojové liště Storybooku automaticky znovu vykreslí příběh s aktualizovanými překlady.
-
----
 
 ## Psaní příběhů (stories) pro internacionalizované komponenty
 
@@ -451,8 +443,6 @@ export const InsideCodeBlock: Story = {
 
 > Každý příběh dědí globální proměnnou `locale` z nástrojové lišty, takže můžete ověřit každý jazyk bez změny kódu příběhu.
 
----
-
 ## Testování překladů v příbězích
 
 Použijte funkce `play` ve Storybooku k ověření, že se pro daný jazyk vykresluje správný přeložený text:
@@ -486,8 +476,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Další zdroje
 

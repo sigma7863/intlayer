@@ -37,8 +37,6 @@ Funkcja `getCanonicalPath` zamienia zlokalizowaną ścieżkę URL (np. `/a-propo
 - Porównuje zlokalizowane ścieżki z niestandardowymi regułami przepisywania (rewrite) zdefiniowanymi w Twojej konfiguracji.
 - Zwraca oryginalną ścieżkę, jeśli nie znaleziono pasującej reguły przepisywania.
 
----
-
 ## Sygnatura funkcji
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // Opcjonalne
 ): string
 ```
-
----
 
 ## Parametry
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **Typ**: `RoutingConfig['rewrite']`
   - **Domyślnie**: `configuration.routing.rewrite`
 
----
-
 ## Zwraca
 
 - **Typ**: `string`
 - **Opis**: Wewnętrzna kanoniczna ścieżka.
-
----
 
 ## Przykład użycia
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // Wyjście: "/contact"
 ```
-
----
 
 ## Powiązane funkcje
 

@@ -31,8 +31,6 @@ author: aymericzip
 
 Funkcja `getConfiguration` pobiera całą konfigurację aplikacji `intlayer` poprzez wyodrębnienie zmiennych środowiskowych. Funkcja ta zapewnia elastyczność użycia tej samej konfiguracji zarówno po stronie klienta, jak i serwera, gwarantując spójność w całej aplikacji.
 
----
-
 ## Parametry
 
 Funkcja nie przyjmuje żadnych parametrów. Zamiast tego wykorzystuje zmienne środowiskowe do konfiguracji.
@@ -47,8 +45,6 @@ Funkcja nie przyjmuje żadnych parametrów. Zamiast tego wykorzystuje zmienne ś
   - `editor`: Konfiguracje specyficzne dla edytora.
 
 Zobacz [dokumentację konfiguracji Intlayer](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/configuration.md) po więcej szczegółów.
-
----
 
 ## Przykład użycia
 

@@ -25,8 +25,6 @@ Anda telah menerjemahkan aplikasi Anda. Anda meluncurkan `/en`, `/fr`, `/es`. Da
 
 Menerjemahkan adalah bagian yang mudah. Bagian yang sulit adalah memberitahu search engine bahwa halaman-halaman ini adalah **halaman yang sama dalam bahasa lain**, bukan tiga dokumen yang bersaing satu sama lain. Itulah yang dilakukan `hreflang`, dan di sanalah sebagian besar situs multibahasa secara diam-diam kehilangan traffic mereka.
 
----
-
 ## Apa sebenarnya hreflang itu
 
 Sebuah anotasi pada halaman yang mengatakan: _URL ini memiliki versi setara di tempat lain, untuk bahasa-bahasa tersebut._
@@ -42,8 +40,6 @@ Ini memberimu dua hal: versi yang tepat ditampilkan kepada pengguna yang tepat, 
 
 Perlu jelas tentang apa yang bukan merupakan hal itu. Itu **bukan redirect** — itu adalah hint, dan Google dapat menggantinya. Itu **bukan peningkat ranking** — itu mengubah _versi mana_ yang ranking, bukan _apakah_ kamu ranking. Dan Bing mengabaikannya sepenuhnya, mengandalkan `content-language` dan geo-targeting sebagai gantinya.
 
----
-
 ## Di mana mendeklarasikannya
 
 Tiga penempatan, semuanya valid. Pilih satu dan tetap di sana — cluster yang sama dideklarasikan di dua tempat adalah bagaimana set bergerak terpisah.
@@ -53,8 +49,6 @@ Tiga penempatan, semuanya valid. Pilih satu dan tetap di sana — cluster yang s
 **XML sitemap** lebih baik untuk skala besar. Sepuluh locale di 5.000 halaman berarti 50.000 elemen `<link>` dikirim ke browser tanpa tujuan; dalam sitemap tidak membutuhkan byte dari halaman Anda.
 
 **HTTP `Link` header** adalah satu-satunya opsi untuk file non-HTML seperti PDF.
-
----
 
 ## Aturan-aturannya
 
@@ -107,8 +101,6 @@ Apa yang sering salah dipahami adalah apa artinya. `x-default` **bukan "versi En
 
 Dua hal yang perlu diperhatikan: `x-default` adalah satu entry tambahan dalam set, bukan pengganti untuk yang self-referencing, dan seperti setiap entry lainnya harus muncul secara identik di setiap halaman dalam cluster.
 
----
-
 ## The canonical trap
 
 Setiap halaman yang dilokalisasi harus menjadi **canonicalnya sendiri**:
@@ -131,8 +123,6 @@ mengatakan halaman Prancis adalah duplikat yang tidak boleh diindeks, sementara 
 
 **Canonical bersifat self-referential per locale. `hreflang` mendeskripsikan cluster.**
 
----
-
 ## Memilih struktur URL
 
 `hreflang` memberi anotasi pada URL, jadi struktur datang terlebih dahulu.
@@ -148,8 +138,6 @@ Subdirektori adalah default yang tepat untuk sebagian besar proyek. Gunakan ccTL
 Satu struktur yang harus dihindari: melayani bahasa berbeda di **URL yang sama** berdasarkan `Accept-Language` atau IP. Crawler melihat satu versi dan mengindeks satu versi; semuanya yang lain tidak terlihat.
 
 > Intlayer mencakup ketiganya melalui `routing.mode` dan `routing.domains`. Lihat [custom domains](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/custom_domains.md) dan [referensi konfigurasi](https://github.com/aymericzip/intlayer/blob/main/docs/docs/id/configuration.md).
-
----
 
 ## Implementation
 
@@ -281,8 +269,6 @@ Untuk crawl khusus multilingual, [Intlayer SEO Scanner](https://intlayer.org/i18
 
 </Steps>
 
----
-
 ## Checklist
 
 - [ ] Setiap locale memiliki URL yang distinct dan crawlable
@@ -295,8 +281,6 @@ Untuk crawl khusus multilingual, [Intlayer SEO Scanner](https://intlayer.org/i18
 - [ ] Tag di-render server-side, bukan diinjeksi setelah hydration
 - [ ] Dideklarasikan di tepat satu tempat
 - [ ] Tidak ada alternate yang redirect
-
----
 
 ## Penutup
 

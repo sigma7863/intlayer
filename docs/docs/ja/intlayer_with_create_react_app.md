@@ -94,8 +94,6 @@ Intlayerを使用すると、以下が可能です：
 </Accordion>
 </AccordionGroup>
 
----
-
 ## ReactアプリケーションでのIntlayerセットアップ手順
 
 <Steps>

@@ -41,8 +41,6 @@ W przeciwieństwie do [`getIntlayer`](https://github.com/aymericzip/intlayer/blo
 - W pełni typizowane: zwrócony obiekt odzwierciedla `content`, który przekazałeś
 - Akceptuje niestandardowe wtyczki interpretera
 
----
-
 ## Sygnatura funkcji
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // Opcjonalne
 ): DeepTransformContent<...>
 ```
-
----
 
 ## Parametry
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **Typ**: Interpretowana zawartość słownika.
 - **Opis**: `content` które przekazałeś, ze wszystkimi węzłami Intlayer rozwiązanymi dla żądanego ustawienia regionu. Dla grupy kolekcji bez selektora `item`, zwracana jest posortowana tablica interpretowanych wpisów; `null` jest zwracane, gdy selektor nie wskazuje na nic.
-
----
 
 ## Przykład użycia
 
@@ -126,15 +120,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## Powiązane funkcje
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/intlayer/getIntlayer.md): Ta sama interpretacja, ale słownik jest wyszukiwany po kluczu w wygenerowanym rejestrze.
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/intlayer/getDictionaryAsync.md): Odpowiednik dla map loaderów dla każdej lokalizacji.
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/pl/packages/react-intlayer/useDictionary.md): Odpowiednik React hook, odczytujący lokalizację od dostawcy.
-
----
 
 ## TypeScript
 

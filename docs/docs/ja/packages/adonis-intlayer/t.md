@@ -27,13 +27,9 @@ author: aymericzip
 
 `adonis-intlayer` パッケージの `t` 関数は、AdonisJS アプリケーションでローカライズされたレスポンスを提供するためのコアユーティリティです。ユーザーの優先言語に基づいてコンテンツを動的に選択することで、国際化（i18n）を簡素化します。
 
----
-
 ## 概要
 
 `t` 関数は、特定の言語セットの翻訳を定義および取得するために使用されます。クライアントのリクエスト設定（`Accept-Language` ヘッダーなど）に基づいて、返すべき適切な言語を自動的に決定します。優先言語が利用できない場合は、構成で指定されたデフォルトのロケールに適切にフォールバックします。
-
----
 
 ## 主な機能
 
@@ -41,8 +37,6 @@ author: aymericzip
 - **デフォルトロケールへのフォールバック**: クライアントの優先言語が利用できない場合、デフォルトのロケールにフォールバックし、ユーザー体験の継続性を確保します。
 - **非同期コンテキスト**: Async Local Storage を使用して、AdonisJS のリクエストライフサイクル内でシームレスに動作します。
 - **TypeScript サポート**: 翻訳の型安全性を強制します。
-
----
 
 ## 関数シグネチャ
 
@@ -58,8 +52,6 @@ t(translations: Record<string, any>): any;
 
 - クライアントの優先言語を表すコンテンツ。
 
----
-
 ## ミドルウェアのロード
 
 `t` 関数が正しく動作するようにするには、AdonisJS アプリケーションに `intlayer` ミドルウェアを登録する**必要があります**。
@@ -67,8 +59,6 @@ t(translations: Record<string, any>): any;
 ```typescript fileName="start/kernel.ts"
 router.use([() => import("adonis-intlayer/middleware")]);
 ```
-
----
 
 ## 使用例
 
@@ -104,8 +94,6 @@ export default class ExampleController {
   }
 }
 ```
-
----
 
 ## 高度なトピック
 

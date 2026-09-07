@@ -1,6 +1,6 @@
 ---
 createdAt: 2024-12-06
-updatedAt: 2026-06-23
+updatedAt: 2026-09-06
 title: "Next.js 16 i18n - Hướng dẫn đầy đủ để dịch ứng dụng của bạn"
 description: "Không còn i18next nữa. Hướng dẫn 2026 để xây dựng ứng dụng Next.js 16 đa ngôn ngữ (i18n). Dịch với các AI agent và tối ưu hóa kích thước bundle, SEO và hiệu suất."
 keywords:
@@ -41,7 +41,7 @@ author: aymericzip
 <iframe title="Giải pháp i18n tốt nhất cho Next.js? Khám phá Intlayer" class="m-auto aspect-16/9 w-full overflow-hidden rounded-lg border-0" allow="autoplay; gyroscope;" loading="lazy" width="1080" height="auto" src="https://www.youtube.com/embed/e_PPG7PTqGU?autoplay=0&amp;origin=https://intlayer.org&amp;controls=0&amp;rel=1"/>
 
   </Tab>
-  <Tab label="Mã nguồn" value="code">
+  <Tab label="Mã nguồn (đường dẫn locale)" value="code-locale-path">
 
 <iframe
   src="https://ide.intlayer.org/aymericzip/intlayer-next-16-template?file=intlayer.config.ts"
@@ -52,12 +52,23 @@ author: aymericzip
 />
 
   </Tab>
-  <Tab label="Bản demo" value="demo">
+  <Tab label="Mã nguồn (không có đường dẫn locale)" value="code-no-locale-path">
+
+<iframe
+  src="https://ide.intlayer.org/aymericzip/intlayer-next-16-no-locale-path-template?file=intlayer.config.ts"
+  className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
+  title="Demo CodeSandbox - Cách quốc tế hóa ứng dụng của bạn bằng Intlayer"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  loading="lazy"
+/>
+
+  </Tab>
+  <Tab label="Bản demo (đường dẫn locale)" value="demo">
 
 <iframe
   src="https://intlayer-next-16-template.vercel.app"
   className="m-auto overflow-hidden rounded-lg border-0 max-md:size-full max-md:h-[700px] md:aspect-16/9 md:w-full"
-  title="Bản demo - intlayer-next-16-template"
+  title="Bản demo Intlayer Next.js 16 Template"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
   loading="lazy"
 />
@@ -65,7 +76,7 @@ author: aymericzip
   </Tab>
 </Tabs>
 
-Xem [Mẫu Ứng dụng](https://github.com/aymericzip/intlayer-next-16-template) trên GitHub.
+Xem [Mẫu Ứng dụng](https://github.com/aymericzip/intlayer-next-16-template) và [Mẫu Ứng dụng không có đường dẫn locale](https://github.com/aymericzip/intlayer-next-no-lolale-path-template) trên GitHub.
 
 ## Mục lục
 
@@ -81,7 +92,7 @@ So với các giải pháp chính như `next-intl` hay `i18next`, Intlayer là g
 Intlayer được tối ưu hóa để hoạt động với **Thành phần máy chủ** nhằm hiển thị hiệu quả và hoàn toàn tương thích với [**Turbopack**](https://nextjs.org/docs/architecture/turbopack). Nó không chặn hiển thị tĩnh và cung cấp phần mềm trung gian cũng như tất cả các tính năng cần thiết để mở rộng quy mô quốc tế hóa (i18n).
 
 > Intlayer tương thích với Next.js 12, 13, 14, 15 và 16. Nếu đang sử dụng Bộ định tuyến trang Next.js, bạn có thể tham khảo [hướng dẫn] này(https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_page_router.md).
-> Định tuyến ngôn ngữ rất hữu ích cho SEO, kích thước bundle và hiệu suất. Nếu không cần, bạn có thể tham khảo [hướng dẫn] này(https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_no_locale_path.md).
+> Định tuyến cục bộ hữu ích cho SEO, kích thước gói và hiệu suất. Cả hai thiết lập, có và không có định tuyến đường dẫn cục bộ, đều được hỗ trợ và đề cập trong hướng dẫn này.
 > Đối với Next.js 12, 13, 14 và 15 với Bộ định tuyến ứng dụng, hãy tham khảo [hướng dẫn] này (https://github.com/aymericzip/intlayer/blob/main/docs/docs/en/intlayer_with_nextjs_14.md).
 
 </Accordion>
@@ -122,8 +133,6 @@ Không chỉ là giải pháp i18n, Intlayer còn cung cấp **[trình chỉnh s
 
 </Accordion>
 </AccordionGroup>
-
----
 
 ## Hướng dẫn từng bước để thiết lập Intlayer trong ứng dụng Next.js
 
@@ -181,7 +190,14 @@ bun add intlayer next-intlayer
 
 <Step number={2} title="Cấu hình Dự án của Bạn">
 
-Đây là cấu trúc cuối cùng mà chúng ta sẽ thực hiện:
+Chọn xem ứng dụng của bạn nên sử dụng đường dẫn URL bản địa hóa (ví dụ: `/vi/about`, `/en/about`) hay phân phối nội dung mà không có đoạn locale trong đường dẫn (ví dụ: `/about`, phát hiện locale qua cookie, header hoặc tham số truy vấn).
+
+<Tabs group="routing-mode">
+<Tab label="Có đường dẫn locale" value="with-locale-path">
+
+### Kiến trúc
+
+Trong kiến trúc này, tất cả các trang bản địa hóa được lồng dưới đoạn route động `[locale]`. Cách tiếp cận này được khuyến nghị cho SEO và render tĩnh vì mỗi ngôn ngữ có một URL riêng biệt:
 
 ```bash
 .
@@ -207,9 +223,9 @@ bun add intlayer next-intlayer
 └── tsconfig.json
 ```
 
-> Nếu bạn không muốn định tuyến ngôn ngữ, intlayer có thể được sử dụng như một nhà cung cấp / hook đơn giản. Xem [hướng dẫn này](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_nextjs_no_locale_path.md) để biết thêm chi tiết.
+### Cấu hình
 
-Tạo một tệp cấu hình để định cấu hình các ngôn ngữ cho ứng dụng của bạn:
+Tạo tệp cấu hình `intlayer.config.ts` để khai báo các ngôn ngữ được hỗ trợ trong ứng dụng của bạn:
 
 ```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
 import { Locales, type IntlayerConfig } from "intlayer";
@@ -224,10 +240,72 @@ const config: IntlayerConfig = {
     ],
     defaultLocale: Locales.ENGLISH,
   },
+  routing: {
+    mode: "prefix-no-default", // hoặc `prefix-all`
+  },
 };
 
 export default config;
 ```
+
+</Tab>
+<Tab label="Không có đường dẫn locale" value="without-locale-path">
+
+### Kiến trúc
+
+Trong kiến trúc này, các route không bao gồm đoạn động `[locale]` trong đường dẫn URL. Tất cả các trang nằm trực tiếp dưới `src/app/`, và locale được xác định thông qua cookie, tiêu đề hoặc tham số truy vấn. Điều này lý tưởng cho dashboard, công cụ nội bộ hoặc ứng dụng yêu cầu xác thực:
+
+```bash
+.
+├── src
+│   ├── app
+│   │   ├── layout.tsx
+│   │   ├── page.content.ts
+│   │   └── page.tsx
+│   ├── components
+│   │   ├── clientComponentExample
+│   │   │   ├── client-component-example.content.ts
+│   │   │   └── ClientComponentExample.tsx
+│   │   ├── localeSwitcher
+│   │   │   ├── localeSwitcher.content.ts
+│   │   │   └── LocaleSwitcher.tsx
+│   │   └── serverComponentExample
+│   │       ├── server-component-example.content.ts
+│   │       └── ServerComponentExample.tsx
+│   └── proxy.ts
+├── intlayer.config.ts
+├── next.config.ts
+├── package.json
+└── tsconfig.json
+```
+
+### Cấu hình
+
+Đặt thuộc tính `routing.mode` thành `"search-params"` (ví dụ: `/about?locale=vi`) hoặc `"no-prefix"` để phục vụ nội dung không có tiền tố đường dẫn:
+
+```typescript fileName="intlayer.config.ts" codeFormat={["typescript", "esm", "commonjs"]}
+import { Locales, type IntlayerConfig } from "intlayer";
+
+const config: IntlayerConfig = {
+  internationalization: {
+    locales: [
+      Locales.ENGLISH,
+      Locales.FRENCH,
+      Locales.SPANISH,
+      // Các locale khác của bạn
+    ],
+    defaultLocale: Locales.ENGLISH,
+  },
+  routing: {
+    mode: "search-params", // hoặc `no-prefix` - Hữu ích cho việc phát hiện trong middleware
+  },
+};
+
+export default config;
+```
+
+</Tab>
+</Tabs>
 
 > Thông qua tệp cấu hình này, bạn có thể thiết lập các URL được bản địa hóa, chuyển hướng proxy, tên cookie, vị trí và phần mở rộng của các khai báo nội dung, tắt nhật ký Intlayer trong bảng điều khiển và hơn thế nữa. Để biết danh sách đầy đủ các tham số có sẵn, hãy tham khảo [tài liệu cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md).
 
@@ -277,6 +355,9 @@ export default withIntlayer(nextConfig);
 </Step>
 
 <Step number={4} title="Định nghĩa các Tuyến đường Ngôn ngữ Động">
+
+<Tabs group="routing-mode">
+<Tab label="Có đường dẫn locale" value="with-locale-path">
 
 Xóa mọi thứ khỏi `RootLayout` và thay thế bằng mã sau:
 
@@ -372,6 +453,102 @@ export default LocaleLayout;
 
 > Intlayer hoạt động với `export const dynamic = 'force-static';` để đảm bảo rằng các trang được xây dựng trước cho tất cả các ngôn ngữ.
 
+</Tab>
+<Tab label="Không có đường dẫn locale" value="without-locale-path">
+
+Trong kiến trúc không có đường dẫn locale, không có thư mục `[locale]`. Định cấu hình trực tiếp `src/app/layout.tsx` để đọc locale từ ngữ cảnh yêu cầu và bao bọc ứng dụng của bạn bằng `IntlayerProvider`:
+
+<Tabs>
+ <Tab label='Intlayer >=9.4' value='>=9.4'>
+
+```tsx {5} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale, IntlayerProvider } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+> Một `IntlayerProvider` duy nhất bao phủ cả hai phía của cây: nó cung cấp ngữ cảnh máy chủ được xác định theo yêu cầu được đọc bởi các server hooks, và gắn kết client provider để các client components nhận được cùng một locale.
+
+ </Tab>
+ <Tab label='Intlayer <9.4' value='<9.4'>
+
+```tsx {3} fileName="src/app/layout.tsx" codeFormat={["typescript", "esm"]}
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+import { IntlayerProvider, LocalPromiseParams } from "next-intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const locale = await getLocale();
+  const { title, description, keywords } = getIntlayer("metadata", locale);
+
+  return {
+    title,
+    description,
+    keywords,
+  };
+};
+
+const RootLayout = async ({
+  children,
+}: Readonly<{
+  children: ReactNode;
+}>) => {
+  const locale = await getLocale();
+
+  return (
+    <html lang={locale} dir={getHTMLTextDir(locale)}>
+      <body>
+        <IntlayerProvider locale={locale}>{children}</IntlayerProvider>
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
+```
+
+ </Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
+
 </Step>
 
 <Step number={5} title="Khai báo Nội dung của Bạn">
@@ -459,7 +636,7 @@ export default Page;
 ```
 
 - **`IntlayerProvider`** được mount một lần, trong locale layout. Nó cung cấp locale cho cả server và client components, vì vậy pages không còn phải wrap chính chúng nữa.
-- The server hooks resolve the locale in this order: the locale passed at the call site, then the server context seeded by the provider, then the locale carried by the request (the `x-intlayer-locale` header set by the Intlayer proxy, then the locale cookie). That last step is what keeps content correct on a client-side navigation that re-renders only the page segment, where the layout — and with it the provider — does not re-run.
+- The server hooks resolve the locale in this order: the locale passed at the call site, then the server context seeded by the provider, then the locale carried by the request (the `x-intlayer-locale` header set by the Intlayer proxy, then the locale cookie). That last step is what keeps content correct on a client-side navigation that re-renders only the page segment, where the layout , and with it the provider , does not re-run.
 
  </Tab>
  <Tab label='Intlayer <9.4' value='<9.4'>
@@ -1058,7 +1235,7 @@ bun x intlayer extract
  </Tab>
  <Tab value='Trình biên dịch Babel'>
 
-> Since v9, the `intlayerCompiler` is included in the `intlayer` plugin. So you don't need to add it manually.
+> Kể từ v9, `intlayerCompiler` đã được bao gồm trong plugin `intlayer`. Vì vậy bạn không cần phải thêm thủ công.
 
 ```bash packageManager="npm"
 npm install @intlayer/babel --save-dev
@@ -1258,7 +1435,7 @@ Không. Sơ đồ URL là một tùy chọn cấu hình, không phải là một
 - `"no-prefix"`: không có ngôn ngữ trong đường dẫn, được phân giải từ cookie, header hoặc miền.
 - `"search-params"`: `/about?locale=fr`.
 
-Bạn cũng có thể ánh xạ từng ngôn ngữ với miền riêng của nó bằng `routing.domains`. Xem [tài liệu tham khảo cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md) và [hướng dẫn không có đường dẫn ngôn ngữ](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/intlayer_with_nextjs_no_locale_path.md).
+Bạn cũng có thể ánh xạ từng ngôn ngữ với miền riêng của nó bằng `routing.domains`. Xem [tài liệu tham khảo cấu hình](https://github.com/aymericzip/intlayer/blob/main/docs/docs/vi/configuration.md) và [Bước 2](#step-2-configure-your-project) để biết các tùy chọn chế độ định tuyến.
 
 </Question>
 

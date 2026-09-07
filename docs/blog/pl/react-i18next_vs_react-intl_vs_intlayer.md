@@ -37,15 +37,11 @@ Oceniamy:
 
 > **tl;dr**: Wszystkie trzy rozwiązania mogą lokalizować aplikację React. Jeśli chcesz mieć **treści ograniczone do komponentów**, **ścisłe typy TypeScript**, **sprawdzanie brakujących kluczy w czasie kompilacji**, **słowniki podlegające tree-shakingowi** oraz wbudowane narzędzia edytorskie (Visual Editor/CMS + opcjonalne tłumaczenia AI), **Intlayer** jest najbardziej kompletnym wyborem dla modularnych baz kodu React.
 
----
-
 ## Pozycjonowanie na wysokim poziomie
 
 - **react-intl** - Formatowanie zgodne ze standardami ICU (daty/liczby/liczby mnogie) z dojrzałym API. Katalogi są zazwyczaj scentralizowane; bezpieczeństwo kluczy i walidacja w czasie kompilacji leżą głównie po Twojej stronie.
 - **react-i18next** - Niezwykle popularny i elastyczny; przestrzenie nazw, detektory i wiele wtyczek (ICU, backendy). Potężny, ale konfiguracja może się rozrosnąć wraz ze skalowaniem projektów.
 - **Intlayer** - Model treści skoncentrowany na komponentach dla React, **ścisłe typowanie TS**, **sprawdzanie w czasie kompilacji**, **tree-shaking**, a także **Visual Editor/CMS** i **tłumaczenia wspomagane AI**. Działa z React Router, Vite, CRA itd.
-
----
 
 ## Macierz funkcji (skupienie na React)
 
@@ -71,8 +67,6 @@ Oceniamy:
 | **Purge unused content**                               | ✅ Tak, per-słownik podczas kompilacji                                                                                       | ❌ Nie, tylko poprzez ręczną segmentację przestrzeni nazw                                                                              | ❌ Nie, wszystkie zadeklarowane komunikaty są dołączone                                                            |
 | **Zarządzanie dużymi projektami**                      | ✅ Zachęca do modularności, odpowiednie dla systemów projektowych                                                            | ⚠️ Wymaga dobrej dyscypliny w zarządzaniu plikami                                                                                      | ⚠️ Centralne katalogi mogą stać się duże                                                                           |
 
----
-
 ## Szczegółowe porównanie
 
 ### 1) Architektura i skalowalność
@@ -82,8 +76,6 @@ Oceniamy:
 
 **Dlaczego to ważne:** Modularna zawartość odzwierciedla modularny UI. Duże bazy kodu React pozostają czyściejsze, gdy tłumaczenia są powiązane z komponentami, do których należą.
 
----
-
 ### 2) TypeScript i bezpieczeństwo
 
 - **react-intl**: Solidne typowanie, ale **brak automatycznego typowania kluczy**; samodzielnie wymuszasz wzorce bezpieczeństwa.
@@ -92,16 +84,12 @@ Oceniamy:
 
 **Dlaczego to ważne:** Przesunięcie błędów **w lewo** (do etapu build/CI) zmniejsza problemy w produkcji i przyspiesza pętle informacji zwrotnej dla deweloperów.
 
----
-
 ### 3) Obsługa brakujących tłumaczeń
 
 - **react-intl / react-i18next**: Domyślnie stosują **fallbacki w czasie wykonywania** (echo klucza lub domyślny język). Można dodać linting/wtyczki, ale nie jest to gwarantowane na etapie build.
 - **Intlayer**: **Wykrywanie podczas kompilacji** z ostrzeżeniami lub błędami, gdy wymagane locale/klucze są brakujące.
 
 **Dlaczego to ważne:** Niepowodzenie CI z powodu brakujących stringów zapobiega „tajemniczemu angielskiemu” przedostającemu się do interfejsów w innych językach.
-
----
 
 ### 4) Bogate treści i formatowanie
 
@@ -111,16 +99,12 @@ Oceniamy:
 
 **Dlaczego to ważne:** Złożone teksty UI (linki, pogrubione fragmenty, komponenty w linii) są łatwiejsze do obsługi, gdy biblioteka w pełni wspiera węzły React.
 
----
-
 ### 5) Wydajność i zachowanie ładowania
 
 - **react-intl / react-i18next**: Zazwyczaj zarządzasz **dzieleniem katalogów** i **leniwe ładowanie** ręcznie (przestrzenie nazw/importy dynamiczne). Skuteczne, ale wymaga dyscypliny.
 - **Intlayer**: **Tree-shaking** nieużywanych słowników i obsługuje **leniwe ładowanie na poziomie słownika/locale** od razu po wyjęciu z pudełka.
 
 **Dlaczego to ważne:** Mniejsze paczki i mniej nieużywanych ciągów poprawiają wydajność uruchamiania i nawigacji.
-
----
 
 ### 6) DX, narzędzia i utrzymanie
 
@@ -129,23 +113,17 @@ Oceniamy:
 
 **Dlaczego to ważne:** Wbudowane narzędzia skracają cykl współpracy między programistami a autorami treści – mniej kodu łączącego, mniej zależności od dostawców.
 
----
-
 ## Kiedy wybrać które?
 
 - **Wybierz react-intl**, jeśli chcesz formatowania wiadomości **z priorytetem ICU** z prostym, zgodnym ze standardami API, a Twój zespół jest gotowy ręcznie utrzymywać katalogi i kontrole bezpieczeństwa.
 - **Wybierz react-i18next**, jeśli potrzebujesz **szerokiego ekosystemu i18next** (detektory, backendy, wtyczka ICU, integracje) i akceptujesz większą konfigurację dla uzyskania elastyczności.
 - **Wybierz Intlayer**, jeśli cenisz sobie **zawartość ograniczoną do komponentu**, **ścisły TypeScript**, **gwarancje w czasie kompilacji**, **tree-shaking** oraz **wbudowane narzędzia edycyjne** – szczególnie dla **dużych, modułowych** aplikacji React, systemów projektowych itp.
 
----
-
 ## Współpraca z `react-intl` i `react-i18next`
 
 `intlayer` może również pomóc w zarządzaniu przestrzeniami nazw `react-intl` i `react-i18next`.
 
 Korzystając z `intlayer`, możesz deklarować swoją zawartość w formacie ulubionej biblioteki i18n, a intlayer wygeneruje Twoje przestrzenie nazw w wybranej lokalizacji (np. `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## Gwiazdki GitHub
 

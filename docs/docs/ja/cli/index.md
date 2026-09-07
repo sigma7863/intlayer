@@ -70,13 +70,9 @@ author: aymericzip
 
 # Intlayer CLI - 多言語サイトのためのすべてのIntlayer CLIコマンド
 
----
-
 ## 目次
 
 <TOC/>
-
----
 
 ## パッケージのインストール
 

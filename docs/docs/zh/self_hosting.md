@@ -35,8 +35,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 <TOC/>
 
----
-
 ## 架构
 
 ```
@@ -56,8 +54,6 @@ curl -fsSL https://intlayer.org/install.sh | sh
 
 Chromium（用于 Puppeteer 屏幕截图生成）捆绑在后端镜像中——无需单独的容器。
 
----
-
 ## 先决条件
 
 - **Docker** ≥ 24 和 **Docker Compose** ≥ v2。如果其中任何一个缺失，安装程序将打印安装链接并退出。
@@ -65,8 +61,6 @@ Chromium（用于 Puppeteer 屏幕截图生成）捆绑在后端镜像中——�
 - Linux 或 macOS 主机（或 Windows 上的 WSL2）。
 
 其他所有内容 — Bun、Redis、MinIO、Chromium — 都包含在镜像中。
-
----
 
 ## 快速开始
 
@@ -136,8 +130,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > 四个端口变量仅改变 `docker run` 命令中打印的映射的**主机**端，已发布的镜像在构建时将 `http://localhost:3000`、`http://localhost:3100` 和 `http://localhost:9000` 编译到仪表板包中，因此重新映射它们会导致浏览器指向旧端口。除非您正在构建自己的镜像，否则请保持默认值 — 参见[限制](#limitations)。
 
----
-
 ## 快速开始
 
 安装程序执行以下操作：
@@ -149,8 +141,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 5. 打印 URL：仪表盘 `:3000`、API `:3100`、电子邮件 UI `:8025`、MinIO 控制台 `:9001`。
 
 堆栈启动后，打开 **http://localhost:3000** 并创建您的第一个账户。
-
----
 
 ## 服务
 
@@ -164,8 +154,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 | **mailpit** | `axllent/mailpit`                 | `1025` (SMTP), `8025` (Web UI) | 本地事务性电子邮件接收器           |
 
 > MinIO 端口 `9000` 必须可从浏览器访问，因为上传的资产（头像、截图）直接从 `S3_PUBLIC_URL=http://localhost:9000/intlayer` 加载。
-
----
 
 ## 环境变量
 
@@ -236,8 +224,6 @@ curl -fsSL https://intlayer.org/install.sh | INTLAYER_ENV_FILE=./config/intlayer
 
 > 优先级：组织自己的邮件服务（从**组织**仪表板配置）优先于全局邮件服务，全局邮件服务优先于默认的 Resend 密钥。
 
----
-
 ## 连接您的 Intlayer 项目
 
 堆栈运行后，将您的项目指向自托管的后端和仪表盘，而不是 `intlayer.org`。
@@ -299,8 +285,6 @@ const cms = createIntlayerCMS({
 const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 ```
 
----
-
 ## 升级
 
 这会拉取最新镜像并使用 `docker compose pull && docker compose up -d` 重启容器。现有卷（`mongo-data`、`redis-data`、`minio-data`）会保留——不会丢失数据。
@@ -309,8 +293,6 @@ const { data: dictionaries } = await dictionaryEndpoint(cms).getDictionaries();
 docker compose pull
 docker compose up -d
 ```
-
----
 
 ## 备份与恢复
 
@@ -346,15 +328,11 @@ docker run --rm \
 # 对 redis-data 和 minio-data 重复此操作
 ```
 
----
-
 ## 限制条件
 
 - **MongoDB 必须是外部的 (Atlas)。** 后端仅通过 `mongodb+srv://` 连接（由 `DB_ID` / `DB_MDP` / `DB_CLUSTER` 构建），因此不能使用普通的 `mongodb://host:27017` — 包括容器自己的捆绑 `mongod`。请提供一个 MongoDB Atlas 集群。
 - **不支持自定义域名。** 所有面向浏览器的 `VITE_*` URL 都在构建时内联到应用中，发布的镜像带有 `localhost` 值。必须在 `http://localhost:3000` 上访问仪表板；在公共域上提供服务需要使用目标 URL 重新构建镜像，这在开箱即用时不受支持。
 - **Email 需要工作的邮件程序。** 首次运行设置强制执行电子邮件验证，因此必须配置 `RESEND_API_KEY` 或 [全局 SMTP 邮件程序](#global-mailer)（`MAIL_PROVIDER=smtp` + `MAIL_SMTP_*`）。第一个管理员登录后，每个组织也可以从仪表板配置自己的 SMTP 或 Resend 邮件程序。
-
----
 
 ## 故障排除
 
@@ -381,8 +359,6 @@ docker compose logs redis
 ```sh
 docker compose run --rm minio-init
 ```
-
----
 
 ## 有用链接
 

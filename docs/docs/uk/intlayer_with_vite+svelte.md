@@ -111,8 +111,6 @@ Intlayer оптимізовано для ідеальної роботи зі Sv
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Покрокове керівництво зі встановлення Intlayer у Vite та Svelte додаток
 
 Перегляньте [Application Template](https://github.com/aymericzip/intlayer-vite-svelte-template) на GitHub.
@@ -733,8 +731,6 @@ console.log("SEO files generated successfully.");
 - **Швидкі дії** для швидкого створення й оновлення перекладів.
 
 Для детальнішої інформації про використання розширення зверніться до документації [розширення Intlayer для VS Code](https://intlayer.org/doc/vs-code-extension).
-
----
 
 ### Розширені можливості
 

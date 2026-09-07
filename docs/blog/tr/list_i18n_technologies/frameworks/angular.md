@@ -23,15 +23,11 @@ author: aymericzip
 
 Günümüz birbirine bağlı dünyasında, web sitenizi birden fazla dilde sunmak erişiminizi önemli ölçüde genişletebilir ve kullanıcı deneyimini iyileştirebilir. Angular ile çalışan geliştiriciler için, uygulama yapısını, SEO'yu ve performansı korurken çevirileri verimli bir şekilde yönetmek açısından uluslararasılaştırma (i18n) uygulamak kritik öneme sahiptir. Bu makalede, Angular'ın yerleşik çözümlerinden popüler üçüncü taraf kütüphanelere kadar çeşitli i18n yaklaşımlarını keşfedeceğiz ve projeniz için en uygun olanı belirlemenize yardımcı olacağız.
 
----
-
 ## Uluslararasılaştırma (i18n) Nedir?
 
 Uluslararasılaştırma, genellikle i18n olarak anılır, uygulamanızı birden fazla dil ve kültürel bağlamı destekleyecek şekilde tasarlamak ve hazırlamak sürecidir. Angular'da bu, metin, tarih, sayı ve hatta UI düzenlerinin farklı yerel ayarlara sorunsuz bir şekilde uyarlanabilmesi için uygulamanızı yapılandırmayı içerir. Bu temeli düzgün bir şekilde atmak, gelecekteki çevirilerin entegrasyonunun düzenli ve verimli kalmasını sağlar.
 
 i18n temelleri hakkında daha fazla bilgi edinmek için makalemizi okuyun: [Uluslararasılaştırma (i18n) Nedir? Tanım ve Zorluklar](https://github.com/aymericzip/intlayer/blob/main/docs/blog/en/what_is_internationalization.md).
-
----
 
 ## Angular Uygulamaları İçin Çeviri Zorluğu
 
@@ -42,8 +38,6 @@ Bir Angular uygulamasını çevirmek, birkaç zorluk getirir:
 - **SEO Dikkat Edilmesi Gerekenler**: Sunucu tarafı işleme için Angular Universal kullanıyorsanız, çok dilli sayfalarınızın arama motoru dostu olması için yerelleştirilmiş URL'ler, meta etiketler ve site haritaları kurmanız gerekir.
 - **Yönlendirme ve Durum**: Rotalar arasında gezinirken doğru dilin korunması, durum yönetimi ve muhtemelen özel rota koruyucuları veya ara yazılımlar gerektirir.
 - **Ölçeklenebilirlik ve Bakım**: Çeviri dosyaları hızla büyüyebilir ve bunları düzenlemek, sürümlendirmek ve uygulamanızın evrimi ile senkronize tutmak devam eden bir görev olabilir.
-
----
 
 ## Angular İçin Önde Gelen i18n Çözümleri
 
@@ -69,8 +63,6 @@ Angular yerleşik bir i18n çerçevesi sunar ve çok dilli kurulumunuzu basitle�
 
 - **Topluluk ve Ekosistem**: Büyümekte olsa da, ekosistem daha yeni, bu yüzden topluluk odaklı eklentiler ve araçlar daha yerleşik çözümlere kıyasla daha sınırlı olabilir.
 
----
-
 ### 2. Angular'ın Yerleşik i18n'ı
 
 **Genel Bakış**  
@@ -88,8 +80,6 @@ Angular, çeviri dizelerini çıkarma, çoğullaştırma ve enterpolasyonu işle
 - **Çoklu Derlemeler**: Her dil kendi derlemesini gerektirir, bu da dağıtım senaryolarını daha karmaşık hale getirebilir.
 - **Dinamik İçerik**: Gerçek zamanlı veya kullanıcı odaklı içerik, Angular'ın yerleşik çözümünün ağırlıklı olarak derleme zamanı çevirilerine odaklanması nedeniyle özel mantık gerektirebilir.
 - **Sınırlı Çalışma Zamanı Esnekliği**: Uygulamayı yeniden yüklemeden dilleri anında değiştirmek zor olabilir çünkü çeviriler derleme zamanında sabitlenir.
-
----
 
 ### 3. ngx-translate
 
@@ -110,8 +100,6 @@ Web sitesi: [https://github.com/ngx-translate/core](https://github.com/ngx-trans
 - **Durum ve Karmaşıklık**: Birçok çeviri dosyasını yönetmek daha büyük uygulamalarda karmaşık hale gelebilir.
 - **SEO ve SSR**: Sunucu tarafı işleme için Angular Universal'e ihtiyacınız varsa, ngx-translate doğru çevirilerin tarayıcılara ve tarayıcılara ilk yüklemede sunulmasını sağlamak için ek kurulum gerektirir.
 - **Performans**: Çalışma zamanında esnek olmasına rağmen, büyük sayfalarda birçok çeviriyi işlemek performans etkileri yaratabilir, bu yüzden önbellekleme stratejileri önerilir.
-
----
 
 ### 4. Transloco
 

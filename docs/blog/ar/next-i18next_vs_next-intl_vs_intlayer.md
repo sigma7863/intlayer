@@ -40,15 +40,11 @@ author: aymericzip
 
 > من الالتباسات الشائعة بين المطورين هو الاعتقاد بأن `next-intl` هو نسخة Next.js من `react-intl`. هذا غير صحيح, فـ `next-intl` تتم صيانته بواسطة [Amann](https://github.com/amannn)، بينما `react-intl` تتم صيانته بواسطة [FormatJS](https://github.com/formatjs/formatjs).
 
----
-
 ## باختصار
 
 - **next-intl** - تنسيق رسائل خفيف الوزن وبسيط مع دعم قوي لـ Next.js. الكتالوجات المركزية شائعة؛ تجربة المطور بسيطة، لكن الأمان والصيانة على نطاق واسع تبقى في الغالب مسؤوليتك.
 - **next-i18next** - i18next في هيئة Next.js. نظام بيئي ناضج وميزات عبر الإضافات (مثل ICU)، لكن التهيئة قد تكون مطولة وتميل الكتالوجات إلى المركزية مع نمو المشاريع.
 - **Intlayer** - نموذج محتوى يركز على المكونات لـ Next.js، **كتابة صارمة بـ TS**، **فحوصات وقت البناء**، **إزالة الشيفرة غير المستخدمة (tree-shaking)**، **وسائط مدمجة ومساعدات SEO**، محرر/نظام إدارة محتوى بصري اختياري، وترجمات بمساعدة الذكاء الاصطناعي.
-
----
 
 | Library                | GitHub Stars                                                                                                                                                                     | Total Commits                                                                                                                                                                        | Last Commit                                                                                                                                           | First Version | NPM Version                                                                                                         | NPM Downloads                                                                                                                  |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -58,8 +54,6 @@ author: aymericzip
 | `i18next/next-i18next` | [![GitHub Repo stars](https://img.shields.io/github/stars/i18next/next-i18next?style=for-the-badge&label=%E2%AD%90%20stars)](https://github.com/i18next/next-i18next/stargazers) | [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/i18next/next-i18next?style=for-the-badge&label=commits)](https://github.com/i18next/next-i18next/commits) | [![Last Commit](https://img.shields.io/github/last-commit/i18next/next-i18next?style=for-the-badge)](https://github.com/i18next/next-i18next/commits) | Nov 2018      | [![npm](https://img.shields.io/npm/v/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) | [![npm downloads](https://img.shields.io/npm/dm/next-i18next?style=for-the-badge)](https://www.npmjs.com/package/next-i18next) |
 
 > يتم تحديث الشارات تلقائيًا. ستختلف اللقطات مع مرور الوقت.
-
----
 
 ## مقارنة الميزات جنبًا إلى جنب (مركزة على Next.js)
 
@@ -86,15 +80,11 @@ author: aymericzip
 | **إدارة المشاريع الكبيرة**                                   | ✅ يشجع على التصميم المعياري، مناسب لأنظمة التصميم                                                                           | ✅ معياري مع الإعداد                                                                           | ✅ معياري مع الإعداد                                                                           |
 | **اختبار الترجمات المفقودة (CLI/CI)**                        | ✅ CLI: `npx intlayer content test` (تدقيق مناسب لـ CI)                                                                      | ⚠️ غير مدمج؛ الوثائق تقترح `npx @lingual/i18n-check`                                           | ⚠️ غير مدمج؛ يعتمد على أدوات i18next / وقت التشغيل `saveMissing`                               |
 
----
-
 ## المقدمة
 
 يوفر Next.js دعمًا مدمجًا للتوجيه الدولي (مثل مقاطع اللغة). لكن هذه الميزة لا تقوم بالترجمة بمفردها. لا يزال يتعين عليك استخدام مكتبة لعرض المحتوى المحلي للمستخدمين.
 
 توجد العديد من مكتبات i18n، ولكن في عالم Next.js اليوم، هناك ثلاث مكتبات تكتسب شعبية: next-i18next، next-intl، و Intlayer.
-
----
 
 ## الهندسة والقابلية للتوسع
 
@@ -102,8 +92,6 @@ author: aymericzip
 - **Intlayer**: تشجع على استخدام **قواميس لكل مكون** (أو لكل ميزة) **متمركزة** مع الكود الذي تخدمه. هذا يقلل من العبء المعرفي، ويسهل تكرار/ترحيل أجزاء واجهة المستخدم، ويقلل من النزاعات بين الفرق. المحتوى غير المستخدم يكون أسهل في الاكتشاف والحذف بشكل طبيعي.
 
 **لماذا هذا مهم:** في قواعد الكود الكبيرة أو إعدادات نظام التصميم، **المحتوى المعياري** يتوسع بشكل أفضل من الكتالوجات الأحادية.
-
----
 
 ## أحجام الحزم والاعتمادات
 
@@ -172,8 +160,6 @@ author: aymericzip
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | ![حزمة محسنة](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle.png?raw=true) | ![حزمة غير محسنة](https://github.com/aymericzip/intlayer/blob/main/docs/assets/bundle_no_optimization.png?raw=true) |
 
----
-
 ## تايب سكريبت والسلامة
 
 <Columns>
@@ -198,11 +184,10 @@ author: aymericzip
 - **ينشئ أنواعًا صارمة** من المحتوى الخاص بك. **الإكمال التلقائي في بيئة التطوير** و**أخطاء وقت الترجمة** تكتشف الأخطاء الإملائية والمفاتيح المفقودة قبل النشر.
 
   </Column>
+
 </Columns>
 
 **لماذا هذا مهم:** التحقق الصارم من الأنواع ينقل الأخطاء إلى اليسار (التكامل المستمر/البناء) بدلاً من اليمين (وقت التشغيل).
-
----
 
 ## التعامل مع الترجمات المفقودة
 
@@ -219,8 +204,6 @@ author: aymericzip
 - **الكشف أثناء وقت البناء** مع **تحذيرات/أخطاء** للمواقع أو المفاتيح المفقودة.
 
 **لماذا هذا مهم:** اكتشاف الفجوات أثناء البناء يمنع ظهور "سلاسل غامضة" في الإنتاج ويتماشى مع قواعد الإصدار الصارمة.
-
----
 
 ## التوجيه، الوسيط واستراتيجية عناوين URL
 
@@ -246,11 +229,10 @@ author: aymericzip
 - كل ما سبق، بالإضافة إلى **وسيط i18n** (اكتشاف اللغة عبر الرؤوس/الكوكيز) و**مساعدين** لإنشاء عناوين URL محلية ووسوم `<link rel="alternate" hreflang="…">`.
 
   </Column>
+
 </Columns>
 
 **لماذا هذا مهم:** تقليل طبقات الربط المخصصة؛ **تجربة مستخدم متسقة** و**تحسين SEO نظيف** عبر اللغات.
-
----
 
 ## توافق مكونات الخادم (RSC)
 
@@ -276,11 +258,10 @@ author: aymericzip
 - يدعم Next.js 13+ ويسهل **الحد الفاصل بين الخادم/العميل** من خلال واجهة برمجة تطبيقات متسقة ومزودين موجهين لـ RSC، متجنبًا نقل أدوات التنسيق أو دوال الترجمة.
 
   </Column>
+
 </Columns>
 
 **لماذا هذا مهم:** نموذج ذهني أنظف وحالات حافة أقل في الأشجار الهجينة.
-
----
 
 ## التكامل مع منصات الترجمة (TMS)
 
@@ -932,8 +913,6 @@ const ClientComponentExample = () => {
   - **next-intl** is flexible; load messages however you configure.
   - **Intlayer** stores content in TS/JS dictionaries and resolves by key.
 
----
-
 ### الاستخدام في مكون الخادم
 
 We will take the case of a UI component. This component is a server component, and should be able to be inserted as a child of a client component. (page (server component) -> client component -> server component). As this component can be inserted as a child of a client component, it cannot be async.
@@ -1042,7 +1021,7 @@ Here's a list of good practices regarding multilingual SEO.
 Developers often forget to properly reference their pages across locales.
 
 <Tabs defaultTab="next-intl" group='techno'>
- 
+
   <Tab label="next-i18next" value="next-i18next">
 
 ```ts fileName="i18n.config.ts"
@@ -1299,8 +1278,6 @@ export default robots;
 
 > Intlayer provides a `getMultilingualUrls` function to generate multilingual URLs for your sitemap.
 
----
-
 ### Middleware for locale routing
 
 <Tabs defaultTab="next-intl" group='techno'>
@@ -1387,8 +1364,6 @@ The set up of the middleware centralized in the `intlayer.config.ts` file.
   </Tab>
 </Tabs>
 
----
-
 ### قائمة التحقق من الإعداد والممارسات الجيدة
 
 <Tabs defaultTab="next-intl" group='techno'>
@@ -1420,9 +1395,8 @@ The set up of the middleware centralized in the `intlayer.config.ts` file.
 - **الأدوات المدمجة**: استفد من دعم التوجيه المدمج ومساعدات SEO ودعم المحرر البصري.
 
   </Tab>
-</Tabs>
 
----
+</Tabs>
 
 ## والفائز هو…
 
@@ -1450,6 +1424,7 @@ The set up of the middleware centralized in the `intlayer.config.ts` file.
 - مبني لـ Next.js الحديث، مع محتوى معياري، أمان نوعي، أدوات، وتقليل الكود المكرر. إذا كنت تقدر **المحتوى المخصص للمكونات**، **TypeScript الصارم**، **ضمانات وقت البناء**، **tree-shaking**، وأدوات التوجيه/SEO/المحرر المدمجة - خاصة لـ **Next.js App Router**، أنظمة التصميم و**قواعد الشيفرة الكبيرة والمعيارية**.
 
   </Column>
+
 </Columns>
 
 إذا كنت تفضل إعدادًا بسيطًا وتقبل بعض التوصيلات اليدوية، فإن next-intl خيار جيد. إذا كنت تحتاج كل الميزات ولا تمانع التعقيد، فإن next-i18next يعمل بشكل جيد. ولكن إذا كنت تريد حلاً حديثًا وقابلًا للتوسع وذو محتوى معياري مع أدوات مدمجة، فإن Intlayer تهدف إلى تقديم ذلك لك مباشرةً من الصندوق.
@@ -1463,8 +1438,6 @@ The set up of the middleware centralized in the `intlayer.config.ts` file.
 نجوم GitHub هي مؤشر قوي على شعبية المشروع، وثقة المجتمع، وأهميته على المدى الطويل. وعلى الرغم من أنها ليست مقياسًا مباشرًا للجودة التقنية، إلا أنها تعكس عدد المطورين الذين يجدون المشروع مفيدًا، ويتابعون تقدمه، ومن المحتمل أن يتبنوه. لتقدير قيمة المشروع، تساعد النجوم في مقارنة الجذب بين البدائل وتوفر رؤى حول نمو النظام البيئي.
 
 [![مخطط تاريخ النجوم](https://api.star-history.com/chart?repos=i18next/next-i18next%2Camannn/next-intl%2Caymericzip/intlayer&type=date&legend=top-left)](https://www.star-history.com/#i18next/next-i18next&amannn/next-intl&aymericzip/intlayer)
-
----
 
 ## الخلاصة
 

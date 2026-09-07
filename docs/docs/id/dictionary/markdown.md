@@ -1171,8 +1171,6 @@ export class MyComponent {
   </Tab>
 </Tabs>
 
----
-
 ## Rendering Sisi Server (SSR) dan Hidrasi
 
 Dibandingkan dengan parser Markdown lainnya seperti remark / rehype, Intlayer Markdown bebas ketergantungan dan berjalan di sisi klien maupun server.

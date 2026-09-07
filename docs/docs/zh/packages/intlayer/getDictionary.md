@@ -41,8 +41,6 @@ author: aymericzip
 - 完全类型化：返回的对象镜像您传递的 `content`
 - 接受自定义解析器插件
 
----
-
 ## 函数签名
 
 ```typescript
@@ -52,8 +50,6 @@ getDictionary(
   plugins?: Plugins[]                                // 可选
 ): DeepTransformContent<...>
 ```
-
----
 
 ## 参数
 
@@ -76,8 +72,6 @@ getDictionary(
 
 - **类型**：字典的解释内容。
 - **描述**：你传递的 `content`，其中所有 Intlayer 节点都为请求的区域设置进行了解析。对于没有 `item` 选择器的集合组，返回一个有序的解释条目数组；当选择器不指向任何内容时，返回 `null`。
-
----
 
 ## 示例用法
 
@@ -127,15 +121,11 @@ const secondItem = getDictionary(blogPostGroup, { item: 2, locale: "fr" });
 const allItems = getDictionary(blogPostGroup, { locale: "fr" });
 ```
 
----
-
 ## 相关函数
 
 - [`getIntlayer`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getIntlayer.md): 相同的解释，但字典是通过键在生成的注册表中查找的。
 - [`getDictionaryAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/intlayer/getDictionaryAsync.md): 针对每个区域设置加载器映射的对应函数。
 - [`useDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/zh/packages/react-intlayer/useDictionary.md): 等效的 React hook，从提供程序读取区域设置。
-
----
 
 ## TypeScript
 

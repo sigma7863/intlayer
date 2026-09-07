@@ -108,8 +108,6 @@ Mais do que apenas uma solução i18n, o Intlayer fornece um **[editor visual] a
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guia Passo a Passo para Configurar o Intlayer em uma Aplicação SvelteKit
 
 Veja [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template) no GitHub.
@@ -773,8 +771,6 @@ bun run build # Or bun run dev
 # Ignorar os arquivos gerados pelo Intlayer
 .intlayer
 ```
-
----
 
 ### Ir Além
 

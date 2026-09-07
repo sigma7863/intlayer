@@ -37,15 +37,11 @@ Kami mengevaluasi:
 
 > **ringkasan**: Ketiganya dapat melokalkan aplikasi React. Jika Anda menginginkan **konten yang terfokus pada komponen**, **tipe TypeScript yang ketat**, **pemeriksaan kunci yang hilang saat build-time**, **kamus yang di-tree-shake**, dan alat editorial bawaan (Visual Editor/CMS + terjemahan AI opsional), **Intlayer** adalah pilihan paling lengkap untuk codebase React modular.
 
----
-
 ## Posisi tingkat tinggi
 
 - **react-intl** - Format berbasis ICU yang sesuai standar (tanggal/angka/jamak) dengan API yang matang. Katalog biasanya terpusat; keamanan kunci dan validasi saat build-time sebagian besar menjadi tanggung jawab Anda.
 - **react-i18next** - Sangat populer dan fleksibel; mendukung namespace, detektor, dan banyak plugin (ICU, backend). Kuat, tetapi konfigurasi bisa menjadi kompleks seiring skala proyek.
 - **Intlayer** - Model konten yang berfokus pada komponen untuk React, **pengetikan TS yang ketat**, **pemeriksaan saat build-time**, **tree-shaking**, plus **Visual Editor/CMS** dan **terjemahan berbantuan AI**. Bekerja dengan React Router, Vite, CRA, dll.
-
----
 
 ## Matriks fitur (fokus React)
 
@@ -71,8 +67,6 @@ Kami mengevaluasi:
 | **Purge unused content**                              | ✅ Ya, per-dictionary saat build                                                                                                                      | ❌ Tidak, hanya melalui segmentasi namespace manual                                                              | ❌ Tidak, semua pesan yang dideklarasikan dibundel                                          |
 | **Manajemen Proyek Besar**                            | ✅ Mendorong modular, cocok untuk design-system                                                                                                       | ⚠️ Membutuhkan disiplin file yang baik                                                                           | ⚠️ Katalog pusat bisa menjadi besar                                                         |
 
----
-
 ## Perbandingan Mendalam
 
 ### 1) Arsitektur & skalabilitas
@@ -82,8 +76,6 @@ Kami mengevaluasi:
 
 **Mengapa ini penting:** Konten modular mencerminkan UI modular. Codebase React yang besar tetap lebih bersih ketika terjemahan berada bersama komponen yang mereka miliki.
 
----
-
 ### 2) TypeScript & keamanan
 
 - **react-intl**: Typing yang solid, tetapi **tidak ada pengetikan kunci otomatis**; Anda harus menerapkan pola keamanan sendiri.
@@ -92,16 +84,12 @@ Kami mengevaluasi:
 
 **Mengapa ini penting:** Memindahkan kegagalan ke **kiri** (ke build/CI) mengurangi masalah produksi dan mempercepat siklus umpan balik pengembang.
 
----
-
 ### 3) Penanganan terjemahan yang hilang
 
 - **react-intl / react-i18next**: Default ke **fallback saat runtime** (mengulang kunci atau locale default). Anda dapat menambahkan linting/plugin, tetapi tidak dijamin saat build.
 - **Intlayer**: **Deteksi saat build** dengan peringatan atau kesalahan ketika locale/kunci yang diperlukan hilang.
 
 **Mengapa ini penting:** CI yang gagal karena string yang hilang mencegah “bahasa Inggris misterius” bocor ke UI non-Inggris.
-
----
 
 ### 4) Konten kaya & pemformatan
 
@@ -111,16 +99,12 @@ Kami mengevaluasi:
 
 **Mengapa ini penting:** Teks UI yang kompleks (tautan, bagian tebal, komponen inline) menjadi lebih mudah ketika pustaka menerima node React dengan bersih.
 
----
-
 ### 5) Performa & perilaku pemuatan
 
 - **react-intl / react-i18next**: Anda biasanya mengelola **pemisahan katalog** dan **lazy loading** secara manual (namespace/impor dinamis). Efektif tetapi memerlukan disiplin.
 - **Intlayer**: **Menghilangkan** kamus yang tidak digunakan dan mendukung **lazy loading per-kamus/per-locale** secara langsung.
 
 **Mengapa ini penting:** Bundel yang lebih kecil dan string yang tidak terpakai lebih sedikit meningkatkan performa saat startup dan navigasi.
-
----
 
 ### 6) DX, tooling & maintenance
 
@@ -129,23 +113,17 @@ Kami mengevaluasi:
 
 **Mengapa ini penting:** Alat bawaan memperpendek siklus antara pengembang dan penulis konten - lebih sedikit kode penghubung, lebih sedikit ketergantungan vendor.
 
----
-
 ## Kapan memilih yang mana?
 
 - **Pilih react-intl** jika Anda menginginkan format pesan **ICU-first** dengan API yang sederhana dan sesuai standar serta tim Anda nyaman mengelola katalog dan pemeriksaan keamanan secara manual.
 - **Pilih react-i18next** jika Anda membutuhkan **ekosistem luas i18next** (detektor, backend, plugin ICU, integrasi) dan menerima konfigurasi lebih untuk mendapatkan fleksibilitas.
 - **Pilih Intlayer** jika Anda menghargai **konten yang dibatasi pada komponen**, **TypeScript yang ketat**, **jaminan saat build**, **tree-shaking**, dan alat editorial **batterai-termasuk** - terutama untuk aplikasi React **besar dan modular**, sistem desain, dll.
 
----
-
 ## Interoperabilitas dengan `react-intl` dan `react-i18next`
 
 `intlayer` juga dapat membantu mengelola namespace `react-intl` dan `react-i18next` Anda.
 
 Dengan menggunakan `intlayer`, Anda dapat mendeklarasikan konten Anda dalam format perpustakaan i18n favorit Anda, dan intlayer akan menghasilkan namespace Anda di lokasi pilihan Anda (contoh: `/messages/{{locale}}/{{namespace}}.json`).
-
----
 
 ## BINTANG GitHub
 

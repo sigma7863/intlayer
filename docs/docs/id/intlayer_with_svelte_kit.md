@@ -108,8 +108,6 @@ Lebih dari sekedar solusi i18n, Intlayer menyediakan **[editor visual](https://g
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Panduan Langkah demi Langkah untuk Mengatur Intlayer dalam Aplikasi SvelteKit
 
 Lihat [Application Template](https://github.com/aymericzip/intlayer-sveltekit-template) di GitHub.
@@ -773,8 +771,6 @@ Disarankan untuk mengabaikan file-file yang dihasilkan oleh Intlayer.
 # Abaikan file-file yang dihasilkan oleh Intlayer
 .intlayer
 ```
-
----
 
 ### Melangkah Lebih Jauh
 

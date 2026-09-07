@@ -23,15 +23,11 @@ author: aymericzip
 
 No mundo interconectado de hoje, oferecer seu site em várias línguas pode expandir significativamente seu alcance e melhorar a experiência do usuário. Para desenvolvedores que trabalham com Angular, implementar a internacionalização (i18n) é crucial para gerenciar eficientemente as traduções enquanto preserva a estrutura da aplicação, SEO e desempenho. Neste artigo, vamos explorar várias abordagens de i18n , desde soluções integradas do Angular até bibliotecas de terceiros populares , para ajudá-lo a determinar a melhor opção para seu projeto.
 
----
-
 ## O que é Internacionalização (i18n)?
 
 Internacionalização, frequentemente referida como i18n, é o processo de projetar e preparar sua aplicação para suportar múltiplas línguas e contextos culturais. No Angular, isso envolve configurar seu app para que textos, datas, números e até layouts de UI possam se adaptar perfeitamente a diferentes locais. Fazer essa preparação adequadamente garante que a integração de traduções futuras permaneça organizada e eficiente.
 
 Saiba mais sobre os fundamentos de i18n lendo nosso artigo: [O que é Internacionalização (i18n)? Definição e Desafios](https://github.com/aymericzip/intlayer/blob/main/docs/blog/pt/what_is_internationalization.md).
-
----
 
 ## O Desafio da Tradução para Aplicações Angular
 
@@ -42,8 +38,6 @@ Traduzir uma aplicação Angular apresenta vários desafios:
 - **Considerações de SEO**: Se você estiver usando Angular Universal para renderização do lado do servidor, precisará configurar URLs localizadas, meta tags e sitemaps para tornar suas páginas multilíngues amigáveis aos mecanismos de busca.
 - **Roteamento e Estado**: Garantir que o idioma correto seja mantido enquanto navega entre rotas envolve gerenciamento de estado e possivelmente guardas ou interceptadores de rotas personalizados.
 - **Escalabilidade e Manutenção**: Os arquivos de tradução podem crescer rapidamente e mantê-los organizados, versionados e em sincronia com a evolução da sua aplicação pode ser uma tarefa contínua.
-
----
 
 ## Principais Soluções de i18n para Angular
 
@@ -69,8 +63,6 @@ O Angular oferece uma estrutura de i18n integrada, e existem várias bibliotecas
 
 - **Comunidade & Ecossistema**: Embora esteja crescendo, o ecossistema é mais novo, então plugins e ferramentas orientados pela comunidade podem ser mais limitados em comparação com soluções mais estabelecidas.
 
----
-
 ### 2. i18n Integrado do Angular
 
 **Visão Geral**  
@@ -88,8 +80,6 @@ O Angular vem com um sistema de **i18n integrado** que inclui ferramentas para e
 - **Múltiplas Compilações**: Cada idioma requer sua própria compilação, o que pode levar a cenários de implantação mais complexos.
 - **Conteúdo Dinâmico**: Lidar com conteúdo em tempo real ou gerado pelo usuário pode exigir lógica personalizada, uma vez que a solução integrada do Angular foca fortemente em traduções em tempo de compilação.
 - **Flexibilidade em Tempo de Execução Limitada**: Mudar idiomas rapidamente (sem recarregar o app) pode ser desafiador, pois as traduções são incorporadas durante o tempo de compilação.
-
----
 
 ### 3. ngx-translate
 
@@ -110,8 +100,6 @@ Website: [https://github.com/ngx-translate/core](https://github.com/ngx-translat
 - **Estado e Complexidade**: Gerenciar muitos arquivos de tradução pode se tornar complexo em aplicações maiores.
 - **SEO e SSR**: Se você precisar de renderização do lado do servidor com Angular Universal, o ngx-translate requer configuração extra para garantir que as traduções corretas sejam servidas a rastreadores e navegadores na primeira carga.
 - **Desempenho**: Embora flexível em tempo de execução, lidar com muitas traduções em grandes páginas pode ter implicações de desempenho, então estratégias de cache são recomendadas.
-
----
 
 ### 4. Transloco
 

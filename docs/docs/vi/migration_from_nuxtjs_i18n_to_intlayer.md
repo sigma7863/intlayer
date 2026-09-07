@@ -68,8 +68,6 @@ Không chỉ là một giải pháp i18n, Intlayer cung cấp một **[trình so
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Chiến lược di chuyển
 
 Vì `@nuxtjs/i18n` được hỗ trợ bởi `vue-i18n` ở phía dưới, có hai chiến lược bổ sung cho việc di chuyển sang Intlayer:
@@ -80,13 +78,9 @@ Vì `@nuxtjs/i18n` được hỗ trợ bởi `vue-i18n` ở phía dưới, có h
 
 Hướng dẫn này bao gồm **Chiến lược 1** trước (compat adapter drop-in), sau đó hướng dẫn qua di chuyển đầy đủ tùy chọn.
 
----
-
 ## Mục lục
 
 <TOC/>
-
----
 
 ## Quá trình di chuyển nhanh
 
@@ -192,8 +186,6 @@ export default defineNuxtConfig({
 
 Đó là tất cả những gì cần thiết cho quá trình di chuyển nhanh. Ứng dụng Nuxt của bạn hiện chạy trên Intlayer trong khi giữ lại mọi `$t` và `useI18n()`.
 
----
-
 ## Hoàn tất di chuyển
 
 Các bước dưới đây là tùy chọn và có thể được thực hiện dần dần. Chúng mở khóa bộ tính năng Intlayer đầy đủ: trình chỉnh sửa trực quan, CMS, các tệp nội dung được gõ, dịch tự động bằng AI, và hơn thế nữa.
@@ -273,8 +265,6 @@ export default config;
 
 </Steps>
 
----
-
 ## Những gì bạn có thể xóa sau khi di chuyển
 
 Khi compat adapter đã được triển khai, boilerplate sau đây có thể được xóa:
@@ -286,8 +276,6 @@ Khi compat adapter đã được triển khai, boilerplate sau đây có thể �
 | JSON language bundles (`locales/*.json`)  | JSON bundles chỉ cần thiết nếu bạn vẫn sử dụng plugin `syncJSON`. Khi bạn di chuyển sang các file `.content.ts`, bạn có thể xóa thư mục JSON. |
 
 Khi bạn sẵn sàng để đi xa hơn, Intlayer **tự động phát hiện tất cả các file `.content.ts` và `.content.json` ở bất kỳ đâu trong codebase của bạn** (theo mặc định, bất kỳ đâu bên trong `./src`). Bạn có thể đặt một file `my-component.content.ts` ngay bên cạnh `MyComponent.vue` của bạn và Intlayer sẽ nhận nó tại thời gian build mà không cần bất kỳ cấu hình bổ sung nào — không có imports, không có registration, không cần file index tập trung. Điều này làm cho việc đặt các bản dịch cùng với các trang và thành phần hoàn toàn không ma sát.
-
----
 
 ## Cấu hình TypeScript
 
@@ -303,8 +291,6 @@ Intlayer sử dụng module augmentation để cung cấp đầy đủ TypeScrip
 }
 ```
 
----
-
 ## Cấu hình Git
 
 Thêm thư mục được tạo bởi Intlayer vào `.gitignore` của bạn:
@@ -313,8 +299,6 @@ Thêm thư mục được tạo bởi Intlayer vào `.gitignore` của bạn:
 # Bỏ qua các tệp được tạo bởi Intlayer
 .intlayer
 ```
-
----
 
 ## Đi Xa Hơn
 

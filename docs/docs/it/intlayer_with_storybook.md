@@ -80,8 +80,6 @@ Più di una semplice soluzione i18n, Intlayer fornisce un **[editor visivo](http
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Perché usare Intlayer con Storybook?
 
 Storybook è lo strumento standard del settore per sviluppare e documentare i componenti dell'interfaccia utente in isolamento. Combinarlo con Intlayer ti permette di:
@@ -89,8 +87,6 @@ Storybook è lo strumento standard del settore per sviluppare e documentare i co
 - **Visualizzare l'anteprima di ogni lingua** direttamente all'interno del canvas di Storybook utilizzando un selettore nella barra degli strumenti.
 - **Identificare le traduzioni mancanti** prima che raggiungano la produzione.
 - **Documentare componenti multilingue** con contenuti reali e sicuri dal punto di vista dei tipi, anziché utilizzare stringhe codificate rigidamente.
-
----
 
 ## Configurazione passo dopo passo
 
@@ -407,8 +403,6 @@ export default copyButtonContent;
 
 > Per ulteriori formati di dichiarazione dei contenuti e funzionalità, consulta la [documentazione sulla dichiarazione dei contenuti](https://github.com/aymericzip/intlayer/blob/main/docs/docs/it/dictionary/content_file.md).
 
----
-
 ## Utilizzo di `useIntlayer` in un componente
 
 ```tsx fileName="src/components/CopyButton/index.tsx" codeFormat="typescript"
@@ -437,8 +431,6 @@ export const CopyButton: FC<CopyButtonProps> = ({ content }) => {
 ```
 
 `useIntlayer` restituisce il dizionario compilato per la lingua corrente fornita dal `IntlayerProvider` più vicino. Cambiare la lingua nella toolbar di Storybook renderizza automaticamente la story con le traduzioni aggiornate.
-
----
 
 ## Scrivere stories per componenti internazionalizzati
 
@@ -488,8 +480,6 @@ export const InsideCodeBlock: Story = {
 
 > Ogni story eredita la variabile globale `locale` dalla toolbar, consentendoti di verificare ogni lingua senza modificare il codice della story.
 
----
-
 ## Testare le traduzioni nelle stories
 
 Utilizza le funzioni `play` di Storybook per verificare che il testo tradotto correttamente venga visualizzato per una determinata lingua:
@@ -523,8 +513,6 @@ export const AccessibleLabel: Story = {
   },
 };
 ```
-
----
 
 ## Risorse aggiuntive
 

@@ -37,8 +37,6 @@ author: aymericzip
 - आपकी configuration में परिभाषित कस्टम rewrite नियमों के खिलाफ localized paths से मेल खाता है।
 - यदि कोई मेल खाता rewrite नियम नहीं मिलता है, तो यह मूल path वापस करता है।
 
----
-
 ## फ़ंक्शन सिग्नेचर
 
 ```typescript
@@ -48,8 +46,6 @@ getCanonicalPath(
   rewriteRules?: RoutingConfig['rewrite'] // वैकल्पिक
 ): string
 ```
-
----
 
 ## पैरामीटर
 
@@ -72,14 +68,10 @@ getCanonicalPath(
   - **प्रकार**: `RoutingConfig['rewrite']`
   - **डिफ़ॉल्ट**: `configuration.routing.rewrite`
 
----
-
 ## रिटर्न
 
 - **प्रकार**: `string`
 - **विवरण**: आंतरिक canonical पथ।
-
----
 
 ## उपयोग का उदाहरण
 
@@ -125,8 +117,6 @@ const manualRules = {
 getCanonicalPath("/contactez-nous", Locales.FRENCH, manualRules);
 // Output: "/contact"
 ```
-
----
 
 ## संबंधित फ़ंक्शन
 

@@ -94,8 +94,6 @@ Muito mais do que uma solução i18n, o Intlayer fornece um **[editor visual](ht
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Guia Passo a Passo para Configurar o Intlayer em uma Aplicação React
 
 <Steps>

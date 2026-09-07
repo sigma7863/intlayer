@@ -119,8 +119,6 @@ const myContent = html(
 
 在 HTML 节点上使用 `.use()` 方法时，你提供的组件将根据 `html()` 函数中提供的定义（如果可用）进行检查。
 
----
-
 ## 渲染 HTML
 
 渲染可以由 Intlayer 的内容系统自动处理，也可以使用专用工具手动完成。
@@ -474,8 +472,6 @@ const myContent = html(
   </Tab>
 </Tabs>
 
----
-
 ### 手动渲染与高级工具
 
 如果你需要渲染原始 HTML 字符串或对组件映射有更多控制，请使用以下工具。
@@ -647,8 +643,6 @@ const myContent = html(
 
   </Tab>
 </Tabs>
-
----
 
 ## 选项参考
 

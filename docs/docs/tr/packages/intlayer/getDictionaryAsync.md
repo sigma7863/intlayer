@@ -44,8 +44,6 @@ author: aymericzip
 - Aynı parçanın eşzamanlı yüklemelerini çoğaltmadan çıkarır ve çözülen içeriği önbelleğe alır
 - Başarısız yüklemeler önbellekten çıkarılır, böylece daha sonraki bir çağrı parçayı yeniden dener
 
----
-
 ## İşlev İmzası
 
 ```typescript
@@ -56,8 +54,6 @@ getDictionaryAsync(
   plugins?: Plugins[]                                    // İsteğe bağlı
 ): Promise<DeepTransformContent<...>>
 ```
-
----
 
 ## Parametreler
 
@@ -85,8 +81,6 @@ getDictionaryAsync(
 
 - **Type**: `Promise<Content>` — yüklenen chunk'ın yorumlanmış içeriğine çözümlenen bir promise.
 - **Description**: İstenen locale için ne harita ne de herhangi bir fallback'i çıkardığında `null` değerine çözümlenir, eksik nitelendirilmiş koordinatın nasıl çözümlendiğini yansıtır.
-
----
 
 ## Örnek Kullanım
 
@@ -123,8 +117,6 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 });
 ```
 
----
-
 ## Davranış Notları
 
 ### Önbelleğe alma ve yinelenenleri kaldırma
@@ -135,15 +127,11 @@ const promoBanner = await getDictionaryAsync(bannerLoaderMap, "banner", {
 
 Düz bir loader haritası, senkron mod ile aynı fallback zinciri boyunca yürütülür: istenen locale ilk olarak, sonra fallback'leri, sonra hiçbiri chunk yayınlamadıysa `null`.
 
----
-
 ## İlgili Fonksiyonlar
 
 - [`getIntlayerAsync`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getIntlayerAsync.md): Uygulamaların çağırdığı fonksiyon; build eklentileri bunu `getDictionaryAsync` olarak yeniden yazar.
 - [`getDictionary`](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/packages/intlayer/getDictionary.md): Tam bir sözlük alan senkron karşılığı.
 - [Dinamik sözlükler](https://github.com/aymericzip/intlayer/blob/main/docs/docs/tr/dynamic_dictionaries/index.md): Koleksiyonlar ve varyantlar, ve oluşturdukları loader haritaları.
-
----
 
 ## TypeScript
 

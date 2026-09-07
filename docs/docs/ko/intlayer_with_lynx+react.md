@@ -89,8 +89,6 @@ Intlayer는 단순한 i18n 솔루션 그 이상으로 관리에 도움이 되는
 </Accordion>
 </AccordionGroup>
 
----
-
 <Steps>
 
 <Step number={1} title="의존성 설치">
@@ -465,8 +463,6 @@ Intlayer는 자동 완성 기능을 개선하고 번역 오류를 감지하기 �
 - **사전 키에 대한 자동 완성**.
 - **타입 검사**를 통해 존재하지 않는 키에 접근하거나 타입이 일치하지 않을 경우 경고.
 
----
-
 ## Git 구성
 
 Intlayer에 의해 자동 생성된 파일을 커밋하지 않으려면 `.gitignore`에 다음을 추가하세요:
@@ -475,8 +471,6 @@ Intlayer에 의해 자동 생성된 파일을 커밋하지 않으려면 `.gitign
 #  Intlayer가 생성한 파일 무시
 .intlayer
 ```
-
----
 
 ### VS Code 확장
 
@@ -496,8 +490,6 @@ Intlayer와 함께 개발 경험을 향상시키려면 공식 **Intlayer VS Code
 - 번역된 콘텐츠의 **인라인 미리보기**.
 - 번역을 쉽게 생성하고 업데이트할 수 있는 **빠른 작업**.
   확장 프로그램 사용 방법에 대한 자세한 내용은 [Intlayer VS Code 확장 문서](https://intlayer.org/doc/vs-code-extension)를 참조하세요.
-
----
 
 ## 더 알아보기
 

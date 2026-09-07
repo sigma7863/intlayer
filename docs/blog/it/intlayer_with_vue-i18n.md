@@ -53,8 +53,6 @@ Sebbene Intlayer offra una soluzione i18n autonoma eccellente (vedi la nostra [g
 
 Questa guida ti mostra come sfruttare il sistema superiore di dichiarazione dei contenuti di Intlayer mantenendo la compatibilità con vue-i18n.
 
----
-
 ## Guida passo-passo per configurare Intlayer con vue-i18n
 
 <Steps>

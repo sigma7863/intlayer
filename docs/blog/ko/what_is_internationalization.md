@@ -99,8 +99,6 @@ i18n의 또 다른 중요한 이점은 사용자 경험의 향상입니다. 사�
 - **문화적 민감성**  
   아이콘, 색상 및 기호는 문화에 따라 다른 의미를 가질 수 있습니다. 지역 문화적 뉘앙스를 존중하여 시각적 및 텍스트 콘텐츠를 조정하는 것이 중요합니다.
 
----
-
 ## i18n 구현을 위한 모범 사례
 
 - **조기 계획**  
@@ -114,8 +112,6 @@ i18n의 또 다른 중요한 이점은 사용자 경험의 향상입니다. 사�
 
 - **번역 재사용성**  
   여러 웹사이트나 애플리케이션에서 재사용할 수 있도록 번역 파일을 조직하십시오. 예를 들어, 다국어 바닥글이나 머리글이 있는 경우, 전용 번역 파일을 설정하여 공통 요소를 모든 프로젝트에 쉽게 적용할 수 있도록 합니다.
-
----
 
 ## 로케일 콘텐츠 선언 vs. CMS 콘텐츠 외부화
 
@@ -134,8 +130,6 @@ i18n의 또 다른 중요한 이점은 사용자 경험의 향상입니다. 사�
 
 필요에 맞는 올바른 도구를 선택하고 국제화 전략을 처음부터 계획하는 것이 중요합니다. **Intlayer는 로케일 콘텐츠 선언과 긴밀히 통합된 해드리스 CMS를 결합하여 두 가지 세계의 장점을 제공하는 매력적인 솔루션을 제공합니다.**
 
----
-
 ### 기술별 i18n 라이브러리 및 도구 목록 보기
 
 기술별 i18n 라이브러리 및 도구 목록을 찾고 있다면 다음 자료를 확인하십시오:
@@ -152,8 +146,6 @@ i18n의 또 다른 중요한 이점은 사용자 경험의 향상입니다. 사�
 - Vue: [i18n 라이브러리 및 도구 목록 보기](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/list_i18n_technologies/frameworks/vue.md)
 - Svelte: [i18n 라이브러리 및 도구 목록 보기](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/list_i18n_technologies/frameworks/svelte.md)
 - React Native : [i18n 라이브러리 및 도구 목록 보기](https://github.com/aymericzip/intlayer/blob/main/docs/docs/ko/list_i18n_technologies/frameworks/react-native.md)
-
----
 
 ## 결론
 

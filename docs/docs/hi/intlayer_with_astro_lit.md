@@ -108,8 +108,6 @@ author: aymericzip
 </Accordion>
 </AccordionGroup>
 
----
-
 ## Astro + Lit में Intlayer को कॉन्फ़िगर करने के लिए चरण-दर-चरण मार्गदर्शिका
 
 GitHub पर [एप्लिकेशन टेम्पलेट](https://github.com/aymericzip/intlayer-astro-template) देखें।
@@ -706,8 +704,6 @@ Intlayer के साथ अपने विकास अनुभव को �
 - आसानी से अनुवाद बनाने और अपडेट करने के लिए **त्वरित क्रियाएं**।
 
 एक्सटेंशन का उपयोग करने के बारे में अधिक जानकारी के लिए, [VS Code एक्सटेंशन दस्तावेज़](https://intlayer.org/doc/vs-code-extension) देखें।
-
----
 
 ### अपने ज्ञान को और गहरा करें
 

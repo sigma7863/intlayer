@@ -42,8 +42,6 @@ author: aymericzip
 - 간단한 경우에는 최소 매개변수로 사용하거나 복잡한 시나리오를 위해 완전히 사용자 정의할 수 있습니다
 - 여러 라우팅 모드를 지원합니다: `prefix-no-default`, `prefix-all`, `no-prefix`, `search-params`
 
----
-
 ## 함수 서명
 
 ```typescript
@@ -57,8 +55,6 @@ getLocalizedUrl(
   }
 ): string
 ```
-
----
 
 ## 매개변수
 
@@ -105,8 +101,6 @@ getLocalizedUrl(
 
 - **타입**: `string`
 - **설명**: 지정된 로케일에 대한 현지화된 URL입니다.
-
----
 
 ## 사용 예시
 
@@ -209,8 +203,6 @@ getLocalizedUrl(
 ); // 출력: "/about" (지원되지 않는 로케일에는 접두사가 적용되지 않음)
 ```
 
----
-
 ## 엣지 케이스
 
 - **로케일 세그먼트 없음:**
@@ -227,8 +219,6 @@ getLocalizedUrl(
   - `'prefix-all'`: 모든 locale이 prefix를 가짐 (예: `/en/about`, `/fr/about`)
   - `'no-prefix'`: URL에 locale prefix가 없음 (locale은 다른 곳에서 처리됨)
   - `'search-params'`: Query parameter를 통해 locale이 지정됨 (예: `/about?locale=fr`)
-
----
 
 ## 애플리케이션에서의 사용
 

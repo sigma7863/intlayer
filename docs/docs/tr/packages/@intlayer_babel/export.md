@@ -43,8 +43,6 @@ npm install @intlayer/babel
 import { ... } from "@intlayer/babel";
 ```
 
----
-
 ### Eklentiler (Plugins)
 
 | İşlev / Sınıf                  | Açıklama                                                                                                                                                                                                                                    |
@@ -57,8 +55,6 @@ import { ... } from "@intlayer/babel";
 | `makeUsageAnalyzerBabelPlugin` | Kaynak koddaki `useIntlayer` / `getIntlayer` kullanımını analiz etmek ve paylaşılan `PruneContext` içindeki alan kullanım verilerini toplamak için bir Babel eklentisi üreten fabrika işlevi.                                               |
 | `getSharedPruneContext`        | Belirtilen temel dizin için paylaşılan `PruneContext` nesnesini döndüren veya henüz başlatılmamışsa `null` döndüren yardımcı işlev.                                                                                                         |
 
----
-
 ### Eklenti Yapılandırma Yardımcı Programları
 
 | İşlev                      | Açıklama                                                                                                                                        |
@@ -67,8 +63,6 @@ import { ... } from "@intlayer/babel";
 | `getOptimizePluginOptions` | Intlayer yapılandırmasını ve derlenmiş sözlükleri yükler ve `intlayerOptimizeBabelPlugin` ile kullanıma hazır `OptimizePluginOptions` döndürür. |
 | `getPurgePluginOptions`    | Intlayer yapılandırmasını yükler ve `intlayerPurgeBabelPlugin` ile kullanıma hazır `PurgePluginOptions` döndürür.                               |
 | `getMinifyPluginOptions`   | Intlayer yapılandırmasını yükler yardsımcı ve `intlayerMinifyBabelPlugin` ile kullanıma hazır `MinifyPluginOptions` döndürür.                   |
-
----
 
 ### Tipler
 
@@ -87,8 +81,6 @@ import { ... } from "@intlayer/babel";
 | `CompatCallerConfig`    | Uyumlu bağdaştırıcı (compat-adapter) paketleri için uyumlu bir kullanım analizörü yapılandırması (çağıran adı ve işlem seçenekleri). |
 | `ScriptBlock`           | Bir SFC dosyasından (Vue veya Svelte) ayıklanan komut dosyası bloğu: içerik, başlangıç kayması ve bitiş kayması.                     |
 
----
-
 ### Yardımcı İşlevler
 
 | İşlev                             | Açıklama                                                                                                                                                                   |
@@ -99,8 +91,6 @@ import { ... } from "@intlayer/babel";
 | `extractScriptBlocks`             | Sonraki Babel analizi için SFC dosyalarından (Vue / Svelte) `<script>` bloklarını ayıklar.                                                                                 |
 | `BABEL_PARSER_OPTIONS`            | Desteklenen framework'leri (React/Vue/Svelte/Angular/...) kapsayan Babel ayrıştırıcı seçeneklerini temsil eden sabit.                                                      |
 | `INTLAYER_CALLER_NAMES`           | Orijinal Intlayer çağıran adlarının sabit listesi: `['useIntlayer', 'getIntlayer']`.                                                                                       |
-
----
 
 ## Örnek Kullanım
 
