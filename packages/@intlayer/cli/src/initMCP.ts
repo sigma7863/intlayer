@@ -1,5 +1,4 @@
 import { resolve } from 'node:path';
-import * as p from '@clack/prompts';
 import {
   installMCP,
   type MCPTransport,
@@ -9,11 +8,14 @@ import {
 import enquirer from 'enquirer';
 import { findProjectRoot } from './init';
 import { getDetectedPlatform, PLATFORM_OPTIONS } from './initSkills';
+import { loadPrompts } from './loadPrompts';
 
 export const initMCP = async (
   projectRoot?: string,
   preselectedPlatform?: Platform
 ) => {
+  const p = await loadPrompts();
+
   const root = findProjectRoot(
     projectRoot ? resolve(projectRoot) : process.cwd()
   );

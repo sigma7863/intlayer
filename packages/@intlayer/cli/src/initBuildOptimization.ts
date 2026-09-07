@@ -1,12 +1,12 @@
 import { existsSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import * as p from '@clack/prompts';
 import {
   detectPackageManager,
   installPackages,
   NEXT_INTLAYER_BABEL_CONFIG_CONTENT,
 } from '@intlayer/engine/cli';
 import { findProjectRoot } from './init';
+import { loadPrompts } from './loadPrompts';
 
 /** Intlayer build optimization plugin choices for Next.js. */
 export type BuildOptimizationPlugin = 'babel' | 'swc';
@@ -35,6 +35,8 @@ const BABEL_CONFIG_CANDIDATES = [
 export const initBuildOptimization = async (
   projectRoot?: string
 ): Promise<void> => {
+  const p = await loadPrompts();
+
   const root = findProjectRoot(
     projectRoot ? resolve(projectRoot) : process.cwd()
   );

@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import * as p from '@clack/prompts';
 import {
   type ContentStrategy,
   detectCompatI18nLibraries,
@@ -21,6 +20,7 @@ import {
   initSkills,
   PLATFORM_OPTIONS,
 } from './initSkills';
+import { loadPrompts } from './loadPrompts';
 
 export const findProjectRoot = (startDir: string) => {
   let currentDir = startDir;
@@ -206,6 +206,8 @@ const runInteractiveInit = async (
   root: string,
   baseOptions?: InitOptions
 ): Promise<void> => {
+  const p = await loadPrompts();
+
   p.intro('Initialize Intlayer');
 
   const stepOptions = [...BASE_INIT_STEP_OPTIONS];

@@ -18,6 +18,7 @@ import {
 import { formatPath, parallelize } from '@intlayer/engine/utils';
 import type { Dictionary } from '@intlayer/types/dictionary';
 import { getUnmergedDictionaries } from '@intlayer/unmerged-dictionaries-entry';
+import { loadPrompts } from '../loadPrompts';
 import { PushLogger, type PushStatus } from '../pushLog';
 import { checkCMSAuth, getAuthenticatedAPI } from '../utils/checkAccess';
 import { selectCmsEnvironment } from '../utils/selectCmsEnvironment';
@@ -324,7 +325,7 @@ export const push = async (options?: PushOptions): Promise<void> => {
       );
 
       if (remoteDictionaries.length > 0) {
-        const { confirm, isCancel } = await import('@clack/prompts');
+        const { confirm, isCancel } = await loadPrompts();
 
         const shouldDelete = await confirm({
           message: `Do you want to delete the local dictionaries that were successfully pushed? ${colorize('(Dictionaries:', ANSIColors.GREY, ANSIColors.RESET)} ${colorizeKey(remoteDictionariesKeys)}${colorize(')', ANSIColors.GREY, ANSIColors.RESET)}`,

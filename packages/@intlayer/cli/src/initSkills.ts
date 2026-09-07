@@ -1,6 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import * as p from '@clack/prompts';
 import {
   getInitialSkills,
   installSkills,
@@ -12,6 +11,7 @@ import {
 } from '@intlayer/engine/cli';
 import enquirer from 'enquirer';
 import { findProjectRoot } from './init';
+import { loadPrompts } from './loadPrompts';
 
 const PLATFORM_CHECKS: Array<{ check: () => boolean; platform: Platform }> =
   PLATFORMS.filter((platform) => PLATFORMS_METADATA[platform]?.check).map(
@@ -52,6 +52,8 @@ export const initSkills = async (
   projectRoot?: string,
   preselectedPlatform?: Platform
 ) => {
+  const p = await loadPrompts();
+
   const root = findProjectRoot(
     projectRoot ? resolve(projectRoot) : process.cwd()
   );

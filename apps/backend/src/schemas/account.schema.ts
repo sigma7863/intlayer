@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose';
 import type { AccountModelType, AccountSchema } from '@/types/account.types';
 
-export const accountSchema = new Schema<AccountSchema>(
+export const accountSchema: Schema<AccountSchema> = new Schema<AccountSchema>(
   {
     userId: {
       type: Schema.Types.ObjectId as any,

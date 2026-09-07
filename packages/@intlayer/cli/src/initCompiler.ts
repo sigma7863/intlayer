@@ -1,8 +1,8 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import * as p from '@clack/prompts';
 import { detectPackageManager, installPackages } from '@intlayer/engine/cli';
 import { findProjectRoot } from './init';
+import { loadPrompts } from './loadPrompts';
 
 /** Framework the Intlayer compiler can be wired into during init. */
 type CompilerFramework = 'vite' | 'nextjs' | 'unknown';
@@ -72,6 +72,8 @@ const detectCompilerFramework = (root: string): CompilerFramework => {
  * is left untouched.
  */
 export const initCompiler = async (projectRoot?: string): Promise<void> => {
+  const p = await loadPrompts();
+
   const root = findProjectRoot(
     projectRoot ? resolve(projectRoot) : process.cwd()
   );

@@ -2,6 +2,7 @@ import type { Account as BetterAuthAccount } from 'better-auth';
 import type { Document, Model } from 'mongoose';
 
 export type Account = BetterAuthAccount & {
+  issuer?: string;
   accessToken?: string;
   access_token?: string;
   refreshToken?: string;
