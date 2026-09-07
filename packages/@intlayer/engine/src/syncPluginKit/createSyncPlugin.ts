@@ -5,9 +5,78 @@ import type { Dictionary, LocalDictionaryId } from '@intlayer/types/dictionary';
 import type { Plugin } from '@intlayer/types/plugin';
 import type {
   CreateSyncPluginOptions,
+  SplitKeysMode,
   SyncContent,
   SyncPluginContext,
 } from './types';
+
+/** Separator between the dictionary segment and the key remainder of a flat id. */
+const KEY_PREFIX_SEPARATOR = '.';
+
+/**
+ * Groups a flat map of dotted ids by their first segment.
+ *
+ * `{ 'footer.github': 'GitHub', 'footer.contact': 'Contact', 'banner': '!' }`
+ * becomes `{ footer: { github: 'GitHub', contact: 'Contact' }, banner: '!' }`.
+ *
+ * An id without a separator names a dictionary whose content is the value
+ * itself — the shape the optimize pass binds with an empty key remainder.
+ * Nested (non-flat) values are passed through under their own key, so a
+ * catalog mixing both shapes still round-trips.
+ */
+const groupByKeyPrefix = (
+  content: SyncContent
+): Record<string, SyncContent | unknown> => {
+  const grouped: Record<string, SyncContent | unknown> = {};
+
+  for (const [id, value] of Object.entries(content)) {
+    const separatorIndex = id.indexOf(KEY_PREFIX_SEPARATOR);
+
+    if (separatorIndex === -1) {
+      grouped[id] = value;
+      continue;
+    }
+
+    const prefix = id.slice(0, separatorIndex);
+    const remainder = id.slice(separatorIndex + 1);
+    const bucket = grouped[prefix];
+
+    // A scalar already sits here (`'a'` seen before `'a.b'`): keep the scalar
+    // and leave the dotted id whole, rather than silently dropping either.
+    if (bucket !== undefined && typeof bucket !== 'object') {
+      grouped[id] = value;
+      continue;
+    }
+
+    grouped[prefix] = { ...((bucket ?? {}) as object), [remainder]: value };
+  }
+
+  return grouped;
+};
+
+/**
+ * Inverse of {@link groupByKeyPrefix} for one dictionary: re-joins a grouped
+ * bucket back into the flat dotted ids the source file stores.
+ */
+const flattenKeyPrefix = (
+  prefix: string,
+  content: unknown
+): Record<string, unknown> => {
+  if (
+    content === null ||
+    typeof content !== 'object' ||
+    Array.isArray(content)
+  ) {
+    // Dot-less id — the dictionary content *is* the message.
+    return { [prefix]: content };
+  }
+
+  const flattened: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(content)) {
+    flattened[`${prefix}${KEY_PREFIX_SEPARATOR}${key}`] = value;
+  }
+  return flattened;
+};
 
 /**
  * Content that carries nothing to persist: `undefined`, `null`, or an object
@@ -48,13 +117,13 @@ export const createSyncPlugin = (options: CreateSyncPluginOptions): Plugin => {
     localeOverride,
   } = options;
 
-  let splitKeysPromise: Promise<boolean> | undefined;
+  let splitKeysPromise: Promise<SplitKeysMode> | undefined;
 
   /**
    * `splitKeys` resolution is asynchronous (adapter auto-detection may parse
    * an async source pattern), so it is resolved lazily and memoized.
    */
-  const resolveSplitKeys = (): Promise<boolean> => {
+  const resolveSplitKeys = (): Promise<SplitKeysMode> => {
     splitKeysPromise ??= (async () =>
       options.splitKeys ?? (await adapter.detectSplitKeys?.()) ?? false)();
 
@@ -106,11 +175,18 @@ export const createSyncPlugin = (options: CreateSyncPluginOptions): Plugin => {
       const fill = patternFill ?? relativeFilePath;
       const identifier = relativeFilePath ?? entry.uri;
 
-      // One entry groups several namespaces by its first-level keys: emit one
-      // dictionary per top-level key (e.g. `Hero`, `Nav`, …).
+      // One entry groups several namespaces: emit one dictionary per
+      // namespace. `true` reads them from the first-level keys (`Hero`,
+      // `Nav`, …); `'key-prefix'` derives them from the first dot-segment of
+      // a flat catalog's dotted ids (`footer.github` → `footer`).
       if (shouldSplitByKeys) {
+        const splitContent =
+          shouldSplitByKeys === 'key-prefix'
+            ? groupByKeyPrefix(content)
+            : content;
+
         for (const [namespaceKey, namespaceContent] of Object.entries(
-          content
+          splitContent
         )) {
           dictionaries.push({
             key: namespaceKey,
@@ -205,7 +281,9 @@ export const createSyncPlugin = (options: CreateSyncPluginOptions): Plugin => {
       }))
       .filter(({ dictionary }) => dictionary.location === location);
 
-    if (await resolveSplitKeys()) {
+    const splitMode = await resolveSplitKeys();
+
+    if (splitMode) {
       // Split mode: every namespace dictionary writes back into the same
       // per-locale target. Re-assemble them under their top-level key and
       // write each target once, instead of one write per key (which would
@@ -230,7 +308,19 @@ export const createSyncPlugin = (options: CreateSyncPluginOptions): Plugin => {
           if (isEmptyContent(content)) continue;
 
           mergedContentByLocale[locale] ??= {};
-          mergedContentByLocale[locale][key] = content;
+
+          // `'key-prefix'` split the flat dotted ids apart on read; restore
+          // them so the source file keeps the shape its library expects,
+          // instead of gaining a nested object per prefix.
+          if (splitMode === 'key-prefix') {
+            Object.assign(
+              mergedContentByLocale[locale],
+              flattenKeyPrefix(key, content)
+            );
+          } else {
+            mergedContentByLocale[locale][key] = content;
+          }
+
           writeKeyByLocale[locale] = key;
         }
       }

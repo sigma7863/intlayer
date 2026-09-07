@@ -1,6 +1,7 @@
 //! Call-site rewriting for compat-adapter callers declared through
 //! `extraCallers`.
 
+use std::collections::BTreeMap;
 use crate::tests::support::{
     get_config_with_extra_callers, use_i18n_caller, use_lingui_caller, use_translation_caller,
     use_translation_root_scope_caller, use_translations_root_scope_caller, TestFolder,
@@ -151,6 +152,79 @@ fn extra_caller_unresolvable_namespace_keeps_original() {
         import { useTranslation } from "react-i18next";
         const { t } = useTranslation("about");
         const { t: tDynamic } = useTranslation(namespace);
+        "#,
+    );
+}
+
+#[test]
+fn root_scope_binds_whole_file_dictionary_when_segment_is_not_a_dictionary() {
+    // `syncJSON({ splitKeys: false })` keeps one whole-file dictionary, so the
+    // `about` in `t("about.grid.title")` names a group *inside* `index`, not a
+    // dictionary. The binding falls back to `index` and keeps the id intact,
+    // mirroring the runtime resolver.
+    let mut cfg =
+        get_config_with_extra_callers("static", vec![use_translations_root_scope_caller()]);
+    cfg.dictionary_mode_map = Some(BTreeMap::from([(
+        "index".to_string(),
+        "static".to_string(),
+    )]));
+
+    test_transform(
+        Syntax::default(),
+        None,
+        move |_| TestFolder {
+            cfg: cfg.clone(),
+            filename: "/app/src/page.tsx".to_string(),
+        },
+        r#"
+        import { useTranslations } from "next-intl";
+        const About = () => {
+            const t = useTranslations();
+            return t("about.grid.title");
+        };
+        "#,
+        r#"
+        import _Q8rtfG1AbW from "../.intlayer/dictionaries/index.json" with { type: "json" };
+        import { useDictionary as useTranslations } from "next-intl";
+        const About = () => {
+            const t = useTranslations(_Q8rtfG1AbW);
+            return t("about.grid.title");
+        };
+        "#,
+    );
+}
+
+#[test]
+fn root_scope_declines_when_no_dictionary_matches_and_no_whole_file_one_exists() {
+    // No `index` dictionary to fall back on, so nothing can be bound and the
+    // call site is left exactly as written.
+    let mut cfg =
+        get_config_with_extra_callers("static", vec![use_translations_root_scope_caller()]);
+    cfg.dictionary_mode_map = Some(BTreeMap::from([(
+        "footer".to_string(),
+        "static".to_string(),
+    )]));
+
+    test_transform(
+        Syntax::default(),
+        None,
+        move |_| TestFolder {
+            cfg: cfg.clone(),
+            filename: "/app/src/page.tsx".to_string(),
+        },
+        r#"
+        import { useTranslations } from "next-intl";
+        const About = () => {
+            const t = useTranslations();
+            return t("about.grid.title");
+        };
+        "#,
+        r#"
+        import { useTranslations } from "next-intl";
+        const About = () => {
+            const t = useTranslations();
+            return t("about.grid.title");
+        };
         "#,
     );
 }

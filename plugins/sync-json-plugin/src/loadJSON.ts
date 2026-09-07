@@ -1,6 +1,7 @@
 import {
   createFileAdapter,
   createSyncPlugin,
+  type SplitKeysMode,
 } from '@intlayer/engine/syncPluginKit';
 import type { Locale } from '@intlayer/types/allLocales';
 import type { DictionaryFormat } from '@intlayer/types/dictionary';
@@ -95,7 +96,7 @@ export type LoadJSONPluginOptions = {
    * When omitted, it is auto-detected: the file is split when the `source`
    * pattern has no `{{key}}` segment, and kept as a single dictionary otherwise.
    */
-  splitKeys?: boolean;
+  splitKeys?: SplitKeysMode;
 };
 
 /**

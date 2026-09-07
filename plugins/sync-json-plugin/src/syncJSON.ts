@@ -3,6 +3,7 @@ import {
   buildFilePathPatternContext,
   createFileAdapter,
   createSyncPlugin,
+  type SplitKeysMode,
 } from '@intlayer/engine/syncPluginKit';
 import type {
   DictionaryFormat,
@@ -81,6 +82,14 @@ export type SyncJSONPluginOptions = {
    * namespaces by its first-level keys and each namespace is addressed
    * independently (e.g. `useTranslations('Hero')` → dictionary `Hero`).
    *
+   * Pass `'key-prefix'` for *flat* catalogs whose keys are dotted ids rather
+   * than nested objects — the single-catalog model of `lingui` and of
+   * i18next's default `translation` namespace. Each id's first dot-segment
+   * becomes a dictionary and the remainder becomes the key inside it, so
+   * `'footer.github'` is addressed as dictionary `footer`, key `github`.
+   * Write-back restores the flat dotted ids, leaving the source file in the
+   * shape its library expects.
+   *
    * When omitted, it is auto-detected: the file is split when the `source`
    * pattern has no `{{key}}` segment (i.e. one file holds every namespace),
    * and kept as a single dictionary otherwise (one file per key).
@@ -92,9 +101,16 @@ export type SyncJSONPluginOptions = {
    *   source: ({ locale }) => `./messages/${locale}.json`,
    *   splitKeys: true,
    * })
+   *
+   * // locales/en/messages.json → { 'footer.github': …, 'hero.title': … }
+   * //   → dictionaries: footer, hero, …
+   * syncJSON({
+   *   source: ({ locale }) => `./locales/${locale}/messages.json`,
+   *   splitKeys: 'key-prefix',
+   * })
    * ```
    */
-  splitKeys?: boolean;
+  splitKeys?: SplitKeysMode;
 };
 
 /**

@@ -14,6 +14,18 @@ vi.mock('@intlayer/dictionaries-entry', () => ({
 import { getIntlayer } from '@intlayer/core/interpreter';
 import { getDictionaries } from '@intlayer/dictionaries-entry';
 import { I18nClass } from './I18nClass';
+import { createRegistryResolver } from './registryLookup';
+
+/**
+ * Builds the class the way the unoptimized entry points (`setupI18n`,
+ * `useLingui`) do — with registry access wired in. The build-optimized
+ * `useDictionary` variants deliberately omit it, which is what keeps
+ * `@intlayer/dictionaries-entry` (and therefore every dictionary in the
+ * project) out of an optimized chunk.
+ */
+const createI18n = (
+  props: ConstructorParameters<typeof I18nClass>[0] = {}
+): I18nClass => new I18nClass({ ...props, registry: createRegistryResolver() });
 
 const mockGetIntlayer = vi.mocked(getIntlayer);
 const mockGetDictionaries = vi.mocked(getDictionaries);
@@ -27,22 +39,45 @@ describe('I18nClass', () => {
     mockGetDictionaries.mockReturnValue({ messages: {} } as never);
   });
 
+  // ── build-optimized path ───────────────────────────────────────────────────
+
+  it('resolves bound dictionary content without consulting the registry', () => {
+    // What `useDictionary(fooDictionary)` constructs: content supplied, no
+    // registry. Reaching for the registry here would mean the optimized chunk
+    // still depends on `@intlayer/dictionaries-entry`, which statically imports
+    // every dictionary — re-leaking the whole catalog into every page.
+    const i18n = new I18nClass({ locale: 'en' }).bindDictionaryContent({
+      github: 'GitHub',
+    });
+
+    expect(i18n._('github')).toBe('GitHub');
+    expect(mockGetDictionaries).not.toHaveBeenCalled();
+    expect(mockGetIntlayer).not.toHaveBeenCalled();
+  });
+
+  it('falls back to the id when unbound and given no registry', () => {
+    const i18n = new I18nClass({ locale: 'en' });
+
+    expect(i18n._('missing.key')).toBe('missing.key');
+    expect(mockGetDictionaries).not.toHaveBeenCalled();
+  });
+
   // ── constructor ────────────────────────────────────────────────────────────
 
   it('defaults locale to "en" when none is provided', () => {
-    const i18n = new I18nClass();
+    const i18n = createI18n();
     expect(i18n.locale).toBe('en');
   });
 
   it('stores the initial locale', () => {
-    const i18n = new I18nClass({ locale: 'fr' });
+    const i18n = createI18n({ locale: 'fr' });
     expect(i18n.locale).toBe('fr');
   });
 
   // ── activate ───────────────────────────────────────────────────────────────
 
   it('updates locale and emits "change" event on activate()', () => {
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     const listener = vi.fn();
     i18n.on('change', listener);
     i18n.activate('de');
@@ -51,7 +86,7 @@ describe('I18nClass', () => {
   });
 
   it('loadAndActivate delegates to activate()', () => {
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     const listener = vi.fn();
     i18n.on('change', listener);
     // messages is required by the type but ignored at runtime
@@ -61,7 +96,7 @@ describe('I18nClass', () => {
   });
 
   it('on() returns an unsubscribe function', () => {
-    const i18n = new I18nClass();
+    const i18n = createI18n();
     const listener = vi.fn();
     const unsubscribe = i18n.on('change', listener);
     unsubscribe();
@@ -74,7 +109,7 @@ describe('I18nClass', () => {
   it('messages getter returns the dictionary for the current locale', () => {
     const catalog = { greeting: 'Hello' };
     mockGetIntlayer.mockReturnValue(catalog as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n.messages).toEqual(catalog);
   });
 
@@ -82,7 +117,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockImplementation(() => {
       throw new Error('not found');
     });
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n.messages).toEqual({});
   });
 
@@ -90,7 +125,7 @@ describe('I18nClass', () => {
 
   it('resolves a flat string from the messages dictionary', () => {
     mockGetIntlayer.mockReturnValue({ greeting: 'Hello world' } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('greeting')).toBe('Hello world');
   });
 
@@ -98,7 +133,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockReturnValue({
       home: { title: 'Welcome' },
     } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('home.title')).toBe('Welcome');
   });
 
@@ -106,7 +141,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockReturnValue({
       'results-table.bundleSize': 'Bundle Size',
     } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('results-table.bundleSize')).toBe('Bundle Size');
   });
 
@@ -128,7 +163,7 @@ describe('I18nClass', () => {
       return { messages: {} };
     }) as never);
 
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('hero.aTestApplicationDesignedTo')).toBe(
       'A test application'
     );
@@ -140,7 +175,7 @@ describe('I18nClass', () => {
     mockGetDictionaries.mockReturnValue({ home: {} } as never);
     mockGetIntlayer.mockReturnValue({ messages: {} } as never);
 
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('hero.title')).toBe('hero.title');
   });
 
@@ -151,7 +186,7 @@ describe('I18nClass', () => {
         ? { messages: { 'hero.title': 'Home' } }
         : { messages: { 'nav.about': 'About' } }) as never);
 
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n.messages).toEqual({
       'hero.title': 'Home',
       'nav.about': 'About',
@@ -162,7 +197,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockReturnValue({
       greeting: 'Hello, {name}!',
     } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('greeting', { name: 'Alice' })).toBe('Hello, Alice!');
   });
 
@@ -170,7 +205,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockReturnValue({
       items: '{count, plural, one {# item} other {# items}}',
     } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('items', { count: 1 })).toBe('1 item');
     expect(i18n._('items', { count: 5 })).toBe('5 items');
   });
@@ -179,7 +214,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockReturnValue({
       role: '{role, select, admin {Admin} other {User}}',
     } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('role', { role: 'admin' })).toBe('Admin');
     expect(i18n._('role', { role: 'member' })).toBe('User');
   });
@@ -188,7 +223,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockImplementation(() => {
       throw new Error('not found');
     });
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._({ id: 'missing', message: 'Default message' })).toBe(
       'Default message'
     );
@@ -198,13 +233,13 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockImplementation(() => {
       throw new Error('not found');
     });
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('unknown.key')).toBe('unknown.key');
   });
 
   it('descriptor.values are merged with the values argument', () => {
     mockGetIntlayer.mockReturnValue({ msg: '{a} {b}' } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._({ id: 'msg', values: { a: 'foo' } }, { b: 'bar' })).toBe(
       'foo bar'
     );
@@ -212,7 +247,7 @@ describe('I18nClass', () => {
 
   it('t is an alias for _()', () => {
     mockGetIntlayer.mockReturnValue({ hello: 'Hi' } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n.t('hello')).toBe(i18n._('hello'));
   });
 
@@ -222,7 +257,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockImplementation(() => {
       throw new Error('messages dictionary not found');
     });
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     i18n.load('en', { 'results-table.bundleSize': 'Bundle Size' });
     expect(i18n._('results-table.bundleSize')).toBe('Bundle Size');
   });
@@ -231,7 +266,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockImplementation(() => {
       throw new Error('messages dictionary not found');
     });
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     i18n.load('en', { greeting: ['Hello ', ['name'], '!'] } as never);
     expect(i18n._('greeting', { name: 'Alice' })).toBe('Hello Alice!');
   });
@@ -240,7 +275,7 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockImplementation(() => {
       throw new Error('messages dictionary not found');
     });
-    const i18n = new I18nClass({
+    const i18n = createI18n({
       locale: 'fr',
       messages: { fr: { hello: 'Bonjour' } } as never,
     });
@@ -251,14 +286,14 @@ describe('I18nClass', () => {
     mockGetIntlayer.mockImplementation(() => {
       throw new Error('messages dictionary not found');
     });
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     i18n.loadAndActivate({ locale: 'de', messages: { hi: 'Hallo' } });
     expect(i18n._('hi')).toBe('Hallo');
   });
 
   it('prefers the compiled dictionary over the runtime fallback catalog', () => {
     mockGetIntlayer.mockReturnValue({ key: 'From dictionary' } as never);
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     i18n.load('en', { key: 'From fallback' });
     expect(i18n._('key')).toBe('From dictionary');
   });
@@ -269,7 +304,7 @@ describe('I18nClass', () => {
     mockGetIntlayer
       .mockReturnValueOnce({ msg: 'Hello' } as never) // first call: en
       .mockReturnValueOnce({ msg: 'Bonjour' } as never); // second call: fr
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n._('msg')).toBe('Hello');
     i18n.activate('fr');
     expect(i18n._('msg')).toBe('Bonjour');
@@ -278,7 +313,7 @@ describe('I18nClass', () => {
   // ── deprecated helpers ─────────────────────────────────────────────────────
 
   it('date() formats using Intl.DateTimeFormat', () => {
-    const i18n = new I18nClass({ locale: 'en-US' });
+    const i18n = createI18n({ locale: 'en-US' });
     const result = i18n.date(new Date('2024-01-15T00:00:00Z'), {
       year: 'numeric',
       month: 'long',
@@ -290,12 +325,12 @@ describe('I18nClass', () => {
   });
 
   it('date() returns empty string for undefined input', () => {
-    const i18n = new I18nClass({ locale: 'en' });
+    const i18n = createI18n({ locale: 'en' });
     expect(i18n.date(undefined)).toBe('');
   });
 
   it('number() formats using Intl.NumberFormat', () => {
-    const i18n = new I18nClass({ locale: 'en-US' });
+    const i18n = createI18n({ locale: 'en-US' });
     const result = i18n.number(1234567.89, { maximumFractionDigits: 2 });
     expect(result).toContain('1,234,567');
   });

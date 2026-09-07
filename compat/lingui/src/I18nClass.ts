@@ -1,10 +1,5 @@
-import { getIntlayer } from '@intlayer/core/interpreter';
 import { resolveMessage } from '@intlayer/core/messageFormat';
-import { getDictionaries } from '@intlayer/dictionaries-entry';
-import type {
-  DictionaryKeys,
-  LocalesValues,
-} from '@intlayer/types/module_augmentation';
+import type { LocalesValues } from '@intlayer/types/module_augmentation';
 import type {
   AllMessages,
   Locale,
@@ -20,6 +15,7 @@ import {
   navigateLinguiCatalog,
   unwrapLinguiCatalog,
 } from './linguiCatalog';
+import type { RegistryResolver } from './registryLookup';
 
 /** Mirrors the unexported `Values` type from `@lingui/core`. */
 type Values = Record<string, unknown>;
@@ -39,48 +35,15 @@ type I18nProps = {
   locales?: Locales;
   messages?: AllMessages;
   missing?: string | ((locale: string, id: string) => string);
-};
-
-/**
- * Keys of every intlayer dictionary available at runtime (the namespaces).
- *
- * The bundler-injected `@intlayer/dictionaries-entry` exposes the full registry;
- * outside a bundle (e.g. unit tests) it resolves to an empty map, in which case
- * resolution falls back to the runtime catalogs loaded via `load()`.
- */
-const getDictionaryKeys = (): DictionaryKeys[] => {
-  try {
-    return Object.keys(getDictionaries()) as DictionaryKeys[];
-  } catch {
-    return [];
-  }
-};
-
-/**
- * Looks up a lingui message across every intlayer dictionary.
- *
- * lingui ids are flat, namespace-less keys (`'hero.title'`), but the matching
- * content may live in any dictionary — a single centralized catalog, or one of
- * many namespaced catalogs (`home`, `shared`, …) produced by `syncJSON` from
- * split lingui catalogs. Each dictionary is searched in turn, supporting both
- * the flat/nested key shapes and the lingui `{ messages: {…} }` wrapper. The
- * first match wins.
- */
-const lookupDictionaryMessage = (
-  id: string,
-  locale: LocalesValues
-): string | undefined => {
-  for (const key of getDictionaryKeys()) {
-    let dictionary: unknown;
-    try {
-      dictionary = getIntlayer(key, locale);
-    } catch {
-      continue;
-    }
-    const value = navigateLinguiCatalog(dictionary, id);
-    if (value !== undefined) return linguiMessageToIcu(value);
-  }
-  return undefined;
+  /**
+   * How to reach the runtime dictionary registry. Supplied by the unoptimized
+   * entry points (`useLingui`, `setupI18n`); omitted by the build-optimized
+   * `useDictionary` variants, which already carry their dictionary's content —
+   * keeping `@intlayer/dictionaries-entry` out of their module graph.
+   *
+   * @internal
+   */
+  registry?: RegistryResolver;
 };
 
 /**
@@ -111,11 +74,17 @@ export class I18nClass extends EventEmitter<LinguiEvents> {
    * runtime registry so lookups stay tree-shakeable.
    */
   private _dictionaryContent: unknown;
+  /**
+   * Registry access, when the creator supplied it. Absent for the
+   * build-optimized variants — see {@link I18nProps.registry}.
+   */
+  private _registry?: RegistryResolver;
 
-  constructor({ locale = 'en', locales, messages }: I18nProps = {}) {
+  constructor({ locale = 'en', locales, messages, registry }: I18nProps = {}) {
     super();
     this._locale = typeof locale === 'string' ? locale : 'en';
     this._locales = locales;
+    this._registry = registry;
     if (messages) this.mergeAllCatalogs(messages);
   }
 
@@ -130,19 +99,11 @@ export class I18nClass extends EventEmitter<LinguiEvents> {
   get messages(): Messages {
     // Merge every intlayer dictionary (namespace) for the active locale into a
     // single flat catalog, unwrapping the lingui `{ messages: {…} }` wrapper.
-    const dictionary: Messages = {};
+    const dictionary: Messages = {
+      ...this._registry?.all(this._locale as LocalesValues),
+    };
     if (this._dictionaryContent !== undefined) {
       Object.assign(dictionary, unwrapLinguiCatalog(this._dictionaryContent));
-    }
-    for (const key of getDictionaryKeys()) {
-      try {
-        Object.assign(
-          dictionary,
-          unwrapLinguiCatalog(getIntlayer(key, this._locale as LocalesValues))
-        );
-      } catch {
-        // Skip dictionaries that fail to resolve for this locale.
-      }
     }
     // The compiled dictionaries win over the runtime fallback catalog.
     return { ...(this._catalogs[this._locale] ?? {}), ...dictionary };
@@ -245,8 +206,9 @@ export class I18nClass extends EventEmitter<LinguiEvents> {
    * Resolves the raw message template for an id (before interpolation).
    *
    * Resolution order:
-   * 1. compiled intlayer `messages` dictionary
-   * 2. runtime fallback catalog (constructor / `load()` / `loadAndActivate()`)
+   * 1. dictionary content bound by the build-optimized `useDictionary` variants
+   * 2. the runtime dictionary registry, when the creator supplied access to it
+   * 3. runtime fallback catalog (constructor / `load()` / `loadAndActivate()`)
    */
   private resolveTemplate(id: string): string | undefined {
     if (this._dictionaryContent !== undefined) {
@@ -254,7 +216,7 @@ export class I18nClass extends EventEmitter<LinguiEvents> {
       if (boundValue !== undefined) return linguiMessageToIcu(boundValue);
     }
 
-    const fromDictionary = lookupDictionaryMessage(
+    const fromDictionary = this._registry?.lookup(
       id,
       this._locale as LocalesValues
     );

@@ -1,5 +1,6 @@
 import type { AllMessages, I18n, Locale, Locales } from '@lingui/core';
 import { I18nClass } from './I18nClass';
+import { createRegistryResolver } from './registryLookup';
 
 /** Mirrors the unexported `I18nProps` type from `@lingui/core`. */
 type I18nProps = {
@@ -25,7 +26,11 @@ type I18nProps = {
  * ```
  */
 export const setupI18n = (params?: I18nProps): I18n =>
-  new I18nClass(params) as unknown as I18n;
+  new I18nClass({
+    ...params,
+    // Unoptimized entry point: resolution must reach the dictionary registry.
+    registry: createRegistryResolver(),
+  }) as unknown as I18n;
 
 /**
  * Global `i18n` singleton — drop-in for `@lingui/core`'s `i18n`.

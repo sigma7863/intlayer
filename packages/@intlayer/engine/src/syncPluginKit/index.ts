@@ -13,6 +13,7 @@ export type {
   ContentTarget,
   CreateSyncPluginOptions,
   FormatCodec,
+  SplitKeysMode,
   SyncContent,
   SyncDirection,
   SyncPluginContext,

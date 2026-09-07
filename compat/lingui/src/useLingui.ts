@@ -5,6 +5,7 @@ import { useContext, useMemo } from 'react';
 import { useLocale } from 'react-intlayer';
 import { I18nClass } from './I18nClass';
 import { LinguiContext } from './LinguiContext';
+import { createRegistryResolver } from './registryLookup';
 
 /**
  * Drop-in for `@lingui/react`'s `useLingui`.
@@ -25,7 +26,12 @@ export const useLingui = (): I18nContext => {
   const { locale } = useLocale();
 
   const derivedI18n = useMemo(() => {
-    const instance = new I18nClass({ locale: locale as string });
+    const instance = new I18nClass({
+      locale: locale as string,
+      // Unoptimized entry point: no dictionary was bound at build time, so
+      // resolution goes through the runtime registry.
+      registry: createRegistryResolver(),
+    });
     return {
       i18n: instance as unknown as I18nContext['i18n'],
       _: instance._.bind(instance) as I18nContext['_'],

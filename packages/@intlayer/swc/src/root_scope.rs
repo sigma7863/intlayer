@@ -28,7 +28,18 @@ pub struct RootScopeBinding {
     /// Dictionary keys used through this binding, in first-use order. The first
     /// one keeps the original local name; the rest get a generated sibling.
     pub namespaces: Vec<String>,
+    /// Set when some message id reached through this binding names no dictionary
+    /// and must resolve against the whole-file `index` dictionary instead, with
+    /// its id kept intact. Mirrors the runtime resolver's own fallback.
+    pub binds_root_dictionary: bool,
 }
+
+/// Canonical key of the single dictionary produced when a JSON source pattern
+/// has no `{{key}}` segment — one file holds every key (i18next's default
+/// `translation` namespace, `syncJSON({ splitKeys: false })`). The runtime
+/// resolver falls back to it for any namespace that is not a registered
+/// dictionary, so the rewrite has to bind it the same way.
+const ROOT_DICTIONARY_KEY: &str = "index";
 
 /// Maps the local name of a translate function to its root-scope binding.
 pub type RootScopeMap = BTreeMap<String, RootScopeBinding>;
@@ -113,6 +124,7 @@ impl RootScopeCollector {
                 RootScopeBinding {
                     caller_local: caller_local.to_string(),
                     namespaces: Vec::new(),
+                    binds_root_dictionary: false,
                 },
             );
         }
@@ -180,6 +192,58 @@ impl RootScopeCollector {
         bindings.retain(|translate_local, binding| {
             !poisoned_translate_locals.contains(translate_local) && !binding.namespaces.is_empty()
         });
+
+        // The first id segment only *looks* like a dictionary key. When the
+        // project keeps a single whole-file dictionary (i18next's default
+        // `translation` namespace, `syncJSON({ splitKeys: false })`), a call
+        // such as `t("about.grid.title")` addresses the `about` group *inside*
+        // that dictionary — there is no `about` dictionary to import, and
+        // rewriting would emit an unresolvable import and fail the build.
+        //
+        // `dictionary_mode_map` carries one entry per dictionary in the
+        // project, so it doubles as the set of keys that can be bound. Dropping
+        // the binding here also marks its caller unresolvable below, leaving
+        // the call site to the runtime registry.
+        //
+        // An empty map carries no information (no dictionary list was supplied),
+        // so the check is skipped rather than rejecting every binding.
+        if !dictionary_mode_map.is_empty() {
+            let has_root_dictionary = dictionary_mode_map.contains_key(ROOT_DICTIONARY_KEY);
+            let mut unbindable_locals: Vec<String> = Vec::new();
+
+            for (translate_local, binding) in bindings.iter_mut() {
+                let has_unknown = binding
+                    .namespaces
+                    .iter()
+                    .any(|namespace| !dictionary_mode_map.contains_key(namespace));
+                if !has_unknown {
+                    continue;
+                }
+
+                // Without a whole-file dictionary to fall back on there is
+                // nothing to bind; leave the call site to the runtime.
+                if !has_root_dictionary {
+                    unbindable_locals.push(translate_local.clone());
+                    continue;
+                }
+
+                binding
+                    .namespaces
+                    .retain(|namespace| dictionary_mode_map.contains_key(namespace));
+                if !binding
+                    .namespaces
+                    .iter()
+                    .any(|namespace| namespace == ROOT_DICTIONARY_KEY)
+                {
+                    binding.namespaces.push(ROOT_DICTIONARY_KEY.to_string());
+                }
+                binding.binds_root_dictionary = true;
+            }
+
+            for translate_local in unbindable_locals {
+                bindings.remove(&translate_local);
+            }
+        }
 
         for (caller_local, bare_call_count) in &bare_calls_per_caller {
             let resolved = bindings
@@ -343,13 +407,21 @@ pub fn rewrite_root_scope_message_call(
         return true;
     };
 
-    let (dictionary_key, key) = split_namespace(&message_id);
-    if !binding.namespaces.iter().any(|ns| ns == dictionary_key) {
+    let (segment_key, stripped_id) = split_namespace(&message_id);
+
+    // A leading segment naming a real dictionary is stripped and bound to it.
+    // Anything else resolves against the whole-file dictionary with the id
+    // kept intact — exactly what the runtime resolver does.
+    let (dictionary_key, resolved_id) = if binding.namespaces.iter().any(|ns| ns == segment_key) {
+        (segment_key, stripped_id)
+    } else if binding.binds_root_dictionary {
+        (ROOT_DICTIONARY_KEY, message_id.as_str())
+    } else {
         return true;
-    }
+    };
 
     if let Some(first_arg) = call.args.first_mut() {
-        first_arg.expr = Box::new(Expr::Lit(Lit::Str(make_str(key))));
+        first_arg.expr = Box::new(Expr::Lit(Lit::Str(make_str(resolved_id))));
     }
     if binding.namespaces.first().map(String::as_str) != Some(dictionary_key) {
         call.callee = Callee::Expr(Box::new(Expr::Ident(root_scope_alias(

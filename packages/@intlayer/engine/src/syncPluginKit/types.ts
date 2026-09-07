@@ -104,8 +104,24 @@ export type ContentAdapter = {
    * set it explicitly (e.g. the file adapter splits when the source pattern
    * has no `{{key}}` segment).
    */
-  detectSplitKeys?: () => Promise<boolean>;
+  detectSplitKeys?: () => Promise<SplitKeysMode>;
 };
+
+/**
+ * How an entry's keys map onto dictionaries.
+ *
+ * - `false`  — one dictionary holds the whole entry.
+ * - `true`   — each *top-level* key becomes its own dictionary. The
+ *              `next-intl` / `react-intl` namespace model, where a single
+ *              `messages/{locale}.json` groups namespaces by first-level key.
+ * - `'key-prefix'` — the entry is a *flat* map whose keys are dotted ids
+ *              (`'footer.github'`); each id's first dot-segment becomes a
+ *              dictionary and the remainder becomes the key inside it. The
+ *              single-catalog model of `lingui` and of i18next's default
+ *              `translation` namespace, where the namespace lives in the id
+ *              rather than in the file layout.
+ */
+export type SplitKeysMode = boolean | 'key-prefix';
 
 /**
  * Format layer of a sync plugin: how a raw string payload maps to structured
@@ -164,12 +180,11 @@ export type CreateSyncPluginOptions = {
   format?: DictionaryFormat;
 
   /**
-   * Whether each top-level key of an entry becomes its own dictionary instead
-   * of a single dictionary holding the whole entry (the `next-intl` /
-   * `react-intl` namespace model). When omitted, falls back to
-   * {@link ContentAdapter.detectSplitKeys}, then to `false`.
+   * How the entry's keys map onto dictionaries — see {@link SplitKeysMode}.
+   * When omitted, falls back to {@link ContentAdapter.detectSplitKeys}, then
+   * to `false`.
    */
-  splitKeys?: boolean;
+  splitKeys?: SplitKeysMode;
 
   /**
    * Fixed locale applied to every generated dictionary, overriding the locale

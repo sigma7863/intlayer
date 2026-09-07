@@ -56,8 +56,6 @@ Ordered list:
 > This is a blockquote.
 > It can span multiple lines.
 
----
-
 That's all folks!
 `;
 

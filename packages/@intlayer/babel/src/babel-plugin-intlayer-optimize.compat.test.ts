@@ -220,23 +220,108 @@ describe('babel-plugin-intlayer-optimize — compat callers', () => {
     });
   });
 
-  describe('lingui (fixed namespace)', () => {
-    it('rewrites useLingui() to useDictionary(messagesDictionary)', () => {
+  describe('lingui (root scope by message id)', () => {
+    it('binds the dictionary named by the message id prefix', () => {
       const code = `
         import { useLingui } from "@lingui/react";
-        const { t } = useLingui();
+        const Footer = () => {
+          const { i18n } = useLingui();
+          return i18n._("footer.github") + i18n._("footer.contact");
+        };
       `;
       const output = transform(code, {
         compatCallers: LINGUI_CALLERS,
+        dictionaryModeMap: { footer: 'static' },
+      });
+
+      expect(output).toContain(
+        'import _dicHash_footer from "../.intlayer/dictionaries/footer.json" with { type: "json" };'
+      );
+      expect(output).toContain(
+        'import { useDictionary as useLingui } from "@lingui/react";'
+      );
+      expect(output).toContain('useLingui(_dicHash_footer);');
+      expect(output).toContain('i18n._("github")');
+      expect(output).toContain('i18n._("contact")');
+    });
+
+    it('splits a component reading two prefixes into sibling bindings', () => {
+      const code = `
+        import { useLingui } from "@lingui/react";
+        const Hero = () => {
+          const { i18n } = useLingui();
+          return i18n._("hero.title") + i18n._("header.methodology");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: LINGUI_CALLERS,
+        dictionaryModeMap: { hero: 'static', header: 'static' },
+      });
+
+      expect(output).toContain('useLingui(_dicHash_hero)');
+      expect(output).toContain('useLingui(_dicHash_header)');
+      expect(output).toContain('i18n._("title")');
+      expect(output).toContain('_header._("methodology")');
+    });
+
+    it('binds the prefix carried by a template literal id', () => {
+      const code = `
+        import { useLingui } from "@lingui/react";
+        const Footer = () => {
+          const { i18n } = useLingui();
+          const t = (id) => i18n._(\`footer.\${id}\`);
+          return t("github");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: LINGUI_CALLERS,
+        dictionaryModeMap: { footer: 'static' },
+      });
+
+      expect(output).toContain('useLingui(_dicHash_footer);');
+      expect(output).toContain('i18n._(`${id}`)');
+    });
+
+    it('binds a dot-less id to its own dictionary', () => {
+      const code = `
+        import { useLingui } from "@lingui/react";
+        const Banner = () => {
+          const { i18n } = useLingui();
+          return i18n._("mockBanner");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: LINGUI_CALLERS,
+        dictionaryModeMap: { mockBanner: 'static' },
+      });
+
+      expect(output).toContain('useLingui(_dicHash_mockBanner);');
+      expect(output).toContain('i18n._("")');
+    });
+
+    it('falls back to the `messages` catalog when it was not split', () => {
+      // A lingui app whose catalog is still one whole-file `messages`
+      // dictionary: no `footer` dictionary exists to bind, so the rewrite must
+      // re-point at `messages` and keep the id intact rather than decline —
+      // declining would leave the call resolving through a registry that
+      // `replaceDictionaryEntry` has emptied.
+      const code = `
+        import { useLingui } from "@lingui/react";
+        const Footer = () => {
+          const { i18n } = useLingui();
+          return i18n._("footer.github");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: LINGUI_CALLERS,
+        dictionaryModeMap: { messages: 'static' },
       });
 
       expect(output).toContain(
         'import _dicHash_messages from "../.intlayer/dictionaries/messages.json" with { type: "json" };'
       );
-      expect(output).toContain(
-        'import { useDictionary as useLingui } from "@lingui/react";'
-      );
       expect(output).toContain('useLingui(_dicHash_messages);');
+      expect(output).toContain('i18n._("footer.github")');
     });
   });
 
@@ -354,6 +439,67 @@ describe('babel-plugin-intlayer-optimize — compat callers', () => {
       );
       expect(output).toContain('useTranslations(_dicHash_mockBanner);');
       expect(output).toContain('return t("");');
+    });
+
+    it('binds the whole-file dictionary when the id segment is not one', () => {
+      // `syncJSON({ splitKeys: false })` keeps one whole-file dictionary, so
+      // `about` in `t("about.grid.title")` is a group *inside* `index`, not a
+      // dictionary. The binding falls back to `index` with the id intact,
+      // mirroring the runtime resolver.
+      const code = `
+        import { useTranslations } from "next-intl";
+        const About = () => {
+          const t = useTranslations();
+          return t("about.grid.title");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: NEXT_INTL_CALLERS,
+        dictionaryModeMap: { index: 'static' },
+      });
+
+      expect(output).not.toContain('dictionaries/about.json');
+      expect(output).toContain(
+        'import _dicHash_index from "../.intlayer/dictionaries/index.json" with { type: "json" };'
+      );
+      expect(output).toContain('useTranslations(_dicHash_index);');
+      // The id keeps its leading segment — it is a path inside `index`.
+      expect(output).toContain('return t("about.grid.title");');
+    });
+
+    it('leaves the call site alone when there is no whole-file dictionary', () => {
+      const code = `
+        import { useTranslations } from "next-intl";
+        const About = () => {
+          const t = useTranslations();
+          return t("about.grid.title");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: NEXT_INTL_CALLERS,
+        dictionaryModeMap: { footer: 'static' },
+      });
+
+      expect(output).not.toContain('useDictionary');
+      expect(output).toContain('const t = useTranslations();');
+      expect(output).toContain('return t("about.grid.title");');
+    });
+
+    it('still binds when the id segment is a known dictionary', () => {
+      const code = `
+        import { useTranslations } from "next-intl";
+        const Footer = () => {
+          const t = useTranslations();
+          return t("footer.github");
+        };
+      `;
+      const output = transform(code, {
+        compatCallers: NEXT_INTL_CALLERS,
+        dictionaryModeMap: { footer: 'static', index: 'static' },
+      });
+
+      expect(output).toContain('useTranslations(_dicHash_footer);');
+      expect(output).toContain('return t("github");');
     });
 
     it('binds destructured useTranslation() from react-i18next', () => {

@@ -366,6 +366,139 @@ describe('syncPluginKit', () => {
       });
     });
 
+    it('splits a flat dotted catalog by key prefix', async () => {
+      await writeFixture(join(testDir, 'locales/en/messages.json'), {
+        'footer.github': 'GitHub',
+        'footer.contact': 'Contact',
+        'hero.title': 'Welcome',
+        mockBanner: 'Mock data',
+      });
+
+      const plugin = createSyncPlugin({
+        name: 'load-json-test',
+        adapter: createFileAdapter({
+          source: './locales/{{locale}}/{{key}}.json',
+          codec: jsonCodec,
+          discovery: 'inclusive',
+        }),
+        direction: 'pull',
+        location: 'test-location',
+        splitKeys: 'key-prefix',
+      });
+
+      const dictionaries = (await plugin.loadDictionaries?.({
+        configuration,
+      })) as Dictionary[];
+
+      const byKey = Object.fromEntries(
+        dictionaries
+          .filter((dictionary) => dictionary.locale === 'en')
+          .map((dictionary) => [dictionary.key, dictionary.content])
+      );
+
+      expect(byKey).toEqual({
+        footer: { github: 'GitHub', contact: 'Contact' },
+        hero: { title: 'Welcome' },
+        // A dot-less id names a dictionary whose content *is* the message.
+        mockBanner: 'Mock data',
+      });
+    });
+
+    it('restores flat dotted ids when writing back a key-prefix split', async () => {
+      const plugin = createSyncPlugin({
+        name: 'sync-json-test',
+        adapter: createFileAdapter({
+          source: './locales/{{locale}}/messages.json',
+          codec: jsonCodec,
+        }),
+        location: 'test-location',
+        splitKeys: 'key-prefix',
+      });
+
+      await plugin.afterBuild?.({
+        dictionaries: {
+          unmergedDictionaries: {},
+          mergedDictionaries: {
+            footer: {
+              dictionary: {
+                key: 'footer',
+                location: 'test-location',
+                content: { github: 'GitHub', contact: 'Contact' },
+              },
+            },
+            hero: {
+              dictionary: {
+                key: 'hero',
+                location: 'test-location',
+                content: { title: 'Welcome' },
+              },
+            },
+          },
+        },
+        configuration,
+      });
+
+      const written = await readFile(
+        join(testDir, 'locales/en/messages.json'),
+        'utf-8'
+      );
+
+      // The source file keeps the flat shape lingui expects — not a nested
+      // object per prefix, which is what `splitKeys: true` would write.
+      expect(JSON.parse(written)).toEqual({
+        'footer.github': 'GitHub',
+        'footer.contact': 'Contact',
+        'hero.title': 'Welcome',
+      });
+    });
+
+    it('round-trips a flat catalog through split and write-back', async () => {
+      const catalog = {
+        'footer.github': 'GitHub',
+        'hero.title': 'Welcome',
+        mockBanner: 'Mock data',
+      };
+      await writeFixture(join(testDir, 'locales/en/messages.json'), catalog);
+
+      const adapterOptions = {
+        source: './locales/{{locale}}/messages.json',
+        codec: jsonCodec,
+        discovery: 'inclusive' as const,
+      };
+
+      const reader = createSyncPlugin({
+        name: 'sync-json-test',
+        adapter: createFileAdapter(adapterOptions),
+        location: 'test-location',
+        splitKeys: 'key-prefix',
+      });
+
+      const dictionaries = (await reader.loadDictionaries?.({
+        configuration,
+      })) as Dictionary[];
+
+      const mergedDictionaries = Object.fromEntries(
+        dictionaries
+          .filter((dictionary) => dictionary.locale === 'en')
+          .map((dictionary) => [
+            dictionary.key,
+            { dictionary: { ...dictionary, location: 'test-location' } },
+          ])
+      );
+
+      await reader.afterBuild?.({
+        dictionaries: { unmergedDictionaries: {}, mergedDictionaries },
+        configuration,
+      } as Parameters<NonNullable<typeof reader.afterBuild>>[0]);
+
+      const written = await readFile(
+        join(testDir, 'locales/en/messages.json'),
+        'utf-8'
+      );
+
+      expect(JSON.parse(written)).toEqual(catalog);
+    });
+
     it('skips empty content instead of erasing the target file', async () => {
       const targetPath = join(testDir, 'messages/en/home.json');
       await writeFixture(targetPath, { title: 'Keep me' });

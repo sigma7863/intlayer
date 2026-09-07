@@ -70,6 +70,23 @@ export type CompatOptimizePass = {
 const MESSAGE_METHOD_NAMES = new Set(['formatMessage', '_', 't']);
 
 /** One `t('namespace.key')` call reached through a root-scope binding. */
+/**
+ * Canonical key of the single dictionary produced when a JSON source pattern has
+ * no `{{key}}` segment — one file holds every key (i18next's default
+ * `translation` namespace, `syncJSON({ splitKeys: false })`). The runtime
+ * resolver falls back to it for any namespace that is not a registered
+ * dictionary, so the rewrite binds it the same way.
+ */
+const ROOT_DICTIONARY_KEY = 'index';
+
+/**
+ * The whole-file dictionary a candidate falls back to. Compat libraries name
+ * their single catalog differently — i18next's is `index`, lingui's is
+ * `messages` — so the descriptor may override the default.
+ */
+const rootDictionaryKeyFor = (descriptor: CallerDescriptor): string =>
+  descriptor.rootDictionaryKey ?? ROOT_DICTIONARY_KEY;
+
 type RootScopeCallSite = {
   callPath: NodePath<BabelTypes.CallExpression>;
   dictionaryKey: string;
@@ -442,6 +459,56 @@ export const createCompatOptimizePass = (
           }
         },
       });
+
+      // `dictionaryModeMap` carries one entry per dictionary in the project, so
+      // its keys are the set of dictionaries a binding can actually import.
+      const knownDictionaryKeys = dictionaryModeMap
+        ? new Set(Object.keys(dictionaryModeMap))
+        : undefined;
+
+      // The first id segment only *looks* like a dictionary key. When the
+      // project keeps a single whole-file dictionary (i18next's default
+      // `translation` namespace, `syncJSON({ splitKeys: false })`), a call such
+      // as `t("about.grid.title")` addresses the `about` group *inside*
+      // `index`, and no `about` dictionary exists to import.
+      //
+      // The runtime resolver already falls back to `index` for any namespace
+      // that is not a registered dictionary, keeping the id intact; the rewrite
+      // mirrors that. Without such a dictionary there is nothing to bind, so
+      // the candidate is dropped — which marks its caller unresolvable below
+      // and leaves the call site as written.
+      if (knownDictionaryKeys && knownDictionaryKeys.size > 0) {
+        for (const candidate of candidatesByDecl.values()) {
+          const hasUnknown = candidate.namespaces.some(
+            (namespace) => !knownDictionaryKeys.has(namespace)
+          );
+          if (!hasUnknown) continue;
+
+          const rootKey = rootDictionaryKeyFor(candidate.descriptor);
+
+          if (!knownDictionaryKeys.has(rootKey)) {
+            candidate.isPoisoned = true;
+            continue;
+          }
+
+          for (const site of candidate.callSites) {
+            if (knownDictionaryKeys.has(site.dictionaryKey)) continue;
+
+            // Re-point at the whole-file dictionary, restoring the full id.
+            site.remainderKey = site.remainderKey
+              ? `${site.dictionaryKey}.${site.remainderKey}`
+              : site.dictionaryKey;
+            site.dictionaryKey = rootKey;
+          }
+
+          candidate.namespaces = candidate.namespaces.filter((namespace) =>
+            knownDictionaryKeys.has(namespace)
+          );
+          if (!candidate.namespaces.includes(rootKey)) {
+            candidate.namespaces.push(rootKey);
+          }
+        }
+      }
 
       const resolvedCandidates = [...candidatesByDecl.values()].filter(
         (candidate) => !candidate.isPoisoned && candidate.namespaces.length > 0

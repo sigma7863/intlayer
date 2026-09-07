@@ -126,6 +126,18 @@ export type CallerDescriptor = {
    * dot-segment of each message id passed to the returned `t()`.
    */
   allowRootScope?: boolean;
+  /**
+   * Dictionary bound by a root-scope call whose first id segment is not itself
+   * a dictionary — the project keeps one whole-file catalog instead of one
+   * dictionary per namespace. The full id is then left intact, mirroring the
+   * runtime resolver's own fallback.
+   *
+   * Defaults to `'index'` (the key `syncJSON({ splitKeys: false })` produces).
+   * lingui's single catalog is named `messages`, so its descriptors override
+   * it — without which a lingui app that has *not* split its catalog would see
+   * every root-scope rewrite declined.
+   */
+  rootDictionaryKey?: string;
   /** How translated content is obtained from the caller's result. */
   translationFunction: CallerResultShape;
   /**
