@@ -98,7 +98,7 @@
     "@vitejs/plugin-react": "6.0.2",
     "@vitejs/plugin-rsc": "^0.5.27",
     "glob": "13.0.6",
-    "postcss": "8.5.15",
+    "postcss": "8.5.23",
     "pwa-asset-generator": "8.1.5",
     "raw-loader": "4.0.2",
     "tailwindcss": "4.3.0",
