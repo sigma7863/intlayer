@@ -96,7 +96,7 @@
     "@intlayer/chokidar": "workspace:*",
     "@intlayer/config": "workspace:*",
     "@intlayer/unmerged-dictionaries-entry": "workspace:*",
-    "fastify": "5.8.5",
+    "fastify": "5.12.1",
     "fastify-intlayer": "workspace:*",
     "mime": "4.1.0"
   },
@@ -128,7 +128,7 @@
     "typescript": "6.0.3",
     "vite": "8.0.16",
     "vite-intlayer": "workspace:*",
-    "vitest": "4.1.8"
+    "vitest": "4.1.11"
   },
   "engines": {
     "node": ">=18.0.0"
