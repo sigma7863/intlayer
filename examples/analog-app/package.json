@@ -17,12 +17,12 @@
     "@analogjs/content": "2.5.1",
     "@analogjs/router": "2.5.1",
     "@angular/animations": "21.2.14",
-    "@angular/common": "21.2.14",
-    "@angular/compiler": "21.2.14",
-    "@angular/core": "21.2.14",
+    "@angular/common": "21.2.20",
+    "@angular/compiler": "21.2.19",
+    "@angular/core": "21.2.20",
     "@angular/forms": "21.2.14",
     "@angular/platform-browser": "21.2.14",
-    "@angular/platform-server": "21.2.14",
+    "@angular/platform-server": "21.2.22",
     "@angular/router": "21.2.14",
     "@tailwindcss/vite": "4.3.0",
     "angular-intlayer": "workspace:*",
@@ -51,7 +51,7 @@
     "typescript": "6.0.3",
     "vite": "8.0.16",
     "vite-intlayer": "workspace:*",
-    "vitest": "4.1.8"
+    "vitest": "4.1.11"
   },
   "engines": {
     "node": ">=20.19.1"
