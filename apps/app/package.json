@@ -110,7 +110,7 @@
     "vite": "8.0.16",
     "vite-intlayer": "workspace:*",
     "vite-plugin-wasm": "3.6.0",
-    "vitest": "4.1.8",
+    "vitest": "4.1.11",
     "workbox-build": "7.4.1"
   }
 }
